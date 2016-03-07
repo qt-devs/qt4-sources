@@ -7,34 +7,34 @@
 ** This file is part of the QtDeclarative module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -91,7 +91,7 @@ public:
     QStringList clientPlugins;
     bool gotHello;
 
-    static QDeclarativeDebugServerConnection *loadConnectionPlugin();
+    static QDeclarativeDebugServerConnection *loadConnectionPlugin(const QString &pluginName);
 };
 
 QDeclarativeDebugServerPrivate::QDeclarativeDebugServerPrivate() :
@@ -113,7 +113,8 @@ void QDeclarativeDebugServerPrivate::advertisePlugins()
     connection->send(message);
 }
 
-QDeclarativeDebugServerConnection *QDeclarativeDebugServerPrivate::loadConnectionPlugin()
+QDeclarativeDebugServerConnection *QDeclarativeDebugServerPrivate::loadConnectionPlugin(
+    const QString &pluginName)
 {
     QStringList pluginCandidates;
     const QStringList paths = QCoreApplication::libraryPaths();
@@ -122,7 +123,8 @@ QDeclarativeDebugServerConnection *QDeclarativeDebugServerPrivate::loadConnectio
         if (dir.exists()) {
             QStringList plugins(dir.entryList(QDir::Files));
             foreach (const QString &pluginPath, plugins) {
-                pluginCandidates << dir.absoluteFilePath(pluginPath);
+                if (QFileInfo(pluginPath).fileName().contains(pluginName))
+                    pluginCandidates << dir.absoluteFilePath(pluginPath);
             }
         }
     }
@@ -159,14 +161,14 @@ QDeclarativeDebugServer *QDeclarativeDebugServer::instance()
     if (!commandLineTested) {
         commandLineTested = true;
 
-#ifndef QDECLARATIVE_NO_DEBUG_PROTOCOL
         QApplicationPrivate *appD = static_cast<QApplicationPrivate*>(QObjectPrivate::get(qApp));
+#ifndef QDECLARATIVE_NO_DEBUG_PROTOCOL
         // ### remove port definition when protocol is changed
         int port = 0;
         bool block = false;
         bool ok = false;
 
-        // format: qmljsdebugger=port:3768[,block]
+        // format: qmljsdebugger=port:3768[,block] OR qmljsdebugger=ost[,block]
         if (!appD->qmljsDebugArgumentsString().isEmpty()) {
             if (!QDeclarativeEnginePrivate::qml_debugging_enabled) {
                 const QString message =
@@ -177,24 +179,30 @@ QDeclarativeDebugServer *QDeclarativeDebugServer::instance()
                 return 0;
             }
 
+            QString pluginName;
             if (appD->qmljsDebugArgumentsString().indexOf(QLatin1String("port:")) == 0) {
                 int separatorIndex = appD->qmljsDebugArgumentsString().indexOf(QLatin1Char(','));
                 port = appD->qmljsDebugArgumentsString().mid(5, separatorIndex - 5).toInt(&ok);
+                pluginName = QLatin1String("qmldbg_tcp");
+            } else if (appD->qmljsDebugArgumentsString().contains("ost")) {
+                pluginName = QLatin1String("qmldbg_ost");
+                ok = true;
             }
+
             block = appD->qmljsDebugArgumentsString().contains(QLatin1String("block"));
 
             if (ok) {
                 server = new QDeclarativeDebugServer();
 
                 QDeclarativeDebugServerConnection *connection
-                        = QDeclarativeDebugServerPrivate::loadConnectionPlugin();
+                        = QDeclarativeDebugServerPrivate::loadConnectionPlugin(pluginName);
                 if (connection) {
                     server->d_func()->connection = connection;
 
                     connection->setServer(server);
                     connection->setPort(port, block);
                 } else {
-                    qWarning() << QString::fromAscii("QDeclarativeDebugServer: Ignoring\"-qmljsdebugger=%1\". "
+                    qWarning() << QString::fromAscii("QDeclarativeDebugServer: Ignoring \"-qmljsdebugger=%1\". "
                                                      "Remote debugger plugin has not been found.").arg(appD->qmljsDebugArgumentsString());
                 }
 
@@ -203,6 +211,12 @@ QDeclarativeDebugServer *QDeclarativeDebugServer::instance()
                                             "Format is -qmljsdebugger=port:<port>[,block]").arg(
                              appD->qmljsDebugArgumentsString()).toAscii().constData());
             }
+        }
+#else
+        if (!appD->qmljsDebugArgumentsString().isEmpty()) {
+            qWarning(QString::fromAscii("QDeclarativeDebugServer: Ignoring \"-qmljsdebugger=%1\". "
+                                        "QtDeclarative is not configured for debugging.").arg(
+                         appD->qmljsDebugArgumentsString()).toAscii().constData());
         }
 #endif
     }

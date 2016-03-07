@@ -5,149 +5,23 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- addressbook-fr.qdoc -->
   <title>Qt 4.7: Carnet d'adresses 1 - Conception de l'interface utilisateur</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-              <li><a href="all-examples.html">Examples</a></li>              <li>Carnet d'adresses 1 - Conception de l'interface utilisateur</li>            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Carnet d'adresses 1 - Conception de l'interface utilisateur</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -190,16 +64,16 @@
 <h2>La classe AddressBook</h2>
 <p>Le fichier <a href="tutorials-addressbook-fr-part1-addressbook-h.html"><tt>addressbook.h</tt></a> permet de définir la classe <tt>AddressBook</tt>.</p>
 <p>On commence par définir <tt>AddressBook</tt> comme une classe fille de <a href="qwidget.html">QWidget</a> et déclarer un constructeur. On utilise également la macro <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> pour indiquer que la classe exploite les fonctionnalités de signaux et slots offertes par Qt ainsi que l'internationalisation, bien que nous ne les utilisions pas à ce stade.</p>
-<pre class="highlightedCode brush: cpp"> class AddressBook : public QWidget
+<pre class="cpp"> <span class="keyword">class</span> AddressBook : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
  {
      Q_OBJECT
 
- public:
-     AddressBook(QWidget *parent = 0);
+ <span class="keyword">public</span>:
+     AddressBook(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
 
- private:
-     QLineEdit *nameLine;
-     QTextEdit *addressText;
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>nameLine;
+     <span class="type"><a href="qtextedit.html">QTextEdit</a></span> <span class="operator">*</span>addressText;
  };</pre>
 <p>La classe contient les déclarations de <tt>nameLine</tt> et <tt>addressText</tt>, les instances privées de <a href="qlineedit.html">QLineEdit</a> et <a href="qtextedit.html">QTextEdit</a> mentionnées précédemment. Vous verrez, dans les chapitres à venir que les informations contenues dans <tt>nameLine</tt> et <tt>addressText</tt> sont nécessaires à de nombreuses méthodes du carnet d'adresses.</p>
 <p>Il n'est pas nécessaire de déclarer les objets <a href="qlabel.html">QLabel</a> que nous allons utiliser puisque nous n'aurons pas besoin d'y faire référence après leur création. La façon dont Qt gère la parenté des objets est traitée dans la section suivante.</p>
@@ -208,78 +82,62 @@
 <a name="impl-mentation-de-la-classe-addressbook"></a>
 <h2>Implémentation de la classe AddressBook</h2>
 <p>Le constructeur de la classe <tt>AddressBook</tt> prend en paramètre un <a href="qwidget.html">QWidget</a>, <i>parent</i>. Par convention, on passe ce paramètre au constructeur de la classe mère. Ce concept de parenté, où un parent peut avoir un ou plusieurs enfants, est utile pour regrouper les Widgets avec Qt. Par exemple, si vous détruisez le parent, tous ses enfants seront détruits égalament.</p>
-<pre class="highlightedCode brush: cpp"> AddressBook::AddressBook(QWidget *parent)
-     : QWidget(parent)
+<pre class="cpp"> AddressBook<span class="operator">::</span>AddressBook(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
  {
-     QLabel *nameLabel = new QLabel(tr(&quot;Name:&quot;));
-     nameLine = new QLineEdit;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>nameLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Name:&quot;</span>));
+     nameLine <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
 
-     QLabel *addressLabel = new QLabel(tr(&quot;Address:&quot;));
-     addressText = new QTextEdit;</pre>
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>addressLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Address:&quot;</span>));
+     addressText <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>;</pre>
 <p>à l'intérieur de ce constructeur, on déclare et instancie deux objets locaux <a href="qlabel.html">QLabel</a>, <tt>nameLabel</tt> et <tt>addressLabel</tt>, de même on instancie <tt>nameLine</tt> et <tt>addressText</tt>. La méthode <a href="qobject.html#tr">tr()</a> renvoie une version traduite de la chaîne de caractères, si elle existe; dans le cas contraire, elle renvoie la chaîne elle même. On peut voir cette méthode comme un marqueur <tt>&lt;insérer la traduction ici&gt;</tt>, permettant de repérer les objets <a href="qstring.html">QString</a> à considérer pour traduire une application. Vous remarquerez, dans les chapitres à venir comme dans les <a href="all-examples.html">exemples Qt</a>, qu'elle est utilisée chaque fois que l'on utilise une chaîne susceptible d'être traduite.</p>
 <p>Lorsque l'on programme avec Qt, il est utile de savoir comment fonctionnent les agencements ou layouts. Qt fournit trois classes principales de layouts pour contrôler le placement des widgets: <a href="qhboxlayout.html">QHBoxLayout</a>, <a href="qvboxlayout.html">QVBoxLayout</a> et <a href="qgridlayout.html">QGridLayout</a>.</p>
 <p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-layout.png" /></p><p>On utilise un <a href="qgridlayout.html">QGridLayout</a> pour positionner nos labels et champs de saisie de manière structurée. <a href="qgridlayout.html">QGridLayout</a> divise l'espace disponible en une grille, et place les widgets dans les cellules que l'on spécifie par les numéros de ligne et de colonne. Le diagramme ci-dessus présente les cellules et la position des widgets, et cette organisation est obtenue à l'aide du code suivant:</p>
-<pre class="highlightedCode brush: cpp">     QGridLayout *mainLayout = new QGridLayout;
-     mainLayout-&gt;addWidget(nameLabel, 0, 0);
-     mainLayout-&gt;addWidget(nameLine, 0, 1);
-     mainLayout-&gt;addWidget(addressLabel, 1, 0, Qt::AlignTop);
-     mainLayout-&gt;addWidget(addressText, 1, 1);</pre>
+<pre class="cpp">     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLine<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignTop);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressText<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);</pre>
 <p>On remarque que le label <tt>AddressLabel</tt> est positionné en utilisant <a href="qt.html#AlignmentFlag-enum">Qt::AlignTop</a> comme argument optionnel. Ceci est destiné à assurer qu'il ne sera pas centré verticalement dans la cellule (1,0). Pour un aperçu rapide des layouts de Qt, consultez la section <a href="layout.html">Layout Management</a>.</p>
 <p>Afin d'installer l'objet layout dans un widget, il faut appeler la méthode <a href="qwidget.html#setLayout">setLayout()</a> du widget en question:</p>
-<pre class="highlightedCode brush: cpp">     setLayout(mainLayout);
-     setWindowTitle(tr(&quot;Simple Address Book&quot;));
+<pre class="cpp">     setLayout(mainLayout);
+     setWindowTitle(tr(<span class="string">&quot;Simple Address Book&quot;</span>));
  }</pre>
 <p>Enfin, on initialise le titre du widget à &quot;Simple Address Book&quot;</p>
 <a name="ex-cution-de-l-application"></a>
 <h2>Exécution de l'application</h2>
 <p>Un fichier séparé, <tt>main.cpp</tt>, est utilisé pour la méthode <tt>main()</tt>. Dans cette fonction, on crée une instance de <a href="qapplication.html">QApplication</a>, <tt>app</tt>. <a href="qapplication.html">QApplication</a> se charge de des ressources communes à l'ensemble de l'application, tel que les polices de caractères et le curseur par défaut, ainsi que de l'exécution de la boucle d'évènements. De ce fait, il y a toujours un objet <a href="qapplication.html">QApplication</a> dans toute application graphique en Qt.</p>
-<pre class="highlightedCode brush: cpp"> int main(int argc, char *argv[])
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
  {
-     QApplication app(argc, argv);
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
 
      AddressBook addressBook;
-     addressBook.show();
+     addressBook<span class="operator">.</span>show();
 
-     return app.exec();
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
  }</pre>
 <p>On construit un nouveau widget <tt>AddressBook</tt> sur la pile et on invoque sa méthode <a href="qwidget.html#show">show()</a> pour l'afficher. Cependant, le widget ne sera pas visible tant que la boucle d'évènements n'aura pas été lancée. On démarre la boucle d'évènements en appelant la méthode <a href="qapplication.html#exec">exec()</a> de l'application; le résultat renvoyé par cette méthode est lui même utilisé comme valeur de retour pour la méthode <tt>main()</tt>. On comprend maintenant pourquoi <tt>AddressBook</tt> a été créé sur la pile: à la fin du programme, l'objet sort du scope de la fonction <tt>main()</tt> et tous ses widgets enfants sont supprimés, assurant ainsi qu'il n'y aura pas de fuites de mémoire.</p>
 </div>
 <!-- @@@tutorials/addressbook-fr/part1 -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

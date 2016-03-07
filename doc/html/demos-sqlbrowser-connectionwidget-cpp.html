@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: connectionwidget.cpp Example File (demos/sqlbrowser/connectionwidget.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">connectionwidget.cpp Example File</h1>
 <span class="small-subtitle">demos/sqlbrowser/connectionwidget.cpp</span>
 <!-- $$$demos/sqlbrowser/connectionwidget.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -160,198 +32,182 @@
  ** This file is part of the demonstration applications of the Qt Toolkit.
  **
  ** $QT_BEGIN_LICENSE:LGPL$
- ** Commercial Usage
- ** Licensees holding valid Qt Commercial licenses may use this file in
- ** accordance with the Qt Commercial License Agreement provided with the
- ** Software or, alternatively, in accordance with the terms contained in
- ** a written agreement between you and Nokia.
- **
  ** GNU Lesser General Public License Usage
- ** Alternatively, this file may be used under the terms of the GNU Lesser
- ** General Public License version 2.1 as published by the Free Software
- ** Foundation and appearing in the file LICENSE.LGPL included in the
- ** packaging of this file.  Please review the following information to
- ** ensure the GNU Lesser General Public License version 2.1 requirements
- ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
  **
  ** In addition, as a special exception, Nokia gives you certain additional
- ** rights.  These rights are described in the Nokia Qt LGPL Exception
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
  ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
  **
  ** GNU General Public License Usage
- ** Alternatively, this file may be used under the terms of the GNU
- ** General Public License version 3.0 as published by the Free Software
- ** Foundation and appearing in the file LICENSE.GPL included in the
- ** packaging of this file.  Please review the following information to
- ** ensure the GNU General Public License version 3.0 requirements will be
- ** met: http://www.gnu.org/copyleft/gpl.html.
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
  **
- ** If you have questions regarding the use of this file, please contact
- ** Nokia at qt-info@nokia.com.
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
  ** $QT_END_LICENSE$
  **
  ****************************************************************************/</span>
 
- #include &quot;connectionwidget.h&quot;
+ <span class="preprocessor">#include &quot;connectionwidget.h&quot;</span>
 
- #include &lt;QtGui&gt;
- #include &lt;QtSql&gt;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &lt;QtSql&gt;</span>
 
- ConnectionWidget::ConnectionWidget(QWidget *parent)
-     : QWidget(parent)
+ ConnectionWidget<span class="operator">::</span>ConnectionWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
  {
-     QVBoxLayout *layout = new QVBoxLayout(this);
-     tree = new QTreeWidget(this);
-     tree-&gt;setObjectName(QLatin1String(&quot;tree&quot;));
-     tree-&gt;setHeaderLabels(QStringList(tr(&quot;database&quot;)));
-     tree-&gt;header()-&gt;setResizeMode(QHeaderView::Stretch);
-     QAction *refreshAction = new QAction(tr(&quot;Refresh&quot;), tree);
-     metaDataAction = new QAction(tr(&quot;Show Schema&quot;), tree);
-     connect(refreshAction, SIGNAL(triggered()), SLOT(refresh()));
-     connect(metaDataAction, SIGNAL(triggered()), SLOT(showMetaData()));
-     tree-&gt;addAction(refreshAction);
-     tree-&gt;addAction(metaDataAction);
-     tree-&gt;setContextMenuPolicy(Qt::ActionsContextMenu);
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="keyword">this</span>);
+     tree <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreewidget.html">QTreeWidget</a></span>(<span class="keyword">this</span>);
+     tree<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(QLatin1String(<span class="string">&quot;tree&quot;</span>));
+     tree<span class="operator">-</span><span class="operator">&gt;</span>setHeaderLabels(<span class="type"><a href="qstringlist.html">QStringList</a></span>(tr(<span class="string">&quot;database&quot;</span>)));
+     tree<span class="operator">-</span><span class="operator">&gt;</span>header()<span class="operator">-</span><span class="operator">&gt;</span>setResizeMode(<span class="type"><a href="qheaderview.html">QHeaderView</a></span><span class="operator">::</span>Stretch);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>refreshAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Refresh&quot;</span>)<span class="operator">,</span> tree);
+     metaDataAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Show Schema&quot;</span>)<span class="operator">,</span> tree);
+     connect(refreshAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> SLOT(refresh()));
+     connect(metaDataAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> SLOT(showMetaData()));
+     tree<span class="operator">-</span><span class="operator">&gt;</span>addAction(refreshAction);
+     tree<span class="operator">-</span><span class="operator">&gt;</span>addAction(metaDataAction);
+     tree<span class="operator">-</span><span class="operator">&gt;</span>setContextMenuPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ActionsContextMenu);
 
-     layout-&gt;addWidget(tree);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(tree);
 
-     QMetaObject::connectSlotsByName(this);
+     <span class="type"><a href="qmetaobject.html">QMetaObject</a></span><span class="operator">::</span>connectSlotsByName(<span class="keyword">this</span>);
  }
 
- ConnectionWidget::~ConnectionWidget()
+ ConnectionWidget<span class="operator">::</span><span class="operator">~</span>ConnectionWidget()
  {
  }
 
- static QString qDBCaption(const QSqlDatabase &amp;db)
+ <span class="keyword">static</span> <span class="type"><a href="qstring.html">QString</a></span> qDBCaption(<span class="keyword">const</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span> <span class="operator">&amp;</span>db)
  {
-     QString nm = db.driverName();
-     nm.append(QLatin1Char(':'));
-     if (!db.userName().isEmpty())
-         nm.append(db.userName()).append(QLatin1Char('@'));
-     nm.append(db.databaseName());
-     return nm;
+     <span class="type"><a href="qstring.html">QString</a></span> nm <span class="operator">=</span> db<span class="operator">.</span>driverName();
+     nm<span class="operator">.</span>append(QLatin1Char(<span class="char">':'</span>));
+     <span class="keyword">if</span> (<span class="operator">!</span>db<span class="operator">.</span>userName()<span class="operator">.</span>isEmpty())
+         nm<span class="operator">.</span>append(db<span class="operator">.</span>userName())<span class="operator">.</span>append(QLatin1Char(<span class="char">'@'</span>));
+     nm<span class="operator">.</span>append(db<span class="operator">.</span>databaseName());
+     <span class="keyword">return</span> nm;
  }
 
- void ConnectionWidget::refresh()
+ <span class="type">void</span> ConnectionWidget<span class="operator">::</span>refresh()
  {
-     tree-&gt;clear();
-     QStringList connectionNames = QSqlDatabase::connectionNames();
+     tree<span class="operator">-</span><span class="operator">&gt;</span>clear();
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> connectionNames <span class="operator">=</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>connectionNames();
 
-     bool gotActiveDb = false;
-     for (int i = 0; i &lt; connectionNames.count(); ++i) {
-         QTreeWidgetItem *root = new QTreeWidgetItem(tree);
-         QSqlDatabase db = QSqlDatabase::database(connectionNames.at(i), false);
-         root-&gt;setText(0, qDBCaption(db));
-         if (connectionNames.at(i) == activeDb) {
-             gotActiveDb = true;
+     <span class="type">bool</span> gotActiveDb <span class="operator">=</span> <span class="keyword">false</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> connectionNames<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>root <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span>(tree);
+         <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span> db <span class="operator">=</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>database(connectionNames<span class="operator">.</span>at(i)<span class="operator">,</span> <span class="keyword">false</span>);
+         root<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">0</span><span class="operator">,</span> qDBCaption(db));
+         <span class="keyword">if</span> (connectionNames<span class="operator">.</span>at(i) <span class="operator">=</span><span class="operator">=</span> activeDb) {
+             gotActiveDb <span class="operator">=</span> <span class="keyword">true</span>;
              setActive(root);
          }
-         if (db.isOpen()) {
-             QStringList tables = db.tables();
-             for (int t = 0; t &lt; tables.count(); ++t) {
-                 QTreeWidgetItem *table = new QTreeWidgetItem(root);
-                 table-&gt;setText(0, tables.at(t));
+         <span class="keyword">if</span> (db<span class="operator">.</span>isOpen()) {
+             <span class="type"><a href="qstringlist.html">QStringList</a></span> tables <span class="operator">=</span> db<span class="operator">.</span>tables();
+             <span class="keyword">for</span> (<span class="type">int</span> t <span class="operator">=</span> <span class="number">0</span>; t <span class="operator">&lt;</span> tables<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>t) {
+                 <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>table <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span>(root);
+                 table<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">0</span><span class="operator">,</span> tables<span class="operator">.</span>at(t));
              }
          }
      }
-     if (!gotActiveDb) {
-         activeDb = connectionNames.value(0);
-         setActive(tree-&gt;topLevelItem(0));
+     <span class="keyword">if</span> (<span class="operator">!</span>gotActiveDb) {
+         activeDb <span class="operator">=</span> connectionNames<span class="operator">.</span>value(<span class="number">0</span>);
+         setActive(tree<span class="operator">-</span><span class="operator">&gt;</span>topLevelItem(<span class="number">0</span>));
      }
 
-     tree-&gt;doItemsLayout(); <span class="comment">// HACK</span>
+     tree<span class="operator">-</span><span class="operator">&gt;</span>doItemsLayout(); <span class="comment">// HACK</span>
  }
 
- QSqlDatabase ConnectionWidget::currentDatabase() const
+ <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span> ConnectionWidget<span class="operator">::</span>currentDatabase() <span class="keyword">const</span>
  {
-     return QSqlDatabase::database(activeDb);
+     <span class="keyword">return</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>database(activeDb);
  }
 
- static void qSetBold(QTreeWidgetItem *item, bool bold)
+ <span class="keyword">static</span> <span class="type">void</span> qSetBold(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> <span class="type">bool</span> bold)
  {
-     QFont font = item-&gt;font(0);
-     font.setBold(bold);
-     item-&gt;setFont(0, font);
+     <span class="type"><a href="qfont.html">QFont</a></span> font <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>font(<span class="number">0</span>);
+     font<span class="operator">.</span>setBold(bold);
+     item<span class="operator">-</span><span class="operator">&gt;</span>setFont(<span class="number">0</span><span class="operator">,</span> font);
  }
 
- void ConnectionWidget::setActive(QTreeWidgetItem *item)
+ <span class="type">void</span> ConnectionWidget<span class="operator">::</span>setActive(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item)
  {
-     for (int i = 0; i &lt; tree-&gt;topLevelItemCount(); ++i) {
-         if (tree-&gt;topLevelItem(i)-&gt;font(0).bold())
-             qSetBold(tree-&gt;topLevelItem(i), false);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> tree<span class="operator">-</span><span class="operator">&gt;</span>topLevelItemCount(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (tree<span class="operator">-</span><span class="operator">&gt;</span>topLevelItem(i)<span class="operator">-</span><span class="operator">&gt;</span>font(<span class="number">0</span>)<span class="operator">.</span>bold())
+             qSetBold(tree<span class="operator">-</span><span class="operator">&gt;</span>topLevelItem(i)<span class="operator">,</span> <span class="keyword">false</span>);
      }
 
-     if (!item)
-         return;
+     <span class="keyword">if</span> (<span class="operator">!</span>item)
+         <span class="keyword">return</span>;
 
-     qSetBold(item, true);
-     activeDb = QSqlDatabase::connectionNames().value(tree-&gt;indexOfTopLevelItem(item));
+     qSetBold(item<span class="operator">,</span> <span class="keyword">true</span>);
+     activeDb <span class="operator">=</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>connectionNames()<span class="operator">.</span>value(tree<span class="operator">-</span><span class="operator">&gt;</span>indexOfTopLevelItem(item));
  }
 
- void ConnectionWidget::on_tree_itemActivated(QTreeWidgetItem *item, int <span class="comment">/* column */</span>)
+ <span class="type">void</span> ConnectionWidget<span class="operator">::</span>on_tree_itemActivated(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> <span class="type">int</span> <span class="comment">/* column */</span>)
  {
 
-     if (!item)
-         return;
+     <span class="keyword">if</span> (<span class="operator">!</span>item)
+         <span class="keyword">return</span>;
 
-     if (!item-&gt;parent()) {
+     <span class="keyword">if</span> (<span class="operator">!</span>item<span class="operator">-</span><span class="operator">&gt;</span>parent()) {
          setActive(item);
-     } else {
-         setActive(item-&gt;parent());
-         emit tableActivated(item-&gt;text(0));
+     } <span class="keyword">else</span> {
+         setActive(item<span class="operator">-</span><span class="operator">&gt;</span>parent());
+         <span class="keyword">emit</span> tableActivated(item<span class="operator">-</span><span class="operator">&gt;</span>text(<span class="number">0</span>));
      }
  }
 
- void ConnectionWidget::showMetaData()
+ <span class="type">void</span> ConnectionWidget<span class="operator">::</span>showMetaData()
  {
-     QTreeWidgetItem *cItem = tree-&gt;currentItem();
-     if (!cItem || !cItem-&gt;parent())
-         return;
-     setActive(cItem-&gt;parent());
-     emit metaDataRequested(cItem-&gt;text(0));
+     <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>cItem <span class="operator">=</span> tree<span class="operator">-</span><span class="operator">&gt;</span>currentItem();
+     <span class="keyword">if</span> (<span class="operator">!</span>cItem <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>cItem<span class="operator">-</span><span class="operator">&gt;</span>parent())
+         <span class="keyword">return</span>;
+     setActive(cItem<span class="operator">-</span><span class="operator">&gt;</span>parent());
+     <span class="keyword">emit</span> metaDataRequested(cItem<span class="operator">-</span><span class="operator">&gt;</span>text(<span class="number">0</span>));
  }
 
- void ConnectionWidget::on_tree_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *)
+ <span class="type">void</span> ConnectionWidget<span class="operator">::</span>on_tree_currentItemChanged(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>current<span class="operator">,</span> <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>)
  {
-     metaDataAction-&gt;setEnabled(current &amp;&amp; current-&gt;parent());
+     metaDataAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(current <span class="operator">&amp;</span><span class="operator">&amp;</span> current<span class="operator">-</span><span class="operator">&gt;</span>parent());
  }</pre>
 </div>
 <!-- @@@demos/sqlbrowser/connectionwidget.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

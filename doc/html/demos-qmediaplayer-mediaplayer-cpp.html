@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: mediaplayer.cpp Example File (demos/qmediaplayer/mediaplayer.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">mediaplayer.cpp Example File</h1>
 <span class="small-subtitle">demos/qmediaplayer/mediaplayer.cpp</span>
 <!-- $$$demos/qmediaplayer/mediaplayer.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -160,1025 +32,1009 @@
  ** This file is part of the demonstration applications of the Qt Toolkit.
  **
  ** $QT_BEGIN_LICENSE:LGPL$
- ** Commercial Usage
- ** Licensees holding valid Qt Commercial licenses may use this file in
- ** accordance with the Qt Commercial License Agreement provided with the
- ** Software or, alternatively, in accordance with the terms contained in
- ** a written agreement between you and Nokia.
- **
  ** GNU Lesser General Public License Usage
- ** Alternatively, this file may be used under the terms of the GNU Lesser
- ** General Public License version 2.1 as published by the Free Software
- ** Foundation and appearing in the file LICENSE.LGPL included in the
- ** packaging of this file.  Please review the following information to
- ** ensure the GNU Lesser General Public License version 2.1 requirements
- ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
  **
  ** In addition, as a special exception, Nokia gives you certain additional
- ** rights.  These rights are described in the Nokia Qt LGPL Exception
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
  ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
  **
  ** GNU General Public License Usage
- ** Alternatively, this file may be used under the terms of the GNU
- ** General Public License version 3.0 as published by the Free Software
- ** Foundation and appearing in the file LICENSE.GPL included in the
- ** packaging of this file.  Please review the following information to
- ** ensure the GNU General Public License version 3.0 requirements will be
- ** met: http://www.gnu.org/copyleft/gpl.html.
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
  **
- ** If you have questions regarding the use of this file, please contact
- ** Nokia at qt-info@nokia.com.
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
  ** $QT_END_LICENSE$
  **
  ***************************************************************************/</span>
 
- #include &lt;QtGui&gt;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
 
- #define SLIDER_RANGE 8
+ <span class="preprocessor">#define SLIDER_RANGE 8</span>
 
- #include &quot;mediaplayer.h&quot;
- #include &quot;ui_settings.h&quot;
+ <span class="preprocessor">#include &quot;mediaplayer.h&quot;</span>
+ <span class="preprocessor">#include &quot;ui_settings.h&quot;</span>
 
- #ifdef Q_OS_SYMBIAN
- #include &lt;cdbcols.h&gt;
- #include &lt;cdblen.h&gt;
- #include &lt;commdb.h&gt;
- #endif
+ <span class="preprocessor">#ifdef Q_OS_SYMBIAN</span>
+ <span class="preprocessor">#include &lt;cdbcols.h&gt;</span>
+ <span class="preprocessor">#include &lt;cdblen.h&gt;</span>
+ <span class="preprocessor">#include &lt;commdb.h&gt;</span>
+ <span class="preprocessor">#endif</span>
 
- MediaVideoWidget::MediaVideoWidget(MediaPlayer *player, QWidget *parent) :
-     Phonon::VideoWidget(parent), m_player(player), m_action(this)
+ MediaVideoWidget<span class="operator">::</span>MediaVideoWidget(MediaPlayer <span class="operator">*</span>player<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent) :
+     Phonon<span class="operator">::</span>VideoWidget(parent)<span class="operator">,</span> m_player(player)<span class="operator">,</span> m_action(<span class="keyword">this</span>)
  {
-     m_action.setCheckable(true);
-     m_action.setChecked(false);
-     m_action.setShortcut(QKeySequence( Qt::AltModifier + Qt::Key_Return));
-     m_action.setShortcutContext(Qt::WindowShortcut);
-     connect(&amp;m_action, SIGNAL(toggled(bool)), SLOT(setFullScreen(bool)));
-     addAction(&amp;m_action);
-     setAcceptDrops(true);
+     m_action<span class="operator">.</span>setCheckable(<span class="keyword">true</span>);
+     m_action<span class="operator">.</span>setChecked(<span class="keyword">false</span>);
+     m_action<span class="operator">.</span>setShortcut(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span>( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AltModifier <span class="operator">+</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Return));
+     m_action<span class="operator">.</span>setShortcutContext(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowShortcut);
+     connect(<span class="operator">&amp;</span>m_action<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span> SLOT(setFullScreen(<span class="type">bool</span>)));
+     addAction(<span class="operator">&amp;</span>m_action);
+     setAcceptDrops(<span class="keyword">true</span>);
  }
 
- void MediaVideoWidget::setFullScreen(bool enabled)
+ <span class="type">void</span> MediaVideoWidget<span class="operator">::</span>setFullScreen(<span class="type">bool</span> enabled)
  {
-     Phonon::VideoWidget::setFullScreen(enabled);
-     emit fullScreenChanged(enabled);
+     Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>setFullScreen(enabled);
+     <span class="keyword">emit</span> fullScreenChanged(enabled);
  }
 
- void MediaVideoWidget::mouseDoubleClickEvent(QMouseEvent *e)
+ <span class="type">void</span> MediaVideoWidget<span class="operator">::</span>mouseDoubleClickEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e)
  {
-     Phonon::VideoWidget::mouseDoubleClickEvent(e);
-     setFullScreen(!isFullScreen());
+     Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>mouseDoubleClickEvent(e);
+     setFullScreen(<span class="operator">!</span>isFullScreen());
  }
 
- void MediaVideoWidget::keyPressEvent(QKeyEvent *e)
+ <span class="type">void</span> MediaVideoWidget<span class="operator">::</span>keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>e)
  {
-     if(!e-&gt;modifiers()) {
+     <span class="keyword">if</span>(<span class="operator">!</span>e<span class="operator">-</span><span class="operator">&gt;</span>modifiers()) {
          <span class="comment">// On non-QWERTY Symbian key-based devices, there is no space key.</span>
          <span class="comment">// The zero key typically is marked with a space character.</span>
-         if (e-&gt;key() == Qt::Key_Space || e-&gt;key() == Qt::Key_0) {
-             m_player-&gt;playPause();
-             e-&gt;accept();
-             return;
+         <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Space <span class="operator">|</span><span class="operator">|</span> e<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_0) {
+             m_player<span class="operator">-</span><span class="operator">&gt;</span>playPause();
+             e<span class="operator">-</span><span class="operator">&gt;</span>accept();
+             <span class="keyword">return</span>;
          }
 
          <span class="comment">// On Symbian devices, there is no key which maps to Qt::Key_Escape</span>
          <span class="comment">// On devices which lack a backspace key (i.e. non-QWERTY devices),</span>
          <span class="comment">// the 'C' key maps to Qt::Key_Backspace</span>
-         else if (e-&gt;key() == Qt::Key_Escape || e-&gt;key() == Qt::Key_Backspace) {
-             setFullScreen(false);
-             e-&gt;accept();
-             return;
+         <span class="keyword">else</span> <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Escape <span class="operator">|</span><span class="operator">|</span> e<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Backspace) {
+             setFullScreen(<span class="keyword">false</span>);
+             e<span class="operator">-</span><span class="operator">&gt;</span>accept();
+             <span class="keyword">return</span>;
          }
      }
-     Phonon::VideoWidget::keyPressEvent(e);
+     Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>keyPressEvent(e);
  }
 
- bool MediaVideoWidget::event(QEvent *e)
+ <span class="type">bool</span> MediaVideoWidget<span class="operator">::</span>event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>e)
  {
-     switch(e-&gt;type())
+     <span class="keyword">switch</span>(e<span class="operator">-</span><span class="operator">&gt;</span>type())
      {
-     case QEvent::Close:
+     <span class="keyword">case</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>Close:
          <span class="comment">//we just ignore the cose events on the video widget</span>
          <span class="comment">//this prevents ALT+F4 from having an effect in fullscreen mode</span>
-         e-&gt;ignore();
-         return true;
-     case QEvent::MouseMove:
- #ifndef QT_NO_CURSOR
+         e<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>MouseMove:
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
          unsetCursor();
- #endif
+ <span class="preprocessor">#endif</span>
          <span class="comment">//fall through</span>
-     case QEvent::WindowStateChange:
+     <span class="keyword">case</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>WindowStateChange:
          {
              <span class="comment">//we just update the state of the checkbox, in case it wasn't already</span>
-             m_action.setChecked(windowState() &amp; Qt::WindowFullScreen);
-             const Qt::WindowFlags flags = m_player-&gt;windowFlags();
-             if (windowState() &amp; Qt::WindowFullScreen) {
-                 m_timer.start(1000, this);
-             } else {
-                 m_timer.stop();
- #ifndef QT_NO_CURSOR
+             m_action<span class="operator">.</span>setChecked(windowState() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowFullScreen);
+             <span class="keyword">const</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowFlags flags <span class="operator">=</span> m_player<span class="operator">-</span><span class="operator">&gt;</span>windowFlags();
+             <span class="keyword">if</span> (windowState() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowFullScreen) {
+                 m_timer<span class="operator">.</span>start(<span class="number">1000</span><span class="operator">,</span> <span class="keyword">this</span>);
+             } <span class="keyword">else</span> {
+                 m_timer<span class="operator">.</span>stop();
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
                  unsetCursor();
- #endif
+ <span class="preprocessor">#endif</span>
              }
          }
-         break;
-     default:
-         break;
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="keyword">break</span>;
      }
 
-     return Phonon::VideoWidget::event(e);
+     <span class="keyword">return</span> Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>event(e);
  }
 
- void MediaVideoWidget::timerEvent(QTimerEvent *e)
+ <span class="type">void</span> MediaVideoWidget<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>e)
  {
-     if (e-&gt;timerId() == m_timer.timerId()) {
+     <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>timerId() <span class="operator">=</span><span class="operator">=</span> m_timer<span class="operator">.</span>timerId()) {
          <span class="comment">//let's store the cursor shape</span>
- #ifndef QT_NO_CURSOR
-         setCursor(Qt::BlankCursor);
- #endif
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
+         setCursor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BlankCursor);
+ <span class="preprocessor">#endif</span>
      }
-     Phonon::VideoWidget::timerEvent(e);
+     Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>timerEvent(e);
  }
 
- void MediaVideoWidget::dropEvent(QDropEvent *e)
+ <span class="type">void</span> MediaVideoWidget<span class="operator">::</span>dropEvent(<span class="type"><a href="qdropevent.html">QDropEvent</a></span> <span class="operator">*</span>e)
  {
-     m_player-&gt;handleDrop(e);
+     m_player<span class="operator">-</span><span class="operator">&gt;</span>handleDrop(e);
  }
 
- void MediaVideoWidget::dragEnterEvent(QDragEnterEvent *e) {
-     if (e-&gt;mimeData()-&gt;hasUrls())
-         e-&gt;acceptProposedAction();
+ <span class="type">void</span> MediaVideoWidget<span class="operator">::</span>dragEnterEvent(<span class="type"><a href="qdragenterevent.html">QDragEnterEvent</a></span> <span class="operator">*</span>e) {
+     <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasUrls())
+         e<span class="operator">-</span><span class="operator">&gt;</span>acceptProposedAction();
  }
 
- MediaPlayer::MediaPlayer() :
-         playButton(0), nextEffect(0), settingsDialog(0), ui(0),
-             m_AudioOutput(Phonon::VideoCategory),
-             m_videoWidget(new MediaVideoWidget(this))
+ MediaPlayer<span class="operator">::</span>MediaPlayer() :
+         playButton(<span class="number">0</span>)<span class="operator">,</span> nextEffect(<span class="number">0</span>)<span class="operator">,</span> settingsDialog(<span class="number">0</span>)<span class="operator">,</span> ui(<span class="number">0</span>)<span class="operator">,</span>
+             m_AudioOutput(Phonon<span class="operator">::</span>VideoCategory)<span class="operator">,</span>
+             m_videoWidget(<span class="keyword">new</span> MediaVideoWidget(<span class="keyword">this</span>))
  {
-     setWindowTitle(tr(&quot;Media Player&quot;));
-     setContextMenuPolicy(Qt::CustomContextMenu);
-     m_videoWidget-&gt;setContextMenuPolicy(Qt::CustomContextMenu);
+     setWindowTitle(tr(<span class="string">&quot;Media Player&quot;</span>));
+     setContextMenuPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CustomContextMenu);
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setContextMenuPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CustomContextMenu);
 
-     QSize buttonSize(34, 28);
+     <span class="type"><a href="qsize.html">QSize</a></span> buttonSize(<span class="number">34</span><span class="operator">,</span> <span class="number">28</span>);
 
-     QPushButton *openButton = new QPushButton(this);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>openButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="keyword">this</span>);
 
-     openButton-&gt;setIcon(style()-&gt;standardIcon(QStyle::SP_DialogOpenButton));
-     QPalette bpal;
-     QColor arrowcolor = bpal.buttonText().color();
-     if (arrowcolor == Qt::black)
-         arrowcolor = QColor(80, 80, 80);
-     bpal.setBrush(QPalette::ButtonText, arrowcolor);
-     openButton-&gt;setPalette(bpal);
+     openButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(<span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_DialogOpenButton));
+     <span class="type"><a href="qpalette.html">QPalette</a></span> bpal;
+     <span class="type"><a href="qcolor.html">QColor</a></span> arrowcolor <span class="operator">=</span> bpal<span class="operator">.</span>buttonText()<span class="operator">.</span>color();
+     <span class="keyword">if</span> (arrowcolor <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black)
+         arrowcolor <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">80</span><span class="operator">,</span> <span class="number">80</span><span class="operator">,</span> <span class="number">80</span>);
+     bpal<span class="operator">.</span>setBrush(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>ButtonText<span class="operator">,</span> arrowcolor);
+     openButton<span class="operator">-</span><span class="operator">&gt;</span>setPalette(bpal);
 
-     rewindButton = new QPushButton(this);
-     rewindButton-&gt;setIcon(style()-&gt;standardIcon(QStyle::SP_MediaSkipBackward));
+     rewindButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="keyword">this</span>);
+     rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(<span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_MediaSkipBackward));
 
-     forwardButton = new QPushButton(this);
-     forwardButton-&gt;setIcon(style()-&gt;standardIcon(QStyle::SP_MediaSkipForward));
-     forwardButton-&gt;setEnabled(false);
+     forwardButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="keyword">this</span>);
+     forwardButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(<span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_MediaSkipForward));
+     forwardButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
 
-     playButton = new QPushButton(this);
-     playIcon = style()-&gt;standardIcon(QStyle::SP_MediaPlay);
-     pauseIcon = style()-&gt;standardIcon(QStyle::SP_MediaPause);
-     playButton-&gt;setIcon(playIcon);
+     playButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="keyword">this</span>);
+     playIcon <span class="operator">=</span> style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(<span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_MediaPlay);
+     pauseIcon <span class="operator">=</span> style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(<span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_MediaPause);
+     playButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(playIcon);
 
-     slider = new Phonon::SeekSlider(this);
-     slider-&gt;setMediaObject(&amp;m_MediaObject);
-     volume = new Phonon::VolumeSlider(&amp;m_AudioOutput);
+     slider <span class="operator">=</span> <span class="keyword">new</span> Phonon<span class="operator">::</span>SeekSlider(<span class="keyword">this</span>);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setMediaObject(<span class="operator">&amp;</span>m_MediaObject);
+     volume <span class="operator">=</span> <span class="keyword">new</span> Phonon<span class="operator">::</span>VolumeSlider(<span class="operator">&amp;</span>m_AudioOutput);
 
-     QVBoxLayout *vLayout = new QVBoxLayout(this);
-     vLayout-&gt;setContentsMargins(8, 8, 8, 8);
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>vLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="keyword">this</span>);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>setContentsMargins(<span class="number">8</span><span class="operator">,</span> <span class="number">8</span><span class="operator">,</span> <span class="number">8</span><span class="operator">,</span> <span class="number">8</span>);
 
-     QHBoxLayout *layout = new QHBoxLayout();
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>();
 
-     info = new QLabel(this);
-     info-&gt;setMinimumHeight(70);
-     info-&gt;setAcceptDrops(false);
-     info-&gt;setMargin(2);
-     info-&gt;setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
-     info-&gt;setLineWidth(2);
-     info-&gt;setAutoFillBackground(true);
+     info <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="keyword">this</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setMinimumHeight(<span class="number">70</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setAcceptDrops(<span class="keyword">false</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setMargin(<span class="number">2</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle(<span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>StyledPanel <span class="operator">|</span> <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>Sunken);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setLineWidth(<span class="number">2</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setAutoFillBackground(<span class="keyword">true</span>);
 
-     QPalette palette;
-     palette.setBrush(QPalette::WindowText, Qt::white);
- #ifndef Q_WS_MAC
-     openButton-&gt;setMinimumSize(54, buttonSize.height());
-     rewindButton-&gt;setMinimumSize(buttonSize);
-     forwardButton-&gt;setMinimumSize(buttonSize);
-     playButton-&gt;setMinimumSize(buttonSize);
- #endif
-     info-&gt;setStyleSheet(&quot;border-image:url(:/images/screen.png) ; border-width:3px&quot;);
-     info-&gt;setPalette(palette);
-     info-&gt;setText(tr(&quot;&lt;center&gt;No media&lt;/center&gt;&quot;));
+     <span class="type"><a href="qpalette.html">QPalette</a></span> palette;
+     palette<span class="operator">.</span>setBrush(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+ <span class="preprocessor">#ifndef Q_WS_MAC</span>
+     openButton<span class="operator">-</span><span class="operator">&gt;</span>setMinimumSize(<span class="number">54</span><span class="operator">,</span> buttonSize<span class="operator">.</span>height());
+     rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setMinimumSize(buttonSize);
+     forwardButton<span class="operator">-</span><span class="operator">&gt;</span>setMinimumSize(buttonSize);
+     playButton<span class="operator">-</span><span class="operator">&gt;</span>setMinimumSize(buttonSize);
+ <span class="preprocessor">#endif</span>
+     info<span class="operator">-</span><span class="operator">&gt;</span>setStyleSheet(<span class="string">&quot;border-image:url(:/images/screen.png) ; border-width:3px&quot;</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setPalette(palette);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;&lt;center&gt;No media&lt;/center&gt;&quot;</span>));
 
-     volume-&gt;setFixedWidth(120);
+     volume<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth(<span class="number">120</span>);
 
-     layout-&gt;addWidget(openButton);
-     layout-&gt;addWidget(rewindButton);
-     layout-&gt;addWidget(playButton);
-     layout-&gt;addWidget(forwardButton);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(openButton);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(rewindButton);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(playButton);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(forwardButton);
 
-     layout-&gt;addStretch();
-     layout-&gt;addWidget(volume);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addStretch();
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(volume);
 
-     vLayout-&gt;addWidget(info);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(info);
      initVideoWindow();
-     vLayout-&gt;addWidget(&amp;m_videoWindow);
-     QVBoxLayout *buttonPanelLayout = new QVBoxLayout();
-     m_videoWindow.hide();
-     buttonPanelLayout-&gt;addLayout(layout);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>m_videoWindow);
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>buttonPanelLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>();
+     m_videoWindow<span class="operator">.</span>hide();
+     buttonPanelLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(layout);
 
-     timeLabel = new QLabel(this);
-     progressLabel = new QLabel(this);
-     QWidget *sliderPanel = new QWidget(this);
-     QHBoxLayout *sliderLayout = new QHBoxLayout();
-     sliderLayout-&gt;addWidget(slider);
-     sliderLayout-&gt;addWidget(timeLabel);
-     sliderLayout-&gt;addWidget(progressLabel);
-     sliderLayout-&gt;setContentsMargins(0, 0, 0, 0);
-     sliderPanel-&gt;setLayout(sliderLayout);
+     timeLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="keyword">this</span>);
+     progressLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="keyword">this</span>);
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>sliderPanel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>(<span class="keyword">this</span>);
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>sliderLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>();
+     sliderLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(slider);
+     sliderLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(timeLabel);
+     sliderLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(progressLabel);
+     sliderLayout<span class="operator">-</span><span class="operator">&gt;</span>setContentsMargins(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     sliderPanel<span class="operator">-</span><span class="operator">&gt;</span>setLayout(sliderLayout);
 
-     buttonPanelLayout-&gt;addWidget(sliderPanel);
-     buttonPanelLayout-&gt;setContentsMargins(0, 0, 0, 0);
- #ifdef Q_OS_MAC
-     layout-&gt;setSpacing(4);
-     buttonPanelLayout-&gt;setSpacing(0);
-     info-&gt;setMinimumHeight(100);
-     info-&gt;setFont(QFont(&quot;verdana&quot;, 15));
+     buttonPanelLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(sliderPanel);
+     buttonPanelLayout<span class="operator">-</span><span class="operator">&gt;</span>setContentsMargins(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+ <span class="preprocessor">#ifdef Q_OS_MAC</span>
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setSpacing(<span class="number">4</span>);
+     buttonPanelLayout<span class="operator">-</span><span class="operator">&gt;</span>setSpacing(<span class="number">0</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setMinimumHeight(<span class="number">100</span>);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setFont(<span class="type"><a href="qfont.html">QFont</a></span>(<span class="string">&quot;verdana&quot;</span><span class="operator">,</span> <span class="number">15</span>));
      <span class="comment">// QStyle *flatButtonStyle = new QWindowsStyle;</span>
-     openButton-&gt;setFocusPolicy(Qt::NoFocus);
+     openButton<span class="operator">-</span><span class="operator">&gt;</span>setFocusPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoFocus);
      <span class="comment">// openButton-&gt;setStyle(flatButtonStyle);</span>
      <span class="comment">// playButton-&gt;setStyle(flatButtonStyle);</span>
      <span class="comment">// rewindButton-&gt;setStyle(flatButtonStyle);</span>
      <span class="comment">// forwardButton-&gt;setStyle(flatButtonStyle);</span>
-  #endif
-     QWidget *buttonPanelWidget = new QWidget(this);
-     buttonPanelWidget-&gt;setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-     buttonPanelWidget-&gt;setLayout(buttonPanelLayout);
-     vLayout-&gt;addWidget(buttonPanelWidget);
+  <span class="preprocessor">#endif</span>
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>buttonPanelWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>(<span class="keyword">this</span>);
+     buttonPanelWidget<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Preferred<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+     buttonPanelWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(buttonPanelLayout);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(buttonPanelWidget);
 
-     QHBoxLayout *labelLayout = new QHBoxLayout();
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>labelLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>();
 
-     vLayout-&gt;addLayout(labelLayout);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(labelLayout);
      setLayout(vLayout);
 
      <span class="comment">// Create menu bar:</span>
-     fileMenu = new QMenu(this);
-     QAction *openFileAction = fileMenu-&gt;addAction(tr(&quot;Open &amp;File...&quot;));
-     QAction *openUrlAction = fileMenu-&gt;addAction(tr(&quot;Open &amp;Location...&quot;));
- #ifdef Q_OS_SYMBIAN
-     QAction *selectIAPAction = fileMenu-&gt;addAction(tr(&quot;Select &amp;IAP...&quot;));
-     connect(selectIAPAction, SIGNAL(triggered(bool)), this, SLOT(selectIAP()));
- #endif
-     QAction *const openLinkAction = fileMenu-&gt;addAction(tr(&quot;Open &amp;RAM File...&quot;));
+     fileMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(<span class="keyword">this</span>);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>openFileAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Open &amp;File...&quot;</span>));
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>openUrlAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Open &amp;Location...&quot;</span>));
+ <span class="preprocessor">#ifdef Q_OS_SYMBIAN</span>
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>selectIAPAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Select &amp;IAP...&quot;</span>));
+     connect(selectIAPAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(selectIAP()));
+ <span class="preprocessor">#endif</span>
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="keyword">const</span> openLinkAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Open &amp;RAM File...&quot;</span>));
 
-     connect(openLinkAction, SIGNAL(triggered(bool)), this, SLOT(openRamFile()));
+     connect(openLinkAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(openRamFile()));
 
-     fileMenu-&gt;addSeparator();
-     QMenu *aspectMenu = fileMenu-&gt;addMenu(tr(&quot;&amp;Aspect ratio&quot;));
-     QActionGroup *aspectGroup = new QActionGroup(aspectMenu);
-     connect(aspectGroup, SIGNAL(triggered(QAction*)), this, SLOT(aspectChanged(QAction*)));
-     aspectGroup-&gt;setExclusive(true);
-     QAction *aspectActionAuto = aspectMenu-&gt;addAction(tr(&quot;Auto&quot;));
-     aspectActionAuto-&gt;setCheckable(true);
-     aspectActionAuto-&gt;setChecked(true);
-     aspectGroup-&gt;addAction(aspectActionAuto);
-     QAction *aspectActionScale = aspectMenu-&gt;addAction(tr(&quot;Scale&quot;));
-     aspectActionScale-&gt;setCheckable(true);
-     aspectGroup-&gt;addAction(aspectActionScale);
-     QAction *aspectAction16_9 = aspectMenu-&gt;addAction(tr(&quot;16/9&quot;));
-     aspectAction16_9-&gt;setCheckable(true);
-     aspectGroup-&gt;addAction(aspectAction16_9);
-     QAction *aspectAction4_3 = aspectMenu-&gt;addAction(tr(&quot;4/3&quot;));
-     aspectAction4_3-&gt;setCheckable(true);
-     aspectGroup-&gt;addAction(aspectAction4_3);
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>aspectMenu <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Aspect ratio&quot;</span>));
+     <span class="type"><a href="qactiongroup.html">QActionGroup</a></span> <span class="operator">*</span>aspectGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(aspectMenu);
+     connect(aspectGroup<span class="operator">,</span> SIGNAL(triggered(<span class="type"><a href="qaction.html">QAction</a></span><span class="operator">*</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(aspectChanged(<span class="type"><a href="qaction.html">QAction</a></span><span class="operator">*</span>)));
+     aspectGroup<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">true</span>);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aspectActionAuto <span class="operator">=</span> aspectMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Auto&quot;</span>));
+     aspectActionAuto<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     aspectActionAuto<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+     aspectGroup<span class="operator">-</span><span class="operator">&gt;</span>addAction(aspectActionAuto);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aspectActionScale <span class="operator">=</span> aspectMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Scale&quot;</span>));
+     aspectActionScale<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     aspectGroup<span class="operator">-</span><span class="operator">&gt;</span>addAction(aspectActionScale);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aspectAction16_9 <span class="operator">=</span> aspectMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;16/9&quot;</span>));
+     aspectAction16_9<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     aspectGroup<span class="operator">-</span><span class="operator">&gt;</span>addAction(aspectAction16_9);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aspectAction4_3 <span class="operator">=</span> aspectMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;4/3&quot;</span>));
+     aspectAction4_3<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     aspectGroup<span class="operator">-</span><span class="operator">&gt;</span>addAction(aspectAction4_3);
 
-     QMenu *scaleMenu = fileMenu-&gt;addMenu(tr(&quot;&amp;Scale mode&quot;));
-     QActionGroup *scaleGroup = new QActionGroup(scaleMenu);
-     connect(scaleGroup, SIGNAL(triggered(QAction*)), this, SLOT(scaleChanged(QAction*)));
-     scaleGroup-&gt;setExclusive(true);
-     QAction *scaleActionFit = scaleMenu-&gt;addAction(tr(&quot;Fit in view&quot;));
-     scaleActionFit-&gt;setCheckable(true);
-     scaleActionFit-&gt;setChecked(true);
-     scaleGroup-&gt;addAction(scaleActionFit);
-     QAction *scaleActionCrop = scaleMenu-&gt;addAction(tr(&quot;Scale and crop&quot;));
-     scaleActionCrop-&gt;setCheckable(true);
-     scaleGroup-&gt;addAction(scaleActionCrop);
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>scaleMenu <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Scale mode&quot;</span>));
+     <span class="type"><a href="qactiongroup.html">QActionGroup</a></span> <span class="operator">*</span>scaleGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(scaleMenu);
+     connect(scaleGroup<span class="operator">,</span> SIGNAL(triggered(<span class="type"><a href="qaction.html">QAction</a></span><span class="operator">*</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(scaleChanged(<span class="type"><a href="qaction.html">QAction</a></span><span class="operator">*</span>)));
+     scaleGroup<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">true</span>);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>scaleActionFit <span class="operator">=</span> scaleMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Fit in view&quot;</span>));
+     scaleActionFit<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     scaleActionFit<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+     scaleGroup<span class="operator">-</span><span class="operator">&gt;</span>addAction(scaleActionFit);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>scaleActionCrop <span class="operator">=</span> scaleMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Scale and crop&quot;</span>));
+     scaleActionCrop<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     scaleGroup<span class="operator">-</span><span class="operator">&gt;</span>addAction(scaleActionCrop);
 
-     m_fullScreenAction = fileMenu-&gt;addAction(tr(&quot;Full screen video&quot;));
-     m_fullScreenAction-&gt;setCheckable(true);
-     m_fullScreenAction-&gt;setEnabled(false); <span class="comment">// enabled by hasVideoChanged</span>
-     bool b = connect(m_fullScreenAction, SIGNAL(toggled(bool)), m_videoWidget, SLOT(setFullScreen(bool)));
+     m_fullScreenAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Full screen video&quot;</span>));
+     m_fullScreenAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     m_fullScreenAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>); <span class="comment">// enabled by hasVideoChanged</span>
+     <span class="type">bool</span> b <span class="operator">=</span> connect(m_fullScreenAction<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span> m_videoWidget<span class="operator">,</span> SLOT(setFullScreen(<span class="type">bool</span>)));
      Q_ASSERT(b);
-     b = connect(m_videoWidget, SIGNAL(fullScreenChanged(bool)), m_fullScreenAction, SLOT(setChecked(bool)));
+     b <span class="operator">=</span> connect(m_videoWidget<span class="operator">,</span> SIGNAL(fullScreenChanged(<span class="type">bool</span>))<span class="operator">,</span> m_fullScreenAction<span class="operator">,</span> SLOT(setChecked(<span class="type">bool</span>)));
      Q_ASSERT(b);
 
-     fileMenu-&gt;addSeparator();
-     QAction *settingsAction = fileMenu-&gt;addAction(tr(&quot;&amp;Settings...&quot;));
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>settingsAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;&amp;Settings...&quot;</span>));
 
      <span class="comment">// Setup signal connections:</span>
-     connect(rewindButton, SIGNAL(clicked()), this, SLOT(rewind()));
+     connect(rewindButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(rewind()));
      <span class="comment">//connect(openButton, SIGNAL(clicked()), this, SLOT(openFile()));</span>
-     openButton-&gt;setMenu(fileMenu);
+     openButton<span class="operator">-</span><span class="operator">&gt;</span>setMenu(fileMenu);
 
-     connect(playButton, SIGNAL(clicked()), this, SLOT(playPause()));
-     connect(forwardButton, SIGNAL(clicked()), this, SLOT(forward()));
+     connect(playButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(playPause()));
+     connect(forwardButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(forward()));
      <span class="comment">//connect(openButton, SIGNAL(clicked()), this, SLOT(openFile()));</span>
-     connect(settingsAction, SIGNAL(triggered(bool)), this, SLOT(showSettingsDialog()));
-     connect(openUrlAction, SIGNAL(triggered(bool)), this, SLOT(openUrl()));
-     connect(openFileAction, SIGNAL(triggered(bool)), this, SLOT(openFile()));
+     connect(settingsAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(showSettingsDialog()));
+     connect(openUrlAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(openUrl()));
+     connect(openFileAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(openFile()));
 
-     connect(m_videoWidget, SIGNAL(customContextMenuRequested(const QPoint &amp;)), SLOT(showContextMenu(const QPoint &amp;)));
-     connect(this, SIGNAL(customContextMenuRequested(const QPoint &amp;)), SLOT(showContextMenu(const QPoint &amp;)));
-     connect(&amp;m_MediaObject, SIGNAL(metaDataChanged()), this, SLOT(updateInfo()));
-     connect(&amp;m_MediaObject, SIGNAL(totalTimeChanged(qint64)), this, SLOT(updateTime()));
-     connect(&amp;m_MediaObject, SIGNAL(tick(qint64)), this, SLOT(updateTime()));
-     connect(&amp;m_MediaObject, SIGNAL(finished()), this, SLOT(finished()));
-     connect(&amp;m_MediaObject, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)));
-     connect(&amp;m_MediaObject, SIGNAL(bufferStatus(int)), this, SLOT(bufferStatus(int)));
-     connect(&amp;m_MediaObject, SIGNAL(hasVideoChanged(bool)), this, SLOT(hasVideoChanged(bool)));
+     connect(m_videoWidget<span class="operator">,</span> SIGNAL(customContextMenuRequested(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>))<span class="operator">,</span> SLOT(showContextMenu(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>)));
+     connect(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(customContextMenuRequested(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>))<span class="operator">,</span> SLOT(showContextMenu(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>)));
+     connect(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> SIGNAL(metaDataChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(updateInfo()));
+     connect(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> SIGNAL(totalTimeChanged(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(updateTime()));
+     connect(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> SIGNAL(tick(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(updateTime()));
+     connect(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> SIGNAL(finished())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(finished()));
+     connect(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> SIGNAL(stateChanged(Phonon<span class="operator">::</span>State<span class="operator">,</span>Phonon<span class="operator">::</span>State))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(stateChanged(Phonon<span class="operator">::</span>State<span class="operator">,</span>Phonon<span class="operator">::</span>State)));
+     connect(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> SIGNAL(bufferStatus(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(bufferStatus(<span class="type">int</span>)));
+     connect(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> SIGNAL(hasVideoChanged(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(hasVideoChanged(<span class="type">bool</span>)));
 
-     rewindButton-&gt;setEnabled(false);
-     playButton-&gt;setEnabled(false);
-     setAcceptDrops(true);
+     rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     playButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     setAcceptDrops(<span class="keyword">true</span>);
 
-     m_audioOutputPath = Phonon::createPath(&amp;m_MediaObject, &amp;m_AudioOutput);
-     Phonon::createPath(&amp;m_MediaObject, m_videoWidget);
+     m_audioOutputPath <span class="operator">=</span> Phonon<span class="operator">::</span>createPath(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> <span class="operator">&amp;</span>m_AudioOutput);
+     Phonon<span class="operator">::</span>createPath(<span class="operator">&amp;</span>m_MediaObject<span class="operator">,</span> m_videoWidget);
 
      resize(minimumSizeHint());
  }
 
- void MediaPlayer::stateChanged(Phonon::State newstate, Phonon::State oldstate)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>stateChanged(Phonon<span class="operator">::</span>State newstate<span class="operator">,</span> Phonon<span class="operator">::</span>State oldstate)
  {
      Q_UNUSED(oldstate);
 
-     if (oldstate == Phonon::LoadingState) {
-         QRect videoHintRect = QRect(QPoint(0, 0), m_videoWindow.sizeHint());
-         QRect newVideoRect = QApplication::desktop()-&gt;screenGeometry().intersected(videoHintRect);
-         if (!m_smallScreen) {
-             if (m_MediaObject.hasVideo()) {
+     <span class="keyword">if</span> (oldstate <span class="operator">=</span><span class="operator">=</span> Phonon<span class="operator">::</span>LoadingState) {
+         <span class="type"><a href="qrect.html">QRect</a></span> videoHintRect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> m_videoWindow<span class="operator">.</span>sizeHint());
+         <span class="type"><a href="qrect.html">QRect</a></span> newVideoRect <span class="operator">=</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>desktop()<span class="operator">-</span><span class="operator">&gt;</span>screenGeometry()<span class="operator">.</span>intersected(videoHintRect);
+         <span class="keyword">if</span> (<span class="operator">!</span>m_smallScreen) {
+             <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>hasVideo()) {
                  <span class="comment">// Flush event que so that sizeHint takes the</span>
                  <span class="comment">// recently shown/hidden m_videoWindow into account:</span>
-                 qApp-&gt;processEvents();
+                 qApp<span class="operator">-</span><span class="operator">&gt;</span>processEvents();
                  resize(sizeHint());
-             } else
+             } <span class="keyword">else</span>
                  resize(minimumSize());
          }
      }
 
-     switch (newstate) {
-         case Phonon::ErrorState:
-             if (m_MediaObject.errorType() == Phonon::FatalError) {
-                 playButton-&gt;setEnabled(false);
-                 rewindButton-&gt;setEnabled(false);
-             } else {
-                 m_MediaObject.pause();
+     <span class="keyword">switch</span> (newstate) {
+         <span class="keyword">case</span> Phonon<span class="operator">::</span>ErrorState:
+             <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>errorType() <span class="operator">=</span><span class="operator">=</span> Phonon<span class="operator">::</span>FatalError) {
+                 playButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+                 rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+             } <span class="keyword">else</span> {
+                 m_MediaObject<span class="operator">.</span>pause();
              }
-             QMessageBox::warning(this, &quot;Phonon Mediaplayer&quot;, m_MediaObject.errorString(), QMessageBox::Close);
-             break;
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;Phonon Mediaplayer&quot;</span><span class="operator">,</span> m_MediaObject<span class="operator">.</span>errorString()<span class="operator">,</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Close);
+             <span class="keyword">break</span>;
 
-         case Phonon::StoppedState:
-             m_videoWidget-&gt;setFullScreen(false);
+         <span class="keyword">case</span> Phonon<span class="operator">::</span>StoppedState:
+             m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setFullScreen(<span class="keyword">false</span>);
              <span class="comment">// Fall through</span>
-         case Phonon::PausedState:
-             playButton-&gt;setIcon(playIcon);
-             if (m_MediaObject.currentSource().type() != Phonon::MediaSource::Invalid){
-                 playButton-&gt;setEnabled(true);
-                 rewindButton-&gt;setEnabled(true);
-             } else {
-                 playButton-&gt;setEnabled(false);
-                 rewindButton-&gt;setEnabled(false);
+         <span class="keyword">case</span> Phonon<span class="operator">::</span>PausedState:
+             playButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(playIcon);
+             <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>currentSource()<span class="operator">.</span>type() <span class="operator">!</span><span class="operator">=</span> Phonon<span class="operator">::</span>MediaSource<span class="operator">::</span>Invalid){
+                 playButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+                 rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+             } <span class="keyword">else</span> {
+                 playButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+                 rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
              }
-             break;
-         case Phonon::PlayingState:
-             playButton-&gt;setEnabled(true);
-             playButton-&gt;setIcon(pauseIcon);
-             if (m_MediaObject.hasVideo())
-                 m_videoWindow.show();
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> Phonon<span class="operator">::</span>PlayingState:
+             playButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+             playButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(pauseIcon);
+             <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>hasVideo())
+                 m_videoWindow<span class="operator">.</span>show();
              <span class="comment">// Fall through</span>
-         case Phonon::BufferingState:
-             rewindButton-&gt;setEnabled(true);
-             break;
-         case Phonon::LoadingState:
-             rewindButton-&gt;setEnabled(false);
-             break;
+         <span class="keyword">case</span> Phonon<span class="operator">::</span>BufferingState:
+             rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> Phonon<span class="operator">::</span>LoadingState:
+             rewindButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+             <span class="keyword">break</span>;
      }
 
  }
 
- void MediaPlayer::initSettingsDialog()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>initSettingsDialog()
  {
-     settingsDialog = new QDialog(this);
-     ui = new Ui_settings();
-     ui-&gt;setupUi(settingsDialog);
+     settingsDialog <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdialog.html">QDialog</a></span>(<span class="keyword">this</span>);
+     ui <span class="operator">=</span> <span class="keyword">new</span> Ui_settings();
+     ui<span class="operator">-</span><span class="operator">&gt;</span>setupUi(settingsDialog);
 
-     connect(ui-&gt;brightnessSlider, SIGNAL(valueChanged(int)), this, SLOT(setBrightness(int)));
-     connect(ui-&gt;hueSlider, SIGNAL(valueChanged(int)), this, SLOT(setHue(int)));
-     connect(ui-&gt;saturationSlider, SIGNAL(valueChanged(int)), this, SLOT(setSaturation(int)));
-     connect(ui-&gt;contrastSlider , SIGNAL(valueChanged(int)), this, SLOT(setContrast(int)));
-     connect(ui-&gt;aspectCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setAspect(int)));
-     connect(ui-&gt;scalemodeCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setScale(int)));
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>brightnessSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setBrightness(<span class="type">int</span>)));
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>hueSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setHue(<span class="type">int</span>)));
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>saturationSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setSaturation(<span class="type">int</span>)));
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>contrastSlider <span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setContrast(<span class="type">int</span>)));
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>aspectCombo<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setAspect(<span class="type">int</span>)));
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>scalemodeCombo<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setScale(<span class="type">int</span>)));
 
-     ui-&gt;brightnessSlider-&gt;setValue(int(m_videoWidget-&gt;brightness() * SLIDER_RANGE));
-     ui-&gt;hueSlider-&gt;setValue(int(m_videoWidget-&gt;hue() * SLIDER_RANGE));
-     ui-&gt;saturationSlider-&gt;setValue(int(m_videoWidget-&gt;saturation() * SLIDER_RANGE));
-     ui-&gt;contrastSlider-&gt;setValue(int(m_videoWidget-&gt;contrast() * SLIDER_RANGE));
-     ui-&gt;aspectCombo-&gt;setCurrentIndex(m_videoWidget-&gt;aspectRatio());
-     ui-&gt;scalemodeCombo-&gt;setCurrentIndex(m_videoWidget-&gt;scaleMode());
-     connect(ui-&gt;effectButton, SIGNAL(clicked()), this, SLOT(configureEffect()));
+     ui<span class="operator">-</span><span class="operator">&gt;</span>brightnessSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="type">int</span>(m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>brightness() <span class="operator">*</span> SLIDER_RANGE));
+     ui<span class="operator">-</span><span class="operator">&gt;</span>hueSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="type">int</span>(m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>hue() <span class="operator">*</span> SLIDER_RANGE));
+     ui<span class="operator">-</span><span class="operator">&gt;</span>saturationSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="type">int</span>(m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>saturation() <span class="operator">*</span> SLIDER_RANGE));
+     ui<span class="operator">-</span><span class="operator">&gt;</span>contrastSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="type">int</span>(m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>contrast() <span class="operator">*</span> SLIDER_RANGE));
+     ui<span class="operator">-</span><span class="operator">&gt;</span>aspectCombo<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>aspectRatio());
+     ui<span class="operator">-</span><span class="operator">&gt;</span>scalemodeCombo<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>scaleMode());
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>effectButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(configureEffect()));
 
- #ifdef Q_WS_X11
+ <span class="preprocessor">#ifdef Q_WS_X11</span>
      <span class="comment">//Cross fading is not currently implemented in the GStreamer backend</span>
-     ui-&gt;crossFadeSlider-&gt;setVisible(false);
-     ui-&gt;crossFadeLabel-&gt;setVisible(false);
-     ui-&gt;crossFadeLabel1-&gt;setVisible(false);
-     ui-&gt;crossFadeLabel2-&gt;setVisible(false);
-     ui-&gt;crossFadeLabel3-&gt;setVisible(false);
- #endif
-     ui-&gt;crossFadeSlider-&gt;setValue((int)(2 * m_MediaObject.transitionTime() / 1000.0f));
+     ui<span class="operator">-</span><span class="operator">&gt;</span>crossFadeSlider<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>crossFadeLabel<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>crossFadeLabel1<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>crossFadeLabel2<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>crossFadeLabel3<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+ <span class="preprocessor">#endif</span>
+     ui<span class="operator">-</span><span class="operator">&gt;</span>crossFadeSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue((<span class="type">int</span>)(<span class="number">2</span> <span class="operator">*</span> m_MediaObject<span class="operator">.</span>transitionTime() <span class="operator">/</span> <span class="number">1000.0f</span>));
 
      <span class="comment">// Insert audio devices:</span>
-     QList&lt;Phonon::AudioOutputDevice&gt; devices = Phonon::BackendCapabilities::availableAudioOutputDevices();
-     for (int i=0; i&lt;devices.size(); i++){
-         QString itemText = devices[i].name();
-         if (!devices[i].description().isEmpty()) {
-             itemText += QString::fromLatin1(&quot; (%1)&quot;).arg(devices[i].description());
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>AudioOutputDevice<span class="operator">&gt;</span> devices <span class="operator">=</span> Phonon<span class="operator">::</span>BackendCapabilities<span class="operator">::</span>availableAudioOutputDevices();
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>devices<span class="operator">.</span>size(); i<span class="operator">+</span><span class="operator">+</span>){
+         <span class="type"><a href="qstring.html">QString</a></span> itemText <span class="operator">=</span> devices<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>name();
+         <span class="keyword">if</span> (<span class="operator">!</span>devices<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>description()<span class="operator">.</span>isEmpty()) {
+             itemText <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot; (%1)&quot;</span>)<span class="operator">.</span>arg(devices<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>description());
          }
-         ui-&gt;deviceCombo-&gt;addItem(itemText);
-         if (devices[i] == m_AudioOutput.outputDevice())
-             ui-&gt;deviceCombo-&gt;setCurrentIndex(i);
+         ui<span class="operator">-</span><span class="operator">&gt;</span>deviceCombo<span class="operator">-</span><span class="operator">&gt;</span>addItem(itemText);
+         <span class="keyword">if</span> (devices<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span><span class="operator">=</span> m_AudioOutput<span class="operator">.</span>outputDevice())
+             ui<span class="operator">-</span><span class="operator">&gt;</span>deviceCombo<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(i);
      }
 
      <span class="comment">// Insert audio effects:</span>
-     ui-&gt;audioEffectsCombo-&gt;addItem(tr(&quot;&lt;no effect&gt;&quot;));
-     QList&lt;Phonon::Effect *&gt; currEffects = m_audioOutputPath.effects();
-     Phonon::Effect *currEffect = currEffects.size() ? currEffects[0] : 0;
-     QList&lt;Phonon::EffectDescription&gt; availableEffects = Phonon::BackendCapabilities::availableAudioEffects();
-     for (int i=0; i&lt;availableEffects.size(); i++){
-         ui-&gt;audioEffectsCombo-&gt;addItem(availableEffects[i].name());
-         if (currEffect &amp;&amp; availableEffects[i] == currEffect-&gt;description())
-             ui-&gt;audioEffectsCombo-&gt;setCurrentIndex(i+1);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;&lt;no effect&gt;&quot;</span>));
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>Effect <span class="operator">*</span><span class="operator">&gt;</span> currEffects <span class="operator">=</span> m_audioOutputPath<span class="operator">.</span>effects();
+     Phonon<span class="operator">::</span>Effect <span class="operator">*</span>currEffect <span class="operator">=</span> currEffects<span class="operator">.</span>size() <span class="operator">?</span> currEffects<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> : <span class="number">0</span>;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>EffectDescription<span class="operator">&gt;</span> availableEffects <span class="operator">=</span> Phonon<span class="operator">::</span>BackendCapabilities<span class="operator">::</span>availableAudioEffects();
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>availableEffects<span class="operator">.</span>size(); i<span class="operator">+</span><span class="operator">+</span>){
+         ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>addItem(availableEffects<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>name());
+         <span class="keyword">if</span> (currEffect <span class="operator">&amp;</span><span class="operator">&amp;</span> availableEffects<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span><span class="operator">=</span> currEffect<span class="operator">-</span><span class="operator">&gt;</span>description())
+             ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(i<span class="operator">+</span><span class="number">1</span>);
      }
-     connect(ui-&gt;audioEffectsCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(effectChanged()));
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(effectChanged()));
 
  }
 
- void MediaPlayer::setVolume(qreal volume)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setVolume(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> volume)
  {
-     m_AudioOutput.setVolume(volume);
+     m_AudioOutput<span class="operator">.</span>setVolume(volume);
  }
 
- void MediaPlayer::setSmallScreen(bool smallScreen)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setSmallScreen(<span class="type">bool</span> smallScreen)
  {
-     m_smallScreen = smallScreen;
+     m_smallScreen <span class="operator">=</span> smallScreen;
  }
 
- void MediaPlayer::effectChanged()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>effectChanged()
  {
-     int currentIndex = ui-&gt;audioEffectsCombo-&gt;currentIndex();
-     if (currentIndex) {
-         QList&lt;Phonon::EffectDescription&gt; availableEffects = Phonon::BackendCapabilities::availableAudioEffects();
-         Phonon::EffectDescription chosenEffect = availableEffects[currentIndex - 1];
+     <span class="type">int</span> currentIndex <span class="operator">=</span> ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>currentIndex();
+     <span class="keyword">if</span> (currentIndex) {
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>EffectDescription<span class="operator">&gt;</span> availableEffects <span class="operator">=</span> Phonon<span class="operator">::</span>BackendCapabilities<span class="operator">::</span>availableAudioEffects();
+         Phonon<span class="operator">::</span>EffectDescription chosenEffect <span class="operator">=</span> availableEffects<span class="operator">[</span>currentIndex <span class="operator">-</span> <span class="number">1</span><span class="operator">]</span>;
 
-         QList&lt;Phonon::Effect *&gt; currEffects = m_audioOutputPath.effects();
-         Phonon::Effect *currentEffect = currEffects.size() ? currEffects[0] : 0;
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>Effect <span class="operator">*</span><span class="operator">&gt;</span> currEffects <span class="operator">=</span> m_audioOutputPath<span class="operator">.</span>effects();
+         Phonon<span class="operator">::</span>Effect <span class="operator">*</span>currentEffect <span class="operator">=</span> currEffects<span class="operator">.</span>size() <span class="operator">?</span> currEffects<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> : <span class="number">0</span>;
 
          <span class="comment">// Deleting the running effect will stop playback, it is deleted when removed from path</span>
-         if (nextEffect &amp;&amp; !(currentEffect &amp;&amp; (currentEffect-&gt;description().name() == nextEffect-&gt;description().name())))
-             delete nextEffect;
+         <span class="keyword">if</span> (nextEffect <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>(currentEffect <span class="operator">&amp;</span><span class="operator">&amp;</span> (currentEffect<span class="operator">-</span><span class="operator">&gt;</span>description()<span class="operator">.</span>name() <span class="operator">=</span><span class="operator">=</span> nextEffect<span class="operator">-</span><span class="operator">&gt;</span>description()<span class="operator">.</span>name())))
+             <span class="keyword">delete</span> nextEffect;
 
-         nextEffect = new Phonon::Effect(chosenEffect);
+         nextEffect <span class="operator">=</span> <span class="keyword">new</span> Phonon<span class="operator">::</span>Effect(chosenEffect);
      }
-     ui-&gt;effectButton-&gt;setEnabled(currentIndex);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>effectButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(currentIndex);
  }
 
- void MediaPlayer::showSettingsDialog()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>showSettingsDialog()
  {
-     const bool hasPausedForDialog = playPauseForDialog();
+     <span class="keyword">const</span> <span class="type">bool</span> hasPausedForDialog <span class="operator">=</span> playPauseForDialog();
 
-     if (!settingsDialog)
+     <span class="keyword">if</span> (<span class="operator">!</span>settingsDialog)
          initSettingsDialog();
 
-     float oldBrightness = m_videoWidget-&gt;brightness();
-     float oldHue = m_videoWidget-&gt;hue();
-     float oldSaturation = m_videoWidget-&gt;saturation();
-     float oldContrast = m_videoWidget-&gt;contrast();
-     Phonon::VideoWidget::AspectRatio oldAspect = m_videoWidget-&gt;aspectRatio();
-     Phonon::VideoWidget::ScaleMode oldScale = m_videoWidget-&gt;scaleMode();
-     int currentEffect = ui-&gt;audioEffectsCombo-&gt;currentIndex();
-     settingsDialog-&gt;exec();
+     <span class="type">float</span> oldBrightness <span class="operator">=</span> m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>brightness();
+     <span class="type">float</span> oldHue <span class="operator">=</span> m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>hue();
+     <span class="type">float</span> oldSaturation <span class="operator">=</span> m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>saturation();
+     <span class="type">float</span> oldContrast <span class="operator">=</span> m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>contrast();
+     Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>AspectRatio oldAspect <span class="operator">=</span> m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>aspectRatio();
+     Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>ScaleMode oldScale <span class="operator">=</span> m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>scaleMode();
+     <span class="type">int</span> currentEffect <span class="operator">=</span> ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>currentIndex();
+     settingsDialog<span class="operator">-</span><span class="operator">&gt;</span>exec();
 
-     if (settingsDialog-&gt;result() == QDialog::Accepted){
-         m_MediaObject.setTransitionTime((int)(1000 * float(ui-&gt;crossFadeSlider-&gt;value()) / 2.0f));
-         QList&lt;Phonon::AudioOutputDevice&gt; devices = Phonon::BackendCapabilities::availableAudioOutputDevices();
-         m_AudioOutput.setOutputDevice(devices[ui-&gt;deviceCombo-&gt;currentIndex()]);
-         QList&lt;Phonon::Effect *&gt; currEffects = m_audioOutputPath.effects();
-         QList&lt;Phonon::EffectDescription&gt; availableEffects = Phonon::BackendCapabilities::availableAudioEffects();
+     <span class="keyword">if</span> (settingsDialog<span class="operator">-</span><span class="operator">&gt;</span>result() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted){
+         m_MediaObject<span class="operator">.</span>setTransitionTime((<span class="type">int</span>)(<span class="number">1000</span> <span class="operator">*</span> <span class="type">float</span>(ui<span class="operator">-</span><span class="operator">&gt;</span>crossFadeSlider<span class="operator">-</span><span class="operator">&gt;</span>value()) <span class="operator">/</span> <span class="number">2.0f</span>));
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>AudioOutputDevice<span class="operator">&gt;</span> devices <span class="operator">=</span> Phonon<span class="operator">::</span>BackendCapabilities<span class="operator">::</span>availableAudioOutputDevices();
+         m_AudioOutput<span class="operator">.</span>setOutputDevice(devices<span class="operator">[</span>ui<span class="operator">-</span><span class="operator">&gt;</span>deviceCombo<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()<span class="operator">]</span>);
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>Effect <span class="operator">*</span><span class="operator">&gt;</span> currEffects <span class="operator">=</span> m_audioOutputPath<span class="operator">.</span>effects();
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>EffectDescription<span class="operator">&gt;</span> availableEffects <span class="operator">=</span> Phonon<span class="operator">::</span>BackendCapabilities<span class="operator">::</span>availableAudioEffects();
 
-         if (ui-&gt;audioEffectsCombo-&gt;currentIndex() &gt; 0){
-             Phonon::Effect *currentEffect = currEffects.size() ? currEffects[0] : 0;
-             if (!currentEffect || currentEffect-&gt;description() != nextEffect-&gt;description()){
-                 foreach(Phonon::Effect *effect, currEffects) {
-                     m_audioOutputPath.removeEffect(effect);
-                     delete effect;
+         <span class="keyword">if</span> (ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>currentIndex() <span class="operator">&gt;</span> <span class="number">0</span>){
+             Phonon<span class="operator">::</span>Effect <span class="operator">*</span>currentEffect <span class="operator">=</span> currEffects<span class="operator">.</span>size() <span class="operator">?</span> currEffects<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> : <span class="number">0</span>;
+             <span class="keyword">if</span> (<span class="operator">!</span>currentEffect <span class="operator">|</span><span class="operator">|</span> currentEffect<span class="operator">-</span><span class="operator">&gt;</span>description() <span class="operator">!</span><span class="operator">=</span> nextEffect<span class="operator">-</span><span class="operator">&gt;</span>description()){
+                 foreach(Phonon<span class="operator">::</span>Effect <span class="operator">*</span>effect<span class="operator">,</span> currEffects) {
+                     m_audioOutputPath<span class="operator">.</span>removeEffect(effect);
+                     <span class="keyword">delete</span> effect;
                  }
-                 m_audioOutputPath.insertEffect(nextEffect);
+                 m_audioOutputPath<span class="operator">.</span>insertEffect(nextEffect);
              }
-         } else {
-             foreach(Phonon::Effect *effect, currEffects) {
-                 m_audioOutputPath.removeEffect(effect);
-                 delete effect;
-                 nextEffect = 0;
+         } <span class="keyword">else</span> {
+             foreach(Phonon<span class="operator">::</span>Effect <span class="operator">*</span>effect<span class="operator">,</span> currEffects) {
+                 m_audioOutputPath<span class="operator">.</span>removeEffect(effect);
+                 <span class="keyword">delete</span> effect;
+                 nextEffect <span class="operator">=</span> <span class="number">0</span>;
              }
          }
-     } else {
+     } <span class="keyword">else</span> {
          <span class="comment">// Restore previous settings</span>
-         m_videoWidget-&gt;setBrightness(oldBrightness);
-         m_videoWidget-&gt;setSaturation(oldSaturation);
-         m_videoWidget-&gt;setHue(oldHue);
-         m_videoWidget-&gt;setContrast(oldContrast);
-         m_videoWidget-&gt;setAspectRatio(oldAspect);
-         m_videoWidget-&gt;setScaleMode(oldScale);
-         ui-&gt;audioEffectsCombo-&gt;setCurrentIndex(currentEffect);
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setBrightness(oldBrightness);
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setSaturation(oldSaturation);
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setHue(oldHue);
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setContrast(oldContrast);
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setAspectRatio(oldAspect);
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setScaleMode(oldScale);
+         ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(currentEffect);
      }
 
-     if (hasPausedForDialog)
-         m_MediaObject.play();
+     <span class="keyword">if</span> (hasPausedForDialog)
+         m_MediaObject<span class="operator">.</span>play();
  }
 
- void MediaPlayer::initVideoWindow()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>initVideoWindow()
  {
-     QVBoxLayout *videoLayout = new QVBoxLayout();
-     videoLayout-&gt;addWidget(m_videoWidget);
-     videoLayout-&gt;setContentsMargins(0, 0, 0, 0);
-     m_videoWindow.setLayout(videoLayout);
-     m_videoWindow.setMinimumSize(100, 100);
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>videoLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>();
+     videoLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_videoWidget);
+     videoLayout<span class="operator">-</span><span class="operator">&gt;</span>setContentsMargins(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     m_videoWindow<span class="operator">.</span>setLayout(videoLayout);
+     m_videoWindow<span class="operator">.</span>setMinimumSize(<span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);
  }
 
- void MediaPlayer::configureEffect()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>configureEffect()
  {
-     if (!nextEffect)
-         return;
+     <span class="keyword">if</span> (<span class="operator">!</span>nextEffect)
+         <span class="keyword">return</span>;
 
-     QList&lt;Phonon::Effect *&gt; currEffects = m_audioOutputPath.effects();
-     const QList&lt;Phonon::EffectDescription&gt; availableEffects = Phonon::BackendCapabilities::availableAudioEffects();
-     if (ui-&gt;audioEffectsCombo-&gt;currentIndex() &gt; 0) {
-         Phonon::EffectDescription chosenEffect = availableEffects[ui-&gt;audioEffectsCombo-&gt;currentIndex() - 1];
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>Effect <span class="operator">*</span><span class="operator">&gt;</span> currEffects <span class="operator">=</span> m_audioOutputPath<span class="operator">.</span>effects();
+     <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>EffectDescription<span class="operator">&gt;</span> availableEffects <span class="operator">=</span> Phonon<span class="operator">::</span>BackendCapabilities<span class="operator">::</span>availableAudioEffects();
+     <span class="keyword">if</span> (ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>currentIndex() <span class="operator">&gt;</span> <span class="number">0</span>) {
+         Phonon<span class="operator">::</span>EffectDescription chosenEffect <span class="operator">=</span> availableEffects<span class="operator">[</span>ui<span class="operator">-</span><span class="operator">&gt;</span>audioEffectsCombo<span class="operator">-</span><span class="operator">&gt;</span>currentIndex() <span class="operator">-</span> <span class="number">1</span><span class="operator">]</span>;
 
-         QDialog effectDialog;
-         effectDialog.setWindowTitle(tr(&quot;Configure effect&quot;));
-         QVBoxLayout *topLayout = new QVBoxLayout(&amp;effectDialog);
+         <span class="type"><a href="qdialog.html">QDialog</a></span> effectDialog;
+         effectDialog<span class="operator">.</span>setWindowTitle(tr(<span class="string">&quot;Configure effect&quot;</span>));
+         <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>topLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="operator">&amp;</span>effectDialog);
 
-         QLabel *description = new QLabel(&quot;&lt;b&gt;Description:&lt;/b&gt;&lt;br&gt;&quot; + chosenEffect.description(), &amp;effectDialog);
-         description-&gt;setWordWrap(true);
-         topLayout-&gt;addWidget(description);
+         <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>description <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="string">&quot;&lt;b&gt;Description:&lt;/b&gt;&lt;br&gt;&quot;</span> <span class="operator">+</span> chosenEffect<span class="operator">.</span>description()<span class="operator">,</span> <span class="operator">&amp;</span>effectDialog);
+         description<span class="operator">-</span><span class="operator">&gt;</span>setWordWrap(<span class="keyword">true</span>);
+         topLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(description);
 
-         QScrollArea *scrollArea = new QScrollArea(&amp;effectDialog);
-         topLayout-&gt;addWidget(scrollArea);
+         <span class="type"><a href="qscrollarea.html">QScrollArea</a></span> <span class="operator">*</span>scrollArea <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qscrollarea.html">QScrollArea</a></span>(<span class="operator">&amp;</span>effectDialog);
+         topLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(scrollArea);
 
-         QVariantList savedParamValues;
-         foreach(Phonon::EffectParameter param, nextEffect-&gt;parameters()) {
-             savedParamValues &lt;&lt; nextEffect-&gt;parameterValue(param);
+         <span class="type"><a href="qvariant.html#QVariantList-typedef">QVariantList</a></span> savedParamValues;
+         foreach(Phonon<span class="operator">::</span>EffectParameter param<span class="operator">,</span> nextEffect<span class="operator">-</span><span class="operator">&gt;</span>parameters()) {
+             savedParamValues <span class="operator">&lt;</span><span class="operator">&lt;</span> nextEffect<span class="operator">-</span><span class="operator">&gt;</span>parameterValue(param);
          }
 
-         QWidget *scrollWidget = new Phonon::EffectWidget(nextEffect);
-         scrollWidget-&gt;setMinimumWidth(320);
-         scrollWidget-&gt;setContentsMargins(10, 10, 10,10);
-         scrollArea-&gt;setWidget(scrollWidget);
+         <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>scrollWidget <span class="operator">=</span> <span class="keyword">new</span> Phonon<span class="operator">::</span>EffectWidget(nextEffect);
+         scrollWidget<span class="operator">-</span><span class="operator">&gt;</span>setMinimumWidth(<span class="number">320</span>);
+         scrollWidget<span class="operator">-</span><span class="operator">&gt;</span>setContentsMargins(<span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span><span class="number">10</span>);
+         scrollArea<span class="operator">-</span><span class="operator">&gt;</span>setWidget(scrollWidget);
 
-         QDialogButtonBox *bbox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, &amp;effectDialog);
-         connect(bbox-&gt;button(QDialogButtonBox::Ok), SIGNAL(clicked()), &amp;effectDialog, SLOT(accept()));
-         connect(bbox-&gt;button(QDialogButtonBox::Cancel), SIGNAL(clicked()), &amp;effectDialog, SLOT(reject()));
-         topLayout-&gt;addWidget(bbox);
+         <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span> <span class="operator">*</span>bbox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span>(<span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Ok <span class="operator">|</span> <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Cancel<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="operator">&amp;</span>effectDialog);
+         connect(bbox<span class="operator">-</span><span class="operator">&gt;</span>button(<span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Ok)<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="operator">&amp;</span>effectDialog<span class="operator">,</span> SLOT(accept()));
+         connect(bbox<span class="operator">-</span><span class="operator">&gt;</span>button(<span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Cancel)<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="operator">&amp;</span>effectDialog<span class="operator">,</span> SLOT(reject()));
+         topLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(bbox);
 
-         effectDialog.exec();
+         effectDialog<span class="operator">.</span>exec();
 
-         if (effectDialog.result() != QDialog::Accepted) {
+         <span class="keyword">if</span> (effectDialog<span class="operator">.</span>result() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted) {
              <span class="comment">//we need to restore the parameters values</span>
-             int currentIndex = 0;
-             foreach(Phonon::EffectParameter param, nextEffect-&gt;parameters()) {
-                 nextEffect-&gt;setParameterValue(param, savedParamValues.at(currentIndex++));
+             <span class="type">int</span> currentIndex <span class="operator">=</span> <span class="number">0</span>;
+             foreach(Phonon<span class="operator">::</span>EffectParameter param<span class="operator">,</span> nextEffect<span class="operator">-</span><span class="operator">&gt;</span>parameters()) {
+                 nextEffect<span class="operator">-</span><span class="operator">&gt;</span>setParameterValue(param<span class="operator">,</span> savedParamValues<span class="operator">.</span>at(currentIndex<span class="operator">+</span><span class="operator">+</span>));
              }
 
          }
      }
  }
 
- void MediaPlayer::handleDrop(QDropEvent *e)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>handleDrop(<span class="type"><a href="qdropevent.html">QDropEvent</a></span> <span class="operator">*</span>e)
  {
-     QList&lt;QUrl&gt; urls = e-&gt;mimeData()-&gt;urls();
-     if (e-&gt;proposedAction() == Qt::MoveAction){
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">&gt;</span> urls <span class="operator">=</span> e<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>urls();
+     <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>proposedAction() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MoveAction){
          <span class="comment">// Just add to the queue:</span>
-         for (int i=0; i&lt;urls.size(); i++)
-             m_MediaObject.enqueue(Phonon::MediaSource(urls[i].toLocalFile()));
-     } else {
+         <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>urls<span class="operator">.</span>size(); i<span class="operator">+</span><span class="operator">+</span>)
+             m_MediaObject<span class="operator">.</span>enqueue(Phonon<span class="operator">::</span>MediaSource(urls<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>toLocalFile()));
+     } <span class="keyword">else</span> {
          <span class="comment">// Create new queue:</span>
-         m_MediaObject.clearQueue();
-         if (urls.size() &gt; 0) {
-             QString fileName = urls[0].toLocalFile();
-             QDir dir(fileName);
-             if (dir.exists()) {
-                 dir.setFilter(QDir::Files);
-                 QStringList entries = dir.entryList();
-                 if (entries.size() &gt; 0) {
-                     setFile(fileName + QDir::separator() +  entries[0]);
-                     for (int i=1; i&lt; entries.size(); ++i)
-                         m_MediaObject.enqueue(fileName + QDir::separator() + entries[i]);
+         m_MediaObject<span class="operator">.</span>clearQueue();
+         <span class="keyword">if</span> (urls<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>) {
+             <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> urls<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>toLocalFile();
+             <span class="type"><a href="qdir.html">QDir</a></span> dir(fileName);
+             <span class="keyword">if</span> (dir<span class="operator">.</span>exists()) {
+                 dir<span class="operator">.</span>setFilter(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files);
+                 <span class="type"><a href="qstringlist.html">QStringList</a></span> entries <span class="operator">=</span> dir<span class="operator">.</span>entryList();
+                 <span class="keyword">if</span> (entries<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>) {
+                     setFile(fileName <span class="operator">+</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>separator() <span class="operator">+</span>  entries<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
+                     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">1</span>; i<span class="operator">&lt;</span> entries<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i)
+                         m_MediaObject<span class="operator">.</span>enqueue(fileName <span class="operator">+</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>separator() <span class="operator">+</span> entries<span class="operator">[</span>i<span class="operator">]</span>);
                  }
-             } else {
+             } <span class="keyword">else</span> {
                  setFile(fileName);
-                 for (int i=1; i&lt;urls.size(); i++)
-                     m_MediaObject.enqueue(Phonon::MediaSource(urls[i].toLocalFile()));
+                 <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">1</span>; i<span class="operator">&lt;</span>urls<span class="operator">.</span>size(); i<span class="operator">+</span><span class="operator">+</span>)
+                     m_MediaObject<span class="operator">.</span>enqueue(Phonon<span class="operator">::</span>MediaSource(urls<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>toLocalFile()));
              }
          }
      }
-     forwardButton-&gt;setEnabled(m_MediaObject.queue().size() &gt; 0);
-     m_MediaObject.play();
+     forwardButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(m_MediaObject<span class="operator">.</span>queue()<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>);
+     m_MediaObject<span class="operator">.</span>play();
  }
 
- void MediaPlayer::dropEvent(QDropEvent *e)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>dropEvent(<span class="type"><a href="qdropevent.html">QDropEvent</a></span> <span class="operator">*</span>e)
  {
-     if (e-&gt;mimeData()-&gt;hasUrls() &amp;&amp; e-&gt;proposedAction() != Qt::LinkAction) {
-         e-&gt;acceptProposedAction();
+     <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasUrls() <span class="operator">&amp;</span><span class="operator">&amp;</span> e<span class="operator">-</span><span class="operator">&gt;</span>proposedAction() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LinkAction) {
+         e<span class="operator">-</span><span class="operator">&gt;</span>acceptProposedAction();
          handleDrop(e);
-     } else {
-         e-&gt;ignore();
+     } <span class="keyword">else</span> {
+         e<span class="operator">-</span><span class="operator">&gt;</span>ignore();
      }
  }
 
- void MediaPlayer::dragEnterEvent(QDragEnterEvent *e)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>dragEnterEvent(<span class="type"><a href="qdragenterevent.html">QDragEnterEvent</a></span> <span class="operator">*</span>e)
  {
      dragMoveEvent(e);
  }
 
- void MediaPlayer::dragMoveEvent(QDragMoveEvent *e)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>dragMoveEvent(<span class="type"><a href="qdragmoveevent.html">QDragMoveEvent</a></span> <span class="operator">*</span>e)
  {
-     if (e-&gt;mimeData()-&gt;hasUrls()) {
-         if (e-&gt;proposedAction() == Qt::CopyAction || e-&gt;proposedAction() == Qt::MoveAction){
-             e-&gt;acceptProposedAction();
+     <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasUrls()) {
+         <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>proposedAction() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CopyAction <span class="operator">|</span><span class="operator">|</span> e<span class="operator">-</span><span class="operator">&gt;</span>proposedAction() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MoveAction){
+             e<span class="operator">-</span><span class="operator">&gt;</span>acceptProposedAction();
          }
      }
  }
 
- void MediaPlayer::playPause()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>playPause()
  {
-     if (m_MediaObject.state() == Phonon::PlayingState)
-         m_MediaObject.pause();
-     else {
-         if (m_MediaObject.currentTime() == m_MediaObject.totalTime())
-             m_MediaObject.seek(0);
-         m_MediaObject.play();
+     <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>state() <span class="operator">=</span><span class="operator">=</span> Phonon<span class="operator">::</span>PlayingState)
+         m_MediaObject<span class="operator">.</span>pause();
+     <span class="keyword">else</span> {
+         <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>currentTime() <span class="operator">=</span><span class="operator">=</span> m_MediaObject<span class="operator">.</span>totalTime())
+             m_MediaObject<span class="operator">.</span>seek(<span class="number">0</span>);
+         m_MediaObject<span class="operator">.</span>play();
      }
  }
 
- void MediaPlayer::setFile(const QString &amp;fileName)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setFile(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
  {
-     setWindowTitle(fileName.right(fileName.length() - fileName.lastIndexOf('/') - 1));
-     m_MediaObject.setCurrentSource(Phonon::MediaSource(fileName));
-     m_MediaObject.play();
+     setWindowTitle(fileName<span class="operator">.</span>right(fileName<span class="operator">.</span>length() <span class="operator">-</span> fileName<span class="operator">.</span>lastIndexOf(<span class="char">'/'</span>) <span class="operator">-</span> <span class="number">1</span>));
+     m_MediaObject<span class="operator">.</span>setCurrentSource(Phonon<span class="operator">::</span>MediaSource(fileName));
+     m_MediaObject<span class="operator">.</span>play();
  }
 
- void MediaPlayer::setLocation(const QString&amp; location)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setLocation(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&amp;</span> location)
  {
-     setWindowTitle(location.right(location.length() - location.lastIndexOf('/') - 1));
-     m_MediaObject.setCurrentSource(Phonon::MediaSource(QUrl::fromEncoded(location.toUtf8())));
-     m_MediaObject.play();
+     setWindowTitle(location<span class="operator">.</span>right(location<span class="operator">.</span>length() <span class="operator">-</span> location<span class="operator">.</span>lastIndexOf(<span class="char">'/'</span>) <span class="operator">-</span> <span class="number">1</span>));
+     m_MediaObject<span class="operator">.</span>setCurrentSource(Phonon<span class="operator">::</span>MediaSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromEncoded(location<span class="operator">.</span>toUtf8())));
+     m_MediaObject<span class="operator">.</span>play();
  }
 
- bool MediaPlayer::playPauseForDialog()
+ <span class="type">bool</span> MediaPlayer<span class="operator">::</span>playPauseForDialog()
  {
      <span class="comment">// If we're running on a small screen, we want to pause the video when</span>
      <span class="comment">// popping up dialogs. We neither want to tamper with the state if the</span>
      <span class="comment">// user has paused.</span>
-     if (m_smallScreen &amp;&amp; m_MediaObject.hasVideo()) {
-         if (Phonon::PlayingState == m_MediaObject.state()) {
-             m_MediaObject.pause();
-             return true;
+     <span class="keyword">if</span> (m_smallScreen <span class="operator">&amp;</span><span class="operator">&amp;</span> m_MediaObject<span class="operator">.</span>hasVideo()) {
+         <span class="keyword">if</span> (Phonon<span class="operator">::</span>PlayingState <span class="operator">=</span><span class="operator">=</span> m_MediaObject<span class="operator">.</span>state()) {
+             m_MediaObject<span class="operator">.</span>pause();
+             <span class="keyword">return</span> <span class="keyword">true</span>;
          }
      }
-     return false;
+     <span class="keyword">return</span> <span class="keyword">false</span>;
  }
 
- void MediaPlayer::openFile()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>openFile()
  {
-     const bool hasPausedForDialog = playPauseForDialog();
+     <span class="keyword">const</span> <span class="type">bool</span> hasPausedForDialog <span class="operator">=</span> playPauseForDialog();
 
-     QStringList fileNames = QFileDialog::getOpenFileNames(this, QString(),
-                                                           QDesktopServices::storageLocation(QDesktopServices::MusicLocation));
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> fileNames <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getOpenFileNames(<span class="keyword">this</span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">,</span>
+                                                           <span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>storageLocation(<span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>MusicLocation));
 
-     if (hasPausedForDialog)
-         m_MediaObject.play();
+     <span class="keyword">if</span> (hasPausedForDialog)
+         m_MediaObject<span class="operator">.</span>play();
 
-     m_MediaObject.clearQueue();
-     if (fileNames.size() &gt; 0) {
-         QString fileName = fileNames[0];
+     m_MediaObject<span class="operator">.</span>clearQueue();
+     <span class="keyword">if</span> (fileNames<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>) {
+         <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> fileNames<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>;
          setFile(fileName);
-         for (int i=1; i&lt;fileNames.size(); i++)
-             m_MediaObject.enqueue(Phonon::MediaSource(fileNames[i]));
+         <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">1</span>; i<span class="operator">&lt;</span>fileNames<span class="operator">.</span>size(); i<span class="operator">+</span><span class="operator">+</span>)
+             m_MediaObject<span class="operator">.</span>enqueue(Phonon<span class="operator">::</span>MediaSource(fileNames<span class="operator">[</span>i<span class="operator">]</span>));
      }
-     forwardButton-&gt;setEnabled(m_MediaObject.queue().size() &gt; 0);
+     forwardButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(m_MediaObject<span class="operator">.</span>queue()<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>);
  }
 
- void MediaPlayer::bufferStatus(int percent)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>bufferStatus(<span class="type">int</span> percent)
  {
-     if (percent == 100)
-         progressLabel-&gt;setText(QString());
-     else {
-         QString str = QString::fromLatin1(&quot;(%1%)&quot;).arg(percent);
-         progressLabel-&gt;setText(str);
+     <span class="keyword">if</span> (percent <span class="operator">=</span><span class="operator">=</span> <span class="number">100</span>)
+         progressLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span>());
+     <span class="keyword">else</span> {
+         <span class="type"><a href="qstring.html">QString</a></span> str <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;(%1%)&quot;</span>)<span class="operator">.</span>arg(percent);
+         progressLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(str);
      }
  }
 
- void MediaPlayer::setSaturation(int val)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setSaturation(<span class="type">int</span> val)
  {
-     m_videoWidget-&gt;setSaturation(val / qreal(SLIDER_RANGE));
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setSaturation(val <span class="operator">/</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(SLIDER_RANGE));
  }
 
- void MediaPlayer::setHue(int val)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setHue(<span class="type">int</span> val)
  {
-     m_videoWidget-&gt;setHue(val / qreal(SLIDER_RANGE));
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setHue(val <span class="operator">/</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(SLIDER_RANGE));
  }
 
- void MediaPlayer::setAspect(int val)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setAspect(<span class="type">int</span> val)
  {
-     m_videoWidget-&gt;setAspectRatio(Phonon::VideoWidget::AspectRatio(val));
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setAspectRatio(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>AspectRatio(val));
  }
 
- void MediaPlayer::setScale(int val)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setScale(<span class="type">int</span> val)
  {
-     m_videoWidget-&gt;setScaleMode(Phonon::VideoWidget::ScaleMode(val));
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setScaleMode(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>ScaleMode(val));
  }
 
- void MediaPlayer::setBrightness(int val)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setBrightness(<span class="type">int</span> val)
  {
-     m_videoWidget-&gt;setBrightness(val / qreal(SLIDER_RANGE));
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setBrightness(val <span class="operator">/</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(SLIDER_RANGE));
  }
 
- void MediaPlayer::setContrast(int val)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>setContrast(<span class="type">int</span> val)
  {
-     m_videoWidget-&gt;setContrast(val / qreal(SLIDER_RANGE));
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setContrast(val <span class="operator">/</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(SLIDER_RANGE));
  }
 
- void MediaPlayer::updateInfo()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>updateInfo()
  {
-     int maxLength = 30;
-     QString font = &quot;&lt;font color=#ffeeaa&gt;&quot;;
-     QString fontmono = &quot;&lt;font family=\&quot;monospace,courier new\&quot; color=#ffeeaa&gt;&quot;;
+     <span class="type">int</span> maxLength <span class="operator">=</span> <span class="number">30</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> font <span class="operator">=</span> <span class="string">&quot;&lt;font color=#ffeeaa&gt;&quot;</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> fontmono <span class="operator">=</span> <span class="string">&quot;&lt;font family=\&quot;monospace,courier new\&quot; color=#ffeeaa&gt;&quot;</span>;
 
-     QMap &lt;QString, QString&gt; metaData = m_MediaObject.metaData();
-     QString trackArtist = metaData.value(&quot;ARTIST&quot;);
-     if (trackArtist.length() &gt; maxLength)
-         trackArtist = trackArtist.left(maxLength) + &quot;...&quot;;
+     <span class="type"><a href="qmap.html">QMap</a></span> <span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> metaData <span class="operator">=</span> m_MediaObject<span class="operator">.</span>metaData();
+     <span class="type"><a href="qstring.html">QString</a></span> trackArtist <span class="operator">=</span> metaData<span class="operator">.</span>value(<span class="string">&quot;ARTIST&quot;</span>);
+     <span class="keyword">if</span> (trackArtist<span class="operator">.</span>length() <span class="operator">&gt;</span> maxLength)
+         trackArtist <span class="operator">=</span> trackArtist<span class="operator">.</span>left(maxLength) <span class="operator">+</span> <span class="string">&quot;...&quot;</span>;
 
-     QString trackTitle = metaData.value(&quot;TITLE&quot;);
-     int trackBitrate = metaData.value(&quot;BITRATE&quot;).toInt();
+     <span class="type"><a href="qstring.html">QString</a></span> trackTitle <span class="operator">=</span> metaData<span class="operator">.</span>value(<span class="string">&quot;TITLE&quot;</span>);
+     <span class="type">int</span> trackBitrate <span class="operator">=</span> metaData<span class="operator">.</span>value(<span class="string">&quot;BITRATE&quot;</span>)<span class="operator">.</span>toInt();
 
-     QString fileName;
-     if (m_MediaObject.currentSource().type() == Phonon::MediaSource::Url) {
-         fileName = m_MediaObject.currentSource().url().toString();
-     } else {
-         fileName = m_MediaObject.currentSource().fileName();
-         fileName = fileName.right(fileName.length() - fileName.lastIndexOf('/') - 1);
-         if (fileName.length() &gt; maxLength)
-             fileName = fileName.left(maxLength) + &quot;...&quot;;
+     <span class="type"><a href="qstring.html">QString</a></span> fileName;
+     <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>currentSource()<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> Phonon<span class="operator">::</span>MediaSource<span class="operator">::</span>Url) {
+         fileName <span class="operator">=</span> m_MediaObject<span class="operator">.</span>currentSource()<span class="operator">.</span>url()<span class="operator">.</span>toString();
+     } <span class="keyword">else</span> {
+         fileName <span class="operator">=</span> m_MediaObject<span class="operator">.</span>currentSource()<span class="operator">.</span>fileName();
+         fileName <span class="operator">=</span> fileName<span class="operator">.</span>right(fileName<span class="operator">.</span>length() <span class="operator">-</span> fileName<span class="operator">.</span>lastIndexOf(<span class="char">'/'</span>) <span class="operator">-</span> <span class="number">1</span>);
+         <span class="keyword">if</span> (fileName<span class="operator">.</span>length() <span class="operator">&gt;</span> maxLength)
+             fileName <span class="operator">=</span> fileName<span class="operator">.</span>left(maxLength) <span class="operator">+</span> <span class="string">&quot;...&quot;</span>;
      }
 
-     QString title;
-     if (!trackTitle.isEmpty()) {
-         if (trackTitle.length() &gt; maxLength)
-             trackTitle = trackTitle.left(maxLength) + &quot;...&quot;;
-         title = &quot;Title: &quot; + font + trackTitle + &quot;&lt;br&gt;&lt;/font&gt;&quot;;
-     } else if (!fileName.isEmpty()) {
-         if (fileName.length() &gt; maxLength)
-             fileName = fileName.left(maxLength) + &quot;...&quot;;
-         title = font + fileName + &quot;&lt;/font&gt;&quot;;
-         if (m_MediaObject.currentSource().type() == Phonon::MediaSource::Url) {
-             title.prepend(&quot;Url: &quot;);
-         } else {
-             title.prepend(&quot;File: &quot;);
+     <span class="type"><a href="qstring.html">QString</a></span> title;
+     <span class="keyword">if</span> (<span class="operator">!</span>trackTitle<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">if</span> (trackTitle<span class="operator">.</span>length() <span class="operator">&gt;</span> maxLength)
+             trackTitle <span class="operator">=</span> trackTitle<span class="operator">.</span>left(maxLength) <span class="operator">+</span> <span class="string">&quot;...&quot;</span>;
+         title <span class="operator">=</span> <span class="string">&quot;Title: &quot;</span> <span class="operator">+</span> font <span class="operator">+</span> trackTitle <span class="operator">+</span> <span class="string">&quot;&lt;br&gt;&lt;/font&gt;&quot;</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="operator">!</span>fileName<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">if</span> (fileName<span class="operator">.</span>length() <span class="operator">&gt;</span> maxLength)
+             fileName <span class="operator">=</span> fileName<span class="operator">.</span>left(maxLength) <span class="operator">+</span> <span class="string">&quot;...&quot;</span>;
+         title <span class="operator">=</span> font <span class="operator">+</span> fileName <span class="operator">+</span> <span class="string">&quot;&lt;/font&gt;&quot;</span>;
+         <span class="keyword">if</span> (m_MediaObject<span class="operator">.</span>currentSource()<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> Phonon<span class="operator">::</span>MediaSource<span class="operator">::</span>Url) {
+             title<span class="operator">.</span>prepend(<span class="string">&quot;Url: &quot;</span>);
+         } <span class="keyword">else</span> {
+             title<span class="operator">.</span>prepend(<span class="string">&quot;File: &quot;</span>);
          }
      }
 
-     QString artist;
-     if (!trackArtist.isEmpty())
-         artist = &quot;Artist:  &quot; + font + trackArtist + &quot;&lt;/font&gt;&quot;;
+     <span class="type"><a href="qstring.html">QString</a></span> artist;
+     <span class="keyword">if</span> (<span class="operator">!</span>trackArtist<span class="operator">.</span>isEmpty())
+         artist <span class="operator">=</span> <span class="string">&quot;Artist:  &quot;</span> <span class="operator">+</span> font <span class="operator">+</span> trackArtist <span class="operator">+</span> <span class="string">&quot;&lt;/font&gt;&quot;</span>;
 
-     QString bitrate;
-     if (trackBitrate != 0)
-         bitrate = &quot;&lt;br&gt;Bitrate:  &quot; + font + QString::number(trackBitrate/1000) + &quot;kbit&lt;/font&gt;&quot;;
+     <span class="type"><a href="qstring.html">QString</a></span> bitrate;
+     <span class="keyword">if</span> (trackBitrate <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>)
+         bitrate <span class="operator">=</span> <span class="string">&quot;&lt;br&gt;Bitrate:  &quot;</span> <span class="operator">+</span> font <span class="operator">+</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(trackBitrate<span class="operator">/</span><span class="number">1000</span>) <span class="operator">+</span> <span class="string">&quot;kbit&lt;/font&gt;&quot;</span>;
 
-     info-&gt;setText(title + artist + bitrate);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setText(title <span class="operator">+</span> artist <span class="operator">+</span> bitrate);
  }
 
- void MediaPlayer::updateTime()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>updateTime()
  {
-     long len = m_MediaObject.totalTime();
-     long pos = m_MediaObject.currentTime();
-     QString timeString;
-     if (pos || len)
+     <span class="type">long</span> len <span class="operator">=</span> m_MediaObject<span class="operator">.</span>totalTime();
+     <span class="type">long</span> pos <span class="operator">=</span> m_MediaObject<span class="operator">.</span>currentTime();
+     <span class="type"><a href="qstring.html">QString</a></span> timeString;
+     <span class="keyword">if</span> (pos <span class="operator">|</span><span class="operator">|</span> len)
      {
-         int sec = pos/1000;
-         int min = sec/60;
-         int hour = min/60;
-         int msec = pos;
+         <span class="type">int</span> sec <span class="operator">=</span> pos<span class="operator">/</span><span class="number">1000</span>;
+         <span class="type">int</span> min <span class="operator">=</span> sec<span class="operator">/</span><span class="number">60</span>;
+         <span class="type">int</span> hour <span class="operator">=</span> min<span class="operator">/</span><span class="number">60</span>;
+         <span class="type">int</span> msec <span class="operator">=</span> pos;
 
-         QTime playTime(hour%60, min%60, sec%60, msec%1000);
-         sec = len / 1000;
-         min = sec / 60;
-         hour = min / 60;
-         msec = len;
+         <span class="type"><a href="qtime.html">QTime</a></span> playTime(hour<span class="operator">%</span><span class="number">60</span><span class="operator">,</span> min<span class="operator">%</span><span class="number">60</span><span class="operator">,</span> sec<span class="operator">%</span><span class="number">60</span><span class="operator">,</span> msec<span class="operator">%</span><span class="number">1000</span>);
+         sec <span class="operator">=</span> len <span class="operator">/</span> <span class="number">1000</span>;
+         min <span class="operator">=</span> sec <span class="operator">/</span> <span class="number">60</span>;
+         hour <span class="operator">=</span> min <span class="operator">/</span> <span class="number">60</span>;
+         msec <span class="operator">=</span> len;
 
-         QTime stopTime(hour%60, min%60, sec%60, msec%1000);
-         QString timeFormat = &quot;m:ss&quot;;
-         if (hour &gt; 0)
-             timeFormat = &quot;h:mm:ss&quot;;
-         timeString = playTime.toString(timeFormat);
-         if (len)
-             timeString += &quot; / &quot; + stopTime.toString(timeFormat);
+         <span class="type"><a href="qtime.html">QTime</a></span> stopTime(hour<span class="operator">%</span><span class="number">60</span><span class="operator">,</span> min<span class="operator">%</span><span class="number">60</span><span class="operator">,</span> sec<span class="operator">%</span><span class="number">60</span><span class="operator">,</span> msec<span class="operator">%</span><span class="number">1000</span>);
+         <span class="type"><a href="qstring.html">QString</a></span> timeFormat <span class="operator">=</span> <span class="string">&quot;m:ss&quot;</span>;
+         <span class="keyword">if</span> (hour <span class="operator">&gt;</span> <span class="number">0</span>)
+             timeFormat <span class="operator">=</span> <span class="string">&quot;h:mm:ss&quot;</span>;
+         timeString <span class="operator">=</span> playTime<span class="operator">.</span>toString(timeFormat);
+         <span class="keyword">if</span> (len)
+             timeString <span class="operator">+</span><span class="operator">=</span> <span class="string">&quot; / &quot;</span> <span class="operator">+</span> stopTime<span class="operator">.</span>toString(timeFormat);
      }
-     timeLabel-&gt;setText(timeString);
+     timeLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(timeString);
  }
 
- void MediaPlayer::rewind()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>rewind()
  {
-     m_MediaObject.seek(0);
+     m_MediaObject<span class="operator">.</span>seek(<span class="number">0</span>);
  }
 
- void MediaPlayer::forward()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>forward()
  {
-     QList&lt;Phonon::MediaSource&gt; queue = m_MediaObject.queue();
-     if (queue.size() &gt; 0) {
-         m_MediaObject.setCurrentSource(queue[0]);
-         forwardButton-&gt;setEnabled(queue.size() &gt; 1);
-         m_MediaObject.play();
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Phonon<span class="operator">::</span>MediaSource<span class="operator">&gt;</span> queue <span class="operator">=</span> m_MediaObject<span class="operator">.</span>queue();
+     <span class="keyword">if</span> (queue<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>) {
+         m_MediaObject<span class="operator">.</span>setCurrentSource(queue<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
+         forwardButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(queue<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">1</span>);
+         m_MediaObject<span class="operator">.</span>play();
      }
  }
 
- void MediaPlayer::openUrl()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>openUrl()
  {
-     QSettings settings;
-     settings.beginGroup(QLatin1String(&quot;BrowserMainWindow&quot;));
-     QString sourceURL = settings.value(&quot;location&quot;).toString();
-     bool ok = false;
-     sourceURL = QInputDialog::getText(this, tr(&quot;Open Location&quot;), tr(&quot;Please enter a valid address here:&quot;), QLineEdit::Normal, sourceURL, &amp;ok);
-     if (ok &amp;&amp; !sourceURL.isEmpty()) {
+     <span class="type"><a href="qsettings.html">QSettings</a></span> settings;
+     settings<span class="operator">.</span>beginGroup(QLatin1String(<span class="string">&quot;BrowserMainWindow&quot;</span>));
+     <span class="type"><a href="qstring.html">QString</a></span> sourceURL <span class="operator">=</span> settings<span class="operator">.</span>value(<span class="string">&quot;location&quot;</span>)<span class="operator">.</span>toString();
+     <span class="type">bool</span> ok <span class="operator">=</span> <span class="keyword">false</span>;
+     sourceURL <span class="operator">=</span> <span class="type"><a href="qinputdialog.html">QInputDialog</a></span><span class="operator">::</span>getText(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Open Location&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;Please enter a valid address here:&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span><span class="operator">::</span>Normal<span class="operator">,</span> sourceURL<span class="operator">,</span> <span class="operator">&amp;</span>ok);
+     <span class="keyword">if</span> (ok <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>sourceURL<span class="operator">.</span>isEmpty()) {
          setLocation(sourceURL);
-         settings.setValue(&quot;location&quot;, sourceURL);
+         settings<span class="operator">.</span>setValue(<span class="string">&quot;location&quot;</span><span class="operator">,</span> sourceURL);
      }
  }
 
-<span class="comment"> /*!
+ <span class="comment">/*!
   \since 4.6
   */</span>
- void MediaPlayer::openRamFile()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>openRamFile()
  {
-     QSettings settings;
-     settings.beginGroup(QLatin1String(&quot;BrowserMainWindow&quot;));
+     <span class="type"><a href="qsettings.html">QSettings</a></span> settings;
+     settings<span class="operator">.</span>beginGroup(QLatin1String(<span class="string">&quot;BrowserMainWindow&quot;</span>));
 
-     const QStringList fileNameList(QFileDialog::getOpenFileNames(this,
-                                                                   QString(),
-                                                                   settings.value(&quot;openRamFile&quot;).toString(),
-                                                                   QLatin1String(&quot;RAM files (*.ram)&quot;)));
+     <span class="keyword">const</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> fileNameList(<span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getOpenFileNames(<span class="keyword">this</span><span class="operator">,</span>
+                                                                   <span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">,</span>
+                                                                   settings<span class="operator">.</span>value(<span class="string">&quot;openRamFile&quot;</span>)<span class="operator">.</span>toString()<span class="operator">,</span>
+                                                                   QLatin1String(<span class="string">&quot;RAM files (*.ram)&quot;</span>)));
 
-     if (fileNameList.isEmpty())
-         return;
+     <span class="keyword">if</span> (fileNameList<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
 
-     QFile linkFile;
-     QList&lt;QUrl&gt; list;
-     QByteArray sourceURL;
-     for (int i = 0; i &lt; fileNameList.count(); i++ ) {
-         linkFile.setFileName(fileNameList[i]);
-         if (linkFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-             while (!linkFile.atEnd()) {
-                 sourceURL = linkFile.readLine().trimmed();
-                 if (!sourceURL.isEmpty()) {
-                     const QUrl url(QUrl::fromEncoded(sourceURL));
-                     if (url.isValid())
-                         list.append(url);
+     <span class="type"><a href="qfile.html">QFile</a></span> linkFile;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">&gt;</span> list;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> sourceURL;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> fileNameList<span class="operator">.</span>count(); i<span class="operator">+</span><span class="operator">+</span> ) {
+         linkFile<span class="operator">.</span>setFileName(fileNameList<span class="operator">[</span>i<span class="operator">]</span>);
+         <span class="keyword">if</span> (linkFile<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly <span class="operator">|</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>Text)) {
+             <span class="keyword">while</span> (<span class="operator">!</span>linkFile<span class="operator">.</span>atEnd()) {
+                 sourceURL <span class="operator">=</span> linkFile<span class="operator">.</span>readLine()<span class="operator">.</span>trimmed();
+                 <span class="keyword">if</span> (<span class="operator">!</span>sourceURL<span class="operator">.</span>isEmpty()) {
+                     <span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> url(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromEncoded(sourceURL));
+                     <span class="keyword">if</span> (url<span class="operator">.</span>isValid())
+                         list<span class="operator">.</span>append(url);
                  }
              }
-             linkFile.close();
+             linkFile<span class="operator">.</span>close();
          }
      }
 
-     if (!list.isEmpty()) {
-         m_MediaObject.clearQueue();
-         setLocation(list[0].toString());
-         for (int i = 1; i &lt; list.count(); i++)
-             m_MediaObject.enqueue(Phonon::MediaSource(list[i]));
-         m_MediaObject.play();
+     <span class="keyword">if</span> (<span class="operator">!</span>list<span class="operator">.</span>isEmpty()) {
+         m_MediaObject<span class="operator">.</span>clearQueue();
+         setLocation(list<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>toString());
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> list<span class="operator">.</span>count(); i<span class="operator">+</span><span class="operator">+</span>)
+             m_MediaObject<span class="operator">.</span>enqueue(Phonon<span class="operator">::</span>MediaSource(list<span class="operator">[</span>i<span class="operator">]</span>));
+         m_MediaObject<span class="operator">.</span>play();
      }
 
-     forwardButton-&gt;setEnabled(!m_MediaObject.queue().isEmpty());
-     settings.setValue(&quot;openRamFile&quot;, fileNameList[0]);
+     forwardButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="operator">!</span>m_MediaObject<span class="operator">.</span>queue()<span class="operator">.</span>isEmpty());
+     settings<span class="operator">.</span>setValue(<span class="string">&quot;openRamFile&quot;</span><span class="operator">,</span> fileNameList<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
  }
 
- void MediaPlayer::finished()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>finished()
  {
  }
 
- void MediaPlayer::showContextMenu(const QPoint &amp;p)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>showContextMenu(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>p)
  {
-     fileMenu-&gt;popup(m_videoWidget-&gt;isFullScreen() ? p : mapToGlobal(p));
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>popup(m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>isFullScreen() <span class="operator">?</span> p : mapToGlobal(p));
  }
 
- void MediaPlayer::scaleChanged(QAction *act)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>scaleChanged(<span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>act)
  {
-     if (act-&gt;text() == tr(&quot;Scale and crop&quot;))
-         m_videoWidget-&gt;setScaleMode(Phonon::VideoWidget::ScaleAndCrop);
-     else
-         m_videoWidget-&gt;setScaleMode(Phonon::VideoWidget::FitInView);
+     <span class="keyword">if</span> (act<span class="operator">-</span><span class="operator">&gt;</span>text() <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;Scale and crop&quot;</span>))
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setScaleMode(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>ScaleAndCrop);
+     <span class="keyword">else</span>
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setScaleMode(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>FitInView);
  }
 
- void MediaPlayer::aspectChanged(QAction *act)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>aspectChanged(<span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>act)
  {
-     if (act-&gt;text() == tr(&quot;16/9&quot;))
-         m_videoWidget-&gt;setAspectRatio(Phonon::VideoWidget::AspectRatio16_9);
-     else if (act-&gt;text() == tr(&quot;Scale&quot;))
-         m_videoWidget-&gt;setAspectRatio(Phonon::VideoWidget::AspectRatioWidget);
-     else if (act-&gt;text() == tr(&quot;4/3&quot;))
-         m_videoWidget-&gt;setAspectRatio(Phonon::VideoWidget::AspectRatio4_3);
-     else
-         m_videoWidget-&gt;setAspectRatio(Phonon::VideoWidget::AspectRatioAuto);
+     <span class="keyword">if</span> (act<span class="operator">-</span><span class="operator">&gt;</span>text() <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;16/9&quot;</span>))
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setAspectRatio(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>AspectRatio16_9);
+     <span class="keyword">else</span> <span class="keyword">if</span> (act<span class="operator">-</span><span class="operator">&gt;</span>text() <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;Scale&quot;</span>))
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setAspectRatio(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>AspectRatioWidget);
+     <span class="keyword">else</span> <span class="keyword">if</span> (act<span class="operator">-</span><span class="operator">&gt;</span>text() <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;4/3&quot;</span>))
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setAspectRatio(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>AspectRatio4_3);
+     <span class="keyword">else</span>
+         m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setAspectRatio(Phonon<span class="operator">::</span>VideoWidget<span class="operator">::</span>AspectRatioAuto);
  }
 
- void MediaPlayer::hasVideoChanged(bool bHasVideo)
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>hasVideoChanged(<span class="type">bool</span> bHasVideo)
  {
-     info-&gt;setVisible(!bHasVideo);
-     m_videoWindow.setVisible(bHasVideo);
-     m_fullScreenAction-&gt;setEnabled(bHasVideo);
+     info<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="operator">!</span>bHasVideo);
+     m_videoWindow<span class="operator">.</span>setVisible(bHasVideo);
+     m_fullScreenAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(bHasVideo);
  }
 
- #ifdef Q_OS_SYMBIAN
- void MediaPlayer::selectIAP()
+ <span class="preprocessor">#ifdef Q_OS_SYMBIAN</span>
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>selectIAP()
  {
-     TRAPD(err, selectIAPL());
-     if (KErrNone != err)
-         QMessageBox::warning(this, &quot;Phonon Mediaplayer&quot;, &quot;Error selecting IAP&quot;, QMessageBox::Close);
+     TRAPD(err<span class="operator">,</span> selectIAPL());
+     <span class="keyword">if</span> (KErrNone <span class="operator">!</span><span class="operator">=</span> err)
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;Phonon Mediaplayer&quot;</span><span class="operator">,</span> <span class="string">&quot;Error selecting IAP&quot;</span><span class="operator">,</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Close);
  }
 
- void MediaPlayer::selectIAPL()
+ <span class="type">void</span> MediaPlayer<span class="operator">::</span>selectIAPL()
  {
-     QVariant currentIAPValue = m_MediaObject.property(&quot;InternetAccessPointName&quot;);
-     QString currentIAPString = currentIAPValue.toString();
-     bool ok = false;
-     CCommsDatabase *commsDb = CCommsDatabase::NewL(EDatabaseTypeIAP);
-     CleanupStack::PushL(commsDb);
-     commsDb-&gt;ShowHiddenRecords();
-     CCommsDbTableView* view = commsDb-&gt;OpenTableLC(TPtrC(IAP));
-     QStringList items;
-     TInt currentIAP = 0;
-     for (TInt l = view-&gt;GotoFirstRecord(), i = 0; l != KErrNotFound; l = view-&gt;GotoNextRecord(), i++) {
-        TBuf&lt;KCommsDbSvrMaxColumnNameLength&gt; iapName;
-        view-&gt;ReadTextL(TPtrC(COMMDB_NAME), iapName);
-        QString iapString = QString::fromUtf16(iapName.Ptr(), iapName.Length());
-        items &lt;&lt; iapString;
-        if (iapString == currentIAPString)
-            currentIAP = i;
+     <span class="type"><a href="qvariant.html">QVariant</a></span> currentIAPValue <span class="operator">=</span> m_MediaObject<span class="operator">.</span>property(<span class="string">&quot;InternetAccessPointName&quot;</span>);
+     <span class="type"><a href="qstring.html">QString</a></span> currentIAPString <span class="operator">=</span> currentIAPValue<span class="operator">.</span>toString();
+     <span class="type">bool</span> ok <span class="operator">=</span> <span class="keyword">false</span>;
+     CCommsDatabase <span class="operator">*</span>commsDb <span class="operator">=</span> CCommsDatabase<span class="operator">::</span>NewL(EDatabaseTypeIAP);
+     CleanupStack<span class="operator">::</span>PushL(commsDb);
+     commsDb<span class="operator">-</span><span class="operator">&gt;</span>ShowHiddenRecords();
+     CCommsDbTableView<span class="operator">*</span> view <span class="operator">=</span> commsDb<span class="operator">-</span><span class="operator">&gt;</span>OpenTableLC(TPtrC(IAP));
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> items;
+     TInt currentIAP <span class="operator">=</span> <span class="number">0</span>;
+     <span class="keyword">for</span> (TInt l <span class="operator">=</span> view<span class="operator">-</span><span class="operator">&gt;</span>GotoFirstRecord()<span class="operator">,</span> i <span class="operator">=</span> <span class="number">0</span>; l <span class="operator">!</span><span class="operator">=</span> KErrNotFound; l <span class="operator">=</span> view<span class="operator">-</span><span class="operator">&gt;</span>GotoNextRecord()<span class="operator">,</span> i<span class="operator">+</span><span class="operator">+</span>) {
+        TBuf<span class="operator">&lt;</span>KCommsDbSvrMaxColumnNameLength<span class="operator">&gt;</span> iapName;
+        view<span class="operator">-</span><span class="operator">&gt;</span>ReadTextL(TPtrC(COMMDB_NAME)<span class="operator">,</span> iapName);
+        <span class="type"><a href="qstring.html">QString</a></span> iapString <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf16(iapName<span class="operator">.</span>Ptr()<span class="operator">,</span> iapName<span class="operator">.</span>Length());
+        items <span class="operator">&lt;</span><span class="operator">&lt;</span> iapString;
+        <span class="keyword">if</span> (iapString <span class="operator">=</span><span class="operator">=</span> currentIAPString)
+            currentIAP <span class="operator">=</span> i;
      }
-     currentIAPString = QInputDialog::getItem(this, tr(&quot;Select Access Point&quot;), tr(&quot;Select Access Point&quot;), items, currentIAP, false, &amp;ok);
-     if (ok)
-         m_MediaObject.setProperty(&quot;InternetAccessPointName&quot;, currentIAPString);
-     CleanupStack::PopAndDestroy(2); <span class="comment">//commsDB, view</span>
+     currentIAPString <span class="operator">=</span> <span class="type"><a href="qinputdialog.html">QInputDialog</a></span><span class="operator">::</span>getItem(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Select Access Point&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;Select Access Point&quot;</span>)<span class="operator">,</span> items<span class="operator">,</span> currentIAP<span class="operator">,</span> <span class="keyword">false</span><span class="operator">,</span> <span class="operator">&amp;</span>ok);
+     <span class="keyword">if</span> (ok)
+         m_MediaObject<span class="operator">.</span>setProperty(<span class="string">&quot;InternetAccessPointName&quot;</span><span class="operator">,</span> currentIAPString);
+     CleanupStack<span class="operator">::</span>PopAndDestroy(<span class="number">2</span>); <span class="comment">//commsDB, view</span>
  }
- #endif</pre>
+ <span class="preprocessor">#endif</span></pre>
 </div>
 <!-- @@@demos/qmediaplayer/mediaplayer.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

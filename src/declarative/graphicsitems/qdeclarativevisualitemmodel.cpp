@@ -7,34 +7,34 @@
 ** This file is part of the QtDeclarative module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -557,8 +557,9 @@ QDeclarativeVisualDataModelData::~QDeclarativeVisualDataModelData()
 void QDeclarativeVisualDataModelData::ensureProperties()
 {
     QDeclarativeVisualDataModelPrivate *modelPriv = QDeclarativeVisualDataModelPrivate::get(m_model);
-    if (modelPriv->m_metaDataCacheable && !modelPriv->m_metaDataCreated) {
-        modelPriv->createMetaData();
+    if (modelPriv->m_metaDataCacheable) {
+        if (!modelPriv->m_metaDataCreated)
+            modelPriv->createMetaData();
         if (modelPriv->m_metaDataCreated)
             m_meta->setCached(true);
     }
@@ -838,7 +839,8 @@ void QDeclarativeVisualDataModel::setDelegate(QDeclarativeComponent *delegate)
     QML only operates on list data.  \c rootIndex allows the children of
     any node in a QAbstractItemModel to be provided by this model.
 
-    This property only affects models of type QAbstractItemModel.
+    This property only affects models of type QAbstractItemModel that
+    are hierarchical (e.g, a tree model). 
 
     For example, here is a simple interactive file system browser.
     When a directory name is clicked, the view's \c rootIndex is set to the
@@ -1076,7 +1078,7 @@ QDeclarativeItem *QDeclarativeVisualDataModel::item(int index, const QByteArray 
         } else {
             delete data;
             delete ctxt;
-            qmlInfo(this, d->m_delegate->errors()) << "Error creating delgate";
+            qmlInfo(this, d->m_delegate->errors()) << "Error creating delegate";
         }
     }
     QDeclarativeItem *item = qobject_cast<QDeclarativeItem *>(nobj);
@@ -1396,7 +1398,12 @@ void QDeclarativeVisualDataModel::_q_layoutChanged()
 
 void QDeclarativeVisualDataModel::_q_modelReset()
 {
+    Q_D(QDeclarativeVisualDataModel);
+    d->m_root = QModelIndex();
     emit modelReset();
+    emit rootIndexChanged();
+    if (d->m_abstractItemModel && d->m_abstractItemModel->canFetchMore(d->m_root))
+        d->m_abstractItemModel->fetchMore(d->m_root);
 }
 
 void QDeclarativeVisualDataModel::_q_createdPackage(int index, QDeclarativePackage *package)

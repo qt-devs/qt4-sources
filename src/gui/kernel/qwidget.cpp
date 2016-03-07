@@ -7,34 +7,34 @@
 ** This file is part of the QtGui module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -292,6 +292,7 @@ QWidgetPrivate::QWidgetPrivate(int version)
 #ifndef QT_NO_IM
       , inheritsInputMethodHints(0)
 #endif
+      , inSetParent(0)
 #if defined(Q_WS_X11)
       , picture(0)
 #elif defined(Q_WS_WIN)
@@ -304,6 +305,9 @@ QWidgetPrivate::QWidgetPrivate(int version)
       , hasAlienChildren(0)
       , window_event(0)
       , qd_hd(0)
+#elif defined(Q_OS_SYMBIAN)
+      , symbianScreenNumber(0)
+      , fixNativeOrientationCalled(false)
 #endif
 {
     if (!qApp) {
@@ -393,11 +397,24 @@ void QWidgetPrivate::scrollChildren(int dx, int dy)
     }
 }
 
+QInputContext *QWidgetPrivate::assignedInputContext() const
+{
+#ifndef QT_NO_IM
+    const QWidget *widget = q_func();
+    while (widget) {
+        if (QInputContext *qic = widget->d_func()->ic)
+            return qic;
+        widget = widget->parentWidget();
+    }
+#endif
+    return 0;
+}
+
 QInputContext *QWidgetPrivate::inputContext() const
 {
 #ifndef QT_NO_IM
-    if (ic)
-        return ic;
+    if (QInputContext *qic = assignedInputContext())
+        return qic;
     return qApp->inputContext();
 #else
     return 0;
@@ -582,7 +599,6 @@ void QWidget::setAutoFillBackground(bool enabled)
     \brief The QWidget class is the base class of all user interface objects.
 
     \ingroup basicwidgets
-
 
     The widget is the atom of the user interface: it receives mouse, keyboard
     and other events from the window system, and paints a representation of
@@ -1271,6 +1287,10 @@ void QWidgetPrivate::init(QWidget *parentWidget, Qt::WindowFlags f)
         // programmer specified desktop widget
         xinfo = desktopWidget->d_func()->xinfo;
     }
+#elif defined(Q_OS_SYMBIAN)
+    if (desktopWidget) {
+        symbianScreenNumber = qt_widget_private(desktopWidget)->symbianScreenNumber;
+    }
 #else
     Q_UNUSED(desktopWidget);
 #endif
@@ -1307,8 +1327,8 @@ void QWidgetPrivate::init(QWidget *parentWidget, Qt::WindowFlags f)
     //give potential windows a bigger "pre-initial" size; create_sys() will give them a new size later
 #ifdef Q_OS_SYMBIAN
     if (isGLWidget) {
-        // Don't waste GPU mem for unnecessary large egl surface
-        data.crect = QRect(0,0,2,2);
+        // Don't waste GPU mem for unnecessary large egl surface until resized by application
+        data.crect = QRect(0,0,1,1);
     } else {
         data.crect = parentWidget ? QRect(0,0,100,30) : QRect(0,0,360,640);
     }
@@ -2544,6 +2564,22 @@ WId QWidget::effectiveWinId() const
     if (id || !testAttribute(Qt::WA_WState_Created))
         return id;
     QWidget *realParent = nativeParentWidget();
+    if (!realParent && d_func()->inSetParent) {
+        // In transitional state. This is really just a workaround. The real problem
+        // is that QWidgetPrivate::setParent_sys (platform specific code) first sets
+        // the window id to 0 (setWinId(0)) before it sets the Qt::WA_WState_Created
+        // attribute to false. The correct way is to do it the other way around, and
+        // in that case the Qt::WA_WState_Created logic above will kick in and
+        // return 0 whenever the widget is in a transitional state. However, changing
+        // the original logic for all platforms is far more intrusive and might
+        // break existing applications.
+        // Note: The widget can only be in a transitional state when changing its
+        // parent -- everything else is an internal error -- hence explicitly checking
+        // against 'inSetParent' rather than doing an unconditional return whenever
+        // 'realParent' is 0 (which may cause strange artifacts and headache later).
+        return 0;
+    }
+    // This widget *must* have a native parent widget.
     Q_ASSERT(realParent);
     Q_ASSERT(realParent->internalWinId());
     return realParent->internalWinId();
@@ -10022,6 +10058,7 @@ void QWidget::setParent(QWidget *parent)
 void QWidget::setParent(QWidget *parent, Qt::WindowFlags f)
 {
     Q_D(QWidget);
+    d->inSetParent = true;
     bool resized = testAttribute(Qt::WA_Resized);
     bool wasCreated = testAttribute(Qt::WA_WState_Created);
     QWidget *oldtlw = window();
@@ -10176,6 +10213,8 @@ void QWidget::setParent(QWidget *parent, Qt::WindowFlags f)
             ancestorProxy->d_func()->embedSubWindow(this);
     }
 #endif
+
+    d->inSetParent = false;
 }
 
 /*!
@@ -10721,7 +10760,7 @@ void QWidget::setAttribute(Qt::WidgetAttribute attribute, bool on)
     case Qt::WA_InputMethodEnabled: {
 #ifndef QT_NO_IM
         QWidget *focusWidget = d->effectiveFocusWidget();
-        QInputContext *ic = focusWidget->d_func()->ic;
+        QInputContext *ic = focusWidget->d_func()->assignedInputContext();
         if (!ic && (!on || hasFocus()))
             ic = focusWidget->d_func()->inputContext();
         if (ic) {
@@ -10847,6 +10886,9 @@ void QWidget::setAttribute(Qt::WidgetAttribute attribute, bool on)
         }
         QT_TRAP_THROWING(appUi->SetOrientationL(s60orientation));
         S60->orientationSet = true;
+        QSymbianControl *window = static_cast<QSymbianControl *>(internalWinId());
+        if (window)
+            window->ensureFixNativeOrientation();
 #endif
         break;
     }
@@ -11208,7 +11250,7 @@ void QWidget::updateMicroFocus()
 #if !defined(QT_NO_IM) && (defined(Q_WS_X11) || defined(Q_WS_QWS) || defined(Q_OS_SYMBIAN))
     Q_D(QWidget);
     // and optimization to update input context only it has already been created.
-    if (d->ic || qApp->d_func()->inputContext) {
+    if (d->assignedInputContext() || qApp->d_func()->inputContext) {
         QInputContext *ic = inputContext();
         if (ic)
             ic->update();

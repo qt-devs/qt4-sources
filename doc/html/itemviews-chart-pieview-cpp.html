@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: pieview.cpp Example File (itemviews/chart/pieview.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">pieview.cpp Example File</h1>
 <span class="small-subtitle">itemviews/chart/pieview.cpp</span>
 <!-- $$$itemviews/chart/pieview.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,564 +63,548 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;math.h&gt;
- #include &lt;QtGui&gt;
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
 
- #ifndef M_PI
- #define M_PI 3.1415927
- #endif
+ <span class="preprocessor">#ifndef M_PI</span>
+ <span class="preprocessor">#define M_PI 3.1415927</span>
+ <span class="preprocessor">#endif</span>
 
- #include &quot;pieview.h&quot;
+ <span class="preprocessor">#include &quot;pieview.h&quot;</span>
 
- PieView::PieView(QWidget *parent)
-     : QAbstractItemView(parent)
+ PieView<span class="operator">::</span>PieView(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span>(parent)
  {
-     horizontalScrollBar()-&gt;setRange(0, 0);
-     verticalScrollBar()-&gt;setRange(0, 0);
+     horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
 
-     margin = 8;
-     totalSize = 300;
-     pieSize = totalSize - 2*margin;
-     validItems = 0;
-     totalValue = 0.0;
-     rubberBand = 0;
+     margin <span class="operator">=</span> <span class="number">8</span>;
+     totalSize <span class="operator">=</span> <span class="number">300</span>;
+     pieSize <span class="operator">=</span> totalSize <span class="operator">-</span> <span class="number">2</span><span class="operator">*</span>margin;
+     validItems <span class="operator">=</span> <span class="number">0</span>;
+     totalValue <span class="operator">=</span> <span class="number">0.0</span>;
+     rubberBand <span class="operator">=</span> <span class="number">0</span>;
  }
 
- void PieView::dataChanged(const QModelIndex &amp;topLeft,
-                           const QModelIndex &amp;bottomRight)
+ <span class="type">void</span> PieView<span class="operator">::</span>dataChanged(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>topLeft<span class="operator">,</span>
+                           <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>bottomRight)
  {
-     QAbstractItemView::dataChanged(topLeft, bottomRight);
+     <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>dataChanged(topLeft<span class="operator">,</span> bottomRight);
 
-     validItems = 0;
-     totalValue = 0.0;
+     validItems <span class="operator">=</span> <span class="number">0</span>;
+     totalValue <span class="operator">=</span> <span class="number">0.0</span>;
 
-     for (int row = 0; row &lt; model()-&gt;rowCount(rootIndex()); ++row) {
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(rootIndex()); <span class="operator">+</span><span class="operator">+</span>row) {
 
-         QModelIndex index = model()-&gt;index(row, 1, rootIndex());
-         double value = model()-&gt;data(index).toDouble();
+         <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+         <span class="type">double</span> value <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble();
 
-         if (value &gt; 0.0) {
-             totalValue += value;
-             validItems++;
+         <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+             totalValue <span class="operator">+</span><span class="operator">=</span> value;
+             validItems<span class="operator">+</span><span class="operator">+</span>;
          }
      }
-     viewport()-&gt;update();
+     viewport()<span class="operator">-</span><span class="operator">&gt;</span>update();
  }
 
- bool PieView::edit(const QModelIndex &amp;index, EditTrigger trigger, QEvent *event)
+ <span class="type">bool</span> PieView<span class="operator">::</span>edit(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> EditTrigger trigger<span class="operator">,</span> <span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event)
  {
-     if (index.column() == 0)
-         return QAbstractItemView::edit(index, trigger, event);
-     else
-         return false;
+     <span class="keyword">if</span> (index<span class="operator">.</span>column() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>edit(index<span class="operator">,</span> trigger<span class="operator">,</span> event);
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> <span class="keyword">false</span>;
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
      Returns the item that covers the coordinate given in the view.
  */</span>
 
- QModelIndex PieView::indexAt(const QPoint &amp;point) const
+ <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> PieView<span class="operator">::</span>indexAt(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>point) <span class="keyword">const</span>
  {
-     if (validItems == 0)
-         return QModelIndex();
+     <span class="keyword">if</span> (validItems <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>();
 
      <span class="comment">// Transform the view coordinates into contents widget coordinates.</span>
-     int wx = point.x() + horizontalScrollBar()-&gt;value();
-     int wy = point.y() + verticalScrollBar()-&gt;value();
+     <span class="type">int</span> wx <span class="operator">=</span> point<span class="operator">.</span>x() <span class="operator">+</span> horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value();
+     <span class="type">int</span> wy <span class="operator">=</span> point<span class="operator">.</span>y() <span class="operator">+</span> verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value();
 
-     if (wx &lt; totalSize) {
-         double cx = wx - totalSize/2;
-         double cy = totalSize/2 - wy; <span class="comment">// positive cy for items above the center</span>
+     <span class="keyword">if</span> (wx <span class="operator">&lt;</span> totalSize) {
+         <span class="type">double</span> cx <span class="operator">=</span> wx <span class="operator">-</span> totalSize<span class="operator">/</span><span class="number">2</span>;
+         <span class="type">double</span> cy <span class="operator">=</span> totalSize<span class="operator">/</span><span class="number">2</span> <span class="operator">-</span> wy; <span class="comment">// positive cy for items above the center</span>
 
          <span class="comment">// Determine the distance from the center point of the pie chart.</span>
-         double d = pow(pow(cx, 2) + pow(cy, 2), 0.5);
+         <span class="type">double</span> d <span class="operator">=</span> pow(pow(cx<span class="operator">,</span> <span class="number">2</span>) <span class="operator">+</span> pow(cy<span class="operator">,</span> <span class="number">2</span>)<span class="operator">,</span> <span class="number">0.5</span>);
 
-         if (d == 0 || d &gt; pieSize/2)
-             return QModelIndex();
+         <span class="keyword">if</span> (d <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> d <span class="operator">&gt;</span> pieSize<span class="operator">/</span><span class="number">2</span>)
+             <span class="keyword">return</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>();
 
          <span class="comment">// Determine the angle of the point.</span>
-         double angle = (180 / M_PI) * acos(cx/d);
-         if (cy &lt; 0)
-             angle = 360 - angle;
+         <span class="type">double</span> angle <span class="operator">=</span> (<span class="number">180</span> <span class="operator">/</span> M_PI) <span class="operator">*</span> acos(cx<span class="operator">/</span>d);
+         <span class="keyword">if</span> (cy <span class="operator">&lt;</span> <span class="number">0</span>)
+             angle <span class="operator">=</span> <span class="number">360</span> <span class="operator">-</span> angle;
 
          <span class="comment">// Find the relevant slice of the pie.</span>
-         double startAngle = 0.0;
+         <span class="type">double</span> startAngle <span class="operator">=</span> <span class="number">0.0</span>;
 
-         for (int row = 0; row &lt; model()-&gt;rowCount(rootIndex()); ++row) {
+         <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(rootIndex()); <span class="operator">+</span><span class="operator">+</span>row) {
 
-             QModelIndex index = model()-&gt;index(row, 1, rootIndex());
-             double value = model()-&gt;data(index).toDouble();
+             <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+             <span class="type">double</span> value <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble();
 
-             if (value &gt; 0.0) {
-                 double sliceAngle = 360*value/totalValue;
+             <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+                 <span class="type">double</span> sliceAngle <span class="operator">=</span> <span class="number">360</span><span class="operator">*</span>value<span class="operator">/</span>totalValue;
 
-                 if (angle &gt;= startAngle &amp;&amp; angle &lt; (startAngle + sliceAngle))
-                     return model()-&gt;index(row, 1, rootIndex());
+                 <span class="keyword">if</span> (angle <span class="operator">&gt;</span><span class="operator">=</span> startAngle <span class="operator">&amp;</span><span class="operator">&amp;</span> angle <span class="operator">&lt;</span> (startAngle <span class="operator">+</span> sliceAngle))
+                     <span class="keyword">return</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
 
-                 startAngle += sliceAngle;
+                 startAngle <span class="operator">+</span><span class="operator">=</span> sliceAngle;
              }
          }
-     } else {
-         double itemHeight = QFontMetrics(viewOptions().font).height();
-         int listItem = int((wy - margin) / itemHeight);
-         int validRow = 0;
+     } <span class="keyword">else</span> {
+         <span class="type">double</span> itemHeight <span class="operator">=</span> <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span>(viewOptions()<span class="operator">.</span>font)<span class="operator">.</span>height();
+         <span class="type">int</span> listItem <span class="operator">=</span> <span class="type">int</span>((wy <span class="operator">-</span> margin) <span class="operator">/</span> itemHeight);
+         <span class="type">int</span> validRow <span class="operator">=</span> <span class="number">0</span>;
 
-         for (int row = 0; row &lt; model()-&gt;rowCount(rootIndex()); ++row) {
+         <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(rootIndex()); <span class="operator">+</span><span class="operator">+</span>row) {
 
-             QModelIndex index = model()-&gt;index(row, 1, rootIndex());
-             if (model()-&gt;data(index).toDouble() &gt; 0.0) {
+             <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+             <span class="keyword">if</span> (model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble() <span class="operator">&gt;</span> <span class="number">0.0</span>) {
 
-                 if (listItem == validRow)
-                     return model()-&gt;index(row, 0, rootIndex());
+                 <span class="keyword">if</span> (listItem <span class="operator">=</span><span class="operator">=</span> validRow)
+                     <span class="keyword">return</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> rootIndex());
 
                  <span class="comment">// Update the list index that corresponds to the next valid row.</span>
-                 validRow++;
+                 validRow<span class="operator">+</span><span class="operator">+</span>;
              }
          }
      }
 
-     return QModelIndex();
+     <span class="keyword">return</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>();
  }
 
- bool PieView::isIndexHidden(const QModelIndex &amp; <span class="comment">/*index*/</span>) const
+ <span class="type">bool</span> PieView<span class="operator">::</span>isIndexHidden(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> <span class="comment">/*index*/</span>) <span class="keyword">const</span>
  {
-     return false;
+     <span class="keyword">return</span> <span class="keyword">false</span>;
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
      Returns the rectangle of the item at position \a index in the
      model. The rectangle is in contents coordinates.
  */</span>
 
- QRect PieView::itemRect(const QModelIndex &amp;index) const
+ <span class="type"><a href="qrect.html">QRect</a></span> PieView<span class="operator">::</span>itemRect(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
  {
-     if (!index.isValid())
-         return QRect();
+     <span class="keyword">if</span> (<span class="operator">!</span>index<span class="operator">.</span>isValid())
+         <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>();
 
      <span class="comment">// Check whether the index's row is in the list of rows represented</span>
      <span class="comment">// by slices.</span>
-     QModelIndex valueIndex;
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> valueIndex;
 
-     if (index.column() != 1)
-         valueIndex = model()-&gt;index(index.row(), 1, rootIndex());
-     else
-         valueIndex = index;
+     <span class="keyword">if</span> (index<span class="operator">.</span>column() <span class="operator">!</span><span class="operator">=</span> <span class="number">1</span>)
+         valueIndex <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(index<span class="operator">.</span>row()<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+     <span class="keyword">else</span>
+         valueIndex <span class="operator">=</span> index;
 
-     if (model()-&gt;data(valueIndex).toDouble() &gt; 0.0) {
+     <span class="keyword">if</span> (model()<span class="operator">-</span><span class="operator">&gt;</span>data(valueIndex)<span class="operator">.</span>toDouble() <span class="operator">&gt;</span> <span class="number">0.0</span>) {
 
-         int listItem = 0;
-         for (int row = index.row()-1; row &gt;= 0; --row) {
-             if (model()-&gt;data(model()-&gt;index(row, 1, rootIndex())).toDouble() &gt; 0.0)
-                 listItem++;
+         <span class="type">int</span> listItem <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> index<span class="operator">.</span>row()<span class="operator">-</span><span class="number">1</span>; row <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>; <span class="operator">-</span><span class="operator">-</span>row) {
+             <span class="keyword">if</span> (model()<span class="operator">-</span><span class="operator">&gt;</span>data(model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex()))<span class="operator">.</span>toDouble() <span class="operator">&gt;</span> <span class="number">0.0</span>)
+                 listItem<span class="operator">+</span><span class="operator">+</span>;
          }
 
-         double itemHeight;
+         <span class="type">double</span> itemHeight;
 
-         switch (index.column()) {
-         case 0:
-             itemHeight = QFontMetrics(viewOptions().font).height();
+         <span class="keyword">switch</span> (index<span class="operator">.</span>column()) {
+         <span class="keyword">case</span> <span class="number">0</span>:
+             itemHeight <span class="operator">=</span> <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span>(viewOptions()<span class="operator">.</span>font)<span class="operator">.</span>height();
 
-             return QRect(totalSize,
-                          int(margin + listItem*itemHeight),
-                          totalSize - margin, int(itemHeight));
-         case 1:
-             return viewport()-&gt;rect();
+             <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>(totalSize<span class="operator">,</span>
+                          <span class="type">int</span>(margin <span class="operator">+</span> listItem<span class="operator">*</span>itemHeight)<span class="operator">,</span>
+                          totalSize <span class="operator">-</span> margin<span class="operator">,</span> <span class="type">int</span>(itemHeight));
+         <span class="keyword">case</span> <span class="number">1</span>:
+             <span class="keyword">return</span> viewport()<span class="operator">-</span><span class="operator">&gt;</span>rect();
          }
 
      }
-     return QRect();
+     <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>();
  }
 
- QRegion PieView::itemRegion(const QModelIndex &amp;index) const
+ <span class="type"><a href="qregion.html">QRegion</a></span> PieView<span class="operator">::</span>itemRegion(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
  {
-     if (!index.isValid())
-         return QRegion();
+     <span class="keyword">if</span> (<span class="operator">!</span>index<span class="operator">.</span>isValid())
+         <span class="keyword">return</span> <span class="type"><a href="qregion.html">QRegion</a></span>();
 
-     if (index.column() != 1)
-         return itemRect(index);
+     <span class="keyword">if</span> (index<span class="operator">.</span>column() <span class="operator">!</span><span class="operator">=</span> <span class="number">1</span>)
+         <span class="keyword">return</span> itemRect(index);
 
-     if (model()-&gt;data(index).toDouble() &lt;= 0.0)
-         return QRegion();
+     <span class="keyword">if</span> (model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble() <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0.0</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qregion.html">QRegion</a></span>();
 
-     double startAngle = 0.0;
-     for (int row = 0; row &lt; model()-&gt;rowCount(rootIndex()); ++row) {
+     <span class="type">double</span> startAngle <span class="operator">=</span> <span class="number">0.0</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(rootIndex()); <span class="operator">+</span><span class="operator">+</span>row) {
 
-         QModelIndex sliceIndex = model()-&gt;index(row, 1, rootIndex());
-         double value = model()-&gt;data(sliceIndex).toDouble();
+         <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> sliceIndex <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+         <span class="type">double</span> value <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>data(sliceIndex)<span class="operator">.</span>toDouble();
 
-         if (value &gt; 0.0) {
-             double angle = 360*value/totalValue;
+         <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+             <span class="type">double</span> angle <span class="operator">=</span> <span class="number">360</span><span class="operator">*</span>value<span class="operator">/</span>totalValue;
 
-             if (sliceIndex == index) {
-                 QPainterPath slicePath;
-                 slicePath.moveTo(totalSize/2, totalSize/2);
-                 slicePath.arcTo(margin, margin, margin+pieSize, margin+pieSize,
-                                 startAngle, angle);
-                 slicePath.closeSubpath();
+             <span class="keyword">if</span> (sliceIndex <span class="operator">=</span><span class="operator">=</span> index) {
+                 <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> slicePath;
+                 slicePath<span class="operator">.</span>moveTo(totalSize<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> totalSize<span class="operator">/</span><span class="number">2</span>);
+                 slicePath<span class="operator">.</span>arcTo(margin<span class="operator">,</span> margin<span class="operator">,</span> margin<span class="operator">+</span>pieSize<span class="operator">,</span> margin<span class="operator">+</span>pieSize<span class="operator">,</span>
+                                 startAngle<span class="operator">,</span> angle);
+                 slicePath<span class="operator">.</span>closeSubpath();
 
-                 return QRegion(slicePath.toFillPolygon().toPolygon());
+                 <span class="keyword">return</span> <span class="type"><a href="qregion.html">QRegion</a></span>(slicePath<span class="operator">.</span>toFillPolygon()<span class="operator">.</span>toPolygon());
              }
 
-             startAngle += angle;
+             startAngle <span class="operator">+</span><span class="operator">=</span> angle;
          }
      }
 
-     return QRegion();
+     <span class="keyword">return</span> <span class="type"><a href="qregion.html">QRegion</a></span>();
  }
 
- int PieView::horizontalOffset() const
+ <span class="type">int</span> PieView<span class="operator">::</span>horizontalOffset() <span class="keyword">const</span>
  {
-     return horizontalScrollBar()-&gt;value();
+     <span class="keyword">return</span> horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value();
  }
 
- void PieView::mousePressEvent(QMouseEvent *event)
+ <span class="type">void</span> PieView<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
  {
-     QAbstractItemView::mousePressEvent(event);
-     origin = event-&gt;pos();
-     if (!rubberBand)
-         rubberBand = new QRubberBand(QRubberBand::Rectangle, viewport());
-     rubberBand-&gt;setGeometry(QRect(origin, QSize()));
-     rubberBand-&gt;show();
+     <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>mousePressEvent(event);
+     origin <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+     <span class="keyword">if</span> (<span class="operator">!</span>rubberBand)
+         rubberBand <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qrubberband.html">QRubberBand</a></span>(<span class="type"><a href="qrubberband.html">QRubberBand</a></span><span class="operator">::</span>Rectangle<span class="operator">,</span> viewport());
+     rubberBand<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(<span class="type"><a href="qrect.html">QRect</a></span>(origin<span class="operator">,</span> <span class="type"><a href="qsize.html">QSize</a></span>()));
+     rubberBand<span class="operator">-</span><span class="operator">&gt;</span>show();
  }
 
- void PieView::mouseMoveEvent(QMouseEvent *event)
+ <span class="type">void</span> PieView<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
  {
-     if (rubberBand)
-         rubberBand-&gt;setGeometry(QRect(origin, event-&gt;pos()).normalized());
-     QAbstractItemView::mouseMoveEvent(event);
+     <span class="keyword">if</span> (rubberBand)
+         rubberBand<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(<span class="type"><a href="qrect.html">QRect</a></span>(origin<span class="operator">,</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos())<span class="operator">.</span>normalized());
+     <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>mouseMoveEvent(event);
  }
 
- void PieView::mouseReleaseEvent(QMouseEvent *event)
+ <span class="type">void</span> PieView<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
  {
-     QAbstractItemView::mouseReleaseEvent(event);
-     if (rubberBand)
-         rubberBand-&gt;hide();
-     viewport()-&gt;update();
+     <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>mouseReleaseEvent(event);
+     <span class="keyword">if</span> (rubberBand)
+         rubberBand<span class="operator">-</span><span class="operator">&gt;</span>hide();
+     viewport()<span class="operator">-</span><span class="operator">&gt;</span>update();
  }
 
- QModelIndex PieView::moveCursor(QAbstractItemView::CursorAction cursorAction,
-                                 Qt::KeyboardModifiers <span class="comment">/*modifiers*/</span>)
+ <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> PieView<span class="operator">::</span>moveCursor(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>CursorAction cursorAction<span class="operator">,</span>
+                                 <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeyboardModifiers <span class="comment">/*modifiers*/</span>)
  {
-     QModelIndex current = currentIndex();
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> current <span class="operator">=</span> currentIndex();
 
-     switch (cursorAction) {
-         case MoveLeft:
-         case MoveUp:
-             if (current.row() &gt; 0)
-                 current = model()-&gt;index(current.row() - 1, current.column(),
+     <span class="keyword">switch</span> (cursorAction) {
+         <span class="keyword">case</span> MoveLeft:
+         <span class="keyword">case</span> MoveUp:
+             <span class="keyword">if</span> (current<span class="operator">.</span>row() <span class="operator">&gt;</span> <span class="number">0</span>)
+                 current <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(current<span class="operator">.</span>row() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> current<span class="operator">.</span>column()<span class="operator">,</span>
                                           rootIndex());
-             else
-                 current = model()-&gt;index(0, current.column(), rootIndex());
-             break;
-         case MoveRight:
-         case MoveDown:
-             if (current.row() &lt; rows(current) - 1)
-                 current = model()-&gt;index(current.row() + 1, current.column(),
+             <span class="keyword">else</span>
+                 current <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">0</span><span class="operator">,</span> current<span class="operator">.</span>column()<span class="operator">,</span> rootIndex());
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> MoveRight:
+         <span class="keyword">case</span> MoveDown:
+             <span class="keyword">if</span> (current<span class="operator">.</span>row() <span class="operator">&lt;</span> rows(current) <span class="operator">-</span> <span class="number">1</span>)
+                 current <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(current<span class="operator">.</span>row() <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> current<span class="operator">.</span>column()<span class="operator">,</span>
                                           rootIndex());
-             else
-                 current = model()-&gt;index(rows(current) - 1, current.column(),
+             <span class="keyword">else</span>
+                 current <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(rows(current) <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> current<span class="operator">.</span>column()<span class="operator">,</span>
                                           rootIndex());
-             break;
-         default:
-             break;
+             <span class="keyword">break</span>;
+         <span class="keyword">default</span>:
+             <span class="keyword">break</span>;
      }
 
-     viewport()-&gt;update();
-     return current;
+     viewport()<span class="operator">-</span><span class="operator">&gt;</span>update();
+     <span class="keyword">return</span> current;
  }
 
- void PieView::paintEvent(QPaintEvent *event)
+ <span class="type">void</span> PieView<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
  {
-     QItemSelectionModel *selections = selectionModel();
-     QStyleOptionViewItem option = viewOptions();
-     QStyle::State state = option.state;
+     <span class="type"><a href="qitemselectionmodel.html">QItemSelectionModel</a></span> <span class="operator">*</span>selections <span class="operator">=</span> selectionModel();
+     <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> option <span class="operator">=</span> viewOptions();
+     <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>State state <span class="operator">=</span> option<span class="operator">.</span>state;
 
-     QBrush background = option.palette.base();
-     QPen foreground(option.palette.color(QPalette::WindowText));
-     QPen textPen(option.palette.color(QPalette::Text));
-     QPen highlightedPen(option.palette.color(QPalette::HighlightedText));
+     <span class="type"><a href="qbrush.html">QBrush</a></span> background <span class="operator">=</span> option<span class="operator">.</span>palette<span class="operator">.</span>base();
+     <span class="type"><a href="qpen.html">QPen</a></span> foreground(option<span class="operator">.</span>palette<span class="operator">.</span>color(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText));
+     <span class="type"><a href="qpen.html">QPen</a></span> textPen(option<span class="operator">.</span>palette<span class="operator">.</span>color(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Text));
+     <span class="type"><a href="qpen.html">QPen</a></span> highlightedPen(option<span class="operator">.</span>palette<span class="operator">.</span>color(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>HighlightedText));
 
-     QPainter painter(viewport());
-     painter.setRenderHint(QPainter::Antialiasing);
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(viewport());
+     painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
 
-     painter.fillRect(event-&gt;rect(), background);
-     painter.setPen(foreground);
+     painter<span class="operator">.</span>fillRect(event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">,</span> background);
+     painter<span class="operator">.</span>setPen(foreground);
 
      <span class="comment">// Viewport rectangles</span>
-     QRect pieRect = QRect(margin, margin, pieSize, pieSize);
-     QPoint keyPoint = QPoint(totalSize - horizontalScrollBar()-&gt;value(),
-                              margin - verticalScrollBar()-&gt;value());
+     <span class="type"><a href="qrect.html">QRect</a></span> pieRect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>(margin<span class="operator">,</span> margin<span class="operator">,</span> pieSize<span class="operator">,</span> pieSize);
+     <span class="type"><a href="qpoint.html">QPoint</a></span> keyPoint <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(totalSize <span class="operator">-</span> horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value()<span class="operator">,</span>
+                              margin <span class="operator">-</span> verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value());
 
-     if (validItems &gt; 0) {
+     <span class="keyword">if</span> (validItems <span class="operator">&gt;</span> <span class="number">0</span>) {
 
-         painter.save();
-         painter.translate(pieRect.x() - horizontalScrollBar()-&gt;value(),
-                           pieRect.y() - verticalScrollBar()-&gt;value());
-         painter.drawEllipse(0, 0, pieSize, pieSize);
-         double startAngle = 0.0;
-         int row;
+         painter<span class="operator">.</span>save();
+         painter<span class="operator">.</span>translate(pieRect<span class="operator">.</span>x() <span class="operator">-</span> horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value()<span class="operator">,</span>
+                           pieRect<span class="operator">.</span>y() <span class="operator">-</span> verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value());
+         painter<span class="operator">.</span>drawEllipse(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> pieSize<span class="operator">,</span> pieSize);
+         <span class="type">double</span> startAngle <span class="operator">=</span> <span class="number">0.0</span>;
+         <span class="type">int</span> row;
 
-         for (row = 0; row &lt; model()-&gt;rowCount(rootIndex()); ++row) {
+         <span class="keyword">for</span> (row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(rootIndex()); <span class="operator">+</span><span class="operator">+</span>row) {
 
-             QModelIndex index = model()-&gt;index(row, 1, rootIndex());
-             double value = model()-&gt;data(index).toDouble();
+             <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+             <span class="type">double</span> value <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble();
 
-             if (value &gt; 0.0) {
-                 double angle = 360*value/totalValue;
+             <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+                 <span class="type">double</span> angle <span class="operator">=</span> <span class="number">360</span><span class="operator">*</span>value<span class="operator">/</span>totalValue;
 
-                 QModelIndex colorIndex = model()-&gt;index(row, 0, rootIndex());
-                 QColor color = QColor(model()-&gt;data(colorIndex,
-                                 Qt::DecorationRole).toString());
+                 <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> colorIndex <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> rootIndex());
+                 <span class="type"><a href="qcolor.html">QColor</a></span> color <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span>(model()<span class="operator">-</span><span class="operator">&gt;</span>data(colorIndex<span class="operator">,</span>
+                                 <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DecorationRole)<span class="operator">.</span>toString());
 
-                 if (currentIndex() == index)
-                     painter.setBrush(QBrush(color, Qt::Dense4Pattern));
-                 else if (selections-&gt;isSelected(index))
-                     painter.setBrush(QBrush(color, Qt::Dense3Pattern));
-                 else
-                     painter.setBrush(QBrush(color));
+                 <span class="keyword">if</span> (currentIndex() <span class="operator">=</span><span class="operator">=</span> index)
+                     painter<span class="operator">.</span>setBrush(<span class="type"><a href="qbrush.html">QBrush</a></span>(color<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense4Pattern));
+                 <span class="keyword">else</span> <span class="keyword">if</span> (selections<span class="operator">-</span><span class="operator">&gt;</span>isSelected(index))
+                     painter<span class="operator">.</span>setBrush(<span class="type"><a href="qbrush.html">QBrush</a></span>(color<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense3Pattern));
+                 <span class="keyword">else</span>
+                     painter<span class="operator">.</span>setBrush(<span class="type"><a href="qbrush.html">QBrush</a></span>(color));
 
-                 painter.drawPie(0, 0, pieSize, pieSize, int(startAngle*16),
-                                 int(angle*16));
+                 painter<span class="operator">.</span>drawPie(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> pieSize<span class="operator">,</span> pieSize<span class="operator">,</span> <span class="type">int</span>(startAngle<span class="operator">*</span><span class="number">16</span>)<span class="operator">,</span>
+                                 <span class="type">int</span>(angle<span class="operator">*</span><span class="number">16</span>));
 
-                 startAngle += angle;
+                 startAngle <span class="operator">+</span><span class="operator">=</span> angle;
              }
          }
-         painter.restore();
+         painter<span class="operator">.</span>restore();
 
-         int keyNumber = 0;
+         <span class="type">int</span> keyNumber <span class="operator">=</span> <span class="number">0</span>;
 
-         for (row = 0; row &lt; model()-&gt;rowCount(rootIndex()); ++row) {
+         <span class="keyword">for</span> (row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(rootIndex()); <span class="operator">+</span><span class="operator">+</span>row) {
 
-             QModelIndex index = model()-&gt;index(row, 1, rootIndex());
-             double value = model()-&gt;data(index).toDouble();
+             <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+             <span class="type">double</span> value <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble();
 
-             if (value &gt; 0.0) {
-                 QModelIndex labelIndex = model()-&gt;index(row, 0, rootIndex());
+             <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+                 <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> labelIndex <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> rootIndex());
 
-                 QStyleOptionViewItem option = viewOptions();
-                 option.rect = visualRect(labelIndex);
-                 if (selections-&gt;isSelected(labelIndex))
-                     option.state |= QStyle::State_Selected;
-                 if (currentIndex() == labelIndex)
-                     option.state |= QStyle::State_HasFocus;
-                 itemDelegate()-&gt;paint(&amp;painter, option, labelIndex);
+                 <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> option <span class="operator">=</span> viewOptions();
+                 option<span class="operator">.</span>rect <span class="operator">=</span> visualRect(labelIndex);
+                 <span class="keyword">if</span> (selections<span class="operator">-</span><span class="operator">&gt;</span>isSelected(labelIndex))
+                     option<span class="operator">.</span>state <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>State_Selected;
+                 <span class="keyword">if</span> (currentIndex() <span class="operator">=</span><span class="operator">=</span> labelIndex)
+                     option<span class="operator">.</span>state <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>State_HasFocus;
+                 itemDelegate()<span class="operator">-</span><span class="operator">&gt;</span>paint(<span class="operator">&amp;</span>painter<span class="operator">,</span> option<span class="operator">,</span> labelIndex);
 
-                 keyNumber++;
+                 keyNumber<span class="operator">+</span><span class="operator">+</span>;
              }
          }
      }
  }
 
- void PieView::resizeEvent(QResizeEvent * <span class="comment">/* event */</span>)
+ <span class="type">void</span> PieView<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span> <span class="comment">/* event */</span>)
  {
      updateGeometries();
  }
 
- int PieView::rows(const QModelIndex &amp;index) const
+ <span class="type">int</span> PieView<span class="operator">::</span>rows(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
  {
-     return model()-&gt;rowCount(model()-&gt;parent(index));
+     <span class="keyword">return</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(model()<span class="operator">-</span><span class="operator">&gt;</span>parent(index));
  }
 
- void PieView::rowsInserted(const QModelIndex &amp;parent, int start, int end)
+ <span class="type">void</span> PieView<span class="operator">::</span>rowsInserted(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent<span class="operator">,</span> <span class="type">int</span> start<span class="operator">,</span> <span class="type">int</span> end)
  {
-     for (int row = start; row &lt;= end; ++row) {
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> start; row <span class="operator">&lt;</span><span class="operator">=</span> end; <span class="operator">+</span><span class="operator">+</span>row) {
 
-         QModelIndex index = model()-&gt;index(row, 1, rootIndex());
-         double value = model()-&gt;data(index).toDouble();
+         <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+         <span class="type">double</span> value <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble();
 
-         if (value &gt; 0.0) {
-             totalValue += value;
-             validItems++;
+         <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+             totalValue <span class="operator">+</span><span class="operator">=</span> value;
+             validItems<span class="operator">+</span><span class="operator">+</span>;
          }
      }
 
-     QAbstractItemView::rowsInserted(parent, start, end);
+     <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>rowsInserted(parent<span class="operator">,</span> start<span class="operator">,</span> end);
  }
 
- void PieView::rowsAboutToBeRemoved(const QModelIndex &amp;parent, int start, int end)
+ <span class="type">void</span> PieView<span class="operator">::</span>rowsAboutToBeRemoved(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent<span class="operator">,</span> <span class="type">int</span> start<span class="operator">,</span> <span class="type">int</span> end)
  {
-     for (int row = start; row &lt;= end; ++row) {
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> start; row <span class="operator">&lt;</span><span class="operator">=</span> end; <span class="operator">+</span><span class="operator">+</span>row) {
 
-         QModelIndex index = model()-&gt;index(row, 1, rootIndex());
-         double value = model()-&gt;data(index).toDouble();
-         if (value &gt; 0.0) {
-             totalValue -= value;
-             validItems--;
+         <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> rootIndex());
+         <span class="type">double</span> value <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>data(index)<span class="operator">.</span>toDouble();
+         <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+             totalValue <span class="operator">-</span><span class="operator">=</span> value;
+             validItems<span class="operator">-</span><span class="operator">-</span>;
          }
      }
 
-     QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
+     <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>rowsAboutToBeRemoved(parent<span class="operator">,</span> start<span class="operator">,</span> end);
  }
 
- void PieView::scrollContentsBy(int dx, int dy)
+ <span class="type">void</span> PieView<span class="operator">::</span>scrollContentsBy(<span class="type">int</span> dx<span class="operator">,</span> <span class="type">int</span> dy)
  {
-     viewport()-&gt;scroll(dx, dy);
+     viewport()<span class="operator">-</span><span class="operator">&gt;</span>scroll(dx<span class="operator">,</span> dy);
  }
 
- void PieView::scrollTo(const QModelIndex &amp;index, ScrollHint)
+ <span class="type">void</span> PieView<span class="operator">::</span>scrollTo(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> ScrollHint)
  {
-     QRect area = viewport()-&gt;rect();
-     QRect rect = visualRect(index);
+     <span class="type"><a href="qrect.html">QRect</a></span> area <span class="operator">=</span> viewport()<span class="operator">-</span><span class="operator">&gt;</span>rect();
+     <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> visualRect(index);
 
-     if (rect.left() &lt; area.left())
-         horizontalScrollBar()-&gt;setValue(
-             horizontalScrollBar()-&gt;value() + rect.left() - area.left());
-     else if (rect.right() &gt; area.right())
-         horizontalScrollBar()-&gt;setValue(
-             horizontalScrollBar()-&gt;value() + qMin(
-                 rect.right() - area.right(), rect.left() - area.left()));
+     <span class="keyword">if</span> (rect<span class="operator">.</span>left() <span class="operator">&lt;</span> area<span class="operator">.</span>left())
+         horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setValue(
+             horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value() <span class="operator">+</span> rect<span class="operator">.</span>left() <span class="operator">-</span> area<span class="operator">.</span>left());
+     <span class="keyword">else</span> <span class="keyword">if</span> (rect<span class="operator">.</span>right() <span class="operator">&gt;</span> area<span class="operator">.</span>right())
+         horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setValue(
+             horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value() <span class="operator">+</span> <a href="qtglobal.html#qMin">qMin</a>(
+                 rect<span class="operator">.</span>right() <span class="operator">-</span> area<span class="operator">.</span>right()<span class="operator">,</span> rect<span class="operator">.</span>left() <span class="operator">-</span> area<span class="operator">.</span>left()));
 
-     if (rect.top() &lt; area.top())
-         verticalScrollBar()-&gt;setValue(
-             verticalScrollBar()-&gt;value() + rect.top() - area.top());
-     else if (rect.bottom() &gt; area.bottom())
-         verticalScrollBar()-&gt;setValue(
-             verticalScrollBar()-&gt;value() + qMin(
-                 rect.bottom() - area.bottom(), rect.top() - area.top()));
+     <span class="keyword">if</span> (rect<span class="operator">.</span>top() <span class="operator">&lt;</span> area<span class="operator">.</span>top())
+         verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setValue(
+             verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value() <span class="operator">+</span> rect<span class="operator">.</span>top() <span class="operator">-</span> area<span class="operator">.</span>top());
+     <span class="keyword">else</span> <span class="keyword">if</span> (rect<span class="operator">.</span>bottom() <span class="operator">&gt;</span> area<span class="operator">.</span>bottom())
+         verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setValue(
+             verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value() <span class="operator">+</span> <a href="qtglobal.html#qMin">qMin</a>(
+                 rect<span class="operator">.</span>bottom() <span class="operator">-</span> area<span class="operator">.</span>bottom()<span class="operator">,</span> rect<span class="operator">.</span>top() <span class="operator">-</span> area<span class="operator">.</span>top()));
 
      update();
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
      Find the indices corresponding to the extent of the selection.
  */</span>
 
- void PieView::setSelection(const QRect &amp;rect, QItemSelectionModel::SelectionFlags command)
+ <span class="type">void</span> PieView<span class="operator">::</span>setSelection(<span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect<span class="operator">,</span> <span class="type"><a href="qitemselectionmodel.html">QItemSelectionModel</a></span><span class="operator">::</span>SelectionFlags command)
  {
      <span class="comment">// Use content widget coordinates because we will use the itemRegion()</span>
      <span class="comment">// function to check for intersections.</span>
 
-     QRect contentsRect = rect.translated(
-                             horizontalScrollBar()-&gt;value(),
-                             verticalScrollBar()-&gt;value()).normalized();
+     <span class="type"><a href="qrect.html">QRect</a></span> contentsRect <span class="operator">=</span> rect<span class="operator">.</span>translated(
+                             horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value()<span class="operator">,</span>
+                             verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value())<span class="operator">.</span>normalized();
 
-     int rows = model()-&gt;rowCount(rootIndex());
-     int columns = model()-&gt;columnCount(rootIndex());
-     QModelIndexList indexes;
+     <span class="type">int</span> rows <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>rowCount(rootIndex());
+     <span class="type">int</span> columns <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>columnCount(rootIndex());
+     <span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> indexes;
 
-     for (int row = 0; row &lt; rows; ++row) {
-         for (int column = 0; column &lt; columns; ++column) {
-             QModelIndex index = model()-&gt;index(row, column, rootIndex());
-             QRegion region = itemRegion(index);
-             if (!region.intersect(contentsRect).isEmpty())
-                 indexes.append(index);
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> rows; <span class="operator">+</span><span class="operator">+</span>row) {
+         <span class="keyword">for</span> (<span class="type">int</span> column <span class="operator">=</span> <span class="number">0</span>; column <span class="operator">&lt;</span> columns; <span class="operator">+</span><span class="operator">+</span>column) {
+             <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> column<span class="operator">,</span> rootIndex());
+             <span class="type"><a href="qregion.html">QRegion</a></span> region <span class="operator">=</span> itemRegion(index);
+             <span class="keyword">if</span> (<span class="operator">!</span>region<span class="operator">.</span>intersect(contentsRect)<span class="operator">.</span>isEmpty())
+                 indexes<span class="operator">.</span>append(index);
          }
      }
 
-     if (indexes.size() &gt; 0) {
-         int firstRow = indexes[0].row();
-         int lastRow = indexes[0].row();
-         int firstColumn = indexes[0].column();
-         int lastColumn = indexes[0].column();
+     <span class="keyword">if</span> (indexes<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>) {
+         <span class="type">int</span> firstRow <span class="operator">=</span> indexes<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>row();
+         <span class="type">int</span> lastRow <span class="operator">=</span> indexes<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>row();
+         <span class="type">int</span> firstColumn <span class="operator">=</span> indexes<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>column();
+         <span class="type">int</span> lastColumn <span class="operator">=</span> indexes<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>column();
 
-         for (int i = 1; i &lt; indexes.size(); ++i) {
-             firstRow = qMin(firstRow, indexes[i].row());
-             lastRow = qMax(lastRow, indexes[i].row());
-             firstColumn = qMin(firstColumn, indexes[i].column());
-             lastColumn = qMax(lastColumn, indexes[i].column());
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> indexes<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+             firstRow <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(firstRow<span class="operator">,</span> indexes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>row());
+             lastRow <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(lastRow<span class="operator">,</span> indexes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>row());
+             firstColumn <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(firstColumn<span class="operator">,</span> indexes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>column());
+             lastColumn <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(lastColumn<span class="operator">,</span> indexes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>column());
          }
 
-         QItemSelection selection(
-             model()-&gt;index(firstRow, firstColumn, rootIndex()),
-             model()-&gt;index(lastRow, lastColumn, rootIndex()));
-         selectionModel()-&gt;select(selection, command);
-     } else {
-         QModelIndex noIndex;
-         QItemSelection selection(noIndex, noIndex);
-         selectionModel()-&gt;select(selection, command);
+         <span class="type"><a href="qitemselection.html">QItemSelection</a></span> selection(
+             model()<span class="operator">-</span><span class="operator">&gt;</span>index(firstRow<span class="operator">,</span> firstColumn<span class="operator">,</span> rootIndex())<span class="operator">,</span>
+             model()<span class="operator">-</span><span class="operator">&gt;</span>index(lastRow<span class="operator">,</span> lastColumn<span class="operator">,</span> rootIndex()));
+         selectionModel()<span class="operator">-</span><span class="operator">&gt;</span>select(selection<span class="operator">,</span> command);
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> noIndex;
+         <span class="type"><a href="qitemselection.html">QItemSelection</a></span> selection(noIndex<span class="operator">,</span> noIndex);
+         selectionModel()<span class="operator">-</span><span class="operator">&gt;</span>select(selection<span class="operator">,</span> command);
      }
 
      update();
  }
 
- void PieView::updateGeometries()
+ <span class="type">void</span> PieView<span class="operator">::</span>updateGeometries()
  {
-     horizontalScrollBar()-&gt;setPageStep(viewport()-&gt;width());
-     horizontalScrollBar()-&gt;setRange(0, qMax(0, 2*totalSize - viewport()-&gt;width()));
-     verticalScrollBar()-&gt;setPageStep(viewport()-&gt;height());
-     verticalScrollBar()-&gt;setRange(0, qMax(0, totalSize - viewport()-&gt;height()));
+     horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setPageStep(viewport()<span class="operator">-</span><span class="operator">&gt;</span>width());
+     horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="number">0</span><span class="operator">,</span> <span class="number">2</span><span class="operator">*</span>totalSize <span class="operator">-</span> viewport()<span class="operator">-</span><span class="operator">&gt;</span>width()));
+     verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setPageStep(viewport()<span class="operator">-</span><span class="operator">&gt;</span>height());
+     verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="number">0</span><span class="operator">,</span> totalSize <span class="operator">-</span> viewport()<span class="operator">-</span><span class="operator">&gt;</span>height()));
  }
 
- int PieView::verticalOffset() const
+ <span class="type">int</span> PieView<span class="operator">::</span>verticalOffset() <span class="keyword">const</span>
  {
-     return verticalScrollBar()-&gt;value();
+     <span class="keyword">return</span> verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value();
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
      Returns the position of the item in viewport coordinates.
  */</span>
 
- QRect PieView::visualRect(const QModelIndex &amp;index) const
+ <span class="type"><a href="qrect.html">QRect</a></span> PieView<span class="operator">::</span>visualRect(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
  {
-     QRect rect = itemRect(index);
-     if (rect.isValid())
-         return QRect(rect.left() - horizontalScrollBar()-&gt;value(),
-                      rect.top() - verticalScrollBar()-&gt;value(),
-                      rect.width(), rect.height());
-     else
-         return rect;
+     <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> itemRect(index);
+     <span class="keyword">if</span> (rect<span class="operator">.</span>isValid())
+         <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>(rect<span class="operator">.</span>left() <span class="operator">-</span> horizontalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value()<span class="operator">,</span>
+                      rect<span class="operator">.</span>top() <span class="operator">-</span> verticalScrollBar()<span class="operator">-</span><span class="operator">&gt;</span>value()<span class="operator">,</span>
+                      rect<span class="operator">.</span>width()<span class="operator">,</span> rect<span class="operator">.</span>height());
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> rect;
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
      Returns a region corresponding to the selection in viewport coordinates.
  */</span>
 
- QRegion PieView::visualRegionForSelection(const QItemSelection &amp;selection) const
+ <span class="type"><a href="qregion.html">QRegion</a></span> PieView<span class="operator">::</span>visualRegionForSelection(<span class="keyword">const</span> <span class="type"><a href="qitemselection.html">QItemSelection</a></span> <span class="operator">&amp;</span>selection) <span class="keyword">const</span>
  {
-     int ranges = selection.count();
+     <span class="type">int</span> ranges <span class="operator">=</span> selection<span class="operator">.</span>count();
 
-     if (ranges == 0)
-         return QRect();
+     <span class="keyword">if</span> (ranges <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>();
 
-     QRegion region;
-     for (int i = 0; i &lt; ranges; ++i) {
-         QItemSelectionRange range = selection.at(i);
-         for (int row = range.top(); row &lt;= range.bottom(); ++row) {
-             for (int col = range.left(); col &lt;= range.right(); ++col) {
-                 QModelIndex index = model()-&gt;index(row, col, rootIndex());
-                 region += visualRect(index);
+     <span class="type"><a href="qregion.html">QRegion</a></span> region;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> ranges; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qitemselectionrange.html">QItemSelectionRange</a></span> range <span class="operator">=</span> selection<span class="operator">.</span>at(i);
+         <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> range<span class="operator">.</span>top(); row <span class="operator">&lt;</span><span class="operator">=</span> range<span class="operator">.</span>bottom(); <span class="operator">+</span><span class="operator">+</span>row) {
+             <span class="keyword">for</span> (<span class="type">int</span> col <span class="operator">=</span> range<span class="operator">.</span>left(); col <span class="operator">&lt;</span><span class="operator">=</span> range<span class="operator">.</span>right(); <span class="operator">+</span><span class="operator">+</span>col) {
+                 <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model()<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> col<span class="operator">,</span> rootIndex());
+                 region <span class="operator">+</span><span class="operator">=</span> visualRect(index);
              }
          }
      }
-     return region;
+     <span class="keyword">return</span> region;
  }</pre>
 </div>
 <!-- @@@itemviews/chart/pieview.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

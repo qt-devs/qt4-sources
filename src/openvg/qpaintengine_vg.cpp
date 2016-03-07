@@ -7,34 +7,34 @@
 ** This file is part of the QtOpenVG module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -77,8 +77,8 @@ static const qreal aliasedCoordinateDelta = 0.5 - 0.015625;
 
 #if !defined(QVG_NO_DRAW_GLYPHS)
 
-Q_DECL_IMPORT extern int qt_defaultDpiX();
-Q_DECL_IMPORT extern int qt_defaultDpiY();
+Q_GUI_EXPORT int qt_defaultDpiX();
+Q_GUI_EXPORT int qt_defaultDpiY();
 
 class QVGPaintEnginePrivate;
 
@@ -526,7 +526,7 @@ void QVGPaintEnginePrivate::setTransform
     vgLoadMatrix(mat);
 }
 
-Q_DECL_IMPORT extern bool qt_scaleForTransform(const QTransform &transform, qreal *scale);
+Q_GUI_EXPORT bool qt_scaleForTransform(const QTransform &transform, qreal *scale);
 
 void QVGPaintEnginePrivate::updateTransform(QPaintDevice *pdev)
 {
@@ -994,7 +994,7 @@ VGPath QVGPaintEnginePrivate::roundedRectPath(const QRectF &rect, qreal xRadius,
     return vgpath;
 }
 
-Q_DECL_IMPORT extern QImage qt_imageForBrush(int style, bool invert);
+Q_GUI_EXPORT QImage qt_imageForBrush(int style, bool invert);
 
 static QImage colorizeBitmap(const QImage &image, const QColor &color)
 {
@@ -1024,9 +1024,11 @@ static VGImage toVGImage
     switch (img.format()) {
     case QImage::Format_Mono:
         img = image.convertToFormat(QImage::Format_MonoLSB, flags);
+        img.invertPixels();
         format = VG_BW_1;
         break;
     case QImage::Format_MonoLSB:
+        img.invertPixels();
         format = VG_BW_1;
         break;
     case QImage::Format_RGB32:
@@ -1472,7 +1474,7 @@ void QVGPaintEnginePrivate::draw
     (VGPath path, const QPen& pen, const QBrush& brush, VGint rule)
 {
     VGbitfield mode = 0;
-    if (pen.style() != Qt::NoPen) {
+    if (qpen_style(pen) != Qt::NoPen && qbrush_style(qpen_brush(pen)) != Qt::NoBrush) {
         ensurePen(pen);
         mode |= VG_STROKE_PATH;
     }
@@ -1531,6 +1533,8 @@ bool QVGPaintEngine::begin(QPaintDevice *pdev)
 
 bool QVGPaintEngine::end()
 {
+    vgSeti(VG_SCISSORING, VG_FALSE);
+    vgSeti(VG_MASKING, VG_FALSE);
     return true;
 }
 
@@ -3071,6 +3075,102 @@ static void drawVGImage(QVGPaintEnginePrivate *d,
     vgDrawImage(vgImg);
 }
 
+static void drawImageTiled(QVGPaintEnginePrivate *d,
+                           const QRectF &r,
+                           const QImage &image,
+                           const QRectF &sr = QRectF())
+{
+    const int minTileSize = 16;
+    int tileWidth = 512;
+    int tileHeight = tileWidth;
+
+    VGImageFormat tileFormat = qt_vg_image_to_vg_format(image.format());
+    VGImage tile = VG_INVALID_HANDLE;
+    QVGImagePool *pool = QVGImagePool::instance();
+    while (tile == VG_INVALID_HANDLE && tileWidth >= minTileSize) {
+        tile = pool->createPermanentImage(tileFormat, tileWidth, tileHeight,
+            VG_IMAGE_QUALITY_FASTER);
+        if (tile == VG_INVALID_HANDLE) {
+            tileWidth /= 2;
+            tileHeight /= 2;
+        }
+    }
+    if (tile == VG_INVALID_HANDLE) {
+        qWarning("drawImageTiled: Failed to create %dx%d tile, giving up", tileWidth, tileHeight);
+        return;
+    }
+
+    VGfloat opacityMatrix[20] = {
+        1.0f, 0.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f, 0.0f,
+        0.0f, 0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, d->opacity,
+        0.0f, 0.0f, 0.0f, 0.0f
+    };
+    VGImage tileWithOpacity = VG_INVALID_HANDLE;
+    if (d->opacity != 1) {
+        tileWithOpacity = pool->createPermanentImage(VG_sARGB_8888_PRE,
+            tileWidth, tileHeight, VG_IMAGE_QUALITY_NONANTIALIASED);
+        if (tileWithOpacity == VG_INVALID_HANDLE)
+            qWarning("drawImageTiled: Failed to create extra tile, ignoring opacity");
+    }
+
+    QRect sourceRect = sr.toRect();
+    if (sourceRect.isNull())
+        sourceRect = QRect(0, 0, image.width(), image.height());
+
+    VGfloat scaleX = r.width() / sourceRect.width();
+    VGfloat scaleY = r.height() / sourceRect.height();
+
+    d->setImageOptions();
+    VGImageQuality oldImageQuality = d->imageQuality;
+    VGRenderingQuality oldRenderingQuality = d->renderingQuality;
+    d->setImageQuality(VG_IMAGE_QUALITY_NONANTIALIASED);
+    d->setRenderingQuality(VG_RENDERING_QUALITY_NONANTIALIASED);
+
+    for (int y = sourceRect.y(); y < sourceRect.height(); y += tileHeight) {
+        int h = qMin(tileHeight, sourceRect.height() - y);
+        if (h < 1)
+            break;
+        for (int x = sourceRect.x(); x < sourceRect.width(); x += tileWidth) {
+            int w = qMin(tileWidth, sourceRect.width() - x);
+            if (w < 1)
+                break;
+
+            int bytesPerPixel = image.depth() / 8;
+            const uchar *sptr = image.constBits() + x * bytesPerPixel + y * image.bytesPerLine();
+            vgImageSubData(tile, sptr, image.bytesPerLine(), tileFormat, 0, 0, w, h);
+
+            QTransform transform(d->imageTransform);
+            transform.translate(r.x() + x, r.y() + y);
+            transform.scale(scaleX, scaleY);
+            d->setTransform(VG_MATRIX_IMAGE_USER_TO_SURFACE, transform);
+
+            VGImage actualTile = tile;
+            if (tileWithOpacity != VG_INVALID_HANDLE) {
+                vgColorMatrix(tileWithOpacity, actualTile, opacityMatrix);
+                if (w < tileWidth || h < tileHeight)
+                    actualTile = vgChildImage(tileWithOpacity, 0, 0, w, h);
+                else
+                    actualTile = tileWithOpacity;
+            } else if (w < tileWidth || h < tileHeight) {
+                actualTile = vgChildImage(tile, 0, 0, w, h);
+            }
+            vgDrawImage(actualTile);
+
+            if (actualTile != tile && actualTile != tileWithOpacity)
+                vgDestroyImage(actualTile);
+        }
+    }
+
+    vgDestroyImage(tile);
+    if (tileWithOpacity != VG_INVALID_HANDLE)
+        vgDestroyImage(tileWithOpacity);
+
+    d->setImageQuality(oldImageQuality);
+    d->setRenderingQuality(oldRenderingQuality);
+}
+
 // Used by qpixmapfilter_vg.cpp to draw filtered VGImage's.
 void qt_vg_drawVGImage(QPainter *painter, const QPointF& pos, VGImage vgImg)
 {
@@ -3100,6 +3200,19 @@ void qt_vg_drawVGImageStencil
 bool QVGPaintEngine::canVgWritePixels(const QImage &image) const
 {
     Q_D(const QVGPaintEngine);
+
+    // qt_vg_image_to_vg_format returns VG_sARGB_8888 as
+    // fallback case if no matching VG format is found.
+    // If given image format is not Format_ARGB32 and returned
+    // format is VG_sARGB_8888, it means that no match was
+    // found. In that case vgWritePixels cannot be used.
+    // Also 1-bit formats cannot be used directly either.
+    if ((image.format() != QImage::Format_ARGB32
+           && qt_vg_image_to_vg_format(image.format()) == VG_sARGB_8888)
+           || image.depth() == 1) {
+        return false;
+    }
+
     // vgWritePixels ignores masking, blending and xforms so we can only use it if
     // ALL of the following conditions are true:
     // - It is a simple translate, or a scale of -1 on the y-axis (inverted)
@@ -3135,9 +3248,13 @@ void QVGPaintEngine::drawPixmap(const QRectF &r, const QPixmap &pm, const QRectF
         if (pm.size().width() <= screenSize.width()
             && pm.size().height() <= screenSize.height())
             vgpd->failedToAlloc = false;
-    }
 
-    drawImage(r, *(pd->buffer()), sr, Qt::AutoColor);
+        vgpd->source.beginDataAccess();
+        drawImage(r, vgpd->source.imageRef(), sr, Qt::AutoColor);
+        vgpd->source.endDataAccess(true);
+    } else {
+        drawImage(r, *(pd->buffer()), sr, Qt::AutoColor);
+    }
 }
 
 void QVGPaintEngine::drawPixmap(const QPointF &pos, const QPixmap &pm)
@@ -3163,9 +3280,13 @@ void QVGPaintEngine::drawPixmap(const QPointF &pos, const QPixmap &pm)
         if (pm.size().width() <= screenSize.width()
             && pm.size().height() <= screenSize.height())
             vgpd->failedToAlloc = false;
-    }
 
-    drawImage(pos, *(pd->buffer()));
+        vgpd->source.beginDataAccess();
+        drawImage(pos, vgpd->source.imageRef());
+        vgpd->source.endDataAccess(true);
+    } else {
+        drawImage(pos, *(pd->buffer()));
+    }
 }
 
 void QVGPaintEngine::drawImage
@@ -3173,6 +3294,8 @@ void QVGPaintEngine::drawImage
          Qt::ImageConversionFlags flags)
 {
     Q_D(QVGPaintEngine);
+    if (image.isNull())
+        return;
     VGImage vgImg;
     if (d->simpleTransform || d->opacity == 1.0f)
         vgImg = toVGImageSubRect(image, sr.toRect(), flags);
@@ -3209,7 +3332,10 @@ void QVGPaintEngine::drawImage
         } else {
             // Monochrome images need to use the vgChildImage() path.
             vgImg = toVGImage(image, flags);
-            drawVGImage(d, r, vgImg, image.size(), sr);
+            if (vgImg == VG_INVALID_HANDLE)
+                drawImageTiled(d, r, image, sr);
+            else
+                drawVGImage(d, r, vgImg, image.size(), sr);
         }
     }
     vgDestroyImage(vgImg);
@@ -3218,6 +3344,8 @@ void QVGPaintEngine::drawImage
 void QVGPaintEngine::drawImage(const QPointF &pos, const QImage &image)
 {
     Q_D(QVGPaintEngine);
+    if (image.isNull())
+        return;
     VGImage vgImg;
     if (canVgWritePixels(image)) {
         // Optimization for straight blits, no blending
@@ -3234,7 +3362,10 @@ void QVGPaintEngine::drawImage(const QPointF &pos, const QImage &image)
     } else {
         vgImg = toVGImageWithOpacity(image, d->opacity);
     }
-    drawVGImage(d, pos, vgImg);
+    if (vgImg == VG_INVALID_HANDLE)
+        drawImageTiled(d, QRectF(pos, image.size()), image);
+    else
+        drawVGImage(d, pos, vgImg);
     vgDestroyImage(vgImg);
 }
 
@@ -3637,6 +3768,8 @@ void QVGPaintEngine::beginNativePainting()
 #if !defined(QVG_NO_DRAW_GLYPHS)
     d->setTransform(VG_MATRIX_GLYPH_USER_TO_SURFACE, d->pathTransform);
 #endif
+    vgSeti(VG_SCISSORING, VG_FALSE);
+    vgSeti(VG_MASKING, VG_FALSE);
     d->rawVG = true;
 }
 
@@ -3697,6 +3830,7 @@ void QVGPaintEngine::restoreState(QPaintEngine::DirtyFlags dirty)
     if ((dirty & QPaintEngine::DirtyBrushOrigin) != 0)
         brushOriginChanged();
     d->fillRule = 0;
+    d->clearColor = QColor();
     if ((dirty & QPaintEngine::DirtyOpacity) != 0)
         opacityChanged();
     if ((dirty & QPaintEngine::DirtyTransform) != 0)
@@ -4011,6 +4145,8 @@ VGImageFormat qt_vg_image_to_vg_format(QImage::Format format)
     switch (format) {
         case QImage::Format_MonoLSB:
             return VG_BW_1;
+        case QImage::Format_Indexed8:
+            return VG_sL_8;
         case QImage::Format_ARGB32_Premultiplied:
             return VG_sARGB_8888_PRE;
         case QImage::Format_RGB32:
@@ -4021,7 +4157,8 @@ VGImageFormat qt_vg_image_to_vg_format(QImage::Format format)
             return VG_sRGB_565;
         case QImage::Format_ARGB4444_Premultiplied:
             return VG_sARGB_4444;
-        default: break;
+        default:
+            break;
     }
     return VG_sARGB_8888;   // XXX
 }

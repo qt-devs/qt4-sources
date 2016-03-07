@@ -26,8 +26,10 @@ include(debugger/debugger.pri)
 
 symbian: {
     TARGET.UID3=0x2001E623
-    LIBS += -lefsrv
+    LIBS += -lefsrv -lhal
 }
+
+linux-g++-maemo:DEFINES += QDECLARATIVEVIEW_NOBACKGROUND
 
 DEFINES += QT_NO_OPENTYPE
 INCLUDEPATH += ../3rdparty/harfbuzz/src

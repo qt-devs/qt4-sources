@@ -7,20 +7,20 @@
 ** This file is part of the documentation of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:FDL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in a
-** written agreement between you and Nokia.
-**
 ** GNU Free Documentation License
 ** Alternatively, this file may be used under the terms of the GNU Free
 ** Documentation License version 1.3 as published by the Free Software
-** Foundation and appearing in the file included in the packaging of this
-** file.
+** Foundation and appearing in the file included in the packaging of
+** this file.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -389,7 +389,7 @@
 
     \section1 Windows Vista
 
-    At the time Qt 4.7.3 was released, there were no known Vista-specific issues.
+    At the time Qt 4.7.4 was released, there were no known Vista-specific issues.
 
     \target Windows NT
     \section1 Windows XP, Windows 2000 and Windows NT
@@ -426,7 +426,7 @@
     details.
 
     \note A MinGW installation is only needed to build against the
-    binary pacakge, not to run the pre-compiled binaries that are in
+    binary package, not to run the pre-compiled binaries that are in
     the package.
 
     \section2 Intel C++ Compiler (Windows, Altix)
@@ -645,28 +645,8 @@
 
     \section1 Supported Devices
 
-    Qt is designed to work on any device which runs one of the following
-    versions of Symbian:
-
-    \table
-    \header \o Symbian Version
-    \row \o S60 3.1
-    \row \o S60 3.2
-    \row \o S60 5.0 (Symbian ^1)
-    \endtable
-
-    Qt has received \l{Tier 1 Platforms}{Tier 1} testing on the following phone models:
-
-    \table
-    \header \o Phone
-    \row    \o Nokia 5800
-    \row    \o Nokia E71
-    \row    \o Nokia E72
-    \row    \o Nokia N78
-    \row    \o Nokia N95
-    \row    \o Nokia N97
-    \row    \o Samsung i8910
-    \endtable
+    See the list of supported devices at
+    http://wiki.forum.nokia.com/index.php/Nokia_Smart_Installer_for_Symbian#Supported_Devices
 
     \section1 Supported Functionality
 
@@ -679,8 +659,6 @@
             \o Planned for future release.
     \row    \o QtDBus
             \o No current plans to support this feature.
-    \row    \o QtOpenGL ES
-            \o Planned for future release.
     \row    \o Printing support
             \o No current plans to support this feature.
     \row    \o Qt3Support
@@ -735,9 +713,9 @@
     \row    \o QtCore
             \o \c AllFiles when \l{http://developer.symbian.org/wiki/index.php/Capabilities_%28Symbian_Signed%29/AllFiles_Capability}{accessing specific areas.}
     \row    \o QtDeclarative
-            \o \c NetworkServices is automatically added for this module.
+            \o \c NetworkServices is automatically added for this module if no capabilities are explicitly specified.
     \row    \o QtNetwork
-            \o \c NetworkServices is automatically added for this module.
+            \o \c NetworkServices is automatically added for this module if no capabilities are explicitly specified.
     \row    \o QtNetwork
             \o \c ReadUserData is required to include all the phone's SSL certificates in the system's default CA certificate list
                   (for example those added by the user or stored in the SIM card),
@@ -745,7 +723,7 @@
     \row    \o QtMultiMedia
             \o \c UserEnvironment if QAudioInput is used.
     \row    \o QtWebkit
-            \o \c NetworkServices is automatically added for this module.
+            \o \c NetworkServices is automatically added for this module if no capabilities are explicitly specified.
     \endtable
 
     \note Some modules rely on other modules. E.g. QtWebkit and QtDeclarative
@@ -773,6 +751,44 @@
     platform in use. If available, it is loaded in preference over the MMF
     plugin. If the Helix plugin fails to load, the MMF plugin, if present on
     the device, will be loaded instead.
+
+    \section1 Hardware Accelerated Rendering
+
+    The default graphics system on Symbian^3 is OpenVG, which uses OpenVG
+    hardware to accelerate \l QPainter functions. There are a few exceptions,
+    where Qt will use software rendering fallback.
+
+    Devices like the N8 and C7 only have 32Mb of GPU memory and limited support
+    for EGL surface transparency. These devices can be identified by querying
+    the\c GL_RENDERER or \c VG_RENDERER string which evaluates to \c {VideoCore III}.
+    On these devices, Qt will use software rendering in cases listed below.
+
+        \list
+        \o Translucent windows
+        \o Dialogs
+        \o Popups
+        \endlist
+
+    \section1 QtOpenGL Support in Symbian
+
+     Qt 4.7 introduces the \l {QtOpenGL} module to Symbian^3. QtOpenGL is
+     supported on devices which support OpenGL ES 2.0. Symbian platforms prior
+     to Symbian^3 are not supported.
+
+    \l QGLWidget usage as a \l QGraphicsView viewport is not recommended on
+    Symbian. The OpenVG graphics system is not able to manage OpenGL graphics
+    resources. Also, a QGLWidget object is not able to release its GPU resources
+    when the application goes to the background. If OpenGL functionality is
+    needed, OpenGL graphics system usage is recommended. If an application
+    decides to use QGLWidget, then it is the application's responsibility to
+    destroy and release QGLWidget and related OpenGL resources when the
+    application goes to the background. Otherwise, the \l{Graphics Out Of Memory monitor}
+    may decide to kill the application as it consumes GPU resources while in the
+    background.
+
+    \note \l QGLBuffer, \l QGLFramebufferObject, \l QGLPixelBuffer, \l
+    QGLShader, and \l QGLShaderProgram are direct GPU resources and it is the
+    application's responsibility to manage them.
 
     \section1 UI Performance in devices prior to Symbian^3
 

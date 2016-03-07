@@ -7,34 +7,34 @@
 ** This file is part of the QtNetwork module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -55,18 +55,19 @@ QT_BEGIN_NAMESPACE
     Q_GLOBAL_STATIC_INIT(TYPE, NAME);                                   \
     static void NAME##_cleanup()                                        \
     {                                                                   \
-        delete this_##NAME.pointer;                                     \
+        this_##NAME.pointer->cleanup();                                 \
         this_##NAME.pointer = 0;                                        \
-        this_##NAME.destroyed = true;                                   \
     }                                                                   \
     static TYPE *NAME()                                                 \
     {                                                                   \
-        if (!this_##NAME.pointer && !this_##NAME.destroyed) {           \
+        if (!this_##NAME.pointer) {                                     \
             TYPE *x = new TYPE;                                         \
             if (!this_##NAME.pointer.testAndSetOrdered(0, x))           \
                 delete x;                                               \
-            else                                                        \
+            else {                                                      \
                 qAddPostRoutine(NAME##_cleanup);                        \
+                this_##NAME.pointer->initialize();                      \
+            }                                                           \
         }                                                               \
         return this_##NAME.pointer;                                     \
     }
@@ -75,15 +76,7 @@ Q_GLOBAL_STATIC_QAPP_DESTRUCTION(QNetworkConfigurationManagerPrivate, connManage
 
 QNetworkConfigurationManagerPrivate *qNetworkConfigurationManagerPrivate()
 {
-    static bool initialized = false;
-
-    QNetworkConfigurationManagerPrivate *m = connManager();
-    if (!initialized) {
-        initialized = true;
-        m->updateConfigurations();
-    }
-
-    return m;
+    return connManager();
 }
 
 /*!
@@ -203,6 +196,9 @@ QNetworkConfigurationManagerPrivate *qNetworkConfigurationManagerPrivate()
 
 /*!
     Constructs a QNetworkConfigurationManager with the given \a parent.
+
+    Note that to ensure a valid list of current configurations immediately available, updating
+    is done during construction which causes some delay.
 */
 QNetworkConfigurationManager::QNetworkConfigurationManager( QObject* parent )
     : QObject(parent)

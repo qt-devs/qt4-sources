@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: ClockCycleCounter.cpp Example File (demos/spectrum/3rdparty/fftreal/stopwatch/ClockCycleCounter.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">ClockCycleCounter.cpp Example File</h1>
 <span class="small-subtitle">demos/spectrum/3rdparty/fftreal/stopwatch/ClockCycleCounter.cpp</span>
 <!-- $$$demos/spectrum/3rdparty/fftreal/stopwatch/ClockCycleCounter.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /*****************************************************************************
+<pre class="cpp"> <span class="comment">/*****************************************************************************
 
          ClockCycleCounter.cpp
          Copyright (c) 2003 Laurent de Soras
@@ -174,28 +46,28 @@
 
  *Tab=3***********************************************************************/</span>
 
- #if defined (_MSC_VER)
-         #pragma warning (1 : 4130) <span class="comment">// &quot;'operator' : logical operation on address of string constant&quot;</span>
-         #pragma warning (1 : 4223) <span class="comment">// &quot;nonstandard extension used : non-lvalue array converted to pointer&quot;</span>
-         #pragma warning (1 : 4705) <span class="comment">// &quot;statement has no effect&quot;</span>
-         #pragma warning (1 : 4706) <span class="comment">// &quot;assignment within conditional expression&quot;</span>
-         #pragma warning (4 : 4786) <span class="comment">// &quot;identifier was truncated to '255' characters in the debug information&quot;</span>
-         #pragma warning (4 : 4800) <span class="comment">// &quot;forcing value to bool 'true' or 'false' (performance warning)&quot;</span>
-         #pragma warning (4 : 4355) <span class="comment">// &quot;'this' : used in base member initializer list&quot;</span>
- #endif
+ <span class="preprocessor">#if defined (_MSC_VER)</span>
+         <span class="preprocessor">#pragma warning (1 : 4130) // &quot;'operator' : logical operation on address of string constant&quot;</span>
+         <span class="preprocessor">#pragma warning (1 : 4223) // &quot;nonstandard extension used : non-lvalue array converted to pointer&quot;</span>
+         <span class="preprocessor">#pragma warning (1 : 4705) // &quot;statement has no effect&quot;</span>
+         <span class="preprocessor">#pragma warning (1 : 4706) // &quot;assignment within conditional expression&quot;</span>
+         <span class="preprocessor">#pragma warning (4 : 4786) // &quot;identifier was truncated to '255' characters in the debug information&quot;</span>
+         <span class="preprocessor">#pragma warning (4 : 4800) // &quot;forcing value to bool 'true' or 'false' (performance warning)&quot;</span>
+         <span class="preprocessor">#pragma warning (4 : 4355) // &quot;'this' : used in base member initializer list&quot;</span>
+ <span class="preprocessor">#endif</span>
 
-<span class="comment"> /*\\\ INCLUDE FILES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
+ <span class="comment">/*\\\ INCLUDE FILES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
 
- #include        &quot;ClockCycleCounter.h&quot;
+ <span class="preprocessor">#include        &quot;ClockCycleCounter.h&quot;</span>
 
- #include        &lt;cassert&gt;
+ <span class="preprocessor">#include        &lt;cassert&gt;</span>
 
- namespace stopwatch
+ <span class="keyword">namespace</span> stopwatch
  {
 
-<span class="comment"> /*\\\ PUBLIC \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
+ <span class="comment">/*\\\ PUBLIC \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
 
-<span class="comment"> /*
+ <span class="comment">/*
  ==============================================================================
  Name: ctor
  Description:
@@ -205,12 +77,12 @@
  ==============================================================================
  */</span>
 
- ClockCycleCounter::ClockCycleCounter ()
- :       _start_time (0)
- ,       _state (0)
- ,       _best_score (-1)
+ ClockCycleCounter<span class="operator">::</span>ClockCycleCounter ()
+ :       _start_time (<span class="number">0</span>)
+ <span class="operator">,</span>       _state (<span class="number">0</span>)
+ <span class="operator">,</span>       _best_score (<span class="operator">-</span><span class="number">1</span>)
  {
-         if (! _init_flag)
+         <span class="keyword">if</span> (<span class="operator">!</span> _init_flag)
          {
                  <span class="comment">// Should be executed in this order</span>
                  compute_clk_mul ();
@@ -218,15 +90,15 @@
                  compute_measure_time_lap ();
 
                  <span class="comment">// Restores object state</span>
-                 _start_time = 0;
-                 _state      = 0;
-                 _best_score = -1;
+                 _start_time <span class="operator">=</span> <span class="number">0</span>;
+                 _state      <span class="operator">=</span> <span class="number">0</span>;
+                 _best_score <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
 
-                 _init_flag = true;
+                 _init_flag <span class="operator">=</span> <span class="keyword">true</span>;
          }
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
  ==============================================================================
  Name: get_time_total
  Description:
@@ -237,20 +109,20 @@
  ==============================================================================
  */</span>
 
- Int64   ClockCycleCounter::get_time_total () const
+ Int64   ClockCycleCounter<span class="operator">::</span>get_time_total () <span class="keyword">const</span>
  {
-         const Int64             duration = _state - _start_time;
-         assert (duration &gt;= 0);
+         <span class="keyword">const</span> Int64             duration <span class="operator">=</span> _state <span class="operator">-</span> _start_time;
+         assert (duration <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>);
 
-         const Int64             t = max (
-                 duration - _measure_time_total,
-                 static_cast &lt;Int64&gt; (0)
+         <span class="keyword">const</span> Int64             t <span class="operator">=</span> max (
+                 duration <span class="operator">-</span> _measure_time_total<span class="operator">,</span>
+                 <span class="keyword">static_cast</span> <span class="operator">&lt;</span>Int64<span class="operator">&gt;</span> (<span class="number">0</span>)
          );
 
-         return (t * _clk_mul);
+         <span class="keyword">return</span> (t <span class="operator">*</span> _clk_mul);
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
  ==============================================================================
  Name: get_time_best_lap
  Description:
@@ -264,35 +136,35 @@
  ==============================================================================
  */</span>
 
- Int64   ClockCycleCounter::get_time_best_lap () const
+ Int64   ClockCycleCounter<span class="operator">::</span>get_time_best_lap () <span class="keyword">const</span>
  {
-         assert (_best_score &gt;= 0);
+         assert (_best_score <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>);
 
-         const Int64             t1 = max (
-                 _best_score - _measure_time_lap,
-                 static_cast &lt;Int64&gt; (0)
+         <span class="keyword">const</span> Int64             t1 <span class="operator">=</span> max (
+                 _best_score <span class="operator">-</span> _measure_time_lap<span class="operator">,</span>
+                 <span class="keyword">static_cast</span> <span class="operator">&lt;</span>Int64<span class="operator">&gt;</span> (<span class="number">0</span>)
          );
-         const Int64             t = min (t1, get_time_total ());
+         <span class="keyword">const</span> Int64             t <span class="operator">=</span> min (t1<span class="operator">,</span> get_time_total ());
 
-         return (t * _clk_mul);
+         <span class="keyword">return</span> (t <span class="operator">*</span> _clk_mul);
  }
 
-<span class="comment"> /*\\\ PROTECTED \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
+ <span class="comment">/*\\\ PROTECTED \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
 
-<span class="comment"> /*\\\ PRIVATE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
+ <span class="comment">/*\\\ PRIVATE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
 
- #if defined (__MACOS__)
+ <span class="preprocessor">#if defined (__MACOS__)</span>
 
- static inline double    stopwatch_ClockCycleCounter_get_time_s ()
+ <span class="keyword">static</span> <span class="keyword">inline</span> <span class="type">double</span>    stopwatch_ClockCycleCounter_get_time_s ()
  {
-         const Nanoseconds       ns = AbsoluteToNanoseconds (UpTime ());
+         <span class="keyword">const</span> Nanoseconds       ns <span class="operator">=</span> AbsoluteToNanoseconds (UpTime ());
 
-         return (ns.hi * 4294967296e-9 + ns.lo * 1e-9);
+         <span class="keyword">return</span> (ns<span class="operator">.</span>hi <span class="operator">*</span> <span class="number">4294967296e</span><span class="operator">-</span><span class="number">9</span> <span class="operator">+</span> ns<span class="operator">.</span>lo <span class="operator">*</span> <span class="number">1e</span><span class="operator">-</span><span class="number">9</span>);
  }
 
- #endif  <span class="comment">// __MACOS__</span>
+ <span class="preprocessor">#endif  // __MACOS__</span>
 
-<span class="comment"> /*
+ <span class="comment">/*
  ==============================================================================
  Name: compute_clk_mul
  Description:
@@ -302,58 +174,58 @@
  ==============================================================================
  */</span>
 
- void    ClockCycleCounter::compute_clk_mul ()
+ <span class="type">void</span>    ClockCycleCounter<span class="operator">::</span>compute_clk_mul ()
  {
-         assert (! _init_flag);
+         assert (<span class="operator">!</span> _init_flag);
 
- #if defined (__MACOS__)
+ <span class="preprocessor">#if defined (__MACOS__)</span>
 
-         long                            clk_speed_mhz = CurrentProcessorSpeed ();
-         const Int64             clk_speed =
-                 static_cast &lt;Int64&gt; (clk_speed_mhz) * (1000L*1000L);
+         <span class="type">long</span>                            clk_speed_mhz <span class="operator">=</span> CurrentProcessorSpeed ();
+         <span class="keyword">const</span> Int64             clk_speed <span class="operator">=</span>
+                 <span class="keyword">static_cast</span> <span class="operator">&lt;</span>Int64<span class="operator">&gt;</span> (clk_speed_mhz) <span class="operator">*</span> (<span class="number">1000L</span><span class="operator">*</span><span class="number">1000L</span>);
 
-         const double    start_time_s = stopwatch_ClockCycleCounter_get_time_s ();
+         <span class="keyword">const</span> <span class="type">double</span>    start_time_s <span class="operator">=</span> stopwatch_ClockCycleCounter_get_time_s ();
          start ();
 
-         const double    duration = 0.01;        <span class="comment">// Seconds</span>
-         while (stopwatch_ClockCycleCounter_get_time_s () - start_time_s &lt; duration)
+         <span class="keyword">const</span> <span class="type">double</span>    duration <span class="operator">=</span> <span class="number">0.01</span>;        <span class="comment">// Seconds</span>
+         <span class="keyword">while</span> (stopwatch_ClockCycleCounter_get_time_s () <span class="operator">-</span> start_time_s <span class="operator">&lt;</span> duration)
          {
-                 continue;
+                 <span class="keyword">continue</span>;
          }
 
-         const double    stop_time_s = stopwatch_ClockCycleCounter_get_time_s ();
+         <span class="keyword">const</span> <span class="type">double</span>    stop_time_s <span class="operator">=</span> stopwatch_ClockCycleCounter_get_time_s ();
          stop ();
 
-         const double    diff_time_s = stop_time_s - start_time_s;
-         const double    nbr_cycles = diff_time_s * static_cast &lt;double&gt; (clk_speed);
+         <span class="keyword">const</span> <span class="type">double</span>    diff_time_s <span class="operator">=</span> stop_time_s <span class="operator">-</span> start_time_s;
+         <span class="keyword">const</span> <span class="type">double</span>    nbr_cycles <span class="operator">=</span> diff_time_s <span class="operator">*</span> <span class="keyword">static_cast</span> <span class="operator">&lt;</span><span class="type">double</span><span class="operator">&gt;</span> (clk_speed);
 
-         const Int64             diff_time_c = _state - _start_time;
-         const double    clk_mul = nbr_cycles / static_cast &lt;double&gt; (diff_time_c);
+         <span class="keyword">const</span> Int64             diff_time_c <span class="operator">=</span> _state <span class="operator">-</span> _start_time;
+         <span class="keyword">const</span> <span class="type">double</span>    clk_mul <span class="operator">=</span> nbr_cycles <span class="operator">/</span> <span class="keyword">static_cast</span> <span class="operator">&lt;</span><span class="type">double</span><span class="operator">&gt;</span> (diff_time_c);
 
-         _clk_mul = round_int (clk_mul);
+         _clk_mul <span class="operator">=</span> round_int (clk_mul);
 
- #endif  <span class="comment">// __MACOS__</span>
+ <span class="preprocessor">#endif  // __MACOS__</span>
  }
 
- void    ClockCycleCounter::compute_measure_time_total ()
+ <span class="type">void</span>    ClockCycleCounter<span class="operator">::</span>compute_measure_time_total ()
  {
          start ();
          spend_time ();
 
-         Int64                           best_result = 0x7FFFFFFFL;      <span class="comment">// Should be enough</span>
-         long                            nbr_tests = 100;
-         for (long cnt = 0; cnt &lt; nbr_tests; ++cnt)
+         Int64                           best_result <span class="operator">=</span> <span class="number">0x7FFFFFFFL</span>;      <span class="comment">// Should be enough</span>
+         <span class="type">long</span>                            nbr_tests <span class="operator">=</span> <span class="number">100</span>;
+         <span class="keyword">for</span> (<span class="type">long</span> cnt <span class="operator">=</span> <span class="number">0</span>; cnt <span class="operator">&lt;</span> nbr_tests; <span class="operator">+</span><span class="operator">+</span>cnt)
          {
                  start ();
                  stop_lap ();
-                 const Int64             duration = _state - _start_time;
-                 best_result = min (best_result, duration);
+                 <span class="keyword">const</span> Int64             duration <span class="operator">=</span> _state <span class="operator">-</span> _start_time;
+                 best_result <span class="operator">=</span> min (best_result<span class="operator">,</span> duration);
          }
 
-         _measure_time_total = best_result;
+         _measure_time_total <span class="operator">=</span> best_result;
  }
 
-<span class="comment"> /*
+ <span class="comment">/*
  ==============================================================================
  Name: compute_measure_time_lap
  Description:
@@ -364,13 +236,13 @@
  ==============================================================================
  */</span>
 
- void    ClockCycleCounter::compute_measure_time_lap ()
+ <span class="type">void</span>    ClockCycleCounter<span class="operator">::</span>compute_measure_time_lap ()
  {
          start ();
          spend_time ();
 
-         long                            nbr_tests = 10;
-         for (long cnt = 0; cnt &lt; nbr_tests; ++cnt)
+         <span class="type">long</span>                            nbr_tests <span class="operator">=</span> <span class="number">10</span>;
+         <span class="keyword">for</span> (<span class="type">long</span> cnt <span class="operator">=</span> <span class="number">0</span>; cnt <span class="operator">&lt;</span> nbr_tests; <span class="operator">+</span><span class="operator">+</span>cnt)
          {
                  stop_lap ();
                  stop_lap ();
@@ -378,68 +250,52 @@
                  stop_lap ();
          }
 
-         _measure_time_lap = _best_score;
+         _measure_time_lap <span class="operator">=</span> _best_score;
  }
 
- void    ClockCycleCounter::spend_time ()
+ <span class="type">void</span>    ClockCycleCounter<span class="operator">::</span>spend_time ()
  {
-         const Int64             nbr_clocks = 500;       <span class="comment">// Number of clock cycles to spend</span>
+         <span class="keyword">const</span> Int64             nbr_clocks <span class="operator">=</span> <span class="number">500</span>;       <span class="comment">// Number of clock cycles to spend</span>
 
-         const Int64             start = read_clock_counter ();
+         <span class="keyword">const</span> Int64             start <span class="operator">=</span> read_clock_counter ();
          Int64                           current;
 
-         do
+         <span class="keyword">do</span>
          {
-                 current = read_clock_counter ();
+                 current <span class="operator">=</span> read_clock_counter ();
          }
-         while ((current - start) * _clk_mul &lt; nbr_clocks);
+         <span class="keyword">while</span> ((current <span class="operator">-</span> start) <span class="operator">*</span> _clk_mul <span class="operator">&lt;</span> nbr_clocks);
  }
 
- Int64   ClockCycleCounter::_measure_time_total = 0;
- Int64   ClockCycleCounter::_measure_time_lap = 0;
- int     ClockCycleCounter::_clk_mul = 1;
- bool    ClockCycleCounter::_init_flag = false;
+ Int64   ClockCycleCounter<span class="operator">::</span>_measure_time_total <span class="operator">=</span> <span class="number">0</span>;
+ Int64   ClockCycleCounter<span class="operator">::</span>_measure_time_lap <span class="operator">=</span> <span class="number">0</span>;
+ <span class="type">int</span>     ClockCycleCounter<span class="operator">::</span>_clk_mul <span class="operator">=</span> <span class="number">1</span>;
+ <span class="type">bool</span>    ClockCycleCounter<span class="operator">::</span>_init_flag <span class="operator">=</span> <span class="keyword">false</span>;
 
  }       <span class="comment">// namespace stopwatch</span>
 
-<span class="comment"> /*\\\ EOF \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span></pre>
+ <span class="comment">/*\\\ EOF \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span></pre>
 </div>
 <!-- @@@demos/spectrum/3rdparty/fftreal/stopwatch/ClockCycleCounter.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

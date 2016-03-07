@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: glwidget.cpp Example File (opengl/overpainting/glwidget.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">glwidget.cpp Example File</h1>
 <span class="small-subtitle">opengl/overpainting/glwidget.cpp</span>
 <!-- $$$opengl/overpainting/glwidget.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,130 +63,130 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;QtGui&gt;
- #include &lt;QtOpenGL&gt;
- #include &lt;stdlib.h&gt;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &lt;QtOpenGL&gt;</span>
+ <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
 
- #include &lt;math.h&gt;
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
 
- #include &quot;bubble.h&quot;
- #include &quot;qtlogo.h&quot;
- #include &quot;glwidget.h&quot;
+ <span class="preprocessor">#include &quot;bubble.h&quot;</span>
+ <span class="preprocessor">#include &quot;qtlogo.h&quot;</span>
+ <span class="preprocessor">#include &quot;glwidget.h&quot;</span>
 
- #ifndef GL_MULTISAMPLE
- #define GL_MULTISAMPLE  0x809D
- #endif
+ <span class="preprocessor">#ifndef GL_MULTISAMPLE</span>
+ <span class="preprocessor">#define GL_MULTISAMPLE  0x809D</span>
+ <span class="preprocessor">#endif</span>
 
- GLWidget::GLWidget(QWidget *parent)
-     : QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
+ GLWidget<span class="operator">::</span>GLWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qglwidget.html">QGLWidget</a></span>(<span class="type"><a href="qglformat.html">QGLFormat</a></span>(QGL<span class="operator">::</span>SampleBuffers)<span class="operator">,</span> parent)
  {
-     QTime midnight(0, 0, 0);
-     qsrand(midnight.secsTo(QTime::currentTime()));
+     <span class="type"><a href="qtime.html">QTime</a></span> midnight(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     qsrand(midnight<span class="operator">.</span>secsTo(<span class="type"><a href="qtime.html">QTime</a></span><span class="operator">::</span>currentTime()));
 
-     logo = 0;
-     xRot = 0;
-     yRot = 0;
-     zRot = 0;
+     logo <span class="operator">=</span> <span class="number">0</span>;
+     xRot <span class="operator">=</span> <span class="number">0</span>;
+     yRot <span class="operator">=</span> <span class="number">0</span>;
+     zRot <span class="operator">=</span> <span class="number">0</span>;
 
-     qtGreen = QColor::fromCmykF(0.40, 0.0, 1.0, 0.0);
-     qtPurple = QColor::fromCmykF(0.39, 0.39, 0.0, 0.0);
+     qtGreen <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromCmykF(<span class="number">0.40</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     qtPurple <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromCmykF(<span class="number">0.39</span><span class="operator">,</span> <span class="number">0.39</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
 
-     animationTimer.setSingleShot(false);
-     connect(&amp;animationTimer, SIGNAL(timeout()), this, SLOT(animate()));
-     animationTimer.start(25);
+     animationTimer<span class="operator">.</span>setSingleShot(<span class="keyword">false</span>);
+     connect(<span class="operator">&amp;</span>animationTimer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(animate()));
+     animationTimer<span class="operator">.</span>start(<span class="number">25</span>);
 
-     setAutoFillBackground(false);
-     setMinimumSize(200, 200);
-     setWindowTitle(tr(&quot;Overpainting a Scene&quot;));
+     setAutoFillBackground(<span class="keyword">false</span>);
+     setMinimumSize(<span class="number">200</span><span class="operator">,</span> <span class="number">200</span>);
+     setWindowTitle(tr(<span class="string">&quot;Overpainting a Scene&quot;</span>));
  }
 
- GLWidget::~GLWidget()
+ GLWidget<span class="operator">::</span><span class="operator">~</span>GLWidget()
  {
  }
 
- static void qNormalizeAngle(int &amp;angle)
+ <span class="keyword">static</span> <span class="type">void</span> qNormalizeAngle(<span class="type">int</span> <span class="operator">&amp;</span>angle)
  {
-     while (angle &lt; 0)
-         angle += 360 * 16;
-     while (angle &gt; 360 * 16)
-         angle -= 360 * 16;
+     <span class="keyword">while</span> (angle <span class="operator">&lt;</span> <span class="number">0</span>)
+         angle <span class="operator">+</span><span class="operator">=</span> <span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>;
+     <span class="keyword">while</span> (angle <span class="operator">&gt;</span> <span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>)
+         angle <span class="operator">-</span><span class="operator">=</span> <span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>;
  }
 
- void GLWidget::setXRotation(int angle)
- {
-     qNormalizeAngle(angle);
-     if (angle != xRot)
-         xRot = angle;
- }
-
- void GLWidget::setYRotation(int angle)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>setXRotation(<span class="type">int</span> angle)
  {
      qNormalizeAngle(angle);
-     if (angle != yRot)
-         yRot = angle;
+     <span class="keyword">if</span> (angle <span class="operator">!</span><span class="operator">=</span> xRot)
+         xRot <span class="operator">=</span> angle;
  }
 
- void GLWidget::setZRotation(int angle)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>setYRotation(<span class="type">int</span> angle)
  {
      qNormalizeAngle(angle);
-     if (angle != zRot)
-         zRot = angle;
+     <span class="keyword">if</span> (angle <span class="operator">!</span><span class="operator">=</span> yRot)
+         yRot <span class="operator">=</span> angle;
  }
 
- void GLWidget::initializeGL()
+ <span class="type">void</span> GLWidget<span class="operator">::</span>setZRotation(<span class="type">int</span> angle)
+ {
+     qNormalizeAngle(angle);
+     <span class="keyword">if</span> (angle <span class="operator">!</span><span class="operator">=</span> zRot)
+         zRot <span class="operator">=</span> angle;
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>initializeGL()
  {
      glEnable(GL_MULTISAMPLE);
 
-     logo = new QtLogo(this);
-     logo-&gt;setColor(qtGreen.dark());
+     logo <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QtLogo</span>(<span class="keyword">this</span>);
+     logo<span class="operator">-</span><span class="operator">&gt;</span>setColor(qtGreen<span class="operator">.</span>dark());
  }
 
- void GLWidget::mousePressEvent(QMouseEvent *event)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
  {
-     lastPos = event-&gt;pos();
+     lastPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
  }
 
- void GLWidget::mouseMoveEvent(QMouseEvent *event)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
  {
-     int dx = event-&gt;x() - lastPos.x();
-     int dy = event-&gt;y() - lastPos.y();
+     <span class="type">int</span> dx <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">-</span> lastPos<span class="operator">.</span>x();
+     <span class="type">int</span> dy <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">-</span> lastPos<span class="operator">.</span>y();
 
-     if (event-&gt;buttons() &amp; Qt::LeftButton) {
-         setXRotation(xRot + 8 * dy);
-         setYRotation(yRot + 8 * dx);
-     } else if (event-&gt;buttons() &amp; Qt::RightButton) {
-         setXRotation(xRot + 8 * dy);
-         setZRotation(zRot + 8 * dx);
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         setXRotation(xRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dy);
+         setYRotation(yRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dx);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightButton) {
+         setXRotation(xRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dy);
+         setZRotation(zRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dx);
      }
-     lastPos = event-&gt;pos();
+     lastPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
  }
 
- void GLWidget::paintEvent(QPaintEvent *event)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
  {
      makeCurrent();
      glMatrixMode(GL_MODELVIEW);
      glPushMatrix();
 
-     qglClearColor(qtPurple.dark());
+     qglClearColor(qtPurple<span class="operator">.</span>dark());
      glShadeModel(GL_SMOOTH);
      glEnable(GL_DEPTH_TEST);
      glEnable(GL_CULL_FACE);
      glEnable(GL_LIGHTING);
      glEnable(GL_LIGHT0);
      glEnable(GL_MULTISAMPLE);
-     static GLfloat lightPosition[4] = { 0.5, 5.0, 7.0, 1.0 };
-     glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+     <span class="keyword">static</span> GLfloat lightPosition<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="number">0.5</span><span class="operator">,</span> <span class="number">5.0</span><span class="operator">,</span> <span class="number">7.0</span><span class="operator">,</span> <span class="number">1.0</span> };
+     glLightfv(GL_LIGHT0<span class="operator">,</span> GL_POSITION<span class="operator">,</span> lightPosition);
 
-     setupViewport(width(), height());
+     setupViewport(width()<span class="operator">,</span> height());
 
-     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+     glClear(GL_COLOR_BUFFER_BIT <span class="operator">|</span> GL_DEPTH_BUFFER_BIT);
      glLoadIdentity();
-     glTranslatef(0.0, 0.0, -10.0);
-     glRotatef(xRot / 16.0, 1.0, 0.0, 0.0);
-     glRotatef(yRot / 16.0, 0.0, 1.0, 0.0);
-     glRotatef(zRot / 16.0, 0.0, 0.0, 1.0);
+     glTranslatef(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">10.0</span>);
+     glRotatef(xRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     glRotatef(yRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     glRotatef(zRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span>);
 
-     logo-&gt;draw();
+     logo<span class="operator">-</span><span class="operator">&gt;</span>draw();
 
      glShadeModel(GL_FLAT);
      glDisable(GL_CULL_FACE);
@@ -324,127 +196,111 @@
      glMatrixMode(GL_MODELVIEW);
      glPopMatrix();
 
-     QPainter painter(this);
-     painter.setRenderHint(QPainter::Antialiasing);
-     foreach (Bubble *bubble, bubbles) {
-         if (bubble-&gt;rect().intersects(event-&gt;rect()))
-             bubble-&gt;drawBubble(&amp;painter);
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+     foreach (Bubble <span class="operator">*</span>bubble<span class="operator">,</span> bubbles) {
+         <span class="keyword">if</span> (bubble<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">.</span>intersects(event<span class="operator">-</span><span class="operator">&gt;</span>rect()))
+             bubble<span class="operator">-</span><span class="operator">&gt;</span>drawBubble(<span class="operator">&amp;</span>painter);
      }
-     drawInstructions(&amp;painter);
-     painter.end();
+     drawInstructions(<span class="operator">&amp;</span>painter);
+     painter<span class="operator">.</span>end();
  }
 
- void GLWidget::resizeGL(int width, int height)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>resizeGL(<span class="type">int</span> width<span class="operator">,</span> <span class="type">int</span> height)
  {
-     setupViewport(width, height);
+     setupViewport(width<span class="operator">,</span> height);
  }
 
- void GLWidget::showEvent(QShowEvent *event)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>showEvent(<span class="type"><a href="qshowevent.html">QShowEvent</a></span> <span class="operator">*</span>event)
  {
      Q_UNUSED(event);
-     createBubbles(20 - bubbles.count());
+     createBubbles(<span class="number">20</span> <span class="operator">-</span> bubbles<span class="operator">.</span>count());
  }
 
- QSize GLWidget::sizeHint() const
+ <span class="type"><a href="qsize.html">QSize</a></span> GLWidget<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
  {
-     return QSize(400, 400);
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">400</span><span class="operator">,</span> <span class="number">400</span>);
  }
 
- void GLWidget::createBubbles(int number)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>createBubbles(<span class="type">int</span> number)
  {
-     for (int i = 0; i &lt; number; ++i) {
-         QPointF position(width()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
-                         height()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))));
-         qreal radius = qMin(width(), height())*(0.0125 + 0.0875*qrand()/(RAND_MAX+1.0));
-         QPointF velocity(width()*0.0125*(-0.5 + qrand()/(RAND_MAX+1.0)),
-                         height()*0.0125*(-0.5 + qrand()/(RAND_MAX+1.0)));
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> number; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qpointf.html">QPointF</a></span> position(width()<span class="operator">*</span>(<span class="number">0.1</span> <span class="operator">+</span> (<span class="number">0.8</span><span class="operator">*</span>qrand()<span class="operator">/</span>(RAND_MAX<span class="operator">+</span><span class="number">1.0</span>)))<span class="operator">,</span>
+                         height()<span class="operator">*</span>(<span class="number">0.1</span> <span class="operator">+</span> (<span class="number">0.8</span><span class="operator">*</span>qrand()<span class="operator">/</span>(RAND_MAX<span class="operator">+</span><span class="number">1.0</span>))));
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> radius <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(width()<span class="operator">,</span> height())<span class="operator">*</span>(<span class="number">0.0125</span> <span class="operator">+</span> <span class="number">0.0875</span><span class="operator">*</span>qrand()<span class="operator">/</span>(RAND_MAX<span class="operator">+</span><span class="number">1.0</span>));
+         <span class="type"><a href="qpointf.html">QPointF</a></span> velocity(width()<span class="operator">*</span><span class="number">0.0125</span><span class="operator">*</span>(<span class="operator">-</span><span class="number">0.5</span> <span class="operator">+</span> qrand()<span class="operator">/</span>(RAND_MAX<span class="operator">+</span><span class="number">1.0</span>))<span class="operator">,</span>
+                         height()<span class="operator">*</span><span class="number">0.0125</span><span class="operator">*</span>(<span class="operator">-</span><span class="number">0.5</span> <span class="operator">+</span> qrand()<span class="operator">/</span>(RAND_MAX<span class="operator">+</span><span class="number">1.0</span>)));
 
-         bubbles.append(new Bubble(position, radius, velocity));
+         bubbles<span class="operator">.</span>append(<span class="keyword">new</span> Bubble(position<span class="operator">,</span> radius<span class="operator">,</span> velocity));
      }
  }
 
- void GLWidget::animate()
+ <span class="type">void</span> GLWidget<span class="operator">::</span>animate()
  {
-     QMutableListIterator&lt;Bubble*&gt; iter(bubbles);
+     <span class="type"><a href="qmutablelistiterator.html">QMutableListIterator</a></span><span class="operator">&lt;</span>Bubble<span class="operator">*</span><span class="operator">&gt;</span> iter(bubbles);
 
-     while (iter.hasNext()) {
-         Bubble *bubble = iter.next();
-         bubble-&gt;move(rect());
+     <span class="keyword">while</span> (iter<span class="operator">.</span>hasNext()) {
+         Bubble <span class="operator">*</span>bubble <span class="operator">=</span> iter<span class="operator">.</span>next();
+         bubble<span class="operator">-</span><span class="operator">&gt;</span>move(rect());
      }
      update();
  }
 
- void GLWidget::setupViewport(int width, int height)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>setupViewport(<span class="type">int</span> width<span class="operator">,</span> <span class="type">int</span> height)
  {
-     int side = qMin(width, height);
-     glViewport((width - side) / 2, (height - side) / 2, side, side);
+     <span class="type">int</span> side <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(width<span class="operator">,</span> height);
+     glViewport((width <span class="operator">-</span> side) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> (height <span class="operator">-</span> side) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> side<span class="operator">,</span> side);
 
      glMatrixMode(GL_PROJECTION);
      glLoadIdentity();
- #ifdef QT_OPENGL_ES
-     glOrthof(-0.5, +0.5, -0.5, 0.5, 4.0, 15.0);
- #else
-     glOrtho(-0.5, +0.5, -0.5, 0.5, 4.0, 15.0);
- #endif
+ <span class="preprocessor">#ifdef QT_OPENGL_ES</span>
+     glOrthof(<span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">+</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="number">0.5</span><span class="operator">,</span> <span class="number">4.0</span><span class="operator">,</span> <span class="number">15.0</span>);
+ <span class="preprocessor">#else</span>
+     glOrtho(<span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">+</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="number">0.5</span><span class="operator">,</span> <span class="number">4.0</span><span class="operator">,</span> <span class="number">15.0</span>);
+ <span class="preprocessor">#endif</span>
      glMatrixMode(GL_MODELVIEW);
  }
 
- void GLWidget::drawInstructions(QPainter *painter)
+ <span class="type">void</span> GLWidget<span class="operator">::</span>drawInstructions(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter)
  {
-     QString text = tr(&quot;Click and drag with the left mouse button &quot;
-                       &quot;to rotate the Qt logo.&quot;);
-     QFontMetrics metrics = QFontMetrics(font());
-     int border = qMax(4, metrics.leading());
+     <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> tr(<span class="string">&quot;Click and drag with the left mouse button &quot;</span>
+                       <span class="string">&quot;to rotate the Qt logo.&quot;</span>);
+     <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span> metrics <span class="operator">=</span> <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span>(font());
+     <span class="type">int</span> border <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="number">4</span><span class="operator">,</span> metrics<span class="operator">.</span>leading());
 
-     QRect rect = metrics.boundingRect(0, 0, width() - 2*border, int(height()*0.125),
-                                       Qt::AlignCenter | Qt::TextWordWrap, text);
-     painter-&gt;setRenderHint(QPainter::TextAntialiasing);
-     painter-&gt;fillRect(QRect(0, 0, width(), rect.height() + 2*border),
-                      QColor(0, 0, 0, 127));
-     painter-&gt;setPen(Qt::white);
-     painter-&gt;fillRect(QRect(0, 0, width(), rect.height() + 2*border),
-                       QColor(0, 0, 0, 127));
-     painter-&gt;drawText((width() - rect.width())/2, border,
-                       rect.width(), rect.height(),
-                       Qt::AlignCenter | Qt::TextWordWrap, text);
+     <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> metrics<span class="operator">.</span>boundingRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width() <span class="operator">-</span> <span class="number">2</span><span class="operator">*</span>border<span class="operator">,</span> <span class="type">int</span>(height()<span class="operator">*</span><span class="number">0.125</span>)<span class="operator">,</span>
+                                       <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TextWordWrap<span class="operator">,</span> text);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>TextAntialiasing);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">,</span> rect<span class="operator">.</span>height() <span class="operator">+</span> <span class="number">2</span><span class="operator">*</span>border)<span class="operator">,</span>
+                      <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">127</span>));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">,</span> rect<span class="operator">.</span>height() <span class="operator">+</span> <span class="number">2</span><span class="operator">*</span>border)<span class="operator">,</span>
+                       <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">127</span>));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawText((width() <span class="operator">-</span> rect<span class="operator">.</span>width())<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> border<span class="operator">,</span>
+                       rect<span class="operator">.</span>width()<span class="operator">,</span> rect<span class="operator">.</span>height()<span class="operator">,</span>
+                       <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TextWordWrap<span class="operator">,</span> text);
  }</pre>
 </div>
 <!-- @@@opengl/overpainting/glwidget.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

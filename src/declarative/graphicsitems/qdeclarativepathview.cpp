@@ -7,34 +7,34 @@
 ** This file is part of the QtDeclarative module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -379,14 +379,14 @@ void QDeclarativePathViewPrivate::regenerate()
     \l decrementCurrentIndex() or \l incrementCurrentIndex(), for example to navigate
     using the left and right arrow keys:
 
-    \code
+    \qml
     PathView {
-        ...
+        // ...
         focus: true
         Keys.onLeftPressed: decrementCurrentIndex()
         Keys.onRightPressed: incrementCurrentIndex()
     }
-    \endcode
+    \endqml
 
     The path view itself is a focus scope (see \l{qmlfocus#Acquiring Focus and Focus Scopes}{the focus documentation page} for more details).
 
@@ -444,7 +444,7 @@ QDeclarativePathView::~QDeclarativePathView()
     Component {
         Rectangle {
             visible: PathView.onPath
-            ...
+            // ...
         }
     }
     \endqml
@@ -706,14 +706,14 @@ void QDeclarativePathViewPrivate::setAdjustedOffset(qreal o)
     of the \l{PathView::onPath}{PathView.onPath} attached property to ensure that
     the highlight is hidden when flicked away from the path.
 
-    \code
+    \qml
     Component {
         Rectangle {
             visible: PathView.onPath
-            ...
+            // ...
         }
     }
-    \endcode
+    \endqml
 
     \sa highlightItem, highlightRangeMode
 */
@@ -796,6 +796,7 @@ void QDeclarativePathView::setPreferredHighlightBegin(qreal start)
         return;
     d->highlightRangeStart = start;
     d->haveHighlightRange = d->highlightRangeMode != NoHighlightRange && d->highlightRangeStart <= d->highlightRangeEnd;
+    refill();
     emit preferredHighlightBeginChanged();
 }
 
@@ -812,6 +813,7 @@ void QDeclarativePathView::setPreferredHighlightEnd(qreal end)
         return;
     d->highlightRangeEnd = end;
     d->haveHighlightRange = d->highlightRangeMode != NoHighlightRange && d->highlightRangeStart <= d->highlightRangeEnd;
+    refill();
     emit preferredHighlightEndChanged();
 }
 
@@ -1019,9 +1021,12 @@ void QDeclarativePathView::setDelegate(QDeclarativeComponent *delegate)
         d->ownModel = true;
     }
     if (QDeclarativeVisualDataModel *dataModel = qobject_cast<QDeclarativeVisualDataModel*>(d->model)) {
+        int oldCount = dataModel->count();
         dataModel->setDelegate(delegate);
         d->modelCount = dataModel->count();
         d->regenerate();
+        if (oldCount != dataModel->count())
+            emit countChanged();
         emit delegateChanged();
     }
 }
@@ -1455,17 +1460,18 @@ void QDeclarativePathView::itemsInserted(int modelIndex, int count)
     if (!d->isValid() || !isComponentComplete())
         return;
 
-    d->itemCache += d->items;
-    d->items.clear();
-    if (modelIndex <= d->currentIndex) {
-        d->currentIndex += count;
-        emit currentIndexChanged();
-    } else if (d->offset != 0) {
-        d->offset += count;
-        d->offsetAdj += count;
+    if (d->modelCount) {
+        d->itemCache += d->items;
+        d->items.clear();
+        if (modelIndex <= d->currentIndex) {
+            d->currentIndex += count;
+            emit currentIndexChanged();
+        } else if (d->offset != 0) {
+            d->offset += count;
+            d->offsetAdj += count;
+        }
     }
-
-    d->modelCount = d->model->count();
+    d->modelCount += count;
     if (d->flicking || d->moving) {
         d->regenerate();
         d->updateCurrent();
@@ -1502,18 +1508,31 @@ void QDeclarativePathView::itemsRemoved(int modelIndex, int count)
     d->itemCache += d->items;
     d->items.clear();
 
+    bool changedOffset = false;
     if (modelIndex > d->currentIndex) {
         if (d->offset >= count) {
+            changedOffset = true;
             d->offset -= count;
             d->offsetAdj -= count;
         }
     }
 
-    d->modelCount = d->model->count();
-    d->regenerate();
-    d->updateCurrent();
-    if (!d->modelCount)
+    d->modelCount -= count;
+    if (!d->modelCount) {
+        while (d->itemCache.count())
+            d->releaseItem(d->itemCache.takeLast());
+        d->offset = 0;
+        changedOffset = true;
+        d->tl.reset(d->moveOffset);
         update();
+    } else {
+        d->regenerate();
+        d->updateCurrent();
+        if (!d->flicking && !d->moving && d->haveHighlightRange && d->highlightRangeMode == QDeclarativePathView::StrictlyEnforceRange)
+            d->snapToCurrent();
+    }
+    if (changedOffset)
+        emit offsetChanged();
     if (currentChanged)
         emit currentIndexChanged();
     emit countChanged();
@@ -1601,7 +1620,7 @@ void QDeclarativePathView::movementEnding()
 int QDeclarativePathViewPrivate::calcCurrentIndex()
 {
     int current = -1;
-    if (model && items.count()) {
+    if (modelCount && model && items.count()) {
         offset = qmlMod(offset, modelCount);
         if (offset < 0)
             offset += modelCount;
@@ -1617,7 +1636,7 @@ void QDeclarativePathViewPrivate::updateCurrent()
     Q_Q(QDeclarativePathView);
     if (moveReason != Mouse)
         return;
-    if (!haveHighlightRange || highlightRangeMode != QDeclarativePathView::StrictlyEnforceRange)
+    if (!modelCount || !haveHighlightRange || highlightRangeMode != QDeclarativePathView::StrictlyEnforceRange)
         return;
 
     int idx = calcCurrentIndex();

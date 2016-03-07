@@ -4,289 +4,145 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: clock.js Example File (script/context2d/scripts/clock.js)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">clock.js Example File</h1>
 <span class="small-subtitle">script/context2d/scripts/clock.js</span>
 <!-- $$$script/context2d/scripts/clock.js-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"> function init(){
-   clock();
-   setInterval('clock()',1000);
+<pre class="js"> <span class="keyword">function</span> <span class="name">init</span>(){
+   <span class="name">clock</span>();
+   <span class="name">setInterval</span>(<span class="string">'clock()'</span>,<span class="number">1000</span>);
  }
- function clock(){
-   var now = new Date();
-   var ctx = document.getElementById('tutorial').getContext('2d');
-   ctx.save();
-   ctx.clearRect(0,0,150,150);
-   ctx.translate(75,75);
-   ctx.scale(0.4,0.4);
-   ctx.rotate(-Math.PI/2);
-   ctx.strokeStyle = &quot;black&quot;;
-   ctx.fillStyle = &quot;white&quot;;
-   ctx.lineWidth = 8;
-   ctx.lineCap = &quot;round&quot;;
+ <span class="keyword">function</span> <span class="name">clock</span>(){
+   var <span class="name">now</span> = new <span class="name">Date</span>();
+   var <span class="name">ctx</span> = <span class="name">document</span>.<span class="name">getElementById</span>(<span class="string">'tutorial'</span>).<span class="name">getContext</span>(<span class="string">'2d'</span>);
+   <span class="name">ctx</span>.<span class="name">save</span>();
+   <span class="name">ctx</span>.<span class="name">clearRect</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">150</span>,<span class="number">150</span>);
+   <span class="name">ctx</span>.<span class="name">translate</span>(<span class="number">75</span>,<span class="number">75</span>);
+   <span class="name">ctx</span>.<span class="name">scale</span>(<span class="number">0.4</span>,<span class="number">0.4</span>);
+   <span class="name">ctx</span>.<span class="name">rotate</span>(-<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">2</span>);
+   <span class="name">ctx</span>.<span class="name">strokeStyle</span> <span class="operator">=</span> <span class="string">&quot;black&quot;</span>;
+   <span class="name">ctx</span>.<span class="name">fillStyle</span> <span class="operator">=</span> <span class="string">&quot;white&quot;</span>;
+   <span class="name">ctx</span>.<span class="name">lineWidth</span> <span class="operator">=</span> <span class="number">8</span>;
+   <span class="name">ctx</span>.<span class="name">lineCap</span> <span class="operator">=</span> <span class="string">&quot;round&quot;</span>;
 
-   // Hour marks
-   ctx.save();
-   ctx.beginPath();
-   for (i=0;i&lt;12;i++){
-     ctx.rotate(Math.PI/6);
-     ctx.moveTo(100,0);
-     ctx.lineTo(120,0);
+   <span class="comment">// Hour marks</span>
+   <span class="name">ctx</span>.<span class="name">save</span>();
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="keyword">for</span> (<span class="name">i</span><span class="operator">=</span><span class="number">0</span>;<span class="name">i</span><span class="operator">&lt;</span><span class="number">12</span>;i++){
+     <span class="name">ctx</span>.<span class="name">rotate</span>(<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">6</span>);
+     <span class="name">ctx</span>.<span class="name">moveTo</span>(<span class="number">100</span>,<span class="number">0</span>);
+     <span class="name">ctx</span>.<span class="name">lineTo</span>(<span class="number">120</span>,<span class="number">0</span>);
    }
-   ctx.stroke();
-   ctx.restore();
+   <span class="name">ctx</span>.<span class="name">stroke</span>();
+   <span class="name">ctx</span>.<span class="name">restore</span>();
 
-   // Minute marks
-   ctx.save();
-   ctx.lineWidth = 5;
-   ctx.beginPath();
-   for (i=0;i&lt;60;i++){
-     if (i%5!=0) {
-       ctx.moveTo(117,0);
-       ctx.lineTo(120,0);
+   <span class="comment">// Minute marks</span>
+   <span class="name">ctx</span>.<span class="name">save</span>();
+   <span class="name">ctx</span>.<span class="name">lineWidth</span> <span class="operator">=</span> <span class="number">5</span>;
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="keyword">for</span> (<span class="name">i</span><span class="operator">=</span><span class="number">0</span>;<span class="name">i</span><span class="operator">&lt;</span><span class="number">60</span>;i++){
+     <span class="keyword">if</span> (<span class="name">i</span><span class="operator">%</span><span class="number">5</span><span class="operator">!=</span><span class="number">0</span>) {
+       <span class="name">ctx</span>.<span class="name">moveTo</span>(<span class="number">117</span>,<span class="number">0</span>);
+       <span class="name">ctx</span>.<span class="name">lineTo</span>(<span class="number">120</span>,<span class="number">0</span>);
      }
-     ctx.rotate(Math.PI/30);
+     <span class="name">ctx</span>.<span class="name">rotate</span>(<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">30</span>);
    }
-   ctx.stroke();
-   ctx.restore();
+   <span class="name">ctx</span>.<span class="name">stroke</span>();
+   <span class="name">ctx</span>.<span class="name">restore</span>();
 
-   var sec = now.getSeconds();
-   var min = now.getMinutes();
-   var hr  = now.getHours();
-   hr = hr&gt;=12 ? hr-12 : hr;
+   var <span class="name">sec</span> = <span class="name">now</span>.<span class="name">getSeconds</span>();
+   var <span class="name">min</span> = <span class="name">now</span>.<span class="name">getMinutes</span>();
+   var <span class="name">hr</span>  = <span class="name">now</span>.<span class="name">getHours</span>();
+   <span class="name">hr</span> <span class="operator">=</span> <span class="name">hr</span><span class="operator">&gt;=</span><span class="number">12</span> ? <span class="name">hr</span><span class="operator">-</span><span class="number">12</span> : <span class="name">hr</span>;
 
-   ctx.fillStyle = &quot;black&quot;;
+   <span class="name">ctx</span>.<span class="name">fillStyle</span> <span class="operator">=</span> <span class="string">&quot;black&quot;</span>;
 
-   // write Hours
-   ctx.save();
-   ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec )
-   ctx.lineWidth = 14;
-   ctx.beginPath();
-   ctx.moveTo(-20,0);
-   ctx.lineTo(80,0);
-   ctx.stroke();
-   ctx.restore();
+   <span class="comment">// write Hours</span>
+   <span class="name">ctx</span>.<span class="name">save</span>();
+   <span class="name">ctx</span>.<span class="name">rotate</span>( <span class="name">hr</span><span class="operator">*</span>(<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">6</span>) <span class="operator">+</span> (<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">360</span>)<span class="operator">*</span><span class="name">min</span> <span class="operator">+</span> (<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">21600</span>)<span class="operator">*</span><span class="name">sec</span> )
+   <span class="name">ctx</span>.<span class="name">lineWidth</span> <span class="operator">=</span> <span class="number">14</span>;
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="name">ctx</span>.<span class="name">moveTo</span>(-<span class="number">20</span>,<span class="number">0</span>);
+   <span class="name">ctx</span>.<span class="name">lineTo</span>(<span class="number">80</span>,<span class="number">0</span>);
+   <span class="name">ctx</span>.<span class="name">stroke</span>();
+   <span class="name">ctx</span>.<span class="name">restore</span>();
 
-   // write Minutes
-   ctx.save();
-   ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec )
-   ctx.lineWidth = 10;
-   ctx.beginPath();
-   ctx.moveTo(-28,0);
-   ctx.lineTo(112,0);
-   ctx.stroke();
-   ctx.restore();
+   <span class="comment">// write Minutes</span>
+   <span class="name">ctx</span>.<span class="name">save</span>();
+   <span class="name">ctx</span>.<span class="name">rotate</span>( (<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">30</span>)<span class="operator">*</span><span class="name">min</span> <span class="operator">+</span> (<span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">1800</span>)<span class="operator">*</span><span class="name">sec</span> )
+   <span class="name">ctx</span>.<span class="name">lineWidth</span> <span class="operator">=</span> <span class="number">10</span>;
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="name">ctx</span>.<span class="name">moveTo</span>(-<span class="number">28</span>,<span class="number">0</span>);
+   <span class="name">ctx</span>.<span class="name">lineTo</span>(<span class="number">112</span>,<span class="number">0</span>);
+   <span class="name">ctx</span>.<span class="name">stroke</span>();
+   <span class="name">ctx</span>.<span class="name">restore</span>();
 
-   // Write seconds
-   ctx.save();
-   ctx.rotate(sec * Math.PI/30);
-   ctx.strokeStyle = &quot;#D40000&quot;;
-   ctx.fillStyle = &quot;#D40000&quot;;
-   ctx.lineWidth = 6;
-   ctx.beginPath();
-   ctx.moveTo(-30,0);
-   ctx.lineTo(83,0);
-   ctx.stroke();
-   ctx.beginPath();
-   ctx.arc(0,0,10,0,Math.PI*2,true);
-   ctx.fill();
-   ctx.beginPath();
-   ctx.arc(95,0,10,0,Math.PI*2,true);
-   ctx.stroke();
-   ctx.fillStyle = &quot;#555&quot;;
-   ctx.arc(0,0,3,0,Math.PI*2,true);
-   ctx.fill();
-   ctx.restore();
+   <span class="comment">// Write seconds</span>
+   <span class="name">ctx</span>.<span class="name">save</span>();
+   <span class="name">ctx</span>.<span class="name">rotate</span>(<span class="name">sec</span> <span class="operator">*</span> <span class="name">Math</span>.<span class="name">PI</span><span class="operator">/</span><span class="number">30</span>);
+   <span class="name">ctx</span>.<span class="name">strokeStyle</span> <span class="operator">=</span> <span class="string">&quot;#D40000&quot;</span>;
+   <span class="name">ctx</span>.<span class="name">fillStyle</span> <span class="operator">=</span> <span class="string">&quot;#D40000&quot;</span>;
+   <span class="name">ctx</span>.<span class="name">lineWidth</span> <span class="operator">=</span> <span class="number">6</span>;
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="name">ctx</span>.<span class="name">moveTo</span>(-<span class="number">30</span>,<span class="number">0</span>);
+   <span class="name">ctx</span>.<span class="name">lineTo</span>(<span class="number">83</span>,<span class="number">0</span>);
+   <span class="name">ctx</span>.<span class="name">stroke</span>();
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="name">ctx</span>.<span class="name">arc</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="name">Math</span>.<span class="name">PI</span><span class="operator">*</span><span class="number">2</span>,<span class="number">true</span>);
+   <span class="name">ctx</span>.<span class="name">fill</span>();
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="name">ctx</span>.<span class="name">arc</span>(<span class="number">95</span>,<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="name">Math</span>.<span class="name">PI</span><span class="operator">*</span><span class="number">2</span>,<span class="number">true</span>);
+   <span class="name">ctx</span>.<span class="name">stroke</span>();
+   <span class="name">ctx</span>.<span class="name">fillStyle</span> <span class="operator">=</span> <span class="string">&quot;#555&quot;</span>;
+   <span class="name">ctx</span>.<span class="name">arc</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="name">Math</span>.<span class="name">PI</span><span class="operator">*</span><span class="number">2</span>,<span class="number">true</span>);
+   <span class="name">ctx</span>.<span class="name">fill</span>();
+   <span class="name">ctx</span>.<span class="name">restore</span>();
 
-   ctx.beginPath();
-   ctx.lineWidth = 14;
-   ctx.strokeStyle = '#325FA2';
-   ctx.arc(0,0,142,0,Math.PI*2,true);
-   ctx.stroke();
+   <span class="name">ctx</span>.<span class="name">beginPath</span>();
+   <span class="name">ctx</span>.<span class="name">lineWidth</span> <span class="operator">=</span> <span class="number">14</span>;
+   <span class="name">ctx</span>.<span class="name">strokeStyle</span> <span class="operator">=</span> <span class="string">'#325FA2'</span>;
+   <span class="name">ctx</span>.<span class="name">arc</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">142</span>,<span class="number">0</span>,<span class="name">Math</span>.<span class="name">PI</span><span class="operator">*</span><span class="number">2</span>,<span class="number">true</span>);
+   <span class="name">ctx</span>.<span class="name">stroke</span>();
 
-   ctx.restore();
+   <span class="name">ctx</span>.<span class="name">restore</span>();
  }
- init();</pre>
+ <span class="name">init</span>();</pre>
 </div>
 <!-- @@@script/context2d/scripts/clock.js -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: browser.cpp Example File (demos/sqlbrowser/browser.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">browser.cpp Example File</h1>
 <span class="small-subtitle">demos/sqlbrowser/browser.cpp</span>
 <!-- $$$demos/sqlbrowser/browser.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -160,280 +32,264 @@
  ** This file is part of the demonstration applications of the Qt Toolkit.
  **
  ** $QT_BEGIN_LICENSE:LGPL$
- ** Commercial Usage
- ** Licensees holding valid Qt Commercial licenses may use this file in
- ** accordance with the Qt Commercial License Agreement provided with the
- ** Software or, alternatively, in accordance with the terms contained in
- ** a written agreement between you and Nokia.
- **
  ** GNU Lesser General Public License Usage
- ** Alternatively, this file may be used under the terms of the GNU Lesser
- ** General Public License version 2.1 as published by the Free Software
- ** Foundation and appearing in the file LICENSE.LGPL included in the
- ** packaging of this file.  Please review the following information to
- ** ensure the GNU Lesser General Public License version 2.1 requirements
- ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
  **
  ** In addition, as a special exception, Nokia gives you certain additional
- ** rights.  These rights are described in the Nokia Qt LGPL Exception
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
  ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
  **
  ** GNU General Public License Usage
- ** Alternatively, this file may be used under the terms of the GNU
- ** General Public License version 3.0 as published by the Free Software
- ** Foundation and appearing in the file LICENSE.GPL included in the
- ** packaging of this file.  Please review the following information to
- ** ensure the GNU General Public License version 3.0 requirements will be
- ** met: http://www.gnu.org/copyleft/gpl.html.
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
  **
- ** If you have questions regarding the use of this file, please contact
- ** Nokia at qt-info@nokia.com.
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
  ** $QT_END_LICENSE$
  **
  ****************************************************************************/</span>
 
- #include &quot;browser.h&quot;
- #include &quot;qsqlconnectiondialog.h&quot;
+ <span class="preprocessor">#include &quot;browser.h&quot;</span>
+ <span class="preprocessor">#include &quot;qsqlconnectiondialog.h&quot;</span>
 
- #include &lt;QtGui&gt;
- #include &lt;QtSql&gt;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &lt;QtSql&gt;</span>
 
- Browser::Browser(QWidget *parent)
-     : QWidget(parent)
+ Browser<span class="operator">::</span>Browser(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
  {
-     setupUi(this);
+     setupUi(<span class="keyword">this</span>);
 
-     table-&gt;addAction(insertRowAction);
-     table-&gt;addAction(deleteRowAction);
+     table<span class="operator">-</span><span class="operator">&gt;</span>addAction(insertRowAction);
+     table<span class="operator">-</span><span class="operator">&gt;</span>addAction(deleteRowAction);
 
-     if (QSqlDatabase::drivers().isEmpty())
-         QMessageBox::information(this, tr(&quot;No database drivers found&quot;),
-                                  tr(&quot;This demo requires at least one Qt database driver. &quot;
-                                     &quot;Please check the documentation how to build the &quot;
-                                     &quot;Qt SQL plugins.&quot;));
+     <span class="keyword">if</span> (<span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>drivers()<span class="operator">.</span>isEmpty())
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;No database drivers found&quot;</span>)<span class="operator">,</span>
+                                  tr(<span class="string">&quot;This demo requires at least one Qt database driver. &quot;</span>
+                                     <span class="string">&quot;Please check the documentation how to build the &quot;</span>
+                                     <span class="string">&quot;Qt SQL plugins.&quot;</span>));
 
-     emit statusMessage(tr(&quot;Ready.&quot;));
+     <span class="keyword">emit</span> statusMessage(tr(<span class="string">&quot;Ready.&quot;</span>));
  }
 
- Browser::~Browser()
+ Browser<span class="operator">::</span><span class="operator">~</span>Browser()
  {
  }
 
- void Browser::exec()
+ <span class="type">void</span> Browser<span class="operator">::</span>exec()
  {
-     QSqlQueryModel *model = new QSqlQueryModel(table);
-     model-&gt;setQuery(QSqlQuery(sqlEdit-&gt;toPlainText(), connectionWidget-&gt;currentDatabase()));
-     table-&gt;setModel(model);
+     <span class="type"><a href="qsqlquerymodel.html">QSqlQueryModel</a></span> <span class="operator">*</span>model <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsqlquerymodel.html">QSqlQueryModel</a></span>(table);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setQuery(<span class="type"><a href="qsqlquery.html">QSqlQuery</a></span>(sqlEdit<span class="operator">-</span><span class="operator">&gt;</span>toPlainText()<span class="operator">,</span> connectionWidget<span class="operator">-</span><span class="operator">&gt;</span>currentDatabase()));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
 
-     if (model-&gt;lastError().type() != QSqlError::NoError)
-         emit statusMessage(model-&gt;lastError().text());
-     else if (model-&gt;query().isSelect())
-         emit statusMessage(tr(&quot;Query OK.&quot;));
-     else
-         emit statusMessage(tr(&quot;Query OK, number of affected rows: %1&quot;).arg(
-                            model-&gt;query().numRowsAffected()));
+     <span class="keyword">if</span> (model<span class="operator">-</span><span class="operator">&gt;</span>lastError()<span class="operator">.</span>type() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qsqlerror.html">QSqlError</a></span><span class="operator">::</span>NoError)
+         <span class="keyword">emit</span> statusMessage(model<span class="operator">-</span><span class="operator">&gt;</span>lastError()<span class="operator">.</span>text());
+     <span class="keyword">else</span> <span class="keyword">if</span> (model<span class="operator">-</span><span class="operator">&gt;</span>query()<span class="operator">.</span>isSelect())
+         <span class="keyword">emit</span> statusMessage(tr(<span class="string">&quot;Query OK.&quot;</span>));
+     <span class="keyword">else</span>
+         <span class="keyword">emit</span> statusMessage(tr(<span class="string">&quot;Query OK, number of affected rows: %1&quot;</span>)<span class="operator">.</span>arg(
+                            model<span class="operator">-</span><span class="operator">&gt;</span>query()<span class="operator">.</span>numRowsAffected()));
 
      updateActions();
  }
 
- QSqlError Browser::addConnection(const QString &amp;driver, const QString &amp;dbName, const QString &amp;host,
-                             const QString &amp;user, const QString &amp;passwd, int port)
+ <span class="type"><a href="qsqlerror.html">QSqlError</a></span> Browser<span class="operator">::</span>addConnection(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>driver<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>dbName<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>host<span class="operator">,</span>
+                             <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>user<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>passwd<span class="operator">,</span> <span class="type">int</span> port)
  {
-     static int cCount = 0;
+     <span class="keyword">static</span> <span class="type">int</span> cCount <span class="operator">=</span> <span class="number">0</span>;
 
-     QSqlError err;
-     QSqlDatabase db = QSqlDatabase::addDatabase(driver, QString(&quot;Browser%1&quot;).arg(++cCount));
-     db.setDatabaseName(dbName);
-     db.setHostName(host);
-     db.setPort(port);
-     if (!db.open(user, passwd)) {
-         err = db.lastError();
-         db = QSqlDatabase();
-         QSqlDatabase::removeDatabase(QString(&quot;Browser%1&quot;).arg(cCount));
+     <span class="type"><a href="qsqlerror.html">QSqlError</a></span> err;
+     <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span> db <span class="operator">=</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>addDatabase(driver<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;Browser%1&quot;</span>)<span class="operator">.</span>arg(<span class="operator">+</span><span class="operator">+</span>cCount));
+     db<span class="operator">.</span>setDatabaseName(dbName);
+     db<span class="operator">.</span>setHostName(host);
+     db<span class="operator">.</span>setPort(port);
+     <span class="keyword">if</span> (<span class="operator">!</span>db<span class="operator">.</span>open(user<span class="operator">,</span> passwd)) {
+         err <span class="operator">=</span> db<span class="operator">.</span>lastError();
+         db <span class="operator">=</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span>();
+         <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>removeDatabase(<span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;Browser%1&quot;</span>)<span class="operator">.</span>arg(cCount));
      }
-     connectionWidget-&gt;refresh();
+     connectionWidget<span class="operator">-</span><span class="operator">&gt;</span>refresh();
 
-     return err;
+     <span class="keyword">return</span> err;
  }
 
- void Browser::addConnection()
+ <span class="type">void</span> Browser<span class="operator">::</span>addConnection()
  {
-     QSqlConnectionDialog dialog(this);
-     if (dialog.exec() != QDialog::Accepted)
-         return;
+     <span class="type">QSqlConnectionDialog</span> dialog(<span class="keyword">this</span>);
+     <span class="keyword">if</span> (dialog<span class="operator">.</span>exec() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted)
+         <span class="keyword">return</span>;
 
-     if (dialog.useInMemoryDatabase()) {
-         QSqlDatabase::database(&quot;in_mem_db&quot;, false).close();
-         QSqlDatabase::removeDatabase(&quot;in_mem_db&quot;);
-         QSqlDatabase db = QSqlDatabase::addDatabase(&quot;QSQLITE&quot;, &quot;in_mem_db&quot;);
-         db.setDatabaseName(&quot;:memory:&quot;);
-         if (!db.open())
-             QMessageBox::warning(this, tr(&quot;Unable to open database&quot;), tr(&quot;An error occurred while &quot;
-                                                                          &quot;opening the connection: &quot;) + db.lastError().text());
-         QSqlQuery q(&quot;&quot;, db);
-         q.exec(&quot;drop table Movies&quot;);
-         q.exec(&quot;drop table Names&quot;);
-         q.exec(&quot;create table Movies (id integer primary key, Title varchar, Director varchar, Rating number)&quot;);
-         q.exec(&quot;insert into Movies values (0, 'Metropolis', 'Fritz Lang', '8.4')&quot;);
-         q.exec(&quot;insert into Movies values (1, 'Nosferatu, eine Symphonie des Grauens', 'F.W. Murnau', '8.1')&quot;);
-         q.exec(&quot;insert into Movies values (2, 'Bis ans Ende der Welt', 'Wim Wenders', '6.5')&quot;);
-         q.exec(&quot;insert into Movies values (3, 'Hardware', 'Richard Stanley', '5.2')&quot;);
-         q.exec(&quot;insert into Movies values (4, 'Mitchell', 'Andrew V. McLaglen', '2.1')&quot;);
-         q.exec(&quot;create table Names (id integer primary key, Firstname varchar, Lastname varchar, City varchar)&quot;);
-         q.exec(&quot;insert into Names values (0, 'Sala', 'Palmer', 'Morristown')&quot;);
-         q.exec(&quot;insert into Names values (1, 'Christopher', 'Walker', 'Morristown')&quot;);
-         q.exec(&quot;insert into Names values (2, 'Donald', 'Duck', 'Andeby')&quot;);
-         q.exec(&quot;insert into Names values (3, 'Buck', 'Rogers', 'Paris')&quot;);
-         q.exec(&quot;insert into Names values (4, 'Sherlock', 'Holmes', 'London')&quot;);
-         connectionWidget-&gt;refresh();
-     } else {
-         QSqlError err = addConnection(dialog.driverName(), dialog.databaseName(), dialog.hostName(),
-                            dialog.userName(), dialog.password(), dialog.port());
-         if (err.type() != QSqlError::NoError)
-             QMessageBox::warning(this, tr(&quot;Unable to open database&quot;), tr(&quot;An error occurred while &quot;
-                                        &quot;opening the connection: &quot;) + err.text());
+     <span class="keyword">if</span> (dialog<span class="operator">.</span>useInMemoryDatabase()) {
+         <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>database(<span class="string">&quot;in_mem_db&quot;</span><span class="operator">,</span> <span class="keyword">false</span>)<span class="operator">.</span>close();
+         <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>removeDatabase(<span class="string">&quot;in_mem_db&quot;</span>);
+         <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span> db <span class="operator">=</span> <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>addDatabase(<span class="string">&quot;QSQLITE&quot;</span><span class="operator">,</span> <span class="string">&quot;in_mem_db&quot;</span>);
+         db<span class="operator">.</span>setDatabaseName(<span class="string">&quot;:memory:&quot;</span>);
+         <span class="keyword">if</span> (<span class="operator">!</span>db<span class="operator">.</span>open())
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Unable to open database&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;An error occurred while &quot;</span>
+                                                                          <span class="string">&quot;opening the connection: &quot;</span>) <span class="operator">+</span> db<span class="operator">.</span>lastError()<span class="operator">.</span>text());
+         <span class="type"><a href="qsqlquery.html">QSqlQuery</a></span> q(<span class="string">&quot;&quot;</span><span class="operator">,</span> db);
+         q<span class="operator">.</span>exec(<span class="string">&quot;drop table Movies&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;drop table Names&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;create table Movies (id integer primary key, Title varchar, Director varchar, Rating number)&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Movies values (0, 'Metropolis', 'Fritz Lang', '8.4')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Movies values (1, 'Nosferatu, eine Symphonie des Grauens', 'F.W. Murnau', '8.1')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Movies values (2, 'Bis ans Ende der Welt', 'Wim Wenders', '6.5')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Movies values (3, 'Hardware', 'Richard Stanley', '5.2')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Movies values (4, 'Mitchell', 'Andrew V. McLaglen', '2.1')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;create table Names (id integer primary key, Firstname varchar, Lastname varchar, City varchar)&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Names values (0, 'Sala', 'Palmer', 'Morristown')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Names values (1, 'Christopher', 'Walker', 'Morristown')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Names values (2, 'Donald', 'Duck', 'Andeby')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Names values (3, 'Buck', 'Rogers', 'Paris')&quot;</span>);
+         q<span class="operator">.</span>exec(<span class="string">&quot;insert into Names values (4, 'Sherlock', 'Holmes', 'London')&quot;</span>);
+         connectionWidget<span class="operator">-</span><span class="operator">&gt;</span>refresh();
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qsqlerror.html">QSqlError</a></span> err <span class="operator">=</span> addConnection(dialog<span class="operator">.</span>driverName()<span class="operator">,</span> dialog<span class="operator">.</span>databaseName()<span class="operator">,</span> dialog<span class="operator">.</span>hostName()<span class="operator">,</span>
+                            dialog<span class="operator">.</span>userName()<span class="operator">,</span> dialog<span class="operator">.</span>password()<span class="operator">,</span> dialog<span class="operator">.</span>port());
+         <span class="keyword">if</span> (err<span class="operator">.</span>type() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qsqlerror.html">QSqlError</a></span><span class="operator">::</span>NoError)
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Unable to open database&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;An error occurred while &quot;</span>
+                                        <span class="string">&quot;opening the connection: &quot;</span>) <span class="operator">+</span> err<span class="operator">.</span>text());
      }
  }
 
- void Browser::showTable(const QString &amp;t)
+ <span class="type">void</span> Browser<span class="operator">::</span>showTable(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>t)
  {
-     QSqlTableModel *model = new QSqlTableModel(table, connectionWidget-&gt;currentDatabase());
-     model-&gt;setEditStrategy(QSqlTableModel::OnRowChange);
-     model-&gt;setTable(connectionWidget-&gt;currentDatabase().driver()-&gt;escapeIdentifier(t, QSqlDriver::TableName));
-     model-&gt;select();
-     if (model-&gt;lastError().type() != QSqlError::NoError)
-         emit statusMessage(model-&gt;lastError().text());
-     table-&gt;setModel(model);
-     table-&gt;setEditTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
+     <span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span> <span class="operator">*</span>model <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span>(table<span class="operator">,</span> connectionWidget<span class="operator">-</span><span class="operator">&gt;</span>currentDatabase());
+     model<span class="operator">-</span><span class="operator">&gt;</span>setEditStrategy(<span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span><span class="operator">::</span>OnRowChange);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setTable(connectionWidget<span class="operator">-</span><span class="operator">&gt;</span>currentDatabase()<span class="operator">.</span>driver()<span class="operator">-</span><span class="operator">&gt;</span>escapeIdentifier(t<span class="operator">,</span> <span class="type"><a href="qsqldriver.html">QSqlDriver</a></span><span class="operator">::</span>TableName));
+     model<span class="operator">-</span><span class="operator">&gt;</span>select();
+     <span class="keyword">if</span> (model<span class="operator">-</span><span class="operator">&gt;</span>lastError()<span class="operator">.</span>type() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qsqlerror.html">QSqlError</a></span><span class="operator">::</span>NoError)
+         <span class="keyword">emit</span> statusMessage(model<span class="operator">-</span><span class="operator">&gt;</span>lastError()<span class="operator">.</span>text());
+     table<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
+     table<span class="operator">-</span><span class="operator">&gt;</span>setEditTriggers(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>DoubleClicked<span class="operator">|</span><span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>EditKeyPressed);
 
-     connect(table-&gt;selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
-             this, SLOT(currentChanged()));
+     connect(table<span class="operator">-</span><span class="operator">&gt;</span>selectionModel()<span class="operator">,</span> SIGNAL(currentRowChanged(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">,</span><span class="type"><a href="qmodelindex.html">QModelIndex</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(currentChanged()));
      updateActions();
  }
 
- void Browser::showMetaData(const QString &amp;t)
+ <span class="type">void</span> Browser<span class="operator">::</span>showMetaData(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>t)
  {
-     QSqlRecord rec = connectionWidget-&gt;currentDatabase().record(t);
-     QStandardItemModel *model = new QStandardItemModel(table);
+     <span class="type"><a href="qsqlrecord.html">QSqlRecord</a></span> rec <span class="operator">=</span> connectionWidget<span class="operator">-</span><span class="operator">&gt;</span>currentDatabase()<span class="operator">.</span>record(t);
+     <span class="type"><a href="qstandarditemmodel.html">QStandardItemModel</a></span> <span class="operator">*</span>model <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstandarditemmodel.html">QStandardItemModel</a></span>(table);
 
-     model-&gt;insertRows(0, rec.count());
-     model-&gt;insertColumns(0, 7);
+     model<span class="operator">-</span><span class="operator">&gt;</span>insertRows(<span class="number">0</span><span class="operator">,</span> rec<span class="operator">.</span>count());
+     model<span class="operator">-</span><span class="operator">&gt;</span>insertColumns(<span class="number">0</span><span class="operator">,</span> <span class="number">7</span>);
 
-     model-&gt;setHeaderData(0, Qt::Horizontal, &quot;Fieldname&quot;);
-     model-&gt;setHeaderData(1, Qt::Horizontal, &quot;Type&quot;);
-     model-&gt;setHeaderData(2, Qt::Horizontal, &quot;Length&quot;);
-     model-&gt;setHeaderData(3, Qt::Horizontal, &quot;Precision&quot;);
-     model-&gt;setHeaderData(4, Qt::Horizontal, &quot;Required&quot;);
-     model-&gt;setHeaderData(5, Qt::Horizontal, &quot;AutoValue&quot;);
-     model-&gt;setHeaderData(6, Qt::Horizontal, &quot;DefaultValue&quot;);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="string">&quot;Fieldname&quot;</span>);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="string">&quot;Type&quot;</span>);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="string">&quot;Length&quot;</span>);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">3</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="string">&quot;Precision&quot;</span>);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">4</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="string">&quot;Required&quot;</span>);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">5</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="string">&quot;AutoValue&quot;</span>);
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">6</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="string">&quot;DefaultValue&quot;</span>);
 
-     for (int i = 0; i &lt; rec.count(); ++i) {
-         QSqlField fld = rec.field(i);
-         model-&gt;setData(model-&gt;index(i, 0), fld.name());
-         model-&gt;setData(model-&gt;index(i, 1), fld.typeID() == -1
-                 ? QString(QVariant::typeToName(fld.type()))
-                 : QString(&quot;%1 (%2)&quot;).arg(QVariant::typeToName(fld.type())).arg(fld.typeID()));
-         model-&gt;setData(model-&gt;index(i, 2), fld.length());
-         model-&gt;setData(model-&gt;index(i, 3), fld.precision());
-         model-&gt;setData(model-&gt;index(i, 4), fld.requiredStatus() == -1 ? QVariant(&quot;?&quot;)
-                 : QVariant(bool(fld.requiredStatus())));
-         model-&gt;setData(model-&gt;index(i, 5), fld.isAutoValue());
-         model-&gt;setData(model-&gt;index(i, 6), fld.defaultValue());
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> rec<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qsqlfield.html">QSqlField</a></span> fld <span class="operator">=</span> rec<span class="operator">.</span>field(i);
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(model<span class="operator">-</span><span class="operator">&gt;</span>index(i<span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> fld<span class="operator">.</span>name());
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(model<span class="operator">-</span><span class="operator">&gt;</span>index(i<span class="operator">,</span> <span class="number">1</span>)<span class="operator">,</span> fld<span class="operator">.</span>typeID() <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>
+                 <span class="operator">?</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>typeToName(fld<span class="operator">.</span>type()))
+                 : <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;%1 (%2)&quot;</span>)<span class="operator">.</span>arg(<span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>typeToName(fld<span class="operator">.</span>type()))<span class="operator">.</span>arg(fld<span class="operator">.</span>typeID()));
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(model<span class="operator">-</span><span class="operator">&gt;</span>index(i<span class="operator">,</span> <span class="number">2</span>)<span class="operator">,</span> fld<span class="operator">.</span>length());
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(model<span class="operator">-</span><span class="operator">&gt;</span>index(i<span class="operator">,</span> <span class="number">3</span>)<span class="operator">,</span> fld<span class="operator">.</span>precision());
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(model<span class="operator">-</span><span class="operator">&gt;</span>index(i<span class="operator">,</span> <span class="number">4</span>)<span class="operator">,</span> fld<span class="operator">.</span>requiredStatus() <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">?</span> <span class="type"><a href="qvariant.html">QVariant</a></span>(<span class="string">&quot;?&quot;</span>)
+                 : <span class="type"><a href="qvariant.html">QVariant</a></span>(<span class="type">bool</span>(fld<span class="operator">.</span>requiredStatus())));
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(model<span class="operator">-</span><span class="operator">&gt;</span>index(i<span class="operator">,</span> <span class="number">5</span>)<span class="operator">,</span> fld<span class="operator">.</span>isAutoValue());
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(model<span class="operator">-</span><span class="operator">&gt;</span>index(i<span class="operator">,</span> <span class="number">6</span>)<span class="operator">,</span> fld<span class="operator">.</span>defaultValue());
      }
 
-     table-&gt;setModel(model);
-     table-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-     updateActions();
- }
-
- void Browser::insertRow()
- {
-     QSqlTableModel *model = qobject_cast&lt;QSqlTableModel *&gt;(table-&gt;model());
-     if (!model)
-         return;
-
-     QModelIndex insertIndex = table-&gt;currentIndex();
-     int row = insertIndex.row() == -1 ? 0 : insertIndex.row();
-     model-&gt;insertRow(row);
-     insertIndex = model-&gt;index(row, 0);
-     table-&gt;setCurrentIndex(insertIndex);
-     table-&gt;edit(insertIndex);
- }
-
- void Browser::deleteRow()
- {
-     QSqlTableModel *model = qobject_cast&lt;QSqlTableModel *&gt;(table-&gt;model());
-     if (!model)
-         return;
-
-     model-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
-
-     QModelIndexList currentSelection = table-&gt;selectionModel()-&gt;selectedIndexes();
-     for (int i = 0; i &lt; currentSelection.count(); ++i) {
-         if (currentSelection.at(i).column() != 0)
-             continue;
-         model-&gt;removeRow(currentSelection.at(i).row());
-     }
-
-     model-&gt;submitAll();
-     model-&gt;setEditStrategy(QSqlTableModel::OnRowChange);
+     table<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
+     table<span class="operator">-</span><span class="operator">&gt;</span>setEditTriggers(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>NoEditTriggers);
 
      updateActions();
  }
 
- void Browser::updateActions()
+ <span class="type">void</span> Browser<span class="operator">::</span>insertRow()
  {
-     bool enableIns = qobject_cast&lt;QSqlTableModel *&gt;(table-&gt;model());
-     bool enableDel = enableIns &amp;&amp; table-&gt;currentIndex().isValid();
+     <span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span> <span class="operator">*</span>model <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(table<span class="operator">-</span><span class="operator">&gt;</span>model());
+     <span class="keyword">if</span> (<span class="operator">!</span>model)
+         <span class="keyword">return</span>;
 
-     insertRowAction-&gt;setEnabled(enableIns);
-     deleteRowAction-&gt;setEnabled(enableDel);
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> insertIndex <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentIndex();
+     <span class="type">int</span> row <span class="operator">=</span> insertIndex<span class="operator">.</span>row() <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">?</span> <span class="number">0</span> : insertIndex<span class="operator">.</span>row();
+     model<span class="operator">-</span><span class="operator">&gt;</span>insertRow(row);
+     insertIndex <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> <span class="number">0</span>);
+     table<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(insertIndex);
+     table<span class="operator">-</span><span class="operator">&gt;</span>edit(insertIndex);
  }
 
- void Browser::about()
+ <span class="type">void</span> Browser<span class="operator">::</span>deleteRow()
  {
-     QMessageBox::about(this, tr(&quot;About&quot;), tr(&quot;The SQL Browser demonstration &quot;
-         &quot;shows how a data browser can be used to visualize the results of SQL&quot;
-         &quot;statements on a live database&quot;));
+     <span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span> <span class="operator">*</span>model <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(table<span class="operator">-</span><span class="operator">&gt;</span>model());
+     <span class="keyword">if</span> (<span class="operator">!</span>model)
+         <span class="keyword">return</span>;
+
+     model<span class="operator">-</span><span class="operator">&gt;</span>setEditStrategy(<span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span><span class="operator">::</span>OnManualSubmit);
+
+     <span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> currentSelection <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>selectionModel()<span class="operator">-</span><span class="operator">&gt;</span>selectedIndexes();
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> currentSelection<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (currentSelection<span class="operator">.</span>at(i)<span class="operator">.</span>column() <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>)
+             <span class="keyword">continue</span>;
+         model<span class="operator">-</span><span class="operator">&gt;</span>removeRow(currentSelection<span class="operator">.</span>at(i)<span class="operator">.</span>row());
+     }
+
+     model<span class="operator">-</span><span class="operator">&gt;</span>submitAll();
+     model<span class="operator">-</span><span class="operator">&gt;</span>setEditStrategy(<span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span><span class="operator">::</span>OnRowChange);
+
+     updateActions();
+ }
+
+ <span class="type">void</span> Browser<span class="operator">::</span>updateActions()
+ {
+     <span class="type">bool</span> enableIns <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(table<span class="operator">-</span><span class="operator">&gt;</span>model());
+     <span class="type">bool</span> enableDel <span class="operator">=</span> enableIns <span class="operator">&amp;</span><span class="operator">&amp;</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()<span class="operator">.</span>isValid();
+
+     insertRowAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(enableIns);
+     deleteRowAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(enableDel);
+ }
+
+ <span class="type">void</span> Browser<span class="operator">::</span>about()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>about(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;About&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;The SQL Browser demonstration &quot;</span>
+         <span class="string">&quot;shows how a data browser can be used to visualize the results of SQL&quot;</span>
+         <span class="string">&quot;statements on a live database&quot;</span>));
  }</pre>
 </div>
 <!-- @@@demos/sqlbrowser/browser.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

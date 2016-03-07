@@ -7,34 +7,34 @@
 ** This file is part of the QtOpenGL module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -90,9 +90,10 @@
 
 QT_BEGIN_NAMESPACE
 
-#if defined(Q_OS_SYMBIAN)
-#define QT_GL_NO_SCISSOR_TEST
-#endif
+inline static bool isPowerOfTwo(uint x)
+{
+    return x && !(x & (x - 1));
+}
 
 #if defined(Q_WS_WIN)
 extern Q_GUI_EXPORT bool qt_cleartype_enabled;
@@ -102,7 +103,7 @@ extern Q_GUI_EXPORT bool qt_cleartype_enabled;
 extern bool qt_applefontsmoothing_enabled;
 #endif
 
-Q_DECL_IMPORT extern QImage qt_imageForBrush(int brushStyle, bool invert);
+Q_GUI_EXPORT QImage qt_imageForBrush(int brushStyle, bool invert);
 
 ////////////////////////////////// Private Methods //////////////////////////////////////////
 
@@ -233,7 +234,13 @@ void QGL2PaintEngineExPrivate::updateBrushTexture()
         QGLTexture *tex = ctx->d_func()->bindTexture(currentBrushPixmap, GL_TEXTURE_2D, GL_RGBA,
                                                      QGLContext::InternalBindOption |
                                                      QGLContext::CanFlipNativePixmapBindOption);
-        updateTextureFilter(GL_TEXTURE_2D, GL_REPEAT, q->state()->renderHints & QPainter::SmoothPixmapTransform);
+        GLenum wrapMode = GL_REPEAT;
+#ifdef QT_OPENGL_ES_2
+        // should check for GL_OES_texture_npot or GL_IMG_texture_npot extension
+        if (!isPowerOfTwo(currentBrushPixmap.width()) || !isPowerOfTwo(currentBrushPixmap.height()))
+            wrapMode = GL_CLAMP_TO_EDGE;
+#endif
+        updateTextureFilter(GL_TEXTURE_2D, wrapMode, q->state()->renderHints & QPainter::SmoothPixmapTransform);
         textureInvertedY = tex->options & QGLContext::InvertedYBindOption ? -1 : 1;
     }
     brushTextureDirty = false;
@@ -1154,7 +1161,7 @@ void QGL2PaintEngineEx::fill(const QVectorPath &path, const QBrush &brush)
     d->fill(path);
 }
 
-extern Q_GUI_EXPORT bool qt_scaleForTransform(const QTransform &transform, qreal *scale); // qtransform.cpp
+Q_GUI_EXPORT bool qt_scaleForTransform(const QTransform &transform, qreal *scale); // qtransform.cpp
 
 
 void QGL2PaintEngineEx::stroke(const QVectorPath &path, const QPen &pen)
@@ -1338,8 +1345,8 @@ void QGL2PaintEngineEx::drawPixmap(const QRectF& dest, const QPixmap & pixmap, c
     glActiveTexture(GL_TEXTURE0 + QT_IMAGE_TEXTURE_UNIT);
     QGLTexture *texture =
         ctx->d_func()->bindTexture(pixmap, GL_TEXTURE_2D, GL_RGBA,
-                                   QGLContext::InternalBindOption
-                                   | QGLContext::CanFlipNativePixmapBindOption);
+                                    QGLContext::InternalBindOption
+                                    | QGLContext::CanFlipNativePixmapBindOption);
 
     GLfloat top = texture->options & QGLContext::InvertedYBindOption ? (pixmap.height() - src.top()) : src.top();
     GLfloat bottom = texture->options & QGLContext::InvertedYBindOption ? (pixmap.height() - src.bottom()) : src.bottom();
@@ -1489,7 +1496,7 @@ namespace {
     {
     public:
         QOpenGLStaticTextUserData()
-            : QStaticTextUserData(OpenGLUserData), cacheSize(0, 0)
+            : QStaticTextUserData(OpenGLUserData), cacheSize(0, 0), cacheSerialNumber(0)
         {
         }
 
@@ -1501,6 +1508,7 @@ namespace {
         QGL2PEXVertexArray vertexCoordinateArray;
         QGL2PEXVertexArray textureCoordinateArray;
         QFontEngineGlyphCache::Type glyphType;
+        int cacheSerialNumber;
     };
 
 }
@@ -1518,12 +1526,10 @@ void QGL2PaintEngineExPrivate::drawCachedGlyphs(QFontEngineGlyphCache::Type glyp
 
     QGLTextureGlyphCache *cache =
         (QGLTextureGlyphCache *) staticTextItem->fontEngine()->glyphCache(ctx, glyphType, QTransform());
-    if (!cache || cache->cacheType() != glyphType) {
+    if (!cache || cache->cacheType() != glyphType || cache->context() == 0) {
         cache = new QGLTextureGlyphCache(ctx, glyphType, QTransform());
         staticTextItem->fontEngine()->setGlyphCache(ctx, cache);
         recreateVertexArrays = true;
-    } else if (cache->context() == 0) { // Old context has been destroyed, new context has same ptr value
-        cache->setContext(ctx);
     }
 
     if (staticTextItem->userDataNeedsUpdate) {
@@ -1534,8 +1540,11 @@ void QGL2PaintEngineExPrivate::drawCachedGlyphs(QFontEngineGlyphCache::Type glyp
         recreateVertexArrays = true;
     } else {
         QOpenGLStaticTextUserData *userData = static_cast<QOpenGLStaticTextUserData *>(staticTextItem->userData());
-        if (userData->glyphType != glyphType)
+        if (userData->glyphType != glyphType) {
             recreateVertexArrays = true;
+        } else if (userData->cacheSerialNumber != cache->serialNumber()) {
+            recreateVertexArrays = true;
+        }
     }
 
     // We only need to update the cache with new glyphs if we are actually going to recreate the vertex arrays.
@@ -1580,6 +1589,7 @@ void QGL2PaintEngineExPrivate::drawCachedGlyphs(QFontEngineGlyphCache::Type glyp
         }
 
         userData->glyphType = glyphType;
+        userData->cacheSerialNumber = cache->serialNumber();
 
         // Use cache if backend optimizations is turned on
         vertexCoordinates = &userData->vertexCoordinateArray;

@@ -7,34 +7,34 @@
 ** This file is part of the plugins of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -104,11 +104,11 @@ void SymbianEngine::initialize()
         return;
     }
 
-    TRAP_IGNORE(iConnectionMonitor.ConnectL());
-#ifdef SNAP_FUNCTIONALITY_AVAILABLE
-    TRAP_IGNORE(iConnectionMonitor.SetUintAttribute(EBearerIdAll, 0, KBearerGroupThreshold, 1));
-#endif
-    TRAP_IGNORE(iConnectionMonitor.NotifyEventL(*this));
+    TRAP(error, StartConnectionMonitorNotifyL());
+    if (error != KErrNone) {
+        iInitOk = false;
+        return;
+    }
 
 #ifdef SNAP_FUNCTIONALITY_AVAILABLE
     TRAP(error, iCmManager.OpenL());
@@ -140,6 +140,17 @@ void SymbianEngine::initialize()
     startCommsDatabaseNotifications();
 }
 
+void SymbianEngine::StartConnectionMonitorNotifyL()
+{
+    iConnectionMonitor.ConnectL();
+    CleanupClosePushL(iConnectionMonitor);
+#ifdef SNAP_FUNCTIONALITY_AVAILABLE
+    User::LeaveIfError(iConnectionMonitor.SetUintAttribute(EBearerIdAll, 0, KBearerGroupThreshold, 1));
+#endif
+    iConnectionMonitor.NotifyEventL(*this);
+    CleanupStack::Pop();
+}
+
 SymbianEngine::~SymbianEngine()
 {
     Cancel();
@@ -150,16 +161,15 @@ SymbianEngine::~SymbianEngine()
 
     iConnectionMonitor.CancelNotifications();
     iConnectionMonitor.Close();
-    
-#ifdef SNAP_FUNCTIONALITY_AVAILABLE    
-    iCmManager.Close();
-#endif
-    
-    // CCommsDatabase destructor uses cleanup stack. Since QNetworkConfigurationManager
+
+    // CCommsDatabase destructor and RCmManager.Close() use cleanup stack. Since QNetworkConfigurationManager
     // is a global static, but the time we are here, E32Main() has been exited already and
     // the thread's default cleanup stack has been deleted. Without this line, a
     // 'E32USER-CBase 69' -panic will occur.
     CTrapCleanup* cleanup = CTrapCleanup::New();
+#ifdef SNAP_FUNCTIONALITY_AVAILABLE
+    iCmManager.Close();
+#endif
     delete ipCommsDB;
     delete cleanup;
 }

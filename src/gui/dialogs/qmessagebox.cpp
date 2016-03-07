@@ -7,34 +7,34 @@
 ** This file is part of the QtGui module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -259,8 +259,15 @@ void QMessageBoxPrivate::init(const QString &title, const QString &text)
 
     QGridLayout *grid = new QGridLayout;
 #ifndef Q_WS_MAC
-    grid->addWidget(iconLabel, 0, 0, 2, 1, Qt::AlignTop);
-    grid->addWidget(label, 0, 1, 1, 1);
+#ifdef Q_WS_S60
+    const int preferredIconColumn = (QApplication::layoutDirection() == Qt::LeftToRight) ? 1 : 0;
+    const int preferredTextColumn = (QApplication::layoutDirection() == Qt::LeftToRight) ? 0 : 1;
+#else
+    const int preferredIconColumn = 0;
+    const int preferredTextColumn = 1;
+#endif
+    grid->addWidget(iconLabel, 0, preferredIconColumn, 2, 1, Qt::AlignTop);
+    grid->addWidget(label, 0, preferredTextColumn, 1, 1);
     // -- leave space for information label --
     grid->addWidget(buttonBox, 2, 0, 1, 2);
 #else
@@ -1536,10 +1543,12 @@ static QMessageBox::StandardButton showNewMessageBox(QWidget *parent,
 /*!
     \since 4.2
 
-    Opens an information message box with the specified \a title and
-    \a text. The standard \a buttons are added to the message box. \a
-    defaultButton specifies the button used when \key Enter is
-    pressed. \a defaultButton must refer to a button that was given in \a buttons.
+    Opens an information message box with the given \a title and
+    \a text in front of the specified \a parent widget.
+
+    The standard \a buttons are added to the message box.
+    \a defaultButton specifies the button used when \key Enter is pressed.
+    \a defaultButton must refer to a button that was given in \a buttons.
     If \a defaultButton is QMessageBox::NoButton, QMessageBox
     chooses a suitable default automatically.
 
@@ -1547,8 +1556,12 @@ static QMessageBox::StandardButton showNewMessageBox(QWidget *parent,
     \key Esc was pressed instead, the \l{Default and Escape Keys}
     {escape button} is returned.
 
-    The message box is an \l{Qt::ApplicationModal} {application modal}
+    The message box is an \l{Qt::ApplicationModal}{application modal}
     dialog box.
+
+    \warning Do not delete \a parent during the execution of the dialog.
+             If you want to do this, you should create the dialog
+             yourself using one of the QMessageBox constructors.
 
     \sa question(), warning(), critical()
 */
@@ -1564,8 +1577,10 @@ QMessageBox::StandardButton QMessageBox::information(QWidget *parent, const QStr
 /*!
     \since 4.2
 
-    Opens a question message box with the specified \a title and \a
-    text. The standard \a buttons are added to the message box. \a
+    Opens a question message box with the given \a title and \a
+    text in front of the specified \a parent widget.
+
+    The standard \a buttons are added to the message box. \a
     defaultButton specifies the button used when \key Enter is
     pressed. \a defaultButton must refer to a button that was given in \a buttons.
     If \a defaultButton is QMessageBox::NoButton, QMessageBox
@@ -1577,6 +1592,10 @@ QMessageBox::StandardButton QMessageBox::information(QWidget *parent, const QStr
 
     The message box is an \l{Qt::ApplicationModal} {application modal}
     dialog box.
+
+    \warning Do not delete \a parent during the execution of the dialog.
+             If you want to do this, you should create the dialog
+             yourself using one of the QMessageBox constructors.
 
     \sa information(), warning(), critical()
 */
@@ -1590,8 +1609,10 @@ QMessageBox::StandardButton QMessageBox::question(QWidget *parent, const QString
 /*!
     \since 4.2
 
-    Opens a warning message box with the specified \a title and \a
-    text. The standard \a buttons are added to the message box. \a
+    Opens a warning message box with the given \a title and \a
+    text in front of the specified \a parent widget.
+
+    The standard \a buttons are added to the message box. \a
     defaultButton specifies the button used when \key Enter is
     pressed. \a defaultButton must refer to a button that was given in \a buttons.
     If \a defaultButton is QMessageBox::NoButton, QMessageBox
@@ -1603,6 +1624,10 @@ QMessageBox::StandardButton QMessageBox::question(QWidget *parent, const QString
 
     The message box is an \l{Qt::ApplicationModal} {application modal}
     dialog box.
+
+    \warning Do not delete \a parent during the execution of the dialog.
+             If you want to do this, you should create the dialog
+             yourself using one of the QMessageBox constructors.
 
     \sa question(), information(), critical()
 */
@@ -1616,8 +1641,10 @@ QMessageBox::StandardButton QMessageBox::warning(QWidget *parent, const QString 
 /*!
     \since 4.2
 
-    Opens a critical message box with the specified \a title and \a
-    text. The standard \a buttons are added to the message box. \a
+    Opens a critical message box with the given \a title and \a
+    text in front of the specified \a parent widget.
+
+    The standard \a buttons are added to the message box. \a
     defaultButton specifies the button used when \key Enter is
     pressed. \a defaultButton must refer to a button that was given in \a buttons.
     If \a defaultButton is QMessageBox::NoButton, QMessageBox
@@ -1630,9 +1657,9 @@ QMessageBox::StandardButton QMessageBox::warning(QWidget *parent, const QString 
     The message box is an \l{Qt::ApplicationModal} {application modal}
     dialog box.
 
-  \warning Do not delete \a parent during the execution of the dialog.
-           If you want to do this, you should create the dialog
-           yourself using one of the QMessageBox constructors.
+    \warning Do not delete \a parent during the execution of the dialog.
+             If you want to do this, you should create the dialog
+             yourself using one of the QMessageBox constructors.
 
     \sa question(), warning(), information()
 */
@@ -2480,7 +2507,12 @@ void QMessageBox::setInformativeText(const QString &text)
         label->hide();
         QTextBrowser *textBrowser = new QTextBrowser(this);
         textBrowser->setOpenExternalLinks(true);
-        grid->addWidget(textBrowser, 1, 1, 1, 1);
+#if defined(Q_OS_SYMBIAN)
+        const int preferredTextColumn = (QApplication::layoutDirection() == Qt::LeftToRight) ? 0 : 1;
+#else
+        const int preferredTextColumn = 1;
+#endif
+        grid->addWidget(textBrowser, 1, preferredTextColumn, 1, 1);
         d->textBrowser = textBrowser;
 #else
         grid->addWidget(label, 1, 1, 1, 1);

@@ -7,34 +7,34 @@
 ** This file is part of the QtCore module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -54,6 +54,11 @@
 #include <private/qeventdispatcher_unix_p.h>
 #endif
 
+#ifdef Q_OS_SYMBIAN
+#include <hal.h>
+#include <hal_data.h>
+#endif
+
 #include "qthreadstorage.h"
 
 #include "qthread_p.h"
@@ -62,6 +67,12 @@
 
 #include <sched.h>
 #include <errno.h>
+
+// You only find these enumerations on Symbian^3 onwards, so we need to provide our own
+// to remain compatible with older releases. They won't be called by pre-Sym^3 SDKs.
+
+// HALData::ENumCpus
+#define QT_HALData_ENumCpus 119
 
 #ifdef Q_OS_BSD4
 #include <sys/sysctl.h>
@@ -422,8 +433,20 @@ int QThread::idealThreadCount()
     // as of aug 2008 Integrity only supports one single core CPU
     cores = 1;
 #elif defined(Q_OS_SYMBIAN)
-	 // ### TODO - Get the number of cores from HAL? when multicore architectures (SMP) are supported
-    cores = 1;
+    if (QSysInfo::symbianVersion() >= QSysInfo::SV_SF_3) {
+        TInt inumcpus;
+        TInt err;
+        err = HAL::Get((HALData::TAttribute)QT_HALData_ENumCpus, inumcpus);
+        if (err != KErrNone) {
+            cores = 1;
+        } else if ( inumcpus <= 0 ) {
+            cores = 1;
+        } else {
+            cores = inumcpus;
+        }
+    } else {
+        cores = 1;
+    }
 #elif defined(Q_OS_VXWORKS)
     // VxWorks
 #  if defined(QT_VXWORKS_HAS_CPUSET)

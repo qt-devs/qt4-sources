@@ -7,34 +7,34 @@
 ** This file is part of the QtDeclarative module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -110,6 +110,10 @@ public:
             int notifyIndex; // When !IsFunction
             int relatedIndex; // When IsFunction
         };
+        uint overrideIndexIsProperty : 1;
+        int overrideIndex : 31;
+        int revision; 
+        int metaObjectOffset;
 
         static Flags flagsForProperty(const QMetaProperty &, QDeclarativeEngine *engine = 0);
         void load(const QMetaProperty &, QDeclarativeEngine *engine = 0);
@@ -131,8 +135,9 @@ public:
     QDeclarativePropertyCache *copy() const;
     void append(QDeclarativeEngine *, const QMetaObject *, Data::Flag propertyFlags = Data::NoFlags,
                 Data::Flag methodFlags = Data::NoFlags, Data::Flag signalFlags = Data::NoFlags);
+    void append(QDeclarativeEngine *, const QMetaObject *, int revision, Data::Flag propertyFlags = Data::NoFlags,
+                Data::Flag methodFlags = Data::NoFlags, Data::Flag signalFlags = Data::NoFlags);
 
-    static QDeclarativePropertyCache *create(QDeclarativeEngine *, const QMetaObject *);
     static Data create(const QMetaObject *, const QString &);
 
     inline Data *property(const QScriptDeclarativeClass::Identifier &id) const;
@@ -141,13 +146,19 @@ public:
     Data *method(int) const;
     QStringList propertyNames() const;
 
+    inline Data *overrideData(Data *) const;
+    inline bool isAllowedInRevision(Data *) const;
+
     inline QDeclarativeEngine *qmlEngine() const;
     static Data *property(QDeclarativeEngine *, QObject *, const QScriptDeclarativeClass::Identifier &, Data &);
     static Data *property(QDeclarativeEngine *, QObject *, const QString &, Data &);
+
 protected:
     virtual void clear();
 
 private:
+    friend class QDeclarativeEnginePrivate;
+
     struct RData : public Data, public QDeclarativeRefCount { 
         QScriptDeclarativeClass::PersistentIdentifier identifier;
     };
@@ -155,6 +166,7 @@ private:
     typedef QVector<RData *> IndexCache;
     typedef QHash<QString, RData *> StringCache;
     typedef QHash<QScriptDeclarativeClass::Identifier, RData *> IdentifierCache;
+    typedef QVector<int> AllowedRevisionCache;
 
     void updateRecur(QDeclarativeEngine *, const QMetaObject *);
 
@@ -163,11 +175,13 @@ private:
     IndexCache methodIndexCache;
     StringCache stringCache;
     IdentifierCache identifierCache;
+    AllowedRevisionCache allowedRevisionCache;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(QDeclarativePropertyCache::Data::Flags);
   
 QDeclarativePropertyCache::Data::Data()
-: flags(0), propType(0), coreIndex(-1), notifyIndex(-1) 
+: flags(0), propType(0), coreIndex(-1), notifyIndex(-1), overrideIndexIsProperty(false), overrideIndex(-1),
+  revision(0), metaObjectOffset(-1)
 {
 }
 
@@ -176,7 +190,20 @@ bool QDeclarativePropertyCache::Data::operator==(const QDeclarativePropertyCache
     return flags == other.flags &&
            propType == other.propType &&
            coreIndex == other.coreIndex &&
-           notifyIndex == other.notifyIndex;
+           notifyIndex == other.notifyIndex &&
+           revision == other.revision;
+}
+
+QDeclarativePropertyCache::Data *
+QDeclarativePropertyCache::overrideData(Data *data) const
+{
+    if (data->overrideIndex < 0)
+        return 0;
+
+    if (data->overrideIndexIsProperty)
+        return indexCache.at(data->overrideIndex);
+    else
+        return methodIndexCache.at(data->overrideIndex);
 }
 
 QDeclarativePropertyCache::Data *
@@ -195,6 +222,12 @@ bool QDeclarativePropertyCache::ValueTypeData::operator==(const ValueTypeData &o
     return flags == o.flags &&
            valueTypeCoreIdx == o.valueTypeCoreIdx &&
            valueTypePropType == o.valueTypePropType; 
+}
+
+bool QDeclarativePropertyCache::isAllowedInRevision(Data *data) const
+{
+    return (data->metaObjectOffset == -1 && data->revision == 0) ||
+           (allowedRevisionCache[data->metaObjectOffset] >= data->revision);
 }
 
 QDeclarativeEngine *QDeclarativePropertyCache::qmlEngine() const

@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: canvas.cpp Example File (graphicsview/portedcanvas/canvas.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">canvas.cpp Example File</h1>
 <span class="small-subtitle">graphicsview/portedcanvas/canvas.cpp</span>
 <!-- $$$graphicsview/portedcanvas/canvas.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,727 +63,711 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;qdatetime.h&gt;
- #include &lt;qmainwindow.h&gt;
- #include &lt;qstatusbar.h&gt;
- #include &lt;qmessagebox.h&gt;
- #include &lt;qmenubar.h&gt;
- #include &lt;qapplication.h&gt;
- #include &lt;qpainter.h&gt;
- #include &lt;qprinter.h&gt;
- #include &lt;qlabel.h&gt;
- #include &lt;qimage.h&gt;
- #include &lt;q3progressdialog.h&gt;
- #include &lt;Q3PointArray&gt;
- #include &lt;Q3PtrList&gt;
- #include &lt;QPixmap&gt;
- #include &lt;Q3PopupMenu&gt;
- #include &lt;QMouseEvent&gt;
- #include &lt;Q3MemArray&gt;
- #include &quot;canvas.h&quot;
- #include &lt;QStyleOptionGraphicsItem&gt;
- #include &lt;qdebug.h&gt;
- #include &lt;stdlib.h&gt;
+ <span class="preprocessor">#include &lt;qdatetime.h&gt;</span>
+ <span class="preprocessor">#include &lt;qmainwindow.h&gt;</span>
+ <span class="preprocessor">#include &lt;qstatusbar.h&gt;</span>
+ <span class="preprocessor">#include &lt;qmessagebox.h&gt;</span>
+ <span class="preprocessor">#include &lt;qmenubar.h&gt;</span>
+ <span class="preprocessor">#include &lt;qapplication.h&gt;</span>
+ <span class="preprocessor">#include &lt;qpainter.h&gt;</span>
+ <span class="preprocessor">#include &lt;qprinter.h&gt;</span>
+ <span class="preprocessor">#include &lt;qlabel.h&gt;</span>
+ <span class="preprocessor">#include &lt;qimage.h&gt;</span>
+ <span class="preprocessor">#include &lt;q3progressdialog.h&gt;</span>
+ <span class="preprocessor">#include &lt;Q3PointArray&gt;</span>
+ <span class="preprocessor">#include &lt;Q3PtrList&gt;</span>
+ <span class="preprocessor">#include &lt;QPixmap&gt;</span>
+ <span class="preprocessor">#include &lt;Q3PopupMenu&gt;</span>
+ <span class="preprocessor">#include &lt;QMouseEvent&gt;</span>
+ <span class="preprocessor">#include &lt;Q3MemArray&gt;</span>
+ <span class="preprocessor">#include &quot;canvas.h&quot;</span>
+ <span class="preprocessor">#include &lt;QStyleOptionGraphicsItem&gt;</span>
+ <span class="preprocessor">#include &lt;qdebug.h&gt;</span>
+ <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
 
-<span class="comment"> // We use a global variable to save memory - all the brushes and pens in</span>
-<span class="comment"> // the mesh are shared.</span>
- static QBrush *tb = 0;
- static QPen *tp = 0;
+ <span class="comment">// We use a global variable to save memory - all the brushes and pens in</span>
+ <span class="comment">// the mesh are shared.</span>
+ <span class="keyword">static</span> <span class="type"><a href="qbrush.html">QBrush</a></span> <span class="operator">*</span>tb <span class="operator">=</span> <span class="number">0</span>;
+ <span class="keyword">static</span> <span class="type"><a href="qpen.html">QPen</a></span> <span class="operator">*</span>tp <span class="operator">=</span> <span class="number">0</span>;
 
- class EdgeItem;
- class NodeItem;
+ <span class="keyword">class</span> EdgeItem;
+ <span class="keyword">class</span> NodeItem;
 
- class EdgeItem: public QGraphicsLineItem
+ <span class="keyword">class</span> EdgeItem: <span class="keyword">public</span> <span class="type"><a href="qgraphicslineitem.html">QGraphicsLineItem</a></span>
  {
- public:
-     EdgeItem( NodeItem*, NodeItem* );
-     void setFromPoint( int x, int y ) ;
-     void setToPoint( int x, int y );
-     static int count() { return c; }
- private:
-     static int c;
+ <span class="keyword">public</span>:
+     EdgeItem( NodeItem<span class="operator">*</span><span class="operator">,</span> NodeItem<span class="operator">*</span> );
+     <span class="type">void</span> setFromPoint( <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y ) ;
+     <span class="type">void</span> setToPoint( <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y );
+     <span class="keyword">static</span> <span class="type">int</span> count() { <span class="keyword">return</span> c; }
+ <span class="keyword">private</span>:
+     <span class="keyword">static</span> <span class="type">int</span> c;
  };
 
- static const int imageRTTI = 984376;
+ <span class="keyword">static</span> <span class="keyword">const</span> <span class="type">int</span> imageRTTI <span class="operator">=</span> <span class="number">984376</span>;
 
- class ImageItem: public QGraphicsRectItem
+ <span class="keyword">class</span> ImageItem: <span class="keyword">public</span> <span class="type"><a href="qgraphicsrectitem.html">QGraphicsRectItem</a></span>
  {
- public:
-     ImageItem( QImage img );
-     int rtti () const { return imageRTTI; }
- protected:
-     void paint( QPainter *, const QStyleOptionGraphicsItem *option, QWidget *widget );
- private:
-     QImage image;
-     QPixmap pixmap;
+ <span class="keyword">public</span>:
+     ImageItem( <span class="type"><a href="qimage.html">QImage</a></span> img );
+     <span class="type">int</span> rtti () <span class="keyword">const</span> { <span class="keyword">return</span> imageRTTI; }
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paint( <span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget );
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qimage.html">QImage</a></span> image;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap;
  };
 
- ImageItem::ImageItem( QImage img )
+ ImageItem<span class="operator">::</span>ImageItem( <span class="type"><a href="qimage.html">QImage</a></span> img )
      : image(img)
  {
-     setRect(0, 0, image.width(), image.height());
+     setRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> image<span class="operator">.</span>width()<span class="operator">,</span> image<span class="operator">.</span>height());
      setFlag(ItemIsMovable);
- #if !defined(Q_WS_QWS)
-     pixmap.convertFromImage(image, Qt::OrderedAlphaDither);
- #endif
+ <span class="preprocessor">#if !defined(Q_WS_QWS)</span>
+     pixmap<span class="operator">.</span>convertFromImage(image<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>OrderedAlphaDither);
+ <span class="preprocessor">#endif</span>
  }
 
- void ImageItem::paint( QPainter *p, const QStyleOptionGraphicsItem *option, QWidget * )
+ <span class="type">void</span> ImageItem<span class="operator">::</span>paint( <span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>p<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span> )
  {
-<span class="comment"> // On Qt/Embedded, we can paint a QImage as fast as a QPixmap,</span>
-<span class="comment"> // but on other platforms, we need to use a QPixmap.</span>
- #if defined(Q_WS_QWS)
-     p-&gt;drawImage( option-&gt;exposedRect, image, option-&gt;exposedRect, Qt::OrderedAlphaDither );
- #else
-     p-&gt;drawPixmap( option-&gt;exposedRect, pixmap, option-&gt;exposedRect );
- #endif
+ <span class="comment">// On Qt/Embedded, we can paint a QImage as fast as a QPixmap,</span>
+ <span class="comment">// but on other platforms, we need to use a QPixmap.</span>
+ <span class="preprocessor">#if defined(Q_WS_QWS)</span>
+     p<span class="operator">-</span><span class="operator">&gt;</span>drawImage( option<span class="operator">-</span><span class="operator">&gt;</span>exposedRect<span class="operator">,</span> image<span class="operator">,</span> option<span class="operator">-</span><span class="operator">&gt;</span>exposedRect<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>OrderedAlphaDither );
+ <span class="preprocessor">#else</span>
+     p<span class="operator">-</span><span class="operator">&gt;</span>drawPixmap( option<span class="operator">-</span><span class="operator">&gt;</span>exposedRect<span class="operator">,</span> pixmap<span class="operator">,</span> option<span class="operator">-</span><span class="operator">&gt;</span>exposedRect );
+ <span class="preprocessor">#endif</span>
  }
 
- class NodeItem: public QGraphicsEllipseItem
+ <span class="keyword">class</span> NodeItem: <span class="keyword">public</span> <span class="type"><a href="qgraphicsellipseitem.html">QGraphicsEllipseItem</a></span>
  {
- public:
+ <span class="keyword">public</span>:
      NodeItem();
-     ~NodeItem() {}
+     <span class="operator">~</span>NodeItem() {}
 
-     void addInEdge( EdgeItem *edge ) { inList.append( edge ); }
-     void addOutEdge( EdgeItem *edge ) { outList.append( edge ); }
+     <span class="type">void</span> addInEdge( EdgeItem <span class="operator">*</span>edge ) { inList<span class="operator">.</span>append( edge ); }
+     <span class="type">void</span> addOutEdge( EdgeItem <span class="operator">*</span>edge ) { outList<span class="operator">.</span>append( edge ); }
 
- protected:
-     QVariant itemChange(GraphicsItemChange change, const QVariant &amp;value);
+ <span class="keyword">protected</span>:
+     <span class="type"><a href="qvariant.html">QVariant</a></span> itemChange(GraphicsItemChange change<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value);
 
      <span class="comment">//    QPoint center() { return boundingRect().center(); }</span>
- private:
-     Q3PtrList&lt;EdgeItem&gt; inList;
-     Q3PtrList&lt;EdgeItem&gt; outList;
+ <span class="keyword">private</span>:
+     <span class="type"><a href="q3ptrlist.html">Q3PtrList</a></span><span class="operator">&lt;</span>EdgeItem<span class="operator">&gt;</span> inList;
+     <span class="type"><a href="q3ptrlist.html">Q3PtrList</a></span><span class="operator">&lt;</span>EdgeItem<span class="operator">&gt;</span> outList;
  };
 
- int EdgeItem::c = 0;
+ <span class="type">int</span> EdgeItem<span class="operator">::</span>c <span class="operator">=</span> <span class="number">0</span>;
 
- EdgeItem::EdgeItem( NodeItem *from, NodeItem *to )
-     : QGraphicsLineItem( )
+ EdgeItem<span class="operator">::</span>EdgeItem( NodeItem <span class="operator">*</span>from<span class="operator">,</span> NodeItem <span class="operator">*</span>to )
+     : <span class="type"><a href="qgraphicslineitem.html">QGraphicsLineItem</a></span>( )
  {
-     c++;
-     setPen( *tp );
-     from-&gt;addOutEdge( this );
-     to-&gt;addInEdge( this );
-     setLine( QLineF(int(from-&gt;x()), int(from-&gt;y()), int(to-&gt;x()), int(to-&gt;y()) ));
-     setZValue( 127 );
-     setBoundingRegionGranularity(0.05);
+     c<span class="operator">+</span><span class="operator">+</span>;
+     setPen( <span class="operator">*</span>tp );
+     from<span class="operator">-</span><span class="operator">&gt;</span>addOutEdge( <span class="keyword">this</span> );
+     to<span class="operator">-</span><span class="operator">&gt;</span>addInEdge( <span class="keyword">this</span> );
+     setLine( <span class="type"><a href="qlinef.html">QLineF</a></span>(<span class="type">int</span>(from<span class="operator">-</span><span class="operator">&gt;</span>x())<span class="operator">,</span> <span class="type">int</span>(from<span class="operator">-</span><span class="operator">&gt;</span>y())<span class="operator">,</span> <span class="type">int</span>(to<span class="operator">-</span><span class="operator">&gt;</span>x())<span class="operator">,</span> <span class="type">int</span>(to<span class="operator">-</span><span class="operator">&gt;</span>y()) ));
+     setZValue( <span class="number">127</span> );
+     setBoundingRegionGranularity(<span class="number">0.05</span>);
  }
 
- void EdgeItem::setFromPoint( int x, int y )
+ <span class="type">void</span> EdgeItem<span class="operator">::</span>setFromPoint( <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y )
  {
-     setLine(QLineF( x,y, line().p2().x(), line().p2().y() ));
+     setLine(<span class="type"><a href="qlinef.html">QLineF</a></span>( x<span class="operator">,</span>y<span class="operator">,</span> line()<span class="operator">.</span>p2()<span class="operator">.</span>x()<span class="operator">,</span> line()<span class="operator">.</span>p2()<span class="operator">.</span>y() ));
  }
 
- void EdgeItem::setToPoint( int x, int y )
+ <span class="type">void</span> EdgeItem<span class="operator">::</span>setToPoint( <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y )
  {
-     setLine(QLineF( line().p1().x(), line().p1().y(), x, y ));
+     setLine(<span class="type"><a href="qlinef.html">QLineF</a></span>( line()<span class="operator">.</span>p1()<span class="operator">.</span>x()<span class="operator">,</span> line()<span class="operator">.</span>p1()<span class="operator">.</span>y()<span class="operator">,</span> x<span class="operator">,</span> y ));
  }
 
- QVariant NodeItem::itemChange(GraphicsItemChange change, const QVariant &amp;value)
+ <span class="type"><a href="qvariant.html">QVariant</a></span> NodeItem<span class="operator">::</span>itemChange(GraphicsItemChange change<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value)
  {
-     if (change == ItemPositionHasChanged) {
-         Q3PtrListIterator&lt;EdgeItem&gt; it1( inList );
-         EdgeItem *edge;
-         while (( edge = it1.current() )) {
-             ++it1;
-             edge-&gt;setToPoint( int(x()), int(y()) );
+     <span class="keyword">if</span> (change <span class="operator">=</span><span class="operator">=</span> ItemPositionHasChanged) {
+         <span class="type"><a href="q3ptrlistiterator.html">Q3PtrListIterator</a></span><span class="operator">&lt;</span>EdgeItem<span class="operator">&gt;</span> it1( inList );
+         EdgeItem <span class="operator">*</span>edge;
+         <span class="keyword">while</span> (( edge <span class="operator">=</span> it1<span class="operator">.</span>current() )) {
+             <span class="operator">+</span><span class="operator">+</span>it1;
+             edge<span class="operator">-</span><span class="operator">&gt;</span>setToPoint( <span class="type">int</span>(x())<span class="operator">,</span> <span class="type">int</span>(y()) );
          }
-         Q3PtrListIterator&lt;EdgeItem&gt; it2( outList );
-         while (( edge = it2.current() )) {
-             ++it2;
-             edge-&gt;setFromPoint( int(x()), int(y()) );
+         <span class="type"><a href="q3ptrlistiterator.html">Q3PtrListIterator</a></span><span class="operator">&lt;</span>EdgeItem<span class="operator">&gt;</span> it2( outList );
+         <span class="keyword">while</span> (( edge <span class="operator">=</span> it2<span class="operator">.</span>current() )) {
+             <span class="operator">+</span><span class="operator">+</span>it2;
+             edge<span class="operator">-</span><span class="operator">&gt;</span>setFromPoint( <span class="type">int</span>(x())<span class="operator">,</span> <span class="type">int</span>(y()) );
          }
      }
 
-     return QGraphicsEllipseItem::itemChange(change, value);
+     <span class="keyword">return</span> <span class="type"><a href="qgraphicsellipseitem.html">QGraphicsEllipseItem</a></span><span class="operator">::</span>itemChange(change<span class="operator">,</span> value);
  }
 
- NodeItem::NodeItem( )
-     : QGraphicsEllipseItem( QRectF(-3, -3, 6, 6) )
+ NodeItem<span class="operator">::</span>NodeItem( )
+     : <span class="type"><a href="qgraphicsellipseitem.html">QGraphicsEllipseItem</a></span>( <span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="operator">-</span><span class="number">3</span><span class="operator">,</span> <span class="operator">-</span><span class="number">3</span><span class="operator">,</span> <span class="number">6</span><span class="operator">,</span> <span class="number">6</span>) )
  {
-     setPen( *tp );
-     setBrush( *tb );
-     setZValue( 128 );
+     setPen( <span class="operator">*</span>tp );
+     setBrush( <span class="operator">*</span>tb );
+     setZValue( <span class="number">128</span> );
      setFlag(ItemIsMovable);
  }
 
- FigureEditor::FigureEditor(
-         QGraphicsScene&amp; c, QWidget* parent,
-         const char* name, Qt::WindowFlags f) :
-     QGraphicsView(&amp;c,parent)
+ FigureEditor<span class="operator">::</span>FigureEditor(
+         <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span><span class="operator">&amp;</span> c<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> parent<span class="operator">,</span>
+         <span class="keyword">const</span> <span class="type">char</span><span class="operator">*</span> name<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowFlags f) :
+     <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span>(<span class="operator">&amp;</span>c<span class="operator">,</span>parent)
  {
      setObjectName(name);
      setWindowFlags(f);
-     setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+     setRenderHints(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing <span class="operator">|</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>SmoothPixmapTransform);
  }
 
- void FigureEditor::clear()
+ <span class="type">void</span> FigureEditor<span class="operator">::</span>clear()
  {
-     scene()-&gt;clear();
+     scene()<span class="operator">-</span><span class="operator">&gt;</span>clear();
  }
 
- BouncyLogo::BouncyLogo() :
-     xvel(0), yvel(0)
+ BouncyLogo<span class="operator">::</span>BouncyLogo() :
+     xvel(<span class="number">0</span>)<span class="operator">,</span> yvel(<span class="number">0</span>)
  {
-     setPixmap(QPixmap(&quot;:/trolltech/examples/graphicsview/portedcanvas/qt-trans.xpm&quot;));
+     setPixmap(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/trolltech/examples/graphicsview/portedcanvas/qt-trans.xpm&quot;</span>));
  }
 
- const int logo_rtti = 1234;
+ <span class="keyword">const</span> <span class="type">int</span> logo_rtti <span class="operator">=</span> <span class="number">1234</span>;
 
- int BouncyLogo::type() const
+ <span class="type">int</span> BouncyLogo<span class="operator">::</span>type() <span class="keyword">const</span>
  {
-     return logo_rtti;
+     <span class="keyword">return</span> logo_rtti;
  }
 
- QPainterPath BouncyLogo::shape() const
+ <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> BouncyLogo<span class="operator">::</span>shape() <span class="keyword">const</span>
  {
-     QPainterPath path;
-     path.addRect(boundingRect());
-     return path;
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+     path<span class="operator">.</span>addRect(boundingRect());
+     <span class="keyword">return</span> path;
  }
 
- void BouncyLogo::initPos()
+ <span class="type">void</span> BouncyLogo<span class="operator">::</span>initPos()
  {
      initSpeed();
-     int trial=1000;
-     do {
-         setPos(qrand()%int(scene()-&gt;width()),qrand()%int(scene()-&gt;height()));
-         advance(0);
-     } while (trial-- &amp;&amp; xvel==0.0 &amp;&amp; yvel==0.0);
+     <span class="type">int</span> trial<span class="operator">=</span><span class="number">1000</span>;
+     <span class="keyword">do</span> {
+         setPos(qrand()<span class="operator">%</span><span class="type">int</span>(scene()<span class="operator">-</span><span class="operator">&gt;</span>width())<span class="operator">,</span>qrand()<span class="operator">%</span><span class="type">int</span>(scene()<span class="operator">-</span><span class="operator">&gt;</span>height()));
+         advance(<span class="number">0</span>);
+     } <span class="keyword">while</span> (trial<span class="operator">-</span><span class="operator">-</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> xvel<span class="operator">=</span><span class="operator">=</span><span class="number">0.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> yvel<span class="operator">=</span><span class="operator">=</span><span class="number">0.0</span>);
  }
 
- void BouncyLogo::initSpeed()
+ <span class="type">void</span> BouncyLogo<span class="operator">::</span>initSpeed()
  {
-     const double speed = 4.0;
-     double d = (double)(qrand()%1024) / 1024.0;
-     xvel = d*speed*2-speed;
-     yvel = (1-d)*speed*2-speed;
+     <span class="keyword">const</span> <span class="type">double</span> speed <span class="operator">=</span> <span class="number">4.0</span>;
+     <span class="type">double</span> d <span class="operator">=</span> (<span class="type">double</span>)(qrand()<span class="operator">%</span><span class="number">1024</span>) <span class="operator">/</span> <span class="number">1024.0</span>;
+     xvel <span class="operator">=</span> d<span class="operator">*</span>speed<span class="operator">*</span><span class="number">2</span><span class="operator">-</span>speed;
+     yvel <span class="operator">=</span> (<span class="number">1</span><span class="operator">-</span>d)<span class="operator">*</span>speed<span class="operator">*</span><span class="number">2</span><span class="operator">-</span>speed;
  }
 
- void BouncyLogo::advance(int stage)
+ <span class="type">void</span> BouncyLogo<span class="operator">::</span>advance(<span class="type">int</span> stage)
  {
-     switch ( stage ) {
-       case 0: {
-         double vx = xvel;
-         double vy = yvel;
+     <span class="keyword">switch</span> ( stage ) {
+       <span class="keyword">case</span> <span class="number">0</span>: {
+         <span class="type">double</span> vx <span class="operator">=</span> xvel;
+         <span class="type">double</span> vy <span class="operator">=</span> yvel;
 
-         if ( vx == 0.0 &amp;&amp; vy == 0.0 ) {
+         <span class="keyword">if</span> ( vx <span class="operator">=</span><span class="operator">=</span> <span class="number">0.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> vy <span class="operator">=</span><span class="operator">=</span> <span class="number">0.0</span> ) {
              <span class="comment">// stopped last turn</span>
              initSpeed();
-             vx = xvel;
-             vy = yvel;
+             vx <span class="operator">=</span> xvel;
+             vy <span class="operator">=</span> yvel;
          }
 
-         double nx = x() + vx;
-         double ny = y() + vy;
+         <span class="type">double</span> nx <span class="operator">=</span> x() <span class="operator">+</span> vx;
+         <span class="type">double</span> ny <span class="operator">=</span> y() <span class="operator">+</span> vy;
 
-         if ( nx &lt; 0 || nx &gt;= scene()-&gt;width() )
-             vx = -vx;
-         if ( ny &lt; 0 || ny &gt;= scene()-&gt;height() )
-             vy = -vy;
+         <span class="keyword">if</span> ( nx <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> nx <span class="operator">&gt;</span><span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>width() )
+             vx <span class="operator">=</span> <span class="operator">-</span>vx;
+         <span class="keyword">if</span> ( ny <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> ny <span class="operator">&gt;</span><span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>height() )
+             vy <span class="operator">=</span> <span class="operator">-</span>vy;
 
-         for (int bounce=0; bounce&lt;4; bounce++) {
-             QList&lt;QGraphicsItem *&gt; l=scene()-&gt;collidingItems(this);
-             for (QList&lt;QGraphicsItem *&gt;::Iterator it=l.begin(); it!=l.end(); ++it) {
-                 QGraphicsItem *hit = *it;
-                 QPainterPath advancedShape = QMatrix().translate(xvel, yvel).map(shape());
-                 if ( hit-&gt;type()==logo_rtti &amp;&amp; hit-&gt;collidesWithPath(mapToItem(hit, advancedShape)) ) {
-                     switch ( bounce ) {
-                       case 0:
-                         vx = -vx;
-                         break;
-                       case 1:
-                         vy = -vy;
-                         vx = -vx;
-                         break;
-                       case 2:
-                         vx = -vx;
-                         break;
-                       case 3:
+         <span class="keyword">for</span> (<span class="type">int</span> bounce<span class="operator">=</span><span class="number">0</span>; bounce<span class="operator">&lt;</span><span class="number">4</span>; bounce<span class="operator">+</span><span class="operator">+</span>) {
+             <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> l<span class="operator">=</span>scene()<span class="operator">-</span><span class="operator">&gt;</span>collidingItems(<span class="keyword">this</span>);
+             <span class="keyword">for</span> (<span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>Iterator it<span class="operator">=</span>l<span class="operator">.</span>begin(); it<span class="operator">!</span><span class="operator">=</span>l<span class="operator">.</span>end(); <span class="operator">+</span><span class="operator">+</span>it) {
+                 <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>hit <span class="operator">=</span> <span class="operator">*</span>it;
+                 <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> advancedShape <span class="operator">=</span> <span class="type"><a href="qmatrix.html">QMatrix</a></span>()<span class="operator">.</span>translate(xvel<span class="operator">,</span> yvel)<span class="operator">.</span>map(shape());
+                 <span class="keyword">if</span> ( hit<span class="operator">-</span><span class="operator">&gt;</span>type()<span class="operator">=</span><span class="operator">=</span>logo_rtti <span class="operator">&amp;</span><span class="operator">&amp;</span> hit<span class="operator">-</span><span class="operator">&gt;</span>collidesWithPath(mapToItem(hit<span class="operator">,</span> advancedShape)) ) {
+                     <span class="keyword">switch</span> ( bounce ) {
+                       <span class="keyword">case</span> <span class="number">0</span>:
+                         vx <span class="operator">=</span> <span class="operator">-</span>vx;
+                         <span class="keyword">break</span>;
+                       <span class="keyword">case</span> <span class="number">1</span>:
+                         vy <span class="operator">=</span> <span class="operator">-</span>vy;
+                         vx <span class="operator">=</span> <span class="operator">-</span>vx;
+                         <span class="keyword">break</span>;
+                       <span class="keyword">case</span> <span class="number">2</span>:
+                         vx <span class="operator">=</span> <span class="operator">-</span>vx;
+                         <span class="keyword">break</span>;
+                       <span class="keyword">case</span> <span class="number">3</span>:
                          <span class="comment">// Stop for this turn</span>
-                         vx = 0;
-                         vy = 0;
-                         break;
+                         vx <span class="operator">=</span> <span class="number">0</span>;
+                         vy <span class="operator">=</span> <span class="number">0</span>;
+                         <span class="keyword">break</span>;
                      }
-                     xvel = vx;
-                     yvel = vy;
-                     break;
+                     xvel <span class="operator">=</span> vx;
+                     yvel <span class="operator">=</span> vy;
+                     <span class="keyword">break</span>;
                  }
              }
          }
 
-         if ( x()+vx &lt; 0 || x()+vx &gt;= scene()-&gt;width() )
-             vx = 0;
-         if ( y()+vy &lt; 0 || y()+vy &gt;= scene()-&gt;height() )
-             vy = 0;
+         <span class="keyword">if</span> ( x()<span class="operator">+</span>vx <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> x()<span class="operator">+</span>vx <span class="operator">&gt;</span><span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>width() )
+             vx <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">if</span> ( y()<span class="operator">+</span>vy <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> y()<span class="operator">+</span>vy <span class="operator">&gt;</span><span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>height() )
+             vy <span class="operator">=</span> <span class="number">0</span>;
 
-         xvel = vx;
-         yvel = vy;
-       } break;
-       case 1:
-         moveBy(xvel, yvel);
-         break;
+         xvel <span class="operator">=</span> vx;
+         yvel <span class="operator">=</span> vy;
+       } <span class="keyword">break</span>;
+       <span class="keyword">case</span> <span class="number">1</span>:
+         moveBy(xvel<span class="operator">,</span> yvel);
+         <span class="keyword">break</span>;
      }
  }
 
- static uint mainCount = 0;
- static QImage *butterflyimg;
- static QImage *logoimg;
+ <span class="keyword">static</span> <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> mainCount <span class="operator">=</span> <span class="number">0</span>;
+ <span class="keyword">static</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">*</span>butterflyimg;
+ <span class="keyword">static</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">*</span>logoimg;
 
- Main::Main(QGraphicsScene&amp; c, QWidget* parent, const char* name, Qt::WindowFlags f) :
-     Q3MainWindow(parent,name,f),
+ Main<span class="operator">::</span>Main(<span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span><span class="operator">&amp;</span> c<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> parent<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span><span class="operator">*</span> name<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowFlags f) :
+     <span class="type"><a href="q3mainwindow.html">Q3MainWindow</a></span>(parent<span class="operator">,</span>name<span class="operator">,</span>f)<span class="operator">,</span>
      canvas(c)
  {
-     editor = new FigureEditor(canvas,this);
-     QMenuBar* menu = menuBar();
+     editor <span class="operator">=</span> <span class="keyword">new</span> FigureEditor(canvas<span class="operator">,</span><span class="keyword">this</span>);
+     <span class="type"><a href="qmenubar.html">QMenuBar</a></span><span class="operator">*</span> menu <span class="operator">=</span> menuBar();
 
-     Q3PopupMenu* file = new Q3PopupMenu( menu );
-     file-&gt;insertItem(&quot;&amp;Fill canvas&quot;, this, SLOT(init()), Qt::CTRL+Qt::Key_F);
-     file-&gt;insertItem(&quot;&amp;Erase canvas&quot;, this, SLOT(clear()), Qt::CTRL+Qt::Key_E);
-     file-&gt;insertItem(&quot;&amp;New view&quot;, this, SLOT(newView()), Qt::CTRL+Qt::Key_N);
-     file-&gt;insertSeparator();
-     file-&gt;insertItem(&quot;&amp;Print...&quot;, this, SLOT(print()), Qt::CTRL+Qt::Key_P);
-     file-&gt;insertSeparator();
-     file-&gt;insertItem(&quot;E&amp;xit&quot;, qApp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
-     menu-&gt;insertItem(&quot;&amp;File&quot;, file);
+     <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span><span class="operator">*</span> file <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span>( menu );
+     file<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Fill canvas&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(init())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_F);
+     file<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Erase canvas&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(clear())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_E);
+     file<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;New view&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(newView())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_N);
+     file<span class="operator">-</span><span class="operator">&gt;</span>insertSeparator();
+     file<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Print...&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(print())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_P);
+     file<span class="operator">-</span><span class="operator">&gt;</span>insertSeparator();
+     file<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;E&amp;xit&quot;</span><span class="operator">,</span> qApp<span class="operator">,</span> SLOT(quit())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Q);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;File&quot;</span><span class="operator">,</span> file);
 
-     Q3PopupMenu* edit = new Q3PopupMenu( menu );
-     edit-&gt;insertItem(&quot;Add &amp;Circle&quot;, this, SLOT(addCircle()), Qt::ALT+Qt::Key_C);
-     edit-&gt;insertItem(&quot;Add &amp;Hexagon&quot;, this, SLOT(addHexagon()), Qt::ALT+Qt::Key_H);
-     edit-&gt;insertItem(&quot;Add &amp;Polygon&quot;, this, SLOT(addPolygon()), Qt::ALT+Qt::Key_P);
-     edit-&gt;insertItem(&quot;Add Spl&amp;ine&quot;, this, SLOT(addSpline()), Qt::ALT+Qt::Key_I);
-     edit-&gt;insertItem(&quot;Add &amp;Text&quot;, this, SLOT(addText()), Qt::ALT+Qt::Key_T);
-     edit-&gt;insertItem(&quot;Add &amp;Line&quot;, this, SLOT(addLine()), Qt::ALT+Qt::Key_L);
-     edit-&gt;insertItem(&quot;Add &amp;Rectangle&quot;, this, SLOT(addRectangle()), Qt::ALT+Qt::Key_R);
-     edit-&gt;insertItem(&quot;Add &amp;Sprite&quot;, this, SLOT(addSprite()), Qt::ALT+Qt::Key_S);
-     edit-&gt;insertItem(&quot;Create &amp;Mesh&quot;, this, SLOT(addMesh()), Qt::ALT+Qt::Key_M );
-     edit-&gt;insertItem(&quot;Add &amp;Alpha-blended image&quot;, this, SLOT(addButterfly()), Qt::ALT+Qt::Key_A);
-     menu-&gt;insertItem(&quot;&amp;Edit&quot;, edit);
+     <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span><span class="operator">*</span> edit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span>( menu );
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Circle&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addCircle())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_C);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Hexagon&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addHexagon())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_H);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Polygon&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addPolygon())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_P);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add Spl&amp;ine&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addSpline())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_I);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Text&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addText())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_T);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Line&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addLine())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_L);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Rectangle&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addRectangle())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_R);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Sprite&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addSprite())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_S);
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Create &amp;Mesh&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addMesh())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_M );
+     edit<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Add &amp;Alpha-blended image&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addButterfly())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ALT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_A);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Edit&quot;</span><span class="operator">,</span> edit);
 
-     Q3PopupMenu* view = new Q3PopupMenu( menu );
-     view-&gt;insertItem(&quot;&amp;Enlarge&quot;, this, SLOT(enlarge()), Qt::SHIFT+Qt::CTRL+Qt::Key_Plus);
-     view-&gt;insertItem(&quot;Shr&amp;ink&quot;, this, SLOT(shrink()), Qt::SHIFT+Qt::CTRL+Qt::Key_Minus);
-     view-&gt;insertSeparator();
-     view-&gt;insertItem(&quot;&amp;Rotate clockwise&quot;, this, SLOT(rotateClockwise()), Qt::CTRL+Qt::Key_PageDown);
-     view-&gt;insertItem(&quot;Rotate &amp;counterclockwise&quot;, this, SLOT(rotateCounterClockwise()), Qt::CTRL+Qt::Key_PageUp);
-     view-&gt;insertItem(&quot;&amp;Zoom in&quot;, this, SLOT(zoomIn()), Qt::CTRL+Qt::Key_Plus);
-     view-&gt;insertItem(&quot;Zoom &amp;out&quot;, this, SLOT(zoomOut()), Qt::CTRL+Qt::Key_Minus);
-     view-&gt;insertItem(&quot;Translate left&quot;, this, SLOT(moveL()), Qt::CTRL+Qt::Key_Left);
-     view-&gt;insertItem(&quot;Translate right&quot;, this, SLOT(moveR()), Qt::CTRL+Qt::Key_Right);
-     view-&gt;insertItem(&quot;Translate up&quot;, this, SLOT(moveU()), Qt::CTRL+Qt::Key_Up);
-     view-&gt;insertItem(&quot;Translate down&quot;, this, SLOT(moveD()), Qt::CTRL+Qt::Key_Down);
-     view-&gt;insertItem(&quot;&amp;Mirror&quot;, this, SLOT(mirror()), Qt::CTRL+Qt::Key_Home);
-     menu-&gt;insertItem(&quot;&amp;View&quot;, view);
+     <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span><span class="operator">*</span> view <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span>( menu );
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Enlarge&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(enlarge())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SHIFT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Plus);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Shr&amp;ink&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(shrink())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SHIFT<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Minus);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertSeparator();
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Rotate clockwise&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(rotateClockwise())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_PageDown);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Rotate &amp;counterclockwise&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(rotateCounterClockwise())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_PageUp);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Zoom in&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(zoomIn())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Plus);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Zoom &amp;out&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(zoomOut())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Minus);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Translate left&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(moveL())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Left);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Translate right&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(moveR())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Right);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Translate up&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(moveU())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Up);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;Translate down&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(moveD())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Down);
+     view<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Mirror&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(mirror())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL<span class="operator">+</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Home);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;View&quot;</span><span class="operator">,</span> view);
 
-     menu-&gt;insertSeparator();
+     menu<span class="operator">-</span><span class="operator">&gt;</span>insertSeparator();
 
-     Q3PopupMenu* help = new Q3PopupMenu( menu );
-     help-&gt;insertItem(&quot;&amp;About&quot;, this, SLOT(help()), Qt::Key_F1);
-     help-&gt;setItemChecked(dbf_id, TRUE);
-     menu-&gt;insertItem(&quot;&amp;Help&quot;,help);
+     <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span><span class="operator">*</span> help <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span>( menu );
+     help<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;About&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(help())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_F1);
+     help<span class="operator">-</span><span class="operator">&gt;</span>setItemChecked(dbf_id<span class="operator">,</span> TRUE);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>insertItem(<span class="string">&quot;&amp;Help&quot;</span><span class="operator">,</span>help);
 
      statusBar();
 
      setCentralWidget(editor);
 
-     printer = 0;
+     printer <span class="operator">=</span> <span class="number">0</span>;
 
      init();
  }
 
- void Main::init()
+ <span class="type">void</span> Main<span class="operator">::</span>init()
  {
      clear();
 
-     static int r=24;
-     qsrand(++r);
+     <span class="keyword">static</span> <span class="type">int</span> r<span class="operator">=</span><span class="number">24</span>;
+     qsrand(<span class="operator">+</span><span class="operator">+</span>r);
 
-     mainCount++;
-     butterflyimg = 0;
-     logoimg = 0;
+     mainCount<span class="operator">+</span><span class="operator">+</span>;
+     butterflyimg <span class="operator">=</span> <span class="number">0</span>;
+     logoimg <span class="operator">=</span> <span class="number">0</span>;
 
-     int i;
-     for ( i=0; i &lt; int(canvas.width()) / 56; i++) {
+     <span class="type">int</span> i;
+     <span class="keyword">for</span> ( i<span class="operator">=</span><span class="number">0</span>; i <span class="operator">&lt;</span> <span class="type">int</span>(canvas<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">56</span>; i<span class="operator">+</span><span class="operator">+</span>) {
          addButterfly();
      }
-     for ( i=0; i &lt; int(canvas.width()) / 85; i++) {
+     <span class="keyword">for</span> ( i<span class="operator">=</span><span class="number">0</span>; i <span class="operator">&lt;</span> <span class="type">int</span>(canvas<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">85</span>; i<span class="operator">+</span><span class="operator">+</span>) {
          addHexagon();
      }
-     for ( i=0; i &lt; int(canvas.width()) / 128; i++) {
+     <span class="keyword">for</span> ( i<span class="operator">=</span><span class="number">0</span>; i <span class="operator">&lt;</span> <span class="type">int</span>(canvas<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">128</span>; i<span class="operator">+</span><span class="operator">+</span>) {
          addLogo();
      }
  }
 
- Main::~Main()
+ Main<span class="operator">::</span><span class="operator">~</span>Main()
  {
-     delete printer;
-     if ( !--mainCount ) {
-         delete[] butterflyimg;
-         butterflyimg = 0;
-         delete[] logoimg;
-         logoimg = 0;
+     <span class="keyword">delete</span> printer;
+     <span class="keyword">if</span> ( <span class="operator">!</span><span class="operator">-</span><span class="operator">-</span>mainCount ) {
+         <span class="keyword">delete</span><span class="operator">[</span><span class="operator">]</span> butterflyimg;
+         butterflyimg <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">delete</span><span class="operator">[</span><span class="operator">]</span> logoimg;
+         logoimg <span class="operator">=</span> <span class="number">0</span>;
      }
  }
 
- void Main::newView()
+ <span class="type">void</span> Main<span class="operator">::</span>newView()
  {
      <span class="comment">// Open a new view... have it delete when closed.</span>
-     Main *m = new Main(canvas, 0, 0, Qt::WDestructiveClose);
-     m-&gt;show();
+     Main <span class="operator">*</span>m <span class="operator">=</span> <span class="keyword">new</span> Main(canvas<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WDestructiveClose);
+     m<span class="operator">-</span><span class="operator">&gt;</span>show();
  }
 
- void Main::clear()
+ <span class="type">void</span> Main<span class="operator">::</span>clear()
  {
-     editor-&gt;clear();
+     editor<span class="operator">-</span><span class="operator">&gt;</span>clear();
  }
 
- void Main::help()
+ <span class="type">void</span> Main<span class="operator">::</span>help()
  {
-     static QMessageBox* about = new QMessageBox( &quot;Qt Canvas Example&quot;,
-             &quot;&lt;h3&gt;The QCanvas classes example&lt;/h3&gt;&quot;
-             &quot;&lt;ul&gt;&quot;
-                 &quot;&lt;li&gt; Press ALT-S for some sprites.&quot;
-                 &quot;&lt;li&gt; Press ALT-C for some circles.&quot;
-                 &quot;&lt;li&gt; Press ALT-L for some lines.&quot;
-                 &quot;&lt;li&gt; Drag the objects around.&quot;
-                 &quot;&lt;li&gt; Read the code!&quot;
-             &quot;&lt;/ul&gt;&quot;, QMessageBox::Information, 1, 0, 0, this, 0, FALSE );
-     about-&gt;setButtonText( 1, &quot;Dismiss&quot; );
-     about-&gt;show();
+     <span class="keyword">static</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">*</span> about <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span>( <span class="string">&quot;Qt Canvas Example&quot;</span><span class="operator">,</span>
+             <span class="string">&quot;&lt;h3&gt;The QCanvas classes example&lt;/h3&gt;&quot;</span>
+             <span class="string">&quot;&lt;ul&gt;&quot;</span>
+                 <span class="string">&quot;&lt;li&gt; Press ALT-S for some sprites.&quot;</span>
+                 <span class="string">&quot;&lt;li&gt; Press ALT-C for some circles.&quot;</span>
+                 <span class="string">&quot;&lt;li&gt; Press ALT-L for some lines.&quot;</span>
+                 <span class="string">&quot;&lt;li&gt; Drag the objects around.&quot;</span>
+                 <span class="string">&quot;&lt;li&gt; Read the code!&quot;</span>
+             <span class="string">&quot;&lt;/ul&gt;&quot;</span><span class="operator">,</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Information<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> FALSE );
+     about<span class="operator">-</span><span class="operator">&gt;</span>setButtonText( <span class="number">1</span><span class="operator">,</span> <span class="string">&quot;Dismiss&quot;</span> );
+     about<span class="operator">-</span><span class="operator">&gt;</span>show();
  }
 
- void Main::aboutQt()
+ <span class="type">void</span> Main<span class="operator">::</span>aboutQt()
  {
-     QMessageBox::aboutQt( this, &quot;Qt Canvas Example&quot; );
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>aboutQt( <span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;Qt Canvas Example&quot;</span> );
  }
 
- void Main::enlarge()
+ <span class="type">void</span> Main<span class="operator">::</span>enlarge()
  {
-     canvas.setSceneRect(0, 0, canvas.width()*4/3, canvas.height()*4/3);
+     canvas<span class="operator">.</span>setSceneRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> canvas<span class="operator">.</span>width()<span class="operator">*</span><span class="number">4</span><span class="operator">/</span><span class="number">3</span><span class="operator">,</span> canvas<span class="operator">.</span>height()<span class="operator">*</span><span class="number">4</span><span class="operator">/</span><span class="number">3</span>);
  }
 
- void Main::shrink()
+ <span class="type">void</span> Main<span class="operator">::</span>shrink()
  {
-     canvas.setSceneRect(0, 0, qMax(canvas.width()*3/4, qreal(1.0)), qMax(canvas.height()*3/4, qreal(1.0)));
+     canvas<span class="operator">.</span>setSceneRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <a href="qtglobal.html#qMax">qMax</a>(canvas<span class="operator">.</span>width()<span class="operator">*</span><span class="number">3</span><span class="operator">/</span><span class="number">4</span><span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">1.0</span>))<span class="operator">,</span> <a href="qtglobal.html#qMax">qMax</a>(canvas<span class="operator">.</span>height()<span class="operator">*</span><span class="number">3</span><span class="operator">/</span><span class="number">4</span><span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">1.0</span>)));
  }
 
- void Main::rotateClockwise()
+ <span class="type">void</span> Main<span class="operator">::</span>rotateClockwise()
  {
-     editor-&gt;rotate( 22.5 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>rotate( <span class="number">22.5</span> );
  }
 
- void Main::rotateCounterClockwise()
+ <span class="type">void</span> Main<span class="operator">::</span>rotateCounterClockwise()
  {
-     editor-&gt;rotate( -22.5 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>rotate( <span class="operator">-</span><span class="number">22.5</span> );
  }
 
- void Main::zoomIn()
+ <span class="type">void</span> Main<span class="operator">::</span>zoomIn()
  {
-     editor-&gt;scale( 2.0, 2.0 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>scale( <span class="number">2.0</span><span class="operator">,</span> <span class="number">2.0</span> );
  }
 
- void Main::zoomOut()
+ <span class="type">void</span> Main<span class="operator">::</span>zoomOut()
  {
-     editor-&gt;scale( 0.5, 0.5 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>scale( <span class="number">0.5</span><span class="operator">,</span> <span class="number">0.5</span> );
  }
 
- void Main::mirror()
+ <span class="type">void</span> Main<span class="operator">::</span>mirror()
  {
-     editor-&gt;scale( -1, 1 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>scale( <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">1</span> );
  }
 
- void Main::moveL()
+ <span class="type">void</span> Main<span class="operator">::</span>moveL()
  {
-     editor-&gt;translate( -16, 0 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>translate( <span class="operator">-</span><span class="number">16</span><span class="operator">,</span> <span class="number">0</span> );
  }
 
- void Main::moveR()
+ <span class="type">void</span> Main<span class="operator">::</span>moveR()
  {
-     editor-&gt;translate( +16, 0 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>translate( <span class="operator">+</span><span class="number">16</span><span class="operator">,</span> <span class="number">0</span> );
  }
 
- void Main::moveU()
+ <span class="type">void</span> Main<span class="operator">::</span>moveU()
  {
-     editor-&gt;translate( 0, -16 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>translate( <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">16</span> );
  }
 
- void Main::moveD()
+ <span class="type">void</span> Main<span class="operator">::</span>moveD()
  {
-     editor-&gt;translate( 0, +16 );
+     editor<span class="operator">-</span><span class="operator">&gt;</span>translate( <span class="number">0</span><span class="operator">,</span> <span class="operator">+</span><span class="number">16</span> );
  }
 
- void Main::print()
+ <span class="type">void</span> Main<span class="operator">::</span>print()
  {
-     if ( !printer ) printer = new QPrinter;
-     if ( printer-&gt;setup(this) ) {
-         QPainter pp(printer);
-         canvas.render(&amp;pp);
+     <span class="keyword">if</span> ( <span class="operator">!</span>printer ) printer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qprinter.html">QPrinter</a></span>;
+     <span class="keyword">if</span> ( printer<span class="operator">-</span><span class="operator">&gt;</span>setup(<span class="keyword">this</span>) ) {
+         <span class="type"><a href="qpainter.html">QPainter</a></span> pp(printer);
+         canvas<span class="operator">.</span>render(<span class="operator">&amp;</span>pp);
      }
  }
 
- void Main::addSprite()
+ <span class="type">void</span> Main<span class="operator">::</span>addSprite()
  {
-     BouncyLogo* i = new BouncyLogo;
-     canvas.addItem(i);
-     i-&gt;initPos();
-     i-&gt;setZValue(qrand()%256);
+     BouncyLogo<span class="operator">*</span> i <span class="operator">=</span> <span class="keyword">new</span> BouncyLogo;
+     canvas<span class="operator">.</span>addItem(i);
+     i<span class="operator">-</span><span class="operator">&gt;</span>initPos();
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span>);
  }
 
- QString butterfly_fn;
- QString logo_fn;
+ <span class="type"><a href="qstring.html">QString</a></span> butterfly_fn;
+ <span class="type"><a href="qstring.html">QString</a></span> logo_fn;
 
- void Main::addButterfly()
+ <span class="type">void</span> Main<span class="operator">::</span>addButterfly()
  {
-     if ( butterfly_fn.isEmpty() )
-         return;
-     if ( !butterflyimg ) {
-         butterflyimg = new QImage[4];
-         butterflyimg[0].load( butterfly_fn );
-         butterflyimg[1] = butterflyimg[0].smoothScale( int(butterflyimg[0].width()*0.75),
-                 int(butterflyimg[0].height()*0.75) );
-         butterflyimg[2] = butterflyimg[0].smoothScale( int(butterflyimg[0].width()*0.5),
-                 int(butterflyimg[0].height()*0.5) );
-         butterflyimg[3] = butterflyimg[0].smoothScale( int(butterflyimg[0].width()*0.25),
-                 int(butterflyimg[0].height()*0.25) );
+     <span class="keyword">if</span> ( butterfly_fn<span class="operator">.</span>isEmpty() )
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> ( <span class="operator">!</span>butterflyimg ) {
+         butterflyimg <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+         butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>load( butterfly_fn );
+         butterflyimg<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>smoothScale( <span class="type">int</span>(butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>width()<span class="operator">*</span><span class="number">0.75</span>)<span class="operator">,</span>
+                 <span class="type">int</span>(butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>height()<span class="operator">*</span><span class="number">0.75</span>) );
+         butterflyimg<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>smoothScale( <span class="type">int</span>(butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>width()<span class="operator">*</span><span class="number">0.5</span>)<span class="operator">,</span>
+                 <span class="type">int</span>(butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>height()<span class="operator">*</span><span class="number">0.5</span>) );
+         butterflyimg<span class="operator">[</span><span class="number">3</span><span class="operator">]</span> <span class="operator">=</span> butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>smoothScale( <span class="type">int</span>(butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>width()<span class="operator">*</span><span class="number">0.25</span>)<span class="operator">,</span>
+                 <span class="type">int</span>(butterflyimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>height()<span class="operator">*</span><span class="number">0.25</span>) );
      }
-     QAbstractGraphicsShapeItem* i = new ImageItem(butterflyimg[qrand()%4]);
-     canvas.addItem(i);
-     i-&gt;setPos(qrand()%int(canvas.width()-butterflyimg-&gt;width()),
-             qrand()%int(canvas.height()-butterflyimg-&gt;height()));
-     i-&gt;setZValue(qrand()%256+250);
+     <span class="type"><a href="qabstractgraphicsshapeitem.html">QAbstractGraphicsShapeItem</a></span><span class="operator">*</span> i <span class="operator">=</span> <span class="keyword">new</span> ImageItem(butterflyimg<span class="operator">[</span>qrand()<span class="operator">%</span><span class="number">4</span><span class="operator">]</span>);
+     canvas<span class="operator">.</span>addItem(i);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPos(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width()<span class="operator">-</span>butterflyimg<span class="operator">-</span><span class="operator">&gt;</span>width())<span class="operator">,</span>
+             qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()<span class="operator">-</span>butterflyimg<span class="operator">-</span><span class="operator">&gt;</span>height()));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span><span class="operator">+</span><span class="number">250</span>);
  }
 
- void Main::addLogo()
+ <span class="type">void</span> Main<span class="operator">::</span>addLogo()
  {
-     if ( logo_fn.isEmpty() )
-         return;
-     if ( !logoimg ) {
-         logoimg = new QImage[4];
-         logoimg[0].load( logo_fn );
-         logoimg[1] = logoimg[0].smoothScale( int(logoimg[0].width()*0.75),
-                 int(logoimg[0].height()*0.75) );
-         logoimg[2] = logoimg[0].smoothScale( int(logoimg[0].width()*0.5),
-                 int(logoimg[0].height()*0.5) );
-         logoimg[3] = logoimg[0].smoothScale( int(logoimg[0].width()*0.25),
-                 int(logoimg[0].height()*0.25) );
+     <span class="keyword">if</span> ( logo_fn<span class="operator">.</span>isEmpty() )
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> ( <span class="operator">!</span>logoimg ) {
+         logoimg <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+         logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>load( logo_fn );
+         logoimg<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>smoothScale( <span class="type">int</span>(logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>width()<span class="operator">*</span><span class="number">0.75</span>)<span class="operator">,</span>
+                 <span class="type">int</span>(logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>height()<span class="operator">*</span><span class="number">0.75</span>) );
+         logoimg<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>smoothScale( <span class="type">int</span>(logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>width()<span class="operator">*</span><span class="number">0.5</span>)<span class="operator">,</span>
+                 <span class="type">int</span>(logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>height()<span class="operator">*</span><span class="number">0.5</span>) );
+         logoimg<span class="operator">[</span><span class="number">3</span><span class="operator">]</span> <span class="operator">=</span> logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>smoothScale( <span class="type">int</span>(logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>width()<span class="operator">*</span><span class="number">0.25</span>)<span class="operator">,</span>
+                 <span class="type">int</span>(logoimg<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>height()<span class="operator">*</span><span class="number">0.25</span>) );
      }
-     QAbstractGraphicsShapeItem* i = new ImageItem(logoimg[qrand()%4]);
-     canvas.addItem(i);
-     i-&gt;setPos(qrand()%int(canvas.width()-logoimg-&gt;width()),
-             qrand()%int(canvas.height()-logoimg-&gt;width()));
-     i-&gt;setZValue(qrand()%256+256);
+     <span class="type"><a href="qabstractgraphicsshapeitem.html">QAbstractGraphicsShapeItem</a></span><span class="operator">*</span> i <span class="operator">=</span> <span class="keyword">new</span> ImageItem(logoimg<span class="operator">[</span>qrand()<span class="operator">%</span><span class="number">4</span><span class="operator">]</span>);
+     canvas<span class="operator">.</span>addItem(i);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPos(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width()<span class="operator">-</span>logoimg<span class="operator">-</span><span class="operator">&gt;</span>width())<span class="operator">,</span>
+             qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()<span class="operator">-</span>logoimg<span class="operator">-</span><span class="operator">&gt;</span>width()));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span><span class="operator">+</span><span class="number">256</span>);
  }
 
- void Main::addCircle()
+ <span class="type">void</span> Main<span class="operator">::</span>addCircle()
  {
-     QAbstractGraphicsShapeItem* i = canvas.addEllipse(QRectF(0,0,50,50));
-     i-&gt;setFlag(QGraphicsItem::ItemIsMovable);
-     i-&gt;setPen(Qt::NoPen);
-     i-&gt;setBrush( QColor(qrand()%32*8,qrand()%32*8,qrand()%32*8) );
-     i-&gt;setPos(qrand()%int(canvas.width()),qrand()%int(canvas.height()));
-     i-&gt;setZValue(qrand()%256);
+     <span class="type"><a href="qabstractgraphicsshapeitem.html">QAbstractGraphicsShapeItem</a></span><span class="operator">*</span> i <span class="operator">=</span> canvas<span class="operator">.</span>addEllipse(<span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">50</span><span class="operator">,</span><span class="number">50</span>));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemIsMovable);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setBrush( <span class="type"><a href="qcolor.html">QColor</a></span>(qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span>) );
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPos(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span>qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span>);
  }
 
- void Main::addHexagon()
+ <span class="type">void</span> Main<span class="operator">::</span>addHexagon()
  {
-     const int size = int(canvas.width() / 25);
-     Q3PointArray pa(6);
-     pa[0] = QPoint(2*size,0);
-     pa[1] = QPoint(size,-size*173/100);
-     pa[2] = QPoint(-size,-size*173/100);
-     pa[3] = QPoint(-2*size,0);
-     pa[4] = QPoint(-size,size*173/100);
-     pa[5] = QPoint(size,size*173/100);
-     QGraphicsPolygonItem* i = canvas.addPolygon(pa);
-     i-&gt;setFlag(QGraphicsItem::ItemIsMovable);
-     i-&gt;setPen(Qt::NoPen);
-     i-&gt;setBrush( QColor(qrand()%32*8,qrand()%32*8,qrand()%32*8) );
-     i-&gt;setPos(qrand()%int(canvas.width()),qrand()%int(canvas.height()));
-     i-&gt;setZValue(qrand()%256);
+     <span class="keyword">const</span> <span class="type">int</span> size <span class="operator">=</span> <span class="type">int</span>(canvas<span class="operator">.</span>width() <span class="operator">/</span> <span class="number">25</span>);
+     <span class="type"><a href="q3pointarray.html">Q3PointArray</a></span> pa(<span class="number">6</span>);
+     pa<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">2</span><span class="operator">*</span>size<span class="operator">,</span><span class="number">0</span>);
+     pa<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">,</span><span class="operator">-</span>size<span class="operator">*</span><span class="number">173</span><span class="operator">/</span><span class="number">100</span>);
+     pa<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="operator">-</span>size<span class="operator">,</span><span class="operator">-</span>size<span class="operator">*</span><span class="number">173</span><span class="operator">/</span><span class="number">100</span>);
+     pa<span class="operator">[</span><span class="number">3</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="operator">-</span><span class="number">2</span><span class="operator">*</span>size<span class="operator">,</span><span class="number">0</span>);
+     pa<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="operator">-</span>size<span class="operator">,</span>size<span class="operator">*</span><span class="number">173</span><span class="operator">/</span><span class="number">100</span>);
+     pa<span class="operator">[</span><span class="number">5</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">,</span>size<span class="operator">*</span><span class="number">173</span><span class="operator">/</span><span class="number">100</span>);
+     <span class="type"><a href="qgraphicspolygonitem.html">QGraphicsPolygonItem</a></span><span class="operator">*</span> i <span class="operator">=</span> canvas<span class="operator">.</span>addPolygon(pa);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemIsMovable);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setBrush( <span class="type"><a href="qcolor.html">QColor</a></span>(qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span>) );
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPos(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span>qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span>);
  }
 
- void Main::addPolygon()
+ <span class="type">void</span> Main<span class="operator">::</span>addPolygon()
  {
-     const int size = int(canvas.width()/2);
-     Q3PointArray pa(6);
-     pa[0] = QPoint(0,0);
-     pa[1] = QPoint(size,size/5);
-     pa[2] = QPoint(size*4/5,size);
-     pa[3] = QPoint(size/6,size*5/4);
-     pa[4] = QPoint(size*3/4,size*3/4);
-     pa[5] = QPoint(size*3/4,size/4);
-     QGraphicsPolygonItem* i = canvas.addPolygon(pa);
-     i-&gt;setFlag(QGraphicsItem::ItemIsMovable);
-     i-&gt;setPen(Qt::NoPen);
-     i-&gt;setBrush( QColor(qrand()%32*8,qrand()%32*8,qrand()%32*8) );
-     i-&gt;setPos(qrand()%int(canvas.width()),qrand()%int(canvas.height()));
-     i-&gt;setZValue(qrand()%256);
+     <span class="keyword">const</span> <span class="type">int</span> size <span class="operator">=</span> <span class="type">int</span>(canvas<span class="operator">.</span>width()<span class="operator">/</span><span class="number">2</span>);
+     <span class="type"><a href="q3pointarray.html">Q3PointArray</a></span> pa(<span class="number">6</span>);
+     pa<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span>);
+     pa<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">,</span>size<span class="operator">/</span><span class="number">5</span>);
+     pa<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">*</span><span class="number">4</span><span class="operator">/</span><span class="number">5</span><span class="operator">,</span>size);
+     pa<span class="operator">[</span><span class="number">3</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">/</span><span class="number">6</span><span class="operator">,</span>size<span class="operator">*</span><span class="number">5</span><span class="operator">/</span><span class="number">4</span>);
+     pa<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">*</span><span class="number">3</span><span class="operator">/</span><span class="number">4</span><span class="operator">,</span>size<span class="operator">*</span><span class="number">3</span><span class="operator">/</span><span class="number">4</span>);
+     pa<span class="operator">[</span><span class="number">5</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">*</span><span class="number">3</span><span class="operator">/</span><span class="number">4</span><span class="operator">,</span>size<span class="operator">/</span><span class="number">4</span>);
+     <span class="type"><a href="qgraphicspolygonitem.html">QGraphicsPolygonItem</a></span><span class="operator">*</span> i <span class="operator">=</span> canvas<span class="operator">.</span>addPolygon(pa);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemIsMovable);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setBrush( <span class="type"><a href="qcolor.html">QColor</a></span>(qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span>) );
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPos(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span>qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span>);
  }
 
- void Main::addSpline()
+ <span class="type">void</span> Main<span class="operator">::</span>addSpline()
  {
-     const int size = int(canvas.width()/6);
+     <span class="keyword">const</span> <span class="type">int</span> size <span class="operator">=</span> <span class="type">int</span>(canvas<span class="operator">.</span>width()<span class="operator">/</span><span class="number">6</span>);
 
-     Q3PointArray pa(12);
-     pa[0] = QPoint(0,0);
-     pa[1] = QPoint(size/2,0);
-     pa[2] = QPoint(size,size/2);
-     pa[3] = QPoint(size,size);
-     pa[4] = QPoint(size,size*3/2);
-     pa[5] = QPoint(size/2,size*2);
-     pa[6] = QPoint(0,size*2);
-     pa[7] = QPoint(-size/2,size*2);
-     pa[8] = QPoint(size/4,size*3/2);
-     pa[9] = QPoint(0,size);
-     pa[10]= QPoint(-size/4,size/2);
-     pa[11]= QPoint(-size/2,0);
+     <span class="type"><a href="q3pointarray.html">Q3PointArray</a></span> pa(<span class="number">12</span>);
+     pa<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span>);
+     pa<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">/</span><span class="number">2</span><span class="operator">,</span><span class="number">0</span>);
+     pa<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">,</span>size<span class="operator">/</span><span class="number">2</span>);
+     pa<span class="operator">[</span><span class="number">3</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">,</span>size);
+     pa<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">,</span>size<span class="operator">*</span><span class="number">3</span><span class="operator">/</span><span class="number">2</span>);
+     pa<span class="operator">[</span><span class="number">5</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">/</span><span class="number">2</span><span class="operator">,</span>size<span class="operator">*</span><span class="number">2</span>);
+     pa<span class="operator">[</span><span class="number">6</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span>size<span class="operator">*</span><span class="number">2</span>);
+     pa<span class="operator">[</span><span class="number">7</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="operator">-</span>size<span class="operator">/</span><span class="number">2</span><span class="operator">,</span>size<span class="operator">*</span><span class="number">2</span>);
+     pa<span class="operator">[</span><span class="number">8</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(size<span class="operator">/</span><span class="number">4</span><span class="operator">,</span>size<span class="operator">*</span><span class="number">3</span><span class="operator">/</span><span class="number">2</span>);
+     pa<span class="operator">[</span><span class="number">9</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span>size);
+     pa<span class="operator">[</span><span class="number">10</span><span class="operator">]</span><span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="operator">-</span>size<span class="operator">/</span><span class="number">4</span><span class="operator">,</span>size<span class="operator">/</span><span class="number">2</span>);
+     pa<span class="operator">[</span><span class="number">11</span><span class="operator">]</span><span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="operator">-</span>size<span class="operator">/</span><span class="number">2</span><span class="operator">,</span><span class="number">0</span>);
 
-     QPainterPath path;
-     path.moveTo(pa[0]);
-     for (int i = 1; i &lt; pa.size(); i += 3)
-         path.cubicTo(pa[i], pa[(i + 1) % pa.size()], pa[(i + 2) % pa.size()]);
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+     path<span class="operator">.</span>moveTo(pa<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> pa<span class="operator">.</span>size(); i <span class="operator">+</span><span class="operator">=</span> <span class="number">3</span>)
+         path<span class="operator">.</span>cubicTo(pa<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> pa<span class="operator">[</span>(i <span class="operator">+</span> <span class="number">1</span>) <span class="operator">%</span> pa<span class="operator">.</span>size()<span class="operator">]</span><span class="operator">,</span> pa<span class="operator">[</span>(i <span class="operator">+</span> <span class="number">2</span>) <span class="operator">%</span> pa<span class="operator">.</span>size()<span class="operator">]</span>);
 
-     QGraphicsPathItem* item = canvas.addPath(path);
-     item-&gt;setFlag(QGraphicsItem::ItemIsMovable);
-     item-&gt;setPen(Qt::NoPen);
-     item-&gt;setBrush( QColor(qrand()%32*8,qrand()%32*8,qrand()%32*8) );
-     item-&gt;setPos(qrand()%int(canvas.width()),qrand()%int(canvas.height()));
-     item-&gt;setZValue(qrand()%256);
+     <span class="type"><a href="qgraphicspathitem.html">QGraphicsPathItem</a></span><span class="operator">*</span> item <span class="operator">=</span> canvas<span class="operator">.</span>addPath(path);
+     item<span class="operator">-</span><span class="operator">&gt;</span>setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemIsMovable);
+     item<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     item<span class="operator">-</span><span class="operator">&gt;</span>setBrush( <span class="type"><a href="qcolor.html">QColor</a></span>(qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span>) );
+     item<span class="operator">-</span><span class="operator">&gt;</span>setPos(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span>qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()));
+     item<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span>);
  }
 
- void Main::addText()
+ <span class="type">void</span> Main<span class="operator">::</span>addText()
  {
-     QGraphicsTextItem* i = canvas.addText(&quot;QCanvasText&quot;);
-     i-&gt;setFlag(QGraphicsItem::ItemIsMovable);
-     i-&gt;setPos(qrand()%int(canvas.width()),qrand()%int(canvas.height()));
-     i-&gt;setZValue(qrand()%256);
+     <span class="type"><a href="qgraphicstextitem.html">QGraphicsTextItem</a></span><span class="operator">*</span> i <span class="operator">=</span> canvas<span class="operator">.</span>addText(<span class="string">&quot;QCanvasText&quot;</span>);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemIsMovable);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPos(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span>qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span>);
  }
 
- void Main::addLine()
+ <span class="type">void</span> Main<span class="operator">::</span>addLine()
  {
-     QGraphicsLineItem* i = canvas.addLine(QLineF( qrand()%int(canvas.width()), qrand()%int(canvas.height()),
-                                                   qrand()%int(canvas.width()), qrand()%int(canvas.height()) ));
-     i-&gt;setFlag(QGraphicsItem::ItemIsMovable);
-     i-&gt;setPen( QPen(QColor(qrand()%32*8,qrand()%32*8,qrand()%32*8), 6) );
-     i-&gt;setZValue(qrand()%256);
+     <span class="type"><a href="qgraphicslineitem.html">QGraphicsLineItem</a></span><span class="operator">*</span> i <span class="operator">=</span> canvas<span class="operator">.</span>addLine(<span class="type"><a href="qlinef.html">QLineF</a></span>( qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span> qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height())<span class="operator">,</span>
+                                                   qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span> qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height()) ));
+     i<span class="operator">-</span><span class="operator">&gt;</span>setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemIsMovable);
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPen( <span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qcolor.html">QColor</a></span>(qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span>)<span class="operator">,</span> <span class="number">6</span>) );
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(qrand()<span class="operator">%</span><span class="number">256</span>);
  }
 
- void Main::addMesh()
+ <span class="type">void</span> Main<span class="operator">::</span>addMesh()
  {
-     int x0 = 0;
-     int y0 = 0;
+     <span class="type">int</span> x0 <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> y0 <span class="operator">=</span> <span class="number">0</span>;
 
-     if ( !tb ) tb = new QBrush( Qt::red );
-     if ( !tp ) tp = new QPen( Qt::black );
+     <span class="keyword">if</span> ( <span class="operator">!</span>tb ) tb <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qbrush.html">QBrush</a></span>( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red );
+     <span class="keyword">if</span> ( <span class="operator">!</span>tp ) tp <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpen.html">QPen</a></span>( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black );
 
-     int nodecount = 0;
+     <span class="type">int</span> nodecount <span class="operator">=</span> <span class="number">0</span>;
 
-     int w = int(canvas.width());
-     int h = int(canvas.height());
+     <span class="type">int</span> w <span class="operator">=</span> <span class="type">int</span>(canvas<span class="operator">.</span>width());
+     <span class="type">int</span> h <span class="operator">=</span> <span class="type">int</span>(canvas<span class="operator">.</span>height());
 
-     const int dist = 30;
-     int rows = h / dist;
-     int cols = w / dist;
+     <span class="keyword">const</span> <span class="type">int</span> dist <span class="operator">=</span> <span class="number">30</span>;
+     <span class="type">int</span> rows <span class="operator">=</span> h <span class="operator">/</span> dist;
+     <span class="type">int</span> cols <span class="operator">=</span> w <span class="operator">/</span> dist;
 
- #ifndef QT_NO_PROGRESSDIALOG
-     Q3ProgressDialog progress( &quot;Creating mesh...&quot;, &quot;Abort&quot;, rows,
-                               this, &quot;progress&quot;, TRUE );
- #endif
+ <span class="preprocessor">#ifndef QT_NO_PROGRESSDIALOG</span>
+     <span class="type"><a href="q3progressdialog.html">Q3ProgressDialog</a></span> progress( <span class="string">&quot;Creating mesh...&quot;</span><span class="operator">,</span> <span class="string">&quot;Abort&quot;</span><span class="operator">,</span> rows<span class="operator">,</span>
+                               <span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;progress&quot;</span><span class="operator">,</span> TRUE );
+ <span class="preprocessor">#endif</span>
 
-     canvas.update();
+     canvas<span class="operator">.</span>update();
 
-     Q3MemArray&lt;NodeItem*&gt; lastRow(cols);
-     for ( int j = 0; j &lt; rows; j++ ) {
-         int n = j%2 ? cols-1 : cols;
-         NodeItem *prev = 0;
-         for ( int i = 0; i &lt; n; i++ ) {
-             NodeItem *el = new NodeItem;
-             canvas.addItem(el);
-             nodecount++;
-             int r = qrand();
-             int xrand = r %20;
-             int yrand = (r/20) %20;
-             el-&gt;setPos( xrand + x0 + i*dist + (j%2 ? dist/2 : 0 ),
-                         yrand + y0 + j*dist );
+     <span class="type"><a href="q3memarray.html">Q3MemArray</a></span><span class="operator">&lt;</span>NodeItem<span class="operator">*</span><span class="operator">&gt;</span> lastRow(cols);
+     <span class="keyword">for</span> ( <span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> rows; j<span class="operator">+</span><span class="operator">+</span> ) {
+         <span class="type">int</span> n <span class="operator">=</span> j<span class="operator">%</span><span class="number">2</span> <span class="operator">?</span> cols<span class="operator">-</span><span class="number">1</span> : cols;
+         NodeItem <span class="operator">*</span>prev <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">for</span> ( <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> n; i<span class="operator">+</span><span class="operator">+</span> ) {
+             NodeItem <span class="operator">*</span>el <span class="operator">=</span> <span class="keyword">new</span> NodeItem;
+             canvas<span class="operator">.</span>addItem(el);
+             nodecount<span class="operator">+</span><span class="operator">+</span>;
+             <span class="type">int</span> r <span class="operator">=</span> qrand();
+             <span class="type">int</span> xrand <span class="operator">=</span> r <span class="operator">%</span><span class="number">20</span>;
+             <span class="type">int</span> yrand <span class="operator">=</span> (r<span class="operator">/</span><span class="number">20</span>) <span class="operator">%</span><span class="number">20</span>;
+             el<span class="operator">-</span><span class="operator">&gt;</span>setPos( xrand <span class="operator">+</span> x0 <span class="operator">+</span> i<span class="operator">*</span>dist <span class="operator">+</span> (j<span class="operator">%</span><span class="number">2</span> <span class="operator">?</span> dist<span class="operator">/</span><span class="number">2</span> : <span class="number">0</span> )<span class="operator">,</span>
+                         yrand <span class="operator">+</span> y0 <span class="operator">+</span> j<span class="operator">*</span>dist );
 
-             if ( j &gt; 0 ) {
-                 if ( i &lt; cols-1 )
-                     canvas.addItem(new EdgeItem( lastRow[i], el));
-                 if ( j%2 )
-                     canvas.addItem(new EdgeItem( lastRow[i+1], el));
-                 else if ( i &gt; 0 )
-                     canvas.addItem(new EdgeItem( lastRow[i-1], el));
+             <span class="keyword">if</span> ( j <span class="operator">&gt;</span> <span class="number">0</span> ) {
+                 <span class="keyword">if</span> ( i <span class="operator">&lt;</span> cols<span class="operator">-</span><span class="number">1</span> )
+                     canvas<span class="operator">.</span>addItem(<span class="keyword">new</span> EdgeItem( lastRow<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> el));
+                 <span class="keyword">if</span> ( j<span class="operator">%</span><span class="number">2</span> )
+                     canvas<span class="operator">.</span>addItem(<span class="keyword">new</span> EdgeItem( lastRow<span class="operator">[</span>i<span class="operator">+</span><span class="number">1</span><span class="operator">]</span><span class="operator">,</span> el));
+                 <span class="keyword">else</span> <span class="keyword">if</span> ( i <span class="operator">&gt;</span> <span class="number">0</span> )
+                     canvas<span class="operator">.</span>addItem(<span class="keyword">new</span> EdgeItem( lastRow<span class="operator">[</span>i<span class="operator">-</span><span class="number">1</span><span class="operator">]</span><span class="operator">,</span> el));
              }
-             if ( prev ) {
-                 canvas.addItem(new EdgeItem( prev, el));
+             <span class="keyword">if</span> ( prev ) {
+                 canvas<span class="operator">.</span>addItem(<span class="keyword">new</span> EdgeItem( prev<span class="operator">,</span> el));
              }
-             if ( i &gt; 0 ) lastRow[i-1] = prev;
-             prev = el;
+             <span class="keyword">if</span> ( i <span class="operator">&gt;</span> <span class="number">0</span> ) lastRow<span class="operator">[</span>i<span class="operator">-</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> prev;
+             prev <span class="operator">=</span> el;
          }
-         lastRow[n-1]=prev;
- #ifndef QT_NO_PROGRESSDIALOG
-         progress.setProgress( j );
-         if ( progress.wasCancelled() )
-             break;
- #endif
+         lastRow<span class="operator">[</span>n<span class="operator">-</span><span class="number">1</span><span class="operator">]</span><span class="operator">=</span>prev;
+ <span class="preprocessor">#ifndef QT_NO_PROGRESSDIALOG</span>
+         progress<span class="operator">.</span>setProgress( j );
+         <span class="keyword">if</span> ( progress<span class="operator">.</span>wasCancelled() )
+             <span class="keyword">break</span>;
+ <span class="preprocessor">#endif</span>
      }
- #ifndef QT_NO_PROGRESSDIALOG
-     progress.setProgress( rows );
- #endif
+ <span class="preprocessor">#ifndef QT_NO_PROGRESSDIALOG</span>
+     progress<span class="operator">.</span>setProgress( rows );
+ <span class="preprocessor">#endif</span>
      <span class="comment">// qDebug( &quot;%d nodes, %d edges&quot;, nodecount, EdgeItem::count() );</span>
  }
 
- void Main::addRectangle()
+ <span class="type">void</span> Main<span class="operator">::</span>addRectangle()
  {
-     QAbstractGraphicsShapeItem *i = canvas.addRect( QRectF(qrand()%int(canvas.width()),
-                                                           qrand()%int(canvas.height()),
-                                                           canvas.width()/5,
-                                                           canvas.width()/5) );
-     i-&gt;setFlag(QGraphicsItem::ItemIsMovable);
-     int z = qrand()%256;
-     i-&gt;setBrush( QColor(z,z,z) );
-     i-&gt;setPen( QPen(QColor(qrand()%32*8,qrand()%32*8,qrand()%32*8), 6) );
-     i-&gt;setZValue(z);
+     <span class="type"><a href="qabstractgraphicsshapeitem.html">QAbstractGraphicsShapeItem</a></span> <span class="operator">*</span>i <span class="operator">=</span> canvas<span class="operator">.</span>addRect( <span class="type"><a href="qrectf.html">QRectF</a></span>(qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>width())<span class="operator">,</span>
+                                                           qrand()<span class="operator">%</span><span class="type">int</span>(canvas<span class="operator">.</span>height())<span class="operator">,</span>
+                                                           canvas<span class="operator">.</span>width()<span class="operator">/</span><span class="number">5</span><span class="operator">,</span>
+                                                           canvas<span class="operator">.</span>width()<span class="operator">/</span><span class="number">5</span>) );
+     i<span class="operator">-</span><span class="operator">&gt;</span>setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemIsMovable);
+     <span class="type">int</span> z <span class="operator">=</span> qrand()<span class="operator">%</span><span class="number">256</span>;
+     i<span class="operator">-</span><span class="operator">&gt;</span>setBrush( <span class="type"><a href="qcolor.html">QColor</a></span>(z<span class="operator">,</span>z<span class="operator">,</span>z) );
+     i<span class="operator">-</span><span class="operator">&gt;</span>setPen( <span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qcolor.html">QColor</a></span>(qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span><span class="operator">,</span>qrand()<span class="operator">%</span><span class="number">32</span><span class="operator">*</span><span class="number">8</span>)<span class="operator">,</span> <span class="number">6</span>) );
+     i<span class="operator">-</span><span class="operator">&gt;</span>setZValue(z);
  }</pre>
 </div>
 <!-- @@@graphicsview/portedcanvas/canvas.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

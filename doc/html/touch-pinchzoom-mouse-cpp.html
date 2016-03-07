@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: mouse.cpp Example File (touch/pinchzoom/mouse.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">mouse.cpp Example File</h1>
 <span class="small-subtitle">touch/pinchzoom/mouse.cpp</span>
 <!-- $$$touch/pinchzoom/mouse.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,181 +63,165 @@
  **
  ****************************************************************************/</span>
 
- #include &quot;mouse.h&quot;
+ <span class="preprocessor">#include &quot;mouse.h&quot;</span>
 
- #include &lt;QGraphicsScene&gt;
- #include &lt;QPainter&gt;
- #include &lt;QStyleOption&gt;
+ <span class="preprocessor">#include &lt;QGraphicsScene&gt;</span>
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QStyleOption&gt;</span>
 
- #include &lt;math.h&gt;
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
 
- static const double Pi = 3.14159265358979323846264338327950288419717;
- static double TwoPi = 2.0 * Pi;
+ <span class="keyword">static</span> <span class="keyword">const</span> <span class="type">double</span> Pi <span class="operator">=</span> <span class="number">3.14159265358979323846264338327950288419717</span>;
+ <span class="keyword">static</span> <span class="type">double</span> TwoPi <span class="operator">=</span> <span class="number">2.0</span> <span class="operator">*</span> Pi;
 
- static qreal normalizeAngle(qreal angle)
+ <span class="keyword">static</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> normalizeAngle(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> angle)
  {
-     while (angle &lt; 0)
-         angle += TwoPi;
-     while (angle &gt; TwoPi)
-         angle -= TwoPi;
-     return angle;
+     <span class="keyword">while</span> (angle <span class="operator">&lt;</span> <span class="number">0</span>)
+         angle <span class="operator">+</span><span class="operator">=</span> TwoPi;
+     <span class="keyword">while</span> (angle <span class="operator">&gt;</span> TwoPi)
+         angle <span class="operator">-</span><span class="operator">=</span> TwoPi;
+     <span class="keyword">return</span> angle;
  }
 
- Mouse::Mouse()
-     : angle(0), speed(0), mouseEyeDirection(0),
-       color(qrand() % 256, qrand() % 256, qrand() % 256)
+ Mouse<span class="operator">::</span>Mouse()
+     : angle(<span class="number">0</span>)<span class="operator">,</span> speed(<span class="number">0</span>)<span class="operator">,</span> mouseEyeDirection(<span class="number">0</span>)<span class="operator">,</span>
+       color(qrand() <span class="operator">%</span> <span class="number">256</span><span class="operator">,</span> qrand() <span class="operator">%</span> <span class="number">256</span><span class="operator">,</span> qrand() <span class="operator">%</span> <span class="number">256</span>)
  {
-     rotate(qrand() % (360 * 16));
-     startTimer(1000 / 33);
+     rotate(qrand() <span class="operator">%</span> (<span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>));
+     startTimer(<span class="number">1000</span> <span class="operator">/</span> <span class="number">33</span>);
  }
 
- QRectF Mouse::boundingRect() const
+ <span class="type"><a href="qrectf.html">QRectF</a></span> Mouse<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
  {
-     qreal adjust = 0.5;
-     return QRectF(-18 - adjust, -22 - adjust,
-                   36 + adjust, 60 + adjust);
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> adjust <span class="operator">=</span> <span class="number">0.5</span>;
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="operator">-</span><span class="number">18</span> <span class="operator">-</span> adjust<span class="operator">,</span> <span class="operator">-</span><span class="number">22</span> <span class="operator">-</span> adjust<span class="operator">,</span>
+                   <span class="number">36</span> <span class="operator">+</span> adjust<span class="operator">,</span> <span class="number">60</span> <span class="operator">+</span> adjust);
  }
 
- QPainterPath Mouse::shape() const
+ <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> Mouse<span class="operator">::</span>shape() <span class="keyword">const</span>
  {
-     QPainterPath path;
-     path.addRect(-10, -20, 20, 40);
-     return path;
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+     path<span class="operator">.</span>addRect(<span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">40</span>);
+     <span class="keyword">return</span> path;
  }
 
- void Mouse::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
+ <span class="type">void</span> Mouse<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>)
  {
      <span class="comment">// Body</span>
-     painter-&gt;setBrush(color);
-     painter-&gt;drawEllipse(-10, -20, 20, 40);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(color);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">40</span>);
 
      <span class="comment">// Eyes</span>
-     painter-&gt;setBrush(Qt::white);
-     painter-&gt;drawEllipse(-10, -17, 8, 8);
-     painter-&gt;drawEllipse(2, -17, 8, 8);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="operator">-</span><span class="number">17</span><span class="operator">,</span> <span class="number">8</span><span class="operator">,</span> <span class="number">8</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="number">2</span><span class="operator">,</span> <span class="operator">-</span><span class="number">17</span><span class="operator">,</span> <span class="number">8</span><span class="operator">,</span> <span class="number">8</span>);
 
      <span class="comment">// Nose</span>
-     painter-&gt;setBrush(Qt::black);
-     painter-&gt;drawEllipse(QRectF(-2, -22, 4, 4));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="operator">-</span><span class="number">2</span><span class="operator">,</span> <span class="operator">-</span><span class="number">22</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">4</span>));
 
      <span class="comment">// Pupils</span>
-     painter-&gt;drawEllipse(QRectF(-8.0 + mouseEyeDirection, -17, 4, 4));
-     painter-&gt;drawEllipse(QRectF(4.0 + mouseEyeDirection, -17, 4, 4));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="operator">-</span><span class="number">8.0</span> <span class="operator">+</span> mouseEyeDirection<span class="operator">,</span> <span class="operator">-</span><span class="number">17</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">4</span>));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="number">4.0</span> <span class="operator">+</span> mouseEyeDirection<span class="operator">,</span> <span class="operator">-</span><span class="number">17</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">4</span>));
 
      <span class="comment">// Ears</span>
-     painter-&gt;setBrush(scene()-&gt;collidingItems(this).isEmpty() ? Qt::darkYellow : Qt::red);
-     painter-&gt;drawEllipse(-17, -12, 16, 16);
-     painter-&gt;drawEllipse(1, -12, 16, 16);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(scene()<span class="operator">-</span><span class="operator">&gt;</span>collidingItems(<span class="keyword">this</span>)<span class="operator">.</span>isEmpty() <span class="operator">?</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkYellow : <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">17</span><span class="operator">,</span> <span class="operator">-</span><span class="number">12</span><span class="operator">,</span> <span class="number">16</span><span class="operator">,</span> <span class="number">16</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">12</span><span class="operator">,</span> <span class="number">16</span><span class="operator">,</span> <span class="number">16</span>);
 
      <span class="comment">// Tail</span>
-     QPainterPath path(QPointF(0, 20));
-     path.cubicTo(-5, 22, -5, 22, 0, 25);
-     path.cubicTo(5, 27, 5, 32, 0, 30);
-     path.cubicTo(-5, 32, -5, 42, 0, 35);
-     painter-&gt;setBrush(Qt::NoBrush);
-     painter-&gt;drawPath(path);
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path(<span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">20</span>));
+     path<span class="operator">.</span>cubicTo(<span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="number">22</span><span class="operator">,</span> <span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="number">22</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">25</span>);
+     path<span class="operator">.</span>cubicTo(<span class="number">5</span><span class="operator">,</span> <span class="number">27</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">32</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">30</span>);
+     path<span class="operator">.</span>cubicTo(<span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="number">32</span><span class="operator">,</span> <span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="number">42</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">35</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoBrush);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawPath(path);
  }
 
- void Mouse::timerEvent(QTimerEvent *)
+ <span class="type">void</span> Mouse<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>)
  {
      <span class="comment">// Don't move too far away</span>
-     QLineF lineToCenter(QPointF(0, 0), mapFromScene(0, 0));
-     if (lineToCenter.length() &gt; 150) {
-         qreal angleToCenter = ::acos(lineToCenter.dx() / lineToCenter.length());
-         if (lineToCenter.dy() &lt; 0)
-             angleToCenter = TwoPi - angleToCenter;
-         angleToCenter = normalizeAngle((Pi - angleToCenter) + Pi / 2);
+     <span class="type"><a href="qlinef.html">QLineF</a></span> lineToCenter(<span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> mapFromScene(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+     <span class="keyword">if</span> (lineToCenter<span class="operator">.</span>length() <span class="operator">&gt;</span> <span class="number">150</span>) {
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> angleToCenter <span class="operator">=</span> <span class="operator">::</span>acos(lineToCenter<span class="operator">.</span>dx() <span class="operator">/</span> lineToCenter<span class="operator">.</span>length());
+         <span class="keyword">if</span> (lineToCenter<span class="operator">.</span>dy() <span class="operator">&lt;</span> <span class="number">0</span>)
+             angleToCenter <span class="operator">=</span> TwoPi <span class="operator">-</span> angleToCenter;
+         angleToCenter <span class="operator">=</span> normalizeAngle((Pi <span class="operator">-</span> angleToCenter) <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">2</span>);
 
-         if (angleToCenter &lt; Pi &amp;&amp; angleToCenter &gt; Pi / 4) {
+         <span class="keyword">if</span> (angleToCenter <span class="operator">&lt;</span> Pi <span class="operator">&amp;</span><span class="operator">&amp;</span> angleToCenter <span class="operator">&gt;</span> Pi <span class="operator">/</span> <span class="number">4</span>) {
              <span class="comment">// Rotate left</span>
-             angle += (angle &lt; -Pi / 2) ? 0.25 : -0.25;
-         } else if (angleToCenter &gt;= Pi &amp;&amp; angleToCenter &lt; (Pi + Pi / 2 + Pi / 4)) {
+             angle <span class="operator">+</span><span class="operator">=</span> (angle <span class="operator">&lt;</span> <span class="operator">-</span>Pi <span class="operator">/</span> <span class="number">2</span>) <span class="operator">?</span> <span class="number">0.25</span> : <span class="operator">-</span><span class="number">0.25</span>;
+         } <span class="keyword">else</span> <span class="keyword">if</span> (angleToCenter <span class="operator">&gt;</span><span class="operator">=</span> Pi <span class="operator">&amp;</span><span class="operator">&amp;</span> angleToCenter <span class="operator">&lt;</span> (Pi <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">2</span> <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">4</span>)) {
              <span class="comment">// Rotate right</span>
-             angle += (angle &lt; Pi / 2) ? 0.25 : -0.25;
+             angle <span class="operator">+</span><span class="operator">=</span> (angle <span class="operator">&lt;</span> Pi <span class="operator">/</span> <span class="number">2</span>) <span class="operator">?</span> <span class="number">0.25</span> : <span class="operator">-</span><span class="number">0.25</span>;
          }
-     } else if (::sin(angle) &lt; 0) {
-         angle += 0.25;
-     } else if (::sin(angle) &gt; 0) {
-         angle -= 0.25;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="operator">::</span>sin(angle) <span class="operator">&lt;</span> <span class="number">0</span>) {
+         angle <span class="operator">+</span><span class="operator">=</span> <span class="number">0.25</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="operator">::</span>sin(angle) <span class="operator">&gt;</span> <span class="number">0</span>) {
+         angle <span class="operator">-</span><span class="operator">=</span> <span class="number">0.25</span>;
      }
 
      <span class="comment">// Try not to crash with any other mice</span>
-     QList&lt;QGraphicsItem *&gt; dangerMice = scene()-&gt;items(QPolygonF()
-                                                        &lt;&lt; mapToScene(0, 0)
-                                                        &lt;&lt; mapToScene(-30, -50)
-                                                        &lt;&lt; mapToScene(30, -50));
-     foreach (QGraphicsItem *item, dangerMice) {
-         if (item == this)
-             continue;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> dangerMice <span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>items(<span class="type"><a href="qpolygonf.html">QPolygonF</a></span>()
+                                                        <span class="operator">&lt;</span><span class="operator">&lt;</span> mapToScene(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)
+                                                        <span class="operator">&lt;</span><span class="operator">&lt;</span> mapToScene(<span class="operator">-</span><span class="number">30</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span>)
+                                                        <span class="operator">&lt;</span><span class="operator">&lt;</span> mapToScene(<span class="number">30</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span>));
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> dangerMice) {
+         <span class="keyword">if</span> (item <span class="operator">=</span><span class="operator">=</span> <span class="keyword">this</span>)
+             <span class="keyword">continue</span>;
 
-         QLineF lineToMouse(QPointF(0, 0), mapFromItem(item, 0, 0));
-         qreal angleToMouse = ::acos(lineToMouse.dx() / lineToMouse.length());
-         if (lineToMouse.dy() &lt; 0)
-             angleToMouse = TwoPi - angleToMouse;
-         angleToMouse = normalizeAngle((Pi - angleToMouse) + Pi / 2);
+         <span class="type"><a href="qlinef.html">QLineF</a></span> lineToMouse(<span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> mapFromItem(item<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> angleToMouse <span class="operator">=</span> <span class="operator">::</span>acos(lineToMouse<span class="operator">.</span>dx() <span class="operator">/</span> lineToMouse<span class="operator">.</span>length());
+         <span class="keyword">if</span> (lineToMouse<span class="operator">.</span>dy() <span class="operator">&lt;</span> <span class="number">0</span>)
+             angleToMouse <span class="operator">=</span> TwoPi <span class="operator">-</span> angleToMouse;
+         angleToMouse <span class="operator">=</span> normalizeAngle((Pi <span class="operator">-</span> angleToMouse) <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">2</span>);
 
-         if (angleToMouse &gt;= 0 &amp;&amp; angleToMouse &lt; Pi / 2) {
+         <span class="keyword">if</span> (angleToMouse <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> angleToMouse <span class="operator">&lt;</span> Pi <span class="operator">/</span> <span class="number">2</span>) {
              <span class="comment">// Rotate right</span>
-             angle += 0.5;
-         } else if (angleToMouse &lt;= TwoPi &amp;&amp; angleToMouse &gt; (TwoPi - Pi / 2)) {
+             angle <span class="operator">+</span><span class="operator">=</span> <span class="number">0.5</span>;
+         } <span class="keyword">else</span> <span class="keyword">if</span> (angleToMouse <span class="operator">&lt;</span><span class="operator">=</span> TwoPi <span class="operator">&amp;</span><span class="operator">&amp;</span> angleToMouse <span class="operator">&gt;</span> (TwoPi <span class="operator">-</span> Pi <span class="operator">/</span> <span class="number">2</span>)) {
              <span class="comment">// Rotate left</span>
-             angle -= 0.5;
+             angle <span class="operator">-</span><span class="operator">=</span> <span class="number">0.5</span>;
          }
      }
 
      <span class="comment">// Add some random movement</span>
-     if (dangerMice.size() &gt; 1 &amp;&amp; (qrand() % 10) == 0) {
-         if (qrand() % 1)
-             angle += (qrand() % 100) / 500.0;
-         else
-             angle -= (qrand() % 100) / 500.0;
+     <span class="keyword">if</span> (dangerMice<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> (qrand() <span class="operator">%</span> <span class="number">10</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+         <span class="keyword">if</span> (qrand() <span class="operator">%</span> <span class="number">1</span>)
+             angle <span class="operator">+</span><span class="operator">=</span> (qrand() <span class="operator">%</span> <span class="number">100</span>) <span class="operator">/</span> <span class="number">500.0</span>;
+         <span class="keyword">else</span>
+             angle <span class="operator">-</span><span class="operator">=</span> (qrand() <span class="operator">%</span> <span class="number">100</span>) <span class="operator">/</span> <span class="number">500.0</span>;
      }
 
-     speed += (-50 + qrand() % 100) / 100.0;
+     speed <span class="operator">+</span><span class="operator">=</span> (<span class="operator">-</span><span class="number">50</span> <span class="operator">+</span> qrand() <span class="operator">%</span> <span class="number">100</span>) <span class="operator">/</span> <span class="number">100.0</span>;
 
-     qreal dx = ::sin(angle) * 10;
-     mouseEyeDirection = (qAbs(dx / 5) &lt; 1) ? 0 : dx / 5;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dx <span class="operator">=</span> <span class="operator">::</span>sin(angle) <span class="operator">*</span> <span class="number">10</span>;
+     mouseEyeDirection <span class="operator">=</span> (<a href="qtglobal.html#qAbs">qAbs</a>(dx <span class="operator">/</span> <span class="number">5</span>) <span class="operator">&lt;</span> <span class="number">1</span>) <span class="operator">?</span> <span class="number">0</span> : dx <span class="operator">/</span> <span class="number">5</span>;
 
      rotate(dx);
-     setPos(mapToParent(0, -(3 + sin(speed) * 3)));
+     setPos(mapToParent(<span class="number">0</span><span class="operator">,</span> <span class="operator">-</span>(<span class="number">3</span> <span class="operator">+</span> sin(speed) <span class="operator">*</span> <span class="number">3</span>)));
  }</pre>
 </div>
 <!-- @@@touch/pinchzoom/mouse.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

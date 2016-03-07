@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: addressbook.cpp Example File (tutorials/addressbook/part6/addressbook.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">addressbook.cpp Example File</h1>
 <span class="small-subtitle">tutorials/addressbook/part6/addressbook.cpp</span>
 <!-- $$$tutorials/addressbook/part6/addressbook.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,338 +63,338 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;QtGui&gt;
- #include &quot;addressbook.h&quot;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &quot;addressbook.h&quot;</span>
 
- AddressBook::AddressBook(QWidget *parent)
-     : QWidget(parent)
+ AddressBook<span class="operator">::</span>AddressBook(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
  {
-     QLabel *nameLabel = new QLabel(tr(&quot;Name:&quot;));
-     nameLine = new QLineEdit;
-     nameLine-&gt;setReadOnly(true);
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>nameLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Name:&quot;</span>));
+     nameLine <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+     nameLine<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
 
-     QLabel *addressLabel = new QLabel(tr(&quot;Address:&quot;));
-     addressText = new QTextEdit;
-     addressText-&gt;setReadOnly(true);
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>addressLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Address:&quot;</span>));
+     addressText <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>;
+     addressText<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
 
-     addButton = new QPushButton(tr(&quot;&amp;Add&quot;));
+     addButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Add&quot;</span>));
 
-     editButton = new QPushButton(tr(&quot;&amp;Edit&quot;));
-     editButton-&gt;setEnabled(false);
-     removeButton = new QPushButton(tr(&quot;&amp;Remove&quot;));
-     removeButton-&gt;setEnabled(false);
-     findButton = new QPushButton(tr(&quot;&amp;Find&quot;));
-     findButton-&gt;setEnabled(false);
-     submitButton = new QPushButton(tr(&quot;&amp;Submit&quot;));
-     submitButton-&gt;hide();
-     cancelButton = new QPushButton(tr(&quot;&amp;Cancel&quot;));
-     cancelButton-&gt;hide();
+     editButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Edit&quot;</span>));
+     editButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     removeButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Remove&quot;</span>));
+     removeButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     findButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Find&quot;</span>));
+     findButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     submitButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Submit&quot;</span>));
+     submitButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
+     cancelButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Cancel&quot;</span>));
+     cancelButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
 
-     nextButton = new QPushButton(tr(&quot;&amp;Next&quot;));
-     nextButton-&gt;setEnabled(false);
-     previousButton = new QPushButton(tr(&quot;&amp;Previous&quot;));
-     previousButton-&gt;setEnabled(false);
+     nextButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Next&quot;</span>));
+     nextButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     previousButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Previous&quot;</span>));
+     previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
 
-     loadButton = new QPushButton(tr(&quot;&amp;Load...&quot;));
-     loadButton-&gt;setToolTip(tr(&quot;Load contacts from a file&quot;));
-     saveButton = new QPushButton(tr(&quot;Sa&amp;ve...&quot;));
-     saveButton-&gt;setToolTip(tr(&quot;Save contacts to a file&quot;));
-     saveButton-&gt;setEnabled(false);
+     loadButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Load...&quot;</span>));
+     loadButton<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(tr(<span class="string">&quot;Load contacts from a file&quot;</span>));
+     saveButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Save...&quot;</span>));
+     saveButton<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(tr(<span class="string">&quot;Save contacts to a file&quot;</span>));
+     saveButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
 
-     dialog = new FindDialog;
+     dialog <span class="operator">=</span> <span class="keyword">new</span> FindDialog;
 
-     connect(addButton, SIGNAL(clicked()), this, SLOT(addContact()));
-     connect(submitButton, SIGNAL(clicked()), this, SLOT(submitContact()));
-     connect(editButton, SIGNAL(clicked()), this, SLOT(editContact()));
-     connect(cancelButton, SIGNAL(clicked()), this, SLOT(cancel()));
-     connect(removeButton, SIGNAL(clicked()), this, SLOT(removeContact()));
-     connect(findButton, SIGNAL(clicked()), this, SLOT(findContact()));
-     connect(nextButton, SIGNAL(clicked()), this, SLOT(next()));
-     connect(previousButton, SIGNAL(clicked()), this, SLOT(previous()));
-     connect(loadButton, SIGNAL(clicked()), this, SLOT(loadFromFile()));
-     connect(saveButton, SIGNAL(clicked()), this, SLOT(saveToFile()));
+     connect(addButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(addContact()));
+     connect(submitButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(submitContact()));
+     connect(editButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(editContact()));
+     connect(cancelButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(cancel()));
+     connect(removeButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(removeContact()));
+     connect(findButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(findContact()));
+     connect(nextButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(next()));
+     connect(previousButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(previous()));
+     connect(loadButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(loadFromFile()));
+     connect(saveButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(saveToFile()));
 
-     QVBoxLayout *buttonLayout1 = new QVBoxLayout;
-     buttonLayout1-&gt;addWidget(addButton);
-     buttonLayout1-&gt;addWidget(editButton);
-     buttonLayout1-&gt;addWidget(removeButton);
-     buttonLayout1-&gt;addWidget(findButton);
-     buttonLayout1-&gt;addWidget(submitButton);
-     buttonLayout1-&gt;addWidget(cancelButton);
-     buttonLayout1-&gt;addWidget(loadButton);
-     buttonLayout1-&gt;addWidget(saveButton);
-     buttonLayout1-&gt;addStretch();
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>buttonLayout1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(editButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(removeButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(findButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(submitButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(cancelButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(loadButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(saveButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addStretch();
 
-     QHBoxLayout *buttonLayout2 = new QHBoxLayout;
-     buttonLayout2-&gt;addWidget(previousButton);
-     buttonLayout2-&gt;addWidget(nextButton);
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>buttonLayout2 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     buttonLayout2<span class="operator">-</span><span class="operator">&gt;</span>addWidget(previousButton);
+     buttonLayout2<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nextButton);
 
-     QGridLayout *mainLayout = new QGridLayout;
-     mainLayout-&gt;addWidget(nameLabel, 0, 0);
-     mainLayout-&gt;addWidget(nameLine, 0, 1);
-     mainLayout-&gt;addWidget(addressLabel, 1, 0, Qt::AlignTop);
-     mainLayout-&gt;addWidget(addressText, 1, 1);
-     mainLayout-&gt;addLayout(buttonLayout1, 1, 2);
-     mainLayout-&gt;addLayout(buttonLayout2, 2, 1);
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLine<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignTop);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressText<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(buttonLayout1<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(buttonLayout2<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span>);
 
      setLayout(mainLayout);
-     setWindowTitle(tr(&quot;Simple Address Book&quot;));
+     setWindowTitle(tr(<span class="string">&quot;Simple Address Book&quot;</span>));
  }
 
- void AddressBook::addContact()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>addContact()
  {
-     oldName = nameLine-&gt;text();
-     oldAddress = addressText-&gt;toPlainText();
+     oldName <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     oldAddress <span class="operator">=</span> addressText<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
 
-     nameLine-&gt;clear();
-     addressText-&gt;clear();
+     nameLine<span class="operator">-</span><span class="operator">&gt;</span>clear();
+     addressText<span class="operator">-</span><span class="operator">&gt;</span>clear();
 
      updateInterface(AddingMode);
  }
 
- void AddressBook::editContact()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>editContact()
  {
-     oldName = nameLine-&gt;text();
-     oldAddress = addressText-&gt;toPlainText();
+     oldName <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     oldAddress <span class="operator">=</span> addressText<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
 
      updateInterface(EditingMode);
  }
 
- void AddressBook::submitContact()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>submitContact()
  {
-     QString name = nameLine-&gt;text();
-     QString address = addressText-&gt;toPlainText();
+     <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type"><a href="qstring.html">QString</a></span> address <span class="operator">=</span> addressText<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
 
-     if (name.isEmpty() || address.isEmpty()) {
-         QMessageBox::information(this, tr(&quot;Empty Field&quot;),
-             tr(&quot;Please enter a name and address.&quot;));
-         return;
+     <span class="keyword">if</span> (name<span class="operator">.</span>isEmpty() <span class="operator">|</span><span class="operator">|</span> address<span class="operator">.</span>isEmpty()) {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Empty Field&quot;</span>)<span class="operator">,</span>
+             tr(<span class="string">&quot;Please enter a name and address.&quot;</span>));
+         <span class="keyword">return</span>;
      }
 
-     if (currentMode == AddingMode) {
+     <span class="keyword">if</span> (currentMode <span class="operator">=</span><span class="operator">=</span> AddingMode) {
 
-         if (!contacts.contains(name)) {
-             contacts.insert(name, address);
-             QMessageBox::information(this, tr(&quot;Add Successful&quot;),
-                 tr(&quot;\&quot;%1\&quot; has been added to your address book.&quot;).arg(name));
-         } else {
-             QMessageBox::information(this, tr(&quot;Add Unsuccessful&quot;),
-                 tr(&quot;Sorry, \&quot;%1\&quot; is already in your address book.&quot;).arg(name));
+         <span class="keyword">if</span> (<span class="operator">!</span>contacts<span class="operator">.</span>contains(name)) {
+             contacts<span class="operator">.</span>insert(name<span class="operator">,</span> address);
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Add Successful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;\&quot;%1\&quot; has been added to your address book.&quot;</span>)<span class="operator">.</span>arg(name));
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Add Unsuccessful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;Sorry, \&quot;%1\&quot; is already in your address book.&quot;</span>)<span class="operator">.</span>arg(name));
          }
-     } else if (currentMode == EditingMode) {
+     } <span class="keyword">else</span> <span class="keyword">if</span> (currentMode <span class="operator">=</span><span class="operator">=</span> EditingMode) {
 
-         if (oldName != name) {
-             if (!contacts.contains(name)) {
-                 QMessageBox::information(this, tr(&quot;Edit Successful&quot;),
-                     tr(&quot;\&quot;%1\&quot; has been edited in your address book.&quot;).arg(oldName));
-                 contacts.remove(oldName);
-                 contacts.insert(name, address);
-             } else {
-                 QMessageBox::information(this, tr(&quot;Edit Unsuccessful&quot;),
-                     tr(&quot;Sorry, \&quot;%1\&quot; is already in your address book.&quot;).arg(name));
+         <span class="keyword">if</span> (oldName <span class="operator">!</span><span class="operator">=</span> name) {
+             <span class="keyword">if</span> (<span class="operator">!</span>contacts<span class="operator">.</span>contains(name)) {
+                 <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Edit Successful&quot;</span>)<span class="operator">,</span>
+                     tr(<span class="string">&quot;\&quot;%1\&quot; has been edited in your address book.&quot;</span>)<span class="operator">.</span>arg(oldName));
+                 contacts<span class="operator">.</span>remove(oldName);
+                 contacts<span class="operator">.</span>insert(name<span class="operator">,</span> address);
+             } <span class="keyword">else</span> {
+                 <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Edit Unsuccessful&quot;</span>)<span class="operator">,</span>
+                     tr(<span class="string">&quot;Sorry, \&quot;%1\&quot; is already in your address book.&quot;</span>)<span class="operator">.</span>arg(name));
              }
-         } else if (oldAddress != address) {
-             QMessageBox::information(this, tr(&quot;Edit Successful&quot;),
-                 tr(&quot;\&quot;%1\&quot; has been edited in your address book.&quot;).arg(name));
-             contacts[name] = address;
+         } <span class="keyword">else</span> <span class="keyword">if</span> (oldAddress <span class="operator">!</span><span class="operator">=</span> address) {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Edit Successful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;\&quot;%1\&quot; has been edited in your address book.&quot;</span>)<span class="operator">.</span>arg(name));
+             contacts<span class="operator">[</span>name<span class="operator">]</span> <span class="operator">=</span> address;
          }
      }
 
      updateInterface(NavigationMode);
  }
 
- void AddressBook::cancel()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>cancel()
  {
-     nameLine-&gt;setText(oldName);
-     addressText-&gt;setText(oldAddress);
+     nameLine<span class="operator">-</span><span class="operator">&gt;</span>setText(oldName);
+     addressText<span class="operator">-</span><span class="operator">&gt;</span>setText(oldAddress);
      updateInterface(NavigationMode);
  }
 
- void AddressBook::removeContact()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>removeContact()
  {
-     QString name = nameLine-&gt;text();
-     QString address = addressText-&gt;toPlainText();
+     <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type"><a href="qstring.html">QString</a></span> address <span class="operator">=</span> addressText<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
 
-     if (contacts.contains(name)) {
+     <span class="keyword">if</span> (contacts<span class="operator">.</span>contains(name)) {
 
-         int button = QMessageBox::question(this,
-             tr(&quot;Confirm Remove&quot;),
-             tr(&quot;Are you sure you want to remove \&quot;%1\&quot;?&quot;).arg(name),
-             QMessageBox::Yes | QMessageBox::No);
+         <span class="type">int</span> button <span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>question(<span class="keyword">this</span><span class="operator">,</span>
+             tr(<span class="string">&quot;Confirm Remove&quot;</span>)<span class="operator">,</span>
+             tr(<span class="string">&quot;Are you sure you want to remove \&quot;%1\&quot;?&quot;</span>)<span class="operator">.</span>arg(name)<span class="operator">,</span>
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes <span class="operator">|</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>No);
 
-         if (button == QMessageBox::Yes) {
+         <span class="keyword">if</span> (button <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes) {
 
              previous();
-             contacts.remove(name);
+             contacts<span class="operator">.</span>remove(name);
 
-             QMessageBox::information(this, tr(&quot;Remove Successful&quot;),
-                 tr(&quot;\&quot;%1\&quot; has been removed from your address book.&quot;).arg(name));
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Remove Successful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;\&quot;%1\&quot; has been removed from your address book.&quot;</span>)<span class="operator">.</span>arg(name));
          }
      }
 
      updateInterface(NavigationMode);
  }
 
- void AddressBook::next()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>next()
  {
-     QString name = nameLine-&gt;text();
-     QMap&lt;QString, QString&gt;::iterator i = contacts.find(name);
+     <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span><span class="operator">::</span>iterator i <span class="operator">=</span> contacts<span class="operator">.</span>find(name);
 
-     if (i != contacts.end())
-         i++;
+     <span class="keyword">if</span> (i <span class="operator">!</span><span class="operator">=</span> contacts<span class="operator">.</span>end())
+         i<span class="operator">+</span><span class="operator">+</span>;
 
-     if (i == contacts.end())
-         i = contacts.begin();
+     <span class="keyword">if</span> (i <span class="operator">=</span><span class="operator">=</span> contacts<span class="operator">.</span>end())
+         i <span class="operator">=</span> contacts<span class="operator">.</span>begin();
 
-     nameLine-&gt;setText(i.key());
-     addressText-&gt;setText(i.value());
+     nameLine<span class="operator">-</span><span class="operator">&gt;</span>setText(i<span class="operator">.</span>key());
+     addressText<span class="operator">-</span><span class="operator">&gt;</span>setText(i<span class="operator">.</span>value());
  }
 
- void AddressBook::previous()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>previous()
  {
-     QString name = nameLine-&gt;text();
-     QMap&lt;QString, QString&gt;::iterator i = contacts.find(name);
+     <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span><span class="operator">::</span>iterator i <span class="operator">=</span> contacts<span class="operator">.</span>find(name);
 
-     if (i == contacts.end()) {
-         nameLine-&gt;clear();
-         addressText-&gt;clear();
-         return;
+     <span class="keyword">if</span> (i <span class="operator">=</span><span class="operator">=</span> contacts<span class="operator">.</span>end()) {
+         nameLine<span class="operator">-</span><span class="operator">&gt;</span>clear();
+         addressText<span class="operator">-</span><span class="operator">&gt;</span>clear();
+         <span class="keyword">return</span>;
      }
 
-     if (i == contacts.begin())
-         i = contacts.end();
+     <span class="keyword">if</span> (i <span class="operator">=</span><span class="operator">=</span> contacts<span class="operator">.</span>begin())
+         i <span class="operator">=</span> contacts<span class="operator">.</span>end();
 
-     i--;
-     nameLine-&gt;setText(i.key());
-     addressText-&gt;setText(i.value());
+     i<span class="operator">-</span><span class="operator">-</span>;
+     nameLine<span class="operator">-</span><span class="operator">&gt;</span>setText(i<span class="operator">.</span>key());
+     addressText<span class="operator">-</span><span class="operator">&gt;</span>setText(i<span class="operator">.</span>value());
  }
 
- void AddressBook::findContact()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>findContact()
  {
-     dialog-&gt;show();
+     dialog<span class="operator">-</span><span class="operator">&gt;</span>show();
 
-     if (dialog-&gt;exec() == 1) {
-         QString contactName = dialog-&gt;getFindText();
+     <span class="keyword">if</span> (dialog<span class="operator">-</span><span class="operator">&gt;</span>exec() <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>) {
+         <span class="type"><a href="qstring.html">QString</a></span> contactName <span class="operator">=</span> dialog<span class="operator">-</span><span class="operator">&gt;</span>getFindText();
 
-         if (contacts.contains(contactName)) {
-             nameLine-&gt;setText(contactName);
-             addressText-&gt;setText(contacts.value(contactName));
-         } else {
-             QMessageBox::information(this, tr(&quot;Contact Not Found&quot;),
-                 tr(&quot;Sorry, \&quot;%1\&quot; is not in your address book.&quot;).arg(contactName));
-             return;
+         <span class="keyword">if</span> (contacts<span class="operator">.</span>contains(contactName)) {
+             nameLine<span class="operator">-</span><span class="operator">&gt;</span>setText(contactName);
+             addressText<span class="operator">-</span><span class="operator">&gt;</span>setText(contacts<span class="operator">.</span>value(contactName));
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Contact Not Found&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;Sorry, \&quot;%1\&quot; is not in your address book.&quot;</span>)<span class="operator">.</span>arg(contactName));
+             <span class="keyword">return</span>;
          }
      }
 
      updateInterface(NavigationMode);
  }
 
- void AddressBook::updateInterface(Mode mode)
+ <span class="type">void</span> AddressBook<span class="operator">::</span>updateInterface(Mode mode)
  {
-     currentMode = mode;
+     currentMode <span class="operator">=</span> mode;
 
-     switch (currentMode) {
+     <span class="keyword">switch</span> (currentMode) {
 
-     case AddingMode:
-     case EditingMode:
+     <span class="keyword">case</span> AddingMode:
+     <span class="keyword">case</span> EditingMode:
 
-         nameLine-&gt;setReadOnly(false);
-         nameLine-&gt;setFocus(Qt::OtherFocusReason);
-         addressText-&gt;setReadOnly(false);
+         nameLine<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">false</span>);
+         nameLine<span class="operator">-</span><span class="operator">&gt;</span>setFocus(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>OtherFocusReason);
+         addressText<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">false</span>);
 
-         addButton-&gt;setEnabled(false);
-         editButton-&gt;setEnabled(false);
-         removeButton-&gt;setEnabled(false);
+         addButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         editButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         removeButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
 
-         nextButton-&gt;setEnabled(false);
-         previousButton-&gt;setEnabled(false);
+         nextButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
 
-         submitButton-&gt;show();
-         cancelButton-&gt;show();
+         submitButton<span class="operator">-</span><span class="operator">&gt;</span>show();
+         cancelButton<span class="operator">-</span><span class="operator">&gt;</span>show();
 
-         loadButton-&gt;setEnabled(false);
-         saveButton-&gt;setEnabled(false);
-         break;
+         loadButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         saveButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         <span class="keyword">break</span>;
 
-     case NavigationMode:
+     <span class="keyword">case</span> NavigationMode:
 
-         if (contacts.isEmpty()) {
-             nameLine-&gt;clear();
-             addressText-&gt;clear();
+         <span class="keyword">if</span> (contacts<span class="operator">.</span>isEmpty()) {
+             nameLine<span class="operator">-</span><span class="operator">&gt;</span>clear();
+             addressText<span class="operator">-</span><span class="operator">&gt;</span>clear();
          }
 
-         nameLine-&gt;setReadOnly(true);
-         addressText-&gt;setReadOnly(true);
-         addButton-&gt;setEnabled(true);
+         nameLine<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
+         addressText<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
+         addButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
 
-         int number = contacts.size();
-         editButton-&gt;setEnabled(number &gt;= 1);
-         removeButton-&gt;setEnabled(number &gt;= 1);
-         findButton-&gt;setEnabled(number &gt; 2);
-         nextButton-&gt;setEnabled(number &gt; 1);
-         previousButton-&gt;setEnabled(number &gt; 1);
+         <span class="type">int</span> number <span class="operator">=</span> contacts<span class="operator">.</span>size();
+         editButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">1</span>);
+         removeButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">1</span>);
+         findButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span> <span class="number">2</span>);
+         nextButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span> <span class="number">1</span>);
+         previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span> <span class="number">1</span>);
 
-         submitButton-&gt;hide();
-         cancelButton-&gt;hide();
+         submitButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
+         cancelButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
 
-         loadButton-&gt;setEnabled(true);
-         saveButton-&gt;setEnabled(number &gt;= 1);
-         break;
+         loadButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+         saveButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">1</span>);
+         <span class="keyword">break</span>;
      }
  }
 
- void AddressBook::saveToFile()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>saveToFile()
  {
-     QString fileName = QFileDialog::getSaveFileName(this,
-         tr(&quot;Save Address Book&quot;), &quot;&quot;,
-         tr(&quot;Address Book (*.abk);;All Files (*)&quot;));
+     <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getSaveFileName(<span class="keyword">this</span><span class="operator">,</span>
+         tr(<span class="string">&quot;Save Address Book&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span><span class="operator">,</span>
+         tr(<span class="string">&quot;Address Book (*.abk);;All Files (*)&quot;</span>));
 
-     if (fileName.isEmpty())
-         return;
-     else {
-         QFile file(fileName);
-         if (!file.open(QIODevice::WriteOnly)) {
-             QMessageBox::information(this, tr(&quot;Unable to open file&quot;),
-                 file.errorString());
-             return;
+     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+     <span class="keyword">else</span> {
+         <span class="type"><a href="qfile.html">QFile</a></span> file(fileName);
+         <span class="keyword">if</span> (<span class="operator">!</span>file<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly)) {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Unable to open file&quot;</span>)<span class="operator">,</span>
+                 file<span class="operator">.</span>errorString());
+             <span class="keyword">return</span>;
          }
 
-         QDataStream out(&amp;file);
-         out.setVersion(QDataStream::Qt_4_5);
-         out &lt;&lt; contacts;
+         <span class="type"><a href="qdatastream.html">QDataStream</a></span> out(<span class="operator">&amp;</span>file);
+         out<span class="operator">.</span>setVersion(<span class="type"><a href="qdatastream.html">QDataStream</a></span><span class="operator">::</span>Qt_4_5);
+         out <span class="operator">&lt;</span><span class="operator">&lt;</span> contacts;
      }
  }
 
- void AddressBook::loadFromFile()
+ <span class="type">void</span> AddressBook<span class="operator">::</span>loadFromFile()
  {
-     QString fileName = QFileDialog::getOpenFileName(this,
-         tr(&quot;Open Address Book&quot;), &quot;&quot;,
-         tr(&quot;Address Book (*.abk);;All Files (*)&quot;));
+     <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getOpenFileName(<span class="keyword">this</span><span class="operator">,</span>
+         tr(<span class="string">&quot;Open Address Book&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span><span class="operator">,</span>
+         tr(<span class="string">&quot;Address Book (*.abk);;All Files (*)&quot;</span>));
 
-     if (fileName.isEmpty())
-         return;
-     else {
+     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+     <span class="keyword">else</span> {
 
-         QFile file(fileName);
+         <span class="type"><a href="qfile.html">QFile</a></span> file(fileName);
 
-         if (!file.open(QIODevice::ReadOnly)) {
-             QMessageBox::information(this, tr(&quot;Unable to open file&quot;),
-                 file.errorString());
-             return;
+         <span class="keyword">if</span> (<span class="operator">!</span>file<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly)) {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Unable to open file&quot;</span>)<span class="operator">,</span>
+                 file<span class="operator">.</span>errorString());
+             <span class="keyword">return</span>;
          }
 
-         QDataStream in(&amp;file);
-         in.setVersion(QDataStream::Qt_4_5);
-         contacts.empty();   <span class="comment">// empty existing contacts</span>
-         in &gt;&gt; contacts;
+         <span class="type"><a href="qdatastream.html">QDataStream</a></span> in(<span class="operator">&amp;</span>file);
+         in<span class="operator">.</span>setVersion(<span class="type"><a href="qdatastream.html">QDataStream</a></span><span class="operator">::</span>Qt_4_5);
+         contacts<span class="operator">.</span>empty();   <span class="comment">// empty existing contacts</span>
+         in <span class="operator">&gt;</span><span class="operator">&gt;</span> contacts;
 
-         if (contacts.isEmpty()) {
-             QMessageBox::information(this, tr(&quot;No contacts in file&quot;),
-                 tr(&quot;The file you are attempting to open contains no contacts.&quot;));
-         } else {
-             QMap&lt;QString, QString&gt;::iterator i = contacts.begin();
-             nameLine-&gt;setText(i.key());
-             addressText-&gt;setText(i.value());
+         <span class="keyword">if</span> (contacts<span class="operator">.</span>isEmpty()) {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;No contacts in file&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;The file you are attempting to open contains no contacts.&quot;</span>));
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span><span class="operator">::</span>iterator i <span class="operator">=</span> contacts<span class="operator">.</span>begin();
+             nameLine<span class="operator">-</span><span class="operator">&gt;</span>setText(i<span class="operator">.</span>key());
+             addressText<span class="operator">-</span><span class="operator">&gt;</span>setText(i<span class="operator">.</span>value());
          }
      }
 
@@ -530,41 +402,25 @@
  }</pre>
 </div>
 <!-- @@@tutorials/addressbook/part6/addressbook.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

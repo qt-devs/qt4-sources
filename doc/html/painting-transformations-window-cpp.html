@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: window.cpp Example File (painting/transformations/window.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">window.cpp Example File</h1>
 <span class="small-subtitle">painting/transformations/window.cpp</span>
 <!-- $$$painting/transformations/window.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,163 +63,147 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;QtGui&gt;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
 
- #include &quot;window.h&quot;
+ <span class="preprocessor">#include &quot;window.h&quot;</span>
 
- Window::Window()
+ Window<span class="operator">::</span>Window()
  {
-     originalRenderArea = new RenderArea;
+     originalRenderArea <span class="operator">=</span> <span class="keyword">new</span> RenderArea;
 
-     shapeComboBox = new QComboBox;
-     shapeComboBox-&gt;addItem(tr(&quot;Clock&quot;));
-     shapeComboBox-&gt;addItem(tr(&quot;House&quot;));
-     shapeComboBox-&gt;addItem(tr(&quot;Text&quot;));
-     shapeComboBox-&gt;addItem(tr(&quot;Truck&quot;));
+     shapeComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Clock&quot;</span>));
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;House&quot;</span>));
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Text&quot;</span>));
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Truck&quot;</span>));
 
-     QGridLayout *layout = new QGridLayout;
-     layout-&gt;addWidget(originalRenderArea, 0, 0);
-     layout-&gt;addWidget(shapeComboBox, 1, 0);
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(originalRenderArea<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(shapeComboBox<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
 
-     for (int i = 0; i &lt; NumTransformedAreas; ++i) {
-         transformedRenderAreas[i] = new RenderArea;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> NumTransformedAreas; <span class="operator">+</span><span class="operator">+</span>i) {
+         transformedRenderAreas<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> <span class="keyword">new</span> RenderArea;
 
-         operationComboBoxes[i] = new QComboBox;
-         operationComboBoxes[i]-&gt;addItem(tr(&quot;No transformation&quot;));
-         operationComboBoxes[i]-&gt;addItem(tr(&quot;Rotate by 60\xB0&quot;));
-         operationComboBoxes[i]-&gt;addItem(tr(&quot;Scale to 75%&quot;));
-         operationComboBoxes[i]-&gt;addItem(tr(&quot;Translate by (50, 50)&quot;));
+         operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+         operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;No transformation&quot;</span>));
+         operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Rotate by 60\xB0&quot;</span>));
+         operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Scale to 75%&quot;</span>));
+         operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Translate by (50, 50)&quot;</span>));
 
-         connect(operationComboBoxes[i], SIGNAL(activated(int)),
-                 this, SLOT(operationChanged()));
+         connect(operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
+                 <span class="keyword">this</span><span class="operator">,</span> SLOT(operationChanged()));
 
-         layout-&gt;addWidget(transformedRenderAreas[i], 0, i + 1);
-         layout-&gt;addWidget(operationComboBoxes[i], 1, i + 1);
+         layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(transformedRenderAreas<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> i <span class="operator">+</span> <span class="number">1</span>);
+         layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> i <span class="operator">+</span> <span class="number">1</span>);
      }
 
      setLayout(layout);
      setupShapes();
-     shapeSelected(0);
+     shapeSelected(<span class="number">0</span>);
 
-     setWindowTitle(tr(&quot;Transformations&quot;));
+     setWindowTitle(tr(<span class="string">&quot;Transformations&quot;</span>));
  }
 
- void Window::setupShapes()
+ <span class="type">void</span> Window<span class="operator">::</span>setupShapes()
  {
-     QPainterPath truck;
-     truck.setFillRule(Qt::WindingFill);
-     truck.moveTo(0.0, 87.0);
-     truck.lineTo(0.0, 60.0);
-     truck.lineTo(10.0, 60.0);
-     truck.lineTo(35.0, 35.0);
-     truck.lineTo(100.0, 35.0);
-     truck.lineTo(100.0, 87.0);
-     truck.lineTo(0.0, 87.0);
-     truck.moveTo(17.0, 60.0);
-     truck.lineTo(55.0, 60.0);
-     truck.lineTo(55.0, 40.0);
-     truck.lineTo(37.0, 40.0);
-     truck.lineTo(17.0, 60.0);
-     truck.addEllipse(17.0, 75.0, 25.0, 25.0);
-     truck.addEllipse(63.0, 75.0, 25.0, 25.0);
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> truck;
+     truck<span class="operator">.</span>setFillRule(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindingFill);
+     truck<span class="operator">.</span>moveTo(<span class="number">0.0</span><span class="operator">,</span> <span class="number">87.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">0.0</span><span class="operator">,</span> <span class="number">60.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">10.0</span><span class="operator">,</span> <span class="number">60.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">35.0</span><span class="operator">,</span> <span class="number">35.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">100.0</span><span class="operator">,</span> <span class="number">35.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">100.0</span><span class="operator">,</span> <span class="number">87.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">0.0</span><span class="operator">,</span> <span class="number">87.0</span>);
+     truck<span class="operator">.</span>moveTo(<span class="number">17.0</span><span class="operator">,</span> <span class="number">60.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">55.0</span><span class="operator">,</span> <span class="number">60.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">55.0</span><span class="operator">,</span> <span class="number">40.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">37.0</span><span class="operator">,</span> <span class="number">40.0</span>);
+     truck<span class="operator">.</span>lineTo(<span class="number">17.0</span><span class="operator">,</span> <span class="number">60.0</span>);
+     truck<span class="operator">.</span>addEllipse(<span class="number">17.0</span><span class="operator">,</span> <span class="number">75.0</span><span class="operator">,</span> <span class="number">25.0</span><span class="operator">,</span> <span class="number">25.0</span>);
+     truck<span class="operator">.</span>addEllipse(<span class="number">63.0</span><span class="operator">,</span> <span class="number">75.0</span><span class="operator">,</span> <span class="number">25.0</span><span class="operator">,</span> <span class="number">25.0</span>);
 
-     QPainterPath clock;
-     clock.addEllipse(-50.0, -50.0, 100.0, 100.0);
-     clock.addEllipse(-48.0, -48.0, 96.0, 96.0);
-     clock.moveTo(0.0, 0.0);
-     clock.lineTo(-2.0, -2.0);
-     clock.lineTo(0.0, -42.0);
-     clock.lineTo(2.0, -2.0);
-     clock.lineTo(0.0, 0.0);
-     clock.moveTo(0.0, 0.0);
-     clock.lineTo(2.732, -0.732);
-     clock.lineTo(24.495, 14.142);
-     clock.lineTo(0.732, 2.732);
-     clock.lineTo(0.0, 0.0);
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> clock;
+     clock<span class="operator">.</span>addEllipse(<span class="operator">-</span><span class="number">50.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50.0</span><span class="operator">,</span> <span class="number">100.0</span><span class="operator">,</span> <span class="number">100.0</span>);
+     clock<span class="operator">.</span>addEllipse(<span class="operator">-</span><span class="number">48.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">48.0</span><span class="operator">,</span> <span class="number">96.0</span><span class="operator">,</span> <span class="number">96.0</span>);
+     clock<span class="operator">.</span>moveTo(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     clock<span class="operator">.</span>lineTo(<span class="operator">-</span><span class="number">2.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">2.0</span>);
+     clock<span class="operator">.</span>lineTo(<span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">42.0</span>);
+     clock<span class="operator">.</span>lineTo(<span class="number">2.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">2.0</span>);
+     clock<span class="operator">.</span>lineTo(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     clock<span class="operator">.</span>moveTo(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     clock<span class="operator">.</span>lineTo(<span class="number">2.732</span><span class="operator">,</span> <span class="operator">-</span><span class="number">0.732</span>);
+     clock<span class="operator">.</span>lineTo(<span class="number">24.495</span><span class="operator">,</span> <span class="number">14.142</span>);
+     clock<span class="operator">.</span>lineTo(<span class="number">0.732</span><span class="operator">,</span> <span class="number">2.732</span>);
+     clock<span class="operator">.</span>lineTo(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
 
-     QPainterPath house;
-     house.moveTo(-45.0, -20.0);
-     house.lineTo(0.0, -45.0);
-     house.lineTo(45.0, -20.0);
-     house.lineTo(45.0, 45.0);
-     house.lineTo(-45.0, 45.0);
-     house.lineTo(-45.0, -20.0);
-     house.addRect(15.0, 5.0, 20.0, 35.0);
-     house.addRect(-35.0, -15.0, 25.0, 25.0);
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> house;
+     house<span class="operator">.</span>moveTo(<span class="operator">-</span><span class="number">45.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20.0</span>);
+     house<span class="operator">.</span>lineTo(<span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">45.0</span>);
+     house<span class="operator">.</span>lineTo(<span class="number">45.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20.0</span>);
+     house<span class="operator">.</span>lineTo(<span class="number">45.0</span><span class="operator">,</span> <span class="number">45.0</span>);
+     house<span class="operator">.</span>lineTo(<span class="operator">-</span><span class="number">45.0</span><span class="operator">,</span> <span class="number">45.0</span>);
+     house<span class="operator">.</span>lineTo(<span class="operator">-</span><span class="number">45.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20.0</span>);
+     house<span class="operator">.</span>addRect(<span class="number">15.0</span><span class="operator">,</span> <span class="number">5.0</span><span class="operator">,</span> <span class="number">20.0</span><span class="operator">,</span> <span class="number">35.0</span>);
+     house<span class="operator">.</span>addRect(<span class="operator">-</span><span class="number">35.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">15.0</span><span class="operator">,</span> <span class="number">25.0</span><span class="operator">,</span> <span class="number">25.0</span>);
 
-     QPainterPath text;
-     QFont font;
-     font.setPixelSize(50);
-     QRect fontBoundingRect = QFontMetrics(font).boundingRect(tr(&quot;Qt&quot;));
-     text.addText(-QPointF(fontBoundingRect.center()), font, tr(&quot;Qt&quot;));
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> text;
+     <span class="type"><a href="qfont.html">QFont</a></span> font;
+     font<span class="operator">.</span>setPixelSize(<span class="number">50</span>);
+     <span class="type"><a href="qrect.html">QRect</a></span> fontBoundingRect <span class="operator">=</span> <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span>(font)<span class="operator">.</span>boundingRect(tr(<span class="string">&quot;Qt&quot;</span>));
+     text<span class="operator">.</span>addText(<span class="operator">-</span><span class="type"><a href="qpointf.html">QPointF</a></span>(fontBoundingRect<span class="operator">.</span>center())<span class="operator">,</span> font<span class="operator">,</span> tr(<span class="string">&quot;Qt&quot;</span>));
 
-     shapes.append(clock);
-     shapes.append(house);
-     shapes.append(text);
-     shapes.append(truck);
+     shapes<span class="operator">.</span>append(clock);
+     shapes<span class="operator">.</span>append(house);
+     shapes<span class="operator">.</span>append(text);
+     shapes<span class="operator">.</span>append(truck);
 
-     connect(shapeComboBox, SIGNAL(activated(int)),
-             this, SLOT(shapeSelected(int)));
+     connect(shapeComboBox<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(shapeSelected(<span class="type">int</span>)));
  }
 
- void Window::operationChanged()
+ <span class="type">void</span> Window<span class="operator">::</span>operationChanged()
  {
-     static const Operation operationTable[] = {
-         NoTransformation, Rotate, Scale, Translate
+     <span class="keyword">static</span> <span class="keyword">const</span> Operation operationTable<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {
+         NoTransformation<span class="operator">,</span> Rotate<span class="operator">,</span> Scale<span class="operator">,</span> Translate
      };
 
-     QList&lt;Operation&gt; operations;
-     for (int i = 0; i &lt; NumTransformedAreas; ++i) {
-         int index = operationComboBoxes[i]-&gt;currentIndex();
-         operations.append(operationTable[index]);
-         transformedRenderAreas[i]-&gt;setOperations(operations);
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Operation<span class="operator">&gt;</span> operations;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> NumTransformedAreas; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> index <span class="operator">=</span> operationComboBoxes<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>currentIndex();
+         operations<span class="operator">.</span>append(operationTable<span class="operator">[</span>index<span class="operator">]</span>);
+         transformedRenderAreas<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setOperations(operations);
      }
  }
 
- void Window::shapeSelected(int index)
+ <span class="type">void</span> Window<span class="operator">::</span>shapeSelected(<span class="type">int</span> index)
  {
-     QPainterPath shape = shapes[index];
-     originalRenderArea-&gt;setShape(shape);
-     for (int i = 0; i &lt; NumTransformedAreas; ++i)
-         transformedRenderAreas[i]-&gt;setShape(shape);
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> shape <span class="operator">=</span> shapes<span class="operator">[</span>index<span class="operator">]</span>;
+     originalRenderArea<span class="operator">-</span><span class="operator">&gt;</span>setShape(shape);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> NumTransformedAreas; <span class="operator">+</span><span class="operator">+</span>i)
+         transformedRenderAreas<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setShape(shape);
  }</pre>
 </div>
 <!-- @@@painting/transformations/window.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

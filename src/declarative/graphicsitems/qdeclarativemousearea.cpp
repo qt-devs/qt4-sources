@@ -7,34 +7,34 @@
 ** This file is part of the QtDeclarative module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -216,9 +216,9 @@ QDeclarativeMouseAreaPrivate::~QDeclarativeMouseAreaPrivate()
 
     \section1 Example Usage
 
-    \beginfloatright
+    \div {class="float-right"}
     \inlineimage qml-mousearea-snippet.png
-    \endfloat
+    \enddiv
 
     The following example uses a MouseArea in a \l Rectangle that changes
     the \l Rectangle color to red when clicked:
@@ -314,6 +314,8 @@ QDeclarativeMouseAreaPrivate::~QDeclarativeMouseAreaPrivate()
     position of the release of the click, and whether the click was held.
 
     The \e accepted property of the MouseEvent parameter is ignored in this handler.
+
+    \sa onCanceled
 */
 
 /*!
@@ -414,6 +416,40 @@ void QDeclarativeMouseArea::setEnabled(bool a)
         emit enabledChanged();
     }
 }
+
+/*!
+    \qmlproperty bool MouseArea::preventStealing
+    \since QtQuick 1.1
+    This property holds whether the mouse events may be stolen from this
+    MouseArea.
+
+    If a MouseArea is placed within an item that filters child mouse
+    events, such as Flickable, the mouse
+    events may be stolen from the MouseArea if a gesture is recognized
+    by the parent element, e.g. a flick gesture.  If preventStealing is
+    set to true, no element will steal the mouse events.
+
+    Note that setting preventStealing to true once an element has started
+    stealing events will have no effect until the next press event.
+
+    By default this property is false.
+*/
+bool QDeclarativeMouseArea::preventStealing() const
+{
+    Q_D(const QDeclarativeMouseArea);
+    return d->preventStealing;
+}
+
+void QDeclarativeMouseArea::setPreventStealing(bool prevent)
+{
+    Q_D(QDeclarativeMouseArea);
+    if (prevent != d->preventStealing) {
+        d->preventStealing = prevent;
+        setKeepMouseGrab(d->preventStealing && d->absorb);
+        emit preventStealingChanged();
+    }
+}
+
 /*!
     \qmlproperty MouseButtons MouseArea::pressedButtons
     This property holds the mouse buttons currently pressed.
@@ -441,7 +477,7 @@ void QDeclarativeMouseArea::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_D(QDeclarativeMouseArea);
     d->moved = false;
-    d->stealMouse = false;
+    d->stealMouse = d->preventStealing;
     if (!d->absorb)
         QDeclarativeItem::mousePressEvent(event);
     else {
@@ -458,7 +494,7 @@ void QDeclarativeMouseArea::mousePressEvent(QGraphicsSceneMouseEvent *event)
         // we should only start timer if pressAndHold is connected to.
         if (d->isPressAndHoldConnected())
             d->pressAndHoldTimer.start(PressAndHoldDelay, this);
-        setKeepMouseGrab(false);
+        setKeepMouseGrab(d->stealMouse);
         event->setAccepted(setPressed(true));
     }
 }
@@ -583,18 +619,22 @@ void QDeclarativeMouseArea::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
     Q_D(QDeclarativeMouseArea);
     if (!d->absorb)
         QDeclarativeItem::hoverEnterEvent(event);
-    else
+    else {
+        d->lastPos = event->pos();
         setHovered(true);
+        QDeclarativeMouseEvent me(d->lastPos.x(), d->lastPos.y(), Qt::NoButton, Qt::NoButton, event->modifiers(), false, false);
+        emit mousePositionChanged(&me);
+    }
 }
 
 void QDeclarativeMouseArea::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 {
     Q_D(QDeclarativeMouseArea);
     if (!d->absorb) {
-        QDeclarativeItem::hoverEnterEvent(event);
+        QDeclarativeItem::hoverMoveEvent(event);
     } else {
         d->lastPos = event->pos();
-        QDeclarativeMouseEvent me(d->lastPos.x(), d->lastPos.y(), Qt::NoButton, d->lastButtons, d->lastModifiers, false, d->longPress);
+        QDeclarativeMouseEvent me(d->lastPos.x(), d->lastPos.y(), Qt::NoButton, Qt::NoButton, event->modifiers(), false, false);
         emit mousePositionChanged(&me);
         me.setX(d->lastPos.x());
         me.setY(d->lastPos.y());
@@ -610,6 +650,32 @@ void QDeclarativeMouseArea::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
     else
         setHovered(false);
 }
+
+#ifndef QT_NO_CONTEXTMENU
+void QDeclarativeMouseArea::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
+{
+    bool acceptsContextMenuButton;
+#if defined(Q_OS_SYMBIAN)
+    // In Symbian a Long Tap on the screen will trigger. See QSymbianControl::HandleLongTapEventL().
+    acceptsContextMenuButton = acceptedButtons() & Qt::LeftButton;
+#elif defined(Q_WS_WINCE)
+    // ### WinCE can trigger context menu event with a gesture in the left button or a
+    // click with the right button. Since we have no way here to differentiate them when
+    // event happens, accepting either of the them will block the event.
+    acceptsContextMenuButton = acceptedButtons() & (Qt::LeftButton | Qt::RightButton);
+#else
+    acceptsContextMenuButton = acceptedButtons() & Qt::RightButton;
+#endif
+
+    if (isEnabled() && event->reason() == QGraphicsSceneContextMenuEvent::Mouse
+        && acceptsContextMenuButton) {
+        // Do not let the context menu event propagate to items behind.
+        return;
+    }
+
+    QDeclarativeItem::contextMenuEvent(event);
+}
+#endif // QT_NO_CONTEXTMENU
 
 bool QDeclarativeMouseArea::sceneEvent(QEvent *event)
 {
@@ -859,15 +925,16 @@ bool QDeclarativeMouseArea::setPressed(bool p)
             me.setX(d->lastPos.x());
             me.setY(d->lastPos.y());
             emit mousePositionChanged(&me);
+            emit pressedChanged();
         } else {
             emit released(&me);
             me.setX(d->lastPos.x());
             me.setY(d->lastPos.y());
+            emit pressedChanged();
             if (isclick && !d->longPress && !d->doubleClick)
                 emit clicked(&me);
         }
 
-        emit pressedChanged();
         return me.isAccepted();
     }
     return false;

@@ -7,34 +7,34 @@
 ** This file is part of the QtGui module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -3779,16 +3779,32 @@ bool QETWidget::translateConfigEvent(const MSG &msg)
                     QApplication::sendSpontaneousEvent(this, &e);
                     hideChildren(true);
                 }
-            } else if (msg.wParam != SIZE_MINIMIZED && isMinimized()) {
+            } else if (msg.wParam != SIZE_MINIMIZED) {
+                bool window_state_changed = false;
+                Qt::WindowStates oldstate = Qt::WindowStates(dataPtr()->window_state);
+                if (isMinimized()) {
 #ifndef Q_WS_WINCE
-                const QString title = windowTitle();
-                if (!title.isEmpty())
-                    d_func()->setWindowTitle_helper(title);
+                    const QString title = windowTitle();
+                    if (!title.isEmpty())
+                        d_func()->setWindowTitle_helper(title);
 #endif
-                data->window_state &= ~Qt::WindowMinimized;
-                showChildren(true);
-                QShowEvent e;
-                QApplication::sendSpontaneousEvent(this, &e);
+                    data->window_state &= ~Qt::WindowMinimized;
+                    showChildren(true);
+                    QShowEvent e;
+                    QApplication::sendSpontaneousEvent(this, &e);
+                // Capture SIZE_MAXIMIZED and SIZE_RESTORED without preceding WM_SYSCOMMAND
+                // (Aero Snap on Win7)
+                } else if (msg.wParam == SIZE_MAXIMIZED && !isMaximized()) {
+                    data->window_state |= Qt::WindowMaximized;
+                    window_state_changed = true;
+                } else if (msg.wParam == SIZE_RESTORED && isMaximized()) {
+                    data->window_state &= ~(Qt::WindowMaximized);
+                    window_state_changed = true;
+                }
+                if (window_state_changed) {
+                    QWindowStateChangeEvent e(oldstate);
+                    QApplication::sendSpontaneousEvent(this, &e);
+                }
             }
         }
         if (msg.wParam != SIZE_MINIMIZED && oldSize != newSize) {
@@ -3820,7 +3836,7 @@ bool QETWidget::translateConfigEvent(const MSG &msg)
                 QApplication::postEvent(this, e);
             }
         }
-} else if (msg.message == WM_MOVE) {        // move event
+    } else if (msg.message == WM_MOVE) {        // move event
         int a = (int) (short) LOWORD(msg.lParam);
         int b = (int) (short) HIWORD(msg.lParam);
         QPoint oldPos = geometry().topLeft();

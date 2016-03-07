@@ -7,34 +7,34 @@
 ** This file is part of the QtGui module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -3105,7 +3105,15 @@ void QRasterPaintEngine::drawCachedGlyphs(int numGlyphs, const glyph_t *glyphs,
     Q_D(QRasterPaintEngine);
     QRasterPaintEngineState *s = state();
 
-    QFontEngineGlyphCache::Type glyphType = fontEngine->glyphFormat >= 0 ? QFontEngineGlyphCache::Type(fontEngine->glyphFormat) : d->glyphCacheType;
+    QFontEngineGlyphCache::Type glyphType;
+    if (fontEngine->glyphFormat >= 0) {
+        glyphType = QFontEngineGlyphCache::Type(fontEngine->glyphFormat);
+    } else if (s->matrix.type() > QTransform::TxTranslate
+               && d->glyphCacheType == QFontEngineGlyphCache::Raster_RGBMask) {
+        glyphType = QFontEngineGlyphCache::Raster_A8;
+    } else {
+        glyphType = d->glyphCacheType;
+    }
 
     QImageTextureGlyphCache *cache =
         static_cast<QImageTextureGlyphCache *>(fontEngine->glyphCache(0, glyphType, s->matrix));
@@ -3705,6 +3713,13 @@ void QRasterPaintEnginePrivate::rasterizeLine_dashed(QLineF line,
     const QPen &pen = s->lastPen;
     const bool squareCap = (pen.capStyle() == Qt::SquareCap);
     const QVector<qreal> pattern = pen.dashPattern();
+
+    qreal patternLength = 0;
+    for (int i = 0; i < pattern.size(); ++i)
+        patternLength += pattern.at(i);
+
+    if (patternLength <= 0)
+        return;
 
     qreal length = line.length();
     Q_ASSERT(length > 0);

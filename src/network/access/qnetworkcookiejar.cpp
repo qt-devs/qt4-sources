@@ -7,34 +7,34 @@
 ** This file is part of the QtNetwork module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -220,20 +220,33 @@ bool QNetworkCookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieLis
                 continue; // not accepted
         }
 
-        QList<QNetworkCookie>::Iterator it = d->allCookies.begin(),
-                                       end = d->allCookies.end();
-        for ( ; it != end; ++it)
+        for (int i = 0; i < d->allCookies.size(); ++i) {
             // does this cookie already exist?
-            if (cookie.name() == it->name() &&
-                cookie.domain() == it->domain() &&
-                cookie.path() == it->path()) {
+            const QNetworkCookie &current = d->allCookies.at(i);
+            if (cookie.name() == current.name() &&
+                cookie.domain() == current.domain() &&
+                cookie.path() == current.path()) {
                 // found a match
-                d->allCookies.erase(it);
+                d->allCookies.removeAt(i);
                 break;
             }
+        }
 
         // did not find a match
         if (!isDeletion) {
+            int countForDomain = 0;
+            for (int i = d->allCookies.size() - 1; i >= 0; --i) {
+                // Start from the end and delete the oldest cookies to keep a maximum count of 50.
+                const QNetworkCookie &current = d->allCookies.at(i);
+                if (isParentDomain(cookie.domain(), current.domain())
+                    || isParentDomain(current.domain(), cookie.domain())) {
+                    if (countForDomain >= 49)
+                        d->allCookies.removeAt(i);
+                    else
+                        ++countForDomain;
+                }
+            }
+
             d->allCookies += cookie;
             ++added;
         }

@@ -7,34 +7,34 @@
 ** This file is part of the QtDeclarative module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -63,11 +63,16 @@
 #include <qdeclarativeanimation_p_p.h>
 
 #include <qdatetime.h>
+#include "qplatformdefs.h"
 
 QT_BEGIN_NAMESPACE
 
 // Really slow flicks can be annoying.
-const qreal MinimumFlickVelocity = 75.0;
+#ifndef QML_FLICK_MINVELOCITY
+#define QML_FLICK_MINVELOCITY 175
+#endif
+
+const qreal MinimumFlickVelocity = QML_FLICK_MINVELOCITY;
 
 class QDeclarativeFlickableVisibleArea;
 class QDeclarativeFlickablePrivate : public QDeclarativeItemPrivate, public QDeclarativeItemChangeListener
@@ -94,17 +99,35 @@ public:
     struct AxisData {
         AxisData(QDeclarativeFlickablePrivate *fp, void (QDeclarativeFlickablePrivate::*func)(qreal))
             : move(fp, func), viewSize(-1), smoothVelocity(fp), atEnd(false), atBeginning(true)
+            , fixingUp(false), inOvershoot(false), moving(false), flicking(false)
         {}
+
+        void reset() {
+            velocityBuffer.clear();
+            dragStartOffset = 0;
+            fixingUp = false;
+            inOvershoot = false;
+        }
+
+        void addVelocitySample(qreal v, qreal maxVelocity);
+        void updateVelocity();
 
         QDeclarativeTimeLineValueProxy<QDeclarativeFlickablePrivate> move;
         qreal viewSize;
         qreal pressPos;
         qreal dragStartOffset;
+        qreal dragMinBound;
+        qreal dragMaxBound;
         qreal velocity;
         qreal flickTarget;
         QDeclarativeFlickablePrivate::Velocity smoothVelocity;
+        QPODVector<qreal,10> velocityBuffer;
         bool atEnd : 1;
         bool atBeginning : 1;
+        bool fixingUp : 1;
+        bool inOvershoot : 1;
+        bool moving : 1;
+        bool flicking : 1;
     };
 
     void flickX(qreal velocity);
@@ -118,13 +141,14 @@ public:
 
     void updateBeginningEnd();
 
+    bool isOutermostPressDelay() const;
     void captureDelayedPress(QGraphicsSceneMouseEvent *event);
     void clearDelayedPress();
 
     void setRoundedViewportX(qreal x);
     void setRoundedViewportY(qreal y);
 
-    qreal overShootDistance(qreal velocity, qreal size);
+    qreal overShootDistance(qreal size);
 
     void itemGeometryChanged(QDeclarativeItem *, const QRectF &, const QRectF &);
 
@@ -135,12 +159,8 @@ public:
     AxisData vData;
 
     QDeclarativeTimeLine timeline;
-    bool flickingHorizontally : 1;
-    bool flickingVertically : 1;
     bool hMoved : 1;
     bool vMoved : 1;
-    bool movingHorizontally : 1;
-    bool movingVertically : 1;
     bool stealMouse : 1;
     bool pressed : 1;
     bool interactive : 1;
@@ -159,6 +179,9 @@ public:
     QBasicTimer delayedPressTimer;
     int pressDelay;
     int fixupDuration;
+
+    enum FixupMode { Normal, Immediate, ExtentChanged };
+    FixupMode fixupMode;
 
     static void fixupY_callback(void *);
     static void fixupX_callback(void *);

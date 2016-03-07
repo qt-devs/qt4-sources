@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: engine.cpp Example File (demos/spectrum/app/engine.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">engine.cpp Example File</h1>
 <span class="small-subtitle">demos/spectrum/app/engine.cpp</span>
 <!-- $$$demos/spectrum/app/engine.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,765 +63,749 @@
  **
  ****************************************************************************/</span>
 
- #include &quot;engine.h&quot;
- #include &quot;tonegenerator.h&quot;
- #include &quot;utils.h&quot;
+ <span class="preprocessor">#include &quot;engine.h&quot;</span>
+ <span class="preprocessor">#include &quot;tonegenerator.h&quot;</span>
+ <span class="preprocessor">#include &quot;utils.h&quot;</span>
 
- #include &lt;math.h&gt;
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
 
- #include &lt;QCoreApplication&gt;
- #include &lt;QMetaObject&gt;
- #include &lt;QSet&gt;
- #include &lt;QtMultimedia/QAudioInput&gt;
- #include &lt;QtMultimedia/QAudioOutput&gt;
- #include &lt;QDebug&gt;
- #include &lt;QThread&gt;
- #include &lt;QFile&gt;
+ <span class="preprocessor">#include &lt;QCoreApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QMetaObject&gt;</span>
+ <span class="preprocessor">#include &lt;QSet&gt;</span>
+ <span class="preprocessor">#include &lt;QtMultimedia/QAudioInput&gt;</span>
+ <span class="preprocessor">#include &lt;QtMultimedia/QAudioOutput&gt;</span>
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &lt;QThread&gt;</span>
+ <span class="preprocessor">#include &lt;QFile&gt;</span>
 
-<span class="comment"> //-----------------------------------------------------------------------------</span>
-<span class="comment"> // Constants</span>
-<span class="comment"> //-----------------------------------------------------------------------------</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
+ <span class="comment">// Constants</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
 
- const qint64 BufferDurationUs       = 10 * 1000000;
- const int    NotifyIntervalMs       = 100;
+ <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> BufferDurationUs       <span class="operator">=</span> <span class="number">10</span> <span class="operator">*</span> <span class="number">1000000</span>;
+ <span class="keyword">const</span> <span class="type">int</span>    NotifyIntervalMs       <span class="operator">=</span> <span class="number">100</span>;
 
-<span class="comment"> // Size of the level calculation window in microseconds</span>
- const int    LevelWindowUs          = 0.1 * 1000000;
+ <span class="comment">// Size of the level calculation window in microseconds</span>
+ <span class="keyword">const</span> <span class="type">int</span>    LevelWindowUs          <span class="operator">=</span> <span class="number">0.1</span> <span class="operator">*</span> <span class="number">1000000</span>;
 
-<span class="comment"> //-----------------------------------------------------------------------------</span>
-<span class="comment"> // Helper functions</span>
-<span class="comment"> //-----------------------------------------------------------------------------</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
+ <span class="comment">// Helper functions</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
 
- QDebug&amp; operator&lt;&lt;(QDebug &amp;debug, const QAudioFormat &amp;format)
+ <span class="type"><a href="qdebug.html">QDebug</a></span><span class="operator">&amp;</span> <span class="keyword">operator</span><span class="operator">&lt;</span><span class="operator">&lt;</span>(<span class="type"><a href="qdebug.html">QDebug</a></span> <span class="operator">&amp;</span>debug<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> <span class="operator">&amp;</span>format)
  {
-     debug &lt;&lt; format.frequency() &lt;&lt; &quot;Hz&quot;
-           &lt;&lt; format.channels() &lt;&lt; &quot;channels&quot;;
-     return debug;
+     debug <span class="operator">&lt;</span><span class="operator">&lt;</span> format<span class="operator">.</span>frequency() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Hz&quot;</span>
+           <span class="operator">&lt;</span><span class="operator">&lt;</span> format<span class="operator">.</span>channels() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;channels&quot;</span>;
+     <span class="keyword">return</span> debug;
  }
 
-<span class="comment"> //-----------------------------------------------------------------------------</span>
-<span class="comment"> // Constructor and destructor</span>
-<span class="comment"> //-----------------------------------------------------------------------------</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
+ <span class="comment">// Constructor and destructor</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
 
- Engine::Engine(QObject *parent)
-     :   QObject(parent)
-     ,   m_mode(QAudio::AudioInput)
-     ,   m_state(QAudio::StoppedState)
-     ,   m_generateTone(false)
-     ,   m_file(0)
-     ,   m_analysisFile(0)
-     ,   m_availableAudioInputDevices
-             (QAudioDeviceInfo::availableDevices(QAudio::AudioInput))
-     ,   m_audioInputDevice(QAudioDeviceInfo::defaultInputDevice())
-     ,   m_audioInput(0)
-     ,   m_audioInputIODevice(0)
-     ,   m_recordPosition(0)
-     ,   m_availableAudioOutputDevices
-             (QAudioDeviceInfo::availableDevices(QAudio::AudioOutput))
-     ,   m_audioOutputDevice(QAudioDeviceInfo::defaultOutputDevice())
-     ,   m_audioOutput(0)
-     ,   m_playPosition(0)
-     ,   m_bufferPosition(0)
-     ,   m_bufferLength(0)
-     ,   m_dataLength(0)
-     ,   m_levelBufferLength(0)
-     ,   m_rmsLevel(0.0)
-     ,   m_peakLevel(0.0)
-     ,   m_spectrumBufferLength(0)
-     ,   m_spectrumAnalyser()
-     ,   m_spectrumPosition(0)
-     ,   m_count(0)
+ Engine<span class="operator">::</span>Engine(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     :   <span class="type"><a href="qobject.html">QObject</a></span>(parent)
+     <span class="operator">,</span>   m_mode(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput)
+     <span class="operator">,</span>   m_state(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>StoppedState)
+     <span class="operator">,</span>   m_generateTone(<span class="keyword">false</span>)
+     <span class="operator">,</span>   m_file(<span class="number">0</span>)
+     <span class="operator">,</span>   m_analysisFile(<span class="number">0</span>)
+     <span class="operator">,</span>   m_availableAudioInputDevices
+             (<span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>availableDevices(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput))
+     <span class="operator">,</span>   m_audioInputDevice(<span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>defaultInputDevice())
+     <span class="operator">,</span>   m_audioInput(<span class="number">0</span>)
+     <span class="operator">,</span>   m_audioInputIODevice(<span class="number">0</span>)
+     <span class="operator">,</span>   m_recordPosition(<span class="number">0</span>)
+     <span class="operator">,</span>   m_availableAudioOutputDevices
+             (<span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>availableDevices(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioOutput))
+     <span class="operator">,</span>   m_audioOutputDevice(<span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>defaultOutputDevice())
+     <span class="operator">,</span>   m_audioOutput(<span class="number">0</span>)
+     <span class="operator">,</span>   m_playPosition(<span class="number">0</span>)
+     <span class="operator">,</span>   m_bufferPosition(<span class="number">0</span>)
+     <span class="operator">,</span>   m_bufferLength(<span class="number">0</span>)
+     <span class="operator">,</span>   m_dataLength(<span class="number">0</span>)
+     <span class="operator">,</span>   m_levelBufferLength(<span class="number">0</span>)
+     <span class="operator">,</span>   m_rmsLevel(<span class="number">0.0</span>)
+     <span class="operator">,</span>   m_peakLevel(<span class="number">0.0</span>)
+     <span class="operator">,</span>   m_spectrumBufferLength(<span class="number">0</span>)
+     <span class="operator">,</span>   m_spectrumAnalyser()
+     <span class="operator">,</span>   m_spectrumPosition(<span class="number">0</span>)
+     <span class="operator">,</span>   m_count(<span class="number">0</span>)
  {
-     qRegisterMetaType&lt;FrequencySpectrum&gt;(&quot;FrequencySpectrum&quot;);
-     qRegisterMetaType&lt;WindowFunction&gt;(&quot;WindowFunction&quot;);
-     CHECKED_CONNECT(&amp;m_spectrumAnalyser,
-                     SIGNAL(spectrumChanged(FrequencySpectrum)),
-                     this,
+     <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a><span class="operator">&lt;</span>FrequencySpectrum<span class="operator">&gt;</span>(<span class="string">&quot;FrequencySpectrum&quot;</span>);
+     <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a><span class="operator">&lt;</span>WindowFunction<span class="operator">&gt;</span>(<span class="string">&quot;WindowFunction&quot;</span>);
+     CHECKED_CONNECT(<span class="operator">&amp;</span>m_spectrumAnalyser<span class="operator">,</span>
+                     SIGNAL(spectrumChanged(FrequencySpectrum))<span class="operator">,</span>
+                     <span class="keyword">this</span><span class="operator">,</span>
                      SLOT(spectrumChanged(FrequencySpectrum)));
 
      initialize();
 
- #ifdef DUMP_DATA
+ <span class="preprocessor">#ifdef DUMP_DATA</span>
      createOutputDir();
- #endif
+ <span class="preprocessor">#endif</span>
 
- #ifdef DUMP_SPECTRUM
-     m_spectrumAnalyser.setOutputPath(outputPath());
- #endif
+ <span class="preprocessor">#ifdef DUMP_SPECTRUM</span>
+     m_spectrumAnalyser<span class="operator">.</span>setOutputPath(outputPath());
+ <span class="preprocessor">#endif</span>
  }
 
- Engine::~Engine()
+ Engine<span class="operator">::</span><span class="operator">~</span>Engine()
  {
 
  }
 
-<span class="comment"> //-----------------------------------------------------------------------------</span>
-<span class="comment"> // Public functions</span>
-<span class="comment"> //-----------------------------------------------------------------------------</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
+ <span class="comment">// Public functions</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
 
- bool Engine::loadFile(const QString &amp;fileName)
+ <span class="type">bool</span> Engine<span class="operator">::</span>loadFile(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
  {
      reset();
-     bool result = false;
-     Q_ASSERT(!m_generateTone);
-     Q_ASSERT(!m_file);
-     Q_ASSERT(!fileName.isEmpty());
-     m_file = new WavFile(this);
-     if (m_file-&gt;open(fileName)) {
-         if (isPCMS16LE(m_file-&gt;fileFormat())) {
-             result = initialize();
-         } else {
-             emit errorMessage(tr(&quot;Audio format not supported&quot;),
-                               formatToString(m_file-&gt;fileFormat()));
+     <span class="type">bool</span> result <span class="operator">=</span> <span class="keyword">false</span>;
+     Q_ASSERT(<span class="operator">!</span>m_generateTone);
+     Q_ASSERT(<span class="operator">!</span>m_file);
+     Q_ASSERT(<span class="operator">!</span>fileName<span class="operator">.</span>isEmpty());
+     m_file <span class="operator">=</span> <span class="keyword">new</span> WavFile(<span class="keyword">this</span>);
+     <span class="keyword">if</span> (m_file<span class="operator">-</span><span class="operator">&gt;</span>open(fileName)) {
+         <span class="keyword">if</span> (isPCMS16LE(m_file<span class="operator">-</span><span class="operator">&gt;</span>fileFormat())) {
+             result <span class="operator">=</span> initialize();
+         } <span class="keyword">else</span> {
+             <span class="keyword">emit</span> errorMessage(tr(<span class="string">&quot;Audio format not supported&quot;</span>)<span class="operator">,</span>
+                               formatToString(m_file<span class="operator">-</span><span class="operator">&gt;</span>fileFormat()));
          }
-     } else {
-         emit errorMessage(tr(&quot;Could not open file&quot;), fileName);
+     } <span class="keyword">else</span> {
+         <span class="keyword">emit</span> errorMessage(tr(<span class="string">&quot;Could not open file&quot;</span>)<span class="operator">,</span> fileName);
      }
-     if (result) {
-         m_analysisFile = new WavFile(this);
-         m_analysisFile-&gt;open(fileName);
+     <span class="keyword">if</span> (result) {
+         m_analysisFile <span class="operator">=</span> <span class="keyword">new</span> WavFile(<span class="keyword">this</span>);
+         m_analysisFile<span class="operator">-</span><span class="operator">&gt;</span>open(fileName);
      }
-     return result;
+     <span class="keyword">return</span> result;
  }
 
- bool Engine::generateTone(const Tone &amp;tone)
+ <span class="type">bool</span> Engine<span class="operator">::</span>generateTone(<span class="keyword">const</span> Tone <span class="operator">&amp;</span>tone)
  {
      reset();
-     Q_ASSERT(!m_generateTone);
-     Q_ASSERT(!m_file);
-     m_generateTone = true;
-     m_tone = tone;
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::generateTone&quot;
-                  &lt;&lt; &quot;startFreq&quot; &lt;&lt; m_tone.startFreq
-                  &lt;&lt; &quot;endFreq&quot; &lt;&lt; m_tone.endFreq
-                  &lt;&lt; &quot;amp&quot; &lt;&lt; m_tone.amplitude;
-     return initialize();
+     Q_ASSERT(<span class="operator">!</span>m_generateTone);
+     Q_ASSERT(<span class="operator">!</span>m_file);
+     m_generateTone <span class="operator">=</span> <span class="keyword">true</span>;
+     m_tone <span class="operator">=</span> tone;
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::generateTone&quot;</span>
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;startFreq&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_tone<span class="operator">.</span>startFreq
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;endFreq&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_tone<span class="operator">.</span>endFreq
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;amp&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_tone<span class="operator">.</span>amplitude;
+     <span class="keyword">return</span> initialize();
  }
 
- bool Engine::generateSweptTone(qreal amplitude)
+ <span class="type">bool</span> Engine<span class="operator">::</span>generateSweptTone(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> amplitude)
  {
-     Q_ASSERT(!m_generateTone);
-     Q_ASSERT(!m_file);
-     m_generateTone = true;
-     m_tone.startFreq = 1;
-     m_tone.endFreq = 0;
-     m_tone.amplitude = amplitude;
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::generateSweptTone&quot;
-                  &lt;&lt; &quot;startFreq&quot; &lt;&lt; m_tone.startFreq
-                  &lt;&lt; &quot;amp&quot; &lt;&lt; m_tone.amplitude;
-     return initialize();
+     Q_ASSERT(<span class="operator">!</span>m_generateTone);
+     Q_ASSERT(<span class="operator">!</span>m_file);
+     m_generateTone <span class="operator">=</span> <span class="keyword">true</span>;
+     m_tone<span class="operator">.</span>startFreq <span class="operator">=</span> <span class="number">1</span>;
+     m_tone<span class="operator">.</span>endFreq <span class="operator">=</span> <span class="number">0</span>;
+     m_tone<span class="operator">.</span>amplitude <span class="operator">=</span> amplitude;
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::generateSweptTone&quot;</span>
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;startFreq&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_tone<span class="operator">.</span>startFreq
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;amp&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_tone<span class="operator">.</span>amplitude;
+     <span class="keyword">return</span> initialize();
  }
 
- bool Engine::initializeRecord()
+ <span class="type">bool</span> Engine<span class="operator">::</span>initializeRecord()
  {
      reset();
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::initializeRecord&quot;;
-     Q_ASSERT(!m_generateTone);
-     Q_ASSERT(!m_file);
-     m_generateTone = false;
-     m_tone = SweptTone();
-     return initialize();
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::initializeRecord&quot;</span>;
+     Q_ASSERT(<span class="operator">!</span>m_generateTone);
+     Q_ASSERT(<span class="operator">!</span>m_file);
+     m_generateTone <span class="operator">=</span> <span class="keyword">false</span>;
+     m_tone <span class="operator">=</span> SweptTone();
+     <span class="keyword">return</span> initialize();
  }
 
- qint64 Engine::bufferLength() const
+ <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> Engine<span class="operator">::</span>bufferLength() <span class="keyword">const</span>
  {
-     return m_file ? m_file-&gt;size() : m_bufferLength;
+     <span class="keyword">return</span> m_file <span class="operator">?</span> m_file<span class="operator">-</span><span class="operator">&gt;</span>size() : m_bufferLength;
  }
 
- void Engine::setWindowFunction(WindowFunction type)
+ <span class="type">void</span> Engine<span class="operator">::</span>setWindowFunction(WindowFunction type)
  {
-     m_spectrumAnalyser.setWindowFunction(type);
+     m_spectrumAnalyser<span class="operator">.</span>setWindowFunction(type);
  }
 
-<span class="comment"> //-----------------------------------------------------------------------------</span>
-<span class="comment"> // Public slots</span>
-<span class="comment"> //-----------------------------------------------------------------------------</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
+ <span class="comment">// Public slots</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
 
- void Engine::startRecording()
+ <span class="type">void</span> Engine<span class="operator">::</span>startRecording()
  {
-     if (m_audioInput) {
-         if (QAudio::AudioInput == m_mode &amp;&amp;
-             QAudio::SuspendedState == m_state) {
-             m_audioInput-&gt;resume();
-         } else {
-             m_spectrumAnalyser.cancelCalculation();
-             spectrumChanged(0, 0, FrequencySpectrum());
+     <span class="keyword">if</span> (m_audioInput) {
+         <span class="keyword">if</span> (<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput <span class="operator">=</span><span class="operator">=</span> m_mode <span class="operator">&amp;</span><span class="operator">&amp;</span>
+             <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>SuspendedState <span class="operator">=</span><span class="operator">=</span> m_state) {
+             m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>resume();
+         } <span class="keyword">else</span> {
+             m_spectrumAnalyser<span class="operator">.</span>cancelCalculation();
+             spectrumChanged(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> FrequencySpectrum());
 
-             m_buffer.fill(0);
-             setRecordPosition(0, true);
+             m_buffer<span class="operator">.</span>fill(<span class="number">0</span>);
+             setRecordPosition(<span class="number">0</span><span class="operator">,</span> <span class="keyword">true</span>);
              stopPlayback();
-             m_mode = QAudio::AudioInput;
-             CHECKED_CONNECT(m_audioInput, SIGNAL(stateChanged(QAudio::State)),
-                             this, SLOT(audioStateChanged(QAudio::State)));
-             CHECKED_CONNECT(m_audioInput, SIGNAL(notify()),
-                             this, SLOT(audioNotify()));
-             m_count = 0;
-             m_dataLength = 0;
-             emit dataLengthChanged(0);
-             m_audioInputIODevice = m_audioInput-&gt;start();
-             CHECKED_CONNECT(m_audioInputIODevice, SIGNAL(readyRead()),
-                             this, SLOT(audioDataReady()));
+             m_mode <span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput;
+             CHECKED_CONNECT(m_audioInput<span class="operator">,</span> SIGNAL(stateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State))<span class="operator">,</span>
+                             <span class="keyword">this</span><span class="operator">,</span> SLOT(audioStateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State)));
+             CHECKED_CONNECT(m_audioInput<span class="operator">,</span> SIGNAL(notify())<span class="operator">,</span>
+                             <span class="keyword">this</span><span class="operator">,</span> SLOT(audioNotify()));
+             m_count <span class="operator">=</span> <span class="number">0</span>;
+             m_dataLength <span class="operator">=</span> <span class="number">0</span>;
+             <span class="keyword">emit</span> dataLengthChanged(<span class="number">0</span>);
+             m_audioInputIODevice <span class="operator">=</span> m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>start();
+             CHECKED_CONNECT(m_audioInputIODevice<span class="operator">,</span> SIGNAL(readyRead())<span class="operator">,</span>
+                             <span class="keyword">this</span><span class="operator">,</span> SLOT(audioDataReady()));
          }
      }
  }
 
- void Engine::startPlayback()
+ <span class="type">void</span> Engine<span class="operator">::</span>startPlayback()
  {
-     if (m_audioOutput) {
-         if (QAudio::AudioOutput == m_mode &amp;&amp;
-             QAudio::SuspendedState == m_state) {
- #ifdef Q_OS_WIN
+     <span class="keyword">if</span> (m_audioOutput) {
+         <span class="keyword">if</span> (<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioOutput <span class="operator">=</span><span class="operator">=</span> m_mode <span class="operator">&amp;</span><span class="operator">&amp;</span>
+             <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>SuspendedState <span class="operator">=</span><span class="operator">=</span> m_state) {
+ <span class="preprocessor">#ifdef Q_OS_WIN</span>
              <span class="comment">// The Windows backend seems to internally go back into ActiveState</span>
              <span class="comment">// while still returning SuspendedState, so to ensure that it doesn't</span>
              <span class="comment">// ignore the resume() call, we first re-suspend</span>
-             m_audioOutput-&gt;suspend();
- #endif
-             m_audioOutput-&gt;resume();
-         } else {
-             m_spectrumAnalyser.cancelCalculation();
-             spectrumChanged(0, 0, FrequencySpectrum());
-             setPlayPosition(0, true);
+             m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>suspend();
+ <span class="preprocessor">#endif</span>
+             m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>resume();
+         } <span class="keyword">else</span> {
+             m_spectrumAnalyser<span class="operator">.</span>cancelCalculation();
+             spectrumChanged(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> FrequencySpectrum());
+             setPlayPosition(<span class="number">0</span><span class="operator">,</span> <span class="keyword">true</span>);
              stopRecording();
-             m_mode = QAudio::AudioOutput;
-             CHECKED_CONNECT(m_audioOutput, SIGNAL(stateChanged(QAudio::State)),
-                             this, SLOT(audioStateChanged(QAudio::State)));
-             CHECKED_CONNECT(m_audioOutput, SIGNAL(notify()),
-                             this, SLOT(audioNotify()));
-             m_count = 0;
-             if (m_file) {
-                 m_file-&gt;seek(0);
-                 m_bufferPosition = 0;
-                 m_dataLength = 0;
-                 m_audioOutput-&gt;start(m_file);
-             } else {
-                 m_audioOutputIODevice.close();
-                 m_audioOutputIODevice.setBuffer(&amp;m_buffer);
-                 m_audioOutputIODevice.open(QIODevice::ReadOnly);
-                 m_audioOutput-&gt;start(&amp;m_audioOutputIODevice);
+             m_mode <span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioOutput;
+             CHECKED_CONNECT(m_audioOutput<span class="operator">,</span> SIGNAL(stateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State))<span class="operator">,</span>
+                             <span class="keyword">this</span><span class="operator">,</span> SLOT(audioStateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State)));
+             CHECKED_CONNECT(m_audioOutput<span class="operator">,</span> SIGNAL(notify())<span class="operator">,</span>
+                             <span class="keyword">this</span><span class="operator">,</span> SLOT(audioNotify()));
+             m_count <span class="operator">=</span> <span class="number">0</span>;
+             <span class="keyword">if</span> (m_file) {
+                 m_file<span class="operator">-</span><span class="operator">&gt;</span>seek(<span class="number">0</span>);
+                 m_bufferPosition <span class="operator">=</span> <span class="number">0</span>;
+                 m_dataLength <span class="operator">=</span> <span class="number">0</span>;
+                 m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>start(m_file);
+             } <span class="keyword">else</span> {
+                 m_audioOutputIODevice<span class="operator">.</span>close();
+                 m_audioOutputIODevice<span class="operator">.</span>setBuffer(<span class="operator">&amp;</span>m_buffer);
+                 m_audioOutputIODevice<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+                 m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="operator">&amp;</span>m_audioOutputIODevice);
              }
          }
      }
  }
 
- void Engine::suspend()
+ <span class="type">void</span> Engine<span class="operator">::</span>suspend()
  {
-     if (QAudio::ActiveState == m_state ||
-         QAudio::IdleState == m_state) {
-         switch (m_mode) {
-         case QAudio::AudioInput:
-             m_audioInput-&gt;suspend();
-             break;
-         case QAudio::AudioOutput:
-             m_audioOutput-&gt;suspend();
-             break;
+     <span class="keyword">if</span> (<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>ActiveState <span class="operator">=</span><span class="operator">=</span> m_state <span class="operator">|</span><span class="operator">|</span>
+         <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>IdleState <span class="operator">=</span><span class="operator">=</span> m_state) {
+         <span class="keyword">switch</span> (m_mode) {
+         <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput:
+             m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>suspend();
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioOutput:
+             m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>suspend();
+             <span class="keyword">break</span>;
          }
      }
  }
 
- void Engine::setAudioInputDevice(const QAudioDeviceInfo &amp;device)
+ <span class="type">void</span> Engine<span class="operator">::</span>setAudioInputDevice(<span class="keyword">const</span> <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> <span class="operator">&amp;</span>device)
  {
-     if (device.deviceName() != m_audioInputDevice.deviceName()) {
-         m_audioInputDevice = device;
+     <span class="keyword">if</span> (device<span class="operator">.</span>deviceName() <span class="operator">!</span><span class="operator">=</span> m_audioInputDevice<span class="operator">.</span>deviceName()) {
+         m_audioInputDevice <span class="operator">=</span> device;
          initialize();
      }
  }
 
- void Engine::setAudioOutputDevice(const QAudioDeviceInfo &amp;device)
+ <span class="type">void</span> Engine<span class="operator">::</span>setAudioOutputDevice(<span class="keyword">const</span> <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> <span class="operator">&amp;</span>device)
  {
-     if (device.deviceName() != m_audioOutputDevice.deviceName()) {
-         m_audioOutputDevice = device;
+     <span class="keyword">if</span> (device<span class="operator">.</span>deviceName() <span class="operator">!</span><span class="operator">=</span> m_audioOutputDevice<span class="operator">.</span>deviceName()) {
+         m_audioOutputDevice <span class="operator">=</span> device;
          initialize();
      }
  }
 
-<span class="comment"> //-----------------------------------------------------------------------------</span>
-<span class="comment"> // Private slots</span>
-<span class="comment"> //-----------------------------------------------------------------------------</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
+ <span class="comment">// Private slots</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
 
- void Engine::audioNotify()
+ <span class="type">void</span> Engine<span class="operator">::</span>audioNotify()
  {
-     switch (m_mode) {
-     case QAudio::AudioInput: {
-             const qint64 recordPosition = qMin(m_bufferLength, audioLength(m_format, m_audioInput-&gt;processedUSecs()));
+     <span class="keyword">switch</span> (m_mode) {
+     <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput: {
+             <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> recordPosition <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(m_bufferLength<span class="operator">,</span> audioLength(m_format<span class="operator">,</span> m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>processedUSecs()));
              setRecordPosition(recordPosition);
-             const qint64 levelPosition = m_dataLength - m_levelBufferLength;
-             if (levelPosition &gt;= 0)
-                 calculateLevel(levelPosition, m_levelBufferLength);
-             if (m_dataLength &gt;= m_spectrumBufferLength) {
-                 const qint64 spectrumPosition = m_dataLength - m_spectrumBufferLength;
+             <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> levelPosition <span class="operator">=</span> m_dataLength <span class="operator">-</span> m_levelBufferLength;
+             <span class="keyword">if</span> (levelPosition <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>)
+                 calculateLevel(levelPosition<span class="operator">,</span> m_levelBufferLength);
+             <span class="keyword">if</span> (m_dataLength <span class="operator">&gt;</span><span class="operator">=</span> m_spectrumBufferLength) {
+                 <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> spectrumPosition <span class="operator">=</span> m_dataLength <span class="operator">-</span> m_spectrumBufferLength;
                  calculateSpectrum(spectrumPosition);
              }
-             emit bufferChanged(0, m_dataLength, m_buffer);
+             <span class="keyword">emit</span> bufferChanged(<span class="number">0</span><span class="operator">,</span> m_dataLength<span class="operator">,</span> m_buffer);
          }
-         break;
-     case QAudio::AudioOutput: {
-             const qint64 playPosition = audioLength(m_format, m_audioOutput-&gt;processedUSecs());
-             setPlayPosition(qMin(bufferLength(), playPosition));
-             const qint64 levelPosition = playPosition - m_levelBufferLength;
-             const qint64 spectrumPosition = playPosition - m_spectrumBufferLength;
-             if (m_file) {
-                 if (levelPosition &gt; m_bufferPosition ||
-                     spectrumPosition &gt; m_bufferPosition ||
-                     qMax(m_levelBufferLength, m_spectrumBufferLength) &gt; m_dataLength) {
-                     m_bufferPosition = 0;
-                     m_dataLength = 0;
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioOutput: {
+             <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> playPosition <span class="operator">=</span> audioLength(m_format<span class="operator">,</span> m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>processedUSecs());
+             setPlayPosition(<a href="qtglobal.html#qMin">qMin</a>(bufferLength()<span class="operator">,</span> playPosition));
+             <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> levelPosition <span class="operator">=</span> playPosition <span class="operator">-</span> m_levelBufferLength;
+             <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> spectrumPosition <span class="operator">=</span> playPosition <span class="operator">-</span> m_spectrumBufferLength;
+             <span class="keyword">if</span> (m_file) {
+                 <span class="keyword">if</span> (levelPosition <span class="operator">&gt;</span> m_bufferPosition <span class="operator">|</span><span class="operator">|</span>
+                     spectrumPosition <span class="operator">&gt;</span> m_bufferPosition <span class="operator">|</span><span class="operator">|</span>
+                     <a href="qtglobal.html#qMax">qMax</a>(m_levelBufferLength<span class="operator">,</span> m_spectrumBufferLength) <span class="operator">&gt;</span> m_dataLength) {
+                     m_bufferPosition <span class="operator">=</span> <span class="number">0</span>;
+                     m_dataLength <span class="operator">=</span> <span class="number">0</span>;
                      <span class="comment">// Data needs to be read into m_buffer in order to be analysed</span>
-                     const qint64 readPos = qMax(qint64(0), qMin(levelPosition, spectrumPosition));
-                     const qint64 readEnd = qMin(m_analysisFile-&gt;size(), qMax(levelPosition + m_levelBufferLength, spectrumPosition + m_spectrumBufferLength));
-                     const qint64 readLen = readEnd - readPos + audioLength(m_format, WaveformWindowDuration);
-                     qDebug() &lt;&lt; &quot;Engine::audioNotify [1]&quot;
-                              &lt;&lt; &quot;analysisFileSize&quot; &lt;&lt; m_analysisFile-&gt;size()
-                              &lt;&lt; &quot;readPos&quot; &lt;&lt; readPos
-                              &lt;&lt; &quot;readLen&quot; &lt;&lt; readLen;
-                     if (m_analysisFile-&gt;seek(readPos + m_analysisFile-&gt;headerLength())) {
-                         m_buffer.resize(readLen);
-                         m_bufferPosition = readPos;
-                         m_dataLength = m_analysisFile-&gt;read(m_buffer.data(), readLen);
-                         qDebug() &lt;&lt; &quot;Engine::audioNotify [2]&quot; &lt;&lt; &quot;bufferPosition&quot; &lt;&lt; m_bufferPosition &lt;&lt; &quot;dataLength&quot; &lt;&lt; m_dataLength;
-                     } else {
-                         qDebug() &lt;&lt; &quot;Engine::audioNotify [2]&quot; &lt;&lt; &quot;file seek error&quot;;
+                     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> readPos <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>(<span class="number">0</span>)<span class="operator">,</span> <a href="qtglobal.html#qMin">qMin</a>(levelPosition<span class="operator">,</span> spectrumPosition));
+                     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> readEnd <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(m_analysisFile<span class="operator">-</span><span class="operator">&gt;</span>size()<span class="operator">,</span> <a href="qtglobal.html#qMax">qMax</a>(levelPosition <span class="operator">+</span> m_levelBufferLength<span class="operator">,</span> spectrumPosition <span class="operator">+</span> m_spectrumBufferLength));
+                     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> readLen <span class="operator">=</span> readEnd <span class="operator">-</span> readPos <span class="operator">+</span> audioLength(m_format<span class="operator">,</span> WaveformWindowDuration);
+                     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::audioNotify [1]&quot;</span>
+                              <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;analysisFileSize&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_analysisFile<span class="operator">-</span><span class="operator">&gt;</span>size()
+                              <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;readPos&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> readPos
+                              <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;readLen&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> readLen;
+                     <span class="keyword">if</span> (m_analysisFile<span class="operator">-</span><span class="operator">&gt;</span>seek(readPos <span class="operator">+</span> m_analysisFile<span class="operator">-</span><span class="operator">&gt;</span>headerLength())) {
+                         m_buffer<span class="operator">.</span>resize(readLen);
+                         m_bufferPosition <span class="operator">=</span> readPos;
+                         m_dataLength <span class="operator">=</span> m_analysisFile<span class="operator">-</span><span class="operator">&gt;</span>read(m_buffer<span class="operator">.</span>data()<span class="operator">,</span> readLen);
+                         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::audioNotify [2]&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;bufferPosition&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_bufferPosition <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;dataLength&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_dataLength;
+                     } <span class="keyword">else</span> {
+                         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::audioNotify [2]&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;file seek error&quot;</span>;
                      }
-                     emit bufferChanged(m_bufferPosition, m_dataLength, m_buffer);
+                     <span class="keyword">emit</span> bufferChanged(m_bufferPosition<span class="operator">,</span> m_dataLength<span class="operator">,</span> m_buffer);
                  }
-             } else {
-                 if (playPosition &gt;= m_dataLength)
+             } <span class="keyword">else</span> {
+                 <span class="keyword">if</span> (playPosition <span class="operator">&gt;</span><span class="operator">=</span> m_dataLength)
                      stopPlayback();
              }
-             if (levelPosition &gt;= 0 &amp;&amp; levelPosition + m_levelBufferLength &lt; m_bufferPosition + m_dataLength)
-                 calculateLevel(levelPosition, m_levelBufferLength);
-             if (spectrumPosition &gt;= 0 &amp;&amp; spectrumPosition + m_spectrumBufferLength &lt; m_bufferPosition + m_dataLength)
+             <span class="keyword">if</span> (levelPosition <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> levelPosition <span class="operator">+</span> m_levelBufferLength <span class="operator">&lt;</span> m_bufferPosition <span class="operator">+</span> m_dataLength)
+                 calculateLevel(levelPosition<span class="operator">,</span> m_levelBufferLength);
+             <span class="keyword">if</span> (spectrumPosition <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> spectrumPosition <span class="operator">+</span> m_spectrumBufferLength <span class="operator">&lt;</span> m_bufferPosition <span class="operator">+</span> m_dataLength)
                  calculateSpectrum(spectrumPosition);
          }
-         break;
+         <span class="keyword">break</span>;
      }
  }
 
- void Engine::audioStateChanged(QAudio::State state)
+ <span class="type">void</span> Engine<span class="operator">::</span>audioStateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state)
  {
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::audioStateChanged from&quot; &lt;&lt; m_state
-                  &lt;&lt; &quot;to&quot; &lt;&lt; state;
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::audioStateChanged from&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_state
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;to&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> state;
 
-     if (QAudio::IdleState == state &amp;&amp; m_file &amp;&amp; m_file-&gt;pos() == m_file-&gt;size()) {
+     <span class="keyword">if</span> (<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>IdleState <span class="operator">=</span><span class="operator">=</span> state <span class="operator">&amp;</span><span class="operator">&amp;</span> m_file <span class="operator">&amp;</span><span class="operator">&amp;</span> m_file<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">=</span><span class="operator">=</span> m_file<span class="operator">-</span><span class="operator">&gt;</span>size()) {
          stopPlayback();
-     } else {
-         if (QAudio::StoppedState == state) {
+     } <span class="keyword">else</span> {
+         <span class="keyword">if</span> (<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>StoppedState <span class="operator">=</span><span class="operator">=</span> state) {
              <span class="comment">// Check error</span>
-             QAudio::Error error = QAudio::NoError;
-             switch (m_mode) {
-             case QAudio::AudioInput:
-                 error = m_audioInput-&gt;error();
-                 break;
-             case QAudio::AudioOutput:
-                 error = m_audioOutput-&gt;error();
-                 break;
+             <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>Error error <span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>NoError;
+             <span class="keyword">switch</span> (m_mode) {
+             <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput:
+                 error <span class="operator">=</span> m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>error();
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioOutput:
+                 error <span class="operator">=</span> m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>error();
+                 <span class="keyword">break</span>;
              }
-             if (QAudio::NoError != error) {
+             <span class="keyword">if</span> (<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>NoError <span class="operator">!</span><span class="operator">=</span> error) {
                  reset();
-                 return;
+                 <span class="keyword">return</span>;
              }
          }
          setState(state);
      }
  }
 
- void Engine::audioDataReady()
+ <span class="type">void</span> Engine<span class="operator">::</span>audioDataReady()
  {
-     Q_ASSERT(0 == m_bufferPosition);
-     const qint64 bytesReady = m_audioInput-&gt;bytesReady();
-     const qint64 bytesSpace = m_buffer.size() - m_dataLength;
-     const qint64 bytesToRead = qMin(bytesReady, bytesSpace);
+     Q_ASSERT(<span class="number">0</span> <span class="operator">=</span><span class="operator">=</span> m_bufferPosition);
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> bytesReady <span class="operator">=</span> m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>bytesReady();
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> bytesSpace <span class="operator">=</span> m_buffer<span class="operator">.</span>size() <span class="operator">-</span> m_dataLength;
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> bytesToRead <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(bytesReady<span class="operator">,</span> bytesSpace);
 
-     const qint64 bytesRead = m_audioInputIODevice-&gt;read(
-                                        m_buffer.data() + m_dataLength,
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> bytesRead <span class="operator">=</span> m_audioInputIODevice<span class="operator">-</span><span class="operator">&gt;</span>read(
+                                        m_buffer<span class="operator">.</span>data() <span class="operator">+</span> m_dataLength<span class="operator">,</span>
                                         bytesToRead);
 
-     if (bytesRead) {
-         m_dataLength += bytesRead;
-         emit dataLengthChanged(dataLength());
+     <span class="keyword">if</span> (bytesRead) {
+         m_dataLength <span class="operator">+</span><span class="operator">=</span> bytesRead;
+         <span class="keyword">emit</span> dataLengthChanged(dataLength());
      }
 
-     if (m_buffer.size() == m_dataLength)
+     <span class="keyword">if</span> (m_buffer<span class="operator">.</span>size() <span class="operator">=</span><span class="operator">=</span> m_dataLength)
          stopRecording();
  }
 
- void Engine::spectrumChanged(const FrequencySpectrum &amp;spectrum)
+ <span class="type">void</span> Engine<span class="operator">::</span>spectrumChanged(<span class="keyword">const</span> FrequencySpectrum <span class="operator">&amp;</span>spectrum)
  {
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::spectrumChanged&quot; &lt;&lt; &quot;pos&quot; &lt;&lt; m_spectrumPosition;
-     emit spectrumChanged(m_spectrumPosition, m_spectrumBufferLength, spectrum);
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::spectrumChanged&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;pos&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_spectrumPosition;
+     <span class="keyword">emit</span> spectrumChanged(m_spectrumPosition<span class="operator">,</span> m_spectrumBufferLength<span class="operator">,</span> spectrum);
  }
 
-<span class="comment"> //-----------------------------------------------------------------------------</span>
-<span class="comment"> // Private functions</span>
-<span class="comment"> //-----------------------------------------------------------------------------</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
+ <span class="comment">// Private functions</span>
+ <span class="comment">//-----------------------------------------------------------------------------</span>
 
- void Engine::resetAudioDevices()
+ <span class="type">void</span> Engine<span class="operator">::</span>resetAudioDevices()
  {
-     delete m_audioInput;
-     m_audioInput = 0;
-     m_audioInputIODevice = 0;
-     setRecordPosition(0);
-     delete m_audioOutput;
-     m_audioOutput = 0;
-     setPlayPosition(0);
-     m_spectrumPosition = 0;
-     setLevel(0.0, 0.0, 0);
+     <span class="keyword">delete</span> m_audioInput;
+     m_audioInput <span class="operator">=</span> <span class="number">0</span>;
+     m_audioInputIODevice <span class="operator">=</span> <span class="number">0</span>;
+     setRecordPosition(<span class="number">0</span>);
+     <span class="keyword">delete</span> m_audioOutput;
+     m_audioOutput <span class="operator">=</span> <span class="number">0</span>;
+     setPlayPosition(<span class="number">0</span>);
+     m_spectrumPosition <span class="operator">=</span> <span class="number">0</span>;
+     setLevel(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0</span>);
  }
 
- void Engine::reset()
+ <span class="type">void</span> Engine<span class="operator">::</span><a href="qtextstream.html#reset">reset</a>()
  {
      stopRecording();
      stopPlayback();
-     setState(QAudio::AudioInput, QAudio::StoppedState);
-     setFormat(QAudioFormat());
-     m_generateTone = false;
-     delete m_file;
-     m_file = 0;
-     delete m_analysisFile;
-     m_analysisFile = 0;
-     m_buffer.clear();
-     m_bufferPosition = 0;
-     m_bufferLength = 0;
-     m_dataLength = 0;
-     emit dataLengthChanged(0);
+     setState(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>AudioInput<span class="operator">,</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>StoppedState);
+     setFormat(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span>());
+     m_generateTone <span class="operator">=</span> <span class="keyword">false</span>;
+     <span class="keyword">delete</span> m_file;
+     m_file <span class="operator">=</span> <span class="number">0</span>;
+     <span class="keyword">delete</span> m_analysisFile;
+     m_analysisFile <span class="operator">=</span> <span class="number">0</span>;
+     m_buffer<span class="operator">.</span>clear();
+     m_bufferPosition <span class="operator">=</span> <span class="number">0</span>;
+     m_bufferLength <span class="operator">=</span> <span class="number">0</span>;
+     m_dataLength <span class="operator">=</span> <span class="number">0</span>;
+     <span class="keyword">emit</span> dataLengthChanged(<span class="number">0</span>);
      resetAudioDevices();
  }
 
- bool Engine::initialize()
+ <span class="type">bool</span> Engine<span class="operator">::</span>initialize()
  {
-     bool result = false;
+     <span class="type">bool</span> result <span class="operator">=</span> <span class="keyword">false</span>;
 
-     QAudioFormat format = m_format;
+     <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> format <span class="operator">=</span> m_format;
 
-     if (selectFormat()) {
-         if (m_format != format) {
+     <span class="keyword">if</span> (selectFormat()) {
+         <span class="keyword">if</span> (m_format <span class="operator">!</span><span class="operator">=</span> format) {
              resetAudioDevices();
-             if (m_file) {
-                 emit bufferLengthChanged(bufferLength());
-                 emit dataLengthChanged(dataLength());
-                 emit bufferChanged(0, 0, m_buffer);
+             <span class="keyword">if</span> (m_file) {
+                 <span class="keyword">emit</span> bufferLengthChanged(bufferLength());
+                 <span class="keyword">emit</span> dataLengthChanged(dataLength());
+                 <span class="keyword">emit</span> bufferChanged(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> m_buffer);
                  setRecordPosition(bufferLength());
-                 result = true;
-             } else {
-                 m_bufferLength = audioLength(m_format, BufferDurationUs);
-                 m_buffer.resize(m_bufferLength);
-                 m_buffer.fill(0);
-                 emit bufferLengthChanged(bufferLength());
-                 if (m_generateTone) {
-                     if (0 == m_tone.endFreq) {
-                         const qreal nyquist = nyquistFrequency(m_format);
-                         m_tone.endFreq = qMin(qreal(SpectrumHighFreq), nyquist);
+                 result <span class="operator">=</span> <span class="keyword">true</span>;
+             } <span class="keyword">else</span> {
+                 m_bufferLength <span class="operator">=</span> audioLength(m_format<span class="operator">,</span> BufferDurationUs);
+                 m_buffer<span class="operator">.</span>resize(m_bufferLength);
+                 m_buffer<span class="operator">.</span>fill(<span class="number">0</span>);
+                 <span class="keyword">emit</span> bufferLengthChanged(bufferLength());
+                 <span class="keyword">if</span> (m_generateTone) {
+                     <span class="keyword">if</span> (<span class="number">0</span> <span class="operator">=</span><span class="operator">=</span> m_tone<span class="operator">.</span>endFreq) {
+                         <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> nyquist <span class="operator">=</span> nyquistFrequency(m_format);
+                         m_tone<span class="operator">.</span>endFreq <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(SpectrumHighFreq)<span class="operator">,</span> nyquist);
                      }
                      <span class="comment">// Call function defined in utils.h, at global scope</span>
-                     ::generateTone(m_tone, m_format, m_buffer);
-                     m_dataLength = m_bufferLength;
-                     emit dataLengthChanged(dataLength());
-                     emit bufferChanged(0, m_dataLength, m_buffer);
+                     <span class="operator">::</span>generateTone(m_tone<span class="operator">,</span> m_format<span class="operator">,</span> m_buffer);
+                     m_dataLength <span class="operator">=</span> m_bufferLength;
+                     <span class="keyword">emit</span> dataLengthChanged(dataLength());
+                     <span class="keyword">emit</span> bufferChanged(<span class="number">0</span><span class="operator">,</span> m_dataLength<span class="operator">,</span> m_buffer);
                      setRecordPosition(m_bufferLength);
-                     result = true;
-                 } else {
-                     emit bufferChanged(0, 0, m_buffer);
-                     m_audioInput = new QAudioInput(m_audioInputDevice, m_format, this);
-                     m_audioInput-&gt;setNotifyInterval(NotifyIntervalMs);
-                     result = true;
+                     result <span class="operator">=</span> <span class="keyword">true</span>;
+                 } <span class="keyword">else</span> {
+                     <span class="keyword">emit</span> bufferChanged(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> m_buffer);
+                     m_audioInput <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaudioinput.html">QAudioInput</a></span>(m_audioInputDevice<span class="operator">,</span> m_format<span class="operator">,</span> <span class="keyword">this</span>);
+                     m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>setNotifyInterval(NotifyIntervalMs);
+                     result <span class="operator">=</span> <span class="keyword">true</span>;
                  }
              }
-             m_audioOutput = new QAudioOutput(m_audioOutputDevice, m_format, this);
-             m_audioOutput-&gt;setNotifyInterval(NotifyIntervalMs);
+             m_audioOutput <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaudiooutput.html">QAudioOutput</a></span>(m_audioOutputDevice<span class="operator">,</span> m_format<span class="operator">,</span> <span class="keyword">this</span>);
+             m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>setNotifyInterval(NotifyIntervalMs);
          }
-     } else {
-         if (m_file)
-             emit errorMessage(tr(&quot;Audio format not supported&quot;),
+     } <span class="keyword">else</span> {
+         <span class="keyword">if</span> (m_file)
+             <span class="keyword">emit</span> errorMessage(tr(<span class="string">&quot;Audio format not supported&quot;</span>)<span class="operator">,</span>
                                formatToString(m_format));
-         else if (m_generateTone)
-             emit errorMessage(tr(&quot;No suitable format found&quot;), &quot;&quot;);
-         else
-             emit errorMessage(tr(&quot;No common input / output format found&quot;), &quot;&quot;);
+         <span class="keyword">else</span> <span class="keyword">if</span> (m_generateTone)
+             <span class="keyword">emit</span> errorMessage(tr(<span class="string">&quot;No suitable format found&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span>);
+         <span class="keyword">else</span>
+             <span class="keyword">emit</span> errorMessage(tr(<span class="string">&quot;No common input / output format found&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span>);
      }
 
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::initialize&quot; &lt;&lt; &quot;m_bufferLength&quot; &lt;&lt; m_bufferLength;
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::initialize&quot; &lt;&lt; &quot;m_dataLength&quot; &lt;&lt; m_dataLength;
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::initialize&quot; &lt;&lt; &quot;format&quot; &lt;&lt; m_format;
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::initialize&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;m_bufferLength&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_bufferLength;
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::initialize&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;m_dataLength&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_dataLength;
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::initialize&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;format&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_format;
 
-     return result;
+     <span class="keyword">return</span> result;
  }
 
- bool Engine::selectFormat()
+ <span class="type">bool</span> Engine<span class="operator">::</span>selectFormat()
  {
-     bool foundSupportedFormat = false;
+     <span class="type">bool</span> foundSupportedFormat <span class="operator">=</span> <span class="keyword">false</span>;
 
-     if (m_file || QAudioFormat() != m_format) {
-         QAudioFormat format = m_format;
-         if (m_file)
+     <span class="keyword">if</span> (m_file <span class="operator">|</span><span class="operator">|</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span>() <span class="operator">!</span><span class="operator">=</span> m_format) {
+         <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> format <span class="operator">=</span> m_format;
+         <span class="keyword">if</span> (m_file)
              <span class="comment">// Header is read from the WAV file; just need to check whether</span>
              <span class="comment">// it is supported by the audio output device</span>
-             format = m_file-&gt;fileFormat();
-         if (m_audioOutputDevice.isFormatSupported(format)) {
+             format <span class="operator">=</span> m_file<span class="operator">-</span><span class="operator">&gt;</span>fileFormat();
+         <span class="keyword">if</span> (m_audioOutputDevice<span class="operator">.</span>isFormatSupported(format)) {
              setFormat(format);
-             foundSupportedFormat = true;
+             foundSupportedFormat <span class="operator">=</span> <span class="keyword">true</span>;
          }
-     } else {
+     } <span class="keyword">else</span> {
 
-         QList&lt;int&gt; frequenciesList;
-     #ifdef Q_OS_WIN
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> frequenciesList;
+     <span class="preprocessor">#ifdef Q_OS_WIN</span>
          <span class="comment">// The Windows audio backend does not correctly report format support</span>
          <span class="comment">// (see QTBUG-9100).  Furthermore, although the audio subsystem captures</span>
          <span class="comment">// at 11025Hz, the resulting audio is corrupted.</span>
-         frequenciesList += 8000;
-     #endif
+         frequenciesList <span class="operator">+</span><span class="operator">=</span> <span class="number">8000</span>;
+     <span class="preprocessor">#endif</span>
 
-         if (!m_generateTone)
-             frequenciesList += m_audioInputDevice.supportedFrequencies();
+         <span class="keyword">if</span> (<span class="operator">!</span>m_generateTone)
+             frequenciesList <span class="operator">+</span><span class="operator">=</span> m_audioInputDevice<span class="operator">.</span>supportedFrequencies();
 
-         frequenciesList += m_audioOutputDevice.supportedFrequencies();
-         frequenciesList = frequenciesList.toSet().toList(); <span class="comment">// remove duplicates</span>
-         qSort(frequenciesList);
-         ENGINE_DEBUG &lt;&lt; &quot;Engine::initialize frequenciesList&quot; &lt;&lt; frequenciesList;
+         frequenciesList <span class="operator">+</span><span class="operator">=</span> m_audioOutputDevice<span class="operator">.</span>supportedFrequencies();
+         frequenciesList <span class="operator">=</span> frequenciesList<span class="operator">.</span>toSet()<span class="operator">.</span>toList(); <span class="comment">// remove duplicates</span>
+         <a href="qtalgorithms.html#qSort">qSort</a>(frequenciesList);
+         ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::initialize frequenciesList&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> frequenciesList;
 
-         QList&lt;int&gt; channelsList;
-         channelsList += m_audioInputDevice.supportedChannels();
-         channelsList += m_audioOutputDevice.supportedChannels();
-         channelsList = channelsList.toSet().toList();
-         qSort(channelsList);
-         ENGINE_DEBUG &lt;&lt; &quot;Engine::initialize channelsList&quot; &lt;&lt; channelsList;
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> channelsList;
+         channelsList <span class="operator">+</span><span class="operator">=</span> m_audioInputDevice<span class="operator">.</span>supportedChannels();
+         channelsList <span class="operator">+</span><span class="operator">=</span> m_audioOutputDevice<span class="operator">.</span>supportedChannels();
+         channelsList <span class="operator">=</span> channelsList<span class="operator">.</span>toSet()<span class="operator">.</span>toList();
+         <a href="qtalgorithms.html#qSort">qSort</a>(channelsList);
+         ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::initialize channelsList&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> channelsList;
 
-         QAudioFormat format;
-         format.setByteOrder(QAudioFormat::LittleEndian);
-         format.setCodec(&quot;audio/pcm&quot;);
-         format.setSampleSize(16);
-         format.setSampleType(QAudioFormat::SignedInt);
-         int frequency, channels;
-         foreach (frequency, frequenciesList) {
-             if (foundSupportedFormat)
-                 break;
-             format.setFrequency(frequency);
-             foreach (channels, channelsList) {
-                 format.setChannels(channels);
-                 const bool inputSupport = m_generateTone ||
-                                           m_audioInputDevice.isFormatSupported(format);
-                 const bool outputSupport = m_audioOutputDevice.isFormatSupported(format);
-                 ENGINE_DEBUG &lt;&lt; &quot;Engine::initialize checking &quot; &lt;&lt; format
-                              &lt;&lt; &quot;input&quot; &lt;&lt; inputSupport
-                              &lt;&lt; &quot;output&quot; &lt;&lt; outputSupport;
-                 if (inputSupport &amp;&amp; outputSupport) {
-                     foundSupportedFormat = true;
-                     break;
+         <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> format;
+         format<span class="operator">.</span>setByteOrder(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>LittleEndian);
+         format<span class="operator">.</span>setCodec(<span class="string">&quot;audio/pcm&quot;</span>);
+         format<span class="operator">.</span>setSampleSize(<span class="number">16</span>);
+         format<span class="operator">.</span>setSampleType(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>SignedInt);
+         <span class="type">int</span> frequency<span class="operator">,</span> channels;
+         foreach (frequency<span class="operator">,</span> frequenciesList) {
+             <span class="keyword">if</span> (foundSupportedFormat)
+                 <span class="keyword">break</span>;
+             format<span class="operator">.</span>setFrequency(frequency);
+             foreach (channels<span class="operator">,</span> channelsList) {
+                 format<span class="operator">.</span>setChannels(channels);
+                 <span class="keyword">const</span> <span class="type">bool</span> inputSupport <span class="operator">=</span> m_generateTone <span class="operator">|</span><span class="operator">|</span>
+                                           m_audioInputDevice<span class="operator">.</span>isFormatSupported(format);
+                 <span class="keyword">const</span> <span class="type">bool</span> outputSupport <span class="operator">=</span> m_audioOutputDevice<span class="operator">.</span>isFormatSupported(format);
+                 ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::initialize checking &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> format
+                              <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;input&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> inputSupport
+                              <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;output&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> outputSupport;
+                 <span class="keyword">if</span> (inputSupport <span class="operator">&amp;</span><span class="operator">&amp;</span> outputSupport) {
+                     foundSupportedFormat <span class="operator">=</span> <span class="keyword">true</span>;
+                     <span class="keyword">break</span>;
                  }
              }
          }
 
-         if (!foundSupportedFormat)
-             format = QAudioFormat();
+         <span class="keyword">if</span> (<span class="operator">!</span>foundSupportedFormat)
+             format <span class="operator">=</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span>();
 
          setFormat(format);
      }
 
-     return foundSupportedFormat;
+     <span class="keyword">return</span> foundSupportedFormat;
  }
 
- void Engine::stopRecording()
+ <span class="type">void</span> Engine<span class="operator">::</span>stopRecording()
  {
-     if (m_audioInput) {
-         m_audioInput-&gt;stop();
-         QCoreApplication::instance()-&gt;processEvents();
-         m_audioInput-&gt;disconnect();
+     <span class="keyword">if</span> (m_audioInput) {
+         m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>stop();
+         <span class="type"><a href="qcoreapplication.html">QCoreApplication</a></span><span class="operator">::</span>instance()<span class="operator">-</span><span class="operator">&gt;</span>processEvents();
+         m_audioInput<span class="operator">-</span><span class="operator">&gt;</span>disconnect();
      }
-     m_audioInputIODevice = 0;
+     m_audioInputIODevice <span class="operator">=</span> <span class="number">0</span>;
 
- #ifdef DUMP_AUDIO
+ <span class="preprocessor">#ifdef DUMP_AUDIO</span>
      dumpData();
- #endif
+ <span class="preprocessor">#endif</span>
  }
 
- void Engine::stopPlayback()
+ <span class="type">void</span> Engine<span class="operator">::</span>stopPlayback()
  {
-     if (m_audioOutput) {
-         m_audioOutput-&gt;stop();
-         QCoreApplication::instance()-&gt;processEvents();
-         m_audioOutput-&gt;disconnect();
-         setPlayPosition(0);
+     <span class="keyword">if</span> (m_audioOutput) {
+         m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>stop();
+         <span class="type"><a href="qcoreapplication.html">QCoreApplication</a></span><span class="operator">::</span>instance()<span class="operator">-</span><span class="operator">&gt;</span>processEvents();
+         m_audioOutput<span class="operator">-</span><span class="operator">&gt;</span>disconnect();
+         setPlayPosition(<span class="number">0</span>);
      }
  }
 
- void Engine::setState(QAudio::State state)
+ <span class="type">void</span> Engine<span class="operator">::</span>setState(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state)
  {
-     const bool changed = (m_state != state);
-     m_state = state;
-     if (changed)
-         emit stateChanged(m_mode, m_state);
+     <span class="keyword">const</span> <span class="type">bool</span> changed <span class="operator">=</span> (m_state <span class="operator">!</span><span class="operator">=</span> state);
+     m_state <span class="operator">=</span> state;
+     <span class="keyword">if</span> (changed)
+         <span class="keyword">emit</span> stateChanged(m_mode<span class="operator">,</span> m_state);
  }
 
- void Engine::setState(QAudio::Mode mode, QAudio::State state)
+ <span class="type">void</span> Engine<span class="operator">::</span>setState(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>Mode mode<span class="operator">,</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state)
  {
-     const bool changed = (m_mode != mode || m_state != state);
-     m_mode = mode;
-     m_state = state;
-     if (changed)
-         emit stateChanged(m_mode, m_state);
+     <span class="keyword">const</span> <span class="type">bool</span> changed <span class="operator">=</span> (m_mode <span class="operator">!</span><span class="operator">=</span> mode <span class="operator">|</span><span class="operator">|</span> m_state <span class="operator">!</span><span class="operator">=</span> state);
+     m_mode <span class="operator">=</span> mode;
+     m_state <span class="operator">=</span> state;
+     <span class="keyword">if</span> (changed)
+         <span class="keyword">emit</span> stateChanged(m_mode<span class="operator">,</span> m_state);
  }
 
- void Engine::setRecordPosition(qint64 position, bool forceEmit)
+ <span class="type">void</span> Engine<span class="operator">::</span>setRecordPosition(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type">bool</span> forceEmit)
  {
-     const bool changed = (m_recordPosition != position);
-     m_recordPosition = position;
-     if (changed || forceEmit)
-         emit recordPositionChanged(m_recordPosition);
+     <span class="keyword">const</span> <span class="type">bool</span> changed <span class="operator">=</span> (m_recordPosition <span class="operator">!</span><span class="operator">=</span> position);
+     m_recordPosition <span class="operator">=</span> position;
+     <span class="keyword">if</span> (changed <span class="operator">|</span><span class="operator">|</span> forceEmit)
+         <span class="keyword">emit</span> recordPositionChanged(m_recordPosition);
  }
 
- void Engine::setPlayPosition(qint64 position, bool forceEmit)
+ <span class="type">void</span> Engine<span class="operator">::</span>setPlayPosition(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type">bool</span> forceEmit)
  {
-     const bool changed = (m_playPosition != position);
-     m_playPosition = position;
-     if (changed || forceEmit)
-         emit playPositionChanged(m_playPosition);
+     <span class="keyword">const</span> <span class="type">bool</span> changed <span class="operator">=</span> (m_playPosition <span class="operator">!</span><span class="operator">=</span> position);
+     m_playPosition <span class="operator">=</span> position;
+     <span class="keyword">if</span> (changed <span class="operator">|</span><span class="operator">|</span> forceEmit)
+         <span class="keyword">emit</span> playPositionChanged(m_playPosition);
  }
 
- void Engine::calculateLevel(qint64 position, qint64 length)
+ <span class="type">void</span> Engine<span class="operator">::</span>calculateLevel(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> length)
  {
- #ifdef DISABLE_LEVEL
+ <span class="preprocessor">#ifdef DISABLE_LEVEL</span>
      Q_UNUSED(position)
      Q_UNUSED(length)
- #else
-     Q_ASSERT(position + length &lt;= m_bufferPosition + m_dataLength);
+ <span class="preprocessor">#else</span>
+     Q_ASSERT(position <span class="operator">+</span> length <span class="operator">&lt;</span><span class="operator">=</span> m_bufferPosition <span class="operator">+</span> m_dataLength);
 
-     qreal peakLevel = 0.0;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> peakLevel <span class="operator">=</span> <span class="number">0.0</span>;
 
-     qreal sum = 0.0;
-     const char *ptr = m_buffer.constData() + position - m_bufferPosition;
-     const char *const end = ptr + length;
-     while (ptr &lt; end) {
-         const qint16 value = *reinterpret_cast&lt;const qint16*&gt;(ptr);
-         const qreal fracValue = pcmToReal(value);
-         peakLevel = qMax(peakLevel, fracValue);
-         sum += fracValue * fracValue;
-         ptr += 2;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> sum <span class="operator">=</span> <span class="number">0.0</span>;
+     <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>ptr <span class="operator">=</span> m_buffer<span class="operator">.</span>constData() <span class="operator">+</span> position <span class="operator">-</span> m_bufferPosition;
+     <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span><span class="keyword">const</span> end <span class="operator">=</span> ptr <span class="operator">+</span> length;
+     <span class="keyword">while</span> (ptr <span class="operator">&lt;</span> end) {
+         <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span> value <span class="operator">=</span> <span class="operator">*</span><span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span><span class="operator">*</span><span class="operator">&gt;</span>(ptr);
+         <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> fracValue <span class="operator">=</span> pcmToReal(value);
+         peakLevel <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(peakLevel<span class="operator">,</span> fracValue);
+         sum <span class="operator">+</span><span class="operator">=</span> fracValue <span class="operator">*</span> fracValue;
+         ptr <span class="operator">+</span><span class="operator">=</span> <span class="number">2</span>;
      }
-     const int numSamples = length / 2;
-     qreal rmsLevel = sqrt(sum / numSamples);
+     <span class="keyword">const</span> <span class="type">int</span> numSamples <span class="operator">=</span> length <span class="operator">/</span> <span class="number">2</span>;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rmsLevel <span class="operator">=</span> sqrt(sum <span class="operator">/</span> numSamples);
 
-     rmsLevel = qMax(qreal(0.0), rmsLevel);
-     rmsLevel = qMin(qreal(1.0), rmsLevel);
-     setLevel(rmsLevel, peakLevel, numSamples);
+     rmsLevel <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">0.0</span>)<span class="operator">,</span> rmsLevel);
+     rmsLevel <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">1.0</span>)<span class="operator">,</span> rmsLevel);
+     setLevel(rmsLevel<span class="operator">,</span> peakLevel<span class="operator">,</span> numSamples);
 
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::calculateLevel&quot; &lt;&lt; &quot;pos&quot; &lt;&lt; position &lt;&lt; &quot;len&quot; &lt;&lt; length
-                  &lt;&lt; &quot;rms&quot; &lt;&lt; rmsLevel &lt;&lt; &quot;peak&quot; &lt;&lt; peakLevel;
- #endif
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::calculateLevel&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;pos&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> position <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;len&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> length
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;rms&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> rmsLevel <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;peak&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> peakLevel;
+ <span class="preprocessor">#endif</span>
  }
 
- void Engine::calculateSpectrum(qint64 position)
+ <span class="type">void</span> Engine<span class="operator">::</span>calculateSpectrum(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position)
  {
- #ifdef DISABLE_SPECTRUM
+ <span class="preprocessor">#ifdef DISABLE_SPECTRUM</span>
      Q_UNUSED(position)
- #else
-     Q_ASSERT(position + m_spectrumBufferLength &lt;= m_bufferPosition + m_dataLength);
-     Q_ASSERT(0 == m_spectrumBufferLength % 2); <span class="comment">// constraint of FFT algorithm</span>
+ <span class="preprocessor">#else</span>
+     Q_ASSERT(position <span class="operator">+</span> m_spectrumBufferLength <span class="operator">&lt;</span><span class="operator">=</span> m_bufferPosition <span class="operator">+</span> m_dataLength);
+     Q_ASSERT(<span class="number">0</span> <span class="operator">=</span><span class="operator">=</span> m_spectrumBufferLength <span class="operator">%</span> <span class="number">2</span>); <span class="comment">// constraint of FFT algorithm</span>
 
      <span class="comment">// QThread::currentThread is marked 'for internal use only', but</span>
      <span class="comment">// we're only using it for debug output here, so it's probably OK :)</span>
-     ENGINE_DEBUG &lt;&lt; &quot;Engine::calculateSpectrum&quot; &lt;&lt; QThread::currentThread()
-                  &lt;&lt; &quot;count&quot; &lt;&lt; m_count &lt;&lt; &quot;pos&quot; &lt;&lt; position &lt;&lt; &quot;len&quot; &lt;&lt; m_spectrumBufferLength
-                  &lt;&lt; &quot;spectrumAnalyser.isReady&quot; &lt;&lt; m_spectrumAnalyser.isReady();
+     ENGINE_DEBUG <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Engine::calculateSpectrum&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qthread.html">QThread</a></span><span class="operator">::</span>currentThread()
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;count&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_count <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;pos&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> position <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;len&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_spectrumBufferLength
+                  <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;spectrumAnalyser.isReady&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> m_spectrumAnalyser<span class="operator">.</span>isReady();
 
-     if(m_spectrumAnalyser.isReady()) {
-         m_spectrumBuffer = QByteArray::fromRawData(m_buffer.constData() + position - m_bufferPosition,
+     <span class="keyword">if</span>(m_spectrumAnalyser<span class="operator">.</span>isReady()) {
+         m_spectrumBuffer <span class="operator">=</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">::</span>fromRawData(m_buffer<span class="operator">.</span>constData() <span class="operator">+</span> position <span class="operator">-</span> m_bufferPosition<span class="operator">,</span>
                                                     m_spectrumBufferLength);
-         m_spectrumPosition = position;
-         m_spectrumAnalyser.calculate(m_spectrumBuffer, m_format);
+         m_spectrumPosition <span class="operator">=</span> position;
+         m_spectrumAnalyser<span class="operator">.</span>calculate(m_spectrumBuffer<span class="operator">,</span> m_format);
      }
- #endif
+ <span class="preprocessor">#endif</span>
  }
 
- void Engine::setFormat(const QAudioFormat &amp;format)
+ <span class="type">void</span> Engine<span class="operator">::</span>setFormat(<span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> <span class="operator">&amp;</span>format)
  {
-     const bool changed = (format != m_format);
-     m_format = format;
-     m_levelBufferLength = audioLength(m_format, LevelWindowUs);
-     m_spectrumBufferLength = SpectrumLengthSamples *
-                             (m_format.sampleSize() / 8) * m_format.channels();
-     if (changed)
-         emit formatChanged(m_format);
+     <span class="keyword">const</span> <span class="type">bool</span> changed <span class="operator">=</span> (format <span class="operator">!</span><span class="operator">=</span> m_format);
+     m_format <span class="operator">=</span> format;
+     m_levelBufferLength <span class="operator">=</span> audioLength(m_format<span class="operator">,</span> LevelWindowUs);
+     m_spectrumBufferLength <span class="operator">=</span> SpectrumLengthSamples <span class="operator">*</span>
+                             (m_format<span class="operator">.</span>sampleSize() <span class="operator">/</span> <span class="number">8</span>) <span class="operator">*</span> m_format<span class="operator">.</span>channels();
+     <span class="keyword">if</span> (changed)
+         <span class="keyword">emit</span> formatChanged(m_format);
  }
 
- void Engine::setLevel(qreal rmsLevel, qreal peakLevel, int numSamples)
+ <span class="type">void</span> Engine<span class="operator">::</span>setLevel(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rmsLevel<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> peakLevel<span class="operator">,</span> <span class="type">int</span> numSamples)
  {
-     m_rmsLevel = rmsLevel;
-     m_peakLevel = peakLevel;
-     emit levelChanged(m_rmsLevel, m_peakLevel, numSamples);
+     m_rmsLevel <span class="operator">=</span> rmsLevel;
+     m_peakLevel <span class="operator">=</span> peakLevel;
+     <span class="keyword">emit</span> levelChanged(m_rmsLevel<span class="operator">,</span> m_peakLevel<span class="operator">,</span> numSamples);
  }
 
- #ifdef DUMP_DATA
- void Engine::createOutputDir()
+ <span class="preprocessor">#ifdef DUMP_DATA</span>
+ <span class="type">void</span> Engine<span class="operator">::</span>createOutputDir()
  {
-     m_outputDir.setPath(&quot;output&quot;);
+     m_outputDir<span class="operator">.</span>setPath(<span class="string">&quot;output&quot;</span>);
 
      <span class="comment">// Ensure output directory exists and is empty</span>
-     if (m_outputDir.exists()) {
-         const QStringList files = m_outputDir.entryList(QDir::Files);
-         QString file;
-         foreach (file, files)
-             m_outputDir.remove(file);
-     } else {
-         QDir::current().mkdir(&quot;output&quot;);
+     <span class="keyword">if</span> (m_outputDir<span class="operator">.</span>exists()) {
+         <span class="keyword">const</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> files <span class="operator">=</span> m_outputDir<span class="operator">.</span>entryList(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files);
+         <span class="type"><a href="qstring.html">QString</a></span> file;
+         foreach (file<span class="operator">,</span> files)
+             m_outputDir<span class="operator">.</span>remove(file);
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>current()<span class="operator">.</span>mkdir(<span class="string">&quot;output&quot;</span>);
      }
  }
- #endif <span class="comment">// DUMP_DATA</span>
+ <span class="preprocessor">#endif // DUMP_DATA</span>
 
- #ifdef DUMP_AUDIO
- void Engine::dumpData()
+ <span class="preprocessor">#ifdef DUMP_AUDIO</span>
+ <span class="type">void</span> Engine<span class="operator">::</span>dumpData()
  {
-     const QString txtFileName = m_outputDir.filePath(&quot;data.txt&quot;);
-     QFile txtFile(txtFileName);
-     txtFile.open(QFile::WriteOnly | QFile::Text);
-     QTextStream stream(&amp;txtFile);
-     const qint16 *ptr = reinterpret_cast&lt;const qint16*&gt;(m_buffer.constData());
-     const int numSamples = m_dataLength / (2 * m_format.channels());
-     for (int i=0; i&lt;numSamples; ++i) {
-         stream &lt;&lt; i &lt;&lt; &quot;\t&quot; &lt;&lt; *ptr &lt;&lt; &quot;\n&quot;;
-         ptr += m_format.channels();
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> txtFileName <span class="operator">=</span> m_outputDir<span class="operator">.</span>filePath(<span class="string">&quot;data.txt&quot;</span>);
+     <span class="type"><a href="qfile.html">QFile</a></span> txtFile(txtFileName);
+     txtFile<span class="operator">.</span>open(<span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>WriteOnly <span class="operator">|</span> <span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>Text);
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> stream(<span class="operator">&amp;</span>txtFile);
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span> <span class="operator">*</span>ptr <span class="operator">=</span> <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span><span class="operator">*</span><span class="operator">&gt;</span>(m_buffer<span class="operator">.</span>constData());
+     <span class="keyword">const</span> <span class="type">int</span> numSamples <span class="operator">=</span> m_dataLength <span class="operator">/</span> (<span class="number">2</span> <span class="operator">*</span> m_format<span class="operator">.</span>channels());
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>numSamples; <span class="operator">+</span><span class="operator">+</span>i) {
+         stream <span class="operator">&lt;</span><span class="operator">&lt;</span> i <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;\t&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="operator">*</span>ptr <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;\n&quot;</span>;
+         ptr <span class="operator">+</span><span class="operator">=</span> m_format<span class="operator">.</span>channels();
      }
 
-     const QString pcmFileName = m_outputDir.filePath(&quot;data.pcm&quot;);
-     QFile pcmFile(pcmFileName);
-     pcmFile.open(QFile::WriteOnly);
-     pcmFile.write(m_buffer.constData(), m_dataLength);
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> pcmFileName <span class="operator">=</span> m_outputDir<span class="operator">.</span>filePath(<span class="string">&quot;data.pcm&quot;</span>);
+     <span class="type"><a href="qfile.html">QFile</a></span> pcmFile(pcmFileName);
+     pcmFile<span class="operator">.</span>open(<span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>WriteOnly);
+     pcmFile<span class="operator">.</span>write(m_buffer<span class="operator">.</span>constData()<span class="operator">,</span> m_dataLength);
  }
- #endif <span class="comment">// DUMP_AUDIO</span></pre>
+ <span class="preprocessor">#endif // DUMP_AUDIO</span></pre>
 </div>
 <!-- @@@demos/spectrum/app/engine.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

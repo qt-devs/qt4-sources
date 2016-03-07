@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: wavfile.cpp Example File (demos/spectrum/app/wavfile.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">wavfile.cpp Example File</h1>
 <span class="small-subtitle">demos/spectrum/app/wavfile.cpp</span>
 <!-- $$$demos/spectrum/app/wavfile.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,154 +63,138 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;QtCore/qendian.h&gt;
- #include &lt;QVector&gt;
- #include &lt;QDebug&gt;
- #include &quot;utils.h&quot;
- #include &quot;wavfile.h&quot;
+ <span class="preprocessor">#include &lt;QtCore/qendian.h&gt;</span>
+ <span class="preprocessor">#include &lt;QVector&gt;</span>
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &quot;utils.h&quot;</span>
+ <span class="preprocessor">#include &quot;wavfile.h&quot;</span>
 
- struct chunk
+ <span class="keyword">struct</span> chunk
  {
-     char        id[4];
-     quint32     size;
+     <span class="type">char</span>        id<span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+     <span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span>     size;
  };
 
- struct RIFFHeader
+ <span class="keyword">struct</span> RIFFHeader
  {
      chunk       descriptor;     <span class="comment">// &quot;RIFF&quot;</span>
-     char        type[4];        <span class="comment">// &quot;WAVE&quot;</span>
+     <span class="type">char</span>        type<span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;        <span class="comment">// &quot;WAVE&quot;</span>
  };
 
- struct WAVEHeader
+ <span class="keyword">struct</span> WAVEHeader
  {
      chunk       descriptor;
-     quint16     audioFormat;
-     quint16     numChannels;
-     quint32     sampleRate;
-     quint32     byteRate;
-     quint16     blockAlign;
-     quint16     bitsPerSample;
+     <span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>     audioFormat;
+     <span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>     numChannels;
+     <span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span>     sampleRate;
+     <span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span>     byteRate;
+     <span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>     blockAlign;
+     <span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>     bitsPerSample;
  };
 
- struct DATAHeader
+ <span class="keyword">struct</span> DATAHeader
  {
      chunk       descriptor;
  };
 
- struct CombinedHeader
+ <span class="keyword">struct</span> CombinedHeader
  {
      RIFFHeader  riff;
      WAVEHeader  wave;
  };
 
- WavFile::WavFile(QObject *parent)
-     : QFile(parent)
-     , m_headerLength(0)
+ WavFile<span class="operator">::</span>WavFile(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qfile.html">QFile</a></span>(parent)
+     <span class="operator">,</span> m_headerLength(<span class="number">0</span>)
  {
 
  }
 
- bool WavFile::open(const QString &amp;fileName)
+ <span class="type">bool</span> WavFile<span class="operator">::</span>open(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
  {
      close();
      setFileName(fileName);
-     return QFile::open(QIODevice::ReadOnly) &amp;&amp; readHeader();
+     <span class="keyword">return</span> <span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly) <span class="operator">&amp;</span><span class="operator">&amp;</span> readHeader();
  }
 
- const QAudioFormat &amp;WavFile::fileFormat() const
+ <span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> <span class="operator">&amp;</span>WavFile<span class="operator">::</span>fileFormat() <span class="keyword">const</span>
  {
-     return m_fileFormat;
+     <span class="keyword">return</span> m_fileFormat;
  }
 
- qint64 WavFile::headerLength() const
+ <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> WavFile<span class="operator">::</span>headerLength() <span class="keyword">const</span>
  {
- return m_headerLength;
+ <span class="keyword">return</span> m_headerLength;
  }
 
- bool WavFile::readHeader()
+ <span class="type">bool</span> WavFile<span class="operator">::</span>readHeader()
  {
-     seek(0);
+     seek(<span class="number">0</span>);
      CombinedHeader header;
-     bool result = read(reinterpret_cast&lt;char *&gt;(&amp;header), sizeof(CombinedHeader)) == sizeof(CombinedHeader);
-     if (result) {
-         if ((memcmp(&amp;header.riff.descriptor.id, &quot;RIFF&quot;, 4) == 0
-             || memcmp(&amp;header.riff.descriptor.id, &quot;RIFX&quot;, 4) == 0)
-             &amp;&amp; memcmp(&amp;header.riff.type, &quot;WAVE&quot;, 4) == 0
-             &amp;&amp; memcmp(&amp;header.wave.descriptor.id, &quot;fmt &quot;, 4) == 0
-             &amp;&amp; (header.wave.audioFormat == 1 || header.wave.audioFormat == 0)) {
+     <span class="type">bool</span> result <span class="operator">=</span> read(<span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="type">char</span> <span class="operator">*</span><span class="operator">&gt;</span>(<span class="operator">&amp;</span>header)<span class="operator">,</span> <span class="keyword">sizeof</span>(CombinedHeader)) <span class="operator">=</span><span class="operator">=</span> <span class="keyword">sizeof</span>(CombinedHeader);
+     <span class="keyword">if</span> (result) {
+         <span class="keyword">if</span> ((memcmp(<span class="operator">&amp;</span>header<span class="operator">.</span>riff<span class="operator">.</span>descriptor<span class="operator">.</span>id<span class="operator">,</span> <span class="string">&quot;RIFF&quot;</span><span class="operator">,</span> <span class="number">4</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>
+             <span class="operator">|</span><span class="operator">|</span> memcmp(<span class="operator">&amp;</span>header<span class="operator">.</span>riff<span class="operator">.</span>descriptor<span class="operator">.</span>id<span class="operator">,</span> <span class="string">&quot;RIFX&quot;</span><span class="operator">,</span> <span class="number">4</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+             <span class="operator">&amp;</span><span class="operator">&amp;</span> memcmp(<span class="operator">&amp;</span>header<span class="operator">.</span>riff<span class="operator">.</span>type<span class="operator">,</span> <span class="string">&quot;WAVE&quot;</span><span class="operator">,</span> <span class="number">4</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>
+             <span class="operator">&amp;</span><span class="operator">&amp;</span> memcmp(<span class="operator">&amp;</span>header<span class="operator">.</span>wave<span class="operator">.</span>descriptor<span class="operator">.</span>id<span class="operator">,</span> <span class="string">&quot;fmt &quot;</span><span class="operator">,</span> <span class="number">4</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>
+             <span class="operator">&amp;</span><span class="operator">&amp;</span> (header<span class="operator">.</span>wave<span class="operator">.</span>audioFormat <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>wave<span class="operator">.</span>audioFormat <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)) {
 
              <span class="comment">// Read off remaining header information</span>
              DATAHeader dataHeader;
 
-             if (qFromLittleEndian&lt;quint32&gt;(header.wave.descriptor.size) &gt; sizeof(WAVEHeader)) {
+             <span class="keyword">if</span> (<a href="qtendian.html#qFromLittleEndian">qFromLittleEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span><span class="operator">&gt;</span>(header<span class="operator">.</span>wave<span class="operator">.</span>descriptor<span class="operator">.</span>size) <span class="operator">&gt;</span> <span class="keyword">sizeof</span>(WAVEHeader)) {
                  <span class="comment">// Extended data available</span>
-                 quint16 extraFormatBytes;
-                 if (peek((char*)&amp;extraFormatBytes, sizeof(quint16)) != sizeof(quint16))
-                     return false;
-                 const qint64 throwAwayBytes = sizeof(quint16) + qFromLittleEndian&lt;quint16&gt;(extraFormatBytes);
-                 if (read(throwAwayBytes).size() != throwAwayBytes)
-                     return false;
+                 <span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span> extraFormatBytes;
+                 <span class="keyword">if</span> (peek((<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>extraFormatBytes<span class="operator">,</span> <span class="keyword">sizeof</span>(<span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>)) <span class="operator">!</span><span class="operator">=</span> <span class="keyword">sizeof</span>(<span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>))
+                     <span class="keyword">return</span> <span class="keyword">false</span>;
+                 <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> throwAwayBytes <span class="operator">=</span> <span class="keyword">sizeof</span>(<span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>) <span class="operator">+</span> <a href="qtendian.html#qFromLittleEndian">qFromLittleEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span><span class="operator">&gt;</span>(extraFormatBytes);
+                 <span class="keyword">if</span> (read(throwAwayBytes)<span class="operator">.</span>size() <span class="operator">!</span><span class="operator">=</span> throwAwayBytes)
+                     <span class="keyword">return</span> <span class="keyword">false</span>;
              }
 
-             if (read((char*)&amp;dataHeader, sizeof(DATAHeader)) != sizeof(DATAHeader))
-                 return false;
+             <span class="keyword">if</span> (read((<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>dataHeader<span class="operator">,</span> <span class="keyword">sizeof</span>(DATAHeader)) <span class="operator">!</span><span class="operator">=</span> <span class="keyword">sizeof</span>(DATAHeader))
+                 <span class="keyword">return</span> <span class="keyword">false</span>;
 
              <span class="comment">// Establish format</span>
-             if (memcmp(&amp;header.riff.descriptor.id, &quot;RIFF&quot;, 4) == 0)
-                 m_fileFormat.setByteOrder(QAudioFormat::LittleEndian);
-             else
-                 m_fileFormat.setByteOrder(QAudioFormat::BigEndian);
+             <span class="keyword">if</span> (memcmp(<span class="operator">&amp;</span>header<span class="operator">.</span>riff<span class="operator">.</span>descriptor<span class="operator">.</span>id<span class="operator">,</span> <span class="string">&quot;RIFF&quot;</span><span class="operator">,</span> <span class="number">4</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+                 m_fileFormat<span class="operator">.</span>setByteOrder(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>LittleEndian);
+             <span class="keyword">else</span>
+                 m_fileFormat<span class="operator">.</span>setByteOrder(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>BigEndian);
 
-             int bps = qFromLittleEndian&lt;quint16&gt;(header.wave.bitsPerSample);
-             m_fileFormat.setChannels(qFromLittleEndian&lt;quint16&gt;(header.wave.numChannels));
-             m_fileFormat.setCodec(&quot;audio/pcm&quot;);
-             m_fileFormat.setFrequency(qFromLittleEndian&lt;quint32&gt;(header.wave.sampleRate));
-             m_fileFormat.setSampleSize(qFromLittleEndian&lt;quint16&gt;(header.wave.bitsPerSample));
-             m_fileFormat.setSampleType(bps == 8 ? QAudioFormat::UnSignedInt : QAudioFormat::SignedInt);
-         } else {
-             result = false;
+             <span class="type">int</span> bps <span class="operator">=</span> <a href="qtendian.html#qFromLittleEndian">qFromLittleEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span><span class="operator">&gt;</span>(header<span class="operator">.</span>wave<span class="operator">.</span>bitsPerSample);
+             m_fileFormat<span class="operator">.</span>setChannels(<a href="qtendian.html#qFromLittleEndian">qFromLittleEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span><span class="operator">&gt;</span>(header<span class="operator">.</span>wave<span class="operator">.</span>numChannels));
+             m_fileFormat<span class="operator">.</span>setCodec(<span class="string">&quot;audio/pcm&quot;</span>);
+             m_fileFormat<span class="operator">.</span>setFrequency(<a href="qtendian.html#qFromLittleEndian">qFromLittleEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span><span class="operator">&gt;</span>(header<span class="operator">.</span>wave<span class="operator">.</span>sampleRate));
+             m_fileFormat<span class="operator">.</span>setSampleSize(<a href="qtendian.html#qFromLittleEndian">qFromLittleEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span><span class="operator">&gt;</span>(header<span class="operator">.</span>wave<span class="operator">.</span>bitsPerSample));
+             m_fileFormat<span class="operator">.</span>setSampleType(bps <span class="operator">=</span><span class="operator">=</span> <span class="number">8</span> <span class="operator">?</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>UnSignedInt : <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>SignedInt);
+         } <span class="keyword">else</span> {
+             result <span class="operator">=</span> <span class="keyword">false</span>;
          }
      }
-     m_headerLength = pos();
-     return result;
+     m_headerLength <span class="operator">=</span> pos();
+     <span class="keyword">return</span> result;
  }</pre>
 </div>
 <!-- @@@demos/spectrum/app/wavfile.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

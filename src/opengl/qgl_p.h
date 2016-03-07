@@ -7,34 +7,34 @@
 ** This file is part of the QtOpenGL module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -63,6 +63,12 @@
 #include "private/qwidget_p.h"
 #include "qcache.h"
 #include "qglpaintdevice_p.h"
+
+#ifdef Q_OS_SYMBIAN
+#include "qgltexturepool_p.h"
+
+class QGLPixmapData;
+#endif
 
 #ifndef QT_NO_EGL
 #include <QtGui/private/qegl_p.h>
@@ -540,10 +546,21 @@ public:
           options(opt)
 #if defined(Q_WS_X11)
         , boundPixmap(0)
+#elif defined(Q_OS_SYMBIAN)
+        , boundPixmap(0)
+        , boundKey(0)
+        , nextLRU(0)
+        , prevLRU(0)
+        , inLRU(false)
+        , failedToAlloc(false)
+        , inTexturePool(false)
 #endif
     {}
 
     ~QGLTexture() {
+#ifdef Q_OS_SYMBIAN
+        freeTexture();
+#else
         if (options & QGLContext::MemoryManagedBindOption) {
             Q_ASSERT(context);
 #if !defined(Q_WS_X11)
@@ -551,7 +568,8 @@ public:
 #endif
             context->d_ptr->texture_destroyer->emitFreeTexture(context, boundPixmap, id);
         }
-     }
+#endif
+    }
 
     QGLContext *context;
     GLuint id;
@@ -571,6 +589,19 @@ public:
         (const char *buf, int len, const char *format = 0);
     QSize bindCompressedTextureDDS(const char *buf, int len);
     QSize bindCompressedTexturePVR(const char *buf, int len);
+
+#ifdef Q_OS_SYMBIAN
+    void freeTexture();
+
+    QGLPixmapData* boundPixmap;
+    qint64 boundKey;
+
+    QGLTexture *nextLRU;
+    QGLTexture *prevLRU;
+    mutable bool inLRU;
+    mutable bool failedToAlloc;
+    mutable bool inTexturePool;
+#endif
 };
 
 struct QGLTextureCacheKey {

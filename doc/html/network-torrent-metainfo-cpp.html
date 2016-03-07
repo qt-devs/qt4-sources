@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: metainfo.cpp Example File (network/torrent/metainfo.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">metainfo.cpp Example File</h1>
 <span class="small-subtitle">network/torrent/metainfo.cpp</span>
 <!-- $$$network/torrent/metainfo.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,220 +63,204 @@
  **
  ****************************************************************************/</span>
 
- #include &quot;bencodeparser.h&quot;
- #include &quot;metainfo.h&quot;
+ <span class="preprocessor">#include &quot;bencodeparser.h&quot;</span>
+ <span class="preprocessor">#include &quot;metainfo.h&quot;</span>
 
- #include &lt;QDateTime&gt;
- #include &lt;QMetaType&gt;
- #include &lt;QString&gt;
+ <span class="preprocessor">#include &lt;QDateTime&gt;</span>
+ <span class="preprocessor">#include &lt;QMetaType&gt;</span>
+ <span class="preprocessor">#include &lt;QString&gt;</span>
 
- MetaInfo::MetaInfo()
+ MetaInfo<span class="operator">::</span>MetaInfo()
  {
      clear();
  }
 
- void MetaInfo::clear()
+ <span class="type">void</span> MetaInfo<span class="operator">::</span>clear()
  {
-     errString = &quot;Unknown error&quot;;
-     content.clear();
-     infoData.clear();
-     metaInfoMultiFiles.clear();
-     metaInfoAnnounce.clear();
-     metaInfoAnnounceList.clear();
-     metaInfoCreationDate = QDateTime();
-     metaInfoComment.clear();
-     metaInfoCreatedBy.clear();
-     metaInfoName.clear();
-     metaInfoPieceLength = 0;
-     metaInfoSha1Sums.clear();
+     errString <span class="operator">=</span> <span class="string">&quot;Unknown error&quot;</span>;
+     content<span class="operator">.</span>clear();
+     infoData<span class="operator">.</span>clear();
+     metaInfoMultiFiles<span class="operator">.</span>clear();
+     metaInfoAnnounce<span class="operator">.</span>clear();
+     metaInfoAnnounceList<span class="operator">.</span>clear();
+     metaInfoCreationDate <span class="operator">=</span> <span class="type"><a href="qdatetime.html">QDateTime</a></span>();
+     metaInfoComment<span class="operator">.</span>clear();
+     metaInfoCreatedBy<span class="operator">.</span>clear();
+     metaInfoName<span class="operator">.</span>clear();
+     metaInfoPieceLength <span class="operator">=</span> <span class="number">0</span>;
+     metaInfoSha1Sums<span class="operator">.</span>clear();
  }
 
- bool MetaInfo::parse(const QByteArray &amp;data)
+ <span class="type">bool</span> MetaInfo<span class="operator">::</span>parse(<span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>data)
  {
      clear();
-     content = data;
+     content <span class="operator">=</span> data;
 
      BencodeParser parser;
-     if (!parser.parse(content)) {
-         errString = parser.errorString();
-         return false;
+     <span class="keyword">if</span> (<span class="operator">!</span>parser<span class="operator">.</span>parse(content)) {
+         errString <span class="operator">=</span> parser<span class="operator">.</span>errorString();
+         <span class="keyword">return</span> <span class="keyword">false</span>;
      }
 
-     infoData = parser.infoSection();
+     infoData <span class="operator">=</span> parser<span class="operator">.</span>infoSection();
 
-     QMap&lt;QByteArray, QVariant&gt; dict = parser.dictionary();
-     if (!dict.contains(&quot;info&quot;))
-         return false;
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">,</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> dict <span class="operator">=</span> parser<span class="operator">.</span>dictionary();
+     <span class="keyword">if</span> (<span class="operator">!</span>dict<span class="operator">.</span>contains(<span class="string">&quot;info&quot;</span>))
+         <span class="keyword">return</span> <span class="keyword">false</span>;
 
-     QMap&lt;QByteArray, QVariant&gt; info = qVariantValue&lt;Dictionary&gt;(dict.value(&quot;info&quot;));
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">,</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> info <span class="operator">=</span> <a href="qvariant.html#qVariantValue">qVariantValue</a><span class="operator">&lt;</span>Dictionary<span class="operator">&gt;</span>(dict<span class="operator">.</span>value(<span class="string">&quot;info&quot;</span>));
 
-     if (info.contains(&quot;files&quot;)) {
-         metaInfoFileForm = MultiFileForm;
+     <span class="keyword">if</span> (info<span class="operator">.</span>contains(<span class="string">&quot;files&quot;</span>)) {
+         metaInfoFileForm <span class="operator">=</span> MultiFileForm;
 
-         QList&lt;QVariant&gt; files = info.value(&quot;files&quot;).toList();
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> files <span class="operator">=</span> info<span class="operator">.</span>value(<span class="string">&quot;files&quot;</span>)<span class="operator">.</span>toList();
 
-         for (int i = 0; i &lt; files.size(); ++i) {
-             QMap&lt;QByteArray, QVariant&gt; file = qVariantValue&lt;Dictionary&gt;(files.at(i));
-             QList&lt;QVariant&gt; pathElements = file.value(&quot;path&quot;).toList();
-             QByteArray path;
-             foreach (QVariant p, pathElements) {
-                 if (!path.isEmpty())
-                     path += &quot;/&quot;;
-                 path += p.toByteArray();
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> files<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+             <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">,</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> file <span class="operator">=</span> <a href="qvariant.html#qVariantValue">qVariantValue</a><span class="operator">&lt;</span>Dictionary<span class="operator">&gt;</span>(files<span class="operator">.</span>at(i));
+             <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> pathElements <span class="operator">=</span> file<span class="operator">.</span>value(<span class="string">&quot;path&quot;</span>)<span class="operator">.</span>toList();
+             <span class="type"><a href="qbytearray.html">QByteArray</a></span> path;
+             foreach (<span class="type"><a href="qvariant.html">QVariant</a></span> p<span class="operator">,</span> pathElements) {
+                 <span class="keyword">if</span> (<span class="operator">!</span>path<span class="operator">.</span>isEmpty())
+                     path <span class="operator">+</span><span class="operator">=</span> <span class="string">&quot;/&quot;</span>;
+                 path <span class="operator">+</span><span class="operator">=</span> p<span class="operator">.</span>toByteArray();
              }
 
              MetaInfoMultiFile multiFile;
-             multiFile.length = file.value(&quot;length&quot;).toLongLong();
-             multiFile.path = QString::fromUtf8(path);
-             multiFile.md5sum = file.value(&quot;md5sum&quot;).toByteArray();
-             metaInfoMultiFiles &lt;&lt; multiFile;
+             multiFile<span class="operator">.</span>length <span class="operator">=</span> file<span class="operator">.</span>value(<span class="string">&quot;length&quot;</span>)<span class="operator">.</span>toLongLong();
+             multiFile<span class="operator">.</span>path <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(path);
+             multiFile<span class="operator">.</span>md5sum <span class="operator">=</span> file<span class="operator">.</span>value(<span class="string">&quot;md5sum&quot;</span>)<span class="operator">.</span>toByteArray();
+             metaInfoMultiFiles <span class="operator">&lt;</span><span class="operator">&lt;</span> multiFile;
          }
 
-         metaInfoName = QString::fromUtf8(info.value(&quot;name&quot;).toByteArray());
-         metaInfoPieceLength = info.value(&quot;piece length&quot;).toInt();
-         QByteArray pieces = info.value(&quot;pieces&quot;).toByteArray();
-         for (int i = 0; i &lt; pieces.size(); i += 20)
-             metaInfoSha1Sums &lt;&lt; pieces.mid(i, 20);
-     } else if (info.contains(&quot;length&quot;)) {
-         metaInfoFileForm = SingleFileForm;
-         metaInfoSingleFile.length = info.value(&quot;length&quot;).toLongLong();
-         metaInfoSingleFile.md5sum = info.value(&quot;md5sum&quot;).toByteArray();
-         metaInfoSingleFile.name = QString::fromUtf8(info.value(&quot;name&quot;).toByteArray());
-         metaInfoSingleFile.pieceLength = info.value(&quot;piece length&quot;).toInt();
+         metaInfoName <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(info<span class="operator">.</span>value(<span class="string">&quot;name&quot;</span>)<span class="operator">.</span>toByteArray());
+         metaInfoPieceLength <span class="operator">=</span> info<span class="operator">.</span>value(<span class="string">&quot;piece length&quot;</span>)<span class="operator">.</span>toInt();
+         <span class="type"><a href="qbytearray.html">QByteArray</a></span> pieces <span class="operator">=</span> info<span class="operator">.</span>value(<span class="string">&quot;pieces&quot;</span>)<span class="operator">.</span>toByteArray();
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> pieces<span class="operator">.</span>size(); i <span class="operator">+</span><span class="operator">=</span> <span class="number">20</span>)
+             metaInfoSha1Sums <span class="operator">&lt;</span><span class="operator">&lt;</span> pieces<span class="operator">.</span>mid(i<span class="operator">,</span> <span class="number">20</span>);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (info<span class="operator">.</span>contains(<span class="string">&quot;length&quot;</span>)) {
+         metaInfoFileForm <span class="operator">=</span> SingleFileForm;
+         metaInfoSingleFile<span class="operator">.</span>length <span class="operator">=</span> info<span class="operator">.</span>value(<span class="string">&quot;length&quot;</span>)<span class="operator">.</span>toLongLong();
+         metaInfoSingleFile<span class="operator">.</span>md5sum <span class="operator">=</span> info<span class="operator">.</span>value(<span class="string">&quot;md5sum&quot;</span>)<span class="operator">.</span>toByteArray();
+         metaInfoSingleFile<span class="operator">.</span>name <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(info<span class="operator">.</span>value(<span class="string">&quot;name&quot;</span>)<span class="operator">.</span>toByteArray());
+         metaInfoSingleFile<span class="operator">.</span>pieceLength <span class="operator">=</span> info<span class="operator">.</span>value(<span class="string">&quot;piece length&quot;</span>)<span class="operator">.</span>toInt();
 
-         QByteArray pieces = info.value(&quot;pieces&quot;).toByteArray();
-         for (int i = 0; i &lt; pieces.size(); i += 20)
-             metaInfoSingleFile.sha1Sums &lt;&lt; pieces.mid(i, 20);
+         <span class="type"><a href="qbytearray.html">QByteArray</a></span> pieces <span class="operator">=</span> info<span class="operator">.</span>value(<span class="string">&quot;pieces&quot;</span>)<span class="operator">.</span>toByteArray();
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> pieces<span class="operator">.</span>size(); i <span class="operator">+</span><span class="operator">=</span> <span class="number">20</span>)
+             metaInfoSingleFile<span class="operator">.</span>sha1Sums <span class="operator">&lt;</span><span class="operator">&lt;</span> pieces<span class="operator">.</span>mid(i<span class="operator">,</span> <span class="number">20</span>);
      }
 
-     metaInfoAnnounce = QString::fromUtf8(dict.value(&quot;announce&quot;).toByteArray());
+     metaInfoAnnounce <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(dict<span class="operator">.</span>value(<span class="string">&quot;announce&quot;</span>)<span class="operator">.</span>toByteArray());
 
-     if (dict.contains(&quot;announce-list&quot;)) {
+     <span class="keyword">if</span> (dict<span class="operator">.</span>contains(<span class="string">&quot;announce-list&quot;</span>)) {
          <span class="comment">// ### unimplemented</span>
      }
 
-     if (dict.contains(&quot;creation date&quot;))
-         metaInfoCreationDate.setTime_t(dict.value(&quot;creation date&quot;).toInt());
-     if (dict.contains(&quot;comment&quot;))
-         metaInfoComment = QString::fromUtf8(dict.value(&quot;comment&quot;).toByteArray());
-     if (dict.contains(&quot;created by&quot;))
-         metaInfoCreatedBy = QString::fromUtf8(dict.value(&quot;created by&quot;).toByteArray());
+     <span class="keyword">if</span> (dict<span class="operator">.</span>contains(<span class="string">&quot;creation date&quot;</span>))
+         metaInfoCreationDate<span class="operator">.</span>setTime_t(dict<span class="operator">.</span>value(<span class="string">&quot;creation date&quot;</span>)<span class="operator">.</span>toInt());
+     <span class="keyword">if</span> (dict<span class="operator">.</span>contains(<span class="string">&quot;comment&quot;</span>))
+         metaInfoComment <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(dict<span class="operator">.</span>value(<span class="string">&quot;comment&quot;</span>)<span class="operator">.</span>toByteArray());
+     <span class="keyword">if</span> (dict<span class="operator">.</span>contains(<span class="string">&quot;created by&quot;</span>))
+         metaInfoCreatedBy <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(dict<span class="operator">.</span>value(<span class="string">&quot;created by&quot;</span>)<span class="operator">.</span>toByteArray());
 
-     return true;
+     <span class="keyword">return</span> <span class="keyword">true</span>;
  }
 
- QByteArray MetaInfo::infoValue() const
+ <span class="type"><a href="qbytearray.html">QByteArray</a></span> MetaInfo<span class="operator">::</span>infoValue() <span class="keyword">const</span>
  {
-     return infoData;
+     <span class="keyword">return</span> infoData;
  }
 
- QString MetaInfo::errorString() const
+ <span class="type"><a href="qstring.html">QString</a></span> MetaInfo<span class="operator">::</span>errorString() <span class="keyword">const</span>
  {
-     return errString;
+     <span class="keyword">return</span> errString;
  }
 
- MetaInfo::FileForm MetaInfo::fileForm() const
+ MetaInfo<span class="operator">::</span>FileForm MetaInfo<span class="operator">::</span>fileForm() <span class="keyword">const</span>
  {
-     return metaInfoFileForm;
+     <span class="keyword">return</span> metaInfoFileForm;
  }
 
- QString MetaInfo::announceUrl() const
+ <span class="type"><a href="qstring.html">QString</a></span> MetaInfo<span class="operator">::</span>announceUrl() <span class="keyword">const</span>
  {
-     return metaInfoAnnounce;
+     <span class="keyword">return</span> metaInfoAnnounce;
  }
 
- QStringList MetaInfo::announceList() const
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> MetaInfo<span class="operator">::</span>announceList() <span class="keyword">const</span>
  {
-     return metaInfoAnnounceList;
+     <span class="keyword">return</span> metaInfoAnnounceList;
  }
 
- QDateTime MetaInfo::creationDate() const
+ <span class="type"><a href="qdatetime.html">QDateTime</a></span> MetaInfo<span class="operator">::</span>creationDate() <span class="keyword">const</span>
  {
-     return metaInfoCreationDate;
+     <span class="keyword">return</span> metaInfoCreationDate;
  }
 
- QString MetaInfo::comment() const
+ <span class="type"><a href="qstring.html">QString</a></span> MetaInfo<span class="operator">::</span>comment() <span class="keyword">const</span>
  {
-     return metaInfoComment;
+     <span class="keyword">return</span> metaInfoComment;
  }
 
- QString MetaInfo::createdBy() const
+ <span class="type"><a href="qstring.html">QString</a></span> MetaInfo<span class="operator">::</span>createdBy() <span class="keyword">const</span>
  {
-     return metaInfoCreatedBy;
+     <span class="keyword">return</span> metaInfoCreatedBy;
  }
 
- MetaInfoSingleFile MetaInfo::singleFile() const
+ MetaInfoSingleFile MetaInfo<span class="operator">::</span>singleFile() <span class="keyword">const</span>
  {
-     return metaInfoSingleFile;
+     <span class="keyword">return</span> metaInfoSingleFile;
  }
 
- QList&lt;MetaInfoMultiFile&gt; MetaInfo::multiFiles() const
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>MetaInfoMultiFile<span class="operator">&gt;</span> MetaInfo<span class="operator">::</span>multiFiles() <span class="keyword">const</span>
  {
-     return metaInfoMultiFiles;
+     <span class="keyword">return</span> metaInfoMultiFiles;
  }
 
- QString MetaInfo::name() const
+ <span class="type"><a href="qstring.html">QString</a></span> MetaInfo<span class="operator">::</span>name() <span class="keyword">const</span>
  {
-     return metaInfoName;
+     <span class="keyword">return</span> metaInfoName;
  }
 
- int MetaInfo::pieceLength() const
+ <span class="type">int</span> MetaInfo<span class="operator">::</span>pieceLength() <span class="keyword">const</span>
  {
-     return metaInfoPieceLength;
+     <span class="keyword">return</span> metaInfoPieceLength;
  }
 
- QList&lt;QByteArray&gt; MetaInfo::sha1Sums() const
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span> MetaInfo<span class="operator">::</span>sha1Sums() <span class="keyword">const</span>
  {
-     return metaInfoSha1Sums;
+     <span class="keyword">return</span> metaInfoSha1Sums;
  }
 
- qint64 MetaInfo::totalSize() const
+ <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> MetaInfo<span class="operator">::</span>totalSize() <span class="keyword">const</span>
  {
-     if (fileForm() == SingleFileForm)
-         return singleFile().length;
+     <span class="keyword">if</span> (fileForm() <span class="operator">=</span><span class="operator">=</span> SingleFileForm)
+         <span class="keyword">return</span> singleFile()<span class="operator">.</span>length;
 
-     qint64 size = 0;
-     foreach (MetaInfoMultiFile file, multiFiles())
-         size += file.length;
-     return size;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> size <span class="operator">=</span> <span class="number">0</span>;
+     foreach (MetaInfoMultiFile file<span class="operator">,</span> multiFiles())
+         size <span class="operator">+</span><span class="operator">=</span> file<span class="operator">.</span>length;
+     <span class="keyword">return</span> size;
  }</pre>
 </div>
 <!-- @@@network/torrent/metainfo.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

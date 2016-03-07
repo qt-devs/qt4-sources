@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: starrating.cpp Example File (itemviews/stardelegate/starrating.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">starrating.cpp Example File</h1>
 <span class="small-subtitle">itemviews/stardelegate/starrating.cpp</span>
 <!-- $$$itemviews/stardelegate/starrating.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,99 +63,83 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;QtGui&gt;
- #include &lt;math.h&gt;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
 
- #include &quot;starrating.h&quot;
+ <span class="preprocessor">#include &quot;starrating.h&quot;</span>
 
- const int PaintingScaleFactor = 20;
+ <span class="keyword">const</span> <span class="type">int</span> PaintingScaleFactor <span class="operator">=</span> <span class="number">20</span>;
 
- StarRating::StarRating(int starCount, int maxStarCount)
+ StarRating<span class="operator">::</span>StarRating(<span class="type">int</span> starCount<span class="operator">,</span> <span class="type">int</span> maxStarCount)
  {
-     myStarCount = starCount;
-     myMaxStarCount = maxStarCount;
+     myStarCount <span class="operator">=</span> starCount;
+     myMaxStarCount <span class="operator">=</span> maxStarCount;
 
-     starPolygon &lt;&lt; QPointF(1.0, 0.5);
-     for (int i = 1; i &lt; 5; ++i)
-         starPolygon &lt;&lt; QPointF(0.5 + 0.5 * cos(0.8 * i * 3.14),
-                                0.5 + 0.5 * sin(0.8 * i * 3.14));
+     starPolygon <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">1.0</span><span class="operator">,</span> <span class="number">0.5</span>);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> <span class="number">5</span>; <span class="operator">+</span><span class="operator">+</span>i)
+         starPolygon <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.5</span> <span class="operator">+</span> <span class="number">0.5</span> <span class="operator">*</span> cos(<span class="number">0.8</span> <span class="operator">*</span> i <span class="operator">*</span> <span class="number">3.14</span>)<span class="operator">,</span>
+                                <span class="number">0.5</span> <span class="operator">+</span> <span class="number">0.5</span> <span class="operator">*</span> sin(<span class="number">0.8</span> <span class="operator">*</span> i <span class="operator">*</span> <span class="number">3.14</span>));
 
-     diamondPolygon &lt;&lt; QPointF(0.4, 0.5) &lt;&lt; QPointF(0.5, 0.4)
-                    &lt;&lt; QPointF(0.6, 0.5) &lt;&lt; QPointF(0.5, 0.6)
-                    &lt;&lt; QPointF(0.4, 0.5);
+     diamondPolygon <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.4</span><span class="operator">,</span> <span class="number">0.5</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.5</span><span class="operator">,</span> <span class="number">0.4</span>)
+                    <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.6</span><span class="operator">,</span> <span class="number">0.5</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.5</span><span class="operator">,</span> <span class="number">0.6</span>)
+                    <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.4</span><span class="operator">,</span> <span class="number">0.5</span>);
  }
 
- QSize StarRating::sizeHint() const
+ <span class="type"><a href="qsize.html">QSize</a></span> StarRating<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
  {
-     return PaintingScaleFactor * QSize(myMaxStarCount, 1);
+     <span class="keyword">return</span> PaintingScaleFactor <span class="operator">*</span> <span class="type"><a href="qsize.html">QSize</a></span>(myMaxStarCount<span class="operator">,</span> <span class="number">1</span>);
  }
 
- void StarRating::paint(QPainter *painter, const QRect &amp;rect,
-                        const QPalette &amp;palette, EditMode mode) const
+ <span class="type">void</span> StarRating<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect<span class="operator">,</span>
+                        <span class="keyword">const</span> <span class="type"><a href="qpalette.html">QPalette</a></span> <span class="operator">&amp;</span>palette<span class="operator">,</span> EditMode mode) <span class="keyword">const</span>
  {
-     painter-&gt;save();
+     painter<span class="operator">-</span><span class="operator">&gt;</span>save();
 
-     painter-&gt;setRenderHint(QPainter::Antialiasing, true);
-     painter-&gt;setPen(Qt::NoPen);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">true</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
 
-     if (mode == Editable) {
-         painter-&gt;setBrush(palette.highlight());
-     } else {
-         painter-&gt;setBrush(palette.foreground());
+     <span class="keyword">if</span> (mode <span class="operator">=</span><span class="operator">=</span> Editable) {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(palette<span class="operator">.</span>highlight());
+     } <span class="keyword">else</span> {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(palette<span class="operator">.</span>foreground());
      }
 
-     int yOffset = (rect.height() - PaintingScaleFactor) / 2;
-     painter-&gt;translate(rect.x(), rect.y() + yOffset);
-     painter-&gt;scale(PaintingScaleFactor, PaintingScaleFactor);
+     <span class="type">int</span> yOffset <span class="operator">=</span> (rect<span class="operator">.</span>height() <span class="operator">-</span> PaintingScaleFactor) <span class="operator">/</span> <span class="number">2</span>;
+     painter<span class="operator">-</span><span class="operator">&gt;</span>translate(rect<span class="operator">.</span>x()<span class="operator">,</span> rect<span class="operator">.</span>y() <span class="operator">+</span> yOffset);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>scale(PaintingScaleFactor<span class="operator">,</span> PaintingScaleFactor);
 
-     for (int i = 0; i &lt; myMaxStarCount; ++i) {
-         if (i &lt; myStarCount) {
-             painter-&gt;drawPolygon(starPolygon, Qt::WindingFill);
-         } else if (mode == Editable) {
-             painter-&gt;drawPolygon(diamondPolygon, Qt::WindingFill);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> myMaxStarCount; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (i <span class="operator">&lt;</span> myStarCount) {
+             painter<span class="operator">-</span><span class="operator">&gt;</span>drawPolygon(starPolygon<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindingFill);
+         } <span class="keyword">else</span> <span class="keyword">if</span> (mode <span class="operator">=</span><span class="operator">=</span> Editable) {
+             painter<span class="operator">-</span><span class="operator">&gt;</span>drawPolygon(diamondPolygon<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindingFill);
          }
-         painter-&gt;translate(1.0, 0.0);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>translate(<span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span>);
      }
 
-     painter-&gt;restore();
+     painter<span class="operator">-</span><span class="operator">&gt;</span>restore();
  }</pre>
 </div>
 <!-- @@@itemviews/stardelegate/starrating.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

@@ -7,34 +7,34 @@
 ** This file is part of the QtTest module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -956,6 +956,10 @@ static bool isValidSlot(const QMetaMethod &sl)
     return true;
 }
 
+Q_TESTLIB_EXPORT bool printAvailableFunctions = false;
+Q_TESTLIB_EXPORT QStringList testFunctions;
+Q_TESTLIB_EXPORT QStringList testTags;
+
 static void qPrintTestSlots()
 {
     for (int i = 0; i < QTest::currentTestObject->metaObject()->methodCount(); ++i) {
@@ -976,7 +980,7 @@ static int qToInt(char *str)
     return l;
 }
 
-static void qParseArgs(int argc, char *argv[])
+Q_TESTLIB_EXPORT void qtest_qParseArgs(int argc, char *argv[], bool qml)
 {
     lastTestFuncIdx = -1;
 
@@ -1025,8 +1029,12 @@ static void qParseArgs(int argc, char *argv[])
                    "%s", argv[0], testOptions);
             exit(0);
         } else if (strcmp(argv[i], "-functions") == 0) {
-            qPrintTestSlots();
-            exit(0);
+            if (qml) {
+                QTest::printAvailableFunctions = true;
+            } else {
+                qPrintTestSlots();
+                exit(0);
+            }
         } else if(strcmp(argv[i], "-xunitxml") == 0){
             QTestLog::setLogMode(QTestLog::XunitXML);
         } else if (strcmp(argv[i], "-xml") == 0) {
@@ -1146,6 +1154,32 @@ static void qParseArgs(int argc, char *argv[])
         } else if (argv[i][0] == '-') {
             printf("Unknown option: '%s'\n\n%s", argv[i], testOptions);
             exit(1);
+        } else if (qml) {
+            // We can't check the availability of test functions until
+            // we load the QML files.  So just store the data for now.
+            int colon = -1;
+            int offset;
+            for(offset = 0; *(argv[i]+offset); ++offset) {
+                if (*(argv[i]+offset) == ':') {
+                    if (*(argv[i]+offset+1) == ':') {
+                        // "::" is used as a test name separator.
+                        // e.g. "ClickTests::test_click:row1".
+                        ++offset;
+                    } else {
+                        colon = offset;
+                        break;
+                    }
+                }
+            }
+            if (colon == -1) {
+                QTest::testFunctions += QString::fromLatin1(argv[i]);
+                QTest::testTags += QString();
+            } else {
+                QTest::testFunctions +=
+                    QString::fromLatin1(argv[i], colon);
+                QTest::testTags +=
+                    QString::fromLatin1(argv[i] + colon + 1);
+            }
         } else {
             int colon = -1;
             char buf[512], *data=0;
@@ -1695,7 +1729,7 @@ int QTest::qExec(QObject *testObject, int argc, char **argv)
     QTEST_ASSERT(metaObject);
 
     QTestResult::setCurrentTestObject(metaObject->className());
-    qParseArgs(argc, argv);
+    qtest_qParseArgs(argc, argv, false);
 #ifdef QTESTLIB_USE_VALGRIND
     if (QBenchmarkGlobalData::current->mode() == QBenchmarkGlobalData::CallgrindParentProcess) {
         const QStringList origAppArgs(QCoreApplication::arguments());

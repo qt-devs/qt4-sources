@@ -7,34 +7,34 @@
 ** This file is part of the QtNetwork module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -557,6 +557,12 @@ bool QHttpNetworkConnectionChannel::ensureConnection()
             connectHost = connection->d_func()->networkProxy.hostName();
             connectPort = connection->d_func()->networkProxy.port();
         }
+        if (socket->proxy().type() == QNetworkProxy::HttpProxy) {
+            // Make user-agent field available to HTTP proxy socket engine (QTBUG-17223)
+            QByteArray value = request.headerField("user-agent");
+            if (!value.isEmpty())
+                socket->setProperty("_q_user-agent", value);
+        }
 #endif
         if (connection->d_func()->encrypt) {
 #ifndef QT_NO_OPENSSL
@@ -593,8 +599,11 @@ bool QHttpNetworkConnectionChannel::expand(bool dataComplete)
         int ret = Z_OK;
         if (content.size())
             ret = reply->d_func()->gunzipBodyPartially(content, inflated);
-        int retCheck = (dataComplete) ? Z_STREAM_END : Z_OK;
-        if (ret >= retCheck) {
+        if (ret >= Z_OK) {
+            if (dataComplete && ret == Z_OK && !reply->d_func()->streamEnd) {
+                reply->d_func()->gunzipBodyPartiallyEnd();
+                reply->d_func()->streamEnd = true;
+            }
             if (inflated.size()) {
                 reply->d_func()->totalProgress += inflated.size();
                 reply->d_func()->appendUncompressedReplyData(inflated);
@@ -963,8 +972,20 @@ void QHttpNetworkConnectionChannel::_q_error(QAbstractSocket::SocketError socket
             } else {
                 errorCode = QNetworkReply::RemoteHostClosedError;
             }
+        } else if (state == QHttpNetworkConnectionChannel::ReadingState) {
+            if (!reply->d_func()->expectContent()) {
+                // No content expected, this is a valid way to have the connection closed by the server
+                return;
+            }
+            if (reply->contentLength() == -1 && !reply->d_func()->isChunked()) {
+                // There was no content-length header and it's not chunked encoding,
+                // so this is a valid way to have the connection closed by the server
+                return;
+            }
+            // ok, we got a disconnect even though we did not expect it
+            errorCode = QNetworkReply::RemoteHostClosedError;
         } else {
-            return;
+            errorCode = QNetworkReply::RemoteHostClosedError;
         }
         break;
     case QAbstractSocket::SocketTimeoutError:
@@ -992,6 +1013,7 @@ void QHttpNetworkConnectionChannel::_q_error(QAbstractSocket::SocketError socket
     if (reply) {
         reply->d_func()->errorString = errorString;
         emit reply->finishedWithError(errorCode, errorString);
+        reply = 0;
     }
     // send the next request
     QMetaObject::invokeMethod(that, "_q_startNextRequest", Qt::QueuedConnection);

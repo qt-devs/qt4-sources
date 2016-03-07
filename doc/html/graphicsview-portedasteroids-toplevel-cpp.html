@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: toplevel.cpp Example File (graphicsview/portedasteroids/toplevel.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">toplevel.cpp Example File</h1>
 <span class="small-subtitle">graphicsview/portedasteroids/toplevel.cpp</span>
 <!-- $$$graphicsview/portedasteroids/toplevel.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,167 +63,167 @@
  **
  ****************************************************************************/</span>
 
-<span class="comment"> /*
+ <span class="comment">/*
   * KAsteroids - Copyright (c) Martin R. Jones 1997
   *
   * Part of the KDE project
   */</span>
-<span class="comment"> //      --- toplevel.cpp ---</span>
- #include &lt;q3accel.h&gt;
- #include &lt;qlabel.h&gt;
- #include &lt;qlayout.h&gt;
- #include &lt;qlcdnumber.h&gt;
- #include &lt;qpushbutton.h&gt;
+ <span class="comment">//      --- toplevel.cpp ---</span>
+ <span class="preprocessor">#include &lt;q3accel.h&gt;</span>
+ <span class="preprocessor">#include &lt;qlabel.h&gt;</span>
+ <span class="preprocessor">#include &lt;qlayout.h&gt;</span>
+ <span class="preprocessor">#include &lt;qlcdnumber.h&gt;</span>
+ <span class="preprocessor">#include &lt;qpushbutton.h&gt;</span>
 
- #include &lt;qapplication.h&gt;
-<span class="comment"> //Added by qt3to4:</span>
- #include &lt;Q3HBoxLayout&gt;
- #include &lt;QShowEvent&gt;
- #include &lt;Q3Frame&gt;
- #include &lt;QPixmap&gt;
- #include &lt;QHideEvent&gt;
- #include &lt;QKeyEvent&gt;
- #include &lt;Q3VBoxLayout&gt;
+ <span class="preprocessor">#include &lt;qapplication.h&gt;</span>
+ <span class="comment">//Added by qt3to4:</span>
+ <span class="preprocessor">#include &lt;Q3HBoxLayout&gt;</span>
+ <span class="preprocessor">#include &lt;QShowEvent&gt;</span>
+ <span class="preprocessor">#include &lt;Q3Frame&gt;</span>
+ <span class="preprocessor">#include &lt;QPixmap&gt;</span>
+ <span class="preprocessor">#include &lt;QHideEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QKeyEvent&gt;</span>
+ <span class="preprocessor">#include &lt;Q3VBoxLayout&gt;</span>
 
- #include &quot;toplevel.h&quot;
- #include &quot;ledmeter.h&quot;
+ <span class="preprocessor">#include &quot;toplevel.h&quot;</span>
+ <span class="preprocessor">#include &quot;ledmeter.h&quot;</span>
 
- #define SB_SCORE        1
- #define SB_LEVEL        2
- #define SB_SHIPS        3
+ <span class="preprocessor">#define SB_SCORE        1</span>
+ <span class="preprocessor">#define SB_LEVEL        2</span>
+ <span class="preprocessor">#define SB_SHIPS        3</span>
 
- struct SLevel
+ <span class="keyword">struct</span> SLevel
  {
-     int    nrocks;
-     double rockSpeed;
+     <span class="type">int</span>    nrocks;
+     <span class="type">double</span> rockSpeed;
  };
 
- #define MAX_LEVELS      16
+ <span class="preprocessor">#define MAX_LEVELS      16</span>
 
- SLevel levels[MAX_LEVELS] =
+ SLevel levels<span class="operator">[</span>MAX_LEVELS<span class="operator">]</span> <span class="operator">=</span>
  {
-     { 1, 0.4 },
-     { 1, 0.6 },
-     { 2, 0.5 },
-     { 2, 0.7 },
-     { 2, 0.8 },
-     { 3, 0.6 },
-     { 3, 0.7 },
-     { 3, 0.8 },
-     { 4, 0.6 },
-     { 4, 0.7 },
-     { 4, 0.8 },
-     { 5, 0.7 },
-     { 5, 0.8 },
-     { 5, 0.9 },
-     { 5, 1.0 }
+     { <span class="number">1</span><span class="operator">,</span> <span class="number">0.4</span> }<span class="operator">,</span>
+     { <span class="number">1</span><span class="operator">,</span> <span class="number">0.6</span> }<span class="operator">,</span>
+     { <span class="number">2</span><span class="operator">,</span> <span class="number">0.5</span> }<span class="operator">,</span>
+     { <span class="number">2</span><span class="operator">,</span> <span class="number">0.7</span> }<span class="operator">,</span>
+     { <span class="number">2</span><span class="operator">,</span> <span class="number">0.8</span> }<span class="operator">,</span>
+     { <span class="number">3</span><span class="operator">,</span> <span class="number">0.6</span> }<span class="operator">,</span>
+     { <span class="number">3</span><span class="operator">,</span> <span class="number">0.7</span> }<span class="operator">,</span>
+     { <span class="number">3</span><span class="operator">,</span> <span class="number">0.8</span> }<span class="operator">,</span>
+     { <span class="number">4</span><span class="operator">,</span> <span class="number">0.6</span> }<span class="operator">,</span>
+     { <span class="number">4</span><span class="operator">,</span> <span class="number">0.7</span> }<span class="operator">,</span>
+     { <span class="number">4</span><span class="operator">,</span> <span class="number">0.8</span> }<span class="operator">,</span>
+     { <span class="number">5</span><span class="operator">,</span> <span class="number">0.7</span> }<span class="operator">,</span>
+     { <span class="number">5</span><span class="operator">,</span> <span class="number">0.8</span> }<span class="operator">,</span>
+     { <span class="number">5</span><span class="operator">,</span> <span class="number">0.9</span> }<span class="operator">,</span>
+     { <span class="number">5</span><span class="operator">,</span> <span class="number">1.0</span> }
  };
 
- const char *soundEvents[] =
+ <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>soundEvents<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span>
  {
-     &quot;ShipDestroyed&quot;,
-     &quot;RockDestroyed&quot;,
-     0
+     <span class="string">&quot;ShipDestroyed&quot;</span><span class="operator">,</span>
+     <span class="string">&quot;RockDestroyed&quot;</span><span class="operator">,</span>
+     <span class="number">0</span>
  };
 
- const char *soundDefaults[] =
+ <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>soundDefaults<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span>
  {
-     &quot;Explosion.wav&quot;,
-     &quot;ploop.wav&quot;,
-     0
+     <span class="string">&quot;Explosion.wav&quot;</span><span class="operator">,</span>
+     <span class="string">&quot;ploop.wav&quot;</span><span class="operator">,</span>
+     <span class="number">0</span>
  };
 
- KAstTopLevel::KAstTopLevel( QWidget *parent, const char *name )
-     : Q3MainWindow( parent, name, 0 )
+ KAstTopLevel<span class="operator">::</span>KAstTopLevel( <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>name )
+     : <span class="type"><a href="q3mainwindow.html">Q3MainWindow</a></span>( parent<span class="operator">,</span> name<span class="operator">,</span> <span class="number">0</span> )
  {
-     QWidget *border = new QWidget( this );
-     border-&gt;setBackgroundColor( Qt::black );
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>border <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>( <span class="keyword">this</span> );
+     border<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black );
      setCentralWidget( border );
 
-     Q3VBoxLayout *borderLayout = new Q3VBoxLayout( border );
-     borderLayout-&gt;addStretch( 1 );
+     <span class="type"><a href="q3vboxlayout.html">Q3VBoxLayout</a></span> <span class="operator">*</span>borderLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3vboxlayout.html">Q3VBoxLayout</a></span>( border );
+     borderLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch( <span class="number">1</span> );
 
-     QWidget *mainWin = new QWidget( border );
-     mainWin-&gt;setFixedSize(640, 480);
-     borderLayout-&gt;addWidget( mainWin, 0, Qt::AlignHCenter );
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>mainWin <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>( border );
+     mainWin<span class="operator">-</span><span class="operator">&gt;</span>setFixedSize(<span class="number">640</span><span class="operator">,</span> <span class="number">480</span>);
+     borderLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget( mainWin<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter );
 
-     borderLayout-&gt;addStretch( 1 );
+     borderLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch( <span class="number">1</span> );
 
-     view = new KAsteroidsView( mainWin );
-     view-&gt;setFocusPolicy( Qt::StrongFocus );
-     connect( view, SIGNAL(shipKilled()), SLOT(slotShipKilled()) );
-     connect( view, SIGNAL(rockHit(int)), SLOT(slotRockHit(int)) );
-     connect( view, SIGNAL(rocksRemoved()), SLOT(slotRocksRemoved()) );
-     connect( view, SIGNAL(updateVitals()), SLOT(slotUpdateVitals()) );
+     view <span class="operator">=</span> <span class="keyword">new</span> KAsteroidsView( mainWin );
+     view<span class="operator">-</span><span class="operator">&gt;</span>setFocusPolicy( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>StrongFocus );
+     connect( view<span class="operator">,</span> SIGNAL(shipKilled())<span class="operator">,</span> SLOT(slotShipKilled()) );
+     connect( view<span class="operator">,</span> SIGNAL(rockHit(<span class="type">int</span>))<span class="operator">,</span> SLOT(slotRockHit(<span class="type">int</span>)) );
+     connect( view<span class="operator">,</span> SIGNAL(rocksRemoved())<span class="operator">,</span> SLOT(slotRocksRemoved()) );
+     connect( view<span class="operator">,</span> SIGNAL(updateVitals())<span class="operator">,</span> SLOT(slotUpdateVitals()) );
 
-     Q3VBoxLayout *vb = new Q3VBoxLayout( mainWin );
-     Q3HBoxLayout *hb = new Q3HBoxLayout;
-     Q3HBoxLayout *hbd = new Q3HBoxLayout;
-     vb-&gt;addLayout( hb );
+     <span class="type"><a href="q3vboxlayout.html">Q3VBoxLayout</a></span> <span class="operator">*</span>vb <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3vboxlayout.html">Q3VBoxLayout</a></span>( mainWin );
+     <span class="type"><a href="q3hboxlayout.html">Q3HBoxLayout</a></span> <span class="operator">*</span>hb <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3hboxlayout.html">Q3HBoxLayout</a></span>;
+     <span class="type"><a href="q3hboxlayout.html">Q3HBoxLayout</a></span> <span class="operator">*</span>hbd <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3hboxlayout.html">Q3HBoxLayout</a></span>;
+     vb<span class="operator">-</span><span class="operator">&gt;</span>addLayout( hb );
 
-     QFont labelFont( &quot;helvetica&quot;, 24 );
-     QColorGroup grp( Qt::darkGreen, Qt::black, QColor( 128, 128, 128 ),
-             QColor( 64, 64, 64 ), Qt::black, Qt::darkGreen, Qt::black );
-     QPalette pal( grp, grp, grp );
+     <span class="type"><a href="qfont.html">QFont</a></span> labelFont( <span class="string">&quot;helvetica&quot;</span><span class="operator">,</span> <span class="number">24</span> );
+     <span class="type"><a href="qcolorgroup.html">QColorGroup</a></span> grp( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGreen<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>( <span class="number">128</span><span class="operator">,</span> <span class="number">128</span><span class="operator">,</span> <span class="number">128</span> )<span class="operator">,</span>
+             <span class="type"><a href="qcolor.html">QColor</a></span>( <span class="number">64</span><span class="operator">,</span> <span class="number">64</span><span class="operator">,</span> <span class="number">64</span> )<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGreen<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black );
+     <span class="type"><a href="qpalette.html">QPalette</a></span> pal( grp<span class="operator">,</span> grp<span class="operator">,</span> grp );
 
-     mainWin-&gt;setPalette( pal );
+     mainWin<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
 
-     hb-&gt;addSpacing( 10 );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addSpacing( <span class="number">10</span> );
 
-     QLabel *label;
-     label = new QLabel( tr(&quot;Score&quot;), mainWin );
-     label-&gt;setFont( labelFont );
-     label-&gt;setPalette( pal );
-     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
-     hb-&gt;addWidget( label );
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>label;
+     label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>( tr(<span class="string">&quot;Score&quot;</span>)<span class="operator">,</span> mainWin );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFont( labelFont );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( label<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width() );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addWidget( label );
 
-     scoreLCD = new QLCDNumber( 6, mainWin );
-     scoreLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
-     scoreLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
-     scoreLCD-&gt;setFixedWidth( 150 );
-     scoreLCD-&gt;setPalette( pal );
-     hb-&gt;addWidget( scoreLCD );
-     hb-&gt;addStretch( 10 );
+     scoreLCD <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span>( <span class="number">6</span><span class="operator">,</span> mainWin );
+     scoreLCD<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle( <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>NoFrame );
+     scoreLCD<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle( <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Flat );
+     scoreLCD<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( <span class="number">150</span> );
+     scoreLCD<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addWidget( scoreLCD );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addStretch( <span class="number">10</span> );
 
-     label = new QLabel( tr(&quot;Level&quot;), mainWin );
-     label-&gt;setFont( labelFont );
-     label-&gt;setPalette( pal );
-     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
-     hb-&gt;addWidget( label );
+     label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>( tr(<span class="string">&quot;Level&quot;</span>)<span class="operator">,</span> mainWin );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFont( labelFont );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( label<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width() );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addWidget( label );
 
-     levelLCD = new QLCDNumber( 2, mainWin );
-     levelLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
-     levelLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
-     levelLCD-&gt;setFixedWidth( 70 );
-     levelLCD-&gt;setPalette( pal );
-     hb-&gt;addWidget( levelLCD );
-     hb-&gt;addStretch( 10 );
+     levelLCD <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span>( <span class="number">2</span><span class="operator">,</span> mainWin );
+     levelLCD<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle( <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>NoFrame );
+     levelLCD<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle( <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Flat );
+     levelLCD<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( <span class="number">70</span> );
+     levelLCD<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addWidget( levelLCD );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addStretch( <span class="number">10</span> );
 
-     label = new QLabel( tr(&quot;Ships&quot;), mainWin );
-     label-&gt;setFont( labelFont );
-     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
-     label-&gt;setPalette( pal );
-     hb-&gt;addWidget( label );
+     label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>( tr(<span class="string">&quot;Ships&quot;</span>)<span class="operator">,</span> mainWin );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFont( labelFont );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( label<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width() );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addWidget( label );
 
-     shipsLCD = new QLCDNumber( 1, mainWin );
-     shipsLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
-     shipsLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
-     shipsLCD-&gt;setFixedWidth( 40 );
-     shipsLCD-&gt;setPalette( pal );
-     hb-&gt;addWidget( shipsLCD );
+     shipsLCD <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span>( <span class="number">1</span><span class="operator">,</span> mainWin );
+     shipsLCD<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle( <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>NoFrame );
+     shipsLCD<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle( <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Flat );
+     shipsLCD<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( <span class="number">40</span> );
+     shipsLCD<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addWidget( shipsLCD );
 
-     hb-&gt;addStrut( 30 );
+     hb<span class="operator">-</span><span class="operator">&gt;</span>addStrut( <span class="number">30</span> );
 
-     vb-&gt;addWidget( view, 10 );
+     vb<span class="operator">-</span><span class="operator">&gt;</span>addWidget( view<span class="operator">,</span> <span class="number">10</span> );
 
-<span class="comment"> // -- bottom layout:</span>
-     vb-&gt;addLayout( hbd );
+ <span class="comment">// -- bottom layout:</span>
+     vb<span class="operator">-</span><span class="operator">&gt;</span>addLayout( hbd );
 
-     QFont smallFont( &quot;helvetica&quot;, 14 );
-     hbd-&gt;addSpacing( 10 );
+     <span class="type"><a href="qfont.html">QFont</a></span> smallFont( <span class="string">&quot;helvetica&quot;</span><span class="operator">,</span> <span class="number">14</span> );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addSpacing( <span class="number">10</span> );
 
-     QString sprites_prefix = &quot;:/trolltech/examples/graphicsview/portedasteroids/sprites/&quot;;
-<span class="comment"> /*
+     <span class="type"><a href="qstring.html">QString</a></span> sprites_prefix <span class="operator">=</span> <span class="string">&quot;:/trolltech/examples/graphicsview/portedasteroids/sprites/&quot;</span>;
+ <span class="comment">/*
      label = new QLabel( tr( &quot;T&quot; ), mainWin );
      label-&gt;setFont( smallFont );
      label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
@@ -367,201 +239,201 @@
 
      hbd-&gt;addSpacing( 10 );
  */</span>
-     QPixmap pm( sprites_prefix + &quot;powerups/brake.png&quot; );
-     label = new QLabel( mainWin );
-     label-&gt;setPixmap( pm );
-     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
-     label-&gt;setPalette( pal );
-     hbd-&gt;addWidget( label );
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pm( sprites_prefix <span class="operator">+</span> <span class="string">&quot;powerups/brake.png&quot;</span> );
+     label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>( mainWin );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPixmap( pm );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( label<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width() );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( label );
 
-     brakesLCD = new QLCDNumber( 1, mainWin );
-     brakesLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
-     brakesLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
-     brakesLCD-&gt;setPalette( pal );
-     brakesLCD-&gt;setFixedHeight( 20 );
-     hbd-&gt;addWidget( brakesLCD );
+     brakesLCD <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span>( <span class="number">1</span><span class="operator">,</span> mainWin );
+     brakesLCD<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle( <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>NoFrame );
+     brakesLCD<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle( <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Flat );
+     brakesLCD<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     brakesLCD<span class="operator">-</span><span class="operator">&gt;</span>setFixedHeight( <span class="number">20</span> );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( brakesLCD );
 
-     hbd-&gt;addSpacing( 10 );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addSpacing( <span class="number">10</span> );
 
-     pm.load( sprites_prefix + &quot;powerups/shield.png&quot; );
-     label = new QLabel( mainWin );
-     label-&gt;setPixmap( pm );
-     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
-     label-&gt;setPalette( pal );
-     hbd-&gt;addWidget( label );
+     pm<span class="operator">.</span>load( sprites_prefix <span class="operator">+</span> <span class="string">&quot;powerups/shield.png&quot;</span> );
+     label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>( mainWin );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPixmap( pm );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( label<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width() );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( label );
 
-     shieldLCD = new QLCDNumber( 1, mainWin );
-     shieldLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
-     shieldLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
-     shieldLCD-&gt;setPalette( pal );
-     shieldLCD-&gt;setFixedHeight( 20 );
-     hbd-&gt;addWidget( shieldLCD );
+     shieldLCD <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span>( <span class="number">1</span><span class="operator">,</span> mainWin );
+     shieldLCD<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle( <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>NoFrame );
+     shieldLCD<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle( <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Flat );
+     shieldLCD<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     shieldLCD<span class="operator">-</span><span class="operator">&gt;</span>setFixedHeight( <span class="number">20</span> );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( shieldLCD );
 
-     hbd-&gt;addSpacing( 10 );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addSpacing( <span class="number">10</span> );
 
-     pm.load( sprites_prefix + &quot;powerups/shoot.png&quot; );
-     label = new QLabel( mainWin );
-     label-&gt;setPixmap( pm );
-     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
-     label-&gt;setPalette( pal );
-     hbd-&gt;addWidget( label );
+     pm<span class="operator">.</span>load( sprites_prefix <span class="operator">+</span> <span class="string">&quot;powerups/shoot.png&quot;</span> );
+     label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>( mainWin );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPixmap( pm );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( label<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width() );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( label );
 
-     shootLCD = new QLCDNumber( 1, mainWin );
-     shootLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
-     shootLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
-     shootLCD-&gt;setPalette( pal );
-     shootLCD-&gt;setFixedHeight( 20 );
-     hbd-&gt;addWidget( shootLCD );
+     shootLCD <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span>( <span class="number">1</span><span class="operator">,</span> mainWin );
+     shootLCD<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle( <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>NoFrame );
+     shootLCD<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle( <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Flat );
+     shootLCD<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     shootLCD<span class="operator">-</span><span class="operator">&gt;</span>setFixedHeight( <span class="number">20</span> );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( shootLCD );
 
-     hbd-&gt;addStretch( 1 );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addStretch( <span class="number">1</span> );
 
-     label = new QLabel( tr( &quot;Fuel&quot; ), mainWin );
-     label-&gt;setFont( smallFont );
-     label-&gt;setFixedWidth( label-&gt;sizeHint().width() + 10 );
-     label-&gt;setPalette( pal );
-     hbd-&gt;addWidget( label );
+     label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>( tr( <span class="string">&quot;Fuel&quot;</span> )<span class="operator">,</span> mainWin );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFont( smallFont );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth( label<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width() <span class="operator">+</span> <span class="number">10</span> );
+     label<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( label );
 
-     powerMeter = new KALedMeter( mainWin );
-     powerMeter-&gt;setFrameStyle( Q3Frame::Box | Q3Frame::Plain );
-     powerMeter-&gt;setRange( MAX_POWER_LEVEL );
-     powerMeter-&gt;addColorRange( 10, Qt::darkRed );
-     powerMeter-&gt;addColorRange( 20, QColor(160, 96, 0) );
-     powerMeter-&gt;addColorRange( 70, Qt::darkGreen );
-     powerMeter-&gt;setCount( 40 );
-     powerMeter-&gt;setPalette( pal );
-     powerMeter-&gt;setFixedSize( 200, 12 );
-     hbd-&gt;addWidget( powerMeter );
+     powerMeter <span class="operator">=</span> <span class="keyword">new</span> KALedMeter( mainWin );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle( <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>Box <span class="operator">|</span> <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>Plain );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>setRange( MAX_POWER_LEVEL );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>addColorRange( <span class="number">10</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkRed );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>addColorRange( <span class="number">20</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">160</span><span class="operator">,</span> <span class="number">96</span><span class="operator">,</span> <span class="number">0</span>) );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>addColorRange( <span class="number">70</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGreen );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>setCount( <span class="number">40</span> );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>setPalette( pal );
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>setFixedSize( <span class="number">200</span><span class="operator">,</span> <span class="number">12</span> );
+     hbd<span class="operator">-</span><span class="operator">&gt;</span>addWidget( powerMeter );
 
-     shipsRemain = 3;
-     showHiscores = FALSE;
+     shipsRemain <span class="operator">=</span> <span class="number">3</span>;
+     showHiscores <span class="operator">=</span> FALSE;
 
-     actions.insert( Qt::Key_Up, Thrust );
-     actions.insert( Qt::Key_Left, RotateLeft );
-     actions.insert( Qt::Key_Right, RotateRight );
-     actions.insert( Qt::Key_Space, Shoot );
-     actions.insert( Qt::Key_Z, Teleport );
-     actions.insert( Qt::Key_X, Brake );
-     actions.insert( Qt::Key_S, Shield );
-     actions.insert( Qt::Key_P, Pause );
-     actions.insert( Qt::Key_L, Launch );
-     actions.insert( Qt::Key_N, NewGame );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Up<span class="operator">,</span> Thrust );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Left<span class="operator">,</span> RotateLeft );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Right<span class="operator">,</span> RotateRight );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Space<span class="operator">,</span> Shoot );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Z<span class="operator">,</span> Teleport );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_X<span class="operator">,</span> Brake );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_S<span class="operator">,</span> Shield );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_P<span class="operator">,</span> Pause );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_L<span class="operator">,</span> Launch );
+     actions<span class="operator">.</span>insert( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_N<span class="operator">,</span> NewGame );
 
-     view-&gt;showText( tr( &quot;Press N to start playing&quot; ), Qt::yellow );
+     view<span class="operator">-</span><span class="operator">&gt;</span>showText( tr( <span class="string">&quot;Press N to start playing&quot;</span> )<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow );
  }
 
- KAstTopLevel::~KAstTopLevel()
+ KAstTopLevel<span class="operator">::</span><span class="operator">~</span>KAstTopLevel()
  {
  }
 
- void KAstTopLevel::playSound( const char * )
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>playSound( <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span> )
  {
  }
 
- void KAstTopLevel::keyPressEvent( QKeyEvent *event )
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>keyPressEvent( <span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event )
  {
-     if ( event-&gt;isAutoRepeat() || !actions.contains( event-&gt;key() ) )
+     <span class="keyword">if</span> ( event<span class="operator">-</span><span class="operator">&gt;</span>isAutoRepeat() <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>actions<span class="operator">.</span>contains( event<span class="operator">-</span><span class="operator">&gt;</span>key() ) )
      {
-         event-&gt;ignore();
-         return;
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+         <span class="keyword">return</span>;
      }
 
-     Action a = actions[ event-&gt;key() ];
+     Action a <span class="operator">=</span> actions<span class="operator">[</span> event<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">]</span>;
 
-     switch ( a )
+     <span class="keyword">switch</span> ( a )
      {
-         case RotateLeft:
-             view-&gt;rotateLeft( TRUE );
-             break;
+         <span class="keyword">case</span> RotateLeft:
+             view<span class="operator">-</span><span class="operator">&gt;</span>rotateLeft( TRUE );
+             <span class="keyword">break</span>;
 
-         case RotateRight:
-             view-&gt;rotateRight( TRUE );
-             break;
+         <span class="keyword">case</span> RotateRight:
+             view<span class="operator">-</span><span class="operator">&gt;</span>rotateRight( TRUE );
+             <span class="keyword">break</span>;
 
-         case Thrust:
-             view-&gt;thrust( TRUE );
-             break;
+         <span class="keyword">case</span> Thrust:
+             view<span class="operator">-</span><span class="operator">&gt;</span>thrust( TRUE );
+             <span class="keyword">break</span>;
 
-         case Shoot:
-             view-&gt;shoot( TRUE );
-             break;
+         <span class="keyword">case</span> Shoot:
+             view<span class="operator">-</span><span class="operator">&gt;</span>shoot( TRUE );
+             <span class="keyword">break</span>;
 
-         case Shield:
-             view-&gt;setShield( TRUE );
-             break;
+         <span class="keyword">case</span> Shield:
+             view<span class="operator">-</span><span class="operator">&gt;</span>setShield( TRUE );
+             <span class="keyword">break</span>;
 
-         case Teleport:
-             view-&gt;teleport( TRUE );
-             break;
+         <span class="keyword">case</span> Teleport:
+             view<span class="operator">-</span><span class="operator">&gt;</span>teleport( TRUE );
+             <span class="keyword">break</span>;
 
-         case Brake:
-             view-&gt;brake( TRUE );
-             break;
+         <span class="keyword">case</span> Brake:
+             view<span class="operator">-</span><span class="operator">&gt;</span>brake( TRUE );
+             <span class="keyword">break</span>;
 
-         default:
-             event-&gt;ignore();
-             return;
+         <span class="keyword">default</span>:
+             event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+             <span class="keyword">return</span>;
      }
-     event-&gt;accept();
+     event<span class="operator">-</span><span class="operator">&gt;</span>accept();
  }
 
- void KAstTopLevel::keyReleaseEvent( QKeyEvent *event )
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>keyReleaseEvent( <span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event )
  {
-     if ( event-&gt;isAutoRepeat() || !actions.contains( event-&gt;key() ) )
+     <span class="keyword">if</span> ( event<span class="operator">-</span><span class="operator">&gt;</span>isAutoRepeat() <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>actions<span class="operator">.</span>contains( event<span class="operator">-</span><span class="operator">&gt;</span>key() ) )
      {
-         event-&gt;ignore();
-         return;
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+         <span class="keyword">return</span>;
      }
 
-     Action a = actions[ event-&gt;key() ];
+     Action a <span class="operator">=</span> actions<span class="operator">[</span> event<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">]</span>;
 
-     switch ( a )
+     <span class="keyword">switch</span> ( a )
      {
-         case RotateLeft:
-             view-&gt;rotateLeft( FALSE );
-             break;
+         <span class="keyword">case</span> RotateLeft:
+             view<span class="operator">-</span><span class="operator">&gt;</span>rotateLeft( FALSE );
+             <span class="keyword">break</span>;
 
-         case RotateRight:
-             view-&gt;rotateRight( FALSE );
-             break;
+         <span class="keyword">case</span> RotateRight:
+             view<span class="operator">-</span><span class="operator">&gt;</span>rotateRight( FALSE );
+             <span class="keyword">break</span>;
 
-         case Thrust:
-             view-&gt;thrust( FALSE );
-             break;
+         <span class="keyword">case</span> Thrust:
+             view<span class="operator">-</span><span class="operator">&gt;</span>thrust( FALSE );
+             <span class="keyword">break</span>;
 
-         case Shoot:
-             view-&gt;shoot( FALSE );
-             break;
+         <span class="keyword">case</span> Shoot:
+             view<span class="operator">-</span><span class="operator">&gt;</span>shoot( FALSE );
+             <span class="keyword">break</span>;
 
-         case Brake:
-             view-&gt;brake( FALSE );
-             break;
+         <span class="keyword">case</span> Brake:
+             view<span class="operator">-</span><span class="operator">&gt;</span>brake( FALSE );
+             <span class="keyword">break</span>;
 
-         case Shield:
-             view-&gt;setShield( FALSE );
-             break;
+         <span class="keyword">case</span> Shield:
+             view<span class="operator">-</span><span class="operator">&gt;</span>setShield( FALSE );
+             <span class="keyword">break</span>;
 
-         case Teleport:
-             view-&gt;teleport( FALSE );
-             break;
+         <span class="keyword">case</span> Teleport:
+             view<span class="operator">-</span><span class="operator">&gt;</span>teleport( FALSE );
+             <span class="keyword">break</span>;
 
-         case Launch:
-             if ( waitShip )
+         <span class="keyword">case</span> Launch:
+             <span class="keyword">if</span> ( waitShip )
              {
-                 view-&gt;newShip();
-                 waitShip = FALSE;
-                 view-&gt;hideText();
+                 view<span class="operator">-</span><span class="operator">&gt;</span>newShip();
+                 waitShip <span class="operator">=</span> FALSE;
+                 view<span class="operator">-</span><span class="operator">&gt;</span>hideText();
              }
-             else
+             <span class="keyword">else</span>
              {
-                 event-&gt;ignore();
-                 return;
+                 event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+                 <span class="keyword">return</span>;
              }
-             break;
+             <span class="keyword">break</span>;
 
-         case NewGame:
+         <span class="keyword">case</span> NewGame:
              slotNewGame();
-             break;
-<span class="comment"> /*
+             <span class="keyword">break</span>;
+ <span class="comment">/*
          case Pause:
              {
                  view-&gt;pause( TRUE );
@@ -572,162 +444,146 @@
              }
              break;
  */</span>
-         default:
-             event-&gt;ignore();
-             return;
+         <span class="keyword">default</span>:
+             event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+             <span class="keyword">return</span>;
      }
 
-     event-&gt;accept();
+     event<span class="operator">-</span><span class="operator">&gt;</span>accept();
  }
 
- void KAstTopLevel::showEvent( QShowEvent *e )
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>showEvent( <span class="type"><a href="qshowevent.html">QShowEvent</a></span> <span class="operator">*</span>e )
  {
-     Q3MainWindow::showEvent( e );
-     view-&gt;pause( FALSE );
-     view-&gt;setFocus();
+     <span class="type"><a href="q3mainwindow.html">Q3MainWindow</a></span><span class="operator">::</span>showEvent( e );
+     view<span class="operator">-</span><span class="operator">&gt;</span>pause( FALSE );
+     view<span class="operator">-</span><span class="operator">&gt;</span>setFocus();
  }
 
- void KAstTopLevel::hideEvent( QHideEvent *e )
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>hideEvent( <span class="type"><a href="qhideevent.html">QHideEvent</a></span> <span class="operator">*</span>e )
  {
-     Q3MainWindow::hideEvent( e );
-     view-&gt;pause( TRUE );
+     <span class="type"><a href="q3mainwindow.html">Q3MainWindow</a></span><span class="operator">::</span>hideEvent( e );
+     view<span class="operator">-</span><span class="operator">&gt;</span>pause( TRUE );
  }
 
- void KAstTopLevel::slotNewGame()
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>slotNewGame()
  {
-     score = 0;
-     shipsRemain = SB_SHIPS;
-     scoreLCD-&gt;display( 0 );
-     level = 0;
-     levelLCD-&gt;display( level+1 );
-     shipsLCD-&gt;display( shipsRemain-1 );
-     view-&gt;newGame();
-     view-&gt;setRockSpeed( levels[0].rockSpeed );
-     view-&gt;addRocks( levels[0].nrocks );
-<span class="comment"> //    view-&gt;showText( tr( &quot;Press L to launch.&quot; ), yellow );</span>
-     view-&gt;newShip();
-     waitShip = FALSE;
-     view-&gt;hideText();
-     isPaused = FALSE;
+     score <span class="operator">=</span> <span class="number">0</span>;
+     shipsRemain <span class="operator">=</span> SB_SHIPS;
+     scoreLCD<span class="operator">-</span><span class="operator">&gt;</span>display( <span class="number">0</span> );
+     level <span class="operator">=</span> <span class="number">0</span>;
+     levelLCD<span class="operator">-</span><span class="operator">&gt;</span>display( level<span class="operator">+</span><span class="number">1</span> );
+     shipsLCD<span class="operator">-</span><span class="operator">&gt;</span>display( shipsRemain<span class="operator">-</span><span class="number">1</span> );
+     view<span class="operator">-</span><span class="operator">&gt;</span>newGame();
+     view<span class="operator">-</span><span class="operator">&gt;</span>setRockSpeed( levels<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>rockSpeed );
+     view<span class="operator">-</span><span class="operator">&gt;</span>addRocks( levels<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>nrocks );
+ <span class="comment">//    view-&gt;showText( tr( &quot;Press L to launch.&quot; ), yellow );</span>
+     view<span class="operator">-</span><span class="operator">&gt;</span>newShip();
+     waitShip <span class="operator">=</span> FALSE;
+     view<span class="operator">-</span><span class="operator">&gt;</span>hideText();
+     isPaused <span class="operator">=</span> FALSE;
  }
 
- void KAstTopLevel::slotShipKilled()
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>slotShipKilled()
  {
-     shipsRemain--;
-     shipsLCD-&gt;display( shipsRemain-1 );
+     shipsRemain<span class="operator">-</span><span class="operator">-</span>;
+     shipsLCD<span class="operator">-</span><span class="operator">&gt;</span>display( shipsRemain<span class="operator">-</span><span class="number">1</span> );
 
-     playSound( &quot;ShipDestroyed&quot; );
+     playSound( <span class="string">&quot;ShipDestroyed&quot;</span> );
 
-     if ( shipsRemain )
+     <span class="keyword">if</span> ( shipsRemain )
      {
-         waitShip = TRUE;
-         view-&gt;showText( tr( &quot;Ship Destroyed. Press L to launch.&quot;), Qt::yellow );
+         waitShip <span class="operator">=</span> TRUE;
+         view<span class="operator">-</span><span class="operator">&gt;</span>showText( tr( <span class="string">&quot;Ship Destroyed. Press L to launch.&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow );
      }
-     else
+     <span class="keyword">else</span>
      {
-         view-&gt;showText( tr(&quot;Game Over!&quot;), Qt::red );
-         view-&gt;endGame();
+         view<span class="operator">-</span><span class="operator">&gt;</span>showText( tr(<span class="string">&quot;Game Over!&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red );
+         view<span class="operator">-</span><span class="operator">&gt;</span>endGame();
          doStats();
-<span class="comment"> //        highscore-&gt;addEntry( score, level, showHiscores );</span>
+ <span class="comment">//        highscore-&gt;addEntry( score, level, showHiscores );</span>
      }
  }
 
- void KAstTopLevel::slotRockHit( int size )
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>slotRockHit( <span class="type">int</span> size )
  {
-     switch ( size )
+     <span class="keyword">switch</span> ( size )
      {
-         case 0:
-             score += 10;
-              break;
+         <span class="keyword">case</span> <span class="number">0</span>:
+             score <span class="operator">+</span><span class="operator">=</span> <span class="number">10</span>;
+              <span class="keyword">break</span>;
 
-         case 1:
-             score += 20;
-             break;
+         <span class="keyword">case</span> <span class="number">1</span>:
+             score <span class="operator">+</span><span class="operator">=</span> <span class="number">20</span>;
+             <span class="keyword">break</span>;
 
-         default:
-             score += 40;
+         <span class="keyword">default</span>:
+             score <span class="operator">+</span><span class="operator">=</span> <span class="number">40</span>;
        }
 
-     playSound( &quot;RockDestroyed&quot; );
+     playSound( <span class="string">&quot;RockDestroyed&quot;</span> );
 
-     scoreLCD-&gt;display( score );
+     scoreLCD<span class="operator">-</span><span class="operator">&gt;</span>display( score );
  }
 
- void KAstTopLevel::slotRocksRemoved()
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>slotRocksRemoved()
  {
-     level++;
+     level<span class="operator">+</span><span class="operator">+</span>;
 
-     if ( level &gt;= MAX_LEVELS )
-         level = MAX_LEVELS - 1;
+     <span class="keyword">if</span> ( level <span class="operator">&gt;</span><span class="operator">=</span> MAX_LEVELS )
+         level <span class="operator">=</span> MAX_LEVELS <span class="operator">-</span> <span class="number">1</span>;
 
-     view-&gt;setRockSpeed( levels[level-1].rockSpeed );
-     view-&gt;addRocks( levels[level-1].nrocks );
+     view<span class="operator">-</span><span class="operator">&gt;</span>setRockSpeed( levels<span class="operator">[</span>level<span class="operator">-</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>rockSpeed );
+     view<span class="operator">-</span><span class="operator">&gt;</span>addRocks( levels<span class="operator">[</span>level<span class="operator">-</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>nrocks );
 
-     levelLCD-&gt;display( level+1 );
+     levelLCD<span class="operator">-</span><span class="operator">&gt;</span>display( level<span class="operator">+</span><span class="number">1</span> );
  }
 
- void KAstTopLevel::doStats()
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>doStats()
  {
-     QString r( &quot;0.00&quot; );
-     if ( view-&gt;shots() )
-          r = QString::number( (double)view-&gt;hits() / view-&gt;shots() * 100.0,
-                              'g', 2 );
+     <span class="type"><a href="qstring.html">QString</a></span> r( <span class="string">&quot;0.00&quot;</span> );
+     <span class="keyword">if</span> ( view<span class="operator">-</span><span class="operator">&gt;</span>shots() )
+          r <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number( (<span class="type">double</span>)view<span class="operator">-</span><span class="operator">&gt;</span>hits() <span class="operator">/</span> view<span class="operator">-</span><span class="operator">&gt;</span>shots() <span class="operator">*</span> <span class="number">100.0</span><span class="operator">,</span>
+                              <span class="char">'g'</span><span class="operator">,</span> <span class="number">2</span> );
 
-<span class="comment"> /* multi-line text broken in Qt 3
+ <span class="comment">/* multi-line text broken in Qt 3
      QString s = tr( &quot;Game Over\n\nShots fired:\t%1\n  Hit:\t%2\n  Missed:\t%3\nHit ratio:\t%4 %\n\nPress N for a new game&quot; )
        .arg(view-&gt;shots()).arg(view-&gt;hits())
        .arg(view-&gt;shots() - view-&gt;hits())
        .arg(r);
  */</span>
 
-     view-&gt;showText( &quot;Game Over.   Press N for a new game.&quot;, Qt::yellow, FALSE );
+     view<span class="operator">-</span><span class="operator">&gt;</span>showText( <span class="string">&quot;Game Over.   Press N for a new game.&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow<span class="operator">,</span> FALSE );
  }
 
- void KAstTopLevel::slotUpdateVitals()
+ <span class="type">void</span> KAstTopLevel<span class="operator">::</span>slotUpdateVitals()
  {
-     brakesLCD-&gt;display( view-&gt;brakeCount() );
-     shieldLCD-&gt;display( view-&gt;shieldCount() );
-     shootLCD-&gt;display( view-&gt;shootCount() );
-<span class="comment"> //    teleportsLCD-&gt;display( view-&gt;teleportCount() );</span>
-     powerMeter-&gt;setValue( view-&gt;power() );
+     brakesLCD<span class="operator">-</span><span class="operator">&gt;</span>display( view<span class="operator">-</span><span class="operator">&gt;</span>brakeCount() );
+     shieldLCD<span class="operator">-</span><span class="operator">&gt;</span>display( view<span class="operator">-</span><span class="operator">&gt;</span>shieldCount() );
+     shootLCD<span class="operator">-</span><span class="operator">&gt;</span>display( view<span class="operator">-</span><span class="operator">&gt;</span>shootCount() );
+ <span class="comment">//    teleportsLCD-&gt;display( view-&gt;teleportCount() );</span>
+     powerMeter<span class="operator">-</span><span class="operator">&gt;</span>setValue( view<span class="operator">-</span><span class="operator">&gt;</span>power() );
  }</pre>
 </div>
 <!-- @@@graphicsview/portedasteroids/toplevel.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

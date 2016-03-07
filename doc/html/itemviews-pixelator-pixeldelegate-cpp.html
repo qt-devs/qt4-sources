@@ -4,154 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Qt 4.7: pixeldelegate.cpp Example File (itemviews/pixelator/pixeldelegate.cpp)</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <script src="scripts/jquery.js" type="text/javascript"></script>
-  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
 </head>
-<body class="offline narrow creator">
- <div class="header" id="qtdocheader">
-    <div class="content"> 
-    <div id="nav-logo">
-      <a href="index.html">Home</a></div>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-    <div id="narrowsearch"></div>
-    <div id="nav-topright">
-      <ul>
-        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
-        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
-        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
-        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
-          DOC</a></li>
-        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
-      </ul>
-    </div>
-    <div id="shortCut">
-      <ul>
-        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
-      </ul>
-     </div>
- <ul class="sf-menu" id="narrowmenu"> 
- 			<li><a href="#">API Lookup</a> 
- 				<ul> 
- 					<li><a href="classes.html">Class index</a></li> 
-           <li><a href="functions.html">Function index</a></li> 
-           <li><a href="modules.html">Modules</a></li> 
-           <li><a href="namespaces.html">Namespaces</a></li> 
-           <li><a href="qtglobal.html">Global Declarations</a></li> 
-           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
- 		    </ul> 
- 			</li> 
- 			<li><a href="#">Qt Topics</a> 
- 				<ul> 
- 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
- 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
- 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
- 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
- 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
- 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
- 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
- 		     </ul> 
- 				</li> 
- 				<li><a href="#">Examples</a> 
- 					<ul> 
- 		              <li><a href="all-examples.html">Examples</a></li> 
- 		              <li><a href="tutorials.html">Tutorials</a></li> 
- 		              <li><a href="demos.html">Demos</a></li> 
- 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
- 		       </ul> 
- 					</li> 
- 				</ul> 
-    </div>
   </div>
-  <div class="wrapper">
-    <div class="hd">
-      <span></span>
-    </div>
-    <div class="bd group">
-      <div class="sidebar">
-        <div class="searchlabel">
-          Search index:</div>
-        <div class="search" id="sidebarsearch">
-          <form id="qtdocsearch" action="" onsubmit="return false;">
-            <fieldset>
-              <input type="text" name="searchstring" id="pageType" value="" />
- <div id="resultdialog"> 
- <a href="#" id="resultclose">Close</a> 
-<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
- <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
- <ul id="resultlist" class="all"> 
- </ul> 
- </div> 
-            </fieldset>
-          </form>
-        </div>
-        <div class="box first bottombar" id="lookup">
-          <h2 title="API Lookup"><span></span>
-            API Lookup</h2>
-          <div  id="list001" class="list">
-          <ul id="ul001" >
-              <li class="defaultLink"><a href="classes.html">Class index</a></li>
-              <li class="defaultLink"><a href="functions.html">Function index</a></li>
-              <li class="defaultLink"><a href="modules.html">Modules</a></li>
-              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
-              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
-            </ul> 
-          </div>
-        </div>
-        <div class="box bottombar" id="topics">
-          <h2 title="Qt Topics"><span></span>
-            Qt Topics</h2>
-          <div id="list002" class="list">
-            <ul id="ul002" >
-			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
-			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
-            </ul>  
-          </div>
-        </div>
-        <div class="box" id="examples">
-          <h2 title="Examples"><span></span>
-            Examples</h2>
-          <div id="list003" class="list">
-        <ul id="ul003">
-              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
-              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
-              <li class="defaultLink"><a href="demos.html">Demos</a></li>
-              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
-            </ul> 
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="toolbar">
-          <div class="breadcrumb toolblock">
-            <ul>
-              <li class="first"><a href="index.html">Home</a></li>
-              <!--  Bread crumbs goes here -->
-            </ul>
-          </div>
-          <div class="toolbuttons toolblock">
-            <ul>
-              <li id="smallA" class="t_button">A</li>
-              <li id="medA" class="t_button active">A</li>
-              <li id="bigA" class="t_button">A</li>
-              <li id="print" class="t_button"><a href="javascript:this.print();">
-                <span>Print</span></a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="content mainContent">
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
 <h1 class="title">pixeldelegate.cpp Example File</h1>
 <span class="small-subtitle">itemviews/pixelator/pixeldelegate.cpp</span>
 <!-- $$$itemviews/pixelator/pixeldelegate.cpp-description -->
 <div class="descr"> <a name="details"></a>
-<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+<pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
@@ -191,89 +63,73 @@
  **
  ****************************************************************************/</span>
 
- #include &lt;QtGui&gt;
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
 
- #include &quot;pixeldelegate.h&quot;
+ <span class="preprocessor">#include &quot;pixeldelegate.h&quot;</span>
 
- PixelDelegate::PixelDelegate(QObject *parent)
-     : QAbstractItemDelegate(parent)
+ PixelDelegate<span class="operator">::</span>PixelDelegate(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qabstractitemdelegate.html">QAbstractItemDelegate</a></span>(parent)
  {
-     pixelSize = 12;
+     pixelSize <span class="operator">=</span> <span class="number">12</span>;
  }
 
- void PixelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &amp;option,
-                           const QModelIndex &amp;index) const
+ <span class="type">void</span> PixelDelegate<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                           <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
  {
-     if (option.state &amp; QStyle::State_Selected)
-         painter-&gt;fillRect(option.rect, option.palette.highlight());
+     <span class="keyword">if</span> (option<span class="operator">.</span>state <span class="operator">&amp;</span> <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>State_Selected)
+         painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(option<span class="operator">.</span>rect<span class="operator">,</span> option<span class="operator">.</span>palette<span class="operator">.</span>highlight());
 
-     int size = qMin(option.rect.width(), option.rect.height());
-     int brightness = index.model()-&gt;data(index, Qt::DisplayRole).toInt();
-     double radius = (size/2.0) - (brightness/255.0 * size/2.0);
-     if (radius == 0.0)
-         return;
+     <span class="type">int</span> size <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(option<span class="operator">.</span>rect<span class="operator">.</span>width()<span class="operator">,</span> option<span class="operator">.</span>rect<span class="operator">.</span>height());
+     <span class="type">int</span> brightness <span class="operator">=</span> index<span class="operator">.</span>model()<span class="operator">-</span><span class="operator">&gt;</span>data(index<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole)<span class="operator">.</span>toInt();
+     <span class="type">double</span> radius <span class="operator">=</span> (size<span class="operator">/</span><span class="number">2.0</span>) <span class="operator">-</span> (brightness<span class="operator">/</span><span class="number">255.0</span> <span class="operator">*</span> size<span class="operator">/</span><span class="number">2.0</span>);
+     <span class="keyword">if</span> (radius <span class="operator">=</span><span class="operator">=</span> <span class="number">0.0</span>)
+         <span class="keyword">return</span>;
 
-     painter-&gt;save();
-     painter-&gt;setRenderHint(QPainter::Antialiasing, true);
-     painter-&gt;setPen(Qt::NoPen);
-     if (option.state &amp; QStyle::State_Selected)
-         painter-&gt;setBrush(option.palette.highlightedText());
-     else
-         painter-&gt;setBrush(QBrush(Qt::black));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>save();
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">true</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     <span class="keyword">if</span> (option<span class="operator">.</span>state <span class="operator">&amp;</span> <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>State_Selected)
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(option<span class="operator">.</span>palette<span class="operator">.</span>highlightedText());
+     <span class="keyword">else</span>
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qbrush.html">QBrush</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black));
 
-     painter-&gt;drawEllipse(QRectF(option.rect.x() + option.rect.width()/2 - radius,
-                                 option.rect.y() + option.rect.height()/2 - radius,
-                                 2*radius, 2*radius));
-     painter-&gt;restore();
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="type"><a href="qrectf.html">QRectF</a></span>(option<span class="operator">.</span>rect<span class="operator">.</span>x() <span class="operator">+</span> option<span class="operator">.</span>rect<span class="operator">.</span>width()<span class="operator">/</span><span class="number">2</span> <span class="operator">-</span> radius<span class="operator">,</span>
+                                 option<span class="operator">.</span>rect<span class="operator">.</span>y() <span class="operator">+</span> option<span class="operator">.</span>rect<span class="operator">.</span>height()<span class="operator">/</span><span class="number">2</span> <span class="operator">-</span> radius<span class="operator">,</span>
+                                 <span class="number">2</span><span class="operator">*</span>radius<span class="operator">,</span> <span class="number">2</span><span class="operator">*</span>radius));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>restore();
  }
 
- QSize PixelDelegate::sizeHint(const QStyleOptionViewItem &amp; <span class="comment">/* option */</span>,
-                               const QModelIndex &amp; <span class="comment">/* index */</span>) const
+ <span class="type"><a href="qsize.html">QSize</a></span> PixelDelegate<span class="operator">::</span>sizeHint(<span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span> <span class="comment">/* option */</span><span class="operator">,</span>
+                               <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> <span class="comment">/* index */</span>) <span class="keyword">const</span>
  {
-     return QSize(pixelSize, pixelSize);
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(pixelSize<span class="operator">,</span> pixelSize);
  }
 
- void PixelDelegate::setPixelSize(int size)
+ <span class="type">void</span> PixelDelegate<span class="operator">::</span>setPixelSize(<span class="type">int</span> size)
  {
-     pixelSize = size;
+     pixelSize <span class="operator">=</span> size;
  }</pre>
 </div>
 <!-- @@@itemviews/pixelator/pixeldelegate.cpp -->
-        <div class="feedback t_button">
-          [+] Documentation Feedback</div>
-      </div>
-    </div>
-    </div> 
-    <div class="ft">
-      <span></span>
-    </div>
-  </div> 
-  <div class="footer">
-    <p>
-      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
-      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-      in Finland and/or other countries worldwide.</p>
-    <p>
-      All other trademarks are property of their respective owners. <a title="Privacy Policy"
-        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-    <br />
-    <p>
-      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
-    <p>
-      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-      Free Documentation License version 1.3</a>
-      as published by the Free Software Foundation.</p>
+  <div class="ft">
+    <span></span>
   </div>
-  <div id="feedbackBox">
-      <div id="feedcloseX" class="feedclose t_button">X</div>
-    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
-      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
-      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
-    </form>
-  </div>
-  <div id="blurpage">
-  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
 </body>
 </html>

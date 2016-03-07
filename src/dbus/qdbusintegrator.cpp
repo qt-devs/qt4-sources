@@ -7,34 +7,34 @@
 ** This file is part of the QtDBus module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
-** Commercial Usage
-** Licensees holding valid Qt Commercial licenses may use this file in
-** accordance with the Qt Commercial License Agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Nokia.
-**
 ** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU Lesser General Public License version 2.1 requirements
-** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** This file may be used under the terms of the GNU Lesser General Public
+** License version 2.1 as published by the Free Software Foundation and
+** appearing in the file LICENSE.LGPL included in the packaging of this
+** file. Please review the following information to ensure the GNU Lesser
+** General Public License version 2.1 requirements will be met:
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 **
 ** In addition, as a special exception, Nokia gives you certain additional
-** rights.  These rights are described in the Nokia Qt LGPL Exception
+** rights. These rights are described in the Nokia Qt LGPL Exception
 ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 **
 ** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
+** Alternatively, this file may be used under the terms of the GNU General
+** Public License version 3.0 as published by the Free Software Foundation
+** and appearing in the file LICENSE.GPL included in the packaging of this
+** file. Please review the following information to ensure the GNU General
+** Public License version 3.0 requirements will be met:
+** http://www.gnu.org/copyleft/gpl.html.
 **
-** If you have questions regarding the use of this file, please contact
-** Nokia at qt-info@nokia.com.
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms and
+** conditions contained in a signed written agreement between you and Nokia.
+**
+**
+**
+**
+**
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
@@ -558,8 +558,9 @@ bool QDBusConnectionPrivate::handleMessage(const QDBusMessage &amsg)
     switch (amsg.type()) {
     case QDBusMessage::SignalMessage:
         handleSignal(amsg);
-        return true;
-        break;
+        // if there are any other filters in this DBusConnection,
+        // let them see the signal too
+        return false;
     case QDBusMessage::MethodCallMessage:
         handleObjectCall(amsg);
         return true;
@@ -2073,30 +2074,20 @@ void QDBusConnectionPrivate::connectSignal(const QString &key, const SignalHook 
 
     if (connection) {
         qDBusDebug("Adding rule: %s", hook.matchRule.constData());
-        QDBusErrorInternal error;
-        q_dbus_bus_add_match(connection, hook.matchRule, error);
-        if (!!error) {
-            QDBusError qerror = error;
-            qWarning("QDBusConnectionPrivate::connectSignal: received error from D-Bus server "
-                     "while connecting signal to %s::%s: %s (%s)",
-                     hook.obj->metaObject()->className(),
-                     hook.obj->metaObject()->method(hook.midx).signature(),
-                     qPrintable(qerror.name()), qPrintable(qerror.message()));
-            Q_ASSERT(false);
-        } else {
-            // Successfully connected the signal
-            // Do we need to watch for this name?
-            if (shouldWatchService(hook.service)) {
-                WatchedServicesHash::mapped_type &data = watchedServices[hook.service];
-                if (++data.refcount == 1) {
-                    // we need to watch for this service changing
-                    connectSignal(dbusServiceString(), QString(), dbusInterfaceString(),
-                                  QLatin1String("NameOwnerChanged"), QStringList() << hook.service, QString(),
-                                  this, SLOT(serviceOwnerChangedNoLock(QString,QString,QString)));
-                    data.owner = getNameOwnerNoCache(hook.service);
-                    qDBusDebug() << this << "Watching service" << hook.service << "for owner changes (current owner:"
-                            << data.owner << ")";
-                }
+        q_dbus_bus_add_match(connection, hook.matchRule, NULL);
+
+        // Successfully connected the signal
+        // Do we need to watch for this name?
+        if (shouldWatchService(hook.service)) {
+            WatchedServicesHash::mapped_type &data = watchedServices[hook.service];
+            if (++data.refcount == 1) {
+                // we need to watch for this service changing
+                connectSignal(dbusServiceString(), QString(), dbusInterfaceString(),
+                              QLatin1String("NameOwnerChanged"), QStringList() << hook.service, QString(),
+                              this, SLOT(serviceOwnerChangedNoLock(QString,QString,QString)));
+                data.owner = getNameOwnerNoCache(hook.service);
+                qDBusDebug() << this << "Watching service" << hook.service << "for owner changes (current owner:"
+                             << data.owner << ")";
             }
         }
     }
