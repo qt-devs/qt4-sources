@@ -44,19 +44,19 @@
 
 #include <stddef.h>
 
-#define QT_VERSION_STR "4.7.2"
+#define QT_VERSION_STR "4.7.3"
 /*
    QT_VERSION is (major << 16) + (minor << 8) + patch.
 */
-#define QT_VERSION 0x040702
+#define QT_VERSION 0x040703
 /*
    can be used like #if (QT_VERSION >= QT_VERSION_CHECK(4, 4, 0))
 */
 #define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))
 
-#define QT_PACKAGEDATE_STR "2011-02-22"
+#define QT_PACKAGEDATE_STR "2011-03-30"
 
-#define QT_PACKAGE_TAG "0828c69ad805406568f6eef2bffbbd54b04dea41"
+#define QT_PACKAGE_TAG "a5f89cb5e52554b59b308ca0ceed76873f833c46"
 
 #if !defined(QT_BUILD_MOC)
 #include <QtCore/qconfig.h>

@@ -174,7 +174,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#QAbstractXmlReceiver">QAbstractXmlReceiver</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#dtor.QAbstractXmlReceiver">~QAbstractXmlReceiver</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#atomicValue">atomicValue</a></b> ( const QVariant &amp; <i>value</i> ) = 0</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#attributex">attribute</a></b> ( const QXmlName &amp; <i>name</i>, const QStringRef &amp; <i>value</i> ) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#attribute">attribute</a></b> ( const QXmlName &amp; <i>name</i>, const QStringRef &amp; <i>value</i> ) = 0</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#characters">characters</a></b> ( const QStringRef &amp; <i>value</i> ) = 0</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#comment">comment</a></b> ( const QString &amp; <i>value</i> ) = 0</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#endDocument">endDocument</a></b> () = 0</td></tr>
@@ -227,7 +227,7 @@
 <ul>
 <li><a href="qabstractxmlreceiver.html#startDocument">startDocument</a>() and <a href="qabstractxmlreceiver.html#endDocument">endDocument</a>() are called for each <i>Document Node</i> in the <i>sequence</i>. <a href="qabstractxmlreceiver.html#endDocument">endDocument</a>() is not called until all the <i>Document Node's</i> children have appeared in the <i>sequence</i>.</li>
 <li><a href="qabstractxmlreceiver.html#startElement">startElement</a>() and <a href="qabstractxmlreceiver.html#endElement">endElement</a>() are called for each <i>Element Node</i>. <a href="qabstractxmlreceiver.html#endElement">endElement</a>() is not called until all the <i>Element Node's</i> children have appeared in the <i>sequence</i>.</li>
-<li><a href="qabstractxmlreceiver.html#attributex">attribute</a>() is called for each <i>Attribute Node</i>.</li>
+<li><a href="qabstractxmlreceiver.html#attribute">attribute</a>() is called for each <i>Attribute Node</i>.</li>
 <li><a href="qabstractxmlreceiver.html#comment">comment</a>() is called for each <i>Comment Node</i>.</li>
 <li><a href="qabstractxmlreceiver.html#characters">characters</a>() is called for each <i>Text Node</i>.</li>
 <li><a href="qabstractxmlreceiver.html#processingInstruction">processingInstruction</a>() is called for each <i>Processing Instruction Node</i>.</li>
@@ -253,7 +253,7 @@
 <p>This callback is called when an atomic value appears in the <a href="qabstractxmlreceiver.html#xquery-sequence">sequence</a>. The <i>value</i> is a simple <a href="qvariant.html">data value</a>. It is guaranteed to be <a href="qvariant.html#isValid">valid</a>.</p>
 <!-- @@@atomicValue -->
 <!-- $$$attribute[overload1]$$$attributeconstQXmlName&constQStringRef& -->
-<h3 class="fn"><a name="attributex"></a>void QAbstractXmlReceiver::attribute ( const <a href="qxmlname.html">QXmlName</a> &amp; <i>name</i>, const <a href="qstringref.html">QStringRef</a> &amp; <i>value</i> )<tt> [pure virtual]</tt></h3>
+<h3 class="fn"><a name="attribute"></a>void QAbstractXmlReceiver::attribute ( const <a href="qxmlname.html">QXmlName</a> &amp; <i>name</i>, const <a href="qstringref.html">QStringRef</a> &amp; <i>value</i> )<tt> [pure virtual]</tt></h3>
 <p>This callback is called when an attribute node appears in the <a href="qabstractxmlreceiver.html#xquery-sequence">sequence</a>. <i>name</i> is the <a href="qxmlname.html">attribute name</a> and the <i>value</i> string contains the attribute value.</p>
 <!-- @@@attribute -->
 <!-- $$$characters[overload1]$$$charactersconstQStringRef& -->
@@ -278,7 +278,7 @@
 <!-- @@@endOfSequence -->
 <!-- $$$namespaceBinding[overload1]$$$namespaceBindingconstQXmlName& -->
 <h3 class="fn"><a name="namespaceBinding"></a>void QAbstractXmlReceiver::namespaceBinding ( const <a href="qxmlname.html">QXmlName</a> &amp; <i>name</i> )<tt> [pure virtual]</tt></h3>
-<p>This callback is called when a namespace binding is in scope of an element. A namespace is defined by a URI. In the <a href="qxmlname.html">QXmlName</a> <i>name</i>, the value of <a href="qxmlname.html#namespaceUri">QXmlName::namespaceUri</a>() is that URI. The value of <a href="qxmlname.html#prefix">QXmlName::prefix</a>() is the prefix that the URI is bound to. The local name is insignificant and can be an arbitrary value.</p>
+<p>This callback is called when a namespace binding is in scope of an element. A namespace is defined by a URI. In the <a href="qxmlname.html">QXmlName</a> <i>name</i>, the value of <a href="qxmlname.html#namespaceUrix">QXmlName::namespaceUri</a>() is that URI. The value of <a href="qxmlname.html#prefix">QXmlName::prefix</a>() is the prefix that the URI is bound to. The local name is insignificant and can be an arbitrary value.</p>
 <!-- @@@namespaceBinding -->
 <!-- $$$processingInstruction[overload1]$$$processingInstructionconstQXmlName&constQString& -->
 <h3 class="fn"><a name="processingInstruction"></a>void QAbstractXmlReceiver::processingInstruction ( const <a href="qxmlname.html">QXmlName</a> &amp; <i>target</i>, const <a href="qstring.html">QString</a> &amp; <i>value</i> )<tt> [pure virtual]</tt></h3>
