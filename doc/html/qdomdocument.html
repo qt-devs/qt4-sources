@@ -5,24 +5,168 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qdom.cpp -->
   <title>Qt 4.8: QDomDocument Class Reference</title>
-  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
 </head>
-<body>
-<div class="header" id="qtdocheader">
-  <div class="content"> 
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
   </div>
-  <div class="breadcrumb toolblock">
-    <ul>
-      <li class="first"><a href="index.html">Home</a></li>
-      <!--  Breadcrumbs go here -->
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
 <li><a href="modules.html">Modules</a></li>
 <li><a href="qtxml.html">QtXml</a></li>
 <li>QDomDocument</li>
-    </ul>
-  </div>
-</div>
-<div class="content mainContent">
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -284,7 +428,7 @@
 <p>If a parse error occurs, this function returns false and the error message is placed in <tt>*</tt><i>errorMsg</i>, the line number in <tt>*</tt><i>errorLine</i> and the column number in <tt>*</tt><i>errorColumn</i> (unless the associated pointer is set to 0); otherwise this function returns true. The various error messages are described in the <a href="qxmlparseexception.html">QXmlParseException</a> class documentation. Note that, if you want to display these error messages to your application's users, they will be displayed in English unless they are explicitly translated.</p>
 <p>If <i>namespaceProcessing</i> is true, the function <a href="qdomnode.html#prefix">QDomNode::prefix</a>() returns a string for all elements and attributes. It returns an empty string if the element or attribute has no prefix.</p>
 <p>Text nodes consisting only of whitespace are stripped and won't appear in the <a href="qdomdocument.html">QDomDocument</a>. If this behavior is not desired, one can use the setContent() overload that allows a <a href="qxmlreader.html">QXmlReader</a> to be supplied.</p>
-<p>If <i>namespaceProcessing</i> is false, the functions <a href="qdomnode.html#prefix">QDomNode::prefix</a>(), <a href="qdomnode.html#localName">QDomNode::localName</a>() and <a href="qdomnode.html#namespaceURIx">QDomNode::namespaceURI</a>() return an empty string.</p>
+<p>If <i>namespaceProcessing</i> is false, the functions <a href="qdomnode.html#prefix">QDomNode::prefix</a>(), <a href="qdomnode.html#localName">QDomNode::localName</a>() and <a href="qdomnode.html#namespaceURI">QDomNode::namespaceURI</a>() return an empty string.</p>
 <p>Entity references are handled as follows:</p>
 <ul>
 <li>References to internal general entities and character entities occurring in the content are included. The result is a <a href="qdomtext.html">QDomText</a> node with the references replaced by their corresponding entity values.</li>
@@ -295,7 +439,7 @@
 </ul>
 <p><a href="qdomnode.html#prefix">QDomNode::prefix</a>() <a href="qstring.html#isNull">QString::isNull</a>() <a href="qstring.html#isEmpty">QString::isEmpty</a>()</p>
 <p><b>Warning:</b> This function is not <a href="threads-reentrancy.html#reentrant">reentrant</a>.</p>
-<p><b>See also </b><a href="qdomnode.html#namespaceURIx">QDomNode::namespaceURI</a>() and <a href="qdomnode.html#localName">QDomNode::localName</a>().</p>
+<p><b>See also </b><a href="qdomnode.html#namespaceURI">QDomNode::namespaceURI</a>() and <a href="qdomnode.html#localName">QDomNode::localName</a>().</p>
 <!-- @@@setContent -->
 <!-- $$$setContent$$$setContentconstQString&boolQString*int*int* -->
 <h3 class="fn"><a name="setContent-2"></a><span class="type">bool</span> QDomDocument::<span class="name">setContent</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, <span class="type">bool</span> <i>namespaceProcessing</i>, <span class="type"><a href="qstring.html">QString</a></span> * <i>errorMsg</i> = 0, <span class="type">int</span> * <i>errorLine</i> = 0, <span class="type">int</span> * <i>errorColumn</i> = 0 )</h3>
@@ -356,13 +500,16 @@
 <p>The data of the copy is shared (shallow copy): modifying one node will also change the other. If you want to make a deep copy, use <a href="qdomnode.html#cloneNode">cloneNode</a>().</p>
 <!-- @@@operator= -->
 </div>
-  <div class="ft">
-    <span></span>
-  </div>
-</div> 
-<div class="footer">
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
@@ -375,10 +522,12 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
-</div>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
 </body>
 </html>

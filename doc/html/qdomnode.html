@@ -5,24 +5,168 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qdom.cpp -->
   <title>Qt 4.8: QDomNode Class Reference</title>
-  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
 </head>
-<body>
-<div class="header" id="qtdocheader">
-  <div class="content"> 
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
   </div>
-  <div class="breadcrumb toolblock">
-    <ul>
-      <li class="first"><a href="index.html">Home</a></li>
-      <!--  Breadcrumbs go here -->
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
 <li><a href="modules.html">Modules</a></li>
 <li><a href="qtxml.html">QtXml</a></li>
 <li>QDomNode</li>
-    </ul>
-  </div>
-</div>
-<div class="content mainContent">
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -85,7 +229,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#lineNumber">lineNumber</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#localName">localName</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QDomNode </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#namedItem">namedItem</a></b> ( const QString &amp; <i>name</i> ) const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#namespaceURIx">namespaceURI</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#namespaceURI">namespaceURI</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QDomNode </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#nextSibling">nextSibling</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QDomElement </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#nextSiblingElement">nextSiblingElement</a></b> ( const QString &amp; <i>tagName</i> = QString() ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#nodeName">nodeName</a></b> () const</td></tr>
@@ -123,7 +267,7 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QTextStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#operator-lt-lt-51">operator&lt;&lt;</a></b> ( QTextStream &amp; <i>str</i>, const QDomNode &amp; <i>node</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTextStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdomnode.html#operator-lt-lt-71">operator&lt;&lt;</a></b> ( QTextStream &amp; <i>str</i>, const QDomNode &amp; <i>node</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QDomNode-description -->
@@ -142,7 +286,7 @@
 <p>The document to which the node belongs is returned by <a href="qdomnode.html#ownerDocument">ownerDocument</a>().</p>
 <p>Adjacent <a href="qdomtext.html">QDomText</a> nodes can be merged into a single node with <a href="qdomnode.html#normalize">normalize</a>().</p>
 <p><a href="qdomelement.html">QDomElement</a> nodes have attributes which can be retrieved with <a href="qdomnode.html#attributes">attributes</a>().</p>
-<p><a href="qdomelement.html">QDomElement</a> and <a href="qdomattr.html">QDomAttr</a> nodes can have namespaces which can be retrieved with <a href="qdomnode.html#namespaceURIx">namespaceURI</a>(). Their local name is retrieved with <a href="qdomnode.html#localName">localName</a>(), and their prefix with <a href="qdomnode.html#prefix">prefix</a>(). The prefix can be set with <a href="qdomnode.html#setPrefix">setPrefix</a>().</p>
+<p><a href="qdomelement.html">QDomElement</a> and <a href="qdomattr.html">QDomAttr</a> nodes can have namespaces which can be retrieved with <a href="qdomnode.html#namespaceURI">namespaceURI</a>(). Their local name is retrieved with <a href="qdomnode.html#localName">localName</a>(), and their prefix with <a href="qdomnode.html#prefix">prefix</a>(). The prefix can be set with <a href="qdomnode.html#setPrefix">setPrefix</a>().</p>
 <p>You can write the XML representation of the node to a text stream with <a href="qdomnode.html#save">save</a>().</p>
 <p>The following example looks for the first element in an XML document and prints the names of all the elements that are its direct children.</p>
 <pre class="cpp"> <span class="type"><a href="qdomdocument.html">QDomDocument</a></span> d;
@@ -397,7 +541,7 @@
 <p>If the node uses namespaces, this function returns the local name of the node; otherwise it returns an empty string.</p>
 <p>Only nodes of type <a href="qdomnode.html#NodeType-enum">ElementNode</a> or <a href="qdomnode.html#NodeType-enum">AttributeNode</a> can have namespaces. A namespace must have been specified at creation time; it is not possible to add a namespace afterwards.</p>
 <p><a href="qdomdocument.html#createAttributeNS">QDomDocument::createAttributeNS</a>()</p>
-<p><b>See also </b><a href="qdomnode.html#prefix">prefix</a>(), <a href="qdomnode.html#namespaceURIx">namespaceURI</a>(), and <a href="qdomdocument.html#createElementNS">QDomDocument::createElementNS</a>().</p>
+<p><b>See also </b><a href="qdomnode.html#prefix">prefix</a>(), <a href="qdomnode.html#namespaceURI">namespaceURI</a>(), and <a href="qdomdocument.html#createElementNS">QDomDocument::createElementNS</a>().</p>
 <!-- @@@localName -->
 <!-- $$$namedItem[overload1]$$$namedItemconstQString& -->
 <h3 class="fn"><a name="namedItem"></a><span class="type">QDomNode</span> QDomNode::<span class="name">namedItem</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i> ) const</h3>
@@ -406,7 +550,7 @@
 <p><b>See also </b><a href="qdomnode.html#nodeName">nodeName</a>().</p>
 <!-- @@@namedItem -->
 <!-- $$$namespaceURI[overload1]$$$namespaceURI -->
-<h3 class="fn"><a name="namespaceURIx"></a><span class="type"><a href="qstring.html">QString</a></span> QDomNode::<span class="name">namespaceURI</span> () const</h3>
+<h3 class="fn"><a name="namespaceURI"></a><span class="type"><a href="qstring.html">QString</a></span> QDomNode::<span class="name">namespaceURI</span> () const</h3>
 <p>Returns the namespace URI of this node or an empty string if the node has no namespace URI.</p>
 <p>Only nodes of type <a href="qdomnode.html#NodeType-enum">ElementNode</a> or <a href="qdomnode.html#NodeType-enum">AttributeNode</a> can have namespaces. A namespace URI must be specified at creation time and cannot be changed later.</p>
 <p><a href="qdomdocument.html#createAttributeNS">QDomDocument::createAttributeNS</a>()</p>
@@ -446,7 +590,7 @@
 <tr valign="top" class="odd"><td ><a href="qdomprocessinginstruction.html">QDomProcessingInstruction</a></td><td >The target of the processing instruction</td></tr>
 <tr valign="top" class="even"><td ><a href="qdomtext.html">QDomText</a></td><td >The string &quot;#text&quot;</td></tr>
 </table>
-<p><b>Note:</b> This function does not take the presence of namespaces into account when processing the names of element and attribute nodes. As a result, the returned name can contain any namespace prefix that may be present. To obtain the node name of an element or attribute, use <a href="qdomnode.html#localName">localName</a>(); to obtain the namespace prefix, use <a href="qdomnode.html#namespaceURIx">namespaceURI</a>().</p>
+<p><b>Note:</b> This function does not take the presence of namespaces into account when processing the names of element and attribute nodes. As a result, the returned name can contain any namespace prefix that may be present. To obtain the node name of an element or attribute, use <a href="qdomnode.html#localName">localName</a>(); to obtain the namespace prefix, use <a href="qdomnode.html#namespaceURI">namespaceURI</a>().</p>
 <p><b>See also </b><a href="qdomnode.html#nodeValue">nodeValue</a>().</p>
 <!-- @@@nodeName -->
 <!-- $$$nodeType[overload1]$$$nodeType -->
@@ -487,7 +631,7 @@
 <p>Only nodes of type <a href="qdomnode.html#NodeType-enum">ElementNode</a> or <a href="qdomnode.html#NodeType-enum">AttributeNode</a> can have namespaces. A namespace prefix must be specified at creation time. If a node was created with a namespace prefix, you can change it later with <a href="qdomnode.html#setPrefix">setPrefix</a>().</p>
 <p>If you create an element or attribute with <a href="qdomdocument.html#createElement">QDomDocument::createElement</a>() or <a href="qdomdocument.html#createAttribute">QDomDocument::createAttribute</a>(), the prefix will be an empty string. If you use <a href="qdomdocument.html#createElementNS">QDomDocument::createElementNS</a>() or <a href="qdomdocument.html#createAttributeNS">QDomDocument::createAttributeNS</a>() instead, the prefix will not be an empty string; but it might be an empty string if the name does not have a prefix.</p>
 <p><a href="qdomdocument.html#createElementNS">QDomDocument::createElementNS</a>() <a href="qdomdocument.html#createAttributeNS">QDomDocument::createAttributeNS</a>()</p>
-<p><b>See also </b><a href="qdomnode.html#setPrefix">setPrefix</a>(), <a href="qdomnode.html#localName">localName</a>(), and <a href="qdomnode.html#namespaceURIx">namespaceURI</a>().</p>
+<p><b>See also </b><a href="qdomnode.html#setPrefix">setPrefix</a>(), <a href="qdomnode.html#localName">localName</a>(), and <a href="qdomnode.html#namespaceURI">namespaceURI</a>().</p>
 <!-- @@@prefix -->
 <!-- $$$previousSibling[overload1]$$$previousSibling -->
 <h3 class="fn"><a name="previousSibling"></a><span class="type">QDomNode</span> QDomNode::<span class="name">previousSibling</span> () const</h3>
@@ -541,7 +685,7 @@
 <p>If the node has a namespace prefix, this function changes the namespace prefix of the node to <i>pre</i>. Otherwise this function does nothing.</p>
 <p>Only nodes of type <a href="qdomnode.html#NodeType-enum">ElementNode</a> or <a href="qdomnode.html#NodeType-enum">AttributeNode</a> can have namespaces. A namespace prefix must have be specified at creation time; it is not possible to add a namespace prefix afterwards.</p>
 <p><a href="qdomdocument.html#createElementNS">QDomDocument::createElementNS</a>() <a href="qdomdocument.html#createAttributeNS">QDomDocument::createAttributeNS</a>()</p>
-<p><b>See also </b><a href="qdomnode.html#prefix">prefix</a>(), <a href="qdomnode.html#localName">localName</a>(), and <a href="qdomnode.html#namespaceURIx">namespaceURI</a>().</p>
+<p><b>See also </b><a href="qdomnode.html#prefix">prefix</a>(), <a href="qdomnode.html#localName">localName</a>(), and <a href="qdomnode.html#namespaceURI">namespaceURI</a>().</p>
 <!-- @@@setPrefix -->
 <!-- $$$toAttr[overload1]$$$toAttr -->
 <h3 class="fn"><a name="toAttr"></a><span class="type"><a href="qdomattr.html">QDomAttr</a></span> QDomNode::<span class="name">toAttr</span> () const</h3>
@@ -633,17 +777,20 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QTextStream&constQDomNode& -->
-<h3 class="fn"><a name="operator-lt-lt-51"></a><span class="type"><a href="qtextstream.html">QTextStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qtextstream.html">QTextStream</a></span> &amp; <i>str</i>, const <span class="type">QDomNode</span> &amp; <i>node</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-71"></a><span class="type"><a href="qtextstream.html">QTextStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qtextstream.html">QTextStream</a></span> &amp; <i>str</i>, const <span class="type">QDomNode</span> &amp; <i>node</i> )</h3>
 <p>Writes the XML representation of the node <i>node</i> and all its children to the stream <i>str</i>.</p>
 <!-- @@@operator<< -->
 </div>
-  <div class="ft">
-    <span></span>
-  </div>
-</div> 
-<div class="footer">
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
@@ -656,10 +803,12 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
-</div>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
 </body>
 </html>

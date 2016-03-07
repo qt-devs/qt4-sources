@@ -5,22 +5,166 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- mainpage.qdoc -->
   <title>Qt 4.8: Develop with Qt</title>
-  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
 </head>
-<body>
-<div class="header" id="qtdocheader">
-  <div class="content"> 
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
   </div>
-  <div class="breadcrumb toolblock">
-    <ul>
-      <li class="first"><a href="index.html">Home</a></li>
-      <!--  Breadcrumbs go here -->
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
 <li>Develop with Qt</li>
-    </ul>
-  </div>
-</div>
-<div class="content mainContent">
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -52,15 +196,15 @@
 <h3>Configuring Creator for Qt Development:</h3>
 <p>Creator is the integrated development environment for developing Qt applications. Creator encompasses every step of application development from interface design to application testing and deployment.</p>
 <ul>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-project-managing.html">Creating Qt Projects</a></li>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-building-running.html">Building and Running Applications</a><ul>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-running-targets.html">Targets</a> - edit and set compiler targets</li>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-build-settings.html">Build Settings</a> - edit and set build configurations</li>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-run-settings.html">Run Settings</a> - edit and set application run settings</li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-project-managing.html">Creating Qt Projects</a></li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-building-running.html">Building and Running Applications</a><ul>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-running-targets.html">Targets</a> - edit and set compiler targets</li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-build-settings.html">Build Settings</a> - edit and set build configurations</li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-run-settings.html">Run Settings</a> - edit and set application run settings</li>
 </ul>
 </li>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-developing-symbian.html">Setting Up Development Environment for Symbian</a></li>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-developing-maemo.html">Setting Up Development Environment for Maemo</a></li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-developing-symbian.html">Setting Up Development Environment for Symbian</a></li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-developing-maemo.html">Setting Up Development Environment for Maemo</a></li>
 </ul>
 <a name="qt-platform-support"></a><a name="qt-platform-support"></a>
 <h3>Qt Platform Support</h3>
@@ -92,12 +236,12 @@
 <p>Qt offers several options with regards to user interface creation: widget based applications using layouts and Qt Quick interfaces with QML.</p>
 <ul>
 <li><a href="qtquick.html">Qt Quick</a> - create UIs using QML<ul>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-visual-editor.html">Creator's QML Design Mode</a> - design Qt Quick interfaces using Creator's design mode</li>
-<li><a href="http://doc.qt.nokia.com/qtquick-components-symbian-1.1/index.html">Qt Quick Components for Symbian</a> - a native QML component set for the Symbian^3 platform</li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-visual-editor.html">Creator's QML Design Mode</a> - design Qt Quick interfaces using Creator's design mode</li>
+<li><a href="http://doc.qt.digia.com/qtquick-components-symbian-1.1/index.html">Qt Quick Components for Symbian</a> - a native QML component set for the Symbian^3 platform</li>
 </ul>
 </li>
 <li><a href="widgets-and-layouts.html">Widgets and Layouts</a> - primary elements for C++ based interfaces<ul>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-using-qt-designer.html">Creator's Designer</a> - design interfaces using Qt Designer</li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-using-qt-designer.html">Creator's Designer</a> - design interfaces using Qt Designer</li>
 </ul>
 </li>
 <li><a href="qt-gui-concepts.html">UI Design with Qt</a> - covers many Qt features for UI creation</li>
@@ -147,9 +291,9 @@
 <h2>Testing Qt Applications</h2>
 <p>Testing and debugging are part of the development process and Qt offers the developer multiple methods of testing their code.</p>
 <ul>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-debugging.html">Debugging Applications in Creator</a> - various debugging options in Creator</li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-debugging.html">Debugging Applications in Creator</a> - various debugging options in Creator</li>
 <li><a href="debug.html">Debugging Techniques</a> - essential techniques for debugging Qt code</li>
-<li><a href="http://doc.qt.nokia.com/qtsimulator/index.html">Simulator</a> - testing mobile applications by simulating a mobile environment</li>
+<li><a href="http://doc.qt.digia.com/qtsimulator/index.html">Simulator</a> - testing mobile applications by simulating a mobile environment</li>
 <li><a href="qmlviewer.html">QML Viewer</a> - an executable that is able to run QML files</li>
 <li><a href="qtestlib-manual.html">QTestLib</a> - a unit testing framework built into Qt</li>
 </ul>
@@ -167,14 +311,14 @@
 <li><a href="deployment-symbian.html">Symbian</a> - deploying Qt applications on the Symbian platform</li>
 </ul>
 </li>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-deployment-symbian.html">Symbian Deployment in Creator</a> - Symbian application deployment built into Creator</li>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-deployment-maemo.html">Deploying Qt Applications on Maemo Devices</a></li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-deployment-symbian.html">Symbian Deployment in Creator</a> - Symbian application deployment built into Creator</li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-deployment-maemo.html">Deploying Qt Applications on Maemo Devices</a></li>
 </ul>
 <a name="ovi-store-publishing"></a>
 <h2>Ovi Store Publishing</h2>
 <p>Creator can publish applications to Ovi Store directly.</p>
 <ul>
-<li><a href="http://doc.qt.nokia.com/qtcreator/creator-publish-ovi.html">Publishing Qt Applications to Ovi Store</a></li>
+<li><a href="http://qt-project.org/doc/qtcreator-2.5/creator-publish-ovi.html">Publishing Qt Applications to Ovi Store</a></li>
 </ul>
 <p>For additional information, visit the <a href="developing-with-qt.html">Cross-Platform and Platform-Specific Development</a> and the <a href="supported-platforms.html">Supported Platforms</a> page.</p>
 </div><div class = "indexboxcont indexboxbar normallist"><a name="where-to-go-from-here"></a>
@@ -197,13 +341,16 @@
 </ul>
 </div></div>
 <!-- @@@gettingstarted-develop.html -->
-  <div class="ft">
-    <span></span>
-  </div>
-</div> 
-<div class="footer">
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
@@ -216,10 +363,12 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
-</div>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
 </body>
 </html>

@@ -5,22 +5,166 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- developmentsteps.qdoc -->
   <title>Qt 4.8: Qt Development: The Steps from Challenge to Achievement</title>
-  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
 </head>
-<body>
-<div class="header" id="qtdocheader">
-  <div class="content"> 
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
   </div>
-  <div class="breadcrumb toolblock">
-    <ul>
-      <li class="first"><a href="index.html">Home</a></li>
-      <!--  Breadcrumbs go here -->
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
 <li>Qt Development: The Steps from Challenge to Achievement</li>
-    </ul>
-  </div>
-</div>
-<div class="content mainContent">
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -54,13 +198,13 @@
 <a name="developing-plans"></a>
 <h2>Developing Plans</h2>
 <p>One thing you realize after reading up on <a href="qtquick.html">Qt Quick</a> is that things are very different from the desktop when designing an interface. Qt Quick doesn't contain ready made UI 'chrome'; the widgets and other design elements that define the application interface. A new technology, called Qt Quick Components, looks like a promising solution, but the components will only be available at a later date. For now you'll have to come up with something on your own -- but you are keen to give your design skills a work out, and learning to use Qt Quick seems to be a great way to do it.</p>
-<p>Not knowing a better place to start, you begin by taking a cue from web design and plan a wireframe, which helps <a href="http://doc.qt.nokia.com/qtcreator/creator-visual-editor.html">define the application layout</a>, content and user interaction. You decide on breaking the field of the screen space into three roughly equal size parts. There will be one section across the top, which will span the width of the screen, and two sections in the lower have, which will be approximately as tall as the top section is wide (when in portrait mode).</p>
+<p>Not knowing a better place to start, you begin by taking a cue from web design and plan a wireframe, which helps <a href="http://qt-project.org/doc/qtcreator-2.5/creator-visual-editor.html">define the application layout</a>, content and user interaction. You decide on breaking the field of the screen space into three roughly equal size parts. There will be one section across the top, which will span the width of the screen, and two sections in the lower have, which will be approximately as tall as the top section is wide (when in portrait mode).</p>
 <p>The top section will be a simple text representation of the phrase &quot;Hello World&quot; in English. In the lower left you would like to place some kind of audio playback feature that repeats back the phrase in the top section of the screen. Finally, in the lower right hand side of the screen will be four links to similar views for additional languages -- Mandarin Chinese, Brazilian Portuguese, Arabic, and Russian. When the user clicks one of the links the text at the top is then translated, and the playback corresponds to the appropriate language.</p>
 <p>While the wireframe is effective in dealing with one part of the design challenge, it does not cover visual aspects other than layout and content. This means that you still need to define colours, white space, and typography (among other things). This is where a style guide would come in handy, if your company already had one that is. In the absence of one you decide to again get some inspiration from the web, and you mimic some of the company's website design into your application -- a sans-serif font for white text on a blue field across the top, black text on white for the bottom two sections, and a small company logo to the left of the &quot;Hello World&quot; message.</p>
 <a name="execution-the-coding-begins"></a>
 <h2>Execution: The Coding Begins!</h2>
 <p>At long last you sit down to <a href="gettingstarted-develop.html#qt-technologies">implement</a> your plans and designs. The first few steps go according to plan, and creating the basic layout and text goes fairly smoothly -- but you run into a few challenges quite quickly:</p>
-<p>Devising a user friendly interface to audio playback is not as intuitive as you first thought. Since there exist a ready made component for <a href="http://doc.qt.nokia.com/qtmobility/multimedia.html">multimedia</a>, you remove the bottom left field and now have the screen split in two. You add textual links for each of the five target languages, and when the user clicks one of them the message text changes and the appropriate audio plays back. It is a small sacrifice to make for now, and you are sure there is a solution to be found once you have become more proficient with QML.</p>
+<p>Devising a user friendly interface to audio playback is not as intuitive as you first thought. Since there exist a ready made component for <a href="http://doc.qt.digia.com/qtmobility/multimedia.html">multimedia</a>, you remove the bottom left field and now have the screen split in two. You add textual links for each of the five target languages, and when the user clicks one of them the message text changes and the appropriate audio plays back. It is a small sacrifice to make for now, and you are sure there is a solution to be found once you have become more proficient with QML.</p>
 <p>The next challenge you run into is that <a href="gettingstarted-develop.html#qt-deployment">deploying</a> the application to a Symbian phone is not as clearly understood as you expected. Again you are sure there is something you are missing, but for the time being you manually copy the .sis file to the &quot;Installs&quot; directory on the phone (connected to the development machine by USB) and then install it through the Application Manager.</p>
 <p>When you finally manage to install the application on the device you notice something that looks rather peculiar, and something you had not thought of. When the phone is turned into landscape mode, your text remains at the same absolute coordinates as when it was in portrait mode. You had not realized you needed to anchor it in order to achieve the centering you wanted. There was an <a href="gettingstarted-develop.html#qt-testing">easy fix</a> for this, but you were glad you saw this earlier rather than later.</p>
 <a name="innovating"></a>
@@ -70,7 +214,7 @@
 <li>Extending HTML5 based applications that tie Javascript to a Qt C++ back end using <a href="gettingstarted-develop.html#qt-webkit">Qt WebKit</a></li>
 <li>An <a href="gettingstarted-develop.html#qt-rendering-painting-system">OpenGL</a> based UI for embedded platforms</li>
 <li><a href="gestures-overview.html">Touch</a> screen support</li>
-<li><a href="http://doc.qt.nokia.com/qtmobility/location-overview.html">Location</a> based applications</li>
+<li><a href="http://doc.qt.digia.com/qtmobility/location-overview.html">Location</a> based applications</li>
 <li><a href="gettingstarted-develop.html#qt-technologies">Much, much more</a></li>
 </ul>
 <a name="the-achievement"></a>
@@ -79,13 +223,16 @@
 <p>Even though the final product did not turn out the way you originally planned, your boss was still sufficiently impressed. Not only was the go ahead given for future projects, but ramping up a small team of developers and designers was also suggested to help support your efforts.</p>
 </div>
 <!-- @@@qtdevelopment-steps.html -->
-  <div class="ft">
-    <span></span>
-  </div>
-</div> 
-<div class="footer">
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
@@ -98,10 +245,12 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
-</div>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
 </body>
 </html>
