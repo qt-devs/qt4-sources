@@ -117,7 +117,7 @@ public:
         if (parentWidget->parentWidget())
             parentWidget = parentWidget->parentWidget();
         setParent(parentWidget, Qt::Window | Qt::Tool);
-	setAttribute(Qt::WA_DeleteOnClose, true);
+        setAttribute(Qt::WA_DeleteOnClose, true);
         setAttribute(Qt::WA_X11NetWmWindowTypeMenu, true);
         setWindowTitle(p->windowTitle());
         setEnabled(p->isEnabled());
@@ -168,8 +168,8 @@ void QMenuPrivate::init()
 #ifdef QT_SOFTKEYS_ENABLED
     selectAction = QSoftKeyManager::createKeyedAction(QSoftKeyManager::SelectSoftKey, Qt::Key_Select, q);
     cancelAction = QSoftKeyManager::createKeyedAction(QSoftKeyManager::CancelSoftKey, Qt::Key_Back, q);
-    selectAction->setVisible(false); // Don't show these in the menu
-    cancelAction->setVisible(false);
+    selectAction->setPriority(QAction::HighPriority);
+    cancelAction->setPriority(QAction::HighPriority);
     q->addAction(selectAction);
     q->addAction(cancelAction);
 #endif
@@ -261,9 +261,6 @@ void QMenuPrivate::updateActionRects() const
               icone = style->pixelMetric(QStyle::PM_SmallIconSize, &opt, q);
     const int fw = style->pixelMetric(QStyle::PM_MenuPanelWidth, &opt, q);
     const int deskFw = style->pixelMetric(QStyle::PM_MenuDesktopFrameWidth, &opt, q);
-
-    const int sfcMargin = style->sizeFromContents(QStyle::CT_Menu, &opt, QApplication::globalStrut(), q).width() - QApplication::globalStrut().width();
-    const int min_column_width = q->minimumWidth() - (sfcMargin + leftmargin + rightmargin + 2 * (fw + hmargin));
     const int tearoffHeight = tearoff ? style->pixelMetric(QStyle::PM_MenuTearoffHeight, &opt, q) : 0;
 
     //for compatability now - will have to refactor this away..
@@ -337,7 +334,7 @@ void QMenuPrivate::updateActionRects() const
 
 
         if (!sz.isEmpty()) {
-            max_column_width = qMax(min_column_width, qMax(max_column_width, sz.width()));
+            max_column_width = qMax(max_column_width, sz.width());
             //wrapping
             if (!scroll &&
                y+sz.height()+vmargin > dh - (deskFw * 2)) {
@@ -351,6 +348,10 @@ void QMenuPrivate::updateActionRects() const
     }
 
     max_column_width += tabWidth; //finally add in the tab width
+    const int sfcMargin = style->sizeFromContents(QStyle::CT_Menu, &opt, QApplication::globalStrut(), q).width() - QApplication::globalStrut().width();
+    const int min_column_width = q->minimumWidth() - (sfcMargin + leftmargin + rightmargin + 2 * (fw + hmargin));
+    max_column_width = qMax(min_column_width, max_column_width);
+
 
     //calculate position
     const int base_y = vmargin + fw + topmargin +
@@ -991,19 +992,9 @@ bool QMenuPrivate::mouseEventTaken(QMouseEvent *e)
     return false;
 }
 
-class ExceptionGuard
-{
-public:
-    inline ExceptionGuard(bool *w = 0) : watched(w) { Q_ASSERT(!(*watched)); *watched = true; }
-    inline ~ExceptionGuard() { *watched = false; }
-    inline operator bool() { return *watched; }
-private:
-    bool *watched;
-};
-
 void QMenuPrivate::activateCausedStack(const QList<QPointer<QWidget> > &causedStack, QAction *action, QAction::ActionEvent action_e, bool self)
 {
-    ExceptionGuard guard(&activationRecursionGuard);
+    QBoolBlocker guard(activationRecursionGuard);
 #ifdef QT3_SUPPORT
     const int actionId = q_func()->findIdForAction(action);
 #endif
@@ -1226,7 +1217,7 @@ void QMenu::initStyleOption(QStyleOptionMenuItem *option, const QAction *action)
     else if (action->isSeparator())
         option->menuItemType = QStyleOptionMenuItem::Separator;
     else if (d->defaultAction == action)
-	    option->menuItemType = QStyleOptionMenuItem::DefaultItem;
+        option->menuItemType = QStyleOptionMenuItem::DefaultItem;
     else
         option->menuItemType = QStyleOptionMenuItem::Normal;
     if (action->isIconVisibleInMenu())
@@ -1406,12 +1397,14 @@ QMenu::QMenu(QMenuPrivate &dd, QWidget *parent)
 QMenu::~QMenu()
 {
     Q_D(QMenu);
-    QHash<QAction *, QWidget *>::iterator it = d->widgetItems.begin();
-    for (; it != d->widgetItems.end(); ++it) {
-        if (QWidget *widget = it.value()) {
-            QWidgetAction *action = static_cast<QWidgetAction *>(it.key());
-            action->releaseWidget(widget);
-            *it = 0;
+    if (!d->widgetItems.isEmpty()) {  // avoid detach on shared null hash
+        QHash<QAction *, QWidget *>::iterator it = d->widgetItems.begin();
+        for (; it != d->widgetItems.end(); ++it) {
+            if (QWidget *widget = it.value()) {
+                QWidgetAction *action = static_cast<QWidgetAction *>(it.key());
+                action->releaseWidget(widget);
+                *it = 0;
+            }
         }
     }
 
@@ -1719,7 +1712,14 @@ bool QMenu::isEmpty() const
 void QMenu::clear()
 {
     QList<QAction*> acts = actions();
+
     for(int i = 0; i < acts.size(); i++) {
+#ifdef QT_SOFTKEYS_ENABLED
+        Q_D(QMenu);
+        // Lets not touch to our internal softkey actions
+        if(acts[i] == d->selectAction || acts[i] == d->cancelAction)
+            continue;
+#endif
         removeAction(acts[i]);
         if (acts[i]->parent() == this && acts[i]->d_func()->widgets.isEmpty())
             delete acts[i];
@@ -2408,6 +2408,13 @@ QMenu::event(QEvent *e)
         }
         return true;
 #endif
+#ifdef QT_SOFTKEYS_ENABLED
+    case QEvent::LanguageChange: {
+        d->selectAction->setText(QSoftKeyManager::standardSoftKeyText(QSoftKeyManager::SelectSoftKey));
+        d->cancelAction->setText(QSoftKeyManager::standardSoftKeyText(QSoftKeyManager::CancelSoftKey));
+        }
+        break;
+#endif
     default:
         break;
     }
@@ -2797,7 +2804,9 @@ void QMenu::mouseMoveEvent(QMouseEvent *e)
 
     QAction *action = d->actionAt(e->pos());
     if (!action) {
-        if (d->hasHadMouse)
+        if (d->hasHadMouse
+            && (!d->currentAction
+                || !(d->currentAction->menu() && d->currentAction->menu()->isVisible())))
             d->setCurrentAction(0);
         return;
     } else if(e->buttons()) {
@@ -2919,7 +2928,7 @@ void QMenu::actionEvent(QActionEvent *e)
 #endif
     if (isVisible()) {
         d->updateActionRects();
-	resize(sizeHint());
+        resize(sizeHint());
         update();
     }
 }

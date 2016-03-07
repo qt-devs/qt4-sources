@@ -56,29 +56,25 @@
 #include "qconfig.h"
 #include "qfontengine_p.h"
 #include "qsize.h"
-#include <OPENFONT.H>
+#include <openfont.h>
 
-class CFbsBitmap;
-class CFbsBitmapDevice;
-class CFbsBitGc;
 class CFont;
 
 QT_BEGIN_NAMESPACE
 
-// ..gives us access to truetype tables, UTF-16<->GlyphID mapping, and glyph outlines
-class QFontEngineS60Extensions
+// ..gives us access to truetype tables
+class QSymbianTypeFaceExtras
 {
 public:
-    QFontEngineS60Extensions(CFont* fontOwner, COpenFont *font);
+    QSymbianTypeFaceExtras(CFont* fontOwner, COpenFont *font);
 
     QByteArray getSfntTable(uint tag) const;
+    bool getSfntTableData(uint tag, uchar *buffer, uint *length) const;
     const unsigned char *cmap() const;
-    QPainterPath glyphOutline(glyph_t glyph) const;
     CFont *fontOwner() const;
 
 private:
     COpenFont *m_font;
-    const MOpenFontShapingExtension *m_shapingExtension;
     mutable MOpenFontTrueTypeExtension *m_trueTypeExtension;
     mutable const unsigned char *m_cmap;
     mutable bool m_symbolCMap;
@@ -89,7 +85,7 @@ private:
 class QFontEngineS60 : public QFontEngine
 {
 public:
-    QFontEngineS60(const QFontDef &fontDef, const QFontEngineS60Extensions *extensions);
+    QFontEngineS60(const QFontDef &fontDef, const QSymbianTypeFaceExtras *extras);
     ~QFontEngineS60();
 
     bool stringToCMap(const QChar *str, int len, QGlyphLayout *glyphs, int *nglyphs, QTextEngine::ShaperFlags flags) const;
@@ -109,6 +105,7 @@ public:
     qreal minRightBearing() const { return 0; }
 
     QByteArray getSfntTable(uint tag) const;
+    bool getSfntTableData(uint tag, uchar *buffer, uint *length) const;
 
     static qreal pixelsToPoints(qreal pixels, Qt::Orientation orientation = Qt::Horizontal);
     static qreal pointsToPixels(qreal points, Qt::Orientation orientation = Qt::Horizontal);
@@ -129,7 +126,7 @@ private:
     CFont *fontWithSize(qreal size) const;
     static void releaseFont(CFont *&font);
 
-    const QFontEngineS60Extensions *m_extensions;
+    const QSymbianTypeFaceExtras *m_extras;
     CFont* m_originalFont;
     const qreal m_originalFontSizeInPixels;
     CFont* m_scaledFont;

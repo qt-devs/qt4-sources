@@ -1,10 +1,6 @@
 TRANSLATIONS = $$files(*.ts)
 
-LRELEASE = $$QT_BUILD_TREE/bin/lrelease
-win32 {
-    LRELEASE ~= s,/,$$QMAKE_DIR_SEP,
-    LRELEASE = $${LRELEASE}.exe
-}
+qtPrepareTool(LRELEASE, lrelease)
 
 contains(TEMPLATE_PREFIX, vc):vcproj = 1
 
@@ -42,5 +38,6 @@ isEmpty(vcproj) {
 translations.path = $$[QT_INSTALL_TRANSLATIONS]
 translations.files = $$TRANSLATIONS
 translations.files ~= s,\\.ts$,.qm,g
+translations.files ~= s,^,$$OUT_PWD/,g
 translations.CONFIG += no_check_exist
 INSTALLS += translations

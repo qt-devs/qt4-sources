@@ -39,7 +39,6 @@
 **
 ****************************************************************************/
 
-#include "qlocalsocket.h"
 #include "qlocalsocket_p.h"
 
 #include <private/qthread_p.h>
@@ -108,6 +107,20 @@ QLocalSocketPrivate::QLocalSocketPrivate() : QIODevicePrivate(),
        pipeClosed(false),
        state(QLocalSocket::UnconnectedState)
 {
+}
+
+QLocalSocketPrivate::~QLocalSocketPrivate()
+{
+    destroyPipeHandles();
+    CloseHandle(overlapped.hEvent);
+}
+
+void QLocalSocketPrivate::destroyPipeHandles()
+{
+    if (handle != INVALID_HANDLE_VALUE) {
+        DisconnectNamedPipe(handle);
+        CloseHandle(handle);
+    }
 }
 
 void QLocalSocket::connectToServer(const QString &name, OpenMode openMode)
@@ -388,8 +401,7 @@ void QLocalSocket::close()
     d->readSequenceStarted = false;
     d->pendingReadyRead = false;
     d->pipeClosed = false;
-    DisconnectNamedPipe(d->handle);
-    CloseHandle(d->handle);
+    d->destroyPipeHandles();
     d->handle = INVALID_HANDLE_VALUE;
     ResetEvent(d->overlapped.hEvent);
     d->state = UnconnectedState;
@@ -412,6 +424,15 @@ bool QLocalSocket::flush()
 void QLocalSocket::disconnectFromServer()
 {
     Q_D(QLocalSocket);
+
+    // Are we still connected?
+    if (!isValid()) {
+        // If we have unwritten data, the pipeWriter is still present.
+        // It must be destroyed before close() to prevent an infinite loop.
+        delete d->pipeWriter;
+        d->pipeWriter = 0;
+    }
+
     flush();
     if (d->pipeWriter && d->pipeWriter->bytesToWrite() != 0) {
         d->state = QLocalSocket::ClosingState;
@@ -524,7 +545,10 @@ bool QLocalSocket::waitForDisconnected(int msecs)
 bool QLocalSocket::isValid() const
 {
     Q_D(const QLocalSocket);
-    return (d->handle != INVALID_HANDLE_VALUE);
+    if (d->handle == INVALID_HANDLE_VALUE)
+        return false;
+
+    return PeekNamedPipe(d->handle, NULL, 0, NULL, NULL, NULL);
 }
 
 bool QLocalSocket::waitForReadyRead(int msecs)

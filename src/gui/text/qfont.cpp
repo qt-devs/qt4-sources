@@ -629,8 +629,9 @@ QFontEngineData::~QFontEngineData()
 
     Returns the name of the font within the underlying window system.
 
-    Only on X11 when Qt was built without FontConfig support the XLFD (X Logical Font Description)
-    is returned; otherwise an empty string.
+    On X11, this function will return an empty string if Qt is built with
+    FontConfig support; otherwise the XLFD (X Logical Font Description) is
+    returned.
 
     Using the return value of this function is usually \e not \e
     portable.
@@ -803,6 +804,9 @@ QFont::QFont(const QString &family, int pointSize, int weight, bool italic)
     } else {
         resolve_mask |= QFont::WeightResolved | QFont::StyleResolved;
     }
+
+    if (italic)
+        resolve_mask |= QFont::StyleResolved;
 
     d->request.family = family;
     d->request.pointSize = qreal(pointSize);
@@ -2624,6 +2628,7 @@ QFontCache::QFontCache()
 
 QFontCache::~QFontCache()
 {
+    clear();
     {
         EngineDataCache::ConstIterator it = engineDataCache.constBegin(),
                                  end = engineDataCache.constEnd();

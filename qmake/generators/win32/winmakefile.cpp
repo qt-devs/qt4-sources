@@ -150,6 +150,10 @@ Win32MakefileGenerator::findLibraries(const QString &where)
                     if(QMakeMetaInfo::libExists((*it).local() + Option::dir_sep + lib) ||
                        exists((*it).local() + Option::dir_sep + lib + extension)) {
                         out = (*it).real() + Option::dir_sep + lib + extension;
+                        if (out.contains(QLatin1Char(' '))) {
+                            out.prepend(QLatin1Char('\"'));
+                            out.append(QLatin1Char('\"'));
+                        }
                         break;
                     }
                 }
@@ -467,11 +471,12 @@ void Win32MakefileGenerator::processRcFileVar()
 
         resFile.replace(".rc", Option::res_ext);
         project->values("RES_FILE").prepend(fileInfo(resFile).fileName());
-        if (!project->values("OBJECTS_DIR").isEmpty())
+        if (!project->values("OBJECTS_DIR").isEmpty()) {
             if(project->isActiveConfig("staticlib"))
                 project->values("RES_FILE").first().prepend(fileInfo(project->values("DESTDIR").first()).absoluteFilePath() + Option::dir_sep);
             else
               project->values("RES_FILE").first().prepend(project->values("OBJECTS_DIR").first() + Option::dir_sep);
+        }
         project->values("RES_FILE").first() = Option::fixPathToTargetOS(project->values("RES_FILE").first(), false, false);
 	project->values("POST_TARGETDEPS") += project->values("RES_FILE");
         project->values("CLEAN_FILES") += project->values("RES_FILE");

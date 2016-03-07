@@ -27,6 +27,7 @@
 #include <QStyle>
 
 QT_BEGIN_NAMESPACE
+class QLineEdit;
 class QPainter;
 class QWidget;
 QT_END_NAMESPACE
@@ -35,6 +36,7 @@ namespace WebCore {
 
 class RenderStyle;
 class HTMLMediaElement;
+class ScrollbarThemeQt;
 
 class RenderThemeQt : public RenderTheme {
 private:
@@ -74,6 +76,8 @@ public:
 #if ENABLE(VIDEO)
     virtual String extraMediaControlsStyleSheet();
 #endif
+
+    QStyle* qStyle() const;
 
 protected:
     virtual bool paintCheckbox(RenderObject* o, const RenderObject::PaintInfo& i, const IntRect& r);
@@ -137,7 +141,8 @@ private:
     void setButtonPadding(RenderStyle*) const;
     void setPopupPadding(RenderStyle*) const;
 
-    QStyle* qStyle() const;
+    int findFrameLineWidth(QStyle* style) const;
+
     QStyle* fallbackStyle() const;
 
     Page* m_page;
@@ -148,12 +153,13 @@ private:
     QString m_buttonFontFamily;
 
     QStyle* m_fallbackStyle;
+    mutable QLineEdit* m_lineEdit;
 };
 
 class StylePainter {
 public:
-    explicit StylePainter(const RenderObject::PaintInfo& paintInfo);
-    explicit StylePainter(GraphicsContext* context);
+    explicit StylePainter(RenderThemeQt*, const RenderObject::PaintInfo&);
+    explicit StylePainter(ScrollbarThemeQt*, GraphicsContext*);
     ~StylePainter();
 
     bool isValid() const { return painter && style; }
@@ -170,7 +176,7 @@ public:
     { style->drawComplexControl(cc, &opt, painter, widget); }
 
 private:
-    void init(GraphicsContext* context);
+    void init(GraphicsContext* context, QStyle*);
 
     QBrush oldBrush;
     bool oldAntialiasing;

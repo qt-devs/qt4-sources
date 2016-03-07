@@ -508,8 +508,16 @@
 <a name="//apple_ref/cpp/instm/QPainter/beginNativePainting"></a>
 <h3 class="fn"><a name="beginNativePainting"></a>void QPainter::beginNativePainting ()</h3>
 <p>Flushes the painting pipeline and prepares for the user issuing commands directly to the underlying graphics context. Must be followed by a call to <a href="qpainter.html#endNativePainting">endNativePainting</a>().</p>
-<p>Note that only the states the underlying paint engine changes will be reset to their respective default states. If, for example, the OpenGL polygon mode is changed by the user inside a beginNativePaint()/<a href="qpainter.html#endNativePainting">endNativePainting</a>() block, it will not be reset to the default state by <a href="qpainter.html#endNativePainting">endNativePainting</a>().</p>
-<p>Here is an example that shows intermixing of painter commands and raw OpenGL commands:</p>
+<p>Note that only the states the underlying paint engine changes will be reset to their respective default states. The states we reset may change from release to release. The following states are currently reset in the OpenGL 2 engine:</p>
+<ul>
+<li>blending is disabled</li>
+<li>the depth, stencil and scissor tests are disabled</li>
+<li>the active texture unit is reset to 0</li>
+<li>the depth mask, depth function and the clear depth are reset to their default values</li>
+<li>the stencil mask, stencil operation and stencil function are reset to their default values</li>
+<li>the current color is reset to solid white</li>
+</ul>
+<p>If, for example, the OpenGL polygon mode is changed by the user inside a beginNativePaint()/<a href="qpainter.html#endNativePainting">endNativePainting</a>() block, it will not be reset to the default state by <a href="qpainter.html#endNativePainting">endNativePainting</a>(). Here is an example that shows intermixing of painter commands and raw OpenGL commands:</p>
 <pre> QPainter painter(this);
  painter.fillRect(0, 0, 128, 128, Qt::green);
  painter.beginNativePainting();
@@ -1419,6 +1427,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

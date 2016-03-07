@@ -60,13 +60,8 @@
 QT_BEGIN_NAMESPACE
 
 const int MAX_NON_CUSTOM_PIXELMETRICS = 92;
-const int CUSTOMVALUESCOUNT = 4;
-enum {
-    PM_Custom_FrameCornerWidth = MAX_NON_CUSTOM_PIXELMETRICS,
-    PM_Custom_FrameCornerHeight,
-    PM_Custom_BoldLineWidth,
-    PM_Custom_ThinLineWidth
-    };
+const int CUSTOMVALUESCOUNT = 5;
+
 const int MAX_PIXELMETRICS = MAX_NON_CUSTOM_PIXELMETRICS + CUSTOMVALUESCOUNT;
 
 typedef struct {
@@ -74,7 +69,6 @@ typedef struct {
     unsigned short width;
     int major_version;
     int minor_version;
-    bool mirroring; // TODO: (nice to have) Use Qt::LayoutDirection
     const char* layoutName;
 } layoutHeader;
 
@@ -132,6 +126,7 @@ public:
         SP_QgnGrafBarFrameSideL,
         SP_QgnGrafBarFrameSideR,
         SP_QgnGrafBarProgress,
+        SP_QgnGrafOrgBgGrid,
         SP_QgnGrafScrollArrowDown,
         SP_QgnGrafScrollArrowLeft,
         SP_QgnGrafScrollArrowRight,
@@ -298,6 +293,24 @@ public:
         SP_QsnFrButtonSideLInactive,
         SP_QsnFrButtonSideRInactive,
         SP_QsnFrButtonCenterInactive,
+        SP_QsnFrGridCornerTlPressed, // Pressed table item
+        SP_QsnFrGridCornerTrPressed,
+        SP_QsnFrGridCornerBlPressed,
+        SP_QsnFrGridCornerBrPressed,
+        SP_QsnFrGridSideTPressed,
+        SP_QsnFrGridSideBPressed,
+        SP_QsnFrGridSideLPressed,
+        SP_QsnFrGridSideRPressed,
+        SP_QsnFrGridCenterPressed,
+        SP_QsnFrListCornerTlPressed,  // Pressed list item
+        SP_QsnFrListCornerTrPressed,
+        SP_QsnFrListCornerBlPressed,
+        SP_QsnFrListCornerBrPressed,
+        SP_QsnFrListSideTPressed,
+        SP_QsnFrListSideBPressed,
+        SP_QsnFrListSideLPressed,
+        SP_QsnFrListSideRPressed,
+        SP_QsnFrListPressed,
     };
 
     enum ColorLists {
@@ -353,12 +366,12 @@ public:
     int timerId() const {return m_currentData->m_timerId;}
     int currentFrame() const {return m_currentData->m_currentFrame;}
 
-    void setFrameCount(const int &frameCount) {m_currentData->m_frames = frameCount;}
-    void setInterval(const int &interval) {m_currentData->m_interval = interval;}
+    void setFrameCount(int frameCount) {m_currentData->m_frames = frameCount;}
+    void setInterval(int interval) {m_currentData->m_interval = interval;}
     void setAnimationObject(CAknBitmapAnimation* animation);
     void setResourceBased(bool resourceBased) {m_currentData->m_resourceBased = resourceBased;}
-    void setTimerId(const int &timerId) {m_currentData->m_timerId = timerId;}
-    void setCurrentFrame(const int &currentFrame) {m_currentData->m_currentFrame = currentFrame;}
+    void setTimerId(int timerId) {m_currentData->m_timerId = timerId;}
+    void setCurrentFrame(int currentFrame) {m_currentData->m_currentFrame = currentFrame;}
 
     void resetToDefaults();
 
@@ -416,7 +429,7 @@ public:
         SE_TabBarTabWestActive,
         SE_TabBarTabWestInactive,
         SE_ListHighlight,
-        SE_OptionsMenu,
+        SE_PopupBackground,
         SE_SettingsList,
         SE_TableItem,
         SE_TableHeaderItem,
@@ -425,10 +438,13 @@ public:
         SE_ToolBarButton,
         SE_ToolBarButtonPressed,
         SE_PanelBackground,
-        SE_ScrollBarHandlePressedHorizontal, //only for 5.0+
+        SE_ScrollBarHandlePressedHorizontal,
         SE_ScrollBarHandlePressedVertical,
         SE_ButtonInactive,
         SE_Editor,
+        SE_DropArea,
+        SE_TableItemPressed,
+        SE_ListItemPressed,
     };
 
     enum SkinFrameElements {
@@ -436,7 +452,7 @@ public:
         SF_ButtonPressed,
         SF_FrameLineEdit,
         SF_ListHighlight,
-        SF_OptionsMenu,
+        SF_PopupBackground,
         SF_SettingsList,
         SF_TableItem,
         SF_TableHeaderItem,
@@ -446,6 +462,8 @@ public:
         SF_ToolBarButtonPressed,
         SF_PanelBackground,
         SF_ButtonInactive,
+        SF_TableItemPressed,
+        SF_ListItemPressed,
     };
 
     enum SkinElementFlag {
@@ -458,6 +476,8 @@ public:
         SF_StateDisabled =    0x0020,
         SF_ColorSkinned =     0x0040, // pixmap is colored with foreground pen color
         SF_Animation =        0x0080,
+        SF_Mirrored_X_Axis =  0x0100,
+        SF_Mirrored_Y_Axis =  0x0200
     };
 
     enum CacheClearReason {
@@ -500,6 +520,7 @@ public:
     static bool isToolBarBackground();
     static bool hasSliderGrooveGraphic();
     static bool isSingleClickUi();
+    static bool isWidgetPressed(const QWidget *widget);
 
     // calculates average color based on button skin graphics (minus borders).
     QColor colorFromFrameGraphics(SkinFrameElements frame) const;
@@ -541,7 +562,7 @@ public:
 
     //Checks that the current brush is transparent or has BrushStyle NoBrush,
     //so that theme graphic background can be drawn.
-    static bool canDrawThemeBackground(const QBrush &backgroundBrush);
+    static bool canDrawThemeBackground(const QBrush &backgroundBrush, const QWidget *widget);
 
     static int currentAnimationFrame(QS60StyleEnums::SkinParts part);
 #ifdef Q_WS_S60
@@ -595,6 +616,9 @@ private:
     QPalette m_originalPalette;
 
     QPointer<QFocusFrame> m_focusFrame;
+    static qint64 m_webPaletteKey;
+
+    static QPointer<QWidget> m_pressedWidget;
 
 #ifdef Q_WS_S60
     //list of progress bars having animation running

@@ -250,7 +250,7 @@
 
     \section1 Windows Vista
 
-    At the time Qt 4.6.2 was released, there were no known Vista-specific issues.
+    At the time Qt 4.6.3 was released, there were no known Vista-specific issues.
 
     \target Windows NT
     \section1 Windows XP, Windows 2000 and Windows NT
@@ -419,7 +419,7 @@
     \section1 Source Compatibility
 
     Qt for Symbian provides the same level of source compatibility guarantee as
-    given for other platforms.  That is, a program which compiles against a given
+    given for other platforms. That is, a program which compiles against a given
     version of Qt for Symbian will also compile against all future versions of the
     same major release.
 
@@ -501,6 +501,34 @@
 
     For information about mixing exceptions with Symbian leaves, see
     \l{Exception Safety with Symbian}.
+
+    \section1 Required Capabilities
+
+    The Qt libraries are typically signed with \c{All -TCB} capabilites, but
+    that does not mean your Qt application needs to be signed with the same
+    capabilities to function properly. The capabilities your application needs
+    to function properly depends on which parts of Qt you use, here is an
+    overview:
+
+    \table
+    \header \o Module
+            \o Required Symbian Capability
+    \row    \o QtCore
+            \o \c PowerMgmt if QProcess::kill(...) or QProcess::terminate(...) is called.
+    \row    \o QtCore
+            \o \c AllFiles when \l{http://developer.symbian.org/wiki/index.php/Capabilities_%28Symbian_Signed%29/AllFiles_Capability}{accessing specific areas.}
+    \row    \o QtNetwork
+            \o \c NetworkServices is basically always required for this module.
+    \row    \o QtMultiMedia
+            \o \c UserEnvironment if QAudioInput is used.
+    \endtable
+
+    Note that some modules rely on other modules. If your application uses
+    QtXmlPatterns, QtWebkit or QtScript it may still require \c NetworkServices
+    \o as these modules rely on QtNetwork to go online.
+
+    For more information see the documentation of the individual Qt classes. If
+    a class does not mention Symbian capabilities, it requires none.
 
     \section1 Multimedia and Phonon Support
 

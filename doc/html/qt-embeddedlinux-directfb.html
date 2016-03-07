@@ -26,6 +26,7 @@
 <li><a href="#unsupported-graphics-operations">Unsupported graphics operations</a></li>
 <li><a href="#avoiding-fallbacks">Avoiding fallbacks</a></li>
 <li><a href="#when-painting-images">When painting images</a></li>
+<li><a href="#top-level-transparency">Top level transparency</a></li>
 </ul>
 </ul>
 <a name="using-directfb-with-qt"></a>
@@ -82,7 +83,7 @@
 <tr valign="top" class="even"><td>QT_NO_DIRECTFB_OPAQUE_DETECTION</td><td>When blitting a surface Qt has to decide whether to set the <a href="http://www.directfb.org/docs/DirectFB_Reference_1_4/types.html#DFBSurfaceBlittingFlags">DSBLIT_BLEND_ALPHACHANNEL</a> flag. If you load an image from file or network data that has a format that includes an alpha channel, the image might still be completely opaque. Normally Qt runs through every pixel to check if there really is an alpha channel there. This involves some overhead but usually pays off in the end because blitting is cheaper than blending. If you define this Qt will assume that an image with a format that has alpha channel contains at least one pixel with an alpha value != 255.</td></tr>
 <tr valign="top" class="odd"><td>QT_DIRECTFB_SUBSURFACE</td><td>Defining this enables a mode that tries to minimize overhead from locking/unlocking surfaces. Note that this currently is experimental.</td></tr>
 <tr valign="top" class="even"><td>QT_DIRECTFB_WINDOW_AS_CURSOR</td><td>Define this if your DirectFB implementation supports windows but can not render the cursor properly. This involves creating a small top level window and moving it around when the cursor moves. It does not always perform well.</td></tr>
-<tr valign="top" class="odd"><td>QT_NO_DIRECTFB_IMAGEPROVIDER</td><td>By default Qt will use DirectFB to load QPixmaps from disk/memory. If your DirectFB implementation does not support this it might make sense to define this.</td></tr>
+<tr valign="top" class="odd"><td>QT_NO_DIRECTFB_IMAGEPROVIDER</td><td>By default Qt will use DirectFB to load QPixmaps from disk/memory. If your DirectFB implementation does not support this it might make sense to define this. If you see strange rendering issues with pixmaps that have an alpha channel defining this could solve the problem.</td></tr>
 <tr valign="top" class="even"><td>QT_DIRECTFB_IMAGEPROVIDER_KEEPALIVE</td><td>Define this to make sure Qt always keeps at least one <a href="http://directfb.org/docs/DirectFB_Reference_1_4/IDirectFBImageProvider.html">IDirectFBImageProvider</a> object alive. This is to avoid considerable overhead when the first IDirectFBImageProvider is created, the last IDirectFBImageProvider is removed.</td></tr>
 </table></p>
 <a name="unsupported-graphics-operations"></a>
@@ -110,10 +111,13 @@
 <a name="when-painting-images"></a>
 <h3>When painting images</h3>
 <p><b>Note:</b> You should use <a href="qpixmap.html">QPixmap</a> instead of <a href="qimage.html">QImage</a>. QImages are drawn by the <a href="qrasterpaintengine.html">QRasterPaintEngine</a>. To get a warning for every fallback to the <a href="qrasterpaintengine.html">QRasterPaintEngine</a>, use QT_DIRECTFB_WARN_ON_RASTERFALLBACKS. If QT_DIRECTFB_DISABLE_RASTERFALLBACKS is defined, DirectFB will only return instead of falling back to <a href="qrasterpaintengine.html">QRasterPaintEngine</a>. Please note that these defines should only be used when optimizing the application.</p>
+<a name="top-level-transparency"></a>
+<h3>Top level transparency</h3>
+<p><b>Note:</b> DirectFB supports partially or fully transparent top level windows, either through QWidget::setWindowOpacity or through setting a non-opaque background brush. Note that for the latter it is not supported to change an opaque window to be transparent at runtime.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

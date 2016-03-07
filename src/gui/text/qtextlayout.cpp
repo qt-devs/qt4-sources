@@ -89,9 +89,9 @@ static QFixed alignLine(QTextEngine *eng, const QScriptLine &line)
         if (align & Qt::AlignJustify && eng->option.textDirection() == Qt::RightToLeft)
             align = Qt::AlignRight;
         if (align & Qt::AlignRight)
-            x = line.width - (line.textWidth + leadingSpaceWidth(eng, line));
+            x = line.width - (line.textAdvance + leadingSpaceWidth(eng, line));
         else if (align & Qt::AlignHCenter)
-            x = (line.width - line.textWidth)/2;
+            x = (line.width - line.textAdvance)/2;
     }
     return x;
 }
@@ -1331,7 +1331,7 @@ void QTextLayout::drawCursor(QPainter *p, const QPointF &pos, int cursorPosition
     QTextLine l(line, d);
     const QScriptLine &sl = d->lines[line];
 
-    const qreal x = position.x() + l.cursorToX(cursorPosition);
+    qreal x = position.x() + l.cursorToX(cursorPosition);
 
     int itm = d->findItem(cursorPosition - 1);
     QFixed base = sl.base();
@@ -1350,6 +1350,10 @@ void QTextLayout::drawCursor(QPainter *p, const QPointF &pos, int cursorPosition
                               && (p->transform().type() > QTransform::TxTranslate);
     if (toggleAntialiasing)
         p->setRenderHint(QPainter::Antialiasing);
+#if defined(QT_MAC_USE_COCOA)
+    // Always draw the cursor aligned to pixel boundary.
+    x = qRound(x);
+#endif
     p->fillRect(QRectF(x, y, qreal(width), (base + descent + 1).toReal()), p->pen().brush());
     if (toggleAntialiasing)
         p->setRenderHint(QPainter::Antialiasing, false);
@@ -1640,28 +1644,67 @@ namespace {
 
     struct LineBreakHelper
     {
-        LineBreakHelper() : glyphCount(0), maxGlyphs(0), manualWrap(false) {}
+        LineBreakHelper()
+            : glyphCount(0), maxGlyphs(0), currentPosition(0), fontEngine(0), logClusters(0),
+              manualWrap(false)
+        {
+        }
+
 
         QScriptLine tmpData;
         QScriptLine spaceData;
 
+        QGlyphLayout glyphs;
+
         int glyphCount;
         int maxGlyphs;
+        int currentPosition;
 
         QFixed minw;
         QFixed softHyphenWidth;
         QFixed rightBearing;
+        QFixed minimumRightBearing;
+
+        QFontEngine *fontEngine;
+        const unsigned short *logClusters;
 
         bool manualWrap;
 
         bool checkFullOtherwiseExtend(QScriptLine &line);
+
+        QFixed calculateNewWidth(const QScriptLine &line) const {
+            return line.textWidth + tmpData.textWidth + spaceData.textWidth + softHyphenWidth
+                    - qMin(rightBearing, QFixed());
+        }
+
+        inline glyph_t currentGlyph() const
+        {
+            Q_ASSERT(currentPosition > 0);
+            return glyphs.glyphs[logClusters[currentPosition - 1]];
+        }
+
+        inline void adjustRightBearing()
+        {
+            if (currentPosition <= 0)
+                return;
+
+            qreal rb;
+            fontEngine->getGlyphBearings(currentGlyph(), 0, &rb);
+            rightBearing = qMin(QFixed(), QFixed::fromReal(rb));
+        }
+
+        inline void resetRightBearing()
+        {
+            rightBearing = QFixed(1); // Any positive number is defined as invalid since only
+                                      // negative right bearings are interesting to us.
+        }
     };
 
 inline bool LineBreakHelper::checkFullOtherwiseExtend(QScriptLine &line)
 {        
     LB_DEBUG("possible break width %f, spacew=%f", tmpData.textWidth.toReal(), spaceData.textWidth.toReal());
 
-    QFixed newWidth = line.textWidth + tmpData.textWidth + spaceData.textWidth + softHyphenWidth + rightBearing;
+    QFixed newWidth = calculateNewWidth(line);
     if (line.length && !manualWrap && (newWidth > line.width || glyphCount > maxGlyphs))
         return true;
 
@@ -1737,13 +1780,12 @@ void QTextLine::layout_helper(int maxGlyphs)
     Qt::Alignment alignment = eng->option.alignment();
 
     const HB_CharAttributes *attributes = eng->attributes();
-    int pos = line.from;
+    lbh.currentPosition = line.from;
     int end = 0;
-    QGlyphLayout glyphs;
-    const unsigned short *logClusters = eng->layoutData->logClustersPtr;
+    lbh.logClusters = eng->layoutData->logClustersPtr;
 
     while (newItem < eng->layoutData->items.size()) {
-        lbh.rightBearing = 0;
+        lbh.resetRightBearing();
         lbh.softHyphenWidth = 0;
         if (newItem != item) {
             item = newItem;
@@ -1751,13 +1793,19 @@ void QTextLine::layout_helper(int maxGlyphs)
             if (!current.num_glyphs) {
                 eng->shape(item);
                 attributes = eng->attributes();
-                logClusters = eng->layoutData->logClustersPtr;
+                lbh.logClusters = eng->layoutData->logClustersPtr;
             }
-            pos = qMax(line.from, current.position);
+            lbh.currentPosition = qMax(line.from, current.position);
             end = current.position + eng->length(item);
-            glyphs = eng->shapedGlyphs(&current);
+            lbh.glyphs = eng->shapedGlyphs(&current);
         }
         const QScriptItem &current = eng->layoutData->items[item];
+        QFontEngine *fontEngine = eng->fontEngine(current);
+        if (lbh.fontEngine != fontEngine) {
+            lbh.fontEngine = fontEngine;
+            lbh.minimumRightBearing = qMin(QFixed(),
+                                           QFixed::fromReal(fontEngine->minRightBearing()));
+        }
 
         lbh.tmpData.leading = qMax(lbh.tmpData.leading + lbh.tmpData.ascent,
                                    current.leading + current.ascent) - qMax(lbh.tmpData.ascent,
@@ -1787,8 +1835,8 @@ void QTextLine::layout_helper(int maxGlyphs)
             if (!line.length && !lbh.tmpData.length)
                 line.setDefaultHeight(eng);
             if (eng->option.flags() & QTextOption::ShowLineAndParagraphSeparators) {
-                addNextCluster(pos, end, lbh.tmpData, lbh.glyphCount,
-                               current, logClusters, glyphs);
+                addNextCluster(lbh.currentPosition, end, lbh.tmpData, lbh.glyphCount,
+                               current, lbh.logClusters, lbh.glyphs);
             } else {
                 lbh.tmpData.length++;
             }
@@ -1807,10 +1855,10 @@ void QTextLine::layout_helper(int maxGlyphs)
             ++lbh.glyphCount;
             if (lbh.checkFullOtherwiseExtend(line))
                 goto found;
-        } else if (attributes[pos].whiteSpace) {
-            while (pos < end && attributes[pos].whiteSpace)
-                addNextCluster(pos, end, lbh.spaceData, lbh.glyphCount,
-                               current, logClusters, glyphs);
+        } else if (attributes[lbh.currentPosition].whiteSpace) {
+            while (lbh.currentPosition < end && attributes[lbh.currentPosition].whiteSpace)
+                addNextCluster(lbh.currentPosition, end, lbh.spaceData, lbh.glyphCount,
+                               current, lbh.logClusters, lbh.glyphs);
 
             if (!lbh.manualWrap && lbh.spaceData.textWidth > line.width) {
                 lbh.spaceData.textWidth = line.width; // ignore spaces that fall out of the line.
@@ -1819,19 +1867,19 @@ void QTextLine::layout_helper(int maxGlyphs)
         } else {
             bool sb_or_ws = false;
             do {
-                addNextCluster(pos, end, lbh.tmpData, lbh.glyphCount,
-                               current, logClusters, glyphs);
+                addNextCluster(lbh.currentPosition, end, lbh.tmpData, lbh.glyphCount,
+                               current, lbh.logClusters, lbh.glyphs);
 
-                if (attributes[pos].whiteSpace || attributes[pos-1].lineBreakType != HB_NoBreak) {
+                if (attributes[lbh.currentPosition].whiteSpace || attributes[lbh.currentPosition-1].lineBreakType != HB_NoBreak) {
                     sb_or_ws = true;
                     break;
-                } else if (breakany && attributes[pos].charStop) {
+                } else if (breakany && attributes[lbh.currentPosition].charStop) {
                     break;
                 }
-            } while (pos < end);
+            } while (lbh.currentPosition < end);
             lbh.minw = qMax(lbh.tmpData.textWidth, lbh.minw);
 
-            if (pos && attributes[pos - 1].lineBreakType == HB_SoftHyphen) {
+            if (lbh.currentPosition && attributes[lbh.currentPosition - 1].lineBreakType == HB_SoftHyphen) {
                 // if we are splitting up a word because of
                 // a soft hyphen then we ...
                 //
@@ -1849,41 +1897,40 @@ void QTextLine::layout_helper(int maxGlyphs)
                 //     and thus become invisible again.
                 //
                 if (line.length)
-                    lbh.softHyphenWidth = glyphs.advances_x[logClusters[pos - 1]];
+                    lbh.softHyphenWidth = lbh.glyphs.advances_x[lbh.logClusters[lbh.currentPosition - 1]];
                 else if (breakany)
-                    lbh.tmpData.textWidth += glyphs.advances_x[logClusters[pos - 1]];
+                    lbh.tmpData.textWidth += lbh.glyphs.advances_x[lbh.logClusters[lbh.currentPosition - 1]];
             }
 
             // The actual width of the text needs to take the right bearing into account. The
             // right bearing is left-ward, which means that if the rightmost pixel is to the right
             // of the advance of the glyph, the bearing will be negative. We flip the sign
             // for the code to be more readable. Logic borrowed from qfontmetrics.cpp.
-            if (pos) {
-                QFontEngine *fontEngine = eng->fontEngine(current);
-                glyph_t glyph = glyphs.glyphs[logClusters[pos - 1]];
-                glyph_metrics_t gi = fontEngine->boundingBox(glyph);
-                if (gi.isValid())
-                    lbh.rightBearing = qMax(QFixed(), -(gi.xoff - gi.x - gi.width));
-            }
+            // We ignore the right bearing if the minimum negative bearing is too little to
+            // expand the text beyond the edge.
+            if (sb_or_ws|breakany) {
+                if (lbh.calculateNewWidth(line) + lbh.minimumRightBearing > line.width)
+                    lbh.adjustRightBearing();
+                if (lbh.checkFullOtherwiseExtend(line)) {
+                    if (!breakany) {
+                        line.textWidth += lbh.softHyphenWidth;
+                    }
 
-            if ((sb_or_ws|breakany) && lbh.checkFullOtherwiseExtend(line)) {
-                if (!breakany) {
-                    line.textWidth += lbh.softHyphenWidth;
+                    goto found;
                 }
-
-                line.textWidth += lbh.rightBearing;
-
-                goto found;
             }
         }
-        if (pos == end)
+        if (lbh.currentPosition == end)
             newItem = item + 1;
     }
     LB_DEBUG("reached end of line");
     lbh.checkFullOtherwiseExtend(line);
-    line.textWidth += lbh.rightBearing;
-
 found:       
+    if (lbh.rightBearing > 0) // If right bearing has not yet been adjusted
+        lbh.adjustRightBearing();
+    line.textAdvance = line.textWidth;
+    line.textWidth -= qMin(QFixed(), lbh.rightBearing);
+
     if (line.length == 0) {
         LB_DEBUG("no break available in line, adding temp: length %d, width %f, space: length %d, width %f",
                lbh.tmpData.length, lbh.tmpData.textWidth.toReal(),

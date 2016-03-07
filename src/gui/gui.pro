@@ -40,7 +40,7 @@ include(statemachine/statemachine.pri)
 include(math3d/math3d.pri)
 include(effects/effects.pri)
 
-contains(QT_CONFIG, egl): include(egl/egl.pri)
+include(egl/egl.pri)
 
 embedded: QT += network
 
@@ -51,8 +51,26 @@ contains(DEFINES,QT_EVAL):include($$QT_SOURCE_TREE/src/corelib/eval.pri)
 QMAKE_DYNAMIC_LIST_FILE = $$PWD/QtGui.dynlist
 
 DEFINES += Q_INTERNAL_QAPP_SRC
-symbian:TARGET.UID3=0x2001B2DD
+symbian: {
+    TARGET.UID3=0x2001B2DD
 
-# ro-section in gui can exceed default allocated space, so more rw-section little further
-symbian-sbsv2: QMAKE_LFLAGS.ARMCC += --rw-base 0x800000
-symbian: QMAKE_LFLAGS.GCCE += -Tdata 0xC00000
+    # ro-section in gui can exceed default allocated space, so move rw-section a little further
+    QMAKE_LFLAGS.ARMCC += --rw-base 0x800000
+    QMAKE_LFLAGS.GCCE += -Tdata 0xC00000
+
+    # Partial upgrade SIS file
+    vendorinfo = \
+        "; Localised Vendor name" \
+        "%{\"Nokia, Qt\"}" \
+        " " \
+        "; Unique Vendor name" \
+        ":\"Nokia, Qt\"" \
+        " "
+    pu_header = "; Partial upgrade package for testing QtGui changes without reinstalling everything" \
+                "$${LITERAL_HASH}{\"Qt gui\"}, (0x2001E61C), $${QT_MAJOR_VERSION},$${QT_MINOR_VERSION},$${QT_PATCH_VERSION}, TYPE=PU"
+    partial_upgrade.pkg_prerules = pu_header vendorinfo
+    partial_upgrade.sources = qtgui.dll
+    partial_upgrade.path = c:/sys/bin
+    DEPLOYMENT = partial_upgrade $$DEPLOYMENT
+}
+

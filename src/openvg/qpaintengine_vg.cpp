@@ -75,8 +75,8 @@ QT_BEGIN_NAMESPACE
 
 #if !defined(QVG_NO_DRAW_GLYPHS)
 
-extern int qt_defaultDpiX();
-extern int qt_defaultDpiY();
+Q_DECL_IMPORT extern int qt_defaultDpiX();
+Q_DECL_IMPORT extern int qt_defaultDpiY();
 
 class QVGPaintEnginePrivate;
 
@@ -120,6 +120,35 @@ private:
 class QVGPaintEnginePrivate : public QPaintEngineExPrivate
 {
 public:
+    // Extra blending modes from VG_KHR_advanced_blending extension.
+    // Use the QT_VG prefix to avoid conflicts with any definitions
+    // that may come in via <VG/vgext.h>.
+    enum AdvancedBlending {
+        QT_VG_BLEND_OVERLAY_KHR       = 0x2010,
+        QT_VG_BLEND_HARDLIGHT_KHR     = 0x2011,
+        QT_VG_BLEND_SOFTLIGHT_SVG_KHR = 0x2012,
+        QT_VG_BLEND_SOFTLIGHT_KHR     = 0x2013,
+        QT_VG_BLEND_COLORDODGE_KHR    = 0x2014,
+        QT_VG_BLEND_COLORBURN_KHR     = 0x2015,
+        QT_VG_BLEND_DIFFERENCE_KHR    = 0x2016,
+        QT_VG_BLEND_SUBTRACT_KHR      = 0x2017,
+        QT_VG_BLEND_INVERT_KHR        = 0x2018,
+        QT_VG_BLEND_EXCLUSION_KHR     = 0x2019,
+        QT_VG_BLEND_LINEARDODGE_KHR   = 0x201a,
+        QT_VG_BLEND_LINEARBURN_KHR    = 0x201b,
+        QT_VG_BLEND_VIVIDLIGHT_KHR    = 0x201c,
+        QT_VG_BLEND_LINEARLIGHT_KHR   = 0x201d,
+        QT_VG_BLEND_PINLIGHT_KHR      = 0x201e,
+        QT_VG_BLEND_HARDMIX_KHR       = 0x201f,
+        QT_VG_BLEND_CLEAR_KHR         = 0x2020,
+        QT_VG_BLEND_DST_KHR           = 0x2021,
+        QT_VG_BLEND_SRC_OUT_KHR       = 0x2022,
+        QT_VG_BLEND_DST_OUT_KHR       = 0x2023,
+        QT_VG_BLEND_SRC_ATOP_KHR      = 0x2024,
+        QT_VG_BLEND_DST_ATOP_KHR      = 0x2025,
+        QT_VG_BLEND_XOR_KHR           = 0x2026
+    };
+
     QVGPaintEnginePrivate();
     ~QVGPaintEnginePrivate();
 
@@ -216,6 +245,8 @@ public:
     QVGFontCache fontCache;
     QVGFontEngineCleaner *fontEngineCleaner;
 #endif
+
+    bool hasAdvancedBlending;
 
     QScopedPointer<QPixmapFilter> convolutionFilter;
     QScopedPointer<QPixmapFilter> colorizeFilter;
@@ -370,6 +401,8 @@ void QVGPaintEnginePrivate::init()
     fontEngineCleaner = 0;
 #endif
 
+    hasAdvancedBlending = false;
+
     clearModes();
 }
 
@@ -446,6 +479,10 @@ void QVGPaintEnginePrivate::initObjects()
                             VG_PATH_CAPABILITY_ALL);
     vgAppendPathData(linePath, 2, segments, coords);
 #endif
+
+    const char *extensions = reinterpret_cast<const char *>(vgGetString(VG_EXTENSIONS));
+    if (extensions)
+        hasAdvancedBlending = strstr(extensions, "VG_KHR_advanced_blending") != 0;
 }
 
 void QVGPaintEnginePrivate::destroy()
@@ -496,34 +533,29 @@ void QVGPaintEnginePrivate::setTransform
     vgLoadMatrix(mat);
 }
 
-extern bool qt_scaleForTransform(const QTransform &transform, qreal *scale);
+Q_DECL_IMPORT extern bool qt_scaleForTransform(const QTransform &transform, qreal *scale);
 
 void QVGPaintEnginePrivate::updateTransform(QPaintDevice *pdev)
 {
-    VGfloat devh = pdev->height() - 1;
+    VGfloat devh = pdev->height();
 
     // Construct the VG transform by combining the Qt transform with
     // the following viewport transformation:
-    //        | 1  0  0   |   | 1 0  0.5 |   | 1  0     0.5      |
-    //        | 0 -1 devh | * | 0 1 -0.5 | = | 0 -1 (0.5 + devh) |
-    //        | 0  0  1   |   | 0 0   1  |   | 0  0      1       |
+    //        | 1  0  0   |
+    //        | 0 -1 devh |
+    //        | 0  0  1   |
     // The full VG transform is effectively:
     //      1. Apply the user's transformation matrix.
-    //      2. Translate by (0.5, -0.5) to correct for Qt and VG putting
-    //         the centre of the pixel at different positions.
-    //      3. Flip the co-ordinate system upside down.
+    //      2. Flip the co-ordinate system upside down.
     QTransform viewport(1.0f, 0.0f, 0.0f,
                         0.0f, -1.0f, 0.0f,
-                        0.5f, devh + 0.5f, 1.0f);
+                        0.0f, devh, 1.0f);
 
-    // The image transform is always the full transformation,
-    // because it can be projective.
-    imageTransform = transform * viewport;
-
-    // Determine if the transformation is projective.
-    bool projective = (imageTransform.m13() != 0.0f ||
-                       imageTransform.m23() != 0.0f ||
-                       imageTransform.m33() != 1.0f);
+    // Compute the path transform and determine if it is projective.
+    pathTransform = transform * viewport;
+    bool projective = (pathTransform.m13() != 0.0f ||
+                       pathTransform.m23() != 0.0f ||
+                       pathTransform.m33() != 1.0f);
     if (projective) {
         // The engine cannot do projective path transforms for us,
         // so we will have to convert the co-ordinates ourselves.
@@ -531,10 +563,12 @@ void QVGPaintEnginePrivate::updateTransform(QPaintDevice *pdev)
         pathTransform = viewport;
         simpleTransform = false;
     } else {
-        pathTransform = imageTransform;
         simpleTransform = true;
     }
     pathTransformSet = false;
+
+    // The image transform is always the full transformation,
+    imageTransform = transform * viewport;
 
     // Calculate the scaling factor to use for turning cosmetic pens
     // into ordinary non-cosmetic pens.
@@ -967,7 +1001,7 @@ VGPath QVGPaintEnginePrivate::roundedRectPath(const QRectF &rect, qreal xRadius,
     return vgpath;
 }
 
-extern QImage qt_imageForBrush(int style, bool invert);
+Q_DECL_IMPORT extern QImage qt_imageForBrush(int style, bool invert);
 
 static QImage colorizeBitmap(const QImage &image, const QColor &color)
 {
@@ -2062,6 +2096,7 @@ void QVGPaintEngine::clip(const QPainterPath &path, Qt::ClipOperation op)
 void QVGPaintEnginePrivate::ensureMask
         (QVGPaintEngine *engine, int width, int height)
 {
+    scissorMask = false;
     if (maskIsSet) {
         vgMask(VG_INVALID_HANDLE, VG_FILL_MASK, 0, 0, width, height);
         maskRect = QRect();
@@ -2294,7 +2329,7 @@ void QVGPaintEngine::compositionModeChanged()
     Q_D(QVGPaintEngine);
     d->dirty |= QPaintEngine::DirtyCompositionMode;
 
-    VGBlendMode vgMode = VG_BLEND_SRC_OVER;
+    VGint vgMode = VG_BLEND_SRC_OVER;
 
     switch (state()->composition_mode) {
     case QPainter::CompositionMode_SourceOver:
@@ -2328,11 +2363,53 @@ void QVGPaintEngine::compositionModeChanged()
         vgMode = VG_BLEND_LIGHTEN;
         break;
     default:
-        qWarning() << "QVGPaintEngine::compositionModeChanged unsupported mode" << state()->composition_mode;
-        break;  // Fall back to VG_BLEND_SRC_OVER.
+        if (d->hasAdvancedBlending) {
+            switch (state()->composition_mode) {
+            case QPainter::CompositionMode_Overlay:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_OVERLAY_KHR;
+                break;
+            case QPainter::CompositionMode_ColorDodge:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_COLORDODGE_KHR;
+                break;
+            case QPainter::CompositionMode_ColorBurn:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_COLORBURN_KHR;
+                break;
+            case QPainter::CompositionMode_HardLight:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_HARDLIGHT_KHR;
+                break;
+            case QPainter::CompositionMode_SoftLight:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_SOFTLIGHT_KHR;
+                break;
+            case QPainter::CompositionMode_Difference:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_DIFFERENCE_KHR;
+                break;
+            case QPainter::CompositionMode_Exclusion:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_EXCLUSION_KHR;
+                break;
+            case QPainter::CompositionMode_SourceOut:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_SRC_OUT_KHR;
+                break;
+            case QPainter::CompositionMode_DestinationOut:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_DST_OUT_KHR;
+                break;
+            case QPainter::CompositionMode_SourceAtop:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_SRC_ATOP_KHR;
+                break;
+            case QPainter::CompositionMode_DestinationAtop:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_DST_ATOP_KHR;
+                break;
+            case QPainter::CompositionMode_Xor:
+                vgMode = QVGPaintEnginePrivate::QT_VG_BLEND_XOR_KHR;
+                break;
+            default: break; // Fall back to VG_BLEND_SRC_OVER.
+            }
+        }
+        if (vgMode == VG_BLEND_SRC_OVER)
+            qWarning() << "QVGPaintEngine::compositionModeChanged unsupported mode" << state()->composition_mode;
+        break;
     }
 
-    d->setBlendMode(vgMode);
+    d->setBlendMode(VGBlendMode(vgMode));
 }
 
 void QVGPaintEngine::renderHintsChanged()
@@ -2399,7 +2476,7 @@ void QVGPaintEngine::fillRect(const QRectF &rect, const QBrush &brush)
         return;
 
     // Check to see if we can use vgClear() for faster filling.
-    if (brush.style() == Qt::SolidPattern &&
+    if (brush.style() == Qt::SolidPattern && brush.isOpaque() &&
             clipTransformIsSimple(d->transform) && d->opacity == 1.0f &&
             clearRect(rect, brush.color())) {
         return;
@@ -2442,7 +2519,7 @@ void QVGPaintEngine::fillRect(const QRectF &rect, const QColor &color)
     Q_D(QVGPaintEngine);
 
     // Check to see if we can use vgClear() for faster filling.
-    if (clipTransformIsSimple(d->transform) && d->opacity == 1.0f &&
+    if (clipTransformIsSimple(d->transform) && d->opacity == 1.0f && color.alpha() == 255 &&
             clearRect(rect, color)) {
         return;
     }
@@ -3239,10 +3316,10 @@ void QVGFontGlyphCache::cacheGlyphs
                 vgImageSubData(vgImage, qt_vg_imageBits(img), img.bytesPerLine(), VG_sARGB_8888_PRE, 0, 0, img.width(), img.height());
             }
         }
-        origin[0] = -metrics.x.toReal() + 0.5f;
-        origin[1] = -metrics.y.toReal() + 0.5f;
-        escapement[0] = metrics.xoff.toReal();
-        escapement[1] = metrics.yoff.toReal();
+        origin[0] = -metrics.x.toReal();
+        origin[1] = -metrics.y.toReal();
+        escapement[0] = 0;
+        escapement[1] = 0;
         vgSetGlyphToImage(font, glyph, vgImage, origin, escapement);
         vgDestroyImage(vgImage);    // Reduce reference count.
 #else
@@ -3258,8 +3335,8 @@ void QVGFontGlyphCache::cacheGlyphs
         }
         origin[0] = 0;
         origin[1] = 0;
-        escapement[0] = metrics.xoff.toReal();
-        escapement[1] = metrics.yoff.toReal();
+        escapement[0] = 0;
+        escapement[1] = 0;
         vgSetGlyphToPath(font, glyph, vgPath, VG_FALSE, origin, escapement);
         vgDestroyPath(vgPath);      // Reduce reference count.
 #endif // !defined(QVG_NO_IMAGE_GLYPHS)
@@ -3284,10 +3361,8 @@ void QVGPaintEngine::drawTextItem(const QPointF &p, const QTextItem &textItem)
     // Get the glyphs and positions associated with the text item.
     QVarLengthArray<QFixedPoint> positions;
     QVarLengthArray<glyph_t> glyphs;
-    QTransform matrix = d->transform;
-    matrix.translate(p.x(), p.y());
-    ti.fontEngine->getGlyphPositions
-        (ti.glyphs, matrix, ti.flags, glyphs, positions);
+    QTransform matrix;
+    ti.fontEngine->getGlyphPositions(ti.glyphs, matrix, ti.flags, glyphs, positions);
 
     // Find the glyph cache for this font.
     QVGFontCache::ConstIterator it = d->fontCache.constFind(ti.fontEngine);
@@ -3321,10 +3396,18 @@ void QVGPaintEngine::drawTextItem(const QPointF &p, const QTextItem &textItem)
     // Add the glyphs from the text item into the glyph cache.
     glyphCache->cacheGlyphs(d, ti, glyphs);
 
+    // Create the array of adjustments between glyphs
+    QVarLengthArray<VGfloat> adjustments_x(glyphs.size());
+    QVarLengthArray<VGfloat> adjustments_y(glyphs.size());
+    for (int i = 1; i < glyphs.size(); ++i) {
+        adjustments_x[i-1] = (positions[i].x - positions[i-1].x).toReal();
+        adjustments_y[i-1] = (positions[i].y - positions[i-1].y).toReal();
+    }
+
     // Set the glyph drawing origin.
     VGfloat origin[2];
-    origin[0] = 0;
-    origin[1] = 0;
+    origin[0] = positions[0].x.toReal();
+    origin[1] = positions[0].y.toReal();
     vgSetfv(VG_GLYPH_ORIGIN, 2, origin);
 
     // Fast anti-aliasing for paths, better for images.
@@ -3339,7 +3422,7 @@ void QVGPaintEngine::drawTextItem(const QPointF &p, const QTextItem &textItem)
     // the Qt pen, not the Qt brush.
     d->ensureBrush(state()->pen.brush());
     vgDrawGlyphs(glyphCache->font, glyphs.size(), (VGuint*)glyphs.data(),
-                 NULL, NULL, VG_FILL_PATH, VG_TRUE);
+                 adjustments_x.data(), adjustments_y.data(), VG_FILL_PATH, VG_TRUE);
 #else
     // OpenGL 1.0 does not have support for VGFont and glyphs,
     // so fall back to the default Qt path stroking algorithm.
@@ -3644,10 +3727,10 @@ void QVGCompositionHelper::fillBackground
 
     } else {
         // Set the path transform to the default viewport transformation.
-        VGfloat devh = screenSize.height() - 1;
+        VGfloat devh = screenSize.height();
         QTransform viewport(1.0f, 0.0f, 0.0f,
                             0.0f, -1.0f, 0.0f,
-                            -0.5f, devh + 0.5f, 1.0f);
+                            0.0f, devh, 1.0f);
         d->setTransform(VG_MATRIX_PATH_USER_TO_SURFACE, viewport);
 
         // Set the brush to use to fill the background.
@@ -3683,10 +3766,10 @@ void QVGCompositionHelper::drawCursorPixmap
     }
 
     // Set the image transformation and modes.
-    VGfloat devh = screenSize.height() - 1;
+    VGfloat devh = screenSize.height();
     QTransform transform(1.0f, 0.0f, 0.0f,
                          0.0f, -1.0f, 0.0f,
-                         -0.5f, devh + 0.5f, 1.0f);
+                         0.0f, devh, 1.0f);
     transform.translate(offset.x(), offset.y());
     d->setTransform(VG_MATRIX_IMAGE_USER_TO_SURFACE, transform);
     d->setImageMode(VG_DRAW_IMAGE_NORMAL);

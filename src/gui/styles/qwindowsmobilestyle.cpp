@@ -4040,25 +4040,26 @@ enum QSliderDirection { SliderUp, SliderDown, SliderLeft, SliderRight };
 
 void QWindowsMobileStylePrivate::tintImagesButton(QColor color)
 {
-       if (currentTintButton == color)
+    if (currentTintButton == color)
         return;
+    currentTintButton = color;
 
-       imageTabEnd = QImage(tabend_xpm);
-       imageTabSelectedEnd = QImage(tabselectedend_xpm);
-       imageTabSelectedBegin = QImage(tabselectedbeginn_xpm);
-       imageTabMiddle = QImage(tabmiddle_xpm);
-       tintImage(&imageTabEnd, color, 0.0);
-       tintImage(&imageTabSelectedEnd, color, 0.0);
-       tintImage(&imageTabSelectedBegin, color, 0.0);
-       tintImage(&imageTabMiddle, color, 0.0);
+    imageTabEnd = QImage(tabend_xpm);
+    imageTabSelectedEnd = QImage(tabselectedend_xpm);
+    imageTabSelectedBegin = QImage(tabselectedbeginn_xpm);
+    imageTabMiddle = QImage(tabmiddle_xpm);
+    tintImage(&imageTabEnd, color, 0.0);
+    tintImage(&imageTabSelectedEnd, color, 0.0);
+    tintImage(&imageTabSelectedBegin, color, 0.0);
+    tintImage(&imageTabMiddle, color, 0.0);
 
-       if (!doubleControls) {
-           int height = imageTabMiddle.height() / 2 + 1;
-           imageTabEnd = imageTabEnd.scaledToHeight(height);
-           imageTabMiddle = imageTabMiddle.scaledToHeight(height);
-           imageTabSelectedEnd = imageTabSelectedEnd.scaledToHeight(height);
-           imageTabSelectedBegin = imageTabSelectedBegin.scaledToHeight(height);
-       }
+    if (!doubleControls) {
+        int height = imageTabMiddle.height() / 2 + 1;
+        imageTabEnd = imageTabEnd.scaledToHeight(height);
+        imageTabMiddle = imageTabMiddle.scaledToHeight(height);
+        imageTabSelectedEnd = imageTabSelectedEnd.scaledToHeight(height);
+        imageTabSelectedBegin = imageTabSelectedBegin.scaledToHeight(height);
+    }
 }
 
 void QWindowsMobileStylePrivate::tintImagesHigh(QColor color)
@@ -5075,6 +5076,10 @@ void QWindowsMobileStyle::drawPrimitive(PrimitiveElement element, const QStyleOp
                     color = option->palette.buttonText().color();
                 QImage image;
                 int xoffset, yoffset;
+                bool isTabBarArrow = widget && widget->parent()
+                                   && widget->inherits("QToolButton")
+                                   && widget->parent()->inherits("QTabBar");
+
                 switch (element) {
                     case PE_IndicatorArrowUp:
                           image = d->imageArrowUp;
@@ -5089,12 +5094,12 @@ void QWindowsMobileStyle::drawPrimitive(PrimitiveElement element, const QStyleOp
                     case PE_IndicatorArrowLeft:
                           image = d->imageArrowLeft;
                           xoffset = 8;
-                          yoffset = 2;
+                          yoffset = isTabBarArrow ? 12 : 2;
                           break;
                     case PE_IndicatorArrowRight:
                           image = d->imageArrowRight;
                           xoffset = 8;
-                          yoffset = 2;
+                          yoffset = isTabBarArrow ? 12 : 2;
                           break;
                      case PE_IndicatorArrowUpBig:
                           image = d->imageArrowUpBig;
@@ -5350,6 +5355,50 @@ void QWindowsMobileStyle::drawPrimitive(PrimitiveElement element, const QStyleOp
         }
         painter->setPen(option->palette.text().color());
         painter->drawLines(a);
+        break; }
+    case PE_IndicatorBranch: {
+        // Copied from the Windows style.
+        static const int decoration_size = d->doubleControls ? 18 : 9;
+        static const int ofsA  = d->doubleControls ?  4 : 2;
+        static const int ofsB  = d->doubleControls ?  8 : 4;
+        static const int ofsC  = d->doubleControls ? 12 : 6;
+        static const int ofsD  = d->doubleControls ? 1 : 0;
+        int mid_h = option->rect.x() + option->rect.width() / 2;
+        int mid_v = option->rect.y() + option->rect.height() / 2;
+        int bef_h = mid_h;
+        int bef_v = mid_v;
+        int aft_h = mid_h;
+        int aft_v = mid_v;
+        if (option->state & State_Children) {
+            int delta = decoration_size / 2;
+            bef_h -= delta;
+            bef_v -= delta;
+            aft_h += delta;
+            aft_v += delta;
+            QPen oldPen = painter->pen();
+            QPen crossPen = oldPen;
+            crossPen.setWidth(2);
+            painter->setPen(crossPen);
+            painter->drawLine(bef_h + ofsA + ofsD, bef_v + ofsB + ofsD, bef_h + ofsC + ofsD, bef_v + ofsB + ofsD);
+            if (!(option->state & State_Open))
+                painter->drawLine(bef_h + ofsB + ofsD, bef_v + ofsA + ofsD, bef_h + ofsB + ofsD, bef_v + ofsC + ofsD);
+            painter->setPen(option->palette.dark().color());
+            painter->drawRect(bef_h, bef_v, decoration_size - 1, decoration_size - 1);
+            if (d->doubleControls)
+                painter->drawRect(bef_h + 1, bef_v + 1, decoration_size - 3, decoration_size - 3);
+            painter->setPen(oldPen);
+        }
+        QBrush brush(option->palette.dark().color(), Qt::Dense4Pattern);
+        if (option->state & State_Item) {
+            if (option->direction == Qt::RightToLeft)
+                painter->fillRect(option->rect.left(), mid_v, bef_h - option->rect.left(), 1, brush);
+            else
+                painter->fillRect(aft_h, mid_v, option->rect.right() - aft_h + 1, 1, brush);
+        }
+        if (option->state & State_Sibling)
+            painter->fillRect(mid_h, aft_v, 1, option->rect.bottom() - aft_v + 1, brush);
+        if (option->state & (State_Open | State_Children | State_Item | State_Sibling))
+            painter->fillRect(mid_h, option->rect.y(), 1, bef_v - option->rect.y(), brush);
         break; }
     case PE_Frame:
         qDrawPlainRect(painter, option->rect, option->palette.shadow().color(),
@@ -6948,10 +6997,11 @@ int QWindowsMobileStyle::pixelMetric(PixelMetric pm, const QStyleOption *opt, co
     case PM_SliderThickness:
         ret = d->doubleControls ? windowsMobileSliderThickness * 2: windowsMobileSliderThickness;
         break;
-     case PM_TabBarScrollButtonWidth:
-         ret = d->doubleControls ? 14 * 2 : 18;
-      case PM_CheckBoxLabelSpacing:
-      case PM_RadioButtonLabelSpacing:
+    case PM_TabBarScrollButtonWidth:
+        ret = d->doubleControls ? 14 * 2 : 18;
+        break;
+    case PM_CheckBoxLabelSpacing:
+    case PM_RadioButtonLabelSpacing:
         ret = d->doubleControls ? 6 * 2 : 6;
         break;
         // Returns the number of pixels to use for the business part of the

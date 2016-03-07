@@ -48,7 +48,6 @@
 #include <qurl.h>
 #include <private/qcore_symbian_p.h>
 
-#include <miutset.h>                // KUidMsgTypeSMTP
 #include <txtrich.h>                // CRichText
 #include <f32file.h>                // TDriveUnit etc
 #include <eikenv.h>                 // CEikonEnv
@@ -57,11 +56,14 @@
 #include <rsendas.h>                // RSendAs
 #include <rsendasmessage.h>         // RSendAsMessage
 
+// copied from miutset.h, so we don't get a dependency into the app layer
+const TUid KUidMsgTypeSMTP			= {0x10001028};	// 268439592
+
 #ifdef Q_WS_S60
 #  include <pathinfo.h>             // PathInfo
 #  ifdef USE_DOCUMENTHANDLER
-#    include <documenthandler.h>    // CDocumentHandler
-#    include <aknserverapp.h>
+#    include <DocumentHandler.h>    // CDocumentHandler
+#    include <AknServerApp.h>
 #  endif
 #else
 #  warning CDocumentHandler requires support for S60

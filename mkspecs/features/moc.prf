@@ -1,9 +1,6 @@
 
 #global defaults
-isEmpty(QMAKE_MOC) {
-    contains(QMAKE_HOST.os,Windows):QMAKE_MOC = $$[QT_INSTALL_BINS]\moc.exe
-    else:QMAKE_MOC = $$[QT_INSTALL_BINS]/moc
-}
+qtPrepareTool(QMAKE_MOC, moc)
 isEmpty(MOC_DIR):MOC_DIR = .
 isEmpty(QMAKE_H_MOD_MOC):QMAKE_H_MOD_MOC = moc_
 isEmpty(QMAKE_EXT_CPP_MOC):QMAKE_EXT_CPP_MOC = .moc
@@ -97,7 +94,7 @@ equals(MOC_DIR, .) {
 }
 
 #auto depend on moc
-unix:!no_mocdepend {
+unix:!symbian:!no_mocdepend {
      moc_source.depends += $$first(QMAKE_MOC)
      moc_header.depends += $$first(QMAKE_MOC)
      !contains(TARGET, moc) { #auto build moc

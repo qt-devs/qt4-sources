@@ -414,7 +414,8 @@ public:
 
     inline void markParentDirty(bool updateBoundingRect = false);
 
-    void setFocusHelper(Qt::FocusReason focusReason, bool climb);
+    void setFocusHelper(Qt::FocusReason focusReason, bool climb, bool focusFromShow);
+    void clearFocusHelper(bool giveFocusToParent);
     void setSubFocus(QGraphicsItem *rootItem = 0);
     void clearSubFocus(QGraphicsItem *rootItem = 0);
     void resetFocusProxy();
@@ -768,6 +769,13 @@ inline bool QGraphicsItemPrivate::insertionOrder(QGraphicsItem *a, QGraphicsItem
 inline void QGraphicsItemPrivate::markParentDirty(bool updateBoundingRect)
 {
     QGraphicsItemPrivate *parentp = this;
+#ifndef QT_NO_GRAPHICSEFFECT
+    if (updateBoundingRect && parentp->graphicsEffect && !parentp->inSetPosHelper) {
+        parentp->notifyInvalidated = 1;
+        static_cast<QGraphicsItemEffectSourcePrivate *>(parentp->graphicsEffect->d_func()
+                                                        ->source->d_func())->invalidateCache();
+    }
+#endif
     while (parentp->parent) {
         parentp = parentp->parent->d_ptr.data();
         parentp->dirtyChildren = 1;

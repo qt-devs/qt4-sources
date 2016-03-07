@@ -55,24 +55,24 @@ QT_BEGIN_NAMESPACE
 
 QSoftKeyManager *QSoftKeyManagerPrivate::self = 0;
 
-const char *QSoftKeyManager::standardSoftKeyText(StandardSoftKey standardKey)
+QString QSoftKeyManager::standardSoftKeyText(StandardSoftKey standardKey)
 {
-    const char *softKeyText = 0;
+    QString softKeyText;
     switch (standardKey) {
     case OkSoftKey:
-        softKeyText = QT_TRANSLATE_NOOP("QSoftKeyManager", "Ok");
+        softKeyText = QSoftKeyManager::tr("Ok");
         break;
     case SelectSoftKey:
-        softKeyText = QT_TRANSLATE_NOOP("QSoftKeyManager", "Select");
+        softKeyText = QSoftKeyManager::tr("Select");
         break;
     case DoneSoftKey:
-        softKeyText = QT_TRANSLATE_NOOP("QSoftKeyManager", "Done");
+        softKeyText = QSoftKeyManager::tr("Done");
         break;
     case MenuSoftKey:
-        softKeyText = QT_TRANSLATE_NOOP("QSoftKeyManager", "Options");
+        softKeyText = QSoftKeyManager::tr("Options");
         break;
     case CancelSoftKey:
-        softKeyText = QT_TRANSLATE_NOOP("QSoftKeyManager", "Cancel");
+        softKeyText = QSoftKeyManager::tr("Cancel");
         break;
     default:
         break;
@@ -100,8 +100,7 @@ QSoftKeyManager::QSoftKeyManager() :
 
 QAction *QSoftKeyManager::createAction(StandardSoftKey standardKey, QWidget *actionWidget)
 {
-    const char* text = standardSoftKeyText(standardKey);
-    QAction *action = new QAction(QSoftKeyManager::tr(text), actionWidget);
+    QAction *action = new QAction(standardSoftKeyText(standardKey), actionWidget);
     QAction::SoftKeyRole softKeyRole = QAction::NoSoftKey;
     switch (standardKey) {
     case MenuSoftKey: // FALL-THROUGH
@@ -116,6 +115,8 @@ QAction *QSoftKeyManager::createAction(StandardSoftKey standardKey, QWidget *act
         break;
     }
     action->setSoftKeyRole(softKeyRole);
+    action->setVisible(false);
+    setForceEnabledInSoftkeys(action);
     return action;
 }
 
@@ -169,14 +170,25 @@ bool QSoftKeyManager::appendSoftkeys(const QWidget &source, int level)
 {
     Q_D(QSoftKeyManager);
     bool ret = false;
-    QList<QAction*> actions = source.actions();
-    for (int i = 0; i < actions.count(); ++i) {
-        if (actions.at(i)->softKeyRole() != QAction::NoSoftKey) {
-            d->requestedSoftKeyActions.insert(level, actions.at(i));
+    foreach(QAction *action, source.actions()) {
+        if (action->softKeyRole() != QAction::NoSoftKey
+            && (action->isVisible() || isForceEnabledInSofkeys(action))) {
+            d->requestedSoftKeyActions.insert(level, action);
             ret = true;
         }
     }
     return ret;
+}
+
+
+static bool isChildOf(const QWidget *c, const QWidget *p)
+{
+    while (c) {
+        if (c == p)
+            return true;
+        c = c->parentWidget();
+    }
+    return false;
 }
 
 QWidget *QSoftKeyManager::softkeySource(QWidget *previousSource, bool& recursiveMerging)
@@ -185,9 +197,28 @@ QWidget *QSoftKeyManager::softkeySource(QWidget *previousSource, bool& recursive
     QWidget *source = NULL;
     if (!previousSource) {
         // Initial source is primarily focuswidget and secondarily activeWindow
-        source = QApplication::focusWidget();
-        if (!source)
-            source = QApplication::activeWindow();
+        QWidget *focus = QApplication::focusWidget();
+        QWidget *popup = QApplication::activePopupWidget();
+        if (popup) {
+            if (isChildOf(focus, popup))
+                source = focus;
+            else
+                source = popup;
+        }
+        if (!source) {
+            QWidget *modal = QApplication::activeModalWidget();
+            if (modal) {
+                if (isChildOf(focus, modal))
+                    source = focus;
+                else
+                    source = modal;
+            }
+        }
+        if (!source) {
+            source = focus;
+            if (!source)
+                source = QApplication::activeWindow();
+        }
     } else {
         // Softkey merging is based on four criterias
         // 1. Implicit merging is used whenever focus widget does not specify any softkeys
@@ -211,16 +242,29 @@ bool QSoftKeyManager::handleUpdateSoftKeys()
     d->requestedSoftKeyActions.clear();
     bool recursiveMerging = false;
     QWidget *source = softkeySource(NULL, recursiveMerging);
-    do {
-        if (source) {
-            bool added = appendSoftkeys(*source, level);
-            source = softkeySource(source, recursiveMerging);
-            level = added ? ++level : level;
-        }
-    } while (source);
+    d->initialSoftKeySource = source;
+    while (source) {
+        if (appendSoftkeys(*source, level))
+            ++level;
+        source = softkeySource(source, recursiveMerging);
+    }
 
     d->updateSoftKeys_sys();
     return true;
+}
+
+void QSoftKeyManager::setForceEnabledInSoftkeys(QAction *action)
+{
+    action->setProperty(FORCE_ENABLED_PROPERTY, QVariant(true));
+}
+
+bool QSoftKeyManager::isForceEnabledInSofkeys(QAction *action)
+{
+    bool ret = false;
+    QVariant property = action->property(FORCE_ENABLED_PROPERTY);
+    if (property.isValid() && property.toBool())
+        ret = true;
+    return ret;
 }
 
 bool QSoftKeyManager::event(QEvent *e)

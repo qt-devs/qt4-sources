@@ -206,6 +206,10 @@
 <p>For more information about ciphers and certificates, refer to <a href="qsslcipher.html">QSslCipher</a> and <a href="qsslcertificate.html">QSslCertificate</a>.</p>
 <p>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (<a href="http://www.openssl.org/">http://www.openssl.org/</a>).</p>
 <p><b>Note:</b> Be aware of the difference between the <a href="qiodevice.html#bytesWritten">bytesWritten</a>() signal and the <a href="qsslsocket.html#encryptedBytesWritten">encryptedBytesWritten</a>() signal. For a <a href="qtcpsocket.html">QTcpSocket</a>, <a href="qiodevice.html#bytesWritten">bytesWritten</a>() will get emitted as soon as data has been written to the TCP socket. For a QSslSocket, <a href="qiodevice.html#bytesWritten">bytesWritten</a>() will get emitted when the data is being encrypted and <a href="qsslsocket.html#encryptedBytesWritten">encryptedBytesWritten</a>() will get emitted as soon as data has been written to the TCP socket.</p>
+<a name="symbian-platform-security-requirements"></a>
+<h3>Symbian Platform Security Requirements</h3>
+<p>On Symbian, processes which use this class must have the <tt>NetworkServices</tt> platform security capability. If the client process lacks this capability, operations will fail.</p>
+<p>Platform security capabilities are added via the <a href="qmake-variable-reference.html#target-capability">TARGET.CAPABILITY</a> qmake variable.</p>
 <p>See also <a href="qsslcertificate.html">QSslCertificate</a>, <a href="qsslcipher.html">QSslCipher</a>, and <a href="qsslerror.html">QSslError</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
@@ -602,6 +606,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

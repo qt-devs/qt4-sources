@@ -44,19 +44,19 @@
 
 #include <stddef.h>
 
-#define QT_VERSION_STR "4.6.2"
+#define QT_VERSION_STR "4.6.3"
 /*
    QT_VERSION is (major << 16) + (minor << 8) + patch.
 */
-#define QT_VERSION 0x040602
+#define QT_VERSION 0x040603
 /*
    can be used like #if (QT_VERSION >= QT_VERSION_CHECK(4, 4, 0))
 */
 #define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))
 
-#define QT_PACKAGEDATE_STR "2010-02-12"
+#define QT_PACKAGEDATE_STR "2010-06-02"
 
-#define QT_PACKAGE_TAG "244b440f11a519bbd0f6a2c5cde90edb1732f2ea"
+#define QT_PACKAGE_TAG "76353f177cd84327c692ea31ec644df683643194"
 
 #if !defined(QT_BUILD_MOC)
 #include <QtCore/qconfig.h>
@@ -813,7 +813,7 @@ namespace QT_NAMESPACE {}
 #      define Q_WS_MAC32
 #    endif
 #  elif defined(Q_OS_SYMBIAN)
-#    if (defined(__SERIES60_31__) || defined(__S60_32__) || defined(__S60_50__)) && !defined(QT_NO_S60)
+#    if !defined(QT_NO_S60)
 #      define Q_WS_S60
 #    endif
 #  elif !defined(Q_WS_QWS)
@@ -1674,10 +1674,7 @@ Q_CORE_EXPORT void qt_assert_x(const char *where, const char *what, const char *
 #endif
 
 Q_CORE_EXPORT void qt_check_pointer(const char *, int);
-
-#ifndef QT_NO_EXCEPTIONS
 Q_CORE_EXPORT void qBadAlloc();
-#endif
 
 #ifdef QT_NO_EXCEPTIONS
 #  if defined(QT_NO_DEBUG)
@@ -2412,16 +2409,18 @@ QT3_SUPPORT Q_CORE_EXPORT const char *qInstallPathSysconf();
 
 #if defined(Q_OS_SYMBIAN)
 
-#ifdef SYMBIAN_GRAPHICS_USE_GCE
-//RWsPointerCursor is fixed, so don't use low performance sprites
-#define Q_SYMBIAN_FIXED_POINTER_CURSORS
+#ifdef SYMBIAN_BUILD_GCE
 #define Q_SYMBIAN_HAS_EXTENDED_BITMAP_TYPE
-//enabling new graphics resources
-#define QT_SYMBIAN_SUPPORTS_SGIMAGE
+#define Q_SYMBIAN_WINDOW_SIZE_CACHE
 #define QT_SYMBIAN_SUPPORTS_ADVANCED_POINTER
 
+//enabling new graphics resources
+#ifdef SYMBIAN_GRAPHICS_EGL_SGIMAGELITE
+#  define QT_SYMBIAN_SUPPORTS_SGIMAGE
+#endif
+
 #ifdef SYMBIAN_GRAPHICS_WSERV_QT_EFFECTS
-#define Q_SYMBIAN_SEMITRANSPARENT_BG_SURFACE
+#  define Q_SYMBIAN_SEMITRANSPARENT_BG_SURFACE
 #endif
 #endif
 

@@ -112,8 +112,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qpixmap.html#operator-lt-lt-148">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QPixmap &amp; <i>pixmap</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qpixmap.html#operator-gt-gt-81">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QPixmap &amp; <i>pixmap</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qpixmap.html#operator-lt-lt-103">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QPixmap &amp; <i>pixmap</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qpixmap.html#operator-gt-gt-62">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QPixmap &amp; <i>pixmap</i> )</td></tr>
 </table>
 <h3>Additional Inherited Members</h3>
 <ul>
@@ -160,7 +160,7 @@
 <p><table class="generic" align="center" cellpadding="2" cellspacing="1" border="0">
 <thead><tr valign="top" class="qt-style"><th></th><th>Available Functions</th></tr></thead>
 <tr valign="top" class="odd"><td>Geometry</td><td>The <a href="qpixmap.html#size">size</a>(), <a href="qpixmap.html#width">width</a>() and <a href="qpixmap.html#height">height</a>() functions provide information about the pixmap's size. The <a href="qpixmap.html#rect">rect</a>() function returns the image's enclosing rectangle.</td></tr>
-<tr valign="top" class="even"><td>Alpha component</td><td>The <a href="qpixmap.html#hasAlphaChannel">hasAlphaChannel</a>() returns true if the pixmap has a format that respects the alpha channel, otherwise returns false, while the <a href="qpixmap.html#hasAlpha">hasAlpha</a>() function returns true if the pixmap has an alpha channel <i>or</i> a mask (otherwise false). The <a href="qpixmap.html#mask">mask</a>() function returns the mask as a <a href="qbitmap.html">QBitmap</a> object, which can be set using <a href="qpixmap.html#setMask">setMask</a>().<p>The <a href="qpixmap.html#createHeuristicMask">createHeuristicMask</a>() function creates and returns a 1-bpp heuristic mask (i.e&#x2e; a <a href="qbitmap.html">QBitmap</a>) for this pixmap. It works by selecting a color from one of the corners and then chipping away pixels of that color, starting at all the edges. The <a href="qpixmap.html#createMaskFromColor">createMaskFromColor</a>() function creates and returns a mask (i.e&#x2e; a <a href="qbitmap.html">QBitmap</a>) for the pixmap based on a given color.</p>
+<tr valign="top" class="even"><td>Alpha component</td><td>The <a href="qpixmap.html#hasAlphaChannel">hasAlphaChannel</a>() returns true if the pixmap has a format that respects the alpha channel, otherwise returns false. The <a href="qpixmap.html#hasAlpha">hasAlpha</a>(), <a href="qpixmap.html#setMask">setMask</a>() and <a href="qpixmap.html#mask">mask</a>() functions are legacy and should not be used. They are potentially very slow.<p>The <a href="qpixmap.html#createHeuristicMask">createHeuristicMask</a>() function creates and returns a 1-bpp heuristic mask (i.e&#x2e; a <a href="qbitmap.html">QBitmap</a>) for this pixmap. It works by selecting a color from one of the corners and then chipping away pixels of that color, starting at all the edges. The <a href="qpixmap.html#createMaskFromColor">createMaskFromColor</a>() function creates and returns a mask (i.e&#x2e; a <a href="qbitmap.html">QBitmap</a>) for the pixmap based on a given color.</p>
 </td></tr>
 <tr valign="top" class="odd"><td>Low-level information</td><td>The <a href="qpixmap.html#depth">depth</a>() function returns the depth of the pixmap. The <a href="qpixmap.html#defaultDepth">defaultDepth</a>() function returns the default depth, i.e&#x2e; the depth used by the application on the given screen.<p>The <a href="qpixmap.html#cacheKey">cacheKey</a>() function returns a number that uniquely identifies the contents of the QPixmap object.</p>
 <p>The <a href="qpixmap.html#x11Info">x11Info</a>() function returns information about the configuration of the X display used by the screen to which the pixmap currently belongs. The <a href="qpixmap.html#x11PictureHandle">x11PictureHandle</a>() function returns the X11 Picture handle of the pixmap for XRender support. Note that the two latter functions are only available on x11.</p>
@@ -358,7 +358,8 @@
 <p>The arguments (<i>x</i>, <i>y</i>) specify the offset in the window, whereas (<i>width</i>, <i>height</i>) specify the area to be copied. If <i>width</i> is negative, the function copies everything to the right border of the window. If <i>height</i> is negative, the function copies everything to the bottom of the window.</p>
 <p>The window system identifier (<tt>WId</tt>) can be retrieved using the <a href="qwidget.html#winId">QWidget::winId</a>() function. The rationale for using a window identifier and not a <a href="qwidget.html">QWidget</a>, is to enable grabbing of windows that are not part of the application, window system frames, and so on.</p>
 <p>The grabWindow() function grabs pixels from the screen, not from the window, i.e&#x2e; if there is another window partially or entirely over the one you grab, you get pixels from the overlying window, too. The mouse cursor is generally not grabbed.</p>
-<p>Note on X11that if the given <i>window</i> doesn't have the same depth as the root window, and another window partially or entirely obscures the one you grab, you will <i>not</i> get pixels from the overlying window. The contents of the obscured areas in the pixmap will be undefined and uninitialized.</p>
+<p>Note on X11 that if the given <i>window</i> doesn't have the same depth as the root window, and another window partially or entirely obscures the one you grab, you will <i>not</i> get pixels from the overlying window. The contents of the obscured areas in the pixmap will be undefined and uninitialized.</p>
+<p>On Windows Vista and above grabbing a layered window, which is created by setting the <a href="qt.html#WidgetAttribute-enum">Qt::WA_TranslucentBackground</a> attribute, will not work. Instead grabbing the desktop widget should work.</p>
 <p><b>Warning:</b> In general, grabbing an area outside the screen is not safe. This depends on the underlying window system.</p>
 <p>See also <a href="qpixmap.html#grabWidget">grabWidget</a>() and <a href="desktop-screenshot.html">Screenshot Example</a>.</p>
 <a name="//apple_ref/cpp/instm/QPixmap/handle"></a>
@@ -370,6 +371,7 @@
 <a name="//apple_ref/cpp/instm/QPixmap/hasAlpha"></a>
 <h3 class="fn"><a name="hasAlpha"></a>bool QPixmap::hasAlpha () const</h3>
 <p>Returns true if this pixmap has an alpha channel, <i>or</i> has a mask, otherwise returns false.</p>
+<p><b>Warning:</b> This is potentially an expensive operation.</p>
 <p>See also <a href="qpixmap.html#hasAlphaChannel">hasAlphaChannel</a>() and <a href="qpixmap.html#mask">mask</a>().</p>
 <a name="//apple_ref/cpp/instm/QPixmap/hasAlphaChannel"></a>
 <h3 class="fn"><a name="hasAlphaChannel"></a>bool QPixmap::hasAlphaChannel () const</h3>
@@ -561,16 +563,16 @@
 <p>See also <a href="qpixmap.html#copy">copy</a>() and <a href="qpixmap.html#QPixmap">QPixmap</a>().</p>
 <hr />
 <h2>Related Non-Members</h2>
-<h3 class="fn"><a name="operator-lt-lt-148"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QPixmap &amp; <i>pixmap</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-103"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QPixmap &amp; <i>pixmap</i> )</h3>
 <p>Writes the given <i>pixmap</i> to the given <i>stream</i> as a PNG image. Note that writing the stream to a file will not produce a valid image file.</p>
 <p>See also <a href="qpixmap.html#save">QPixmap::save</a>() and <a href="datastreamformat.html">Format of the QDataStream Operators</a>.</p>
-<h3 class="fn"><a name="operator-gt-gt-81"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QPixmap &amp; <i>pixmap</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-62"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QPixmap &amp; <i>pixmap</i> )</h3>
 <p>Reads an image from the given <i>stream</i> into the given <i>pixmap</i>.</p>
 <p>See also <a href="qpixmap.html#load">QPixmap::load</a>() and <a href="datastreamformat.html">Format of the QDataStream Operators</a>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

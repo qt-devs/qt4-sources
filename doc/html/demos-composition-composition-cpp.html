@@ -62,6 +62,8 @@
  #include &lt;QMouseEvent&gt;
  #include &lt;qmath.h&gt;
 
+ const int animationInterval = 15; <span class="comment">// update every 16 ms = ~60FPS</span>
+
  CompositionWidget::CompositionWidget(QWidget *parent)
      : QWidget(parent)
  {
@@ -248,6 +250,7 @@
      : ArthurFrame(parent)
  {
      m_animation_enabled = true;
+     m_animationTimer = startTimer(animationInterval);
  #ifdef Q_WS_QWS
      m_image = QPixmap(&quot;:res/composition/flower.jpg&quot;);
      m_image.setAlphaChannel(QPixmap(&quot;:res/composition/flower_alpha.jpg&quot;));
@@ -274,6 +277,20 @@
      QRectF rect(p, size);
      rect.translate(-size.width()/2, -size.height()/2);
      return rect;
+ }
+
+ void CompositionRenderer::setAnimationEnabled(bool enabled)
+ {
+     if (m_animation_enabled == enabled)
+         return;
+     m_animation_enabled = enabled;
+     if (enabled) {
+         Q_ASSERT(!m_animationTimer);
+         m_animationTimer = startTimer(animationInterval);
+     } else {
+         killTimer(m_animationTimer);
+         m_animationTimer = 0;
+     }
  }
 
  void CompositionRenderer::updateCirclePos()
@@ -483,10 +500,6 @@
          painter-&gt;drawImage(0, 0, m_buffer);
  #endif
      }
-
-     if (m_animation_enabled &amp;&amp; m_current_object == NoObject) {
-         updateCirclePos();
-     }
  }
 
  void CompositionRenderer::mousePressEvent(QMouseEvent *e)
@@ -501,6 +514,10 @@
      } else {
          m_current_object = NoObject;
      }
+     if (m_animation_enabled) {
+         killTimer(m_animationTimer);
+         m_animationTimer = 0;
+     }
  }
 
  void CompositionRenderer::mouseMoveEvent(QMouseEvent *e)
@@ -512,7 +529,15 @@
  {
      m_current_object = NoObject;
 
-     if (m_animation_enabled)
+     if (m_animation_enabled) {
+         Q_ASSERT(!m_animationTimer);
+         m_animationTimer = startTimer(animationInterval);
+     }
+ }
+
+ void CompositionRenderer::timerEvent(QTimerEvent *event)
+ {
+     if (event-&gt;timerId() == m_animationTimer)
          updateCirclePos();
  }
 
@@ -532,6 +557,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

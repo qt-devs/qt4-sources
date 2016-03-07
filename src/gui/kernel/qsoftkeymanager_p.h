@@ -63,7 +63,8 @@ QT_BEGIN_NAMESPACE
 
 class QSoftKeyManagerPrivate;
 
-const char MENU_ACTION_PROPERTY[] = "_q_menuaction";
+const char MENU_ACTION_PROPERTY[] = "_q_menuAction";
+const char FORCE_ENABLED_PROPERTY[] = "_q_forceEnabledInSoftkeys";
 
 class Q_AUTOTEST_EXPORT QSoftKeyManager : public QObject
 {
@@ -87,6 +88,9 @@ public:
 
     static QAction *createAction(StandardSoftKey standardKey, QWidget *actionWidget);
     static QAction *createKeyedAction(StandardSoftKey standardKey, Qt::Key key, QWidget *actionWidget);
+    static QString standardSoftKeyText(StandardSoftKey standardKey);
+    static void setForceEnabledInSoftkeys(QAction *action);
+    static bool isForceEnabledInSofkeys(QAction *action);
 
 protected:
     bool event(QEvent *e);
@@ -94,7 +98,6 @@ protected:
 private:
     QSoftKeyManager();
     static QSoftKeyManager *instance();
-    static const char *standardSoftKeyText(StandardSoftKey standardKey);
     bool appendSoftkeys(const QWidget &source, int level);
     QWidget *softkeySource(QWidget *previousSource, bool& recursiveMerging);
     bool handleUpdateSoftKeys();

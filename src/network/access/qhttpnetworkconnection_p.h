@@ -156,6 +156,7 @@ class QHttpNetworkConnectionPrivate : public QObjectPrivate
 public:
     static const int defaultChannelCount;
     static const int defaultPipelineLength;
+    static const int defaultRePipelineLength;
 
     QHttpNetworkConnectionPrivate(const QString &hostName, quint16 port, bool encrypt);
     QHttpNetworkConnectionPrivate(quint16 channelCount, const QString &hostName, quint16 port, bool encrypt);
@@ -209,11 +210,6 @@ public:
 
     void emitReplyError(QAbstractSocket *socket, QHttpNetworkReply *reply, QNetworkReply::NetworkError errorCode);
     bool handleAuthenticateChallenge(QAbstractSocket *socket, QHttpNetworkReply *reply, bool isProxy, bool &resend);
-
-
-#ifndef QT_NO_OPENSSL
-    QSslConfiguration sslConfiguration(const QHttpNetworkReply &reply) const;
-#endif
 
 #ifndef QT_NO_NETWORKPROXY
     QNetworkProxy networkProxy;

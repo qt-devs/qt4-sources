@@ -52,6 +52,7 @@
 #include "qstring.h"
 #include "qdebug.h"
 #include "qimage.h"
+#include "qcombobox.h"
 #include "private/qkeymapper_p.h"
 #include "private/qfont_p.h"
 #ifndef QT_NO_STYLE_S60
@@ -63,7 +64,7 @@
 #include "private/qsoftkeymanager_p.h"
 
 #include "apgwgnam.h" // For CApaWindowGroupName
-#include <MdaAudioTonePlayer.h>     // For CMdaAudioToneUtility
+#include <mdaaudiotoneplayer.h>     // For CMdaAudioToneUtility
 
 #if defined(Q_WS_S60)
 # if !defined(QT_NO_IM)
@@ -72,6 +73,7 @@
 # endif
 # include <private/qs60mainapplication_p.h>
 # include <centralrepository.h>
+# include "qs60mainappui.h"
 #endif
 
 #include "private/qstylesheetstyle_p.h"
@@ -371,8 +373,13 @@ QSymbianControl::~QSymbianControl()
 {
     if (S60->curWin == this)
         S60->curWin = 0;
-    if (!QApplicationPrivate::is_app_closing)
-        setFocusSafely(false);
+    if (!QApplicationPrivate::is_app_closing) {
+        QT_TRY {
+            setFocusSafely(false);
+        } QT_CATCH(const std::exception&) {
+            // ignore exceptions, nothing can be done
+        }
+    }
     S60->appUi()->RemoveFromStack(this);
     delete m_longTapDetector;
 }
@@ -400,15 +407,22 @@ void QSymbianControl::HandleLongTapEventL( const TPoint& aPenEventLocation, cons
 void QSymbianControl::translateAdvancedPointerEvent(const TAdvancedPointerEvent *event)
 {
     QApplicationPrivate *d = QApplicationPrivate::instance();
+    qreal pressure;
+    if(d->pressureSupported
+        && event->Pressure() > 0) //workaround for misconfigured HAL
+        pressure = event->Pressure() / qreal(d->maxTouchPressure);
+    else
+        pressure = qreal(1.0);
 
     QRect screenGeometry = qApp->desktop()->screenGeometry(qwidget);
 
-    while (d->appAllTouchPoints.count() <= event->PointerNumber())
-        d->appAllTouchPoints.append(QTouchEvent::TouchPoint(d->appAllTouchPoints.count()));
+    QList<QTouchEvent::TouchPoint> points = d->appAllTouchPoints;
+    while (points.count() <= event->PointerNumber())
+        points.append(QTouchEvent::TouchPoint(points.count()));
 
     Qt::TouchPointStates allStates = 0;
-    for (int i = 0; i < d->appAllTouchPoints.count(); ++i) {
-        QTouchEvent::TouchPoint &touchPoint = d->appAllTouchPoints[i];
+    for (int i = 0; i < points.count(); ++i) {
+        QTouchEvent::TouchPoint &touchPoint = points[i];
 
         if (touchPoint.id() == event->PointerNumber()) {
             Qt::TouchPointStates state;
@@ -433,12 +447,12 @@ void QSymbianControl::translateAdvancedPointerEvent(const TAdvancedPointerEvent 
                 state |= Qt::TouchPointPrimary;
             touchPoint.setState(state);
 
-            QPointF screenPos = QPointF(event->iPosition.iX, event->iPosition.iY);
+            QPointF screenPos = qwidget->mapToGlobal(QPoint(event->iPosition.iX, event->iPosition.iY));
             touchPoint.setScreenPos(screenPos);
             touchPoint.setNormalizedPos(QPointF(screenPos.x() / screenGeometry.width(),
                                                 screenPos.y() / screenGeometry.height()));
 
-            touchPoint.setPressure(event->Pressure() / qreal(d->maxTouchPressure));
+            touchPoint.setPressure(pressure);
         } else if (touchPoint.state() != Qt::TouchPointReleased) {
             // all other active touch points should be marked as stationary
             touchPoint.setState(Qt::TouchPointStationary);
@@ -450,11 +464,13 @@ void QSymbianControl::translateAdvancedPointerEvent(const TAdvancedPointerEvent 
     if ((allStates & Qt::TouchPointStateMask) == Qt::TouchPointReleased) {
         // all touch points released
         d->appAllTouchPoints.clear();
+    } else {
+        d->appAllTouchPoints = points;
     }
 
     QApplicationPrivate::translateRawTouchEvent(qwidget,
                                                 QTouchEvent::TouchScreen,
-                                                d->appAllTouchPoints);
+                                                points);
 }
 #endif
 
@@ -533,6 +549,14 @@ void QSymbianControl::HandlePointerEvent(const TPointerEvent& pEvent)
     sendMouseEvent(receiver, type, globalPos, button, modifiers);
 }
 
+#ifdef Q_WS_S60
+void QSymbianControl::HandleStatusPaneSizeChange()
+{
+    QS60MainAppUi *s60AppUi = static_cast<QS60MainAppUi *>(S60->appUi());
+    s60AppUi->HandleStatusPaneSizeChange();
+}
+#endif
+
 void QSymbianControl::sendMouseEvent(
         QWidget *receiver,
         QEvent::Type type,
@@ -597,7 +621,9 @@ TKeyResponse QSymbianControl::OfferKeyEvent(const TKeyEvent& keyEvent, TEventCod
         TUint s60Keysym = QApplicationPrivate::resolveS60ScanCode(keyEvent.iScanCode,
                 keyEvent.iCode);
         int keyCode;
-        if (s60Keysym >= 0x20 && s60Keysym < ENonCharacterKeyBase) {
+        if (s60Keysym == EKeyNull){ //some key events have 0 in iCode, for them iScanCode should be used
+            keyCode = qt_keymapper_private()->mapS60ScanCodesToQt(keyEvent.iScanCode);
+        } else if (s60Keysym >= 0x20 && s60Keysym < ENonCharacterKeyBase) {
             // Normal characters keys.
             keyCode = s60Keysym;
         } else {
@@ -625,10 +651,12 @@ TKeyResponse QSymbianControl::OfferKeyEvent(const TKeyEvent& keyEvent, TEventCod
 
                 QPoint pos = QCursor::pos();
                 TPointerEvent fakeEvent;
+                fakeEvent.iType = (TPointerEvent::TType)(-1);
                 TInt x = pos.x();
                 TInt y = pos.y();
                 if (type == EEventKeyUp) {
-                    if (keyCode == Qt::Key_Select)
+                    if (keyCode == Qt::Key_Select &&
+                        (S60->virtualMousePressedKeys & QS60Data::Select))
                         fakeEvent.iType = TPointerEvent::EButton1Up;
                     S60->virtualMouseAccel = 1;
                     S60->virtualMouseLastKey = 0;
@@ -677,8 +705,7 @@ TKeyResponse QSymbianControl::OfferKeyEvent(const TKeyEvent& keyEvent, TEventCod
                         // example for drag'n'drop), Symbian starts producing spurious up and
                         // down messages for some keys. Therefore, make sure we have a clean slate
                         // of pressed keys before starting a new button press.
-                        if (S60->virtualMousePressedKeys != 0) {
-                            S60->virtualMousePressedKeys |= QS60Data::Select;
+                        if (S60->virtualMousePressedKeys & QS60Data::Select) {
                             return EKeyWasConsumed;
                         } else {
                             S60->virtualMousePressedKeys |= QS60Data::Select;
@@ -701,7 +728,8 @@ TKeyResponse QSymbianControl::OfferKeyEvent(const TKeyEvent& keyEvent, TEventCod
                 fakeEvent.iModifiers = keyEvent.iModifiers;
                 fakeEvent.iPosition = cpos;
                 fakeEvent.iParentPosition = epos;
-                HandlePointerEvent(fakeEvent);
+                if(fakeEvent.iType != -1)
+                    HandlePointerEvent(fakeEvent);
                 return EKeyWasConsumed;
             }
             else {
@@ -906,6 +934,9 @@ void QSymbianControl::SizeChanged()
                 qwidget->d_func()->syncBackingStore();
             if (!slowResize && tlwExtra)
                 tlwExtra->inTopLevelResize = false;
+        } else {
+            QResizeEvent *e = new QResizeEvent(newSize, oldSize);
+            QApplication::postEvent(qwidget, e);
         }
     }
 
@@ -964,16 +995,20 @@ void QSymbianControl::FocusChanged(TDrawNow /* aDrawNow */)
         qwidget->d_func()->setWindowTitle_sys(qwidget->windowTitle());
 #ifdef Q_WS_S60
         // If widget is fullscreen/minimized, hide status pane and button container otherwise show them.
-        CEikStatusPane* statusPane = S60->statusPane();
-        CEikButtonGroupContainer* buttonGroup = S60->buttonGroupContainer();
+        CEikStatusPane *statusPane = S60->statusPane();
+        CEikButtonGroupContainer *buttonGroup = S60->buttonGroupContainer();
         TBool visible = !(qwidget->windowState() & (Qt::WindowFullScreen | Qt::WindowMinimized));
         if (statusPane)
             statusPane->MakeVisible(visible);
-        if (buttonGroup)
-            buttonGroup->MakeVisible(visible);
+        if (buttonGroup) {
+            // Visibility
+            const TBool isFullscreen = qwidget->windowState() & Qt::WindowFullScreen;
+            const TBool cbaVisibilityHint = qwidget->windowFlags() & Qt::WindowSoftkeysVisibleHint;
+            buttonGroup->MakeVisible(visible || (isFullscreen && cbaVisibilityHint));
+        }
 #endif
     } else if (QApplication::activeWindow() == qwidget->window()) {
-        if (CCoeEnv::Static()->AppUi()->IsDisplayingMenuOrDialog()) {
+        if (CCoeEnv::Static()->AppUi()->IsDisplayingMenuOrDialog() || S60->menuBeingConstructed) {
             QWidget *fw = QApplication::focusWidget();
             if (fw) {
                 QFocusEvent event(QEvent::FocusOut, Qt::PopupFocusReason);
@@ -988,16 +1023,32 @@ void QSymbianControl::FocusChanged(TDrawNow /* aDrawNow */)
     // else { We don't touch the active window unless we were explicitly activated or deactivated }
 }
 
+void QSymbianControl::handleClientAreaChange()
+{
+    const bool cbaVisibilityHint = qwidget->windowFlags() & Qt::WindowSoftkeysVisibleHint;
+    if (qwidget->isFullScreen() && !cbaVisibilityHint) {
+        SetExtentToWholeScreen();
+    } else if (qwidget->isMaximized() || (qwidget->isFullScreen() && cbaVisibilityHint)) {
+        TRect r = static_cast<CEikAppUi*>(S60->appUi())->ClientRect();
+        SetExtent(r.iTl, r.Size());
+    } else if (!qwidget->isMinimized()) { // Normal geometry
+        if (!qwidget->testAttribute(Qt::WA_Resized)) {
+            qwidget->adjustSize();
+            qwidget->setAttribute(Qt::WA_Resized, false); //not a user resize
+        }
+        if (!qwidget->testAttribute(Qt::WA_Moved) && qwidget->windowType() != Qt::Dialog) {
+            TRect r = static_cast<CEikAppUi*>(S60->appUi())->ClientRect();
+            SetPosition(r.iTl);
+            qwidget->setAttribute(Qt::WA_Moved, false); // not really an explicit position
+        }
+    }
+}
+
 void QSymbianControl::HandleResourceChange(int resourceType)
 {
     switch (resourceType) {
     case KInternalStatusPaneChange:
-        if (qwidget->isFullScreen()) {
-            SetExtentToWholeScreen();
-        } else if (qwidget->isMaximized()) {
-            TRect r = static_cast<CEikAppUi*>(S60->appUi())->ClientRect();
-            SetExtent(r.iTl, r.Size());
-        }
+        handleClientAreaChange();
         if (IsFocused() && IsVisible()) {
             qwidget->d_func()->setWindowIcon_sys(true);
             qwidget->d_func()->setWindowTitle_sys(qwidget->windowTitle());
@@ -1009,12 +1060,7 @@ void QSymbianControl::HandleResourceChange(int resourceType)
 #ifdef Q_WS_S60
     case KEikDynamicLayoutVariantSwitch:
     {
-        if (qwidget->isFullScreen()) {
-            SetExtentToWholeScreen();
-        } else if (qwidget->isMaximized()) {
-            TRect r = static_cast<CEikAppUi*>(S60->appUi())->ClientRect();
-            SetExtent(r.iTl, r.Size());
-        }
+        handleClientAreaChange();
         break;
     }
 #endif
@@ -1146,6 +1192,10 @@ void qt_init(QApplicationPrivate * /* priv */, int)
 #endif
         S60->wsSession().SetAutoFlush(ETrue);
 
+#ifdef Q_SYMBIAN_WINDOW_SIZE_CACHE
+    TRAP_IGNORE(S60->wsSession().EnableWindowSizeCacheL());
+#endif
+
     S60->updateScreenSize();
 
 
@@ -1208,6 +1258,7 @@ void qt_init(QApplicationPrivate * /* priv */, int)
     }
 
     S60->avkonComponentsSupportTransparency = false;
+    S60->menuBeingConstructed = false;
 
 #ifdef Q_WS_S60
     TUid KCRUidAvkon = { 0x101F876E };
@@ -1223,7 +1274,7 @@ void qt_init(QApplicationPrivate * /* priv */, int)
             S60->avkonComponentsSupportTransparency = (value==1) ? true : false;
         }
     }
-#endif    
+#endif
 
     if (touch) {
         QApplicationPrivate::navigationMode = Qt::NavigationModeNone;
@@ -1378,10 +1429,12 @@ void QApplicationPrivate::leaveModal_sys(QWidget *widget)
 
 void QApplicationPrivate::openPopup(QWidget *popup)
 {
+    if (popup && qobject_cast<QComboBox *>(popup->parentWidget()))
+        static_cast<QSymbianControl *>(popup->effectiveWinId())->FadeBehindPopup(ETrue);
+
     if (!QApplicationPrivate::popupWidgets)
         QApplicationPrivate::popupWidgets = new QWidgetList;
     QApplicationPrivate::popupWidgets->append(popup);
-
 
     // Cancel focus widget pointer capture and long tap timer
     if (QApplication::focusWidget()) {
@@ -1421,6 +1474,9 @@ void QApplicationPrivate::openPopup(QWidget *popup)
 
 void QApplicationPrivate::closePopup(QWidget *popup)
 {
+    if (popup && qobject_cast<QComboBox *>(popup->parentWidget()))
+        static_cast<QSymbianControl *>(popup->effectiveWinId())->FadeBehindPopup(EFalse);
+
     if (!QApplicationPrivate::popupWidgets)
         return;
     QApplicationPrivate::popupWidgets->removeAll(popup);
@@ -1444,6 +1500,9 @@ void QApplicationPrivate::closePopup(QWidget *popup)
         QWidget *fw = QApplicationPrivate::active_window ? QApplicationPrivate::active_window->focusWidget()
               : q_func()->focusWidget();
           if (fw) {
+              if(fw->window()->isModal()) // restore pointer capture for modal window
+                  fw->effectiveWinId()->SetPointerCapture(true);
+
               if (fw != q_func()->focusWidget()) {
                   fw->setFocus(Qt::PopupFocusReason);
               } else {
@@ -1869,6 +1928,8 @@ TUint QApplicationPrivate::resolveS60ScanCode(TInt scanCode, TUint keysym)
 void QApplicationPrivate::initializeMultitouch_sys()
 {
 #ifdef QT_SYMBIAN_SUPPORTS_ADVANCED_POINTER
+    if (HAL::Get(HALData::EPointer3DPressureSupported, pressureSupported) != KErrNone)
+        pressureSupported = 0;
     if (HAL::Get(HALData::EPointer3DMaxPressure, maxTouchPressure) != KErrNone)
         maxTouchPressure = KMaxTInt;
 #endif

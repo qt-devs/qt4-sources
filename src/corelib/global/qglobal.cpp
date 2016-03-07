@@ -1994,7 +1994,6 @@ void qt_check_pointer(const char *n, int l)
     qWarning("In file %s, line %d: Out of memory", n, l);
 }
 
-#ifndef QT_NO_EXCEPTIONS
 /* \internal
    Allows you to throw an exception without including <new>
    Called internally from Q_CHECK_PTR on certain OS combinations
@@ -2003,7 +2002,6 @@ void qBadAlloc()
 {
     QT_THROW(std::bad_alloc());
 }
-#endif
 
 /*
   The Q_ASSERT macro calls this function when the test fails.
@@ -2076,7 +2074,28 @@ static void mac_default_handler(const char *msg)
 }
 #endif // Q_CC_MWERKS && Q_OS_MACX
 
-
+#if !defined(Q_OS_WIN) && !defined(QT_NO_THREAD) && !defined(Q_OS_INTEGRITY) && !defined(Q_OS_QNX) && \
+    defined(_POSIX_THREAD_SAFE_FUNCTIONS) && _POSIX_VERSION >= 200112L
+namespace {
+    // There are two incompatible versions of strerror_r:
+    // a) the XSI/POSIX.1 version, which returns an int,
+    //    indicating success or not
+    // b) the GNU version, which returns a char*, which may or may not
+    //    be the beginning of the buffer we used
+    // The GNU libc manpage for strerror_r says you should use the the XSI
+    // version in portable code. However, it's impossible to do that if
+    // _GNU_SOURCE is defined so we use C++ overloading to decide what to do
+    // depending on the return type
+    static inline QString fromstrerror_helper(int, const QByteArray &buf)
+    {
+        return QString::fromLocal8Bit(buf);
+    }
+    static inline QString fromstrerror_helper(const char *str, const QByteArray &)
+    {
+        return QString::fromLocal8Bit(str);
+    }
+}
+#endif
 
 QString qt_error_string(int errorCode)
 {
@@ -2119,12 +2138,9 @@ QString qt_error_string(int errorCode)
 
         if (ret.isEmpty() && errorCode == ERROR_MOD_NOT_FOUND)
             ret = QString::fromLatin1("The specified module could not be found.");
-
 #elif !defined(QT_NO_THREAD) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && _POSIX_VERSION >= 200112L && !defined(Q_OS_INTEGRITY) && !defined(Q_OS_QNX)
-
         QByteArray buf(1024, '\0');
-        strerror_r(errorCode, buf.data(), buf.size());
-        ret = QString::fromLocal8Bit(buf.constData());
+        ret = fromstrerror_helper(strerror_r(errorCode, buf.data(), buf.size()), buf);
 #else
         ret = QString::fromLocal8Bit(strerror(errorCode));
 #endif

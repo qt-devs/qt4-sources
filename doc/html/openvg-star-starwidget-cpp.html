@@ -107,8 +107,9 @@
      <span class="comment">// and prepare to perform raw OpenVG calls.</span>
      painter.beginNativePainting();
 
-     <span class="comment">// Cache the path if we haven't already.</span>
-     if (path == VG_INVALID_HANDLE) {
+     <span class="comment">// Cache the path if we haven't already or if the path has</span>
+     <span class="comment">// become invalid because the window's context has changed.</span>
+     if (path == VG_INVALID_HANDLE || !vgGetPathCapabilities(path)) {
          path = vgCreatePath(VG_PATH_FORMAT_STANDARD,
                              VG_PATH_DATATYPE_F,
                              1.0f, <span class="comment">// scale</span>
@@ -131,6 +132,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

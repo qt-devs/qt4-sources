@@ -97,6 +97,10 @@
  }</pre>
 <p>With QUdpSocket, you can also establish a virtual connection to a UDP server using <a href="qabstractsocket.html#connectToHost">connectToHost</a>() and then use <a href="qiodevice.html#read">read</a>() and <a href="qiodevice.html#write">write</a>() to exchange datagrams without specifying the receiver for each datagram.</p>
 <p>The <a href="network-broadcastsender.html">Broadcast Sender</a> and <a href="network-broadcastreceiver.html">Broadcast Receiver</a> examples illustrate how to use QUdpSocket in applications.</p>
+<a name="symbian-platform-security-requirements"></a>
+<h3>Symbian Platform Security Requirements</h3>
+<p>On Symbian, processes which use this class must have the <tt>NetworkServices</tt> platform security capability. If the client process lacks this capability, operations will result in a panic.</p>
+<p>Platform security capabilities are added via the <a href="qmake-variable-reference.html#target-capability">TARGET.CAPABILITY</a> qmake variable.</p>
 <p>See also <a href="qtcpsocket.html">QTcpSocket</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
@@ -175,6 +179,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

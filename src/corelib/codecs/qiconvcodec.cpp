@@ -168,7 +168,7 @@ Q_GLOBAL_STATIC(QThreadStorage<QIconvCodec::IconvState *>, toUnicodeState)
 QString QIconvCodec::convertToUnicode(const char* chars, int len, ConverterState *convState) const
 {
     if (utf16Codec == reinterpret_cast<QTextCodec *>(~0))
-        return QString::fromAscii(chars, len);
+        return QString::fromLatin1(chars, len);
 
     int invalidCount = 0;
     int remainingCount = 0;
@@ -207,9 +207,9 @@ QString QIconvCodec::convertToUnicode(const char* chars, int len, ConverterState
             static int reported = 0;
             if (!reported++) {
                 fprintf(stderr,
-                        "QIconvCodec::convertToUnicode: using ASCII for conversion, iconv_open failed\n");
+                        "QIconvCodec::convertToUnicode: using Latin-1 for conversion, iconv_open failed\n");
             }
-            return QString::fromAscii(chars, len);
+            return QString::fromLatin1(chars, len);
         }
 
         *pstate = new IconvState(cd);
@@ -273,14 +273,14 @@ QString QIconvCodec::convertToUnicode(const char* chars, int len, ConverterState
 
             // some other error
             // note, cannot use qWarning() since we are implementing the codecForLocale :)
-            perror("QIconvCodec::convertToUnicode: using ASCII for conversion, iconv failed");
+            perror("QIconvCodec::convertToUnicode: using Latin-1 for conversion, iconv failed");
 
             if (!convState) {
                 // reset state
                 iconv(state->cd, 0, &inBytesLeft, 0, &outBytesLeft);
             }
 
-            return QString::fromAscii(chars, len);
+            return QString::fromLatin1(chars, len);
         }
     } while (inBytesLeft != 0);
 
@@ -298,6 +298,32 @@ QString QIconvCodec::convertToUnicode(const char* chars, int len, ConverterState
 }
 
 Q_GLOBAL_STATIC(QThreadStorage<QIconvCodec::IconvState *>, fromUnicodeState)
+
+static bool setByteOrder(iconv_t cd)
+{
+#if !defined(NO_BOM)
+    // give iconv() a BOM
+    char buf[4];
+    ushort bom[] = { QChar::ByteOrderMark };
+
+    char *outBytes = buf;
+    char *inBytes = reinterpret_cast<char *>(bom);
+    size_t outBytesLeft = sizeof buf;
+    size_t inBytesLeft = sizeof bom;
+
+#if defined(GNU_LIBICONV)
+    const char **inBytesPtr = const_cast<const char **>(&inBytes);
+#else
+    char **inBytesPtr = &inBytes;
+#endif
+
+    if (iconv(cd, inBytesPtr, &inBytesLeft, &outBytes, &outBytesLeft) == (size_t) -1) {
+        return false;
+    }
+#endif // NO_BOM
+
+    return true;
+}
 
 QByteArray QIconvCodec::convertFromUnicode(const QChar *uc, int len, ConverterState *convState) const
 {
@@ -325,34 +351,24 @@ QByteArray QIconvCodec::convertFromUnicode(const QChar *uc, int len, ConverterSt
     IconvState *&state = ts->localData();
     if (!state) {
         state = new IconvState(QIconvCodec::createIconv_t(0, UTF16));
-        if (state->cd != reinterpret_cast<iconv_t>(-1)) {
-            size_t outBytesLeft = len + 3; // +3 for the BOM
-            QByteArray ba(outBytesLeft, Qt::Uninitialized);
-            outBytes = ba.data();
-
-#if !defined(NO_BOM)
-            // give iconv() a BOM
-            QChar bom[] = { QChar(QChar::ByteOrderMark) };
-            inBytes = reinterpret_cast<char *>(bom);
-            inBytesLeft = sizeof(bom);
-            if (iconv(state->cd, inBytesPtr, &inBytesLeft, &outBytes, &outBytesLeft) == (size_t) -1) {
-                perror("QIconvCodec::convertFromUnicode: using ASCII for conversion, iconv failed for BOM");
+        if (state->cd == reinterpret_cast<iconv_t>(-1)) {
+            if (!setByteOrder(state->cd)) {
+                perror("QIconvCodec::convertFromUnicode: using Latin-1 for conversion, iconv failed for BOM");
 
                 iconv_close(state->cd);
                 state->cd = reinterpret_cast<iconv_t>(-1);
 
-                return QString(uc, len).toAscii();
+                return QString(uc, len).toLatin1();
             }
-#endif // NO_BOM
         }
     }
     if (state->cd == reinterpret_cast<iconv_t>(-1)) {
         static int reported = 0;
         if (!reported++) {
             fprintf(stderr,
-                    "QIconvCodec::convertFromUnicode: using ASCII for conversion, iconv_open failed\n");
+                    "QIconvCodec::convertFromUnicode: using Latin-1 for conversion, iconv_open failed\n");
         }
-        return QString(uc, len).toAscii();
+        return QString(uc, len).toLatin1();
     }
  
     size_t outBytesLeft = len;
@@ -409,12 +425,12 @@ QByteArray QIconvCodec::convertFromUnicode(const QChar *uc, int len, ConverterSt
             default:
                 {
                     // note, cannot use qWarning() since we are implementing the codecForLocale :)
-                    perror("QIconvCodec::convertFromUnicode: using ASCII for conversion, iconv failed");
+                    perror("QIconvCodec::convertFromUnicode: using Latin-1 for conversion, iconv failed");
 
                     // reset to initial state
                     iconv(state->cd, 0, &inBytesLeft, 0, &outBytesLeft);
 
-                    return QString(uc, len).toAscii();
+                    return QString(uc, len).toLatin1();
                 }
             }
         }
@@ -422,6 +438,7 @@ QByteArray QIconvCodec::convertFromUnicode(const QChar *uc, int len, ConverterSt
 
     // reset to initial state
     iconv(state->cd, 0, &inBytesLeft, 0, &outBytesLeft);
+    setByteOrder(state->cd);
 
     ba.resize(ba.size() - outBytesLeft);
 

@@ -96,6 +96,11 @@ void QImagePixmapCleanupHooks::removeImageHook(_qt_image_cleanup_hook_64 hook)
 void QImagePixmapCleanupHooks::executePixmapDataModificationHooks(QPixmapData* pmd)
 {
     QImagePixmapCleanupHooks *h = qt_image_and_pixmap_cleanup_hooks();
+    // the global destructor for the pixmap and image hooks might have
+    // been called already if the app is "leaking" global
+    // pixmaps/images
+    if (!h)
+        return;
     for (int i = 0; i < h->pixmapModificationHooks.count(); ++i)
         h->pixmapModificationHooks[i](pmd);
 
@@ -106,6 +111,11 @@ void QImagePixmapCleanupHooks::executePixmapDataModificationHooks(QPixmapData* p
 void QImagePixmapCleanupHooks::executePixmapDataDestructionHooks(QPixmapData* pmd)
 {
     QImagePixmapCleanupHooks *h = qt_image_and_pixmap_cleanup_hooks();
+    // the global destructor for the pixmap and image hooks might have
+    // been called already if the app is "leaking" global
+    // pixmaps/images
+    if (!h)
+        return;
     for (int i = 0; i < h->pixmapDestructionHooks.count(); ++i)
         h->pixmapDestructionHooks[i](pmd);
 
@@ -122,19 +132,32 @@ void QImagePixmapCleanupHooks::executeImageHooks(qint64 key)
         qt_image_cleanup_hook_64(key);
 }
 
-void QImagePixmapCleanupHooks::enableCleanupHooks(const QPixmap &pixmap)
-{
-    enableCleanupHooks(const_cast<QPixmap &>(pixmap).data_ptr().data());
-}
 
 void QImagePixmapCleanupHooks::enableCleanupHooks(QPixmapData *pixmapData)
 {
     pixmapData->is_cached = true;
 }
 
+void QImagePixmapCleanupHooks::enableCleanupHooks(const QPixmap &pixmap)
+{
+    enableCleanupHooks(const_cast<QPixmap &>(pixmap).data_ptr().data());
+}
+
 void QImagePixmapCleanupHooks::enableCleanupHooks(const QImage &image)
 {
     const_cast<QImage &>(image).data_ptr()->is_cached = true;
 }
+
+bool QImagePixmapCleanupHooks::isImageCached(const QImage &image)
+{
+    return const_cast<QImage &>(image).data_ptr()->is_cached;
+}
+
+bool QImagePixmapCleanupHooks::isPixmapCached(const QPixmap &pixmap)
+{
+    return const_cast<QPixmap&>(pixmap).data_ptr().data()->is_cached;
+}
+
+
 
 QT_END_NAMESPACE

@@ -162,7 +162,7 @@
 <tr><td valign="top"><tt>QIODevice::Text</tt></td><td align="center" valign="top"><tt>0x0010</tt></td><td valign="top">When reading, the end-of-line terminators are translated to '\n'. When writing, the end-of-line terminators are translated to the local encoding, for example '\r\n' for Win32.</td></tr>
 <tr><td valign="top"><tt>QIODevice::Unbuffered</tt></td><td align="center" valign="top"><tt>0x0020</tt></td><td valign="top">Any buffer in the device is bypassed.</td></tr>
 </table></p>
-<p>Certain flags, such as <tt>Unbuffered</tt> and <tt>Truncate</tt>, are meaningless when used with some subclasses. Some of these restrictions are implied by the type of device that is represented by a subclass; for example, access to a <a href="qbuffer.html">QBuffer</a> is always unbuffered. In other cases, the restriction may be due to the implementation, or may be imposed by the underlying platform; for example, <a href="qtcpsocket.html">QTcpSocket</a> does not support <tt>Unbuffered</tt> mode, and limitations in the native API prevent <a href="qfile.html">QFile</a> from supporting <tt>Unbuffered</tt> on Windows.</p>
+<p>Certain flags, such as <tt>Unbuffered</tt> and <tt>Truncate</tt>, are meaningless when used with some subclasses. Some of these restrictions are implied by the type of device that is represented by a subclass. In other cases, the restriction may be due to the implementation, or may be imposed by the underlying platform; for example, <a href="qtcpsocket.html">QTcpSocket</a> does not support <tt>Unbuffered</tt> mode, and limitations in the native API prevent <a href="qfile.html">QFile</a> from supporting <tt>Unbuffered</tt> on Windows.</p>
 <p>The OpenMode type is a typedef for <a href="qflags.html">QFlags</a>&lt;OpenModeFlag&gt;. It stores an OR combination of OpenModeFlag values.</p>
 <hr />
 <h2>Member Function Documentation</h2>
@@ -315,7 +315,7 @@
 <p>See also <a href="qiodevice.html#read">read</a>(), <a href="qiodevice.html#readLine">readLine</a>(), and <a href="qiodevice.html#writeData">writeData</a>().</p>
 <a name="//apple_ref/cpp/instm/QIODevice/readLine"></a>
 <h3 class="fn"><a name="readLine"></a><a href="qtglobal.html#qint64-typedef">qint64</a> QIODevice::readLine ( char * <i>data</i>, <a href="qtglobal.html#qint64-typedef">qint64</a> <i>maxSize</i> )</h3>
-<p>This function reads a line of ASCII characters from the device, up to a maximum of <i>maxSize</i> - 1 bytes, stores the characters in <i>data</i>, and returns the number of bytes read. If a line could not be read but no error ocurred, this function returns 0. If an error occurs, this function returns what it could the length of what could be read, or -1 if nothing was read.</p>
+<p>This function reads a line of ASCII characters from the device, up to a maximum of <i>maxSize</i> - 1 bytes, stores the characters in <i>data</i>, and returns the number of bytes read. If a line could not be read but no error ocurred, this function returns 0. If an error occurs, this function returns the length of what could be read, or -1 if nothing was read.</p>
 <p>A terminating '\0' byte is always appended to <i>data</i>, so <i>maxSize</i> must be larger than 1.</p>
 <p>Data is read until either of the following conditions are met:</p>
 <ul>
@@ -425,6 +425,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

@@ -127,7 +127,11 @@
 <h3 class="fn"><a name="bindValue-2"></a>void QSqlResult::bindValue ( const <a href="qstring.html">QString</a> &amp; <i>placeholder</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>val</i>, <a href="qsql.html#ParamTypeFlag-enum">QSql::ParamType</a> <i>paramType</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>Binds the value <i>val</i> of parameter type <i>paramType</i> to the <i>placeholder</i> name in the current record (row).</p>
-<p>Note that binding an undefined placeholder will result in undefined behavior.</p>
+<p>Values cannot be bound to multiple locations in the query, eg:</p>
+<pre> INSERT INTO testtable (id, name, samename) VALUES (:id, :name, :name)</pre>
+<p>Binding to name will bind to the first :name, but not the second.</p>
+<p><b>Note:</b> Binding an undefined placeholder will result in undefined behavior.</p>
+<p>See also <a href="qsqlquery.html#bindValue">QSqlQuery::bindValue</a>().</p>
 <a name="//apple_ref/cpp/instm/QSqlResult/bindValueType"></a>
 <h3 class="fn"><a name="bindValueType"></a><a href="qsql.html#ParamTypeFlag-enum">QSql::ParamType</a> QSqlResult::bindValueType ( int <i>index</i> ) const&nbsp;&nbsp;<tt> [protected]</tt></h3>
 <p>Returns the parameter type for the value bound at position <i>index</i>.</p>
@@ -296,6 +300,7 @@
 <h3 class="fn"><a name="setForwardOnly"></a>void QSqlResult::setForwardOnly ( bool <i>forward</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Sets forward only mode to <i>forward</i>. If <i>forward</i> is true, only <a href="qsqlresult.html#fetchNext">fetchNext</a>() is allowed for navigating the results. Forward only mode needs much less memory since results do not have to be cached. By default, this feature is disabled.</p>
 <p>Setting forward only to false is a suggestion to the database engine, which has the final say on whether a result set is forward only or scrollable. <a href="qsqlresult.html#isForwardOnly">isForwardOnly</a>() will always return the correct status of the result set.</p>
+<p><b>Note:</b> Calling setForwardOnly after execution of the query will result in unexpected results at best, and crashes at worst.</p>
 <p>See also <a href="qsqlresult.html#isForwardOnly">isForwardOnly</a>(), <a href="qsqlresult.html#fetchNext">fetchNext</a>(), and <a href="qsqlquery.html#setForwardOnly">QSqlQuery::setForwardOnly</a>().</p>
 <a name="//apple_ref/cpp/instm/QSqlResult/setLastError"></a>
 <h3 class="fn"><a name="setLastError"></a>void QSqlResult::setLastError ( const <a href="qsqlerror.html">QSqlError</a> &amp; <i>error</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
@@ -317,6 +322,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

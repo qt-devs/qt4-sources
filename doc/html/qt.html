@@ -230,7 +230,7 @@
 <tr><td valign="top"><tt>Qt::AA_DontCreateNativeWidgetSiblings</tt></td><td align="center" valign="top"><tt>4</tt></td><td valign="top">Ensures that siblings of native widgets stay non-native unless specifically set by the <a href="qt.html#WidgetAttribute-enum">Qt::WA_NativeWindow</a> attribute.</td></tr>
 <tr><td valign="top"><tt>Qt::AA_MacPluginApplication</tt></td><td align="center" valign="top"><tt>5</tt></td><td valign="top">Stops the Qt mac application from doing specific initializations that do not necessarily make sense when using Qt to author a plugin. This includes avoiding loading our nib for the main menu and not taking possession of the native menu bar. When setting this attribute to true will also set the AA_DontUseNativeMenuBar attribute to true.</td></tr>
 <tr><td valign="top"><tt>Qt::AA_DontUseNativeMenuBar</tt></td><td align="center" valign="top"><tt>6</tt></td><td valign="top">All menubars created while this attribute is set to true won't be used as a native menubar (e.g, the menubar at the top of the main screen on Mac OS X or at the bottom in Windows CE).</td></tr>
-<tr><td valign="top"><tt>Qt::AA_MacDontSwapCtrlAndMeta</tt></td><td align="center" valign="top"><tt>7</tt></td><td valign="top">On Mac OS X by default, Qt swaps the Control and Meta (Command) keys (i.e&#x2e;, whenever Control is pressed, Qt sends Meta and whenever Meta is pressed Control is sent. When this attribute is true, Qt will not do the flip. QKeySequence::StandardShortcuts will also flip accordingly (i.e&#x2e;, <a href="qkeysequence.html#StandardKey-enum">QKeySequence::Copy</a> will be Command+C on the keyboard regardless of the value set, though what is output for QKeySequence::toString(<a href="qkeysequence.html#SequenceFormat-enum">QKeySequence::PortableText</a>) will be different).</td></tr>
+<tr><td valign="top"><tt>Qt::AA_MacDontSwapCtrlAndMeta</tt></td><td align="center" valign="top"><tt>7</tt></td><td valign="top">On Mac OS X by default, Qt swaps the Control and Meta (Command) keys (i.e&#x2e;, whenever Control is pressed, Qt sends Meta, and whenever Meta is pressed Control is sent). When this attribute is true, Qt will not do the flip. QKeySequence::StandardShortcuts will also flip accordingly (i.e&#x2e;, <a href="qkeysequence.html#StandardKey-enum">QKeySequence::Copy</a> will be Command+C on the keyboard regardless of the value set, though what is output for QKeySequence::toString(<a href="qkeysequence.html#SequenceFormat-enum">QKeySequence::PortableText</a>) will be different).</td></tr>
 <tr><td valign="top"><tt>Qt::AA_S60DontConstructApplicationPanes</tt></td><td align="center" valign="top"><tt>8</tt></td><td valign="top">Stops Qt from initializing the S60 status pane and softkey pane on Symbian. This is useful to save memory and reduce startup time for applications that will run in fullscreen mode during their whole lifetime. This attribute must be set before <a href="qapplication.html">QApplication</a> is constructed.</td></tr>
 </table></p>
 <a name="//apple_ref/cpp/tag/Qt/ArrowType"></a>
@@ -1768,22 +1768,22 @@
 <tr><td valign="top"><tt>Qt::Key_OpenUrl</tt></td><td align="center" valign="top"><tt>0x01000094</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_LaunchMail</tt></td><td align="center" valign="top"><tt>0x010000a0</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_LaunchMedia</tt></td><td align="center" valign="top"><tt>0x010000a1</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch0</tt></td><td align="center" valign="top"><tt>0x010000a2</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch1</tt></td><td align="center" valign="top"><tt>0x010000a3</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch2</tt></td><td align="center" valign="top"><tt>0x010000a4</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch3</tt></td><td align="center" valign="top"><tt>0x010000a5</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch4</tt></td><td align="center" valign="top"><tt>0x010000a6</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch5</tt></td><td align="center" valign="top"><tt>0x010000a7</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch6</tt></td><td align="center" valign="top"><tt>0x010000a8</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch7</tt></td><td align="center" valign="top"><tt>0x010000a9</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch8</tt></td><td align="center" valign="top"><tt>0x010000aa</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Launch9</tt></td><td align="center" valign="top"><tt>0x010000ab</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_LaunchA</tt></td><td align="center" valign="top"><tt>0x010000ac</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_LaunchB</tt></td><td align="center" valign="top"><tt>0x010000ad</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_LaunchC</tt></td><td align="center" valign="top"><tt>0x010000ae</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_LaunchD</tt></td><td align="center" valign="top"><tt>0x010000af</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_LaunchE</tt></td><td align="center" valign="top"><tt>0x010000b0</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_LaunchF</tt></td><td align="center" valign="top"><tt>0x010000b1</tt></td><td valign="top">&nbsp;</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch0</tt></td><td align="center" valign="top"><tt>0x010000a2</tt></td><td valign="top">On X11 this key is mapped to &quot;My Computer&quot; (XF86XK_MyComputer) key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch1</tt></td><td align="center" valign="top"><tt>0x010000a3</tt></td><td valign="top">On X11 this key is mapped to &quot;Calculator&quot; (XF86XK_Calculator) key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch2</tt></td><td align="center" valign="top"><tt>0x010000a4</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch0 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch3</tt></td><td align="center" valign="top"><tt>0x010000a5</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch1 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch4</tt></td><td align="center" valign="top"><tt>0x010000a6</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch2 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch5</tt></td><td align="center" valign="top"><tt>0x010000a7</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch3 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch6</tt></td><td align="center" valign="top"><tt>0x010000a8</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch4 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch7</tt></td><td align="center" valign="top"><tt>0x010000a9</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch5 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch8</tt></td><td align="center" valign="top"><tt>0x010000aa</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch6 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Launch9</tt></td><td align="center" valign="top"><tt>0x010000ab</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch7 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_LaunchA</tt></td><td align="center" valign="top"><tt>0x010000ac</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch8 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_LaunchB</tt></td><td align="center" valign="top"><tt>0x010000ad</tt></td><td valign="top">On X11 this key is mapped to XF86XK_Launch9 key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_LaunchC</tt></td><td align="center" valign="top"><tt>0x010000ae</tt></td><td valign="top">On X11 this key is mapped to XF86XK_LaunchA key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_LaunchD</tt></td><td align="center" valign="top"><tt>0x010000af</tt></td><td valign="top">On X11 this key is mapped to XF86XK_LaunchB key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_LaunchE</tt></td><td align="center" valign="top"><tt>0x010000b0</tt></td><td valign="top">On X11 this key is mapped to XF86XK_LaunchC key for legacy reasons.</td></tr>
+<tr><td valign="top"><tt>Qt::Key_LaunchF</tt></td><td align="center" valign="top"><tt>0x010000b1</tt></td><td valign="top">On X11 this key is mapped to XF86XK_LaunchD key for legacy reasons.</td></tr>
 <tr><td valign="top"><tt>Qt::Key_MonBrightnessUp</tt></td><td align="center" valign="top"><tt>0x010000b2</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_MonBrightnessDown</tt></td><td align="center" valign="top"><tt>0x010000b3</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_KeyboardLightOnOff</tt></td><td align="center" valign="top"><tt>0x010000b4</tt></td><td valign="top">&nbsp;</td></tr>
@@ -1809,7 +1809,7 @@
 <tr><td valign="top"><tt>Qt::Key_ApplicationRight</tt></td><td align="center" valign="top"><tt>0x010000c8</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_Book</tt></td><td align="center" valign="top"><tt>0x010000c9</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_CD</tt></td><td align="center" valign="top"><tt>0x010000ca</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>Qt::Key_Calculator</tt></td><td align="center" valign="top"><tt>0x010000cb</tt></td><td valign="top">&nbsp;</td></tr>
+<tr><td valign="top"><tt>Qt::Key_Calculator</tt></td><td align="center" valign="top"><tt>0x010000cb</tt></td><td valign="top">On X11 this key is not mapped for legacy reasons. Use Qt::Key_Launch1 instead.</td></tr>
 <tr><td valign="top"><tt>Qt::Key_ToDoList</tt></td><td align="center" valign="top"><tt>0x010000cc</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_ClearGrab</tt></td><td align="center" valign="top"><tt>0x010000cd</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::Key_Close</tt></td><td align="center" valign="top"><tt>0x010000ce</tt></td><td valign="top">&nbsp;</td></tr>
@@ -2234,7 +2234,7 @@
 <tr><td valign="top"><tt>Qt::TextIncludeTrailingSpaces</tt></td><td align="center" valign="top"><tt>0x08000000</tt></td><td valign="top">Same as IncludeTrailingSpaces</td></tr>
 <tr><td valign="top"><tt>Qt::TextJustificationForced</tt></td><td align="center" valign="top"><tt>0x10000</tt></td><td valign="top">Ensures that text lines are justified.</td></tr>
 </table></p>
-<p>Always use the longest variant when computing the size of a multi-variant string</p>
+<p>Always use the longest variant when computing the size of a multi-variant string.</p>
 <p>You can use as many modifier flags as you want, except that Qt::TextSingleLine and Qt::TextWordWrap cannot be combined.</p>
 <p>Flags that are inappropriate for a given use are generally ignored.</p>
 <a name="//apple_ref/cpp/tag/Qt/TextFormat"></a>
@@ -2700,6 +2700,8 @@
 <a name="//apple_ref/cpp/econst/Qt/WindowStaysOnBottomHint"></a>
 <a name="//apple_ref/cpp/econst/Qt/WindowOkButtonHint"></a>
 <a name="//apple_ref/cpp/econst/Qt/WindowCancelButtonHint"></a>
+<a name="//apple_ref/cpp/econst/Qt/WindowSoftkeysVisibleHint"></a>
+<a name="//apple_ref/cpp/econst/Qt/WindowSoftkeysRespondHint"></a>
 <a name="//apple_ref/cpp/econst/Qt/WindowType_Mask"></a>
 <a name="//apple_ref/cpp/econst/Qt/WMouseNoMask"></a>
 <a name="//apple_ref/cpp/econst/Qt/WDestructiveClose"></a>
@@ -2776,13 +2778,15 @@
 <tr><td valign="top"><tt>Qt::WindowMinMaxButtonsHint</tt></td><td align="center" valign="top"><tt>WindowMinimizeButtonHint | WindowMaximizeButtonHint</tt></td><td valign="top">Adds a minimize and a maximize button. On some platforms this implies Qt::WindowSystemMenuHint for it to work.</td></tr>
 <tr><td valign="top"><tt>Qt::WindowCloseButtonHint</tt></td><td align="center" valign="top"><tt>0x08000000</tt></td><td valign="top">Adds a close button. On some platforms this implies Qt::WindowSystemMenuHint for it to work.</td></tr>
 <tr><td valign="top"><tt>Qt::WindowContextHelpButtonHint</tt></td><td align="center" valign="top"><tt>0x00010000</tt></td><td valign="top">Adds a context help button to dialogs. On some platforms this implies Qt::WindowSystemMenuHint for it to work.</td></tr>
-<tr><td valign="top"><tt>Qt::MacWindowToolBarButtonHint</tt></td><td align="center" valign="top"><tt>0x10000000</tt></td><td valign="top">On Mac OS X adds a tool bar button (i.e&#x2e;, the oblong button that is on the top right of windows that have toolbars.</td></tr>
+<tr><td valign="top"><tt>Qt::MacWindowToolBarButtonHint</tt></td><td align="center" valign="top"><tt>0x10000000</tt></td><td valign="top">On Mac OS X adds a tool bar button (i.e&#x2e;, the oblong button that is on the top right of windows that have toolbars).</td></tr>
 <tr><td valign="top"><tt>Qt::BypassGraphicsProxyWidget</tt></td><td align="center" valign="top"><tt>0x20000000</tt></td><td valign="top">Prevents the window and its children from automatically embedding themselves into a <a href="qgraphicsproxywidget.html">QGraphicsProxyWidget</a> if the parent widget is already embedded. You can set this flag if you want your widget to always be a toplevel widget on the desktop, regardless of whether the parent widget is embedded in a scene or not.</td></tr>
 <tr><td valign="top"><tt>Qt::WindowShadeButtonHint</tt></td><td align="center" valign="top"><tt>0x00020000</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>Qt::WindowStaysOnTopHint</tt></td><td align="center" valign="top"><tt>0x00040000</tt></td><td valign="top">Informs the window system that the window should stay on top of all other windows. Note that on some window managers on X11 you also have to pass Qt::X11BypassWindowManagerHint for this flag to work correctly.</td></tr>
 <tr><td valign="top"><tt>Qt::WindowStaysOnBottomHint</tt></td><td align="center" valign="top"><tt>0x04000000</tt></td><td valign="top">Informs the window system that the window should stay on bottom of all other windows. Note that on X11 this hint will work only in window managers that support _NET_WM_STATE_BELOW atom. If a window always on the bottom has a parent, the parent will also be left on the bottom. This window hint is currently not implemented for Mac OS X.</td></tr>
 <tr><td valign="top"><tt>Qt::WindowOkButtonHint</tt></td><td align="center" valign="top"><tt>0x00080000</tt></td><td valign="top">Adds an OK button to the window decoration of a dialog. Only supported for Windows CE.</td></tr>
 <tr><td valign="top"><tt>Qt::WindowCancelButtonHint</tt></td><td align="center" valign="top"><tt>0x00100000</tt></td><td valign="top">Adds a Cancel button to the window decoration of a dialog. Only supported for Windows CE.</td></tr>
+<tr><td valign="top"><tt>Qt::WindowSoftkeysVisibleHint</tt></td><td align="center" valign="top"><tt>0x40000000</tt></td><td valign="top">Makes softkeys visible when widget is fullscreen. Only supported for Symbian.</td></tr>
+<tr><td valign="top"><tt>Qt::WindowSoftkeysRespondHint</tt></td><td align="center" valign="top"><tt>0x80000000</tt></td><td valign="top">Makes softkeys to receive key events even when invisible. With this hint the softkey actions are triggered even the softkeys are invisible i.e&#x2e; the window is displayed with <tt>showFullscreen()</tt>. Only supported for Symbian.</td></tr>
 <tr><td valign="top"><tt>Qt::WindowType_Mask</tt></td><td align="center" valign="top"><tt>0x000000ff</tt></td><td valign="top">A mask for extracting the window type part of the window flags.</td></tr>
 </table></p>
 <p>Obsolete flags:</p>
@@ -2855,6 +2859,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

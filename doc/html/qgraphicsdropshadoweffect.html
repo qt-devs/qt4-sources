@@ -109,7 +109,7 @@
 <h2>Detailed Description</h2>
 <p>The QGraphicsDropShadowEffect class provides a drop shadow effect.</p>
 <p>A drop shadow effect renders the source with a drop shadow. The color of the drop shadow can be modified using the <a href="qgraphicsdropshadoweffect.html#color-prop">setColor</a>() function. The drop shadow offset can be modified using the <a href="qgraphicsdropshadoweffect.html#offset-prop">setOffset</a>() function and the blur radius of the drop shadow can be changed with the <a href="qgraphicsdropshadoweffect.html#blurRadius-prop">setBlurRadius</a>() function.</p>
-<p>By default, the drop shadow is a semi-transparent dark gray (<a href="qcolor.html">QColor</a>(63, 63, 63, 180)) shadow, blurred with a radius of 1 at an offset of 8 pixels towards the lower right.</p>
+<p>By default, the drop shadow is a semi-transparent dark gray (<a href="qcolor.html">QColor</a>(63, 63, 63, 180)) shadow, blurred with a radius of 1 at an offset of 8 pixels towards the lower right. The drop shadow offset is specified in device coordinates.</p>
 <p align="center"><img src="images/graphicseffect-drop-shadow.png" /></p><p>See also <a href="qgraphicsblureffect.html">QGraphicsBlurEffect</a>, <a href="qgraphicscolorizeeffect.html">QGraphicsColorizeEffect</a>, and <a href="qgraphicsopacityeffect.html">QGraphicsOpacityEffect</a>.</p>
 <hr />
 <h2>Property Documentation</h2>
@@ -152,6 +152,7 @@
 <h3 class="fn"><a name="offset-prop"></a>offset : <a href="qpointf.html">QPointF</a></h3>
 <p>This property holds the shadow offset in pixels.</p>
 <p>By default, the offset is 8 pixels towards the lower right.</p>
+<p>The offset is given in device coordinates, which means it is unaffected by scale.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr><td class="memItemLeft" align="right" valign="top">QPointF </td><td class="memItemRight" valign="bottom"><b>offset</b> () const</td></tr>
@@ -223,6 +224,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

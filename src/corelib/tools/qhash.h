@@ -329,7 +329,7 @@ public:
 
     public:
         typedef std::bidirectional_iterator_tag iterator_category;
-        typedef ptrdiff_t difference_type;
+        typedef qptrdiff difference_type;
         typedef T value_type;
         typedef T *pointer;
         typedef T &reference;
@@ -394,7 +394,7 @@ public:
 
     public:
         typedef std::bidirectional_iterator_tag iterator_category;
-        typedef ptrdiff_t difference_type;
+        typedef qptrdiff difference_type;
         typedef T value_type;
         typedef const T *pointer;
         typedef const T &reference;
@@ -478,7 +478,7 @@ public:
     // STL compatibility
     typedef T mapped_type;
     typedef Key key_type;
-    typedef ptrdiff_t difference_type;
+    typedef qptrdiff difference_type;
     typedef int size_type;
 
     inline bool empty() const { return isEmpty(); }
@@ -927,7 +927,7 @@ public:
     { return QHash<Key, T>::insertMulti(key, value); }
 
     inline QMultiHash &operator+=(const QMultiHash &other)
-    { unite(other); return *this; }
+    { this->unite(other); return *this; }
     inline QMultiHash operator+(const QMultiHash &other) const
     { QMultiHash result = *this; result += other; return result; }
 
@@ -1002,12 +1002,7 @@ Q_INLINE_TEMPLATE int QMultiHash<Key, T>::remove(const Key &key, const T &value)
     typename QHash<Key, T>::iterator end(QHash<Key, T>::end());
     while (i != end && i.key() == key) {
         if (i.value() == value) {
-#if defined(Q_CC_RVCT)
-            // RVCT has problems with scoping, apparently.
-            i = QHash<Key, T>::erase(i);
-#else
-            i = erase(i);
-#endif
+            i = this->erase(i);
             ++n;
         } else {
             ++i;

@@ -43,7 +43,6 @@
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qresource.html#registerResource">registerResource</a></b> ( const QString &amp; <i>rccFileName</i>, const QString &amp; <i>mapRoot</i> = QString() )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qresource.html#registerResource-2">registerResource</a></b> ( const uchar * <i>rccData</i>, const QString &amp; <i>mapRoot</i> = QString() )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QStringList </td><td class="memItemRight" valign="bottom"><b><a href="qresource.html#searchPaths">searchPaths</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qresource.html#unregisterResource">unregisterResource</a></b> ( const QString &amp; <i>rccFileName</i>, const QString &amp; <i>mapRoot</i> = QString() )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qresource.html#unregisterResource-2">unregisterResource</a></b> ( const uchar * <i>rccData</i>, const QString &amp; <i>mapRoot</i> = QString() )</td></tr>
 </table>
@@ -60,7 +59,7 @@
 <h2>Detailed Description</h2>
 <p>The QResource class provides an interface for reading directly from resources.</p>
 <p>QResource is an object that represents a set of data (and possibly children) relating to a single resource entity. QResource gives direct access to the bytes in their raw format. In this way direct access allows reading data without buffer copying or indirection. Indirection is often useful when interacting with the resource entity as if it is a file, this can be achieved with <a href="qfile.html">QFile</a>. The data and children behind a QResource are normally compiled into an application/library, but it is also possible to load a resource at runtime. When loaded at run time the resource file will be loaded as one big set of data and then given out in pieces via references into the resource tree.</p>
-<p>A QResource can either be loaded with an absolute path, either treated as a file system rooted with a <tt>/</tt> character, or in resource notation rooted with a <tt>:</tt> character. A relative resource can also be opened which will be found through the <a href="qresource.html#searchPaths">searchPaths</a>().</p>
+<p>A QResource can either be loaded with an absolute path, either treated as a file system rooted with a <tt>/</tt> character, or in resource notation rooted with a <tt>:</tt> character. A relative resource can also be opened which will be found through the <a href="qresource-obsolete.html#searchPaths" class="obsolete">searchPaths</a>().</p>
 <p>A QResource that is representing a file will have data backing it, this data can possibly be compressed, in which case <a href="qbytearray.html#qUncompress">qUncompress</a>() must be used to access the real data; this happens implicitly when accessed through a <a href="qfile.html">QFile</a>. A QResource that is representing a directory will have only children and no data.</p>
 <a name="dynamic-resource-loading"></a>
 <h3>Dynamic Resource Loading</h3>
@@ -74,13 +73,13 @@
 <a name="//apple_ref/cpp/instm/QResource/QResource"></a>
 <h3 class="fn"><a name="QResource"></a>QResource::QResource ( const <a href="qstring.html">QString</a> &amp; <i>file</i> = QString(), const <a href="qlocale.html">QLocale</a> &amp; <i>locale</i> = QLocale() )</h3>
 <p>Constructs a <a href="qresource.html">QResource</a> pointing to <i>file</i>. <i>locale</i> is used to load a specific localization of a resource data.</p>
-<p>See also <a href="qfileinfo.html">QFileInfo</a>, <a href="qresource.html#searchPaths">searchPaths</a>(), <a href="qresource.html#setFileName">setFileName</a>(), and <a href="qresource.html#setLocale">setLocale</a>().</p>
+<p>See also <a href="qfileinfo.html">QFileInfo</a>, <a href="qresource-obsolete.html#searchPaths" class="obsolete">searchPaths</a>(), <a href="qresource.html#setFileName">setFileName</a>(), and <a href="qresource.html#setLocale">setLocale</a>().</p>
 <a name="//apple_ref/cpp/instm/QResource/~QResource"></a>
 <h3 class="fn"><a name="dtor.QResource"></a>QResource::~QResource ()</h3>
 <p>Releases the resources of the <a href="qresource.html">QResource</a> object.</p>
 <a name="//apple_ref/cpp/instm/QResource/absoluteFilePath"></a>
 <h3 class="fn"><a name="absoluteFilePath"></a><a href="qstring.html">QString</a> QResource::absoluteFilePath () const</h3>
-<p>Returns the real path that this <a href="qresource.html">QResource</a> represents, if the resource was found via the <a href="qresource.html#searchPaths">searchPaths</a>() it will be indicated in the path.</p>
+<p>Returns the real path that this <a href="qresource.html">QResource</a> represents, if the resource was found via the <a href="qresource-obsolete.html#searchPaths" class="obsolete">searchPaths</a>() it will be indicated in the path.</p>
 <p>See also <a href="qresource.html#fileName">fileName</a>().</p>
 <a name="//apple_ref/cpp/instm/QResource/children"></a>
 <h3 class="fn"><a name="children"></a><a href="qstringlist.html">QStringList</a> QResource::children () const&nbsp;&nbsp;<tt> [protected]</tt></h3>
@@ -122,13 +121,9 @@
 <p><b>Warning:</b> The data must remain valid throughout the life of any <a href="qfile.html">QFile</a> that may reference the resource data.</p>
 <p>This function was introduced in Qt 4.3.</p>
 <p>See also <a href="qresource.html#unregisterResource">unregisterResource</a>().</p>
-<a name="//apple_ref/cpp/clm/QResource/searchPaths"></a>
-<h3 class="fn"><a name="searchPaths"></a><a href="qstringlist.html">QStringList</a> QResource::searchPaths ()&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Returns the current search path list. This list is consulted when creating a relative resource.</p>
-<p>See also <a href="qdir.html#addSearchPath">QDir::addSearchPath</a>() and <a href="qdir.html#setSearchPaths">QDir::setSearchPaths</a>().</p>
 <a name="//apple_ref/cpp/instm/QResource/setFileName"></a>
 <h3 class="fn"><a name="setFileName"></a>void QResource::setFileName ( const <a href="qstring.html">QString</a> &amp; <i>file</i> )</h3>
-<p>Sets a <a href="qresource.html">QResource</a> to point to <i>file</i>. <i>file</i> can either be absolute, in which case it is opened directly, if relative then the file will be tried to be found in <a href="qresource.html#searchPaths">searchPaths</a>().</p>
+<p>Sets a <a href="qresource.html">QResource</a> to point to <i>file</i>. <i>file</i> can either be absolute, in which case it is opened directly, if relative then the file will be tried to be found in <a href="qresource-obsolete.html#searchPaths" class="obsolete">searchPaths</a>().</p>
 <p>See also <a href="qresource.html#fileName">fileName</a>() and <a href="qresource.html#absoluteFilePath">absoluteFilePath</a>().</p>
 <a name="//apple_ref/cpp/instm/QResource/setLocale"></a>
 <h3 class="fn"><a name="setLocale"></a>void QResource::setLocale ( const <a href="qlocale.html">QLocale</a> &amp; <i>locale</i> )</h3>
@@ -150,6 +145,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

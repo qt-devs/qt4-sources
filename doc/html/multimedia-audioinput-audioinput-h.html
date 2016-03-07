@@ -59,6 +59,7 @@
  #include &lt;QMainWindow&gt;
  #include &lt;QPushButton&gt;
  #include &lt;QComboBox&gt;
+ #include &lt;QByteArray&gt;
 
  #include &lt;qaudioinput.h&gt;
 
@@ -66,21 +67,21 @@
  {
      Q_OBJECT
  public:
-     AudioInfo(QObject *parent, QAudioInput *device);
+     AudioInfo(const QAudioFormat &amp;format, QObject *parent);
      ~AudioInfo();
 
      void start();
      void stop();
 
-     int LinearMax();
+     qreal level() const { return m_level; }
 
      qint64 readData(char *data, qint64 maxlen);
      qint64 writeData(const char *data, qint64 len);
 
-     QAudioInput *input;
-
  private:
-     int m_maxValue;
+     const QAudioFormat m_format;
+     quint16 m_maxAmplitude;
+     qreal m_level; <span class="comment">// 0.0 &lt;= m_level &lt;= 1.0</span>
 
  signals:
      void update();
@@ -93,14 +94,14 @@
  public:
      RenderArea(QWidget *parent = 0);
 
-     void setLevel(int value);
+     void setLevel(qreal value);
 
  protected:
      void paintEvent(QPaintEvent *event);
 
  private:
-     int level;
-     QPixmap pixmap;
+     qreal m_level;
+     QPixmap m_pixmap;
  };
 
  class InputTest : public QMainWindow
@@ -110,35 +111,44 @@
      InputTest();
      ~InputTest();
 
+ private:
+     void initializeWindow();
+     void initializeAudio();
+     void createAudioInput();
+
  private slots:
      void refreshDisplay();
-     void status();
+     void notified();
      void readMore();
      void toggleMode();
      void toggleSuspend();
-     void state(QAudio::State s);
-     void deviceChanged(int idx);
+     void stateChanged(QAudio::State state);
+     void deviceChanged(int index);
 
  private:
-     AudioInfo *audioinfo;
-     QAudioDeviceInfo device;
-     QAudioFormat format;
-     QAudioInput *audioInput;
-     QIODevice *input;
-     RenderArea *canvas;
+     <span class="comment">// Owned by layout</span>
+     RenderArea *m_canvas;
+     QPushButton *m_modeButton;
+     QPushButton *m_suspendResumeButton;
+     QComboBox *m_deviceBox;
 
-     bool pullMode;
+     QAudioDeviceInfo m_device;
+     AudioInfo *m_audioInfo;
+     QAudioFormat m_format;
+     QAudioInput *m_audioInput;
+     QIODevice *m_input;
+     bool m_pullMode;
+     QByteArray m_buffer;
 
-     QPushButton *button;
-     QPushButton *button2;
-     QComboBox *deviceBox;
-
-     char *buffer;
+     static const QString PushModeLabel;
+     static const QString PullModeLabel;
+     static const QString SuspendLabel;
+     static const QString ResumeLabel;
  };</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

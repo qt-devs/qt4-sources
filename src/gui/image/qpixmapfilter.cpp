@@ -422,6 +422,9 @@ void QPixmapConvolutionFilter::draw(QPainter *painter, const QPointF &p, const Q
     if(d->kernelWidth<=0 || d->kernelHeight <= 0)
         return;
 
+    if (src.isNull())
+        return;
+
     QPixmapFilter *filter = painter->paintEngine() && painter->paintEngine()->isExtended() ?
         static_cast<QPaintEngineEx *>(painter->paintEngine())->pixmapFilter(type(), this) : 0;
     QPixmapConvolutionFilter *convolutionFilter = static_cast<QPixmapConvolutionFilter*>(filter);
@@ -774,6 +777,9 @@ void expblur(QImage &img, qreal radius, bool improvedQuality = false, int transp
 
 Q_GUI_EXPORT QImage qt_halfScaled(const QImage &source)
 {
+    if (source.width() < 2 || source.height() < 2)
+        return QImage();
+
     QImage srcImage = source;
 
     if (source.format() == QImage::Format_Indexed8) {
@@ -866,7 +872,7 @@ Q_GUI_EXPORT void qt_blurImage(QPainter *p, QImage &blurImage, qreal radius, boo
     }
 
     qreal scale = 1;
-    if (radius >= 4) {
+    if (radius >= 4 && blurImage.width() >= 2 && blurImage.height() >= 2) {
         blurImage = qt_halfScaled(blurImage);
         scale = 2;
         radius *= qreal(0.5);
@@ -892,7 +898,7 @@ Q_GUI_EXPORT void qt_blurImage(QImage &blurImage, qreal radius, bool quality, in
         expblur<12, 10, false>(blurImage, radius, quality, transposed);
 }
 
-bool qt_scaleForTransform(const QTransform &transform, qreal *scale);
+Q_GUI_EXPORT bool qt_scaleForTransform(const QTransform &transform, qreal *scale);
 
 /*!
     \internal
@@ -901,6 +907,9 @@ void QPixmapBlurFilter::draw(QPainter *painter, const QPointF &p, const QPixmap 
 {
     Q_D(const QPixmapBlurFilter);
     if (!painter->isActive())
+        return;
+
+    if (src.isNull())
         return;
 
     QRectF srcRect = rect;
@@ -1083,6 +1092,10 @@ void QPixmapColorizeFilter::setStrength(qreal strength)
 void QPixmapColorizeFilter::draw(QPainter *painter, const QPointF &dest, const QPixmap &src, const QRectF &srcRect) const
 {
     Q_D(const QPixmapColorizeFilter);
+
+    if (src.isNull())
+        return;
+
     QPixmapFilter *filter = painter->paintEngine() && painter->paintEngine()->isExtended() ?
         static_cast<QPaintEngineEx *>(painter->paintEngine())->pixmapFilter(type(), this) : 0;
     QPixmapColorizeFilter *colorizeFilter = static_cast<QPixmapColorizeFilter*>(filter);
@@ -1313,6 +1326,10 @@ void QPixmapDropShadowFilter::draw(QPainter *p,
                                    const QRectF &src) const
 {
     Q_D(const QPixmapDropShadowFilter);
+
+    if (px.isNull())
+        return;
+
     QPixmapFilter *filter = p->paintEngine() && p->paintEngine()->isExtended() ?
         static_cast<QPaintEngineEx *>(p->paintEngine())->pixmapFilter(type(), this) : 0;
     QPixmapDropShadowFilter *dropShadowFilter = static_cast<QPixmapDropShadowFilter*>(filter);

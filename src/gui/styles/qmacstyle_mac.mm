@@ -3380,8 +3380,14 @@ void QMacStyle::drawControl(ControlElement ce, const QStyleOption *opt, QPainter
                         if (tb->toolButtonStyle != Qt::ToolButtonIconOnly) {
                             needText = true;
                             if (tb->toolButtonStyle == Qt::ToolButtonTextUnderIcon) {
-                                pr.setHeight(pixmap.size().height());
-                                cr.adjust(0, pr.bottom() + 1, 0, 1);
+                                QMainWindow *mw = qobject_cast<QMainWindow *>(w->window());
+                                if (mw && mw->unifiedTitleAndToolBarOnMac()) {
+                                    pr.setHeight(pixmap.size().height());
+                                    cr.adjust(0, pr.bottom() + 1, 0, 1);
+                                } else {
+                                    pr.setHeight(pixmap.size().height() + 6);
+                                    cr.adjust(0, pr.bottom(), 0, -3);
+                                }       
                                 alignment |= Qt::AlignCenter;
                             } else {
                                 pr.setWidth(pixmap.width() + 8);
@@ -3743,7 +3749,7 @@ void QMacStyle::drawControl(ControlElement ce, const QStyleOption *opt, QPainter
                     QPalette np = tab->palette;
                     np.setColor(QPalette::WindowText, QColor(255, 255, 255, 75));
                     QRect nr = subElementRect(SE_TabBarTabText, opt, w);
-                    nr.moveTop(+1);
+                    nr.moveTop(-1);
                     int alignment = Qt::AlignCenter | Qt::TextShowMnemonic | Qt::TextHideMnemonic;
                     proxy()->drawItemText(p, nr, alignment, np, tab->state & State_Enabled,
                                                tab->text, QPalette::WindowText);

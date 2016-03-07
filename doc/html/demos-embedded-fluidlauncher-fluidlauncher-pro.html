@@ -113,6 +113,10 @@
          reg_resource.sources += $${EPOCROOT}$$HW_ZDIR$$REG_RESOURCE_IMPORT_DIR/qmediaplayer_reg.rsc
      }
 
+     contains(QT_CONFIG, multimedia) {
+         reg_resource.sources += $${EPOCROOT}$$HW_ZDIR$$REG_RESOURCE_IMPORT_DIR/spectrum_reg.rsc
+     }
+
      reg_resource.path = $$REG_RESOURCE_IMPORT_DIR
 
      resource.sources = \
@@ -176,10 +180,12 @@
          mifs.sources += \
              $${EPOCROOT}$$HW_ZDIR$$APP_RESOURCE_DIR/anomaly.mif
 
-         # Since Fluidlauncher itself doesn't link webkit, we won't get dependency automatically
-         executables.pkg_prerules += \
-             &quot;; Dependency to Qt Webkit&quot; \
-             &quot;(0x200267C2), $${QT_MAJOR_VERSION}, $${QT_MINOR_VERSION}, $${QT_PATCH_VERSION},  {\&quot;QtWebKit\&quot;}&quot;
+         isEmpty(QT_LIBINFIX) {
+             # Since Fluidlauncher itself doesn't link webkit, we won't get dependency automatically
+             executables.pkg_prerules += \
+                 &quot;; Dependency to Qt Webkit&quot; \
+                 &quot;(0x200267C2), $${QT_MAJOR_VERSION}, $${QT_MINOR_VERSION}, $${QT_PATCH_VERSION},  {\&quot;QtWebKit\&quot;}&quot;
+         }
      }
 
      contains(QT_CONFIG, phonon) {
@@ -187,6 +193,13 @@
          resource.sources += $${EPOCROOT}$$HW_ZDIR$$APP_RESOURCE_DIR/qmediaplayer.rsc
          mifs.sources += \
              $${EPOCROOT}$$HW_ZDIR$$APP_RESOURCE_DIR/qmediaplayer.mif
+     }
+
+     contains(QT_CONFIG, multimedia) {
+         executables.sources += spectrum.exe fftreal.dll
+         resource.sources += $${EPOCROOT}$$HW_ZDIR$$APP_RESOURCE_DIR/spectrum.rsc
+         mifs.sources += \
+             $${EPOCROOT}$$HW_ZDIR$$APP_RESOURCE_DIR/spectrum.mif
      }
 
      contains(QT_CONFIG, script) {
@@ -233,6 +246,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

@@ -334,7 +334,7 @@ void QGraphicsWidget::resize(const QSizeF &size)
     A side effect of calling this function is that the widget will receive
     a move event and a resize event. Also, if the widget has a layout
     assigned, the layout will activate.
-    
+
     \sa geometry(), resize()
 */
 void QGraphicsWidget::setGeometry(const QRectF &rect)
@@ -562,7 +562,7 @@ void QGraphicsWidget::getWindowFrameMargins(qreal *left, qreal *top, qreal *righ
 void QGraphicsWidget::unsetWindowFrameMargins()
 {
     Q_D(QGraphicsWidget);
-    if ((d->windowFlags & Qt::Window) && (d->windowFlags & Qt::WindowType_Mask) != Qt::Popup && 
+    if ((d->windowFlags & Qt::Window) && (d->windowFlags & Qt::WindowType_Mask) != Qt::Popup &&
          (d->windowFlags & Qt::WindowType_Mask) != Qt::ToolTip && !(d->windowFlags & Qt::FramelessWindowHint)) {
         QStyleOptionTitleBar bar;
         d->initStyleOptionTitleBar(&bar);
@@ -1044,13 +1044,7 @@ QVariant QGraphicsWidget::itemChange(GraphicsItemChange change, const QVariant &
         }
         break;
     case ItemPositionHasChanged:
-        if (!d->inSetGeometry) {
-            d->inSetPos = 1;
-            // Ensure setGeometry is called (avoid recursion when setPos is
-            // called from within setGeometry).
-            setGeometry(QRectF(pos(), size()));
-            d->inSetPos = 0 ;
-        }
+        d->setGeometryFromSetPos();
         break;
     case ItemParentChange: {
         QGraphicsItem *parent = qVariantValue<QGraphicsItem *>(value);
@@ -1067,13 +1061,13 @@ QVariant QGraphicsWidget::itemChange(GraphicsItemChange change, const QVariant &
         QApplication::sendEvent(this, &event);
         break;
     }
-    case ItemCursorChange: {
+    case ItemCursorHasChanged: {
         // Deliver CursorChange.
         QEvent event(QEvent::CursorChange);
         QApplication::sendEvent(this, &event);
         break;
     }
-    case ItemToolTipChange: {
+    case ItemToolTipHasChanged: {
         // Deliver ToolTipChange.
         QEvent event(QEvent::ToolTipChange);
         QApplication::sendEvent(this, &event);
@@ -1139,7 +1133,7 @@ bool QGraphicsWidget::sceneEvent(QEvent *event)
 
     Returns true if \a event has been recognized and processed; otherwise,
     returns false.
-    
+
     \sa event()
 */
 bool QGraphicsWidget::windowFrameEvent(QEvent *event)
@@ -1196,7 +1190,7 @@ Qt::WindowFrameSection QGraphicsWidget::windowFrameSectionAt(const QPointF &pos)
     const QRectF r = windowFrameRect();
     if (!r.contains(pos))
         return Qt::NoSection;
-    
+
     const qreal left = r.left();
     const qreal top = r.top();
     const qreal right = r.right();
@@ -2322,5 +2316,5 @@ void QGraphicsWidget::dumpFocusChain()
 #endif
 
 QT_END_NAMESPACE
-        
+
 #endif //QT_NO_GRAPHICSVIEW

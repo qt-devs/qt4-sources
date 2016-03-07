@@ -64,6 +64,7 @@
      menuPixmap.load(&quot;:/images/edit-find.png&quot;);
      backPixmap.load(&quot;:/images/go-previous.png&quot;);
      forwardPixmap.load(&quot;:/images/go-next.png&quot;);
+     closePixmap.load(&quot;:/images/button-close.png&quot;);
  }
 
  QSize ControlStrip::sizeHint() const
@@ -79,6 +80,7 @@
  void ControlStrip::mousePressEvent(QMouseEvent *event)
  {
      int h = height();
+     int spacing = qMin(h, (width() - h * 4) / 3);
      int x = event-&gt;pos().x();
 
      if (x &lt; h) {
@@ -88,12 +90,18 @@
      }
 
      if (x &gt; width() - h) {
+         emit closeClicked();
+         event-&gt;accept();
+         return;
+     }
+
+     if ((x &lt; width() - (h + spacing)) &amp;&amp; (x &gt; width() - (h * 2 + spacing))) {
          emit forwardClicked();
          event-&gt;accept();
          return;
      }
 
-     if ((x &lt; width() - 2 * h) &amp;&amp; (x &gt; width() - 3 * h)) {
+     if ((x &lt; width() - (h * 2 + spacing * 2)) &amp;&amp; (x &gt; width() - (h * 3 + spacing * 2))) {
          emit backClicked();
          event-&gt;accept();
          return;
@@ -103,20 +111,23 @@
  void ControlStrip::paintEvent(QPaintEvent *event)
  {
      int h = height();
-     int s = (h - menuPixmap.height()) / 2;
+     int spacing = qMin(h, (width() - h * 4) / 3);
+     int s = (height() - menuPixmap.height()) / 2;
 
      QPainter p(this);
      p.fillRect(event-&gt;rect(), QColor(32, 32, 32, 192));
      p.setCompositionMode(QPainter::CompositionMode_SourceOver);
      p.drawPixmap(s, s, menuPixmap);
-     p.drawPixmap(width() - 3 * h + s, s, backPixmap);
-     p.drawPixmap(width() - h + s, s, forwardPixmap);
+     p.drawPixmap(width() - h + s, s, closePixmap);
+     p.drawPixmap(width() - (h * 2 + spacing) + s, s, forwardPixmap);
+     p.drawPixmap(width() - (h * 3 + spacing * 2) + s, s, backPixmap);
+
      p.end();
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

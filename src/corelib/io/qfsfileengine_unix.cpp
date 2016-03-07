@@ -81,6 +81,40 @@ static bool isRelativePathSymbian(const QString& fileName)
              && ((fileName.at(0).isLetter() && fileName.at(1) == QLatin1Char(':'))
              || (fileName.at(0) == QLatin1Char('/') && fileName.at(1) == QLatin1Char('/')))));
 }
+
+/*!
+ \internal
+ convert symbian error code to the one suitable for setError.
+ example usage: setSymbianError(err, QFile::CopyError, QLatin1String("copy error"))
+*/
+void QFSFileEnginePrivate::setSymbianError(int symbianError, QFile::FileError defaultError, QString defaultString)
+{
+    Q_Q(QFSFileEngine);
+    switch (symbianError) {
+    case KErrNone:
+        q->setError(QFile::NoError, QLatin1String(""));
+        break;
+    case KErrAccessDenied:
+        q->setError(QFile::PermissionsError, QLatin1String("access denied"));
+        break;
+    case KErrPermissionDenied:
+        q->setError(QFile::PermissionsError, QLatin1String("permission denied"));
+        break;
+    case KErrAbort:
+        q->setError(QFile::AbortError, QLatin1String("aborted"));
+        break;
+    case KErrCancel:
+        q->setError(QFile::AbortError, QLatin1String("cancelled"));
+        break;
+    case KErrTimedOut:
+        q->setError(QFile::TimeOutError, QLatin1String("timed out"));
+        break;
+    default:
+        q->setError(defaultError, defaultString);
+        break;
+    }
+}
+
 #endif
 
 /*!
@@ -98,7 +132,7 @@ static inline QByteArray openModeToFopenMode(QIODevice::OpenMode flags, const QS
             if (!fileName.isEmpty()
                 && QT_STAT(QFile::encodeName(fileName), &statBuf) == 0
                 && (statBuf.st_mode & S_IFMT) == S_IFREG) {
-                mode += "+";
+                mode += '+';
             } else {
                 mode = "wb+";
             }
@@ -427,8 +461,10 @@ bool QFSFileEngine::copy(const QString &newName)
         }
     ) // End TRAP
     delete fm;
-    // ### Add error reporting on failure
-    return (err == KErrNone);
+    if (err == KErrNone)
+        return true;
+    d->setSymbianError(err, QFile::CopyError, QLatin1String("copy error"));
+    return false;
 #else
     Q_UNUSED(newName);
     // ### Add copy code for Unix here
@@ -668,6 +704,16 @@ bool QFSFileEnginePrivate::doStat() const
             could_stat = (QT_FSTAT(QT_FILENO(fh), &st) == 0);
         } else if (fd == -1) {
             // ### actually covers two cases: d->fh and when the file is not open
+#if defined(Q_OS_SYMBIAN)
+            // Optimisation for Symbian where fileFlags() calls both doStat() and isSymlink(), but rarely on real links.
+            // When the filename is not a link, lstat will return the same info as stat, but this also removes
+            // any need for a further call to lstat to check if the file is a link.
+            need_lstat = false;
+            could_stat = (QT_LSTAT(nativeFilePath.constData(), &st) == 0);
+            is_link = could_stat ? S_ISLNK(st.st_mode) : false;
+            // if it turns out this was a link, we can call stat too.
+            if (is_link)
+#endif
             could_stat = (QT_STAT(nativeFilePath.constData(), &st) == 0);
         } else {
             could_stat = (QT_FSTAT(fd, &st) == 0);
@@ -1270,7 +1316,7 @@ uchar *QFSFileEnginePrivate::map(qint64 offset, qint64 size, QFile::MemoryMapFla
     int pageSize = getpagesize();
     int extra = offset % pageSize;
 
-    if (size + extra > (size_t)-1) {
+    if (quint64(size + extra) > quint64((size_t)-1)) {
         q->setError(QFile::UnspecifiedError, qt_error_string(int(EINVAL)));
         return 0;
     }

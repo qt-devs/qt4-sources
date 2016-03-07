@@ -143,6 +143,9 @@ extern QPointer<QWidget> qt_button_down; //qapplication_mac.cpp
 
 void macWindowFade(void * /*OSWindowRef*/ window, float durationSeconds)
 {
+#ifdef QT_MAC_USE_COCOA
+    QMacCocoaAutoReleasePool pool;
+#endif
     OSWindowRef wnd = static_cast<OSWindowRef>(window);
     if (wnd) {
         QWidget *widget;
@@ -1159,9 +1162,20 @@ CGContextRef qt_mac_graphicsContextFor(QWidget *widget)
     CGrafPtr port = GetWindowPort(qt_mac_window_for(widget));
     QDBeginCGContext(port, &context);
 #else
-    CGContextRef context = (CGContextRef)[[NSGraphicsContext graphicsContextWithWindow:qt_mac_window_for(widget)] graphicsPort];
+    CGContextRef context = reinterpret_cast<CGContextRef>([[qt_mac_window_for(widget) graphicsContext] graphicsPort]);
 #endif
     return context;
+}
+
+void qt_mac_dispatchPendingUpdateRequests(QWidget *widget)
+{
+    if (!widget)
+        return;
+#ifndef QT_MAC_USE_COCOA
+    HIViewRender(qt_mac_nativeview_for(widget));
+#else
+    [qt_mac_nativeview_for(widget) displayIfNeeded];
+#endif
 }
 
 CGFloat qt_mac_get_scalefactor()
@@ -1277,5 +1291,18 @@ void qt_cocoaChangeOverrideCursor(const QCursor &cursor)
     [static_cast<NSCursor *>(qt_mac_nsCursorForQCursor(cursor)) set];
 }
 #endif
+
+QMacCocoaAutoReleasePool::QMacCocoaAutoReleasePool()
+{
+#ifndef QT_MAC_USE_COCOA
+    NSApplicationLoad();
+#endif
+    pool = (void*)[[NSAutoreleasePool alloc] init];
+}
+
+QMacCocoaAutoReleasePool::~QMacCocoaAutoReleasePool()
+{
+    [(NSAutoreleasePool*)pool release];
+}
 
 QT_END_NAMESPACE

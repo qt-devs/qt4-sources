@@ -71,6 +71,10 @@
 extern bool qt_wince_is_mobile(); //defined in qguifunctions_wce.cpp
 #endif
 
+#ifdef QT_SOFTKEYS_ENABLED
+#include <private/qsoftkeymanager_p.h>
+#endif
+
 QT_BEGIN_NAMESPACE
 
 class QMenuBarExtension : public QToolButton
@@ -740,16 +744,13 @@ void QMenuBarPrivate::init()
         QApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, true);
     }
 #endif
-#ifdef Q_WS_S60
-    symbianCreateMenuBar(q->parentWidget());
-    if(symbian_menubar)
-        q->hide();
-#endif
-
     q->setBackgroundRole(QPalette::Button);
     oldWindow = oldParent = 0;
 #ifdef QT3_SUPPORT
     doAutoResize = false;
+#endif
+#ifdef QT_SOFTKEYS_ENABLED
+    menuBarAction = 0;
 #endif
     handleReparent();
     q->setMouseTracking(q->style()->styleHint(QStyle::SH_MenuBar_MouseTracking, 0, q));
@@ -1384,10 +1385,37 @@ void QMenuBarPrivate::handleReparent()
         wce_menubar->rebuild();
 #endif
 #ifdef Q_WS_S60
-    if (symbian_menubar)
-        symbian_menubar->rebuild();
-#endif
 
+    // Construct symbian_menubar when this code path is entered first time
+    // and when newParent != NULL
+    if (!symbian_menubar)
+        symbianCreateMenuBar(newParent);
+
+    // Reparent and rebuild menubar when parent is changed
+    if (symbian_menubar) {
+        if (oldParent != newParent)
+            reparentMenuBar(oldParent, newParent);
+        q->hide();
+        symbian_menubar->rebuild();
+    }
+
+#ifdef QT_SOFTKEYS_ENABLED
+    // Constuct menuBarAction when this code path is entered first time
+    if (!menuBarAction) {
+        if (newParent) {
+            menuBarAction = QSoftKeyManager::createAction(QSoftKeyManager::MenuSoftKey, newParent);
+            newParent->addAction(menuBarAction);
+        }
+    } else {
+        // If reparenting i.e. we already have menuBarAction, remove it from old parent
+        // and add for a new parent
+        if (oldParent)
+            oldParent->removeAction(menuBarAction);
+        if (newParent)
+            newParent->addAction(menuBarAction);
+    }
+#endif // QT_SOFTKEYS_ENABLED
+#endif // Q_WS_S60
 }
 
 #ifdef QT3_SUPPORT
@@ -1440,7 +1468,13 @@ void QMenuBar::changeEvent(QEvent *e)
                || e->type() == QEvent::ApplicationFontChange) {
         d->itemsDirty = true;
         d->updateGeometries();
+#ifdef QT_SOFTKEYS_ENABLED
+    } else if (e->type() == QEvent::LanguageChange) {
+        if (d->menuBarAction)
+            d->menuBarAction->setText(QSoftKeyManager::standardSoftKeyText(QSoftKeyManager::MenuSoftKey));
+#endif
     }
+
     QWidget::changeEvent(e);
 }
 
@@ -1923,7 +1957,7 @@ bool QMenuBar::isNativeMenuBar() const
   to the right soft key.
 
   Currently there is only support for the default action on Windows
-  Mobile. All other platforms ignore the default action.
+  Mobile. On all other platforms this method is not available.
 
   \sa defaultAction()
 */

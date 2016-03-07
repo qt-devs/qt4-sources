@@ -262,10 +262,10 @@
 <p>See also <a href="qspinbox.html#minimum-prop">minimum</a> and <a href="qspinbox.html#maximum-prop">maximum</a>.</p>
 <a name="//apple_ref/cpp/instm/QSpinBox/textFromValue"></a>
 <h3 class="fn"><a name="textFromValue"></a><a href="qstring.html">QString</a> QSpinBox::textFromValue ( int <i>value</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
-<p>This virtual function is used by the spin box whenever it needs to display the given <i>value</i>. The default implementation returns a string containing <i>value</i> printed in the standard way using <a href="qwidget.html#locale-prop">QWidget::locale</a>().toString(). Reimplementations may return anything. (See the example in the detailed description.)</p>
+<p>This virtual function is used by the spin box whenever it needs to display the given <i>value</i>. The default implementation returns a string containing <i>value</i> printed in the standard way using <a href="qwidget.html#locale-prop">QWidget::locale</a>().toString(), but with the thousand separator removed. Reimplementations may return anything. (See the example in the detailed description.)</p>
 <p>Note: <a href="qspinbox.html">QSpinBox</a> does not call this function for <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() and that neither <a href="qspinbox.html#prefix-prop">prefix</a>() nor <a href="qspinbox.html#suffix-prop">suffix</a>() should be included in the return value.</p>
 <p>If you reimplement this, you may also need to reimplement <a href="qspinbox.html#valueFromText">valueFromText</a>() and <a href="qspinbox.html#validate">validate</a>()</p>
-<p>See also <a href="qspinbox.html#valueFromText">valueFromText</a>() and <a href="qspinbox.html#validate">validate</a>().</p>
+<p>See also <a href="qspinbox.html#valueFromText">valueFromText</a>(), <a href="qspinbox.html#validate">validate</a>(), and <a href="qlocale.html#groupSeparator">QLocale::groupSeparator</a>().</p>
 <a name="//apple_ref/cpp/instm/QSpinBox/validate"></a>
 <h3 class="fn"><a name="validate"></a><a href="qvalidator.html#State-enum">QValidator::State</a> QSpinBox::validate ( <a href="qstring.html">QString</a> &amp; <i>text</i>, int &amp; <i>pos</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractspinbox.html#validate">QAbstractSpinBox::validate</a>().</p>
@@ -285,6 +285,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

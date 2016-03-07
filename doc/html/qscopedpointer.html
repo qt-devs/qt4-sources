@@ -15,7 +15,8 @@
 <td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="index.html"><font color="#004faf">Home</font></a>&nbsp;&middot; <a href="classes.html"><font color="#004faf">All&nbsp;Classes</font></a>&nbsp;&middot; <a href="functions.html"><font color="#004faf">All&nbsp;Functions</font></a>&nbsp;&middot; <a href="overviews.html"><font color="#004faf">Overviews</font></a></td></tr></table><h1 class="title">QScopedPointer Class Reference<br /><span class="small-subtitle">[<a href="qtcore.html">QtCore</a> module]</span>
 </h1>
 <p>The QScopedPointer class stores a pointer to a dynamically allocated object, and deletes it upon destruction. <a href="#details">More...</a></p>
-<pre> #include &lt;QScopedPointer&gt;</pre><p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>.</p>
+<pre> #include &lt;QScopedPointer&gt;</pre><p>Inherited by <a href="qscopedarraypointer.html">QScopedArrayPointer</a>.</p>
+<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>.</p>
 <p>This class was introduced in Qt 4.6.</p>
 <ul>
 <li><a href="qscopedpointer-members.html">List of all members, including inherited members</a></li>
@@ -41,7 +42,7 @@
 <h2>Detailed Description</h2>
 <p>The QScopedPointer class stores a pointer to a dynamically allocated object, and deletes it upon destruction.</p>
 <p>Managing heap allocated objects manually is hard and error prone, with the common result that code leaks memory and is hard to maintain. QScopedPointer is a small utility class that heavily simplifies this by assigning stack-based memory ownership to heap allocations, more generally called resource acquisition is initialization(RAII).</p>
-<p>QScopedPointer guarantees that the object pointed to will get deleted when the current scope dissapears.</p>
+<p>QScopedPointer guarantees that the object pointed to will get deleted when the current scope disappears.</p>
 <p>Consider this function which does heap allocations, and have various exit points:</p>
 <pre> void myFunction(bool useSubClass)
  {
@@ -109,7 +110,7 @@
  QScopedPointer&lt;int, QScopedPointerArrayDeleter&lt;int&gt; &gt; arrayPointer(new int[42]);
 
 <span class="comment"> // this QScopedPointer frees its data using free():</span>
- QScopedPointer&lt;int, QScopedPointerPodDeleter&lt;int&gt; &gt; podPointer(reinterpret_cast&lt;int *&gt;(malloc(42)));
+ QScopedPointer&lt;int, QScopedPointerPodDeleter&gt; podPointer(reinterpret_cast&lt;int *&gt;(malloc(42)));
 
 <span class="comment"> // this struct calls &quot;myCustomDeallocator&quot; to delete the pointer</span>
  struct ScopedPointerCustomDeleter
@@ -193,6 +194,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

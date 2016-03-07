@@ -84,6 +84,12 @@
      toggleButton-&gt;setContextMenuPolicy(Qt::NoContextMenu);
      toggleButton-&gt;setCheckable(true);
 
+     modeButton = new QPushButton(tr(&quot;Loop SK window type&quot;), this);
+     modeButton-&gt;setContextMenuPolicy(Qt::NoContextMenu);
+
+     modeLabel = new QLabel(tr(&quot;Normal maximized&quot;), this);
+     modeLabel-&gt;setContextMenuPolicy(Qt::NoContextMenu);
+
      pushButton = new QPushButton(tr(&quot;File Dialog&quot;), this);
      pushButton-&gt;setContextMenuPolicy(Qt::NoContextMenu);
 
@@ -101,6 +107,8 @@
      layout-&gt;addWidget(toggleButton, 2, 0);
      layout-&gt;addWidget(pushButton, 2, 1);
      layout-&gt;addWidget(comboBox, 3, 0, 1, 2);
+     layout-&gt;addWidget(modeButton, 4, 0, 1, 2);
+     layout-&gt;addWidget(modeLabel, 5, 0, 1, 2);
      central-&gt;setLayout(layout);
 
      fileMenu = menuBar()-&gt;addMenu(tr(&quot;&amp;File&quot;));
@@ -111,6 +119,7 @@
      connect(pushButton, SIGNAL(clicked()), this, SLOT(openDialog()));
      connect(exit, SIGNAL(triggered()), this, SLOT(exitApplication()));
      connect(toggleButton, SIGNAL(clicked()), this, SLOT(setCustomSoftKeys()));
+     connect(modeButton, SIGNAL(clicked()), this, SLOT(setMode()));
      pushButton-&gt;setFocus();
  }
 
@@ -147,6 +156,35 @@
      }
  }
 
+ void MainWindow::setMode()
+ {
+     if(isMaximized()) {
+         showFullScreen();
+         modeLabel-&gt;setText(tr(&quot;Normal Fullscreen&quot;));
+     } else {
+         Qt::WindowFlags flags = windowFlags();
+         if(flags &amp; Qt::WindowSoftkeysRespondHint) {
+             flags |= Qt::WindowSoftkeysVisibleHint;
+             flags &amp;= ~Qt::WindowSoftkeysRespondHint;
+             setWindowFlags(flags); <span class="comment">// Hides visible window</span>
+             showFullScreen();
+             modeLabel-&gt;setText(tr(&quot;Fullscreen with softkeys&quot;));
+         } else if(flags &amp; Qt::WindowSoftkeysVisibleHint) {
+             flags &amp;= ~Qt::WindowSoftkeysVisibleHint;
+             flags &amp;= ~Qt::WindowSoftkeysRespondHint;
+             setWindowFlags(flags); <span class="comment">// Hides visible window</span>
+             showMaximized();
+             modeLabel-&gt;setText(tr(&quot;Normal Maximized&quot;));
+         } else {
+             flags &amp;= ~Qt::WindowSoftkeysVisibleHint;
+             flags |= Qt::WindowSoftkeysRespondHint;
+             setWindowFlags(flags); <span class="comment">// Hides visible window</span>
+             showFullScreen();
+             modeLabel-&gt;setText(tr(&quot;Fullscreen with SK respond&quot;));
+         }
+     }
+ }
+
  void MainWindow::exitApplication()
  {
      qApp-&gt;exit();
@@ -165,6 +203,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

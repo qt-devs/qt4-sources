@@ -331,14 +331,18 @@ static const char* const qglslImageSrcFragmentShader = "\n\
     varying   highp   vec2      textureCoords; \n\
     uniform   lowp    sampler2D imageTexture; \n\
     lowp vec4 srcPixel() \n\
-    { \n\
-        return texture2D(imageTexture, textureCoords); \n\
-    }\n";
+    { \n"
+#ifdef QT_OPENGL_ES_2
+        // work-around for driver bug
+        "return 1.0 * texture2D(imageTexture, textureCoords); \n"
+#else
+        "return texture2D(imageTexture, textureCoords); \n"
+#endif
+    "}\n";
 
 static const char* const qglslCustomSrcFragmentShader = "\n\
     varying   highp   vec2      textureCoords; \n\
     uniform   lowp    sampler2D imageTexture; \n\
-    lowp vec4 customShader(lowp sampler2D texture, highp vec2 coords); \n\
     lowp vec4 srcPixel() \n\
     { \n\
         return customShader(imageTexture, textureCoords); \n\

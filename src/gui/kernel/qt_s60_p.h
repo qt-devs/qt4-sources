@@ -68,12 +68,12 @@
 #include <eikappui.h>
 
 #ifdef Q_WS_S60
-#include <aknutils.h>               // AknLayoutUtils
+#include <AknUtils.h>               // AknLayoutUtils
 #include <avkon.hrh>                // EEikStatusPaneUidTitle
 #include <akntitle.h>               // CAknTitlePane
 #include <akncontext.h>             // CAknContextPane
 #include <eikspane.h>               // CEikStatusPane
-#include <aknpopupfader.h>          // MAknFadedComponent and TAknPopupFader
+#include <AknPopupFader.h>          // MAknFadedComponent and TAknPopupFader
 #endif
 
 QT_BEGIN_NAMESPACE
@@ -122,6 +122,7 @@ public:
     int qtOwnsS60Environment : 1;
     int supportsPremultipliedAlpha : 1;
     int avkonComponentsSupportTransparency : 1;
+    int menuBeingConstructed : 1;
     QApplication::QS60MainApplicationFactory s60ApplicationFactory; // typedef'ed pointer type
     static inline void updateScreenSize();
     static inline RWsSession& wsSession();
@@ -154,7 +155,7 @@ class QLongTapTimer;
 
 class QSymbianControl : public CCoeControl, public QAbstractLongTapObserver
 #ifdef Q_WS_S60
-, public MAknFadedComponent
+, public MAknFadedComponent, public MEikStatusPaneObserver
 #endif
 {
 public:
@@ -182,6 +183,7 @@ public:
 
 #ifdef Q_WS_S60
     void FadeBehindPopup(bool fade){ popupFader.FadeBehindPopup( this, this, fade); }
+    void HandleStatusPaneSizeChange();
 
 protected: // from MAknFadedComponent
     TInt CountFadedComponents() {return 1;}
@@ -212,6 +214,7 @@ private:
 #ifdef QT_SYMBIAN_SUPPORTS_ADVANCED_POINTER
     void translateAdvancedPointerEvent(const TAdvancedPointerEvent *event);
 #endif
+    void handleClientAreaChange();
 
 private:
     static QSymbianControl *lastFocusedControl;

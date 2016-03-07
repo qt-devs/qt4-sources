@@ -74,6 +74,7 @@
 <span class="comment"> //#include &lt;QTextCodec&gt;</span>
 
  _LIT(KIapNameSetting, &quot;IAP\\Name&quot;);             <span class="comment">// text - mandatory</span>
+ _LIT(KIapTableIdField, &quot;IAP\Id&quot;);
  _LIT(KIapDialogPref, &quot;IAP\\DialogPref&quot;);        <span class="comment">// TUnit32 - optional</span>
  _LIT(KIapService, &quot;IAP\\IAPService&quot;);           <span class="comment">// TUnit32 - mandatory</span>
  _LIT(KIapServiceType, &quot;IAP\\IAPServiceType&quot;);   <span class="comment">// text - mandatory</span>
@@ -312,7 +313,7 @@
  #ifdef QT_NO_UNICODE
      return QString::fromLocal8Bit(aDescriptor.Ptr(), aDescriptor.Length());
  #else
-     return QString::fromUtf16(aDescriptor.Ptr(), aDescriptor.Length());
+     return QString((const QChar *)aDescriptor.Ptr(), aDescriptor.Length());
  #endif
  }
 
@@ -381,20 +382,25 @@
      CleanupClosePushL(connection);
 
      socketServ.Connect();
+
+     TCommDbConnPref prefs;
+     prefs.SetDialogPreference(ECommDbDialogPrefPrompt);
+
      connection.Open(socketServ);
-     connection.Start();
+     connection.Start(prefs);
 
      connection.GetDesSetting(TPtrC(KIapNameSetting), iapName);
-
      <span class="comment">//connection.Stop();</span>
 
      iapName.ZeroTerminate();
      QString strIapName((char*)iapName.Ptr());
 
      int error = 0;
-     if(!qt_SetDefaultIapName(strIapName, error)) {
-         <span class="comment">//printf(&quot;failed setdefaultif @ %i with %s and errno = %d \n&quot;, __LINE__, strIapName.toUtf8().data(), error);</span>
-         strIapName = QString(&quot;&quot;);
+     if(!strIapName.isEmpty()) {
+         if(!qt_SetDefaultIapName(strIapName, error)) {
+             <span class="comment">//printf(&quot;failed setdefaultif @ %i with %s and errno = %d \n&quot;, __LINE__, strIapName.toUtf8().data(), error);</span>
+             strIapName = QString(&quot;&quot;);
+         }
      }
 
      CleanupStack::PopAndDestroy(&amp;connection);
@@ -530,6 +536,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

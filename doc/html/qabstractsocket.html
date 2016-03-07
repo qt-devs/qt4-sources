@@ -171,6 +171,7 @@
      }</pre>
 <p>If <a href="qiodevice.html#waitForReadyRead">waitForReadyRead()</a> returns false, the connection has been closed or an error has occurred.</p>
 <p>Programming with a blocking socket is radically different from programming with a non-blocking socket. A blocking socket doesn't require an event loop and typically leads to simpler code. However, in a GUI application, blocking sockets should only be used in non-GUI threads, to avoid freezing the user interface. See the <a href="network-fortuneclient.html">network/fortuneclient</a> and <a href="network-blockingfortuneclient.html">network/blockingfortuneclient</a> examples for an overview of both approaches.</p>
+<p><b>Note:</b> We discourage the use of the blocking functions together with signals. One of the two possibilities should be used.</p>
 <p>QAbstractSocket can be used with <a href="qtextstream.html">QTextStream</a> and <a href="qdatastream.html">QDataStream</a>'s stream operators (operator&lt;&lt;() and operator&gt;&gt;()). There is one issue to be aware of, though: You must make sure that enough data is available before attempting to read it using operator&gt;&gt;().</p>
 <p>See also <a href="qftp.html">QFtp</a>, <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, and <a href="qtcpserver.html">QTcpServer</a>.</p>
 <hr />
@@ -353,6 +354,7 @@
 <a name="//apple_ref/cpp/instm/QAbstractSocket/connected"></a>
 <h3 class="fn"><a name="connected"></a>void QAbstractSocket::connected ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted after <a href="qabstractsocket.html#connectToHost">connectToHost</a>() has been called and a connection has been successfully established.</p>
+<p><b>Note:</b> On some operating systems the connected() signal may be directly emitted from the <a href="qabstractsocket.html#connectToHost">connectToHost</a>() call for connections to the localhost.</p>
 <p>See also <a href="qabstractsocket.html#connectToHost">connectToHost</a>() and <a href="qabstractsocket.html#disconnected">disconnected</a>().</p>
 <a name="//apple_ref/cpp/instm/QAbstractSocket/disconnectFromHost"></a>
 <h3 class="fn"><a name="disconnectFromHost"></a>void QAbstractSocket::disconnectFromHost ()</h3>
@@ -383,6 +385,7 @@
 <a name="//apple_ref/cpp/instm/QAbstractSocket/hostFound"></a>
 <h3 class="fn"><a name="hostFound"></a>void QAbstractSocket::hostFound ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted after <a href="qabstractsocket.html#connectToHost">connectToHost</a>() has been called and the host lookup has succeeded.</p>
+<p><b>Note:</b> Since Qt 4.6&#x2e;3 <a href="qabstractsocket.html">QAbstractSocket</a> may emit hostFound() directly from the <a href="qabstractsocket.html#connectToHost">connectToHost</a>() call since a DNS result could have been cached.</p>
 <p>See also <a href="qabstractsocket.html#connected">connected</a>().</p>
 <a name="//apple_ref/cpp/instm/QAbstractSocket/isSequential"></a>
 <h3 class="fn"><a name="isSequential"></a>bool QAbstractSocket::isSequential () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
@@ -535,7 +538,8 @@
  if (socket-&gt;waitForConnected(1000))
      qDebug(&quot;Connected!&quot;);</pre>
 <p>If msecs is -1, this function will not time out.</p>
-<p>Note: This function may wait slightly longer than <i>msecs</i>, depending on the time it takes to complete the host lookup.</p>
+<p><b>Note:</b> This function may wait slightly longer than <i>msecs</i>, depending on the time it takes to complete the host lookup.</p>
+<p><b>Note:</b> Multiple calls to this functions do not accumulate the time. If the function times out, the connecting process will be aborted.</p>
 <p>See also <a href="qabstractsocket.html#connectToHost">connectToHost</a>() and <a href="qabstractsocket.html#connected">connected</a>().</p>
 <a name="//apple_ref/cpp/instm/QAbstractSocket/waitForDisconnected"></a>
 <h3 class="fn"><a name="waitForDisconnected"></a>bool QAbstractSocket::waitForDisconnected ( int <i>msecs</i> = 30000 )</h3>
@@ -560,6 +564,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

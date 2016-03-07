@@ -61,6 +61,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringlist.h>
 #include <QtCore/qdatetime.h>
+#include <QtCore/qmutex.h>
 
 #include <QtMultimedia/qaudio.h>
 #include <QtMultimedia/qaudiodeviceinfo.h>
@@ -118,6 +119,8 @@ private:
     int intervalTime;
     static void CALLBACK waveOutProc( HWAVEOUT hWaveOut, UINT uMsg,
             DWORD dwInstance, DWORD dwParam1, DWORD dwParam2 );
+
+    QMutex mutex;
 
     WAVEHDR* allocateBlocks(int size, int count);
     void freeBlocks(WAVEHDR* blockArray);

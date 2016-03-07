@@ -55,14 +55,13 @@
 
  #include &lt;math.h&gt;
 
- #define BUFFER_SIZE 32768
-
  #include &lt;QObject&gt;
  #include &lt;QMainWindow&gt;
  #include &lt;QIODevice&gt;
  #include &lt;QTimer&gt;
  #include &lt;QPushButton&gt;
  #include &lt;QComboBox&gt;
+ #include &lt;QByteArray&gt;
 
  #include &lt;QAudioOutput&gt;
 
@@ -70,26 +69,22 @@
  {
      Q_OBJECT
  public:
-     Generator(QObject *parent);
+     Generator(const QAudioFormat &amp;format, qint64 durationUs, int frequency, QObject *parent);
      ~Generator();
 
      void start();
      void stop();
 
-     char *t;
-     int  len;
-     int  pos;
-     int  total;
-     char *buffer;
-     bool finished;
-     int  chunk_size;
-
      qint64 readData(char *data, qint64 maxlen);
      qint64 writeData(const char *data, qint64 len);
+     qint64 bytesAvailable() const;
 
  private:
-     int putShort(char *t, unsigned int value);
-     int fillData(char *start, int frequency, int seconds);
+     void generateData(const QAudioFormat &amp;format, qint64 durationUs, int frequency);
+
+ private:
+     qint64 m_pos;
+     QByteArray m_buffer;
  };
 
  class AudioTest : public QMainWindow
@@ -99,32 +94,45 @@
      AudioTest();
      ~AudioTest();
 
-     QAudioDeviceInfo  device;
-     Generator*        gen;
-     QAudioOutput*     audioOutput;
-     QIODevice*        output;
-     QTimer*           timer;
-     QAudioFormat      settings;
+ private:
+     void initializeWindow();
+     void initializeAudio();
+     void createAudioOutput();
 
-     bool              pullMode;
-     char*             buffer;
+ private:
+     QTimer*          m_pullTimer;
 
-     QPushButton*      button;
-     QPushButton*      button2;
-     QComboBox*     deviceBox;
+     <span class="comment">// Owned by layout</span>
+     QPushButton*     m_modeButton;
+     QPushButton*     m_suspendResumeButton;
+     QComboBox*       m_deviceBox;
+
+     QAudioDeviceInfo m_device;
+     Generator*       m_generator;
+     QAudioOutput*    m_audioOutput;
+     QIODevice*       m_output; <span class="comment">// not owned</span>
+     QAudioFormat     m_format;
+
+     bool             m_pullMode;
+     QByteArray       m_buffer;
+
+     static const QString PushModeLabel;
+     static const QString PullModeLabel;
+     static const QString SuspendLabel;
+     static const QString ResumeLabel;
 
  private slots:
-     void status();
-     void writeMore();
-     void toggle();
-     void togglePlay();
-     void state(QAudio::State s);
-     void deviceChanged(int idx);
+     void notified();
+     void pullTimerExpired();
+     void toggleMode();
+     void toggleSuspendResume();
+     void stateChanged(QAudio::State state);
+     void deviceChanged(int index);
  };</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

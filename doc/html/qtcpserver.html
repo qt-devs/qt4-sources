@@ -82,6 +82,10 @@
 <p>When listening for connections, the address and port on which the server is listening are available as <a href="qtcpserver.html#serverAddress">serverAddress</a>() and <a href="qtcpserver.html#serverPort">serverPort</a>().</p>
 <p>Calling <a href="qtcpserver.html#close">close</a>() makes QTcpServer stop listening for incoming connections.</p>
 <p>Although QTcpServer is mostly designed for use with an event loop, it's possible to use it without one. In that case, you must use <a href="qtcpserver.html#waitForNewConnection">waitForNewConnection</a>(), which blocks until either a connection is available or a timeout expires.</p>
+<a name="symbian-platform-security-requirements"></a>
+<h3>Symbian Platform Security Requirements</h3>
+<p>On Symbian, processes which use this class must have the <tt>NetworkServices</tt> platform security capability. If the client process lacks this capability, it will lead to a panic.</p>
+<p>Platform security capabilities are added via the <a href="qmake-variable-reference.html#target-capability">TARGET.CAPABILITY</a> qmake variable.</p>
 <p>See also <a href="qtcpsocket.html">QTcpSocket</a>, <a href="network-fortuneserver.html">Fortune Server Example</a>, <a href="network-threadedfortuneserver.html">Threaded Fortune Server Example</a>, <a href="network-loopback.html">Loopback Example</a>, and <a href="network-torrent.html">Torrent Example</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
@@ -113,6 +117,7 @@
 <p>The base implementation creates a <a href="qtcpsocket.html">QTcpSocket</a>, sets the socket descriptor and then stores the <a href="qtcpsocket.html">QTcpSocket</a> in an internal list of pending connections. Finally <a href="qtcpserver.html#newConnection">newConnection</a>() is emitted.</p>
 <p>Reimplement this function to alter the server's behavior when a connection is available.</p>
 <p>If this server is using <a href="qnetworkproxy.html">QNetworkProxy</a> then the <i>socketDescriptor</i> may not be usable with native socket functions, and should only be used with <a href="qabstractsocket.html#setSocketDescriptor">QTcpSocket::setSocketDescriptor</a>().</p>
+<p><b>Note:</b> If you want to handle an incoming connection as a new <a href="qtcpsocket.html">QTcpSocket</a> object in another thread you have to pass the socketDescriptor to the other thread and create the <a href="qtcpsocket.html">QTcpSocket</a> object there and use its <a href="qtcpserver.html#setSocketDescriptor">setSocketDescriptor</a>() method.</p>
 <p>See also <a href="qtcpserver.html#newConnection">newConnection</a>() and <a href="qtcpserver.html#nextPendingConnection">nextPendingConnection</a>().</p>
 <a name="//apple_ref/cpp/instm/QTcpServer/isListening"></a>
 <h3 class="fn"><a name="isListening"></a>bool QTcpServer::isListening () const</h3>
@@ -136,6 +141,7 @@
 <p>Returns the next pending connection as a connected <a href="qtcpsocket.html">QTcpSocket</a> object.</p>
 <p>The socket is created as a child of the server, which means that it is automatically deleted when the <a href="qtcpserver.html">QTcpServer</a> object is destroyed. It is still a good idea to delete the object explicitly when you are done with it, to avoid wasting memory.</p>
 <p>0 is returned if this function is called when there are no pending connections.</p>
+<p><b>Note:</b> The returned <a href="qtcpsocket.html">QTcpSocket</a> object cannot be used from another thread. If you want to use an incoming connection from another thread, you need to override <a href="qtcpserver.html#incomingConnection">incomingConnection</a>().</p>
 <p>See also <a href="qtcpserver.html#hasPendingConnections">hasPendingConnections</a>().</p>
 <a name="//apple_ref/cpp/instm/QTcpServer/proxy"></a>
 <h3 class="fn"><a name="proxy"></a><a href="qnetworkproxy.html">QNetworkProxy</a> QTcpServer::proxy () const</h3>
@@ -187,6 +193,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

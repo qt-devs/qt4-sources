@@ -247,7 +247,7 @@ Configure::Configure( int& argc, char** argv )
     dictionary[ "PHONON" ]          = "auto";
     dictionary[ "PHONON_BACKEND" ]  = "yes";
     dictionary[ "MULTIMEDIA" ]      = "yes";
-    dictionary[ "AUDIO_BACKEND" ]   = "yes";
+    dictionary[ "AUDIO_BACKEND" ]   = "auto";
     dictionary[ "DIRECTSHOW" ]      = "no";
     dictionary[ "WEBKIT" ]          = "auto";
     dictionary[ "DECLARATIVE" ]     = "auto";
@@ -317,7 +317,6 @@ Configure::Configure( int& argc, char** argv )
     dictionary[ "OPENSSL" ]         = "auto";
     dictionary[ "DBUS" ]            = "auto";
     dictionary[ "S60" ]             = "yes";
-    dictionary[ "SYMBIAN_DEFFILES" ] = "yes";
 
     dictionary[ "STYLE_WINDOWS" ]   = "yes";
     dictionary[ "STYLE_WINDOWSXP" ] = "auto";
@@ -970,6 +969,10 @@ void Configure::parseCmdLine()
             if(i==argCount)
                 break;
             dictionary[ "QT_LIBINFIX" ] = configCmdLine.at(i);
+            if (dictionary.contains("XQMAKESPEC") && dictionary["XQMAKESPEC"].startsWith("symbian")) {
+                dictionary[ "QT_INSTALL_PLUGINS" ] =
+                    QString("\\resource\\qt%1\\plugins").arg(dictionary[ "QT_LIBINFIX" ]);
+            }
         } else if( configCmdLine.at(i) == "-D" ) {
             ++i;
             if (i==argCount)
@@ -1477,6 +1480,7 @@ void Configure::applySpecSpecifics()
         dictionary[ "XMLPATTERNS" ]         = "yes";
         dictionary[ "QT_GLIB" ]             = "no";
         dictionary[ "S60" ]                 = "yes";
+        dictionary[ "SYMBIAN_DEFFILES" ]    = "yes";
         // iconv makes makes apps start and run ridiculously slowly in symbian emulator (HW not tested)
         // iconv_open seems to return -1 always, so something is probably missing from the platform.
         dictionary[ "QT_ICONV" ]            = "no";
@@ -1484,6 +1488,7 @@ void Configure::applySpecSpecifics()
         dictionary[ "QT_HOST_PREFIX" ]      = dictionary[ "QT_INSTALL_PREFIX" ];
         dictionary[ "QT_INSTALL_PREFIX" ]   = "";
         dictionary[ "QT_INSTALL_PLUGINS" ]  = "\\resource\\qt\\plugins";
+        dictionary[ "QT_INSTALL_TRANSLATIONS" ]  = "\\resource\\qt\\translations";
         dictionary[ "ARM_FPU_TYPE" ]        = "softvfp";
         dictionary[ "SQL_SQLITE" ]          = "yes";
         dictionary[ "SQL_SQLITE_LIB" ]      = "system";
@@ -2065,6 +2070,52 @@ bool Configure::checkAvailability(const QString &part)
         available = (dictionary.value("QMAKESPEC") == "win32-msvc2005") || (dictionary.value("QMAKESPEC") == "win32-msvc2008") || (dictionary.value("QMAKESPEC") == "win32-g++");
     } else if (part == "DECLARATIVE") {
         available = QFile::exists(sourcePath + "/src/declarative/qml/qmlcomponent.h");
+    } else if (part == "AUDIO_BACKEND") {
+        available = true;
+        if (dictionary.contains("XQMAKESPEC") && dictionary["XQMAKESPEC"].startsWith("symbian")) {
+            QString epocRoot = Environment::symbianEpocRoot();
+            const QDir epocRootDir(epocRoot);
+            if (epocRootDir.exists()) {
+                QStringList paths;
+                paths << "epoc32/release/armv5/lib/mmfdevsound.dso"
+                      << "epoc32/release/armv5/lib/mmfdevsound.lib"
+                      << "epoc32/release/winscw/udeb/mmfdevsound.dll"
+                      << "epoc32/release/winscw/udeb/mmfdevsound.lib"
+                      << "epoc32/include/mmf/server/sounddevice.h";
+
+                QStringList::iterator i = paths.begin();
+                while (i != paths.end()) {
+                    const QString &path = epocRoot + *i;
+                    if (QFile::exists(path))
+                        i = paths.erase(i);
+                    else
+                        ++i;
+                }
+
+                available = (paths.size() == 0);
+                if (!available) {
+                    if (epocRoot.isNull() || epocRoot == "")
+                        epocRoot = "<empty string>";
+                    cout << endl
+                         << "The QtMultimedia audio backend will not be built because required" << endl
+                         << "support for CMMFDevSound was not found in the SDK." << endl
+                         << "The SDK which was examined was located at the following path:" << endl
+                         << "    " << epocRoot << endl
+                         << "The following required files were missing from the SDK:" << endl;
+                    QString path;
+                    foreach (path, paths)
+                        cout << "    " << path << endl;
+                    cout << endl;
+                }
+            } else {
+                cout << endl
+                     << "The SDK root was determined to be '" << epocRoot << "'." << endl
+                     << "This directory was not found, so the SDK could not be checked for" << endl
+                     << "CMMFDevSound support.  The QtMultimedia audio backend will therefore" << endl
+                     << "not be built." << endl << endl;
+                available = false;
+            }
+        }
     }
 
     return available;
@@ -2153,6 +2204,8 @@ void Configure::autoDetection()
         dictionary["WEBKIT"] = checkAvailability("WEBKIT") ? "yes" : "no";
     if (dictionary["DECLARATIVE"] == "auto")
         dictionary["DECLARATIVE"] = checkAvailability("DECLARATIVE") ? "yes" : "no";
+    if (dictionary["AUDIO_BACKEND"] == "auto")
+        dictionary["AUDIO_BACKEND"] = checkAvailability("AUDIO_BACKEND") ? "yes" : "no";
 
     // Qt/WinCE remote test application
     if (dictionary["CETEST"] == "auto")
@@ -2265,24 +2318,31 @@ void Configure::generateBuildKey()
 
     QString build32Key = buildKey + "Windows " + compiler + " %1 " + build_options.join(" ") + " " + build_defines.join(" ");
     QString build64Key = buildKey + "Windows x64 " + compiler + " %1 " + build_options.join(" ") + " " + build_defines.join(" ");
+    QString buildSymbianKey = buildKey + "Symbian " + build_options.join(" ") + " " + build_defines.join(" ");
     build32Key = build32Key.simplified();
     build64Key = build64Key.simplified();
-    build32Key.prepend("#  define ");
-    build64Key.prepend("#  define ");
+    buildSymbianKey = buildSymbianKey.simplified();
+    build32Key.prepend("#   define ");
+    build64Key.prepend("#   define ");
+    buildSymbianKey.prepend("# define ");
 
-    QString buildkey = // Debug builds
-                       "#if (defined(_DEBUG) || defined(DEBUG))\n"
-                       "# if (defined(WIN64) || defined(_WIN64) || defined(__WIN64__))\n"
-                       + build64Key.arg("debug") + "\"\n"
-                       "# else\n"
-                       + build32Key.arg("debug") + "\"\n"
-                       "# endif\n"
+    QString buildkey = "#if defined(__SYMBIAN32__)\n"
+                       + buildSymbianKey + "\"\n"
                        "#else\n"
-                       // Release builds
-                       "# if (defined(WIN64) || defined(_WIN64) || defined(__WIN64__))\n"
-                       + build64Key.arg("release") + "\"\n"
+                       // Debug builds
+                       "# if (defined(_DEBUG) || defined(DEBUG))\n"
+                       "#  if (defined(WIN64) || defined(_WIN64) || defined(__WIN64__))\n"
+                       + build64Key.arg("debug") + "\"\n"
+                       "#  else\n"
+                       + build32Key.arg("debug") + "\"\n"
+                       "#  endif\n"
                        "# else\n"
+                       // Release builds
+                       "#  if (defined(WIN64) || defined(_WIN64) || defined(__WIN64__))\n"
+                       + build64Key.arg("release") + "\"\n"
+                       "#  else\n"
                        + build32Key.arg("release") + "\"\n"
+                       "#  endif\n"
                        "# endif\n"
                        "#endif\n";
 
@@ -2967,6 +3027,8 @@ void Configure::generateConfigfiles()
             qconfigList += "QT_NO_CRASHHANDLER";
             qconfigList += "QT_NO_PRINTER";
             qconfigList += "QT_NO_SYSTEMTRAYICON";
+            if (dictionary.contains("QT_LIBINFIX"))
+                tmpStream << QString("#define QT_LIBINFIX \"%1\"").arg(dictionary["QT_LIBINFIX"]) << endl;
         }
 
         qconfigList.sort();
@@ -3645,7 +3707,7 @@ void Configure::generateMakefiles()
                     QTextStream txt(&file);
                     txt << "all:\n";
                     txt << "\t" << args.join(" ") << "\n";
-                    txt << "\t" << dictionary[ "MAKE" ] << " -f " << it->target << "\n";
+                    txt << "\t\"$(MAKE)\" -$(MAKEFLAGS) -f " << it->target << "\n";
                     txt << "first: all\n";
                     txt << "qmake:\n";
                     txt << "\t" << args.join(" ") << "\n";

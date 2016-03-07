@@ -89,7 +89,7 @@
    format.setByteOrder(QAudioFormat::LittleEndian);
    format.setSampleType(QAudioFormat::UnSignedInt);
 
-   if (QAudioDeviceInfo info(QAudioDeviceInfo::defaultInputDevice());
+   QAudioDeviceInfo info = QAudioDeviceInfo::defaultInputDevice();
    if (!info.isFormatSupported(format)) {
        qWarning()&lt;&lt;&quot;default format not supported try to use nearest&quot;;
        format = info.nearestFormat(format);
@@ -120,6 +120,10 @@
 
              }
              break;</pre>
+<a name="symbian-platform-security-requirements"></a>
+<h3>Symbian Platform Security Requirements</h3>
+<p>On Symbian, processes which use this class must have the <tt>UserEnvironment</tt> platform security capability. If the client process lacks this capability, calls to either overload of <a href="qaudioinput.html#start">start</a>() will fail. This failure is indicated by the QAudioInput object setting its <a href="qaudioinput.html#error">error</a>() value to <a href="qaudio.html#Error-enum">QAudio::OpenError</a> and then emitting a <a href="qaudioinput.html#stateChanged">stateChanged</a>(<a href="qaudio.html#State-enum">QAudio::StoppedState</a>) signal.</p>
+<p>Platform security capabilities are added via the <a href="qmake-variable-reference.html#target-capability">TARGET.CAPABILITY</a> qmake variable.</p>
 <p>See also <a href="qaudiooutput.html">QAudioOutput</a> and <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
@@ -133,12 +137,13 @@
 <p>Destroy this audio input.</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/bufferSize"></a>
 <h3 class="fn"><a name="bufferSize"></a>int QAudioInput::bufferSize () const</h3>
-<p>Returns the audio buffer size in milliseconds.</p>
+<p>Returns the audio buffer size in bytes.</p>
 <p>If called before <a href="qaudioinput.html#start">start</a>(), returns platform default value. If called before <a href="qaudioinput.html#start">start</a>() but <a href="qaudioinput.html#setBufferSize">setBufferSize</a>() was called prior, returns value set by <a href="qaudioinput.html#setBufferSize">setBufferSize</a>(). If called after <a href="qaudioinput.html#start">start</a>(), returns the actual buffer size being used. This may not be what was set previously by <a href="qaudioinput.html#setBufferSize">setBufferSize</a>().</p>
 <p>See also <a href="qaudioinput.html#setBufferSize">setBufferSize</a>().</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/bytesReady"></a>
 <h3 class="fn"><a name="bytesReady"></a>int QAudioInput::bytesReady () const</h3>
 <p>Returns the amount of audio data available to read in bytes.</p>
+<p>NOTE: returned value is only valid while in <a href="qaudio.html#State-enum">QAudio::ActiveState</a> or <a href="qaudio.html#State-enum">QAudio::IdleState</a> state, otherwise returns zero.</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/elapsedUSecs"></a>
 <h3 class="fn"><a name="elapsedUSecs"></a><a href="qtglobal.html#qint64-typedef">qint64</a> QAudioInput::elapsedUSecs () const</h3>
 <p>Returns the microseconds since <a href="qaudioinput.html#start">start</a>() was called, including time in Idle and Suspend states.</p>
@@ -168,22 +173,29 @@
 <a name="//apple_ref/cpp/instm/QAudioInput/resume"></a>
 <h3 class="fn"><a name="resume"></a>void QAudioInput::resume ()</h3>
 <p>Resumes processing audio data after a <a href="qaudioinput.html#suspend">suspend</a>().</p>
+<p>Sets <a href="qaudioinput.html#error">error</a>() to <a href="qaudio.html#Error-enum">QAudio::NoError</a>. Sets <a href="qaudioinput.html#state">state</a>() to <a href="qaudio.html#State-enum">QAudio::ActiveState</a> if you previously called start(<a href="qiodevice.html">QIODevice</a>*). Sets <a href="qaudioinput.html#state">state</a>() to <a href="qaudio.html#State-enum">QAudio::IdleState</a> if you previously called <a href="qaudioinput.html#start">start</a>(). emits <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal.</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/setBufferSize"></a>
 <h3 class="fn"><a name="setBufferSize"></a>void QAudioInput::setBufferSize ( int <i>value</i> )</h3>
-<p>Sets the audio buffer size to <i>value</i> milliseconds.</p>
+<p>Sets the audio buffer size to <i>value</i> bytes.</p>
 <p>Note: This function can be called anytime before <a href="qaudioinput.html#start">start</a>(), calls to this are ignored after <a href="qaudioinput.html#start">start</a>(). It should not be assumed that the buffer size set is the actual buffer size used, calling <a href="qaudioinput.html#bufferSize">bufferSize</a>() anytime after <a href="qaudioinput.html#start">start</a>() will return the actual buffer size being used.</p>
 <p>See also <a href="qaudioinput.html#bufferSize">bufferSize</a>().</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/setNotifyInterval"></a>
 <h3 class="fn"><a name="setNotifyInterval"></a>void QAudioInput::setNotifyInterval ( int <i>ms</i> )</h3>
-<p>Sets the interval for <a href="qaudioinput.html#notify">notify</a>() signal to be emitted. This is based on the <i>ms</i> of audio data processed not on actual real-time. The resolution of the timer is platform specific.</p>
+<p>Sets the interval for <a href="qaudioinput.html#notify">notify</a>() signal to be emitted. This is based on the <i>ms</i> of audio data processed not on actual real-time. The minimum resolution of the timer is platform specific and values should be checked with <a href="qaudioinput.html#notifyInterval">notifyInterval</a>() to confirm actual value being used.</p>
 <p>See also <a href="qaudioinput.html#notifyInterval">notifyInterval</a>().</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/start"></a>
 <h3 class="fn"><a name="start"></a>void QAudioInput::start ( <a href="qiodevice.html">QIODevice</a> * <i>device</i> )</h3>
 <p>Uses the <i>device</i> as the <a href="qiodevice.html">QIODevice</a> to transfer data. Passing a <a href="qiodevice.html">QIODevice</a> allows the data to be transfered without any extra code. All that is required is to open the <a href="qiodevice.html">QIODevice</a>.</p>
-<p>See also <a href="qiodevice.html">QIODevice</a>.</p>
+<p>If able to successfully get audio data from the systems audio device the <a href="qaudioinput.html#state">state</a>() is set to either <a href="qaudio.html#State-enum">QAudio::ActiveState</a> or <a href="qaudio.html#State-enum">QAudio::IdleState</a>, <a href="qaudioinput.html#error">error</a>() is set to <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
+<p>If a problem occurs during this process the <a href="qaudioinput.html#error">error</a>() is set to <a href="qaudio.html#Error-enum">QAudio::OpenError</a>, <a href="qaudioinput.html#state">state</a>() is set to <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
+<p>In either case, the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal may be emitted either synchronously during execution of the start() function or asynchronously after start() has returned to the caller.</p>
+<p>See also Symbian Platform Security Requirements and <a href="qiodevice.html">QIODevice</a>.</p>
 <h3 class="fn"><a name="start-2"></a><a href="qiodevice.html">QIODevice</a> * QAudioInput::start ()</h3>
 <p>Returns a pointer to the <a href="qiodevice.html">QIODevice</a> being used to handle the data transfer. This <a href="qiodevice.html">QIODevice</a> can be used to read() audio data directly.</p>
-<p>See also <a href="qiodevice.html">QIODevice</a>.</p>
+<p>If able to access the systems audio device the <a href="qaudioinput.html#state">state</a>() is set to <a href="qaudio.html#State-enum">QAudio::IdleState</a>, <a href="qaudioinput.html#error">error</a>() is set to <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
+<p>If a problem occurs during this process the <a href="qaudioinput.html#error">error</a>() is set to <a href="qaudio.html#Error-enum">QAudio::OpenError</a>, <a href="qaudioinput.html#state">state</a>() is set to <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
+<p>In either case, the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal may be emitted either synchronously during execution of the <a href="qaudioinput.html#start">start</a>() function or asynchronously after <a href="qaudioinput.html#start">start</a>() has returned to the caller.</p>
+<p>See also Symbian Platform Security Requirements and <a href="qiodevice.html">QIODevice</a>.</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/state"></a>
 <h3 class="fn"><a name="state"></a><a href="qaudio.html#State-enum">QAudio::State</a> QAudioInput::state () const</h3>
 <p>Returns the state of audio processing.</p>
@@ -192,14 +204,17 @@
 <p>This signal is emitted when the device <i>state</i> has changed.</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/stop"></a>
 <h3 class="fn"><a name="stop"></a>void QAudioInput::stop ()</h3>
-<p>Stops the audio input.</p>
+<p>Stops the audio input, detaching from the system resource.</p>
+<p>Sets <a href="qaudioinput.html#error">error</a>() to <a href="qaudio.html#Error-enum">QAudio::NoError</a>, <a href="qaudioinput.html#state">state</a>() to <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and emit <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal.</p>
 <a name="//apple_ref/cpp/instm/QAudioInput/suspend"></a>
 <h3 class="fn"><a name="suspend"></a>void QAudioInput::suspend ()</h3>
 <p>Stops processing audio data, preserving buffered audio data.</p>
+<p>Sets <a href="qaudioinput.html#error">error</a>() to <a href="qaudio.html#Error-enum">QAudio::NoError</a>, <a href="qaudioinput.html#state">state</a>() to <a href="qaudio.html#State-enum">QAudio::SuspendedState</a> and emit <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal.</p>
+<p>Note: signal will always be emitted during execution of the <a href="qaudioinput.html#resume">resume</a>() function.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

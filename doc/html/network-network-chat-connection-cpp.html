@@ -97,7 +97,7 @@
          return false;
 
      QByteArray msg = message.toUtf8();
-     QByteArray data = &quot;MESSAGE &quot; + QByteArray::number(msg.size()) + &quot; &quot; + msg;
+     QByteArray data = &quot;MESSAGE &quot; + QByteArray::number(msg.size()) + ' ' + msg;
      return write(data) == data.size();
  }
 
@@ -132,7 +132,7 @@
              return;
          }
 
-         username = QString(buffer) + &quot;@&quot; + peerAddress().toString() + &quot;:&quot;
+         username = QString(buffer) + '@' + peerAddress().toString() + ':'
                     + QString::number(peerPort());
          currentDataType = Undefined;
          numBytesForCurrentDataType = 0;
@@ -176,7 +176,7 @@
  void Connection::sendGreetingMessage()
  {
      QByteArray greeting = greetingMessage.toUtf8();
-     QByteArray data = &quot;GREETING &quot; + QByteArray::number(greeting.size()) + &quot; &quot; + greeting;
+     QByteArray data = &quot;GREETING &quot; + QByteArray::number(greeting.size()) + ' ' + greeting;
      if (write(data) == data.size())
          isGreetingMessageSent = true;
  }
@@ -292,6 +292,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

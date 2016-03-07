@@ -156,6 +156,16 @@
     is being encrypted and encryptedBytesWritten()
     will get emitted as soon as data has been written to the TCP socket.
 
+    \section1 Symbian Platform Security Requirements
+
+    On Symbian, processes which use this class must have the
+    \c NetworkServices platform security capability. If the client
+    process lacks this capability, operations will fail.
+
+    Platform security capabilities are added via the
+    \l{qmake-variable-reference.html#target-capability}{TARGET.CAPABILITY}
+    qmake variable.
+
     \sa QSslCertificate, QSslCipher, QSslError
 */
 
@@ -1109,7 +1119,7 @@ void QSslSocket::setCiphers(const QString &ciphers)
 {
     Q_D(QSslSocket);
     d->configuration.ciphers.clear();
-    foreach (QString cipherName, ciphers.split(QLatin1String(":"),QString::SkipEmptyParts)) {
+    foreach (const QString &cipherName, ciphers.split(QLatin1String(":"),QString::SkipEmptyParts)) {
         for (int i = 0; i < 3; ++i) {
             // ### Crude
             QSslCipher cipher(cipherName, QSsl::SslProtocol(i));

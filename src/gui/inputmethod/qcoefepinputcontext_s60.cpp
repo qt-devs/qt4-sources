@@ -58,6 +58,11 @@
 // MAknEdStateObserver::EAknActivatePenInputRequest
 #define QT_EAknActivatePenInputRequest MAknEdStateObserver::EAknEdwinStateEvent(7)
 
+// EAknEditorFlagSelectionVisible is only valid from 3.2 onwards.
+// Sym^3 AVKON FEP manager expects that this flag is used for FEP-aware editors
+// that support text selection.
+#define QT_EAknEditorFlagSelectionVisible 0x100000
+
 QT_BEGIN_NAMESPACE
 
 QCoeFepInputContext::QCoeFepInputContext(QObject *parent)
@@ -71,16 +76,18 @@ QCoeFepInputContext::QCoeFepInputContext(QObject *parent)
       m_inlinePosition(0),
       m_formatRetriever(0),
       m_pointerHandler(0),
-      m_longPress(0),
       m_cursorPos(0),
       m_hasTempPreeditString(false)
 {
     m_fepState->SetObjectProvider(this);
-    m_fepState->SetFlags(EAknEditorFlagDefault);
+    if (QSysInfo::s60Version() > QSysInfo::SV_S60_5_0)
+        m_fepState->SetFlags(EAknEditorFlagDefault | QT_EAknEditorFlagSelectionVisible);
+    else
+        m_fepState->SetFlags(EAknEditorFlagDefault);
     m_fepState->SetDefaultInputMode( EAknEditorTextInputMode );
     m_fepState->SetPermittedInputModes( EAknEditorAllInputModes );
     m_fepState->SetDefaultCase( EAknEditorLowerCase );
-    m_fepState->SetPermittedCases( EAknEditorLowerCase|EAknEditorUpperCase );
+    m_fepState->SetPermittedCases( EAknEditorAllCaseModes );
     m_fepState->SetSpecialCharacterTableResourceId(R_AVKON_SPECIAL_CHARACTER_TABLE_DIALOG);
     m_fepState->SetNumericKeymap( EAknEditorStandardNumberModeKeymap );
 }
@@ -101,7 +108,7 @@ QCoeFepInputContext::~QCoeFepInputContext()
 
 void QCoeFepInputContext::reset()
 {
-    commitCurrentString(false);
+    commitCurrentString(true);
 }
 
 void QCoeFepInputContext::ReportAknEdStateEvent(MAknEdStateObserver::EAknEdwinStateEvent aEventType)
@@ -114,7 +121,7 @@ void QCoeFepInputContext::update()
     updateHints(false);
 
     // For pre-5.0 SDKs, we don't do text updates on S60 side.
-    if (QSysInfo::s60Version() != QSysInfo::SV_S60_5_0) {
+    if (QSysInfo::s60Version() < QSysInfo::SV_S60_5_0) {
         return;
     }
 
@@ -126,7 +133,7 @@ void QCoeFepInputContext::update()
 
 void QCoeFepInputContext::setFocusWidget(QWidget *w)
 {
-    commitCurrentString(false);
+    commitCurrentString(true);
 
     QInputContext::setFocusWidget(w);
 
@@ -219,7 +226,7 @@ bool QCoeFepInputContext::filterEvent(const QEvent *event)
             break;
         case Qt::Key_Select:
             if (!m_preeditString.isEmpty()) {
-                commitCurrentString(false);
+                commitCurrentString(true);
                 return true;
             }
             break;
@@ -231,10 +238,11 @@ bool QCoeFepInputContext::filterEvent(const QEvent *event)
             && focusWidget()->inputMethodHints() & Qt::ImhHiddenText
             && !keyEvent->text().isEmpty()) {
             // Send some temporary preedit text in order to make text visible for a moment.
+            m_cursorPos = focusWidget()->inputMethodQuery(Qt::ImCursorPosition).toInt();
             m_preeditString = keyEvent->text();
             QList<QInputMethodEvent::Attribute> attributes;
             QInputMethodEvent imEvent(m_preeditString, attributes);
-            QApplication::sendEvent(focusWidget(), &imEvent);
+            sendEvent(imEvent);
             m_tempPreeditStringTimeout.start(1000, this);
             m_hasTempPreeditString = true;
             update();
@@ -293,7 +301,7 @@ void QCoeFepInputContext::mouseHandler( int x, QMouseEvent *event)
     Q_ASSERT(focusWidget());
 
     if (event->type() == QEvent::MouseButtonPress && event->button() == Qt::LeftButton) {
-        commitCurrentString(false);
+        commitCurrentString(true);
         int pos = focusWidget()->inputMethodQuery(Qt::ImCursorPosition).toInt();
 
         QList<QInputMethodEvent::Attribute> attributes;
@@ -432,7 +440,10 @@ void QCoeFepInputContext::applyHints(Qt::InputMethodHints hints)
     m_fepState->SetPermittedCases(flags);
     ReportAknEdStateEvent(MAknEdStateObserver::EAknEdwinStateCaseModeUpdate);
 
-    flags = 0;
+    if (QSysInfo::s60Version() > QSysInfo::SV_S60_5_0)
+        flags = QT_EAknEditorFlagSelectionVisible;
+    else 
+        flags = 0;
     if (hints & ImhUppercaseOnly && !(hints & ImhLowercaseOnly)
             || hints & ImhLowercaseOnly && !(hints & ImhUppercaseOnly)) {
         flags |= EAknEditorFlagFixedCase;
@@ -473,9 +484,10 @@ void QCoeFepInputContext::applyHints(Qt::InputMethodHints hints)
 void QCoeFepInputContext::applyFormat(QList<QInputMethodEvent::Attribute> *attributes)
 {
     TCharFormat cFormat;
-    QColor styleTextColor = QApplication::palette("QLineEdit").text().color();
-    TLogicalRgb tontColor(TRgb(styleTextColor.red(), styleTextColor.green(), styleTextColor.blue(), styleTextColor.alpha()));
-    cFormat.iFontPresentation.iTextColor = tontColor;
+    const QColor styleTextColor = focusWidget() ? focusWidget()->palette().text().color() : 
+        QApplication::palette("QLineEdit").text().color();
+    const TLogicalRgb fontColor(TRgb(styleTextColor.red(), styleTextColor.green(), styleTextColor.blue(), styleTextColor.alpha()));
+    cFormat.iFontPresentation.iTextColor = fontColor;
 
     TInt numChars = 0;
     TInt charPos = 0;
@@ -550,6 +562,21 @@ void QCoeFepInputContext::StartFepInlineEditL(const TDesC& aInitialInlineText,
 
     m_formatRetriever = &aInlineTextFormatRetriever;
     m_pointerHandler = &aPointerEventHandlerDuringInlineEdit;
+
+    // With T9 aInitialInlineText is typically empty when StartFepInlineEditL is called,
+    // but FEP requires that selected text is always removed at StartFepInlineEditL.
+    // Let's remove the selected text if aInitialInlineText is empty and there is selected text
+    if (m_preeditString.isEmpty()) {
+        int anchor = w->inputMethodQuery(Qt::ImAnchorPosition).toInt();
+        int replacementLength = qAbs(m_cursorPos-anchor);
+        if (replacementLength > 0) {
+            int replacementStart = m_cursorPos < anchor ? 0 : -replacementLength;
+            QList<QInputMethodEvent::Attribute> clearSelectionAttributes;
+            QInputMethodEvent clearSelectionEvent(QLatin1String(""), clearSelectionAttributes);
+            clearSelectionEvent.setCommitString(QLatin1String(""), replacementStart, replacementLength);
+            sendEvent(clearSelectionEvent);
+        }
+    }
 
     applyFormat(&attributes);
 
@@ -739,31 +766,35 @@ void QCoeFepInputContext::GetScreenCoordinatesForFepL(TPoint& aLeftSideOfBaseLin
 
 void QCoeFepInputContext::DoCommitFepInlineEditL()
 {
-    commitCurrentString(true);
+    commitCurrentString(false);
+    if (QSysInfo::s60Version() > QSysInfo::SV_S60_5_0)
+        ReportAknEdStateEvent(QT_EAknCursorPositionChanged);
+
 }
 
-void QCoeFepInputContext::commitCurrentString(bool triggeredBySymbian)
+void QCoeFepInputContext::commitCurrentString(bool cancelFepTransaction)
 {
+    int longPress = 0;
+
     if (m_preeditString.size() == 0) {
         QWidget *w = focusWidget();
-        if (triggeredBySymbian && w) {
+        if (!cancelFepTransaction && w) {
             // We must replace the last character only if the input box has already accepted one 
             if (w->inputMethodQuery(Qt::ImCursorPosition).toInt() != m_cursorPos)
-                m_longPress = 1;
+                longPress = 1;
         }
-        return;
     }
 
     QList<QInputMethodEvent::Attribute> attributes;
     QInputMethodEvent event(QLatin1String(""), attributes);
-    event.setCommitString(m_preeditString, 0-m_longPress, m_longPress);
+    event.setCommitString(m_preeditString, 0-longPress, longPress);
     m_preeditString.clear();
     sendEvent(event);
 
     m_hasTempPreeditString = false;
-    m_longPress = 0;
+    longPress = 0;
 
-    if (!triggeredBySymbian) {
+    if (cancelFepTransaction) {
         CCoeFep* fep = CCoeEnv::Static()->Fep();
         if (fep)
             fep->CancelTransaction();

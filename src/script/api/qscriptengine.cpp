@@ -41,6 +41,7 @@
 #include <QtCore/qstringlist.h>
 #include <QtCore/qmetaobject.h>
 
+#include "CodeBlock.h"
 #include "Error.h"
 #include "JSArray.h"
 #include "JSLock.h"
@@ -662,7 +663,7 @@ JSC::JSValue JSC_HOST_CALL functionQsTranslate(JSC::ExecState *exec, JSC::JSObje
         else if (encStr == QLatin1String("UnicodeUTF8"))
             encoding = QCoreApplication::UnicodeUTF8;
         else
-            return JSC::throwError(exec, JSC::GeneralError, QString::fromLatin1("qsTranslate(): invalid encoding '%s'").arg(encStr));
+            return JSC::throwError(exec, JSC::GeneralError, QString::fromLatin1("qsTranslate(): invalid encoding '%0'").arg(encStr));
     }
     int n = -1;
     if (args.size() > 4)
@@ -696,12 +697,21 @@ JSC::JSValue JSC_HOST_CALL functionQsTr(JSC::ExecState *exec, JSC::JSObject*, JS
     if ((args.size() > 1) && !args.at(1).isString())
         return JSC::throwError(exec, JSC::GeneralError, "qsTr(): second argument (comment) must be a string");
     if ((args.size() > 2) && !args.at(2).isNumber())
-        return JSC::throwError(exec, JSC::GeneralError, "qsTranslate(): third argument (n) must be a number");
+        return JSC::throwError(exec, JSC::GeneralError, "qsTr(): third argument (n) must be a number");
 #ifndef QT_NO_QOBJECT
     QString context;
-    QScriptContext *ctx = QScriptEnginePrivate::contextForFrame(exec);
-    if (ctx && ctx->parentContext())
-        context = QFileInfo(QScriptContextInfo(ctx->parentContext()).fileName()).baseName();
+    // The first non-empty source URL in the call stack determines the translation context.
+    {
+        JSC::ExecState *frame = exec->removeHostCallFrameFlag();
+        while (frame) {
+            if (frame->codeBlock() && frame->codeBlock()->source()
+                && !frame->codeBlock()->source()->url().isEmpty()) {
+                context = QFileInfo(frame->codeBlock()->source()->url()).baseName();
+                break;
+            }
+            frame = frame->callerFrame()->removeHostCallFrameFlag();
+        }
+    }
 #endif
     QString text(args.at(0).toString(exec));
 #ifndef QT_NO_QOBJECT
@@ -768,7 +778,7 @@ static QScriptValue __setupPackage__(QScriptContext *ctx, QScriptEngine *eng)
 } // namespace QScript
 
 QScriptEnginePrivate::QScriptEnginePrivate()
-    : registeredScriptValues(0), freeScriptValues(0),
+    : registeredScriptValues(0), freeScriptValues(0), freeScriptValuesCount(0),
       registeredScriptStrings(0), inEval(false)
 {
     qMetaTypeId<QScriptValue>();
@@ -1007,11 +1017,15 @@ void QScriptEnginePrivate::setGlobalObject(JSC::JSObject *object)
     if (object == globalObject())
         return;
     QScript::GlobalObject *glob = static_cast<QScript::GlobalObject*>(originalGlobalObject());
-    if (object == originalGlobalObjectProxy)
+    if (object == originalGlobalObjectProxy) {
         glob->customGlobalObject = 0;
-    else {
+        // Sync the internal prototype, since JSObject::prototype() is not virtual.
+        glob->setPrototype(originalGlobalObjectProxy->prototype());
+    } else {
         Q_ASSERT(object != originalGlobalObject());
         glob->customGlobalObject = object;
+        // Sync the internal prototype, since JSObject::prototype() is not virtual.
+        glob->setPrototype(object->prototype());
     }
 }
 
@@ -1589,7 +1603,7 @@ QScriptValue QScriptEngine::newFunction(QScriptEngine::FunctionSignature fun,
 
 #ifndef QT_NO_REGEXP
 
-extern QString qt_regexp_toCanonical(const QString &, QRegExp::PatternSyntax);
+Q_DECL_IMPORT extern QString qt_regexp_toCanonical(const QString &, QRegExp::PatternSyntax);
 
 /*!
   Creates a QtScript object of class RegExp with the given
@@ -2921,11 +2935,11 @@ void QScriptEngine::installTranslatorFunctions(const QScriptValue &object)
     JSC::JSValue jscObject = d->scriptValueToJSCValue(object);
     JSC::JSGlobalObject *glob = d->originalGlobalObject();
     if (!jscObject || !jscObject.isObject())
-        jscObject = glob;
+        jscObject = d->globalObject();
 //    unsigned attribs = JSC::DontEnum;
     JSC::asObject(jscObject)->putDirectFunction(exec, new (exec)JSC::NativeFunctionWrapper(exec, glob->prototypeFunctionStructure(), 5, JSC::Identifier(exec, "qsTranslate"), QScript::functionQsTranslate));
     JSC::asObject(jscObject)->putDirectFunction(exec, new (exec)JSC::NativeFunctionWrapper(exec, glob->prototypeFunctionStructure(), 2, JSC::Identifier(exec, "QT_TRANSLATE_NOOP"), QScript::functionQsTranslateNoOp));
-    JSC::asObject(jscObject)->putDirectFunction(exec, new (exec)JSC::NativeFunctionWrapper(exec, glob->prototypeFunctionStructure(), 3, JSC::Identifier(exec, "qsTr"), QScript::functionQsTr));
+    JSC::asObject(jscObject)->putDirectFunction(exec, new (exec)JSC::PrototypeFunction(exec, glob->prototypeFunctionStructure(), 3, JSC::Identifier(exec, "qsTr"), QScript::functionQsTr));
     JSC::asObject(jscObject)->putDirectFunction(exec, new (exec)JSC::NativeFunctionWrapper(exec, glob->prototypeFunctionStructure(), 1, JSC::Identifier(exec, "QT_TR_NOOP"), QScript::functionQsTrNoOp));
 
     glob->stringPrototype()->putDirectFunction(exec, new (exec)JSC::NativeFunctionWrapper(exec, glob->prototypeFunctionStructure(), 1, JSC::Identifier(exec, "arg"), QScript::stringProtoFuncArg));

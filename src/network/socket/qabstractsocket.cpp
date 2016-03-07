@@ -155,6 +155,9 @@
     See the \l network/fortuneclient and \l network/blockingfortuneclient
     examples for an overview of both approaches.
 
+    \note We discourage the use of the blocking functions together
+    with signals. One of the two possibilities should be used.
+
     QAbstractSocket can be used with QTextStream and QDataStream's
     stream operators (operator<<() and operator>>()). There is one
     issue to be aware of, though: You must make sure that enough data
@@ -169,6 +172,10 @@
     This signal is emitted after connectToHost() has been called and
     the host lookup has succeeded.
 
+    \note Since Qt 4.6.3 QAbstractSocket may emit hostFound()
+    directly from the connectToHost() call since a DNS result could have been
+    cached.
+
     \sa connected()
 */
 
@@ -177,6 +184,10 @@
 
     This signal is emitted after connectToHost() has been called and
     a connection has been successfully established.
+
+    \note On some operating systems the connected() signal may
+    be directly emitted from the connectToHost() call for connections
+    to the localhost.
 
     \sa connectToHost(), disconnected()
 */
@@ -350,6 +361,8 @@
 
 #include "qabstractsocket.h"
 #include "qabstractsocket_p.h"
+
+#include "private/qhostinfo_p.h"
 
 #include <qabstracteventdispatcher.h>
 #include <qdatetime.h>
@@ -1366,8 +1379,20 @@ void QAbstractSocket::connectToHostImplementation(const QString &hostName, quint
         return;
 #endif
     } else {
-        if (d->threadData->eventDispatcher)
-            d->hostLookupId = QHostInfo::lookupHost(hostName, this, SLOT(_q_startConnecting(QHostInfo)));
+        if (d->threadData->eventDispatcher) {
+            // this internal API for QHostInfo either immediatly gives us the desired
+            // QHostInfo from cache or later calls the _q_startConnecting slot.
+            bool immediateResultValid = false;
+            QHostInfo hostInfo = qt_qhostinfo_lookup(hostName,
+                                                     this,
+                                                     SLOT(_q_startConnecting(QHostInfo)),
+                                                     &immediateResultValid,
+                                                     &d->hostLookupId);
+            if (immediateResultValid) {
+                d->hostLookupId = -1;
+                d->_q_startConnecting(hostInfo);
+            }
+        }
     }
 
 #if defined(QABSTRACTSOCKET_DEBUG)
@@ -1682,8 +1707,11 @@ static int qt_timeout_value(int msecs, int elapsed)
 
     If msecs is -1, this function will not time out.
 
-    Note: This function may wait slightly longer than \a msecs,
+    \note This function may wait slightly longer than \a msecs,
     depending on the time it takes to complete the host lookup.
+
+    \note Multiple calls to this functions do not accumulate the time.
+    If the function times out, the connecting process will be aborted.
 
     \sa connectToHost(), connected()
 */
@@ -1722,7 +1750,7 @@ bool QAbstractSocket::waitForConnected(int msecs)
         d->_q_startConnecting(QHostInfo::fromName(d->hostName));
     }
     if (state() == UnconnectedState)
-        return false;
+        return false; // connect not im progress anymore!
 
     bool timedOut = true;
 #if defined (QABSTRACTSOCKET_DEBUG)
@@ -2354,6 +2382,10 @@ void QAbstractSocket::disconnectFromHostImplementation()
 #if defined(QABSTRACTSOCKET_DEBUG)
         qDebug("QAbstractSocket::disconnectFromHost() aborting immediately");
 #endif
+        if (d->state == HostLookupState) {
+            QHostInfo::abortHostLookup(d->hostLookupId);
+            d->hostLookupId = -1;
+        }
     } else {
         // Perhaps emit closing()
         if (d->state != ClosingState) {

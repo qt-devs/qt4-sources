@@ -68,8 +68,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qregexp.html#operator-lt-lt-90">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qregexp.html#operator-gt-gt-53">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qregexp.html#operator-lt-lt-190">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qregexp.html#operator-gt-gt-106">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</td></tr>
 </table>
 <a name="details"></a>
 <hr />
@@ -190,7 +190,7 @@
 <tr valign="top" class="odd"><td><b>*</b></td><td>Matches zero or more of any characters. It is the same as <b>.*</b> in full regexps.</td></tr>
 <tr valign="top" class="even"><td><b>[..&#x2e;]</b></td><td>Sets of characters can be represented in square brackets, similar to full regexps. Within the character class, like outside, backslash has no special meaning.</td></tr>
 </table></p>
-<p>In the mode Wildcard, the wildcard characters cannot be escaped. In the mode <a href="qregexp.html#PatternSyntax-enum">WildcardUnix</a>, the character '' escapes the wildcard.</p>
+<p>In the mode Wildcard, the wildcard characters cannot be escaped. In the mode <a href="qregexp.html#PatternSyntax-enum">WildcardUnix</a>, the character '\' escapes the wildcard.</p>
 <p>For example if we are in wildcard mode and have strings which contain filenames we could identify HTML files with <b>*.html</b>. This will match zero or more characters followed by a dot followed by 'h', 't', 'm' and 'l'.</p>
 <p>To test a string against a wildcard expression, use <a href="qregexp.html#exactMatch">exactMatch</a>(). For example:</p>
 <pre> QRegExp rx(&quot;*.txt&quot;);
@@ -306,7 +306,7 @@
 <tr><td valign="top"><tt>QRegExp::RegExp</tt></td><td align="center" valign="top"><tt>0</tt></td><td valign="top">A rich Perl-like pattern matching syntax. This is the default.</td></tr>
 <tr><td valign="top"><tt>QRegExp::RegExp2</tt></td><td align="center" valign="top"><tt>3</tt></td><td valign="top">Like RegExp, but with <a href="qregexp.html#greedy-quantifiers">greedy quantifiers</a>. This will be the default in Qt 5. (Introduced in Qt 4.2&#x2e;)</td></tr>
 <tr><td valign="top"><tt>QRegExp::Wildcard</tt></td><td align="center" valign="top"><tt>1</tt></td><td valign="top">This provides a simple pattern matching syntax similar to that used by shells (command interpreters) for &quot;file globbing&quot;. See <a href="qregexp.html#wildcard-matching">Wildcard Matching</a>.</td></tr>
-<tr><td valign="top"><tt>QRegExp::WildcardUnix</tt></td><td align="center" valign="top"><tt>4</tt></td><td valign="top">This is similar to Wildcard but with the behavior of a Unix shell. The wildcard characters can be escaped with the character &quot;&quot;.</td></tr>
+<tr><td valign="top"><tt>QRegExp::WildcardUnix</tt></td><td align="center" valign="top"><tt>4</tt></td><td valign="top">This is similar to Wildcard but with the behavior of a Unix shell. The wildcard characters can be escaped with the character &quot;\&quot;.</td></tr>
 <tr><td valign="top"><tt>QRegExp::FixedString</tt></td><td align="center" valign="top"><tt>2</tt></td><td valign="top">The pattern is a fixed string. This is equivalent to using the RegExp pattern on a string in which all metacharacters are escaped using <a href="qregexp.html#escape">escape</a>().</td></tr>
 <tr><td valign="top"><tt>QRegExp::W3CXmlSchema11</tt></td><td align="center" valign="top"><tt>5</tt></td><td valign="top">The pattern is a regular expression as defined by the W3C XML Schema 1.1 specification.</td></tr>
 </table></p>
@@ -489,16 +489,16 @@
 <p>Two <a href="qregexp.html">QRegExp</a> objects are equal if they have the same pattern strings and the same settings for case sensitivity, wildcard and minimal matching.</p>
 <hr />
 <h2>Related Non-Members</h2>
-<h3 class="fn"><a name="operator-lt-lt-90"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-190"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</h3>
 <p>Writes the regular expression <i>regExp</i> to stream <i>out</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream Operators</a>.</p>
-<h3 class="fn"><a name="operator-gt-gt-53"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-106"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</h3>
 <p>Reads a regular expression from stream <i>in</i> into <i>regExp</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream Operators</a>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

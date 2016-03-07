@@ -120,14 +120,14 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-not-eq-19">operator!=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-lt-7">operator&lt;</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-lt-lt-100">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-not-eq-25">operator!=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-lt-8">operator&lt;</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-lt-lt-83">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-lt-eq-4">operator&lt;=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-eq-eq-34">operator==</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-eq-eq-44">operator==</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-gt-4">operator&gt;</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-gt-eq-4">operator&gt;=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-gt-gt-58">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QChar &amp; <i>chr</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qchar.html#operator-gt-gt-49">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QChar &amp; <i>chr</i> )</td></tr>
 </table>
 <a name="details"></a>
 <hr />
@@ -343,8 +343,8 @@
 <tr><th width="25%">Constant</th><th width="15%">Value</th><th width="60%">Description</th></tr>
 <tr><td valign="top"><tt>QChar::Null</tt></td><td align="center" valign="top"><tt>0x0000</tt></td><td valign="top">A <a href="qchar.html">QChar</a> with this value <a href="qchar.html#isNull">isNull</a>().</td></tr>
 <tr><td valign="top"><tt>QChar::Nbsp</tt></td><td align="center" valign="top"><tt>0x00a0</tt></td><td valign="top">Non-breaking space.</td></tr>
-<tr><td valign="top"><tt>QChar::ReplacementCharacter</tt></td><td align="center" valign="top"><tt>0xfffd</tt></td><td valign="top">&nbsp;</td></tr>
-<tr><td valign="top"><tt>QChar::ObjectReplacementCharacter</tt></td><td align="center" valign="top"><tt>0xfffc</tt></td><td valign="top">The character shown when a font has no glyph for a certain codepoint. The square character is normally used.</td></tr>
+<tr><td valign="top"><tt>QChar::ReplacementCharacter</tt></td><td align="center" valign="top"><tt>0xfffd</tt></td><td valign="top">The character shown when a font has no glyph for a certain codepoint. A special question mark character is often used. Codecs use this codepoint when input data cannot be represented in Unicode.</td></tr>
+<tr><td valign="top"><tt>QChar::ObjectReplacementCharacter</tt></td><td align="center" valign="top"><tt>0xfffc</tt></td><td valign="top">Used to represent an object such as an image when such objects cannot be presented.</td></tr>
 <tr><td valign="top"><tt>QChar::ByteOrderMark</tt></td><td align="center" valign="top"><tt>0xfeff</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>QChar::ByteOrderSwapped</tt></td><td align="center" valign="top"><tt>0xfffe</tt></td><td valign="top">&nbsp;</td></tr>
 <tr><td valign="top"><tt>QChar::ParagraphSeparator</tt></td><td align="center" valign="top"><tt>0x2029</tt></td><td valign="top">&nbsp;</td></tr>
@@ -619,28 +619,28 @@
 <p>Returns the Unicode version that introduced the character specified in its UCS-2-encoded form as <i>ucs2</i>.</p>
 <hr />
 <h2>Related Non-Members</h2>
-<h3 class="fn"><a name="operator-not-eq-19"></a>bool operator!= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-25"></a>bool operator!= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if <i>c1</i> and <i>c2</i> are not the same Unicode character; otherwise returns false.</p>
-<h3 class="fn"><a name="operator-lt-7"></a>bool operator&lt; ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-lt-8"></a>bool operator&lt; ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is less than that of <i>c2</i>; otherwise returns false.</p>
-<h3 class="fn"><a name="operator-lt-lt-100"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-83"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</h3>
 <p>Writes the char <i>chr</i> to the stream <i>out</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <h3 class="fn"><a name="operator-lt-eq-4"></a>bool operator&lt;= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is less than or equal to that of <i>c2</i>; otherwise returns false.</p>
-<h3 class="fn"><a name="operator-eq-eq-34"></a>bool operator== ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-44"></a>bool operator== ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if <i>c1</i> and <i>c2</i> are the same Unicode character; otherwise returns false.</p>
 <h3 class="fn"><a name="operator-gt-4"></a>bool operator&gt; ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is greater than that of <i>c2</i>; otherwise returns false.</p>
 <h3 class="fn"><a name="operator-gt-eq-4"></a>bool operator&gt;= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is greater than or equal to that of <i>c2</i>; otherwise returns false.</p>
-<h3 class="fn"><a name="operator-gt-gt-58"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QChar &amp; <i>chr</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-49"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QChar &amp; <i>chr</i> )</h3>
 <p>Reads a char from the stream <i>in</i> into char <i>chr</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

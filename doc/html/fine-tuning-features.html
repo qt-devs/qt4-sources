@@ -39,7 +39,6 @@
 <h3>Managing Large Numbers of Features</h3>
 <p>If you want to disable a lot of features, it is more comfortable to use the <tt>qconfig</tt> tool. You can disable a <i>set</i> of features by creating a custom configuration file that defines the preferred subset of Qt's functionality. Such a file uses macros to disable the unwanted features, and can be created manually or by using the <tt>qconfig</tt> tool located in the <tt>tools/qconfig</tt> directory of the Qt source distribution.</p>
 <p><b>Note:</b> The <tt>qconfig</tt> tool is intended to be built against Qt on desktop platforms.</p>
-<p><b>Windows CE:</b> The Qt for Windows CE package contains a <tt>qconfig</tt> executable that you can run on a Windows desktop to configure the build.</p>
 <p align="center"><img src="images/qt-embedded-qconfigtool.png" /></p><p>The <tt>qconfig</tt> tool's interface displays all of Qt's functionality, and allows the user to both disable and enable features. The user can open and edit any custom configuration file located in the <tt>src/corelib/global</tt> directory. When creating a custom configuration file manually, a description of the currently available Qt features can be found in the <tt>src/corelib/global/qfeatures.txt</tt> file.</p>
 <p>Note that some features depend on others; disabling any feature will automatically disable all features depending on it. The feature dependencies can be explored using the <tt>qconfig</tt> tool, but they are also described in the <tt>src/corelib/global/qfeatures.h</tt> file.</p>
 <p>To be able to apply the custom configuration, it must be saved in a file called <tt>qconfig-myfile.h</tt> in the <tt>src/corelib/global</tt> directory. Then use the <tt>configure</tt> tool's <tt>-qconfig</tt> option and pass the configuration's file name without the <tt>qconfig-</tt> prefix and <tt>.h</tt> extension, as argument. The following examples show how this is invoked on each of the embedded platforms for a file called <tt>qconfig-myfile.h</tt>:</p>
@@ -52,6 +51,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

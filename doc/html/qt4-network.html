@@ -176,7 +176,7 @@
      }</pre>
 <a name="comparison-with-qt-3"></a>
 <h2>Comparison with Qt 3</h2>
-<p>The main difference between Qt 3 and Qt 4 is that the very high level <a href="porting4.html#qnetworkprotocol">QNetworkProtocol</a> and <a href="porting4.html#qurloperator">QUrlOperator</a> abstraction has been eliminated. These classes attempted the impossible (unify FTP and HTTP under one roof), and unsurprisingly failed at that. Qt 4 still provides <a href="qftp.html">QFtp</a>, and it also proveds the <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
+<p>The main difference between Qt 3 and Qt 4 is that the very high level <a href="porting4.html#qnetworkprotocol">QNetworkProtocol</a> and <a href="porting4.html#qurloperator">QUrlOperator</a> abstraction has been eliminated. These classes attempted the impossible (unify FTP and HTTP under one roof), and unsurprisingly failed at that. Qt 4 still provides <a href="qftp.html">QFtp</a>, and it also provides the <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
 <p>The <a href="porting4.html#qsocket">QSocket</a> class in Qt 3 has been renamed <a href="qtcpsocket.html">QTcpSocket</a>. The new class is reentrant and supports blocking. It's also easier to handle closing than with Qt 3, where you had to connect to both the QSocket::connectionClosed() and the QSocket::delayedCloseFinished() signals.</p>
 <p>The <a href="porting4.html#qserversocket">QServerSocket</a> class in Qt 3 has been renamed <a href="qtcpserver.html">QTcpServer</a>. The API has changed quite a bit. While in Qt 3 it was necessary to subclass <a href="porting4.html#qserversocket">QServerSocket</a> and reimplement the newConnection() pure virtual function, <a href="qtcpserver.html">QTcpServer</a> now emits a <a href="qtcpserver.html#newConnection">newConnection()</a> signal that you can connect to a slot.</p>
 <p>The <a href="qhostinfo.html">QHostInfo</a> class has been redesigned to use the operating system's getaddrinfo() function instead of implementing the DNS protocol. Internally, <a href="qhostinfo.html">QHostInfo</a> simply starts a thread and calls getaddrinfo() in that thread. This wasn't possible in Qt 3 because getaddrinfo() is a blocking call and Qt 3 could be configured without multithreading support.</p>
@@ -192,6 +192,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

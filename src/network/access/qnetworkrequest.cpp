@@ -138,6 +138,8 @@ QT_BEGIN_NAMESPACE
         default follow redirections: it's up to the application to
         determine if the requested redirection should be allowed,
         according to its security policies.
+        The returned URL might be relative. Use QUrl::resolved()
+        to create an absolute URL out of it.
 
     \value ConnectionEncryptedAttribute
         Replies only, type: QVariant::Bool (default: false)
@@ -649,7 +651,7 @@ static QVariant parseCookieHeader(const QByteArray &raw)
 {
     QList<QNetworkCookie> result;
     QList<QByteArray> cookieList = raw.split(';');
-    foreach (QByteArray cookie, cookieList) {
+    foreach (const QByteArray &cookie, cookieList) {
         QList<QNetworkCookie> parsed = QNetworkCookie::parseCookies(cookie.trimmed());
         if (parsed.count() != 1)
             return QVariant();  // invalid Cookie: header

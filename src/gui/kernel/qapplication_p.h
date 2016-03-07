@@ -427,7 +427,9 @@ public:
     static int  cursor_flash_time;
     static int  mouse_double_click_time;
     static int  keyboard_input_time;
+#ifndef QT_NO_WHEELEVENT
     static int  wheel_scroll_lines;
+#endif
 
     static bool animate_ui;
     static bool animate_menu;
@@ -528,6 +530,7 @@ public:
                                        const QList<QTouchEvent::TouchPoint> &touchPoints);
 
 #if defined(Q_WS_WIN)
+    static bool HasTouchSupport;
     static PtrRegisterTouchWindow RegisterTouchWindow;
     static PtrGetTouchInputInfo GetTouchInputInfo;
     static PtrCloseTouchInputHandle CloseTouchInputHandle;
@@ -563,7 +566,8 @@ public:
     void _q_readRX71MultiTouchEvents();
 #endif
 
-#if defined(Q_WS_S60)
+#if defined(Q_OS_SYMBIAN)
+    int pressureSupported;
     int maxTouchPressure;
     QList<QTouchEvent::TouchPoint> appAllTouchPoints;
 #endif

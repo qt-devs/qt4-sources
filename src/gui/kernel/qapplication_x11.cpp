@@ -96,6 +96,11 @@ extern "C" {
 }
 #endif
 
+#ifndef QT_GUI_DOUBLE_CLICK_RADIUS
+#define QT_GUI_DOUBLE_CLICK_RADIUS 5
+#endif
+
+
 //#define ALIEN_DEBUG
 
 #if !defined(QT_NO_GLIB)
@@ -315,9 +320,14 @@ static const char * x11_atomnames = {
     "_XEMBED\0"
     "_XEMBED_INFO\0"
 
+    // Wacom old. (before version 0.10)
     "Wacom Stylus\0"
     "Wacom Cursor\0"
     "Wacom Eraser\0"
+
+    // Tablet
+    "STYLUS\0"
+    "ERASER\0"
 };
 
 Q_GUI_EXPORT QX11Data *qt_x11Data = 0;
@@ -944,10 +954,12 @@ bool QApplicationPrivate::x11_apply_settings()
                        QApplication::cursorFlashTime()).toInt();
     QApplication::setCursorFlashTime(num);
 
+#ifndef QT_NO_WHEELEVENT
     num =
         settings.value(QLatin1String("wheelScrollLines"),
                        QApplication::wheelScrollLines()).toInt();
     QApplication::setWheelScrollLines(num);
+#endif
 
     QString colorspec = settings.value(QLatin1String("colorSpec"),
                                        QVariant(QLatin1String("default"))).toString();
@@ -2359,12 +2371,12 @@ void qt_init(QApplicationPrivate *priv, int,
                     gotStylus = true;
                 }
 #else
-                if (devs->type == ATOM(XWacomStylus)) {
+                if (devs->type == ATOM(XWacomStylus) || devs->type == ATOM(XTabletStylus)) {
                     deviceType = QTabletEvent::Stylus;
                     if (wacomDeviceName()->isEmpty())
                         wacomDeviceName()->append(devs->name);
                     gotStylus = true;
-                } else if (devs->type == ATOM(XWacomEraser)) {
+                } else if (devs->type == ATOM(XWacomEraser) || devs->type == ATOM(XTabletEraser)) {
                     deviceType = QTabletEvent::XFreeEraser;
                     gotEraser = true;
                 }
@@ -4213,8 +4225,8 @@ bool QETWidget::translateMouseEvent(const XEvent *event)
                 mouseButtonPressed == button &&
                 (long)event->xbutton.time -(long)mouseButtonPressTime
                 < QApplication::doubleClickInterval() &&
-                qAbs(event->xbutton.x - mouseXPos) < 5 &&
-                qAbs(event->xbutton.y - mouseYPos) < 5) {
+                qAbs(event->xbutton.x - mouseXPos) < QT_GUI_DOUBLE_CLICK_RADIUS &&
+                qAbs(event->xbutton.y - mouseYPos) < QT_GUI_DOUBLE_CLICK_RADIUS) {
                 type = QEvent::MouseButtonDblClick;
                 mouseButtonPressTime -= 2000;        // no double-click next time
             } else {
@@ -4401,8 +4413,10 @@ bool QETWidget::translateWheelEvent(int global_x, int global_y, int delta,
         QWidget* popup = qApp->activePopupWidget();
         if (popup && window() != popup)
             popup->close();
+#ifndef QT_NO_WHEELEVENT
         QWheelEvent e(pos, globalPos, delta, buttons, modifiers, orient);
         if (QApplication::sendSpontaneousEvent(widget, &e))
+#endif
             return true;
     }
 
@@ -4413,8 +4427,10 @@ bool QETWidget::translateWheelEvent(int global_x, int global_y, int delta,
         QWidget* popup = qApp->activePopupWidget();
         if (popup && widget != popup)
             popup->hide();
+#ifndef QT_NO_WHEELEVENT
         QWheelEvent e(pos, globalPos, delta, buttons, modifiers, orient);
         if (QApplication::sendSpontaneousEvent(widget, &e))
+#endif
             return true;
     }
     return false;
@@ -5313,6 +5329,7 @@ int QApplication::keyboardInputInterval()
     return QApplicationPrivate::keyboard_input_time;
 }
 
+#ifndef QT_NO_WHEELEVENT
 void QApplication::setWheelScrollLines(int n)
 {
     QApplicationPrivate::wheel_scroll_lines = n;
@@ -5322,6 +5339,7 @@ int QApplication::wheelScrollLines()
 {
     return QApplicationPrivate::wheel_scroll_lines;
 }
+#endif
 
 void QApplication::setEffectEnabled(Qt::UIEffect effect, bool enable)
 {

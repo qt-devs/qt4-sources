@@ -76,6 +76,10 @@
 #ifndef QT_NO_EFFECTS
 # include <private/qeffects_p.h>
 #endif
+#if defined(Q_WS_S60)
+#include "private/qt_s60_p.h"
+#endif
+
 QT_BEGIN_NAMESPACE
 
 QComboBoxPrivate::QComboBoxPrivate()
@@ -139,7 +143,10 @@ QStyleOptionMenuItem QComboMenuDelegate::getStyleOption(const QStyleOptionViewIt
         menuOption.icon = qvariant_cast<QPixmap>(variant);
         break;
     }
-
+    if (qVariantCanConvert<QBrush>(index.data(Qt::BackgroundRole))) {
+        menuOption.palette.setBrush(QPalette::All, QPalette::Background,
+                                    qvariant_cast<QBrush>(index.data(Qt::BackgroundRole)));
+    }
     menuOption.text = index.model()->data(index, Qt::DisplayRole).toString()
                            .replace(QLatin1Char('&'), QLatin1String("&&"));
     menuOption.tabWidth = 0;
@@ -532,8 +539,10 @@ void QComboBoxPrivateContainer::setItemView(QAbstractItemView *itemView)
     QStyleOptionComboBox opt = comboStyleOption();
     const bool usePopup = combo->style()->styleHint(QStyle::SH_ComboBox_Popup, &opt, combo);
 #ifndef QT_NO_SCROLLBAR
+#ifndef Q_WS_S60
     if (usePopup)
         view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+#endif
 #endif
     if (combo->style()->styleHint(QStyle::SH_ComboBox_ListMouseTracking, &opt, combo) ||
         usePopup) {
@@ -607,7 +616,13 @@ void QComboBoxPrivateContainer::changeEvent(QEvent *e)
         view->setMouseTracking(combo->style()->styleHint(QStyle::SH_ComboBox_ListMouseTracking, &opt, combo) ||
                                combo->style()->styleHint(QStyle::SH_ComboBox_Popup, &opt, combo));
         setFrameStyle(combo->style()->styleHint(QStyle::SH_ComboBox_PopupFrameStyle, &opt, combo));
+#ifdef QT_SOFTKEYS_ENABLED
+    } else if (e->type() == QEvent::LanguageChange) {
+        selectAction->setText(QSoftKeyManager::standardSoftKeyText(QSoftKeyManager::SelectSoftKey));
+        cancelAction->setText(QSoftKeyManager::standardSoftKeyText(QSoftKeyManager::CancelSoftKey));
+#endif
     }
+
     QWidget::changeEvent(e);
 }
 
@@ -2410,24 +2425,49 @@ void QComboBox::showPopup()
         // Position horizontally.
         listRect.moveLeft(above.x());
 
+#ifndef Q_WS_S60
         // Position vertically so the curently selected item lines up
         // with the combo box.
         const QRect currentItemRect = view()->visualRect(view()->currentIndex());
         const int offset = listRect.top() - currentItemRect.top();
         listRect.moveTop(above.y() + offset - listRect.top());
+#endif
 
 
         // Clamp the listRect height and vertical position so we don't expand outside the
         // available screen geometry.This may override the vertical position, but it is more
         // important to show as much as possible of the popup.
         const int height = !boundToScreen ? listRect.height() : qMin(listRect.height(), screen.height());
+#ifdef Q_WS_S60
+        //popup needs to be stretched with screen minimum dimension
+        listRect.setHeight(qMin(screen.height(), screen.width()));
+#else
         listRect.setHeight(height);
+#endif
+
         if (boundToScreen) {
             if (listRect.top() < screen.top())
                 listRect.moveTop(screen.top());
             if (listRect.bottom() > screen.bottom())
                 listRect.moveBottom(screen.bottom());
         }
+#ifdef Q_WS_S60
+        if (screen.width() < screen.height()) {
+            // in portait, menu should be positioned above softkeys
+            listRect.moveBottom(screen.bottom());
+        } else {
+            TRect staConTopRect = TRect();
+            AknLayoutUtils::LayoutMetricsRect(AknLayoutUtils::EStaconTop, staConTopRect);
+            listRect.setWidth(listRect.height());
+            //by default popup is centered on screen in landscape
+            listRect.moveCenter(screen.center());
+            if (staConTopRect.IsEmpty()) {
+                // landscape without stacon, menu should be at the right
+                (opt.direction == Qt::LeftToRight) ? listRect.setRight(screen.right()) :
+                                                     listRect.setLeft(screen.left());
+            }
+        }
+#endif
     } else if (!boundToScreen || listRect.height() <= belowHeight) {
         listRect.moveTopLeft(below);
     } else if (listRect.height() <= aboveHeight) {
@@ -2636,6 +2676,39 @@ void QComboBox::changeEvent(QEvent *e)
         if (d->lineEdit)
             d->updateLineEditGeometry();
         d->setLayoutItemMargins(QStyle::SE_ComboBoxLayoutItem);
+
+#ifdef Q_WS_S60
+        if (d->container) {
+            QStyleOptionComboBox opt;
+            initStyleOption(&opt);
+
+            if (style()->styleHint(QStyle::SH_ComboBox_Popup, &opt, this)) {
+                const QRect screen = d->popupGeometry(QApplication::desktop()->screenNumber(this));
+
+                QRect listRect(style()->subControlRect(QStyle::CC_ComboBox, &opt,
+                    QStyle::SC_ComboBoxListBoxPopup, this));
+                listRect.setHeight(qMin(screen.height(), screen.width()));
+
+                if (screen.width() < screen.height()) {
+                    // in portait, menu should be positioned above softkeys
+                    listRect.moveBottom(screen.bottom());
+                } else {
+                    TRect staConTopRect = TRect();
+                    AknLayoutUtils::LayoutMetricsRect(AknLayoutUtils::EStaconTop, staConTopRect);
+                    listRect.setWidth(listRect.height());
+                    //by default popup is centered on screen in landscape
+                    listRect.moveCenter(screen.center());
+                    if (staConTopRect.IsEmpty()) {
+                        // landscape without stacon, menu should be at the right
+                        (opt.direction == Qt::LeftToRight) ? listRect.setRight(screen.right()) :
+                                                             listRect.setLeft(screen.left());
+                    }
+                    d->container->setGeometry(listRect);
+                }
+            }
+        }
+#endif
+
         // ### need to update scrollers etc. as well here
         break;
     case QEvent::EnabledChange:

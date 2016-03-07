@@ -54,14 +54,14 @@
 #ifndef QXMLSTREAM_P_H
 #define QXMLSTREAM_P_H
 
-#if defined(Q_OS_VXWORKS) && defined(ERROR)
+#if defined(ERROR)
 #  undef ERROR
 #endif
 
 class QXmlStreamReader_Table
 {
 public:
-  enum {
+  enum VariousConstants {
     EOF_SYMBOL = 0,
     AMPERSAND = 5,
     ANY = 41,
@@ -1242,7 +1242,7 @@ bool QXmlStreamReaderPrivate::parse()
             state_stack[tos] = 0;
             return true;
         } else if (act > 0) {
-            if (++tos == stack_size)
+            if (++tos == stack_size-1)
                 reallocateStack();
 
             Value &val = sym_stack[tos];

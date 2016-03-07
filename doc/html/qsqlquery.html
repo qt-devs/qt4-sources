@@ -193,8 +193,11 @@
 <p>See also <a href="qsqlquery.html#previous">previous</a>(), <a href="qsqlquery.html#next">next</a>(), <a href="qsqlquery.html#first">first</a>(), <a href="qsqlquery.html#last">last</a>(), <a href="qsqlquery.html#seek">seek</a>(), <a href="qsqlquery.html#isActive">isActive</a>(), and <a href="qsqlquery.html#isValid">isValid</a>().</p>
 <a name="//apple_ref/cpp/instm/QSqlQuery/bindValue"></a>
 <h3 class="fn"><a name="bindValue"></a>void QSqlQuery::bindValue ( const <a href="qstring.html">QString</a> &amp; <i>placeholder</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>val</i>, <a href="qsql.html#ParamTypeFlag-enum">QSql::ParamType</a> <i>paramType</i> = QSql::In )</h3>
-<p>Set the placeholder <i>placeholder</i> to be bound to value <i>val</i> in the prepared statement. Note that the placeholder mark (e.g <tt>:</tt>) must be included when specifying the placeholder name. If <i>paramType</i> is <a href="qsql.html#ParamTypeFlag-enum">QSql::Out</a> or <a href="qsql.html#ParamTypeFlag-enum">QSql::InOut</a>, the placeholder will be overwritten with data from the database after the <a href="qsqlquery.html#exec">exec</a>() call.</p>
+<p>Set the placeholder <i>placeholder</i> to be bound to value <i>val</i> in the prepared statement. Note that the placeholder mark (e.g <tt>:</tt>) must be included when specifying the placeholder name. If <i>paramType</i> is <a href="qsql.html#ParamTypeFlag-enum">QSql::Out</a> or <a href="qsql.html#ParamTypeFlag-enum">QSql::InOut</a>, the placeholder will be overwritten with data from the database after the <a href="qsqlquery.html#exec">exec</a>() call. In this case, sufficient space must be pre-allocated to store the result into.</p>
 <p>To bind a NULL value, use a null <a href="qvariant.html">QVariant</a>; for example, use <tt>QVariant(QVariant::String)</tt> if you are binding a string.</p>
+<p>Values cannot be bound to multiple locations in the query, eg:</p>
+<pre> INSERT INTO testtable (id, name, samename) VALUES (:id, :name, :name)</pre>
+<p>Binding to name will bind to the first :name, but not the second.</p>
 <p>See also <a href="qsqlquery.html#addBindValue">addBindValue</a>(), <a href="qsqlquery.html#prepare">prepare</a>(), <a href="qsqlquery.html#exec">exec</a>(), <a href="qsqlquery.html#boundValue">boundValue</a>(), and <a href="qsqlquery.html#boundValues">boundValues</a>().</p>
 <h3 class="fn"><a name="bindValue-2"></a>void QSqlQuery::bindValue ( int <i>pos</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>val</i>, <a href="qsql.html#ParamTypeFlag-enum">QSql::ParamType</a> <i>paramType</i> = QSql::In )</h3>
 <p>Set the placeholder in position <i>pos</i> to be bound to value <i>val</i> in the prepared statement. Field numbering starts at 0. If <i>paramType</i> is <a href="qsql.html#ParamTypeFlag-enum">QSql::Out</a> or <a href="qsql.html#ParamTypeFlag-enum">QSql::InOut</a>, the placeholder will be overwritten with data from the database after the <a href="qsqlquery.html#exec">exec</a>() call.</p>
@@ -412,6 +415,7 @@
 <p>Forward only mode can be (depending on the driver) more memory efficient since results do not need to be cached. It will also improve performance on some databases. For this to be true, you must call <tt>setForwardOnly()</tt> before the query is prepared or executed. Note that the constructor that takes a query and a database may execute the query.</p>
 <p>Forward only mode is off by default.</p>
 <p>Setting forward only to false is a suggestion to the database engine, which has the final say on whether a result set is forward only or scrollable. <a href="qsqlquery.html#isForwardOnly">isForwardOnly</a>() will always return the correct status of the result set.</p>
+<p><b>Note:</b> Calling setForwardOnly after execution of the query will result in unexpected results at best, and crashes at worst.</p>
 <p>See also <a href="qsqlquery.html#isForwardOnly">isForwardOnly</a>(), <a href="qsqlquery.html#next">next</a>(), <a href="qsqlquery.html#seek">seek</a>(), and <a href="qsqlresult.html#setForwardOnly">QSqlResult::setForwardOnly</a>().</p>
 <a name="//apple_ref/cpp/instm/QSqlQuery/setNumericalPrecisionPolicy"></a>
 <h3 class="fn"><a name="setNumericalPrecisionPolicy"></a>void QSqlQuery::setNumericalPrecisionPolicy ( <a href="qsql.html#NumericalPrecisionPolicy-enum">QSql::NumericalPrecisionPolicy</a> <i>precisionPolicy</i> )</h3>
@@ -440,6 +444,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

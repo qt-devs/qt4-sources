@@ -680,8 +680,7 @@ void QNetworkAccessHttpBackend::readFromHttp()
     QByteDataBuffer list;
 
     while (httpReply->bytesAvailable() != 0 && nextDownstreamBlockSize() != 0 && nextDownstreamBlockSize() > list.byteAmount()) {
-        QByteArray data = httpReply->readAny();
-        list.append(data);
+        list.append(httpReply->readAny());
     }
 
     if (!list.isEmpty())
@@ -753,7 +752,7 @@ void QNetworkAccessHttpBackend::replyHeaderChanged()
         QByteArray value = rawHeader(it->first);
         if (!value.isEmpty()) {
             if (qstricmp(it->first.constData(), "set-cookie") == 0)
-                value += "\n";
+                value += '\n';
             else
                 value += ", ";
         }
@@ -976,7 +975,7 @@ QNetworkCacheMetaData QNetworkAccessHttpBackend::fetchCacheMetaData(const QNetwo
         // of writes to disk when using a QNetworkDiskCache (i.e. don't
         // write to disk when only the date changes).
         // However, without the date we cannot calculate the age of the page
-        // anymore. Consider a proper fix of that problem for 4.6.1.
+        // anymore.
         //if (header == "date")
             //continue;
 

@@ -114,15 +114,14 @@ void QSpanCollection::updateSpan(QSpanCollection::Span *span, int old_height)
         }
     } else if (old_height > span->height()) {
         //remove the span from all the subspans lists that intersect the columns not covered anymore
-        Index::iterator it_y = index.lowerBound(-span->bottom());
-        if (it_y == index.end())
-            it_y = index.find(-span->top());    // This is the only span remaining and we are deleting it.
+        Index::iterator it_y = index.lowerBound(-qMax(span->bottom(), span->top())); //qMax usefull if height is 0
         Q_ASSERT(it_y != index.end()); //it_y must exist since the span is in the list
         while (-it_y.key() <= span->top() + old_height -1) {
             if (-it_y.key() > span->bottom()) {
-                (*it_y).remove(-span->left());
+                int removed = (*it_y).remove(-span->left());
+                Q_ASSERT(removed == 1); Q_UNUSED(removed);
                 if (it_y->isEmpty()) {
-                    it_y = index.erase(it_y) - 1;
+                    it_y = index.erase(it_y);
                 }
             }
             if(it_y == index.begin())
@@ -1908,6 +1907,7 @@ QRegion QTableView::visualRegionForSelection(const QItemSelection &selection) co
                                                  width, rowHeight(r)));
         }
     } else { // nothing moved
+        const int gridAdjust = showGrid() ? 1 : 0;
         for (int i = 0; i < selection.count(); ++i) {
             QItemSelectionRange range = selection.at(i);
             if (range.parent() != d->root || !range.isValid())
@@ -1916,9 +1916,16 @@ QRegion QTableView::visualRegionForSelection(const QItemSelection &selection) co
 
             const int rtop = rowViewportPosition(range.top());
             const int rbottom = rowViewportPosition(range.bottom()) + rowHeight(range.bottom());
-            const int rleft = columnViewportPosition(range.left());
-            const int rright = columnViewportPosition(range.right()) + columnWidth(range.right());
-            selectionRegion += QRect(QPoint(rleft, rtop), QPoint(rright, rbottom));
+            int rleft;
+            int rright;
+            if (isLeftToRight()) {
+                rleft = columnViewportPosition(range.left());
+                rright = columnViewportPosition(range.right()) + columnWidth(range.right());
+            } else {
+                rleft = columnViewportPosition(range.right());
+                rright = columnViewportPosition(range.left()) + columnWidth(range.left());
+            }
+            selectionRegion += QRect(QPoint(rleft, rtop), QPoint(rright - 1 - gridAdjust, rbottom - 1 - gridAdjust));
             if (d->hasSpans()) {
                 foreach (QSpanCollection::Span *s,
                          d->spans.spansInRect(range.left(), range.top(), range.width(), range.height())) {
@@ -2546,7 +2553,7 @@ void QTableView::scrollTo(const QModelIndex &index, ScrollHint hint)
     // check if we really need to do anything
     if (!d->isIndexValid(index)
         || (d->model->parent(index) != d->root)
-        || isIndexHidden(index))
+        || isRowHidden(index.row()) || isColumnHidden(index.column()))
         return;
 
     QSpanCollection::Span span;

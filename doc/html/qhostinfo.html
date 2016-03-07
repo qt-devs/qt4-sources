@@ -75,6 +75,7 @@
 <pre> QHostInfo info = QHostInfo::fromName(&quot;qt.nokia.com&quot;);</pre>
 <p>QHostInfo supports Internationalized Domain Names (IDNs) through the IDNA and Punycode standards.</p>
 <p>To retrieve the name of the local host, use the static <a href="qhostinfo.html#localHostName">QHostInfo::localHostName</a>() function.</p>
+<p><b>Note:</b> Since Qt 4.6&#x2e;1 QHostInfo is using multiple threads for DNS lookup instead of one dedicated DNS thread. This improves performance, but also changes the order of signal emissions when using <a href="qhostinfo.html#lookupHost">lookupHost</a>() compared to previous versions of Qt. <b>Note:</b> Since Qt 4.6&#x2e;3 QHostInfo is using a small internal 60 second DNS cache for performance improvements.</p>
 <p>See also <a href="qabstractsocket.html">QAbstractSocket</a> and <a href="http://www.rfc-editor.org/rfc/rfc3492.txt">RFC 3492</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
@@ -196,6 +197,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

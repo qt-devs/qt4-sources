@@ -1,3 +1,175 @@
+2010-05-19  Denis Dzyubenko <denis.dzyubenko@nokia.com>
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        When creating the UA, do not sassmue the language code is a
+        two-letter iso639-1 code.
+
+        * Api/qwebpage.cpp:
+        (QWebPage::userAgentForUrl):
+
+2010-05-12  Joe Ligman  <joseph.ligman@nokia.com>
+
+        Reviewed by Laszlo Gombos.
+
+        [Qt] Nested overflow div does not scroll
+        https://bugs.webkit.org/show_bug.cgi?id=38641
+
+        Modify qtwebkit_webframe_scrollOverflow, if the current node's render layer
+        does not scroll it will try and scroll the parent's render layer. Also export
+        qtwebkit_webframe_scrollOverflow so we can use it independently of
+        qtwebkit_webframe_scrollRecursively
+
+        * Api/qwebframe.cpp:
+        (qtwebkit_webframe_scrollOverflow):
+        (qtwebkit_webframe_scrollRecursively):
+
+2010-04-26  Thiago Macieira  <thiago.macieira@nokia.com>
+
+        Reviewed by Simon Hausmann.
+
+        [Qt] Fix the include header <qstring.h> -> <QtCore/qstring.h>
+
+        The module/header.h style inclusion removes the need to have -I$QTDIR/include/depending-module
+        in the include search path for the application.
+
+        * Api/qwebkitversion.h:
+
+2010-04-08  Joe Ligman  <joseph.ligman@nokia.com>
+
+        Reviewed by Simon Hausmann.
+
+        [Qt] qtwebkit_webframe_scrollRecursively scrolls when body.style.overflow="hidden"
+        https://bugs.webkit.org/show_bug.cgi?id=36674
+
+        The scrolling check was based on the frameview's scrolloffset, and
+        maximumScrollPosition, which does not acknowledge the overflow properties.
+
+        I am now basing the scrolling off the scrollbar position. The scrollbars are
+        affected by the overflow properties indicating when not to scroll. The scrollbar
+        positions also continue to work for CSS ::-webkit-scrollbar styles.
+
+        * Api/qwebframe.cpp:
+        (qtwebkit_webframe_scrollRecursively):
+
+2010-03-24  Viatcheslav Ostapenko  <ostapenko.viatcheslav@nokia.com>
+
+        Reviewed by Laszlo Gombos.
+
+        Auto-uppercase and predictive text need to be disabled for S60 (as for maemo)
+        https://bugs.webkit.org/show_bug.cgi?id=33176
+
+        * WebCoreSupport/EditorClientQt.cpp:
+
+2010-03-22  Jakub Wieczorek  <jwieczorek@webkit.org>
+
+        Reviewed by Simon Hausmann.
+
+        [Qt] Don't construct a QLineEdit every time when painting a text field
+        https://bugs.webkit.org/show_bug.cgi?id=36373
+
+        Add a simple benchmark covering this area.
+
+        * tests/benchmarks/painting/tst_painting.cpp:
+        (tst_Painting::textAreas):
+
+2010-03-22  Yi Shen  <shenyi2006@gmail.com>
+
+        Reviewed by Simon Hausmann.
+
+        https://bugs.webkit.org/show_bug.cgi?id=35933  
+        [Qt] [Symbian] Can not backward select (highlight) text using virtual keyboard
+        Make sure the selection start index is smaller than the selection end index.
+
+        * Api/qwebpage.cpp:
+        (QWebPagePrivate::inputMethodEvent):
+        * tests/qwebpage/tst_qwebpage.cpp:
+        (tst_QWebPage::inputMethods):
+
+2010-03-25  Yael Aharon  <yael.aharon@nokia.com>
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        [Qt] QtLauncher crashes on Mac OS and Linux when exiting with QGraphicsView mode enabled
+        https://bugs.webkit.org/show_bug.cgi?id=35251
+
+        Followed the way QWebView registers for the signal QWebPage::destroyed(), to prevent
+        QGraphicsWebView from referencing QWebPage after it was deleted.        
+
+        * Api/qgraphicswebview.cpp:
+        (QGraphicsWebViewPrivate::_q_pageDestroyed):
+        (QGraphicsWebView::setPage):
+        * Api/qgraphicswebview.h:
+
+2010-03-23  David Leong  <david.leong@nokia.com>
+
+        Reviewed by Laszlo Gombos.
+
+        Build fix for Symbian Def file.
+
+        * symbian/eabi/QtWebKitu.def:
+
+2010-03-18  Joe Ligman  <joseph.ligman@nokia.com>
+
+        Reviewed by Simon Hausmann.
+
+        [Qt] New API scrollRecursively has several problems.
+        https://bugs.webkit.org/show_bug.cgi?id=35873
+
+        Remove scrollRecursively from the Qt 4.7 API
+        Update the internal API to accept a hit test position 
+        for nested scrolling
+
+        * Api/qwebframe.cpp:
+        (webframe_scrollOverflow):
+        (qtwebkit_webframe_scrollRecursively):
+        * Api/qwebframe.h:
+        * Api/qwebframe_p.h:
+        * tests/qwebframe/tst_qwebframe.cpp:
+
+2009-12-18  Joe Ligman  <joseph.ligman@nokia.com>
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        [Qt] Add new API to QWebFrame to scrollRecursively starting with any css overflow 
+        then checking current frame and then ancestors
+        https://bugs.webkit.org/show_bug.cgi?id=32668
+
+        * Api/qwebframe.cpp:
+        (QWebFramePrivate::scrollOverflow):
+        (QWebFrame::scrollRecursively):
+        * Api/qwebframe.h:
+        * Api/qwebframe_p.h:
+        * tests/qwebframe/qwebframe.qrc:
+        * tests/qwebframe/testiframe.html: Added.
+        * tests/qwebframe/testiframe2.html: Added.
+        * tests/qwebframe/tst_qwebframe.cpp:
+
+2010-03-21  Kristian Amlie  <kristian.amlie@nokia.com>
+
+        Reviewed by Simon Hausmann.
+
+        Fixed updating the VKB display when inputting into QGraphicsWebView.
+        https://bugs.webkit.org/show_bug.cgi?id=36292
+
+        * Api/qgraphicswebview.cpp:
+        (QGraphicsWebViewPrivate::_q_updateMicroFocus):
+        (QGraphicsWebView::setPage):
+        * Api/qgraphicswebview.h:
+
+2010-03-04  Simon Hausmann  <simon.hausmann@nokia.com>
+
+        Reviewed by Kenneth Rohde Christiansen.
+
+        [Qt] qwebelement.h does not include QtCore headers correctly
+        https://bugs.webkit.org/show_bug.cgi?id=35748
+
+        The header files of QtCore must be included as QtCore/foo.h.
+
+        See also http://bugreports.qt.nokia.com/browse/QTBUG-8661
+
+        * Api/qwebelement.h:
+
 2010-01-28  Kenneth Rohde Christiansen  <kenneth@webkit.org>
 
         Reviewed by Simon Hausmann.

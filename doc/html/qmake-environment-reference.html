@@ -29,7 +29,7 @@
 </ul>
 <a name="properties"></a><a name="properties"></a>
 <h2>Properties</h2>
-<p><tt>qmake</tt> has a system of persistant information, this allows you to <tt>set</tt> a variable in qmake once, and each time qmake is invoked this value can be queried. Use the following to set a property in qmake:</p>
+<p><tt>qmake</tt> has a system of persistent information, this allows you to <tt>set</tt> a variable in qmake once, and each time qmake is invoked this value can be queried. Use the following to set a property in qmake:</p>
 <pre> qmake -set VARIABLE VALUE</pre>
 <p>The appropriate variable and value should be substituted for <tt>VARIABLE</tt> and <tt>VALUE</tt>.</p>
 <p>To retrieve this information back from qmake you can do:</p>
@@ -85,7 +85,7 @@
 <p>This is only relevant to the <tt>lib</tt> template, and will be ignored for all others. When this option is enabled, <tt>qmake</tt> will create a file ending in .prl which will save some meta-information about the library. This metafile is just like an ordinary project file, but only contains internal variable declarations. You are free to view this file and, if it is deleted, <tt>qmake</tt> will know to recreate it when necessary, either when the project file is later read, or if a dependent library (described below) has changed. When installing this library, by specifying it as a target in an <tt>INSTALLS</tt> declaration, <tt>qmake</tt> will automatically copy the .prl file to the installation path.</p>
 <p>The second step in this process is to enable reading of this meta information in the applications that use the static library:</p>
 <pre> CONFIG += link_prl</pre>
-<p>When this is enabled, <tt>qmake</tt> will process all libraries linked to by the application and find their meta-information. <tt>qmake</tt> will use this to determine the relevant linking information, specifically adding values to the application project file's list of <tt>DEFINES</tt> as well as <tt>LIBS</tt>. Once <tt>qmake</tt> has processed this file, it will then look through the newly introduced libraries in the <tt>LIBS</tt> variable, and find their dependent .prl files, continuing until all libraries have been resolved. At this point, the Makefile is created as usual, and the libraries are linked explicitlyy against the application.</p>
+<p>When this is enabled, <tt>qmake</tt> will process all libraries linked to by the application and find their meta-information. <tt>qmake</tt> will use this to determine the relevant linking information, specifically adding values to the application project file's list of <tt>DEFINES</tt> as well as <tt>LIBS</tt>. Once <tt>qmake</tt> has processed this file, it will then look through the newly introduced libraries in the <tt>LIBS</tt> variable, and find their dependent .prl files, continuing until all libraries have been resolved. At this point, the Makefile is created as usual, and the libraries are linked explicitly against the application.</p>
 <p>The internals of the .prl file are left closed so they can easily change later. They are not designed to be changed by hand, should only be created by <tt>qmake</tt>, and should not be transferred between operating systems as they may contain platform-dependent information.</p>
 <a name="extensions"></a><a name="file-extensions"></a>
 <h2>File Extensions</h2>
@@ -187,6 +187,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

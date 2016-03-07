@@ -1990,16 +1990,19 @@ bool QDockAreaLayoutInfo::restoreState(QDataStream &stream, QList<QDockWidget*> 
 #ifdef QT_NO_TABBAR
             const int tabBarShape = 0;
 #endif
-            QDockAreaLayoutInfo *info = new QDockAreaLayoutInfo(sep, dockPos, o,
-                                                                tabBarShape, mainWindow);
-            QDockAreaLayoutItem item(info);
+            QDockAreaLayoutItem item(new QDockAreaLayoutInfo(sep, dockPos, o,
+                                                                tabBarShape, mainWindow));
             stream >> item.pos >> item.size >> dummy >> dummy;
-            if (!info->restoreState(stream, widgets, testing))
+            //we need to make sure the element is in the list so the dock widget can eventually be docked correctly
+            if (!testing)
+                item_list.append(item);
+            
+            //here we need to make sure we change the item in the item_list
+            QDockAreaLayoutItem &lastItem = testing ? item : item_list.last();
+
+            if (!lastItem.subinfo->restoreState(stream, widgets, testing))
                 return false;
 
-            if (!testing) {
-                item_list.append(item);
-            }
         } else {
             return false;
         }
@@ -2635,7 +2638,7 @@ void QDockAreaLayout::getGrid(QVector<QLayoutStruct> *_ver_struct_list,
     QSize bottom_max = docks[QInternal::BottomDock].maximumSize();
     bottom_hint = bottom_hint.boundedTo(bottom_max).expandedTo(bottom_min);
 
-    fallbackToSizeHints = !have_central;
+    fallbackToSizeHints = false;
 
     if (_ver_struct_list != 0) {
         QVector<QLayoutStruct> &ver_struct_list = *_ver_struct_list;

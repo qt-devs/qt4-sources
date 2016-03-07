@@ -233,6 +233,15 @@ struct QWExtra {
     uint activated : 1; // RWindowBase::Activated has been called
 
     /**
+     * If this bit is set, each native widget receives the signals from the
+     * Symbian control immediately before and immediately after draw ops are
+     * sent to the window server for this control:
+     *      void beginNativePaintEvent(const QRect &paintRect);
+     *      void endNativePaintEvent(const QRect &paintRect);
+     */
+    uint receiveNativePaintEvents : 1;
+
+    /**
      * Defines the behaviour of QSymbianControl::Draw.
      */
     enum NativePaintMode {
@@ -257,16 +266,7 @@ struct QWExtra {
         Default = Blit
     };
 
-    NativePaintMode nativePaintMode : 2;
-
-    /**
-     * If this bit is set, each native widget receives the signals from the
-     * Symbian control immediately before and immediately after draw ops are
-     * sent to the window server for this control:
-     *      void beginNativePaintEvent(const QRect &paintRect);
-     *      void endNativePaintEvent(const QRect &paintRect);
-     */
-    uint receiveNativePaintEvents : 1;
+    NativePaintMode nativePaintMode;
 
 #endif
 };
@@ -472,6 +472,8 @@ public:
 #ifdef QT_KEYPAD_NAVIGATION
     static bool navigateToDirection(Direction direction);
     static QWidget *widgetInNavigationDirection(Direction direction);
+    static bool canKeypadNavigate(Qt::Orientation orientation);
+    static bool inTabWidget(QWidget *widget);
 #endif
 
     void setWindowIconText_sys(const QString &cap);
@@ -683,6 +685,7 @@ public:
     uint inDirtyList : 1;
     uint isScrolled : 1;
     uint isMoved : 1;
+    uint isGLWidget : 1;
     uint usesDoubleBufferedGLContext : 1;
 
     // *************************** Platform specific ************************************
@@ -714,7 +717,6 @@ public:
 #elif defined(Q_WS_MAC) // <--------------------------------------------------------- MAC
     // This is new stuff
     uint needWindowChange : 1;
-    uint isGLWidget : 1;
 
     // Each wiget keeps a list of all its child and grandchild OpenGL widgets.
     // This list is used to update the gl context whenever a parent and a granparent

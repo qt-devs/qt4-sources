@@ -79,7 +79,8 @@
 #  endif
 #endif // QT_NO_CODECS
 #include "qlocale.h"
-#include "private/qmutexpool_p.h"
+#include "qmutex.h"
+#include "qhash.h"
 
 #include <stdlib.h>
 #include <ctype.h>
@@ -101,6 +102,7 @@ QT_BEGIN_NAMESPACE
 Q_GLOBAL_STATIC_WITH_ARGS(QFactoryLoader, loader,
     (QTextCodecFactoryInterface_iid, QLatin1String("/codecs")))
 #endif
+
 
 static char qtolower(register char c)
 { if (c >= 'A' && c <= 'Z') return c + 0x20; return c; }
@@ -172,6 +174,7 @@ static QTextCodec *createForMib(int mib)
 }
 
 static QList<QTextCodec*> *all = 0;
+static int clearCaches = 0;  // flags specifying if caches should be invalided: 0x1 codecForName, 0x2 codecForMib
 #ifdef Q_DEBUG_TEXTCODEC
 static bool destroying_is_ok = false;
 #endif
@@ -214,6 +217,19 @@ QTextCodecCleanup::~QTextCodecCleanup()
 }
 
 Q_GLOBAL_STATIC(QTextCodecCleanup, createQTextCodecCleanup)
+
+bool QTextCodec::validCodecs()
+{
+#ifdef Q_OS_SYMBIAN
+    // If we don't have a trap handler, we're outside of the main() function,
+    // ie. in global constructors or destructors. Don't use codecs in this
+    // case as it would lead to crashes because we don't have a cleanup stack on Symbian
+    return (User::TrapHandler() != NULL);
+#else
+    return true;
+#endif
+}
+
 
 #if defined(Q_OS_WIN32) || defined(Q_OS_WINCE)
 class QWindowsLocalCodec: public QTextCodec
@@ -659,15 +675,23 @@ static void setupLocaleMapper()
 #endif
 }
 
-
-static void setup()
-{
 #ifndef QT_NO_THREAD
-    QMutexLocker locker(QMutexPool::globalInstanceGet(&all));
+Q_GLOBAL_STATIC_WITH_ARGS(QMutex, textCodecsMutex, (QMutex::Recursive));
 #endif
 
+// textCodecsMutex need to be locked to enter this function
+static void setup()
+{
     if (all)
         return;
+
+#ifdef Q_OS_SYMBIAN
+    // If we don't have a trap handler, we're outside of the main() function,
+    // ie. in global constructors or destructors. Don't create codecs in this
+    // case as it would lead to crashes because of a missing cleanup stack on Symbian
+    if (User::TrapHandler() == NULL)
+        return;
+#endif
 
 #ifdef Q_DEBUG_TEXTCODEC
     if (destroying_is_ok)
@@ -903,8 +927,6 @@ QTextCodec::ConverterState::~ConverterState()
 */
 
 /*!
-    \nonreentrant
-
     Constructs a QTextCodec, and gives it the highest precedence. The
     QTextCodec should always be constructed on the heap (i.e. with \c
     new). Qt takes ownership and will delete it when the application
@@ -912,6 +934,9 @@ QTextCodec::ConverterState::~ConverterState()
 */
 QTextCodec::QTextCodec()
 {
+#ifndef QT_NO_THREAD
+    QMutexLocker locker(textCodecsMutex());
+#endif
     setup();
     all->prepend(this);
 }
@@ -929,8 +954,13 @@ QTextCodec::~QTextCodec()
     if (!destroying_is_ok)
         qWarning("QTextCodec::~QTextCodec: Called by application");
 #endif
-    if (all)
+    if (all) {
+#ifndef QT_NO_THREAD
+        QMutexLocker locker(textCodecsMutex());
+#endif
         all->removeAll(this);
+        clearCaches = 0x1 | 0x2;
+    }
 }
 
 /*!
@@ -951,19 +981,41 @@ QTextCodec *QTextCodec::codecForName(const QByteArray &name)
     if (name.isEmpty())
         return 0;
 
+#ifndef QT_NO_THREAD
+    QMutexLocker locker(textCodecsMutex());
+#endif
     setup();
+
+    if (!validCodecs())
+        return 0;
+
+    static QHash <QByteArray, QTextCodec *> cache;
+    if (clearCaches & 0x1) {
+        cache.clear();
+        clearCaches &= ~0x1;
+    }
+    QTextCodec *codec = cache.value(name);
+    if (codec)
+        return codec;
 
     for (int i = 0; i < all->size(); ++i) {
         QTextCodec *cursor = all->at(i);
-        if (nameMatch(cursor->name(), name))
+        if (nameMatch(cursor->name(), name)) {
+            cache.insert(name, cursor);
             return cursor;
+        }
         QList<QByteArray> aliases = cursor->aliases();
-        for (int i = 0; i < aliases.size(); ++i)
-            if (nameMatch(aliases.at(i), name))
+        for (int y = 0; y < aliases.size(); ++y)
+            if (nameMatch(aliases.at(y), name)) {
+                cache.insert(name, cursor);
                 return cursor;
+            }
     }
 
-    return createForName(name);
+    codec = createForName(name);
+    if (codec)
+        cache.insert(name, codec);
+    return codec;
 }
 
 
@@ -973,21 +1025,42 @@ QTextCodec *QTextCodec::codecForName(const QByteArray &name)
 */
 QTextCodec* QTextCodec::codecForMib(int mib)
 {
+#ifndef QT_NO_THREAD
+    QMutexLocker locker(textCodecsMutex());
+#endif
     setup();
 
-    // Qt 3 used 1000 (mib for UCS2) as its identifier for the utf16 codec. Map
-    // this correctly for compatibility.
-    if (mib == 1000)
-        mib = 1015;
+    if (!validCodecs())
+        return 0;
+
+    static QHash <int, QTextCodec *> cache;
+    if (clearCaches & 0x2) {
+        cache.clear();
+        clearCaches &= ~0x2;
+    }
+    QTextCodec *codec = cache.value(mib);
+    if (codec)
+        return codec;
 
     QList<QTextCodec*>::ConstIterator i;
     for (int i = 0; i < all->size(); ++i) {
         QTextCodec *cursor = all->at(i);
-        if (cursor->mibEnum() == mib)
+        if (cursor->mibEnum() == mib) {
+            cache.insert(mib, cursor);
             return cursor;
+        }
     }
 
-    return createForMib(mib);
+    codec = createForMib(mib);
+
+    // Qt 3 used 1000 (mib for UCS2) as its identifier for the utf16 codec. Map
+    // this correctly for compatibility.
+    if (!codec && mib == 1000)
+        return codecForMib(1015);
+
+    if (codec)
+        cache.insert(mib, codec);
+    return codec;
 }
 
 /*!
@@ -1001,13 +1074,25 @@ QTextCodec* QTextCodec::codecForMib(int mib)
 */
 QList<QByteArray> QTextCodec::availableCodecs()
 {
+#ifndef QT_NO_THREAD
+    QMutexLocker locker(textCodecsMutex());
+#endif
     setup();
 
     QList<QByteArray> codecs;
+
+    if (!validCodecs())
+        return codecs;
+
     for (int i = 0; i < all->size(); ++i) {
         codecs += all->at(i)->name();
         codecs += all->at(i)->aliases();
     }
+
+#ifndef QT_NO_THREAD
+    locker.unlock();
+#endif
+
 #ifndef QT_NO_TEXTCODECPLUGIN
     QFactoryLoader *l = loader();
     QStringList keys = l->keys();
@@ -1031,11 +1116,23 @@ QList<QByteArray> QTextCodec::availableCodecs()
 */
 QList<int> QTextCodec::availableMibs()
 {
+#ifndef QT_NO_THREAD
+    QMutexLocker locker(textCodecsMutex());
+#endif
     setup();
 
     QList<int> codecs;
+
+    if (!validCodecs())
+        return codecs;
+
     for (int i = 0; i < all->size(); ++i)
         codecs += all->at(i)->mibEnum();
+
+#ifndef QT_NO_THREAD
+    locker.unlock();
+#endif
+
 #ifndef QT_NO_TEXTCODECPLUGIN
     QFactoryLoader *l = loader();
     QStringList keys = l->keys();
@@ -1079,9 +1176,15 @@ void QTextCodec::setCodecForLocale(QTextCodec *c)
 
 QTextCodec* QTextCodec::codecForLocale()
 {
+    if (!validCodecs())
+        return 0;
+
     if (localeMapper)
         return localeMapper;
 
+#ifndef QT_NO_THREAD
+    QMutexLocker locker(textCodecsMutex());
+#endif
     setup();
 
     return localeMapper;

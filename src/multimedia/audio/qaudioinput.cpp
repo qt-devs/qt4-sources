@@ -95,7 +95,7 @@ QT_BEGIN_NAMESPACE
       format.setByteOrder(QAudioFormat::LittleEndian);
       format.setSampleType(QAudioFormat::UnSignedInt);
 
-      if (QAudioDeviceInfo info(QAudioDeviceInfo::defaultInputDevice());
+      QAudioDeviceInfo info = QAudioDeviceInfo::defaultInputDevice();
       if (!info.isFormatSupported(format)) {
           qWarning()<<"default format not supported try to use nearest";
           format = info.nearestFormat(format);
@@ -146,6 +146,20 @@ QT_BEGIN_NAMESPACE
     \snippet doc/src/snippets/audio/main.cpp 0
 
     \sa QAudioOutput, QAudioDeviceInfo
+
+    \section1 Symbian Platform Security Requirements
+
+    On Symbian, processes which use this class must have the
+    \c UserEnvironment platform security capability.  If the client
+    process lacks this capability, calls to either overload of start()
+    will fail.
+    This failure is indicated by the QAudioInput object setting
+    its error() value to \l{QAudio::OpenError} and then emitting a
+    \l{stateChanged()}{stateChanged}(\l{QAudio::StoppedState}) signal.
+
+    Platform security capabilities are added via the
+    \l{qmake-variable-reference.html#target-capability}{TARGET.CAPABILITY}
+    qmake variable.
 */
 
 /*!
@@ -190,18 +204,24 @@ QAudioInput::~QAudioInput()
      Passing a QIODevice allows the data to be transfered without any extra code.
      All that is required is to open the QIODevice.
 
+     If able to successfully get audio data from the systems audio device the
+     state() is set to either QAudio::ActiveState or QAudio::IdleState,
+     error() is set to QAudio::NoError and the stateChanged() signal is emitted.
+
+     If a problem occurs during this process the error() is set to QAudio::OpenError,
+     state() is set to QAudio::StoppedState and stateChanged() signal is emitted.
+
+    In either case, the stateChanged() signal may be emitted either synchronously
+    during execution of the start() function or asynchronously after start() has
+    returned to the caller.
+
+     \sa {Symbian Platform Security Requirements}
+
      \sa QIODevice
 */
 
 void QAudioInput::start(QIODevice* device)
 {
-    /*
-       -If currently not StoppedState, stop
-       -If previous start was push mode, delete internal QIODevice.
-       -open audio input.
-       If ok, NoError and ActiveState, else OpenError and StoppedState.
-       -emit stateChanged()
-    */
     d->start(device);
 }
 
@@ -210,19 +230,24 @@ void QAudioInput::start(QIODevice* device)
     transfer. This QIODevice can be used to read() audio data
     directly.
 
+    If able to access the systems audio device the state() is set to
+    QAudio::IdleState, error() is set to QAudio::NoError
+    and the stateChanged() signal is emitted.
+
+    If a problem occurs during this process the error() is set to QAudio::OpenError,
+    state() is set to QAudio::StoppedState and stateChanged() signal is emitted.
+
+    In either case, the stateChanged() signal may be emitted either synchronously
+    during execution of the start() function or asynchronously after start() has
+    returned to the caller.
+
+    \sa {Symbian Platform Security Requirements}
+
     \sa QIODevice
 */
 
 QIODevice* QAudioInput::start()
 {
-    /*
-    -If currently not StoppedState, stop
-    -If no internal QIODevice, create one.
-    -open audio input.
-    -If ok, NoError and IdleState, else OpenError and StoppedState
-    -emit stateChanged()
-    -return internal QIODevice
-    */
     return d->start(0);
 }
 
@@ -236,17 +261,14 @@ QAudioFormat QAudioInput::format() const
 }
 
 /*!
-    Stops the audio input.
+    Stops the audio input, detaching from the system resource.
+
+    Sets error() to QAudio::NoError, state() to QAudio::StoppedState and
+    emit stateChanged() signal.
 */
 
 void QAudioInput::stop()
 {
-    /*
-    -If StoppedState, return
-    -set to StoppedState
-    -detach from audio device
-    -emit stateChanged()
-    */
     d->stop();
 }
 
@@ -256,47 +278,39 @@ void QAudioInput::stop()
 
 void QAudioInput::reset()
 {
-    /*
-    -drop all buffered audio, set buffers to zero.
-    -call stop()
-    */
     d->reset();
 }
 
 /*!
     Stops processing audio data, preserving buffered audio data.
+
+    Sets error() to QAudio::NoError, state() to QAudio::SuspendedState and
+    emit stateChanged() signal.
+
+    Note: signal will always be emitted during execution of the resume() function.
 */
 
 void QAudioInput::suspend()
 {
-    /*
-    -If not ActiveState|IdleState, return
-    -stop processing audio, saving all buffered audio data
-    -set NoError and SuspendedState
-    -emit stateChanged()
-    */
     d->suspend();
 }
 
 /*!
     Resumes processing audio data after a suspend().
+
+    Sets error() to QAudio::NoError.
+    Sets state() to QAudio::ActiveState if you previously called start(QIODevice*).
+    Sets state() to QAudio::IdleState if you previously called start().
+    emits stateChanged() signal.
 */
 
 void QAudioInput::resume()
 {
-    /*
-    -If SuspendedState, return
-    -resume audio
-    -(PULL MODE): set ActiveState, NoError
-    -(PUSH MODE): set IdleState, NoError
-    -kick start audio if needed
-    -emit stateChanged()
-    */
      d->resume();
 }
 
 /*!
-    Sets the audio buffer size to \a value milliseconds.
+    Sets the audio buffer size to \a value bytes.
 
     Note: This function can be called anytime before start(), calls to this
     are ignored after start(). It should not be assumed that the buffer size
@@ -311,7 +325,7 @@ void QAudioInput::setBufferSize(int value)
 }
 
 /*!
-    Returns the audio buffer size in milliseconds.
+    Returns the audio buffer size in bytes.
 
     If called before start(), returns platform default value.
     If called before start() but setBufferSize() was called prior, returns value set by setBufferSize().
@@ -327,6 +341,9 @@ int QAudioInput::bufferSize() const
 
 /*!
     Returns the amount of audio data available to read in bytes.
+
+    NOTE: returned value is only valid while in QAudio::ActiveState or QAudio::IdleState
+    state, otherwise returns zero.
 */
 
 int QAudioInput::bytesReady() const
@@ -352,7 +369,10 @@ int QAudioInput::periodSize() const
 /*!
     Sets the interval for notify() signal to be emitted.
     This is based on the \a ms of audio data processed
-    not on actual real-time. The resolution of the timer is platform specific.
+    not on actual real-time.
+    The minimum resolution of the timer is platform specific and values
+    should be checked with notifyInterval() to confirm actual value
+    being used.
 */
 
 void QAudioInput::setNotifyInterval(int ms)

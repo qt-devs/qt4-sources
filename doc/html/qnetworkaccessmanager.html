@@ -84,7 +84,7 @@
 <hr />
 <h2>Detailed Description</h2>
 <p>The QNetworkAccessManager class allows the application to send network requests and receive replies</p>
-<p>The Network Access API is constructed around one QNetworkAccessManager object, which holds the common configuration and settings for the requests it sends. It contains the proxy and cache configuration, as well as the signals related to such issues, and reply signals that can be used to monitor the progress of a network operation.</p>
+<p>The Network Access API is constructed around one QNetworkAccessManager object, which holds the common configuration and settings for the requests it sends. It contains the proxy and cache configuration, as well as the signals related to such issues, and reply signals that can be used to monitor the progress of a network operation. One QNetworkAccessManager should be enough for the whole Qt application.</p>
 <p>Once a QNetworkAccessManager object has been created, the application can use it to send requests over the network. A group of standard functions are supplied that take a request and optional data, and each return a <a href="qnetworkreply.html">QNetworkReply</a> object. The returned object is used to obtain any data returned in response to the corresponding request.</p>
 <p>A simple download off the network could be accomplished with:</p>
 <pre> QNetworkAccessManager *manager = new QNetworkAccessManager(this);
@@ -92,8 +92,9 @@
          this, SLOT(replyFinished(QNetworkReply*)));
 
  manager-&gt;get(QNetworkRequest(QUrl(&quot;http:<span class="comment">//qt.nokia.com&quot;)));</span></pre>
-<p>When the <tt>replyFinished</tt> slot above is called, the parameter it takes is the <a href="qnetworkreply.html">QNetworkReply</a> object containing the downloaded data as well as meta-data (headers, etc.)&#x2e;</p>
+<p>QNetworkAccessManager has an asynchronous API. When the <tt>replyFinished</tt> slot above is called, the parameter it takes is the <a href="qnetworkreply.html">QNetworkReply</a> object containing the downloaded data as well as meta-data (headers, etc.)&#x2e;</p>
 <p><b>Note:</b> After the request has finished, it is the responsibility of the user to delete the <a href="qnetworkreply.html">QNetworkReply</a> object at an appropriate time. Do not directly delete it inside the slot connected to <a href="qnetworkaccessmanager.html#finished">finished</a>(). You can use the <a href="qobject.html#deleteLater">deleteLater</a>() function.</p>
+<p><b>Note:</b> QNetworkAccessManager queues the requests it receives. The number of requests executed in parallel is dependent on the protocol. Currently, for the HTTP protocol on desktop platforms, 6 requests are executed in parallel for one host/port combination.</p>
 <p>A more involved example, assuming the manager is already existent, can be:</p>
 <pre> QNetworkRequest request;
  request.setUrl(QUrl(&quot;http:<span class="comment">//qt.nokia.com&quot;));</span>
@@ -105,6 +106,10 @@
          this, SLOT(slotError(QNetworkReply::NetworkError)));
  connect(reply, SIGNAL(sslErrors(QList&lt;QSslError&gt;)),
          this, SLOT(slotSslErrors(QList&lt;QSslError&gt;)));</pre>
+<a name="symbian-platform-security-requirements"></a>
+<h3>Symbian Platform Security Requirements</h3>
+<p>On Symbian, processes which use this class must have the <tt>NetworkServices</tt> platform security capability. If the client process lacks this capability, operations will result in a panic.</p>
+<p>Platform security capabilities are added via the <a href="qmake-variable-reference.html#target-capability">TARGET.CAPABILITY</a> qmake variable.</p>
 <p>See also <a href="qnetworkrequest.html">QNetworkRequest</a>, <a href="qnetworkreply.html">QNetworkReply</a>, and <a href="qnetworkproxy.html">QNetworkProxy</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
@@ -172,7 +177,7 @@
 <p>See also <a href="qnetworkaccessmanager.html#post">post</a>(), <a href="qnetworkaccessmanager.html#put">put</a>(), and <a href="qnetworkaccessmanager.html#deleteResource">deleteResource</a>().</p>
 <a name="//apple_ref/cpp/instm/QNetworkAccessManager/head"></a>
 <h3 class="fn"><a name="head"></a><a href="qnetworkreply.html">QNetworkReply</a> * QNetworkAccessManager::head ( const <a href="qnetworkrequest.html">QNetworkRequest</a> &amp; <i>request</i> )</h3>
-<p>Posts a request to obtain the network headers for <i>request</i> and returns a new <a href="qnetworkreply.html">QNetworkReply</a> object which will contain such headers</p>
+<p>Posts a request to obtain the network headers for <i>request</i> and returns a new <a href="qnetworkreply.html">QNetworkReply</a> object which will contain such headers.</p>
 <p>The function is named after the HTTP request associated (HEAD).</p>
 <a name="//apple_ref/cpp/instm/QNetworkAccessManager/post"></a>
 <h3 class="fn"><a name="post"></a><a href="qnetworkreply.html">QNetworkReply</a> * QNetworkAccessManager::post ( const <a href="qnetworkrequest.html">QNetworkRequest</a> &amp; <i>request</i>, <a href="qiodevice.html">QIODevice</a> * <i>data</i> )</h3>
@@ -255,6 +260,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

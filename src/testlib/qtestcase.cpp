@@ -964,7 +964,7 @@ static void qParseArgs(int argc, char *argv[])
          " -xunitxml  : Outputs results as XML XUnit document\n"
          " -xml       : Outputs results as XML document\n"
          " -lightxml  : Outputs results as stream of XML tags\n"
-         " -flush     : Flushes the resutls\n"
+         " -flush     : Flushes the results\n"
          " -o filename: Writes all output into a file\n"
          " -silent    : Only outputs warnings and failures\n"
          " -v1        : Print enter messages for each testfunction\n"
@@ -1113,6 +1113,14 @@ static void qParseArgs(int argc, char *argv[])
 #endif
         } else if (strcmp(argv[i], "-qws") == 0) {
             // do nothing
+        } else if (strcmp(argv[i], "-graphicssystem") == 0) {
+            // do nothing
+            if (i + 1 >= argc) {
+                printf("-graphicssystem needs an extra parameter specifying the graphics system\n");
+                exit(1);
+            } else {
+                ++i;
+            }
         } else if (argv[i][0] == '-') {
             printf("Unknown option: '%s'\n\n%s", argv[i], testOptions);
             exit(1);
@@ -1298,11 +1306,23 @@ static bool qInvokeTestMethod(const char *slotName, const char *data=0)
             const int dataCount = table.dataCount();
             QTestResult::setSkipCurrentTest(false);
 
+            // Data tag requested but none available?
+            if (data && !dataCount) {
+                // Let empty data tag through.
+                if (!*data)
+                    data = 0;
+                else {
+                    printf("Unknown testdata for function %s: '%s'\n", slotName, data);
+                    printf("Function has no testdata.\n");
+                    return false;
+                }
+            }
+
             /* For each entry in the data table, do: */
             do {
                 if (!data || !qstrcmp(data, table.testData(curDataIndex)->dataTag())) {
                     foundFunction = true;
-                    QTestDataSetter s(table.isEmpty() ? static_cast<QTestData *>(0)
+                    QTestDataSetter s(curDataIndex >= dataCount ? static_cast<QTestData *>(0)
                                                       : table.testData(curDataIndex));
 
                     qInvokeTestMethodDataEntry(slot);

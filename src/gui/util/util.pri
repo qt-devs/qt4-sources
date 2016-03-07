@@ -20,7 +20,10 @@ SOURCES += \
         util/qundoview.cpp
 
 
-win32 {
+wince* {
+		SOURCES += \
+				util/qsystemtrayicon_wince.cpp
+} else:win32 {
 		SOURCES += \
 				util/qsystemtrayicon_win.cpp
 }
@@ -41,5 +44,5 @@ embedded {
 
 symbian {
     LIBS += -lsendas2 -letext -lapmime
-    contains(QT_CONFIG, s60): LIBS += -lplatformenv -lcommonui
+    contains(QT_CONFIG, s60): LIBS += -lplatformenv -lCommonUI
 }

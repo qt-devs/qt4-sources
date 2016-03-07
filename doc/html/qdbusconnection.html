@@ -161,7 +161,8 @@
 <p>Disposes of this object. This does not close the connection: you have to call <a href="qdbusconnection.html#disconnectFromBus">disconnectFromBus</a>() to do that.</p>
 <a name="//apple_ref/cpp/instm/QDBusConnection/asyncCall"></a>
 <h3 class="fn"><a name="asyncCall"></a><a href="qdbuspendingcall.html">QDBusPendingCall</a> QDBusConnection::asyncCall ( const <a href="qdbusmessage.html">QDBusMessage</a> &amp; <i>message</i>, int <i>timeout</i> = -1 ) const</h3>
-<p>Sends the <i>message</i> over this connection and returns immediately. This function is suitable for method calls only. It returns an object of type <a href="qdbuspendingcall.html">QDBusPendingCall</a> which can be used to track the status of the reply. The <i>timeout</i> parameter is used to determine when an auto-generated error reply may be emitted and is also the upper limit for waiting in QDBusPendingCall::waitForFinished().</p>
+<p>Sends the <i>message</i> over this connection and returns immediately. This function is suitable for method calls only. It returns an object of type <a href="qdbuspendingcall.html">QDBusPendingCall</a> which can be used to track the status of the reply.</p>
+<p>If no reply is received within <i>timeout</i> milliseconds, an automatic error will be delivered indicating the expiration of the call. The default <i>timeout</i> is -1, which will be replaced with an implementation-defined value that is suitable for inter-process communications (generally, 25 seconds). This timeout is also the upper limit for waiting in QDBusPendingCall::waitForFinished().</p>
 <p>See the <a href="qdbusabstractinterface.html#asyncCall">QDBusInterface::asyncCall</a>() function for a more friendly way of placing calls.</p>
 <p>This function was introduced in Qt 4.5.</p>
 <a name="//apple_ref/cpp/instm/QDBusConnection/baseService"></a>
@@ -172,6 +173,7 @@
 <a name="//apple_ref/cpp/instm/QDBusConnection/call"></a>
 <h3 class="fn"><a name="call"></a><a href="qdbusmessage.html">QDBusMessage</a> QDBusConnection::call ( const <a href="qdbusmessage.html">QDBusMessage</a> &amp; <i>message</i>, <a href="qdbus.html#CallMode-enum">QDBus::CallMode</a> <i>mode</i> = QDBus::Block, int <i>timeout</i> = -1 ) const</h3>
 <p>Sends the <i>message</i> over this connection and blocks, waiting for a reply, for at most <i>timeout</i> milliseconds. This function is suitable for method calls only. It returns the reply message as its return value, which will be either of type <a href="qdbusmessage.html#MessageType-enum">QDBusMessage::ReplyMessage</a> or <a href="qdbusmessage.html#MessageType-enum">QDBusMessage::ErrorMessage</a>.</p>
+<p>If no reply is received within <i>timeout</i> milliseconds, an automatic error will be delivered indicating the expiration of the call. The default <i>timeout</i> is -1, which will be replaced with an implementation-defined value that is suitable for inter-process communications (generally, 25 seconds).</p>
 <p>See the <a href="qdbusabstractinterface.html#call">QDBusInterface::call</a>() function for a more friendly way of placing calls.</p>
 <p><b>Warning:</b> If <i>mode</i> is <a href="qdbus.html#CallMode-enum">QDBus::BlockWithGui</a>, this function will reenter the Qt event loop in order to wait for the reply. During the wait, it may deliver signals and other method calls to your application. Therefore, it must be prepared to handle a reentrancy whenever a call is placed with call().</p>
 <a name="//apple_ref/cpp/instm/QDBusConnection/callWithCallback"></a>
@@ -296,6 +298,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

@@ -201,6 +201,9 @@
 <a name="//apple_ref/cpp/instm/QFutureWatcher/setFuture"></a>
 <h3 class="fn"><a name="setFuture"></a>void QFutureWatcher::setFuture ( const <a href="qfuture.html">QFuture</a>&lt;T&gt; &amp; <i>future</i> )</h3>
 <p>Starts watching the given <i>future</i>.</p>
+<p>One of the signals might be emitted for the current state of the <i>future</i>. For example, if the future is already stopped, the finished signal will be emitted.</p>
+<p>To avoid a race condition, it is important to call this function</p>
+<p>after doing the connections.</p>
 <p>See also <a href="qfuturewatcher.html#future">future</a>().</p>
 <a name="//apple_ref/cpp/instm/QFutureWatcher/setPaused"></a>
 <h3 class="fn"><a name="setPaused"></a>void QFutureWatcher::setPaused ( bool <i>paused</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
@@ -225,6 +228,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

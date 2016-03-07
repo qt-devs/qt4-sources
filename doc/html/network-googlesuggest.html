@@ -102,7 +102,7 @@
      delete popup;
  }</pre>
 <p>The event filter handles mouse press and key press events that are delivered to the popup. For mouse press events we just hide the popup and return focus to the editor widget, and then return true to prevent further event processing.</p>
-<p>Key event handling is implemented so that Enter and Return execute the selected link, while the Escape key hides the popup. Sine we want to be able to navigate the list of suggestions using the different navigation keys on the keyboard we let Qt continue regular event processing for those by returning false from the eventFilter reimplementation.</p>
+<p>Key event handling is implemented so that Enter and Return execute the selected link, while the Escape key hides the popup. Since we want to be able to navigate the list of suggestions using the different navigation keys on the keyboard we let Qt continue regular event processing for those by returning false from the eventFilter reimplementation.</p>
 <p>For all other keys, the event will be passed on to the editor widget and the popup is hidden. This way the user's typing will not be interrupted by the popping up of the completion list.</p>
 <pre> bool GSuggestCompletion::eventFilter(QObject *obj, QEvent *ev)
  {
@@ -286,6 +286,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

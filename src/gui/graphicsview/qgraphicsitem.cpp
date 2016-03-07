@@ -319,7 +319,7 @@
     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent().
 
     \value ItemClipsToShape The item clips to its own shape. The item cannot
-    draw or receive mouse, tablet, drag and drop or hover events outside ts
+    draw or receive mouse, tablet, drag and drop or hover events outside its
     shape. It is disabled by default. This behavior is enforced by
     QGraphicsView::drawItems() or QGraphicsScene::drawItems(). This flag was
     introduced in Qt 4.3.
@@ -357,19 +357,22 @@
     default, child items are stacked on top of the parent item. But setting
     this flag, the child will be stacked behind it. This flag is useful for
     drop shadow effects and for decoration objects that follow the parent
-    item's geometry without drawing on top of it.
+    item's geometry without drawing on top of it. This flag was introduced
+    in Qt 4.5.
 
     \value ItemUsesExtendedStyleOption The item makes use of either
-    \l{QStyleOptionGraphicsItem::}{exposedRect} or
-    \l{QStyleOptionGraphicsItem::}{matrix} in QStyleOptionGraphicsItem. By default,
-    the \l{QStyleOptionGraphicsItem::}{exposedRect} is initialized to the item's
-    boundingRect() and the \l{QStyleOptionGraphicsItem::}{matrix} is untransformed.
-    You can enable this flag for the style options to be set up with more
-    fine-grained values.
-    Note that QStyleOptionGraphicsItem::levelOfDetail is unaffected by this flag
+    \l{QStyleOptionGraphicsItem::} {exposedRect} or
+    \l{QStyleOptionGraphicsItem::} {matrix} in
+    QStyleOptionGraphicsItem. By default, the
+    \l{QStyleOptionGraphicsItem::} {exposedRect} is initialized to the
+    item's boundingRect() and the
+    \l{QStyleOptionGraphicsItem::}{matrix} is untransformed.  You can
+    enable this flag for the style options to be set up with more
+    fine-grained values.  Note that
+    QStyleOptionGraphicsItem::levelOfDetail is unaffected by this flag
     and always initialized to 1. Use
-    QStyleOptionGraphicsItem::levelOfDetailFromTransform() if you need a higher
-    value.
+    QStyleOptionGraphicsItem::levelOfDetailFromTransform() if you need
+    a higher value. This flag was introduced in Qt 4.6.
 
     \value ItemHasNoContents The item does not paint anything (i.e., calling
     paint() on the item has no effect). You should set this flag on items that
@@ -387,9 +390,10 @@
     used for Asian languages.
     This flag was introduced in Qt 4.6.
 
-    \value ItemNegativeZStacksBehindParent The item automatically stacks behind
-    it's parent if it's z-value is negative. This flag enables setZValue() to
-    toggle ItemStacksBehindParent.
+    \value ItemNegativeZStacksBehindParent The item automatically
+    stacks behind it's parent if it's z-value is negative. This flag
+    enables setZValue() to toggle ItemStacksBehindParent. This flag
+    was introduced in Qt 4.6.
 
     \value ItemIsPanel The item is a panel. A panel provides activation and
     contained focus handling. Only one panel can be active at a time (see
@@ -409,12 +413,6 @@
 
 /*!
     \enum QGraphicsItem::GraphicsItemChange
-
-        ItemVisibleHasChanged,
-        ItemEnabledHasChanged,
-        ItemSelectedHasChanged,
-        ItemParentHasChanged,
-        ItemSceneHasChanged
 
     This enum describes the state changes that are notified by
     QGraphicsItem::itemChange(). The notifications are sent as the state
@@ -643,9 +641,16 @@
     are children of a modal panel are not blocked.
 
     The values are:
-    \value NonModal   The panel is not modal and does not block input to other panels.
-    \value PanelModal The panel is modal to a single item hierarchy and blocks input to its parent pane, all grandparent panels, and all siblings of its parent and grandparent panels.
-    \value SceneModal The window is modal to the entire scene and blocks input to all panels.
+
+    \value NonModal The panel is not modal and does not block input to
+    other panels. This is the default value for panels.
+
+    \value PanelModal The panel is modal to a single item hierarchy
+    and blocks input to its parent pane, all grandparent panels, and
+    all siblings of its parent and grandparent panels.
+
+    \value SceneModal The window is modal to the entire scene and
+    blocks input to all panels.
 
     \sa QGraphicsItem::setPanelModality(), QGraphicsItem::panelModality(), QGraphicsItem::ItemIsPanel
 */
@@ -1125,6 +1130,9 @@ void QGraphicsItemPrivate::setParentItemHelper(QGraphicsItem *newParent, const Q
         }
     }
 
+    // Resolve depth.
+    invalidateDepthRecursively();
+
     if ((parent = newParent)) {
         if (parent->d_func()->scene && parent->d_func()->scene != scene) {
             // Move this item to its new parent's scene
@@ -1175,8 +1183,6 @@ void QGraphicsItemPrivate::setParentItemHelper(QGraphicsItem *newParent, const Q
         }
     }
 
-    // Resolve depth.
-    invalidateDepthRecursively();
     dirtySceneTransform = 1;
 
     // Restore the sub focus chain.
@@ -1392,7 +1398,8 @@ QGraphicsItem::~QGraphicsItem()
     }
     delete d_ptr->transformData;
 
-    qt_dataStore()->data.remove(this);
+    if (QGraphicsItemCustomDataStore *dataStore = qt_dataStore())
+        dataStore->data.remove(this);
 }
 
 /*!
@@ -1570,17 +1577,18 @@ const QGraphicsObject *QGraphicsItem::toGraphicsObject() const
 }
 
 /*!
-    Sets this item's parent item to \a parent. If this item already has a
-    parent, it is first removed from the previous parent. If \a parent is 0,
-    this item will become a top-level item.
+  Sets this item's parent item to \a newParent. If this item already
+  has a parent, it is first removed from the previous parent. If \a
+  newParent is 0, this item will become a top-level item.
 
-    Note that this implicitly adds this graphics item to the scene of
-    the parent. You should not \l{QGraphicsScene::addItem()}{add} the
-    item to the scene yourself.
+  Note that this implicitly adds this graphics item to the scene of
+  the parent. You should not \l{QGraphicsScene::addItem()}{add} the
+  item to the scene yourself.
 
-    Calling this function on an item that is an ancestor of \a parent have undefined behaviour.
+  Calling this function on an item that is an ancestor of \a newParent
+  have undefined behaviour.
 
-    \sa parentItem(), childItems()
+  \sa parentItem(), childItems()
 */
 void QGraphicsItem::setParentItem(QGraphicsItem *newParent)
 {
@@ -1875,7 +1883,8 @@ void QGraphicsItem::setCacheMode(CacheMode mode, const QSize &logicalCacheSize)
     d_ptr->cacheMode = mode;
     bool noVisualChange = (mode == NoCache && lastMode == NoCache)
                           || (mode == NoCache && lastMode == DeviceCoordinateCache)
-                          || (mode == DeviceCoordinateCache && lastMode == NoCache);
+                          || (mode == DeviceCoordinateCache && lastMode == NoCache)
+                          || (mode == DeviceCoordinateCache && lastMode == DeviceCoordinateCache);
     if (mode == NoCache) {
         d_ptr->removeExtraItemCache();
     } else {
@@ -2169,11 +2178,16 @@ void QGraphicsItemPrivate::setVisibleHelper(bool newVisible, bool explicitly, bo
         QGraphicsItemCache *c = (QGraphicsItemCache *)qVariantValue<void *>(extra(ExtraCacheData));
         if (c)
             c->purge();
-        if (scene)
+        if (scene) {
+#ifndef QT_NO_GRAPHICSEFFECT
+            invalidateParentGraphicsEffectsRecursively();
+#endif //QT_NO_GRAPHICSEFFECT
             scene->d_func()->markDirty(q_ptr, QRectF(), /*invalidateChildren=*/false, /*force=*/true);
+        }
     }
 
     // Certain properties are dropped as an item becomes invisible.
+    bool hasFocus = q_ptr->hasFocus();
     if (!newVisible) {
         if (scene) {
             if (scene->d_func()->mouseGrabberItems.contains(q))
@@ -2183,7 +2197,7 @@ void QGraphicsItemPrivate::setVisibleHelper(bool newVisible, bool explicitly, bo
             if (q->isPanel() && panelModality != QGraphicsItem::NonModal)
                 scene->d_func()->leaveModal(q_ptr);
         }
-        if (q_ptr->hasFocus() && scene) {
+        if (hasFocus && scene) {
             // Hiding the closest non-panel ancestor of the focus item
             QGraphicsItem *focusItem = scene->focusItem();
             bool clear = true;
@@ -2196,7 +2210,7 @@ void QGraphicsItemPrivate::setVisibleHelper(bool newVisible, bool explicitly, bo
                 } while ((focusItem = focusItem->parentWidget()) && !focusItem->isPanel());
             }
             if (clear)
-                q_ptr->clearFocus();
+                clearFocusHelper(/* giveFocusToParent = */ false);
         }
         if (q_ptr->isSelected())
             q_ptr->setSelected(false);
@@ -2234,26 +2248,45 @@ void QGraphicsItemPrivate::setVisibleHelper(bool newVisible, bool explicitly, bo
     }
 
     // Enable subfocus
-    if (scene && newVisible) {
-        QGraphicsItem *p = parent;
-        bool done = false;
-        while (p) {
-            if (p->flags() & QGraphicsItem::ItemIsFocusScope) {
-                QGraphicsItem *fsi = p->d_ptr->focusScopeItem;
-                if (q_ptr == fsi || q_ptr->isAncestorOf(fsi)) {
-                    done = true;
-                    while (fsi->d_ptr->focusScopeItem && fsi->d_ptr->focusScopeItem->isVisible())
-                        fsi = fsi->d_ptr->focusScopeItem;
-                    scene->setFocusItem(fsi);
+    if (scene) {
+        if (newVisible) {
+            // Item is shown
+            QGraphicsItem *p = parent;
+            bool done = false;
+            while (p) {
+                if (p->flags() & QGraphicsItem::ItemIsFocusScope) {
+                    QGraphicsItem *fsi = p->d_ptr->focusScopeItem;
+                    if (q_ptr == fsi || q_ptr->isAncestorOf(fsi)) {
+                        done = true;
+                        while (fsi->d_ptr->focusScopeItem && fsi->d_ptr->focusScopeItem->isVisible())
+                            fsi = fsi->d_ptr->focusScopeItem;
+                        fsi->d_ptr->setFocusHelper(Qt::OtherFocusReason, /* climb = */ true,
+                                                   /* focusFromShow = */ true);
+                    }
+                    break;
                 }
-                break;
+                p = p->d_ptr->parent;
             }
-            p = p->d_ptr->parent;
-        }
-        if (!done) {
-            QGraphicsItem *fi = subFocusItem;
-            if (fi && fi != scene->focusItem()) {
-                scene->setFocusItem(fi);
+            if (!done) {
+                QGraphicsItem *fi = subFocusItem;
+                if (fi && fi != scene->focusItem()) {
+                    scene->setFocusItem(fi);
+                }
+            }
+        } else {
+            // Item is hidden
+            if (hasFocus) {
+                QGraphicsItem *p = parent;
+                while (p) {
+                    if (p->flags() & QGraphicsItem::ItemIsFocusScope) {
+                        if (p->d_ptr->visible) {
+                            p->d_ptr->setFocusHelper(Qt::OtherFocusReason, /* climb = */ true,
+                                                     /* focusFromShow = */ true);
+                        }
+                        break;
+                    }
+                    p = p->d_ptr->parent;
+                }
             }
         }
     }
@@ -3104,13 +3137,13 @@ bool QGraphicsItem::hasFocus() const
 */
 void QGraphicsItem::setFocus(Qt::FocusReason focusReason)
 {
-    d_ptr->setFocusHelper(focusReason, /* climb = */ true);
+    d_ptr->setFocusHelper(focusReason, /* climb = */ true, /* focusFromShow = */ false);
 }
 
 /*!
     \internal
 */
-void QGraphicsItemPrivate::setFocusHelper(Qt::FocusReason focusReason, bool climb)
+void QGraphicsItemPrivate::setFocusHelper(Qt::FocusReason focusReason, bool climb, bool focusFromShow)
 {
     // Disabled / unfocusable items cannot accept focus.
     if (!q_ptr->isEnabled() || !(flags & QGraphicsItem::ItemIsFocusable))
@@ -3130,7 +3163,7 @@ void QGraphicsItemPrivate::setFocusHelper(Qt::FocusReason focusReason, bool clim
     while (p) {
         if (p->flags() & QGraphicsItem::ItemIsFocusScope) {
             p->d_ptr->focusScopeItem = q_ptr;
-            if (!p->focusItem()) {
+            if (!p->focusItem() && !focusFromShow) {
                 // If you call setFocus on a child of a focus scope that
                 // doesn't currently have a focus item, then stop.
                 return;
@@ -3171,24 +3204,35 @@ void QGraphicsItemPrivate::setFocusHelper(Qt::FocusReason focusReason, bool clim
 */
 void QGraphicsItem::clearFocus()
 {
-    // Pass focus to the closest parent focus scope.
-    if (!d_ptr->inDestructor) {
-        QGraphicsItem *p = d_ptr->parent;
-        while (p) {
-            if (p->flags() & ItemIsFocusScope) {
-                p->d_ptr->setFocusHelper(Qt::OtherFocusReason, /* climb = */ false);
-                return;
+    d_ptr->clearFocusHelper(/* giveFocusToParent = */ true);
+}
+
+/*!
+    \internal
+*/
+void QGraphicsItemPrivate::clearFocusHelper(bool giveFocusToParent)
+{
+    if (giveFocusToParent) {
+        // Pass focus to the closest parent focus scope
+        if (!inDestructor) {
+            QGraphicsItem *p = parent;
+            while (p) {
+                if (p->flags() & QGraphicsItem::ItemIsFocusScope) {
+                    p->d_ptr->setFocusHelper(Qt::OtherFocusReason, /* climb = */ false,
+                                             /* focusFromShow = */ false);
+                    return;
+                }
+                p = p->d_ptr->parent;
             }
-            p = p->d_ptr->parent;
         }
     }
 
     // Invisible items with focus must explicitly clear subfocus.
-    d_ptr->clearSubFocus(this);
+    clearSubFocus(q_ptr);
 
-    if (hasFocus()) {
+    if (q_ptr->hasFocus()) {
         // If this item has the scene's input focus, clear it.
-        d_ptr->scene->setFocusItem(0);
+        scene->setFocusItem(0);
     }
 }
 
@@ -3534,6 +3578,8 @@ void QGraphicsItem::setPos(const QPointF &pos)
     // Update and repositition.
     if (!(d_ptr->flags & ItemSendsGeometryChanges)) {
         d_ptr->setPosHelper(pos);
+        if (d_ptr->isWidget)
+            static_cast<QGraphicsWidget *>(this)->d_func()->setGeometryFromSetPos();
         return;
     }
 
@@ -7256,7 +7302,9 @@ void QGraphicsItem::prepareGeometryChange()
 
         QGraphicsScenePrivate *scenePrivate = d_ptr->scene->d_func();
         scenePrivate->index->prepareBoundingRectChange(this);
-        scenePrivate->markDirty(this, QRectF(), /*invalidateChildren=*/true);
+        scenePrivate->markDirty(this, QRectF(), /*invalidateChildren=*/true, /*force=*/false,
+                                /*ignoreOpacity=*/ false, /*removingItemFromScene=*/ false,
+                                /*updateBoundingRect=*/true);
 
         // For compatibility reasons, we have to update the item's old geometry
         // if someone is connected to the changed signal or the scene has no views.
@@ -10801,6 +10849,7 @@ void QGraphicsItemEffectSourcePrivate::draw(QPainter *painter)
     }
 }
 
+// sourceRect must be in the given coordinate system
 QRect QGraphicsItemEffectSourcePrivate::paddedEffectRect(Qt::CoordinateSystem system, QGraphicsEffect::PixmapPadMode mode, const QRectF &sourceRect, bool *unpadded) const
 {
     QRectF effectRectF;
@@ -10810,7 +10859,8 @@ QRect QGraphicsItemEffectSourcePrivate::paddedEffectRect(Qt::CoordinateSystem sy
 
     if (mode == QGraphicsEffect::PadToEffectiveBoundingRect) {
         if (info) {
-            effectRectF = item->graphicsEffect()->boundingRectFor(boundingRect(Qt::DeviceCoordinates));
+            QRectF deviceRect = system == Qt::DeviceCoordinates ? sourceRect : info->painter->worldTransform().mapRect(sourceRect);
+            effectRectF = item->graphicsEffect()->boundingRectFor(deviceRect);
             if (unpadded)
                 *unpadded = (effectRectF.size() == sourceRect.size());
             if (info && system == Qt::LogicalCoordinates)
@@ -10859,30 +10909,6 @@ QPixmap QGraphicsItemEffectSourcePrivate::pixmap(Qt::CoordinateSystem system, QP
         return static_cast<QGraphicsPixmapItem *>(item)->pixmap();
     }
 
-    if (deviceCoordinates) {
-        // Clip to viewport rect.
-        int left, top, right, bottom;
-        effectRect.getCoords(&left, &top, &right, &bottom);
-        if (left < 0) {
-            if (offset)
-                offset->rx() += -left;
-            effectRect.setX(0);
-        }
-        if (top < 0) {
-            if (offset)
-                offset->ry() += -top;
-            effectRect.setY(0);
-        }
-        // NB! We use +-1 for historical reasons (see QRect documentation).
-        QPaintDevice *device = info->painter->device();
-        const int deviceWidth = device->width();
-        const int deviceHeight = device->height();
-        if (right + 1 > deviceWidth)
-            effectRect.setRight(deviceWidth - 1);
-        if (bottom + 1 > deviceHeight)
-            effectRect.setBottom(deviceHeight -1);
-
-    }
     if (effectRect.isEmpty())
         return QPixmap();
 

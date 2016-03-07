@@ -81,7 +81,7 @@ public:
     void generate(int start, int length, QFont::Capitalization caps)
     {
         if ((int)caps == (int)QFont::SmallCaps)
-            generateScriptItemsSmallCaps(m_string.utf16(), start, length);
+            generateScriptItemsSmallCaps(reinterpret_cast<const ushort *>(m_string.unicode()), start, length);
         else if(caps == QFont::Capitalize)
             generateScriptItemsCapitalize(start, length);
         else if(caps != QFont::MixedCase) {
@@ -856,7 +856,7 @@ void QTextEngine::shapeLine(const QScriptLine &line)
     }
 }
 
-extern int qt_defaultDpiY(); // in qfont.cpp
+Q_GUI_EXPORT extern int qt_defaultDpiY(); // in qfont.cpp
 
 void QTextEngine::shapeText(int item) const
 {
@@ -1434,9 +1434,7 @@ void QTextEngine::itemize() const
         layoutData->hasBidi = bidiItemize(const_cast<QTextEngine *>(this), analysis, control);
     }
 
-    const ushort *unicode = layoutData->string.utf16();
-    // correctly assign script, isTab and isObject to the script analysis
-    const ushort *uc = unicode;
+    const ushort *uc = reinterpret_cast<const ushort *>(layoutData->string.unicode());
     const ushort *e = uc + length;
     int lastScript = QUnicodeTables::Common;
     while (uc < e) {
@@ -1650,7 +1648,7 @@ glyph_metrics_t QTextEngine::boundingBox(int from,  int len) const
                 }
             }
 
-            glyph_t glyph = glyphs.glyphs[logClusters[pos + ilen - 1]];
+            glyph_t glyph = glyphs.glyphs[logClusters[ilen - 1]];
             glyph_metrics_t gi = fe->boundingBox(glyph);
             if (gi.isValid())
                 gm.width -= qRound(gi.xoff - gi.x - gi.width);
@@ -2497,7 +2495,7 @@ void QTextEngine::splitItem(int item, int pos) const
 //     qDebug("split at position %d itempos=%d", pos, item);
 }
 
-extern int qt_defaultDpiY();
+Q_GUI_EXPORT extern int qt_defaultDpiY();
 
 QFixed QTextEngine::calculateTabWidth(int item, QFixed x) const
 {

@@ -203,6 +203,10 @@
 <a name="notes-for-windows-users"></a>
 <h3>Notes for Windows Users</h3>
 <p>Some Windows commands (for example, <tt>dir</tt>) are not provided by separate applications, but by the command interpreter itself. If you attempt to use QProcess to execute these commands directly, it won't work. One possible solution is to execute the command interpreter itself (<tt>cmd.exe</tt> on some Windows systems), and ask the interpreter to execute the desired command.</p>
+<a name="symbian-platform-security-requirements"></a>
+<h3>Symbian Platform Security Requirements</h3>
+<p>On Symbian, processes which use the functions <a href="qprocess.html#kill">kill</a>() or <a href="qprocess.html#terminate">terminate</a>() must have the <tt>PowerMgmt</tt> platform security capability. If the client process lacks this capability, these functions will fail.</p>
+<p>Platform security capabilities are added via the <a href="qmake-variable-reference.html#target-capability">TARGET.CAPABILITY</a> qmake variable.</p>
 <p>See also <a href="qbuffer.html">QBuffer</a>, <a href="qfile.html">QFile</a>, and <a href="qtcpsocket.html">QTcpSocket</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
@@ -356,7 +360,8 @@
 <h3 class="fn"><a name="kill"></a>void QProcess::kill ()&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Kills the current process, causing it to exit immediately.</p>
 <p>On Windows, kill() uses TerminateProcess, and on Unix and Mac OS X, the SIGKILL signal is sent to the process.</p>
-<p>See also <a href="qprocess.html#terminate">terminate</a>().</p>
+<p>On Symbian, this function requires platform security capability <tt>PowerMgmt</tt>. If absent, the process will panic with KERN-EXEC 46.</p>
+<p>See also l, Symbian Platform Security Requirements, and <a href="qprocess.html#terminate">terminate</a>().</p>
 <a name="//apple_ref/cpp/instm/QProcess/pid"></a>
 <h3 class="fn"><a name="pid"></a><a href="qprocess.html#Q_PID-typedef">Q_PID</a> QProcess::pid () const</h3>
 <p>Returns the native process identifier for the running process, if available. If no process is currently running, 0 is returned.</p>
@@ -575,8 +580,9 @@
 <p>The process may not exit as a result of calling this function (it is given the chance to prompt the user for any unsaved files, etc).</p>
 <p>On Windows, terminate() posts a WM_CLOSE message to all toplevel windows of the process and then to the main thread of the process itself. On Unix and Mac OS X the SIGTERM signal is sent.</p>
 <p>Console applications on Windows that do not run an event loop, or whose event loop does not handle the WM_CLOSE message, can only be terminated by calling <a href="qprocess.html#kill">kill</a>().</p>
+<p>On Symbian, this function requires platform security capability <tt>PowerMgmt</tt>. If absent, the process will panic with KERN-EXEC 46.</p>
 <p><b>Note:</b> Terminating running processes from other processes will typically cause a panic in Symbian due to platform security.</p>
-<p>See also <a href="qprocess.html#kill">kill</a>().</p>
+<p>See also l, Symbian Platform Security Requirements, and <a href="qprocess.html#kill">kill</a>().</p>
 <a name="//apple_ref/cpp/instm/QProcess/waitForBytesWritten"></a>
 <h3 class="fn"><a name="waitForBytesWritten"></a>bool QProcess::waitForBytesWritten ( int <i>msecs</i> = 30000 )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qiodevice.html#waitForBytesWritten">QIODevice::waitForBytesWritten</a>().</p>
@@ -616,6 +622,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

@@ -1533,7 +1533,9 @@ QVector<QCss::StyleRule> QStyleSheetStyle::styleRules(const QWidget *w) const
     QHash<const void *, StyleSheet>::const_iterator defaultCacheIt = styleSheetCache->constFind(baseStyle());
     if (defaultCacheIt == styleSheetCache->constEnd()) {
         defaultSs = getDefaultStyleSheet();
-        styleSheetCache->insert(baseStyle(), defaultSs);
+        QStyle *bs = baseStyle();
+        styleSheetCache->insert(bs, defaultSs);
+        QObject::connect(bs, SIGNAL(destroyed(QObject*)), this, SLOT(styleDestroyed(QObject*)), Qt::UniqueConnection);
     } else {
         defaultSs = defaultCacheIt.value();
     }
@@ -2658,6 +2660,11 @@ void QStyleSheetStyle::widgetDestroyed(QObject *o)
     customPaletteWidgets->remove((const QWidget *)o);
     styleSheetCache->remove((const QWidget *)o);
     autoFillDisabledWidgets->remove((const QWidget *)o);
+}
+
+void QStyleSheetStyle::styleDestroyed(QObject *o)
+{
+    styleSheetCache->remove(o);
 }
 
 /*!
@@ -4242,8 +4249,15 @@ void QStyleSheetStyle::drawPrimitive(PrimitiveElement pe, const QStyleOption *op
         if (const QAbstractScrollArea *sa = qobject_cast<const QAbstractScrollArea *>(w)) {
             const QAbstractScrollAreaPrivate *sap = sa->d_func();
             rule.drawBackground(p, opt->rect, sap->contentsOffset());
-            if (rule.hasBorder())
-                rule.drawBorder(p, rule.borderRect(opt->rect));
+            if (rule.hasBorder()) {
+                QRect brect = rule.borderRect(opt->rect);
+                if (styleHint(QStyle::SH_ScrollView_FrameOnlyAroundContents, opt, w)) {
+                    QRect r = brect.adjusted(0, 0, sa->verticalScrollBar()->isVisible() ? -sa->verticalScrollBar()->width() : 0,
+                                             sa->horizontalScrollBar()->isVisible() ? -sa->horizontalScrollBar()->height() : 0);
+                    brect = QStyle::visualRect(opt->direction, brect, r);
+                }
+                rule.drawBorder(p, brect);
+            }
             break;
         }
 #endif
@@ -4627,6 +4641,11 @@ int QStyleSheetStyle::pixelMetric(PixelMetric m, const QStyleOption *opt, const 
                 return sb->orientation == Qt::Horizontal ? msz.width() : msz.height();
             return msz.width() == -1 ? msz.height() : msz.width();
         }
+        break;
+
+    case PM_ScrollView_ScrollBarSpacing:
+        if(!rule.hasNativeBorder() || rule.hasBox())
+            return 0;
         break;
 #endif // QT_NO_SCROLLBAR
 
@@ -5742,6 +5761,13 @@ QRect QStyleSheetStyle::subElementRect(SubElement se, const QStyleOption *opt, c
         QRenderRule subRule = renderRule(w, opt, PseudoElement_DockWidgetTitle);
         return positionRect(w, subRule, subRule2, pe, opt->rect, opt->direction);
                                    }
+
+#ifndef QT_NO_TOOLBAR
+    case SE_ToolBarHandle:
+        if (hasStyleRule(w, PseudoElement_ToolBarHandle))
+            return ParentStyle::subElementRect(se, opt, w);
+        break;
+#endif //QT_NO_TOOLBAR
 
     default:
         break;

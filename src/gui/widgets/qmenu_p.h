@@ -347,7 +347,7 @@ public:
         void syncAction(QWceMenuAction *);
         inline void syncAction(QAction *a) { syncAction(findAction(a)); }
         void removeAction(QWceMenuAction *);
-        void rebuild(bool reCreate = false);
+        void rebuild();
         inline void removeAction(QAction *a) { removeAction(findAction(a)); }
         inline QWceMenuAction *findAction(QAction *a) {
             for(int i = 0; i < actionItems.size(); i++) {
@@ -358,7 +358,7 @@ public:
             return 0;
         }
     } *wce_menu;
-    HMENU wceMenu(bool create = false);
+    HMENU wceMenu();
     QAction* wceCommands(uint command);
 #endif
 #if defined(Q_WS_S60)

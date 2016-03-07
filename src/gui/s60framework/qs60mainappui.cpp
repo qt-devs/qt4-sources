@@ -45,7 +45,15 @@
 #include <eikmenub.h>
 #include <eikmenup.h>
 #include <barsread.h>
-#include <s60main.rsg>
+#include <qconfig.h>
+#if defined(QT_LIBINFIX_UNQUOTED)
+// Two level macro needed for proper expansion of libinfix
+#  define QT_S60MAIN_RSG_2(x) <s60main##x##.rsg>
+#  define QT_S60MAIN_RSG(x) QT_S60MAIN_RSG_2(x)
+#  include QT_S60MAIN_RSG(QT_LIBINFIX_UNQUOTED)
+#else
+#  include <s60main.rsg>
+#endif
 #include <avkon.rsg>
 
 #include "qs60mainappui.h"
@@ -55,6 +63,9 @@
 #include <private/qmenu_p.h>
 #include <private/qt_s60_p.h>
 #include <qdebug.h>
+
+//Animated wallpapers in Qt applications are not supported.
+const TInt KAknDisableAnimationBackground = 0x02000000;
 
 QT_BEGIN_NAMESPACE
 
@@ -104,16 +115,15 @@ void QS60MainAppUi::ConstructL()
     // ENoAppResourceFile and ENonStandardResourceFile makes UI to work without
     // resource files in most SDKs. S60 3rd FP1 public seems to require resource file
     // even these flags are defined
-    TInt flags = CAknAppUi::EAknEnableSkin;
-    if (QApplication::testAttribute(Qt::AA_S60DontConstructApplicationPanes)) {
-        flags |= CAknAppUi::ENoScreenFurniture | CAknAppUi::ENonStandardResourceFile;
-    }
+    TInt flags = CAknAppUi::EAknEnableSkin
+                 | CAknAppUi::ENoScreenFurniture
+                 | CAknAppUi::ENonStandardResourceFile;
+    // After 5th Edition S60, native side supports animated wallpapers.
+	// However, there is no support for that feature on Qt side, so indicate to
+	// native UI framework that this application will not support background animations.
+    if (QSysInfo::s60Version() > QSysInfo::SV_S60_5_0)
+        flags |= KAknDisableAnimationBackground;
     BaseConstructL(flags);
-
-    if (!QApplication::testAttribute(Qt::AA_S60DontConstructApplicationPanes)) {
-        CEikButtonGroupContainer* nativeContainer = Cba();
-        nativeContainer->SetCommandSetL(R_AVKON_SOFTKEYS_EMPTY_WITH_IDS);
-    }
 }
 
 /*!

@@ -649,7 +649,7 @@
 <p>To check if an argument is of a custom C++ type, you typically use <a href="qscriptvalue.html#qscriptvalue_cast">qscriptvalue_cast</a>() and check if the result is valid. For object types, this means casting to a pointer and checking if it is non-zero; for value types, the class should have an <tt>isNull()</tt>, <tt>isValid()</tt> or similar method. Alternatively, since most custom types are transported in <a href="qvariant.html">QVariant</a>s, you can check if the script value is a <a href="qvariant.html">QVariant</a> using <a href="qscriptvalue.html#isVariant">QScriptValue::isVariant</a>(), and then check if the <a href="qvariant.html">QVariant</a> can be converted to your type using <a href="qvariant.html#canConvert">QVariant::canConvert</a>().</p>
 <a name="functions-with-variable-numbers-of-arguments"></a>
 <h4>Functions with Variable Numbers of Arguments</h4>
-<p>Because of the presence of the built-in <tt>arguments</tt> object, implementing functions that take a variable number of arguments is simple. In fact, as we have seen, in the technical sense <i>all</i> Qt Script functions can be seen as variable-argument functions). As an example, consider a concat() function that takes an arbitrary number of arguments, converts the arguments to their string representation and concatenates the results; for example, <tt>concat(&quot;Qt&quot;, &quot; &quot;, &quot;Script &quot;, 101)</tt> would return &quot;Qt Script 101&quot;. A script definition of <tt>concat()</tt> might look like this:</p>
+<p>Because of the presence of the built-in <tt>arguments</tt> object, implementing functions that take a variable number of arguments is simple. In fact, as we have seen, in the technical sense <i>all</i> Qt Script functions can be seen as variable-argument functions. As an example, consider a concat() function that takes an arbitrary number of arguments, converts the arguments to their string representation and concatenates the results; for example, <tt>concat(&quot;Qt&quot;, &quot; &quot;, &quot;Script &quot;, 101)</tt> would return &quot;Qt Script 101&quot;. A script definition of <tt>concat()</tt> might look like this:</p>
 <pre> function concat() {
      var result = &quot;&quot;;
      for (var i = 0; i &lt; arguments.length; ++i)
@@ -1184,6 +1184,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

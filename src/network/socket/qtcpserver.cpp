@@ -79,6 +79,16 @@
     use waitForNewConnection(), which blocks until either a
     connection is available or a timeout expires.
 
+    \section1 Symbian Platform Security Requirements
+
+    On Symbian, processes which use this class must have the
+    \c NetworkServices platform security capability. If the client
+    process lacks this capability, it will lead to a panic.
+
+    Platform security capabilities are added via the
+    \l{qmake-variable-reference.html#target-capability}{TARGET.CAPABILITY}
+    qmake variable.
+
     \sa QTcpSocket, {Fortune Server Example}, {Threaded Fortune Server Example},
         {Loopback Example}, {Torrent Example}
 */
@@ -513,6 +523,10 @@ bool QTcpServer::hasPendingConnections() const
     0 is returned if this function is called when there are no pending
     connections.
 
+    \note The returned QTcpSocket object cannot be used from another
+    thread. If you want to use an incoming connection from another thread,
+    you need to override incomingConnection().
+
     \sa hasPendingConnections()
 */
 QTcpSocket *QTcpServer::nextPendingConnection()
@@ -542,6 +556,11 @@ QTcpSocket *QTcpServer::nextPendingConnection()
     If this server is using QNetworkProxy then the \a socketDescriptor
     may not be usable with native socket functions, and should only be
     used with QTcpSocket::setSocketDescriptor().
+
+    \note If you want to handle an incoming connection as a new QTcpSocket
+    object in another thread you have to pass the socketDescriptor
+    to the other thread and create the QTcpSocket object there and
+    use its setSocketDescriptor() method.
 
     \sa newConnection(), nextPendingConnection()
 */

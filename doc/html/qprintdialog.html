@@ -18,6 +18,7 @@
 <pre> #include &lt;QPrintDialog&gt;</pre><p>Inherits <a href="qabstractprintdialog.html">QAbstractPrintDialog</a>.</p>
 <ul>
 <li><a href="qprintdialog-members.html">List of all members, including inherited members</a></li>
+<li><a href="qprintdialog-qt3.html">Qt 3 support members</a></li>
 </ul>
 <hr />
 <a name="properties"></a>
@@ -37,14 +38,11 @@
 <tr><td class="memItemLeft" align="right" valign="top"></td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#QPrintDialog">QPrintDialog</a></b> ( QPrinter * <i>printer</i>, QWidget * <i>parent</i> = 0 )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"></td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#QPrintDialog-2">QPrintDialog</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"></td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#dtor.QPrintDialog">~QPrintDialog</a></b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#addButton">addButton</a></b> ( QPushButton * <i>button</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#open">open</a></b> ( QObject * <i>receiver</i>, const char * <i>member</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">PrintDialogOptions </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#options-prop">options</a></b> () const</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPrinter * </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#printer">printer</a></b> () const</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPrinter * </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#printer-2">printer</a></b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPrinter * </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#printer">printer</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#setOption">setOption</a></b> ( PrintDialogOption <i>option</i>, bool <i>on</i> = true )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#options-prop">setOptions</a></b> ( PrintDialogOptions <i>options</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#setPrinter">setPrinter</a></b> ( QPrinter * <i>printer</i>, bool <i>pickupSettings</i> = false )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qprintdialog.html#testOption">testOption</a></b> ( PrintDialogOption <i>option</i> ) const</td></tr>
 </table>
 <hr />
@@ -137,10 +135,6 @@
 <a name="//apple_ref/cpp/instm/QPrintDialog/accepted"></a>
 <h3 class="fn"><a name="accepted"></a>void QPrintDialog::accepted ( <a href="qprinter.html">QPrinter</a> * <i>printer</i> )&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted when the user accepts the values set in the print dialog. The <i>printer</i> parameter includes the printer that the settings were applied to.</p>
-<a name="//apple_ref/cpp/instm/QPrintDialog/addButton"></a>
-<h3 class="fn"><a name="addButton"></a>void QPrintDialog::addButton ( <a href="qpushbutton.html">QPushButton</a> * <i>button</i> )</h3>
-<p>Adds the <i>button</i> to the layout of the print dialog. The added buttons are arranged from the left to the right below the last groupbox of the printdialog.</p>
-<p>This function is available for Unix platforms only.</p>
 <a name="//apple_ref/cpp/instm/QPrintDialog/done"></a>
 <h3 class="fn"><a name="done"></a>void QPrintDialog::done ( int <i>result</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qdialog.html#done">QDialog::done</a>().</p>
@@ -156,21 +150,13 @@
 <p>The signal will be disconnected from the slot when the dialog is closed.</p>
 <p>This function was introduced in Qt 4.5.</p>
 <a name="//apple_ref/cpp/instm/QPrintDialog/printer"></a>
-<h3 class="fn"><a name="printer"></a><a href="qprinter.html">QPrinter</a> * QPrintDialog::printer () const</h3>
-<p>Returns a pointer to the printer this dialog configures, or 0 if this dialog does not operate on any printer.</p>
-<p>This function is available for Unix platforms only.</p>
-<p>See also <a href="qprintdialog.html#setPrinter">setPrinter</a>().</p>
-<h3 class="fn"><a name="printer-2"></a><a href="qprinter.html">QPrinter</a> * QPrintDialog::printer ()</h3>
+<h3 class="fn"><a name="printer"></a><a href="qprinter.html">QPrinter</a> * QPrintDialog::printer ()</h3>
 <p>Returns the printer that this printer dialog operates on. This can be useful when using the <a href="qprintdialog.html#open">QPrintDialog::open</a>() method.</p>
+<p>See also <a href="qprintdialog-qt3.html#setPrinter" class="compat">setPrinter</a>().</p>
 <a name="//apple_ref/cpp/instm/QPrintDialog/setOption"></a>
 <h3 class="fn"><a name="setOption"></a>void QPrintDialog::setOption ( <a href="qabstractprintdialog.html#PrintDialogOption-enum">PrintDialogOption</a> <i>option</i>, bool <i>on</i> = true )</h3>
 <p>Sets the given <i>option</i> to be enabled if <i>on</i> is true; otherwise, clears the given <i>option</i>.</p>
 <p>See also <a href="qprintdialog.html#options-prop">options</a> and <a href="qprintdialog.html#testOption">testOption</a>().</p>
-<a name="//apple_ref/cpp/instm/QPrintDialog/setPrinter"></a>
-<h3 class="fn"><a name="setPrinter"></a>void QPrintDialog::setPrinter ( <a href="qprinter.html">QPrinter</a> * <i>printer</i>, bool <i>pickupSettings</i> = false )</h3>
-<p>Sets this dialog to configure printer <i>printer</i>, or no printer if <i>printer</i> is null. If <i>pickupSettings</i> is true, the dialog reads most of its settings from <i>printer</i>. If <i>pickupSettings</i> is false (the default) the dialog keeps its old settings.</p>
-<p>This function is available for Unix platforms only.</p>
-<p>See also <a href="qprintdialog.html#printer">printer</a>().</p>
 <a name="//apple_ref/cpp/instm/QPrintDialog/setVisible"></a>
 <h3 class="fn"><a name="setVisible"></a>void QPrintDialog::setVisible ( bool <i>visible</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#visible-prop">QWidget::setVisible</a>().</p>
@@ -182,6 +168,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

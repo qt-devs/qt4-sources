@@ -86,6 +86,7 @@ static const unsigned char gz_magic[2] = {0x1f, 0x8b}; // gzip magic header
 QT_BEGIN_NAMESPACE
 
 class QHttpNetworkConnection;
+class QHttpNetworkConnectionChannel;
 class QHttpNetworkRequest;
 class QHttpNetworkConnectionPrivate;
 class QHttpNetworkReplyPrivate;
@@ -171,6 +172,7 @@ public:
     bool findChallenge(bool forProxy, QByteArray &challenge) const;
     QAuthenticatorPrivate::Method authenticationMethod(bool isProxy) const;
     void clear();
+    void clearHttpLayerInformation();
 
     qint64 readReplyBodyRaw(QIODevice *in, QByteDataBuffer *out, qint64 size);
     qint64 readReplyBodyChunked(QIODevice *in, QByteDataBuffer *out);
@@ -218,6 +220,7 @@ public:
     qint64 currentChunkSize;
     qint64 currentChunkRead;
     QPointer<QHttpNetworkConnection> connection;
+    QPointer<QHttpNetworkConnectionChannel> connectionChannel;
     bool initInflate;
     bool streamEnd;
 #ifndef QT_NO_COMPRESS

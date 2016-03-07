@@ -44,17 +44,17 @@
 <a name="Functionsx"></a>
 <h2>Functions</h2>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
-<tr><td class="memItemLeft" align="right" valign="top">T </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qAbs">qAbs</a></b> ( const T &amp; <i>value</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">T </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qAbsx">qAbs</a></b> ( const T &amp; <i>value</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const T &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qBound">qBound</a></b> ( const T &amp; <i>min</i>, const T &amp; <i>value</i>, const T &amp; <i>max</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qCritical">qCritical</a></b> ( const char * <i>msg</i>, ... )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qDebug">qDebug</a></b> ( const char * <i>msg</i>, ... )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qFatal">qFatal</a></b> ( const char * <i>msg</i>, ... )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qFuzzyCompare">qFuzzyCompare</a></b> ( double <i>p1</i>, double <i>p2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qFuzzyCompare-2">qFuzzyCompare</a></b> ( float <i>p1</i>, float <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qFuzzyCompare-8">qFuzzyCompare</a></b> ( double <i>p1</i>, double <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qFuzzyCompare-9">qFuzzyCompare</a></b> ( float <i>p1</i>, float <i>p2</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QtMsgHandler </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qInstallMsgHandler">qInstallMsgHandler</a></b> ( QtMsgHandler <i>handler</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qMacVersion">qMacVersion</a></b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const T &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qMax">qMax</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const T &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qMin">qMin</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const T &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qMaxx">qMax</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const T &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qMinx">qMin</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">qint64 </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qRound64">qRound64</a></b> ( qreal <i>value</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qRound">qRound</a></b> ( qreal <i>value</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const char * </td><td class="memItemRight" valign="bottom"><b><a href="qtglobal.html#qVersion">qVersion</a></b> ()</td></tr>
@@ -166,7 +166,7 @@
 <p>Finally, the <a href="qtglobal.html#QtMsgType-enum">QtMsgType</a> definition identifies the various messages that can be generated and sent to a Qt message handler; <a href="qtglobal.html#QtMsgHandler-typedef">QtMsgHandler</a> is a type definition for a pointer to a function with the signature <tt>void myMsgHandler(QtMsgType, const char *)</tt>.</p>
 <a name="functions"></a>
 <h3>Functions</h3>
-<p>The &lt;QtGlobal&gt; header file contains several functions comparing and adjusting an object's value. These functions take a template type as argument: You can retrieve the absolute value of an object using the <a href="qtglobal.html#qAbs">qAbs</a>() function, and you can bound a given object's value by given minimum and maximum values using the <a href="qtglobal.html#qBound">qBound</a>() function. You can retrieve the minimum and maximum of two given objects using <a href="qtglobal.html#qMin">qMin</a>() and <a href="qtglobal.html#qMax">qMax</a>() respectively. All these functions return a corresponding template type; the template types can be replaced by any other type.</p>
+<p>The &lt;QtGlobal&gt; header file contains several functions comparing and adjusting an object's value. These functions take a template type as argument: You can retrieve the absolute value of an object using the <a href="qtglobal.html#qAbsx">qAbs</a>() function, and you can bound a given object's value by given minimum and maximum values using the <a href="qtglobal.html#qBound">qBound</a>() function. You can retrieve the minimum and maximum of two given objects using <a href="qtglobal.html#qMinx">qMin</a>() and <a href="qtglobal.html#qMaxx">qMax</a>() respectively. All these functions return a corresponding template type; the template types can be replaced by any other type.</p>
 <p>Example:</p>
 <pre> int myValue = 10;
  int minValue = 2;
@@ -281,7 +281,7 @@
 <hr />
 <h2>Function Documentation</h2>
 <a name="//apple_ref/cpp/func//qAbs"></a>
-<h3 class="fn"><a name="qAbs"></a>T qAbs ( const T &amp; <i>value</i> )</h3>
+<h3 class="fn"><a name="qAbsx"></a>T qAbs ( const T &amp; <i>value</i> )</h3>
 <p>Compares <i>value</i> to the 0 of type T and returns the absolute value. Thus if T is <i>double</i>, then <i>value</i> is compared to <i>(double) 0</i>.</p>
 <p>Example:</p>
 <pre> int absoluteValue;
@@ -299,7 +299,7 @@
 
  int boundedValue = qBound(minValue, myValue, maxValue);
 <span class="comment"> // boundedValue == 6</span></pre>
-<p>See also <a href="qtglobal.html#qMin">qMin</a>() and <a href="qtglobal.html#qMax">qMax</a>().</p>
+<p>See also <a href="qtglobal.html#qMinx">qMin</a>() and <a href="qtglobal.html#qMaxx">qMax</a>().</p>
 <a name="//apple_ref/cpp/func//qCritical"></a>
 <h3 class="fn"><a name="qCritical"></a>void qCritical ( const char * <i>msg</i>, ... )</h3>
 <p>Calls the message handler with the critical message <i>msg</i>. If no message handler has been installed, the message is printed to stderr. Under Windows, the message is sent to the debugger.</p>
@@ -342,8 +342,7 @@
  }</pre>
 <p>To supress the output at runtime, install your own message handler with <a href="qtglobal.html#qInstallMsgHandler">qInstallMsgHandler</a>().</p>
 <p>See also <a href="qtglobal.html#qDebug">qDebug</a>(), <a href="qtglobal.html#qCritical">qCritical</a>(), <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qInstallMsgHandler">qInstallMsgHandler</a>(), and <a href="debug.html">Debugging Techniques</a>.</p>
-<a name="//apple_ref/cpp/clm//qFuzzyCompare"></a>
-<h3 class="fn"><a name="qFuzzyCompare"></a>bool qFuzzyCompare ( double <i>p1</i>, double <i>p2</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
+<h3 class="fn"><a name="qFuzzyCompare-8"></a>bool qFuzzyCompare ( double <i>p1</i>, double <i>p2</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Compares the floating point value <i>p1</i> and <i>p2</i> and returns <tt>true</tt> if they are considered equal, otherwise <tt>false</tt>.</p>
 <p>Note that comparing values where either <i>p1</i> or <i>p2</i> is 0.0 will not work. The solution to this is to compare against values greater than or equal to 1.0&#x2e;</p>
 <pre>         <span class="comment">// Instead of comparing with 0.0</span>
@@ -353,7 +352,7 @@
 <p>The two numbers are compared in a relative way, where the exactness is stronger the smaller the numbers are.</p>
 <p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
 <p>This function was introduced in Qt 4.4.</p>
-<h3 class="fn"><a name="qFuzzyCompare-2"></a>bool qFuzzyCompare ( float <i>p1</i>, float <i>p2</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
+<h3 class="fn"><a name="qFuzzyCompare-9"></a>bool qFuzzyCompare ( float <i>p1</i>, float <i>p2</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Compares the floating point value <i>p1</i> and <i>p2</i> and returns <tt>true</tt> if they are considered equal, otherwise <tt>false</tt>.</p>
 <p>The two numbers are compared in a relative way, where the exactness is stronger the smaller the numbers are.</p>
 <p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
@@ -401,7 +400,7 @@
 <p>Use <a href="qsysinfo.html#MacintoshVersion-var">QSysInfo::MacintoshVersion</a> instead.</p>
 <p>See also <a href="qsysinfo.html">QSysInfo</a>.</p>
 <a name="//apple_ref/cpp/func//qMax"></a>
-<h3 class="fn"><a name="qMax"></a>const T &amp; qMax ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
+<h3 class="fn"><a name="qMaxx"></a>const T &amp; qMax ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
 <p>Returns the maximum of <i>value1</i> and <i>value2</i>.</p>
 <p>Example:</p>
 <pre> int myValue = 6;
@@ -409,9 +408,9 @@
 
  int maxValue = qMax(myValue, yourValue);
 <span class="comment"> // maxValue == myValue</span></pre>
-<p>See also <a href="qtglobal.html#qMin">qMin</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
+<p>See also <a href="qtglobal.html#qMinx">qMin</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
 <a name="//apple_ref/cpp/func//qMin"></a>
-<h3 class="fn"><a name="qMin"></a>const T &amp; qMin ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
+<h3 class="fn"><a name="qMinx"></a>const T &amp; qMin ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
 <p>Returns the minimum of <i>value1</i> and <i>value2</i>.</p>
 <p>Example:</p>
 <pre> int myValue = 6;
@@ -419,7 +418,7 @@
 
  int minValue = qMin(myValue, yourValue);
 <span class="comment"> // minValue == yourValue</span></pre>
-<p>See also <a href="qtglobal.html#qMax">qMax</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
+<p>See also <a href="qtglobal.html#qMaxx">qMax</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
 <a name="//apple_ref/cpp/func//qRound64"></a>
 <h3 class="fn"><a name="qRound64"></a><a href="qtglobal.html#qint64-typedef">qint64</a> qRound64 ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>value</i> )</h3>
 <p>Rounds <i>value</i> to the nearest 64-bit integer.</p>
@@ -1046,6 +1045,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

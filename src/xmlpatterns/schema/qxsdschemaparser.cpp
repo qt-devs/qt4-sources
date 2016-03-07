@@ -264,14 +264,29 @@ XsdSchemaParser::XsdSchemaParser(const XsdSchemaContext::Ptr &context, const Xsd
     setupBuiltinTypeNames();
 }
 
+void XsdSchemaParser::addIncludedSchemas(const NamespaceSet &schemas)
+{
+    m_includedSchemas += schemas;
+}
+
 void XsdSchemaParser::setIncludedSchemas(const NamespaceSet &schemas)
 {
     m_includedSchemas = schemas;
 }
 
+void XsdSchemaParser::addImportedSchemas(const NamespaceSet &schemas)
+{
+    m_importedSchemas += schemas;
+}
+
 void XsdSchemaParser::setImportedSchemas(const NamespaceSet &schemas)
 {
     m_importedSchemas = schemas;
+}
+
+void XsdSchemaParser::addRedefinedSchemas(const NamespaceSet &schemas)
+{
+    m_redefinedSchemas += schemas;
 }
 
 void XsdSchemaParser::setRedefinedSchemas(const NamespaceSet &schemas)
@@ -297,6 +312,7 @@ void XsdSchemaParser::setDocumentURI(const QUrl &uri)
     // prevent to get included/imported/redefined twice
     m_includedSchemas.insert(uri);
     m_importedSchemas.insert(uri);
+    m_redefinedSchemas.insert(uri);
 }
 
 QUrl XsdSchemaParser::documentURI() const
@@ -594,8 +610,14 @@ void XsdSchemaParser::parseInclude()
             parser.setIncludedSchemas(m_includedSchemas);
             parser.setImportedSchemas(m_importedSchemas);
             parser.setRedefinedSchemas(m_redefinedSchemas);
-            if (!parser.parse(XsdSchemaParser::IncludeParser))
+            if (!parser.parse(XsdSchemaParser::IncludeParser)) {
                 return;
+            } else {
+                // add indirectly loaded schemas to the list of already loaded ones
+                addIncludedSchemas(parser.m_includedSchemas);
+                addImportedSchemas(parser.m_importedSchemas);
+                addRedefinedSchemas(parser.m_redefinedSchemas);
+            }
         }
     }
 
@@ -684,8 +706,14 @@ void XsdSchemaParser::parseImport()
                 parser.setIncludedSchemas(m_includedSchemas);
                 parser.setImportedSchemas(m_importedSchemas);
                 parser.setRedefinedSchemas(m_redefinedSchemas);
-                if (!parser.parse(XsdSchemaParser::ImportParser))
+                if (!parser.parse(XsdSchemaParser::ImportParser)) {
                     return;
+                } else {
+                    // add indirectly loaded schemas to the list of already loaded ones
+                    addIncludedSchemas(parser.m_includedSchemas);
+                    addImportedSchemas(parser.m_importedSchemas);
+                    addRedefinedSchemas(parser.m_redefinedSchemas);
+                }
             }
         }
     } else {
@@ -702,8 +730,14 @@ void XsdSchemaParser::parseImport()
                     parser.setIncludedSchemas(m_includedSchemas);
                     parser.setImportedSchemas(m_importedSchemas);
                     parser.setRedefinedSchemas(m_redefinedSchemas);
-                    if (!parser.parse(XsdSchemaParser::ImportParser))
+                    if (!parser.parse(XsdSchemaParser::ImportParser)) {
                         return;
+                    } else {
+                        // add indirectly loaded schemas to the list of already loaded ones
+                        addIncludedSchemas(parser.m_includedSchemas);
+                        addImportedSchemas(parser.m_importedSchemas);
+                        addRedefinedSchemas(parser.m_redefinedSchemas);
+                    }
                 }
             }
         } else {
@@ -839,8 +873,14 @@ void XsdSchemaParser::parseRedefine()
             parser.setIncludedSchemas(m_includedSchemas);
             parser.setImportedSchemas(m_importedSchemas);
             parser.setRedefinedSchemas(m_redefinedSchemas);
-            if (!parser.parse(XsdSchemaParser::RedefineParser))
+            if (!parser.parse(XsdSchemaParser::RedefineParser)) {
                 return;
+            } else {
+                // add indirectly loaded schemas to the list of already loaded ones
+                addIncludedSchemas(parser.m_includedSchemas);
+                addImportedSchemas(parser.m_importedSchemas);
+                addRedefinedSchemas(parser.m_redefinedSchemas);
+            }
 
             delete reply;
         }
@@ -4832,7 +4872,7 @@ XsdTerm::Ptr XsdSchemaParser::parseLocalElement(const XsdParticle::Ptr &particle
 
             if (isSchemaTag(XsdSchemaToken::Annotation, token, namespaceToken)) {
                 const XsdAnnotation::Ptr annotation = parseAnnotation();
-                element->addAnnotation(annotation);
+                term->addAnnotation(annotation);
             } else if (isSchemaTag(XsdSchemaToken::SimpleType, token, namespaceToken)) {
                 if (hasRefAttribute) {
                     error(QtXmlPatterns::tr("%1 element with %2 child element must not have a %3 attribute.")

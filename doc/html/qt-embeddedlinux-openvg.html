@@ -78,7 +78,22 @@
 <li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Darken</a></li>
 <li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Lighten</a></li>
 </ul>
-<p>The other members of <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a> are not supported because OpenVG 1.1 does not have an equivalent in its <tt>VGBlendMode</tt> enumeration. Any attempt to set an unsupported mode will result in the actual mode being set to <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceOver</a>. Client applications should avoid using unsupported modes.</p>
+<p>The other members of <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a> are not supported unless the <tt>VG_KHR_advanced_blending</tt> extension is present, in which case the following additional modes are supported:</p>
+<ul>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Overlay</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_ColorDodge</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_ColorBurn</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_HardLight</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SoftLight</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Difference</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Exclusion</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceOut</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_DestinationOut</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceAtop</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_DestinationAtop</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Xor</a></li>
+</ul>
+<p>Any attempt to set an unsupported mode will result in the actual mode being set to <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceOver</a>. Client applications should avoid using unsupported modes.</p>
 </td></tr>
 <tr valign="top" class="even"><td>Pens and brushes</td><td>All pen styles are supported, including cosmetic pens.<p>All brush styles are supported except for conical gradients, which are not supported by OpenVG 1.1&#x2e; Conical gradients will be converted into a solid color brush corresponding to the first color in the gradient's color ramp.</p>
 <p>Affine matrices are supported for brush transforms, but not projective matrices.</p>
@@ -106,6 +121,7 @@
 <p>Bitmaps must use QRasterPixmapData. They are not accelerated with VGImage at present.</p>
 </td></tr>
 <tr valign="top" class="even"><td>Pixmap filters</td><td>Convolution, colorize, drop shadow, and blur filters are accelerated using OpenVG operations.</td></tr>
+<tr valign="top" class="odd"><td>Scrolling</td><td>Accelerated scrolling is implemented but disabled by default unless QVG_BUFFER_SCROLLING is defined. This should only be enabled on OpenVG engines where vgCopyPixels() is known to be efficient.</td></tr>
 </table></p>
 <a name="known-issues"></a>
 <h3>Known issues</h3>
@@ -119,6 +135,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

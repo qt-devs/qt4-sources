@@ -58,12 +58,12 @@
 
  #include &quot;dialog.h&quot;
 
- #if !defined(Q_OS_WINCE)
+ #if !defined(Q_OS_WINCE) &amp;&amp; !defined(Q_OS_SYMBIAN)
  static const int TotalBytes = 50 * 1024 * 1024;
  #else
  static const int TotalBytes = 5 * 1024 * 1024;
  #endif
- static const int PayloadSize = 65536;
+ static const int PayloadSize = 64 * 1024; <span class="comment">// 64 KB</span>
 
  Dialog::Dialog(QWidget *parent)
      : QDialog(parent)
@@ -144,6 +144,7 @@
 
  void Dialog::startTransfer()
  {
+     <span class="comment">// called when the TCP client connected to the loopback server</span>
      bytesToWrite = TotalBytes - (int)tcpClient.write(QByteArray(PayloadSize, '@'));
      clientStatusLabel-&gt;setText(tr(&quot;Connected&quot;));
  }
@@ -169,8 +170,11 @@
 
  void Dialog::updateClientProgress(qint64 numBytes)
  {
+     <span class="comment">// callen when the TCP client has written some bytes</span>
      bytesWritten += (int)numBytes;
-     if (bytesToWrite &gt; 0)
+
+     <span class="comment">// only write more if not finished and when the Qt write buffer is below a certain size.</span>
+     if (bytesToWrite &gt; 0 &amp;&amp; tcpClient.bytesToWrite() &lt;= 4*PayloadSize)
          bytesToWrite -= (int)tcpClient.write(QByteArray(qMin(bytesToWrite, PayloadSize), '@'));
 
      clientProgressBar-&gt;setMaximum(TotalBytes);
@@ -203,6 +207,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
 </tr></table></div></address></body>
 </html>

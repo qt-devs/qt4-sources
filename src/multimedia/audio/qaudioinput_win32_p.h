@@ -62,6 +62,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringlist.h>
 #include <QtCore/qdatetime.h>
+#include <QtCore/qmutex.h>
 
 #include <QtMultimedia/qaudio.h>
 #include <QtMultimedia/qaudiodeviceinfo.h>
@@ -121,6 +122,8 @@ private:
     volatile bool finished;
     volatile int waveFreeBlockCount;
     int waveCurrentBlock;
+
+    QMutex mutex;
 
     static void CALLBACK waveInProc( HWAVEIN hWaveIn, UINT uMsg,
             DWORD dwInstance, DWORD dwParam1, DWORD dwParam2 );
