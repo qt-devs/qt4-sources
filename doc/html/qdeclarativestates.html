@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -146,7 +146,6 @@
 <li class="level1"><a href="#overview">Overview</a></li>
 <li class="level1"><a href="#creating-states">Creating states</a></li>
 <li class="level1"><a href="#the-default-state">The default state</a></li>
-<li class="level1"><a href="#the-when-property">The &quot;when&quot; property</a></li>
 <li class="level1"><a href="#animating-state-changes">Animating state changes</a></li>
 </ul>
 </div>
@@ -174,7 +173,7 @@
 <h2>Creating states</h2>
 <p>To create a state, add a <a href="qml-state.html">State</a> object to the item's <a href="qml-item.html#states-prop">states</a> property, which holds a list of states for that item.</p>
 <p>Following is an example. Here, the <a href="qml-rectangle.html">Rectangle</a> is initially placed in the default (0, 0) position. It has defined an additional state named &quot;moved&quot;, in which a <a href="qml-propertychanges.html">PropertyChanges</a> object repositions the rectangle to (50, 50). Clicking within the <a href="qml-mousearea.html">MouseArea</a> changes the state to the &quot;moved&quot; state, thus moving the <a href="qml-rectangle.html">Rectangle</a>.</p>
-<pre class="highlightedCode brush: cpp"> import Qt 4.7
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Rectangle {
      id: myRect
@@ -193,12 +192,23 @@
          }
      ]
  }</pre>
-<p>A <a href="qml-state.html">State</a> item defines all the changes to be made in the new state. You could specify additional properties to be changed, or create additional <a href="qml-propertychanges.html">PropertyChanges</a> for other objects. (Note that a <a href="qml-state.html">State</a> can modify the properties of other objects, not just the object that owns the state.)</p>
-<p>For example:</p>
-<pre class="highlightedCode brush: cpp"> State {
-     name: &quot;moved&quot;
-     PropertyChanges { target: myRect; x: 50; y: 50; color: &quot;blue&quot; }
-     PropertyChanges { target: someOtherItem; width: 1000 }
+<p>The <a href="qml-state.html">State</a> item defines all the changes to be made in the new state. It could specify additional properties to be changed, or create additional <a href="qml-propertychanges.html">PropertyChanges</a> for other objects. It can also modify the properties of other objects, not just the object that owns the state. For example:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     ...
+     states: [
+         State {
+             name: &quot;moved&quot;
+             PropertyChanges { target: myRect; x: 50; y: 50; color: &quot;blue&quot; }
+             PropertyChanges { target: someOtherItem; width: 1000 }
+         }
+     ]
+ }</pre>
+<p>As a convenience, if an item only has one state, its <a href="qml-item.html#states-prop">states</a> property can be defined as a single <a href="qml-state.html">State</a>, without the square-brace list syntax:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     ...
+     states: State {
+         ...
+     }
  }</pre>
 <p>A <a href="qml-state.html">State</a> is not limited to performing modifications on property values. It can also:</p>
 <ul>
@@ -210,17 +220,8 @@
 <p>The <a href="declarative-animation-states.html">States and Transitions example</a> demonstrates how to declare a basic set of states and apply animated transitions between them.</p>
 <a name="the-default-state"></a>
 <h2>The default state</h2>
-<p>Of course, the <a href="qml-rectangle.html">Rectangle</a> in the example above could have simply been moved by setting its position to (50, 50) in the mouse area's <tt>onClicked</tt> handler. However, aside from enabling batched property changes, the use of states allows an item to revert to its <i>default state</i>, which contains all of the items' initial property values before they were modified in a state change.</p>
-<p>The default state is specified by an empty string. If the <a href="qml-mousearea.html">MouseArea</a> in the above example was changed to this:</p>
-<pre class="highlightedCode brush: cpp"> MouseArea {
-     anchors.fill: parent
-     onClicked: myRect.state == 'moved' ? myRect.state = &quot;&quot; : myRect.state = 'moved';
- }</pre>
-<p>This would toggle the <a href="qml-rectangle.html">Rectangle</a>'s state between the <i>moved</i> and <i>default</i> states when clicked. The properties can be reverted to their initial values without requiring the definition of another <a href="qml-state.html">State</a> that defines these value changes.</p>
-<a name="the-when-property"></a>
-<h2>The &quot;when&quot; property</h2>
-<p>The <a href="qml-state.html#when-prop">when</a> property is useful for specifying when a state should be applied. This can be set to an expression that evaluates to <tt>true</tt> when an item should change to a particular state.</p>
-<p>If the above example was changed to this:</p>
+<p>Of course, the <a href="qml-rectangle.html">Rectangle</a> in the example above could have simply been moved by setting its position to (50, 50) in the mouse area's <tt>onClicked</tt> handler. However, aside from enabling batched property changes, one of the features of QML states is the ability of an item to revert to its <i>default state</i>. The default state contains all of an item's initial property values before they were modified in a state change.</p>
+<p>For example, suppose the <a href="qml-rectangle.html">Rectangle</a> should move to (50,50) when the mouse is pressed, and then move back to its original position when the mouse is released. This can be achieved by using the <a href="qml-state.html#when-prop">when</a> property, like this:</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
      ...
 
@@ -232,8 +233,25 @@
      states: State {
          name: &quot;moved&quot;; when: mouseArea.pressed
          ...
-     }</pre>
-<p>The <a href="qml-rectangle.html">Rectangle</a> would automatically change to the <i>moved</i> state when the mouse is pressed, and revert to the default state when it is released. This is simpler (and a better, more declarative method) than creating <tt>onPressed</tt> and <tt>onReleased</tt> handlers in the <a href="qml-mousearea.html">MouseArea</a> to set the current state.</p>
+     }
+ }</pre>
+<p>The <a href="qml-state.html#when-prop">when</a> property is set to an expression that evaluates to <tt>true</tt> when the item should be set to that state. When the mouse is pressed, the state is changed to <i>moved</i>. When it is released, the item reverts to its <i>default</i> state, which defines all of the item's original property values.</p>
+<p>Alternatively, an item can be explicitly set to its default state by setting its <a href="qml-item.html#state-prop">state</a> property to an empty string (&quot;&quot;). For example, instead of using the <a href="qml-state.html#when-prop">when</a> property, the above code could be changed to:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     ...
+
+     MouseArea {
+         anchors.fill: parent
+         onPressed: myRect.state = 'moved';
+         onReleased: myRect.state = '';
+     }
+
+     states: State {
+         name: &quot;moved&quot;
+         ...
+     }
+ }</pre>
+<p>Obviously it makes sense to use the <a href="qml-state.html#when-prop">when</a> property when possible as it provides a simpler (and a better, more declarative) solution than assigning the state from signal handlers.</p>
 <a name="animating-state-changes"></a>
 <h2>Animating state changes</h2>
 <p>State changes can be easily animated through <a href="qdeclarativeanimation.html#transitions">transitions</a>. A <a href="qml-transition.html">Transition</a> defines the animations that should be applied when an item changes from one state to another.</p>
@@ -257,11 +275,11 @@
 <p>See the <a href="qdeclarativeanimation.html#transitions">Transitions</a> documentation for more information.</p>
 </div>
 <!-- @@@qdeclarativestates.html -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -274,28 +292,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

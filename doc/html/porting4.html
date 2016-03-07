@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,11 +137,9 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
-  <link rel="prev" href="porting.html" />
-  <link rel="next" href="porting4-virtual-functions.html" />
   <link rel="prev" href="porting.html" />
   <link rel="next" href="porting4-virtual-functions.html" />
 <div class="toc">
@@ -344,7 +342,7 @@
 </ul>
 <p>The Qt 4 series is not binary compatible with the 3 series. This means programs compiled for Qt 3 must be recompiled to work with Qt 4. Qt 4 is also not completely <i>source</i> compatible with 3, however nearly all points of incompatibility cause compiler errors or run-time messages (rather than mysterious results). Qt 4 includes many additional features and discards obsolete functionality. Porting from Qt 3 to Qt 4 requires some effort, but once completed the considerable additional power and flexibility of Qt 4 is available for use in your applications.</p>
 <p>To port code from Qt 3 to Qt 4:</p>
-<ol type="1">
+<ol class="1">
 <li>Briefly read the porting notes below to get an idea of what to expect.</li>
 <li>Be sure that your code compiles and runs well on all your target platforms with Qt 3.</li>
 <li>Add the line <tt>QT += qt3support</tt> to your <tt>.pro</tt> file if you use <tt>qmake</tt>; otherwise, edit your makefile or project file to link against the <a href="qt3support.html">Qt3Support</a> library and add <tt>-DQT3_SUPPORT</tt> to your compiler flags. (You might also need to specify other libraries. See <a href="qt4-intro.html">What's New in Qt 4</a> for details.)</li>
@@ -762,7 +760,7 @@
 </table>
 <a name="explicit-sharing"></a>
 <h2>Explicit Sharing</h2>
-<p>Qt 4 is the first version of Qt that contains no <a href="http://qt.nokia.com/doc/3.3/shclass.html">explicitly shared</a> classes. All classes that were explicitly shared in Qt 3 are <i>implicitly</i> shared in Qt 4:</p>
+<p>Qt 4 is the first version of Qt that contains no <a href="http://doc.qt.nokia.com/3.3/shclass.html">explicitly shared</a> classes. All classes that were explicitly shared in Qt 3 are <i>implicitly</i> shared in Qt 4:</p>
 <ul>
 <li><a href="qimage.html">QImage</a></li>
 <li><a href="qbitarray.html">QBitArray</a></li>
@@ -804,7 +802,7 @@
 <a name="qaccel"></a>
 <h2>QAccel</h2>
 <p>The <tt>QAccel</tt> class has been renamed <a href="q3accel.html" class="compat">Q3Accel</a> and moved to the <a href="qt3support.html">Qt3Support</a> module. In new applications, you have three options:</p>
-<ol type="1">
+<ol class="1">
 <li>You can use <a href="qaction.html">QAction</a> and set a key sequence using <a href="qaction.html#shortcut-prop">QAction::setShortcut</a>().</li>
 <li>You can use <a href="qshortcut.html">QShortcut</a>, a class that provides similar functionality to <a href="q3accel.html" class="compat">Q3Accel</a>.</li>
 <li>You can use <a href="qwidget.html#grabShortcut">QWidget::grabShortcut</a>() and process &quot;shortcut&quot; events by reimplementing <a href="qwidget.html#event">QWidget::event</a>().</li>
@@ -830,7 +828,7 @@
 <h2>QApplication</h2>
 <p>The <a href="qapplication.html">QApplication</a> class has been split into two classes: <a href="qcoreapplication.html">QCoreApplication</a> and <a href="qapplication.html">QApplication</a>. The new <a href="qapplication.html">QApplication</a> class inherits <a href="qcoreapplication.html">QCoreApplication</a> and adds GUI-related functionality. In practice, this has no consequences for existing Qt applications.</p>
 <p>In addition, the following API changes were made:</p>
-<ol type="1">
+<ol class="1">
 <li><a href="qapplication.html#allWidgets">QApplication::allWidgets</a>() and <a href="qapplication.html#topLevelWidgets">QApplication::topLevelWidgets</a>() used to return a pointer to a <a href="qwidget.html#QWidgetList-typedef">QWidgetList</a>. Now they return a <a href="qwidget.html#QWidgetList-typedef">QWidgetList</a>.<p>Also, <a href="qwidget.html#QWidgetList-typedef">QWidgetList</a> has changed from being a typedef for QPtrList&lt;<a href="qwidget.html">QWidget</a>&gt; to being a typedef for <a href="qlist.html">QList</a>&lt;<a href="qwidget.html">QWidget</a> *&gt;. See the <a href="#qwidgetlist-section">section on QWidgetList</a> below for details.</p>
 <p>For example, if you have code like</p>
 <pre class="highlightedCode brush: cpp">     QWidgetList *list = QApplication::topLevelWidgets();
@@ -905,7 +903,7 @@
 <tr class="even topAlign"><td ><p>Q3Button::toggleType()</p></td><td ><p>See remark below</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li>In Qt 3, <tt>QButton</tt> had a &quot;toggle type&quot;, which could be QButton::SingleShot, QButton::Toggle, or QButton::Tristate. The new <a href="qabstractbutton.html">QAbstractButton</a> class doesn't support &quot;tristate&quot; directly; this feature is implemented in <a href="qcheckbox.html">QCheckBox</a> instead. The two other &quot;toggle types&quot; (<tt>QButton::SingleShot</tt> and <tt>QButton::Toggle</tt>) are replaced by a <a href="qabstractbutton.html#checkable-prop">QAbstractButton::checkable</a> property.</li>
 <li>In Qt 3, <a href="#qbutton">QButton</a> had a &quot;toggle state&quot;, which could be <tt>QButton::Off</tt>, <tt>QButton::NoChange</tt>, or <tt>QButton::On</tt>. In Qt 4, this mechanism has been moved to <a href="qcheckbox.html">QCheckBox</a>.</li>
 </ol>
@@ -915,7 +913,7 @@
 <h2>QButtonGroup</h2>
 <p>The <tt>QButtonGroup</tt> class has been completely redesigned in Qt 4. For compatibility, the old <tt>QButtonGroup</tt> class has been renamed <a href="q3buttongroup.html" class="compat">Q3ButtonGroup</a> and has been moved to <a href="qt3support.html">Qt3Support</a>. Likewise, the <tt>QHButtonGroup</tt> and <tt>QVButtonGroup</tt> convenience subclasses have been renamed <tt>Q3HButtonGroup</tt> and <tt>Q3VButtonGroup</tt> and moved to the <a href="qt3support.html">Qt3Support</a> library.</p>
 <p>The old <tt>QButtonGroup</tt>, as well as <a href="q3buttongroup.html" class="compat">Q3ButtonGroup</a>, can be used in two ways:</p>
-<ol type="1">
+<ol class="1">
 <li>The button group is the parent widget of a number of buttons, i.e&#x2e; the button group is the parent argument in the button constructor. The buttons are assigned identifiers 0, 1, 2, etc., in the order they are created. A <a href="q3buttongroup.html" class="compat">Q3ButtonGroup</a> can display a frame and a title because it inherits <a href="q3groupbox.html" class="compat">Q3GroupBox</a>.</li>
 <li>The button group is an invisible widget and the contained buttons have some other parent widget. In this usage, each button must be manually inserted, using <a href="q3buttongroup.html#insert">Q3ButtonGroup::insert</a>(), into the button group and given an ID number.</li>
 </ol>
@@ -926,7 +924,7 @@
 <h2>QByteArray</h2>
 <p>In Qt 3, <a href="qbytearray.html">QByteArray</a> was simply a typedef for QMemArray&lt;char&gt;. In Qt 4, <a href="qbytearray.html">QByteArray</a> is a class in its own right, with a higher-level API in the style of <a href="qstring.html">QString</a>.</p>
 <p>Here are the main issues to be aware of when porting to Qt 4:</p>
-<ol type="1">
+<ol class="1">
 <li>The QMemArray(int size) constructor has been replaced with <a href="qbytearray.html">QByteArray</a>(int size, char ch). The second argument specifies which character should be used for initializing the array; pass '\0' if you have no specific needs.<p>For example, if you have code like</p>
 <pre class="highlightedCode brush: cpp"> QByteArray ba(64);</pre>
 <p>you can rewrite it as</p>
@@ -956,7 +954,7 @@
 <tr class="odd topAlign"><td ><p>Q3Cache::operator=()</p></td><td ><p>See remark below</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li><a href="q3cache.html" class="compat">Q3Cache</a> requires the user to allocate a specific number of buckets by passing a prime number (17 by default) to the constructor. In contrast, the new <a href="qcache.html">QCache</a>'s hash table automatically grows and shrinks as needed, and the constructor doesn't take a prime number.</li>
 <li><a href="q3cache.html" class="compat">Q3Cache</a> supportes case-insensitive lookups by passing false as second argument to the constructor. This feature has no equivalent in <a href="qmultihash.html">QMultiHash</a>. Instead, call <a href="qstring.html#toLower">QString::toLower</a>() before you insert or lookup a key in the hash.</li>
 <li>The <a href="q3cache.html#insert">Q3Cache::insert</a>() function returns a <tt>bool</tt> value that indicates whether or not the item actually was inserted in the cache. If the item wasn't inserted, it was the caller's responsibility to delete the item. The new <a href="qcache.html#insert">QCache::insert</a>() function returns <tt>void</tt> and either adds it to the cache or deletes it right away. Old code like<pre class="highlightedCode brush: cpp"> if (!cache.insert(key, object))
@@ -1042,7 +1040,7 @@
 <p>See <a href="porting4-virtual-functions.html">Virtual Functions</a> for a list of <a href="qcombobox.html">QComboBox</a> virtual member functions in Qt 3 that are no longer virtual in Qt 4.</p>
 <a name="qcstring"></a>
 <h2>QCString</h2>
-<p>In Qt 3, <a href="#qcstring">QCString</a> inherited from <a href="qbytearray.html">QByteArray</a>. The main drawback of this approach is that the user had the responsibility of ensuring that the string is '\0'-terminated. Another important issue was that conversions between <tt>QCString</tt> and <a href="qbytearray.html">QByteArray</a> often gave confusing results. (See the <a href="http://qt.nokia.com/doc/qq/qq05-achtung.html#qcstringisastringofchars">Achtung! Binary and Character Data</a> article in <i>Qt Quarterly</i> for an overview of the pitfalls.)</p>
+<p>In Qt 3, <a href="#qcstring">QCString</a> inherited from <a href="qbytearray.html">QByteArray</a>. The main drawback of this approach is that the user had the responsibility of ensuring that the string is '\0'-terminated. Another important issue was that conversions between <tt>QCString</tt> and <a href="qbytearray.html">QByteArray</a> often gave confusing results. (See the <a href="http://doc.qt.nokia.com/qq/qq05-achtung.html#qcstringisastringofchars">Achtung! Binary and Character Data</a> article in <i>Qt Quarterly</i> for an overview of the pitfalls.)</p>
 <p>Qt 4 solves that problem by merging the <a href="qbytearray.html">QByteArray</a> and <tt>QCString</tt> classes into one class called <a href="qbytearray.html">QByteArray</a>. Most functions that were in <tt>QCString</tt> previously have been moved to <a href="qbytearray.html">QByteArray</a>. The '\0' issue is handled by having <a href="qbytearray.html">QByteArray</a> allocate one extra byte that it always sets to '\0'. For example:</p>
 <pre class="highlightedCode brush: cpp"> QByteArray ba(&quot;Hello&quot;);
  ba.size();             // returns 5 (the '\0' is not counted)
@@ -1090,7 +1088,7 @@
 <tr class="odd topAlign"><td ><p><a href="q3cstring.html#upper">Q3CString::upper</a>()</p></td><td ><p><a href="qbytearray.html#toUpper">QByteArray::toUpper</a>()</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li><a href="q3cstring.html" class="compat">Q3CString</a>(const char *str, uint max) constructs a string of length strlen(str) or <i>max</i> - 1, whichever is shorter. <a href="qbytearray.html">QByteArray</a>(const char *data, int size) constructs a byte array containing exactly <i>size</i> bytes.<p>For example, if you have code like</p>
 <pre class="highlightedCode brush: cpp">     QCString str1(&quot;Hello&quot;, 4);           // &quot;Hel&quot;
      QCString str2(&quot;Hello world!&quot;, n);</pre>
@@ -1191,7 +1189,7 @@
 <tr class="even topAlign"><td ><p>Q3Dict::operator[](const <a href="qstring.html">QString</a> &amp;)</p></td><td ><p>See remark below</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li><a href="q3dict.html" class="compat">Q3Dict</a> requires the user to allocate a specific number of buckets by passing a prime number (17 by default) to the constructor and/or calling <a href="q3dict.html#resize">Q3Dict::resize</a>() later on. In contrast, <a href="qmultihash.html">QMultiHash</a>'s hash table automatically grows and shrinks as needed, and the constructor doesn't take a prime number.</li>
 <li><a href="q3dict.html" class="compat">Q3Dict</a> supportes case-insensitive lookups by passing false as second argument to the constructor. This feature has no equivalent in <a href="qmultihash.html">QMultiHash</a>. Instead, call <a href="qstring.html#toLower">QString::toLower</a>() before you insert or lookup a key in the hash.</li>
 <li><a href="q3dict.html#size">Q3Dict::size</a>() and <a href="qhash.html#size">QMultiHash::size</a>() have different semantics. The former returns the number of buckets in the container, whereas the latter returns the number of <i>items</i> in the container.</li>
@@ -1228,7 +1226,7 @@
 <thead><tr class="qt-style topAlign"><th ><a href="q3dictiterator.html" class="compat">Q3DictIterator</a> functions</th><th >Qt 4 equivalent</th></tr></thead>
 <tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#count">Q3DictIterator::count</a>()</p></td><td ><p><a href="qhash.html#count">QHash::count</a>() or <a href="qhash.html#size">QHash::size</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="q3dictiterator.html#current">Q3DictIterator::current</a>()</p></td><td ><p><a href="qhashiterator.html#value">QHashIterator::value</a>()</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#currentKey">Q3DictIterator::currentKey</a>()</p></td><td ><p><a href="qhashiterator.html#key">QHashIterator::key</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#currentKey">Q3DictIterator::currentKey</a>()</p></td><td ><p><a href="qhashiterator.html#keyx">QHashIterator::key</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="q3dictiterator.html#isEmpty">Q3DictIterator::isEmpty</a>()</p></td><td ><p><a href="qhash.html#isEmpty">QHash::isEmpty</a>()</p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#toFirst">Q3DictIterator::toFirst</a>()</p></td><td ><p><a href="qhashiterator.html#toFront">QHashIterator::toFront</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p>Q3DictIterator::operator()()</p></td><td ><p><a href="qhashiterator.html#value">QHashIterator::value</a>()</p></td></tr>
@@ -1380,7 +1378,7 @@
 <tr class="odd topAlign"><td ><p>Q3FileDialog::filterSelected(const <a href="qstring.html">QString</a> &amp;)</p></td><td ><p>N/A</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li>The Q3FileDialog::addFilter(const <a href="qstring.html">QString</a> &amp;) function has no direct equivalent in the new <a href="qfiledialog.html">QFileDialog</a>. Use <a href="qfiledialog.html#setFilters" class="compat">QFileDialog::setFilters</a>() instead.<p>For example, if you have code like</p>
 <pre class="highlightedCode brush: cpp">     fileDialog-&gt;addFilter(tr(&quot;JPEG files (*.jpg *.jpeg)&quot;));</pre>
 <p>you can rewrite it as</p>
@@ -1675,7 +1673,7 @@
 <tr class="even topAlign"><td ><p>QMemArray::operator const T *()</p></td><td ><p><a href="qvector.html#constData">QVector::constData</a>()</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li>QMemArray::assign(const T *, uint) and QMemArray::duplicate(const T *, uint) can be replaced by <a href="qvector.html#resize">QVector::resize</a>() and <a href="qtalgorithms.html#qCopy">qCopy</a>().<p>For example, if you have code like</p>
 <pre class="highlightedCode brush: cpp">     QMemArray&lt;QSize&gt; array;
      ..&#x2e;
@@ -1768,8 +1766,8 @@
 <h2>QPainter</h2>
 <p>The <a href="qpainter.html">QPainter</a> class has undergone some changes in Qt 4 because of the way rectangles are drawn. In Qt 4, the result of drawing a <a href="qrect.html">QRect</a> with a pen width of 1 pixel is 1 pixel wider and 1 pixel taller than in Qt 3.</p>
 <p>For compatibility, we provide a <a href="q3painter.html" class="compat">Q3Painter</a> class in <a href="qt3support.html">Qt3Support</a> that provides the old semantics. See the <a href="q3painter.html" class="compat">Q3Painter</a> documentation for details and for the reasons why we had to make this change.</p>
-<p>The <a href="http://qt.nokia.com/doc/3.3/qpainter.html#CoordinateMode-enum">QPainter::CoordinateMode</a> enum has been removed in Qt 4. All clipping operations are now defined using logical coordinates and are subject to transformation operations.</p>
-<p>The <a href="http://qt.nokia.com/doc/3.3/qpainter.html#RasterOP-enum">QPainter::RasterOP</a> enum has been replaced with <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a>.</p>
+<p>The <a href="http://doc.qt.nokia.com/3.3/qpainter.html#CoordinateMode-enum">QPainter::CoordinateMode</a> enum has been removed in Qt 4. All clipping operations are now defined using logical coordinates and are subject to transformation operations.</p>
+<p>The <a href="http://doc.qt.nokia.com/3.3/qpainter.html#RasterOP-enum">QPainter::RasterOP</a> enum has been replaced with <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a>.</p>
 <a name="qpicture"></a>
 <h2>QPicture</h2>
 <p>In Qt 3, a <a href="qpicture.html">QPicture</a> could be saved in the SVG file format. In Qt 4, the SVG support is provided by the <a href="qtsvg.html">QtSvg</a> module, which includes classes for <i>displaying</i> the contents of SVG files.</p>
@@ -1811,7 +1809,7 @@
 <a name="qptrcollection-t"></a>
 <h2>QPtrCollection&lt;T&gt;</h2>
 <p>The <tt>QPtrCollection&lt;T&gt;</tt> abstract base class has been renamed <a href="q3ptrcollection.html" class="compat">Q3PtrCollection</a>&lt;T&gt; moved to the <a href="qt3support.html">Qt3Support</a> library. There is no direct equivalent in Qt 4.</p>
-<p>See <a href="containers.html">Generic Containers</a> for a list of Qt 4 containers.</p>
+<p>See <a href="containers.html">Container Classes</a> for a list of Qt 4 containers.</p>
 <a name="qptrdict-t"></a>
 <h2>QPtrDict&lt;T&gt;</h2>
 <p><tt>QPtrDict&lt;T&gt;</tt> and <tt>QPtrDictIterator&lt;T&gt;</tt> have been renamed <a href="q3ptrdict.html" class="compat">Q3PtrDict</a>&lt;T&gt; and <a href="q3ptrdictiterator.html" class="compat">Q3PtrDictIterator</a>&lt;T&gt; and have been moved to the <a href="qt3support.html">Qt3Support</a> library. They have been replaced by the more modern <a href="qhash.html">QHash</a>&lt;Key, T&gt; and <a href="qmultihash.html">QMultiHash</a>&lt;Key, T&gt; classes and their associated iterator classes.</p>
@@ -1847,7 +1845,7 @@
 <tr class="even topAlign"><td ><p>QPtrList::toVector(QGVector *)</p></td><td ><p>See remark below</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li>QPtrList::toVector(QGVector *) can be replaced by <a href="qvector.html#resize">QVector::resize</a>() and <a href="qtalgorithms.html#qCopy">qCopy</a>().<p>For example, if you have code like</p>
 <pre class="highlightedCode brush: cpp">     QPtrList&lt;QWidget&gt; list;
      ..&#x2e;
@@ -2043,7 +2041,7 @@
 <tr class="even topAlign"><td ><p>QPtrVector::toList(QGList *)</p></td><td ><p>QList::QList(const <a href="qvector.html">QVector</a> &amp;)</p></td></tr>
 </table>
 <p>Remarks:</p>
-<ol type="1">
+<ol class="1">
 <li>QPtrVector::insert(uint, T *) sets an item to store a certain pointer value. This is <i>not</i> the same as QVector::insert(int, T *), which creates space for the item by moving following items by one position. Use <tt>vect[i] = ptr</tt> to set a <a href="qvector.html">QVector</a> item to a particular value.</li>
 <li>QPtrVector::remove(uint) sets an item to be 0. This is <i>not</i> the same as QVector::removeAt(int), which entirely erases the item, reducing the size of the vector. Use <tt>vect[i] = 0</tt> to set a <a href="qvector.html">QVector</a> item to 0.</li>
 <li>Likewise, QPtrVector::take(uint) sets an item to be 0 and returns the previous value of the item. Again, this is easy to achieve using QVector::operator[]().</li>
@@ -2229,7 +2227,7 @@
 <h2>QSocketDevice</h2>
 <p>The <tt>QSocketDevice</tt> class has been renamed <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> and moved to the <a href="qt3support.html">Qt3Support</a> library. In Qt 4, there is no direct equivalent to <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a>:</p>
 <ul>
-<li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> in a thread to perform blocking network I/O (a technique encouraged by the <i>Qt Quarterly</i> article <a href="http://qt.nokia.com/doc/qq/qq09-networkthread.html">Unblocking Networking</a>), you can now use <a href="qtcpsocket.html">QTcpSocket</a>, <a href="qftp.html">QFtp</a>, or <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, which can be used from non-GUI threads.</li>
+<li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> in a thread to perform blocking network I/O (a technique encouraged by the <i>Qt Quarterly</i> article <a href="http://doc.qt.nokia.com/qq/qq09-networkthread.html">Unblocking Networking</a>), you can now use <a href="qtcpsocket.html">QTcpSocket</a>, <a href="qftp.html">QFtp</a>, or <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, which can be used from non-GUI threads.</li>
 <li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> for UDP, you can now use <a href="qudpsocket.html">QUdpSocket</a> instead.</li>
 <li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> for other uses, Qt 4 offers no alternative right now. However, there is a <tt>QAbstractSocketEngine</tt> internal class that offers a low-level socket API similar to <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a>. Should the need for such functionality arise in Qt 4 applications, we will consider making this class public in a future release.</li>
 </ul>
@@ -2304,7 +2302,7 @@
 <a name="qstring"></a>
 <h2>QString</h2>
 <p>Here are the main issues to be aware of when porting <a href="qstring.html">QString</a> to Qt 4:</p>
-<ol type="1">
+<ol class="1">
 <li>The QString::QString(<a href="qchar.html">QChar</a>) constructor performed implicit conversion in Qt 3. Now, you will need a cast to convert a <a href="qchar.html">QChar</a> to a <a href="qstring.html">QString</a>.</li>
 <li>The QString::QString(const <a href="qbytearray.html">QByteArray</a> &amp;) constructor used to stop at the first '\0' it encountered, for compatibility with Qt 1. This quirk has now been fixed; in Qt 4, the resulting <a href="qstring.html">QString</a> always has the same length as the <a href="qbytearray.html">QByteArray</a> that was passed to the constructor.</li>
 <li>The <a href="qstring.html#null-var">QString::null</a> static constant has been deprecated in Qt 4. For compatibility, Qt 4 provides a <a href="qstring.html#null-var">QString::null</a> symbol that behaves more or less the same as the old constant. The new idiom is to write QString() instead of <a href="qstring.html#null-var">QString::null</a>, or to call clear().<p>For example, if you have code like</p>
@@ -2545,11 +2543,11 @@
 <li>QValueVector::at() on a non-const vector returns a non-const reference. This corresponds to QVector::operator[]().</li>
 <li>Both QValueVector::at() functions have an <i>ok</i> parameter of type <tt>bool *</tt> that is set to true if the index is within bounds. This functionality doesn't exist in <a href="qvector.html">QVector</a>; instead, check the index against <a href="qvector.html#size">QVector::size</a>() yourself.</li>
 </ul>
-<p>See <a href="containers.html">Generic Containers</a> for an overview of the Qt 4 container classes.</p>
+<p>See <a href="containers.html">Container Classes</a> for an overview of the Qt 4 container classes.</p>
 <a name="qvariant"></a>
 <h2>QVariant</h2>
 <p>Some changes to the rest of the Qt library have implications on <a href="qvariant.html">QVariant</a>:</p>
-<ol type="1">
+<ol class="1">
 <li>The <tt>QVariant::ColorGroup</tt> enum value is defined only if <tt>QT3_SUPPORT</tt> is defined.</li>
 <li>The <tt>QVariant::IconSet</tt> enum value has been renamed <a href="qvariant.html#Type-enum">QVariant::Icon</a>.</li>
 <li>The <tt>QVariant::CString</tt> enum value is now a synonym for <a href="qvariant.html#Type-enum">QVariant::ByteArray</a>.</li>
@@ -2629,7 +2627,7 @@
 <li><a href="qwidget.html#BackgroundOrigin-enum" class="compat">QWidget::BackgroundOrigin</a> backgroundOrigin() const</li>
 <li><a href="qwidget.html#backgroundOffset" class="compat">QWidget::backgroundOffset</a>()</li>
 </ul>
-<p>Sample code on how to do obtain similar behavior from Qt 4, previously handled by some of the above functions can be found in the <a href="http://qt.nokia.com/doc/qwidget-qt3.html">Qt 3 Support Members for QWidget</a> page.</p>
+<p>Sample code on how to do obtain similar behavior from Qt 4, previously handled by some of the above functions can be found in the <a href="http://doc.qt.nokia.com/qwidget-qt3.html">Qt 3 Support Members for QWidget</a> page.</p>
 <p>A widget now receives change events in its <a href="qwidget.html#changeEvent">QWidget::changeEvent</a>() handler. This makes the following virtual change handlers obsolete:</p>
 <ul>
 <li>QWidget::styleChange - use <a href="qevent.html#Type-enum">QEvent::StyleChange</a></li>
@@ -2713,7 +2711,7 @@
 </ul>
 <p>The internal clearWState() function was removed. Use <a href="qwidget.html#setAttribute">QWidget::setAttribute</a>() instead.</p>
 <p>setWFlags() was renamed <a href="qwidget.html#windowFlags-prop">QWidget::setWindowFlags</a>().</p>
-<p>clearWFlags() has no direct replacement. You can use <a href="qwidget.html#setAttribute">QWidget::setAttribute</a>() instead. For example, <tt>setAttribute(..., false)</tt> to clear an attribute. More information is available <a href="http://qt.nokia.com/doc/qwidget.html#setAttribute">here</a>.</p>
+<p>clearWFlags() has no direct replacement. You can use <a href="qwidget.html#setAttribute">QWidget::setAttribute</a>() instead. For example, <tt>setAttribute(..., false)</tt> to clear an attribute. More information is available <a href="http://doc.qt.nokia.com/qwidget.html#setAttribute">here</a>.</p>
 <p>testWFlags() was renamed to <a href="qwidget.html#testAttribute">testAttribute()</a>.</p>
 <p>See <a href="#properties">Properties</a> for a list of <a href="qwidget.html">QWidget</a> properties in Qt 3 that have changed in Qt 4.</p>
 <a name="qwidgetfactory"></a>
@@ -2743,11 +2741,11 @@
 [Previous: <a href="porting.html">Porting Guides</a>]
 [Next: <a href="porting4-virtual-functions.html">Porting to Qt 4 - Virtual Functions</a>]
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -2760,28 +2758,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

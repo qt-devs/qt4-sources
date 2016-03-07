@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -127,7 +127,7 @@
             <ul>
               <li class="first"><a href="index.html">Home</a></li>
               <!--  Bread crumbs goes here -->
-              <li><a href="all-examples.html">Examples</a></li>              <li><a href="examples-phonon.html"></a></li>              <li>Music Player Example</li>            </ul>
+              <li><a href="all-examples.html">Examples</a></li>              <li>Music Player Example</li>            </ul>
           </div>
           <div class="toolbuttons toolblock">
             <ul>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -162,7 +162,7 @@
 <p>The Music Player Example shows how to use Phonon - the multimedia framework that comes with Qt - to create a simple music player. The player can play music files, and provides simple playback control, such as pausing, stopping, and resuming the music.</p>
 <p class="centerAlign"><img src="images/musicplayer.png" /></p><p>The player has a button group with the play, pause, and stop buttons familiar from most music players. The top-most slider controls the position in the media stream, and the bottom slider allows adjusting the sound volume.</p>
 <p>The user can use a file dialog to add music files to a table, which displays meta information about the music - such as the title, album, and artist. Each row contains information about a single music file; to play it, the user selects that row and presses the play button. Also, when a row is selected, the files in the table are queued for playback.</p>
-<p>Phonon offers playback of sound using an available audio device, e.g&#x2e;, a sound card or an USB headset. For the implementation, we use two objects: a <a href="phonon-mediaobject.html">MediaObject</a>, which controls the playback, and an <a href="phonon-audiooutput.html">AudioOutput</a>, which can output the audio to a sound device. We will explain how they cooperate when we encounter them in the code. For a high-level introduction to Phonon, see its overview.</p>
+<p>Phonon offers playback of sound using an available audio device, e.g&#x2e;, a sound card or an USB headset. For the implementation, we use two objects: a <a href="phonon-mediaobject.html">MediaObject</a>, which controls the playback, and an <a href="phonon-audiooutput.html">AudioOutput</a>, which can output the audio to a sound device. We will explain how they cooperate when we encounter them in the code. For a high-level introduction to Phonon, see its <a href="phonon-overview.html#phonon-overview">overview</a>.</p>
 <p>The API of Phonon is implemented through an intermediate technology on each supported platform: DirectShow, QuickTime, and GStreamer. The sound formats supported may therefore vary from system to system. We do not in this example try to determine which formats are supported, but let Phonon report an error if the user tries to play an unsupported sound file.</p>
 <p>Our player consists of one class, <tt>MainWindow</tt>, which both constructs the GUI and handles the playback. We will now go through the parts of its definition and implementation that concerns Phonon.</p>
 <a name="mainwindow-class-definition"></a>
@@ -378,11 +378,11 @@
  }</pre>
 </div>
 <!-- @@@phonon/qmusicplayer -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -395,28 +395,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

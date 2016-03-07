@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -145,19 +145,21 @@
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example-usage">Example Usage</a></li>
+<li class="level2"><a href="#performance">Performance</a></li>
 </ul>
 </div>
 <h1 class="title">QML Image Element</h1>
 <span class="subtitle"></span>
 <!-- $$$Image-brief -->
-<p>The Image element allows you to add bitmaps to a scene. <a href="#details">More...</a></p>
+<p>The Image element displays an image in a declarative user interface <a href="#details">More...</a></p>
 <!-- @@@Image -->
 <p>Inherits <a href="qml-item.html">Item</a></p>
 <p>Inherited by <a href="qml-animatedimage.html">AnimatedImage</a>.</p>
 <li><a href="qml-image-members.html">List of all members, including inherited members</a></li>
 <a name="properties"></a>
 <h2>Properties</h2>
-<tr class="odd topAlign"><ul>
+<ul>
 <li class="fn"><b><b><a href="qml-image.html#asynchronous-prop">asynchronous</a></b></b> : bool</li>
 <li class="fn"><b><b><a href="qml-image.html#fillMode-prop">fillMode</a></b></b> : enumeration</li>
 <li class="fn"><b><b><a href="qml-image.html#progress-prop">progress</a></b></b> : real</li>
@@ -169,16 +171,21 @@
 <!-- $$$Image-description -->
 <a name="details"></a>
 <h2>Detailed Description</h2>
-<p>An Image element displays a specified <a href="qml-image.html#source-prop">source</a> image:</p>
-<table class="generic">
-<tr class="odd topAlign"><td ><p><p class="centerAlign"><img src="images/declarative-qtlogo.png" /></p></p></td><td ><p><pre class="highlightedCode brush: cpp"> import Qt 4.7
+<p>The Image element is used to display images in a declarative user interface.</p>
+<p>The source of the image is specified as a URL using the <a href="qml-image.html#source-prop">source</a> property. Images can be supplied in any of the standard image formats supported by Qt, including bitmap formats such as PNG and JPEG, and vector graphics formats such as SVG. If you need to display animated images, use the <a href="qml-animatedimage.html">AnimatedImage</a> element.</p>
+<p>If the <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> properties are not specified, the Image element automatically uses the size of the loaded image. By default, specifying the width and height of the element causes the image to be scaled to that size. This behavior can be changed by setting the <a href="qml-image.html#fillMode-prop">fillMode</a> property, allowing the image to be stretched and tiled instead.</p>
+<a name="example-usage"></a>
+<h2>Example Usage</h2>
+<p>The following example shows the simplest usage of the Image element.</p>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
- Image { source: &quot;qtlogo.png&quot; }</pre>
-</p></td></tr>
-</table>
-<p>If the <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> properties are not specified, the Image element is automatically sized to the loaded image. Image elements can be stretched and tiled using the <a href="qml-image.html#fillMode-prop">fillMode</a> property.</p>
+ Image {
+     source: &quot;pics/qtlogo.png&quot;
+ }</pre>
+<div style="float: left; margin-right: 2em"><p class="centerAlign"><img src="images/declarative-qtlogo.png" /></p></div><br style="clear: both" /><a name="performance"></a>
+<h2>Performance</h2>
 <p>By default, locally available images are loaded immediately, and the user interface is blocked until loading is complete. If a large image is to be loaded, it may be preferable to load the image in a low priority thread, by enabling the <a href="qml-image.html#asynchronous-prop">asynchronous</a> property.</p>
-<p>If the image is from a network rather than a local resource, it is automatically loaded asynchronously, and the <a href="qml-image.html#progress-prop">progress</a> and <a href="qml-image.html#status-prop">status</a> properties are updated as appropriate.</p>
+<p>If the image is obtained from a network rather than a local resource, it is automatically loaded asynchronously, and the <a href="qml-image.html#progress-prop">progress</a> and <a href="qml-image.html#status-prop">status</a> properties are updated as appropriate.</p>
 <p>Images are cached and shared internally, so if several Image elements have the same <a href="qml-image.html#source-prop">source</a>, only one copy of the image will be loaded.</p>
 <p><b>Note</b>: Images are often the greatest user of memory in QML user interfaces. It is recommended that images which do not form part of the user interface have their size bounded via the <a href="qml-image.html#sourceSize-prop">sourceSize</a> property. This is especially important for content that is loaded from external sources or provided by the user.</p>
 <p>See also <a href="declarative-imageelements-image.html">Image example</a> and <a href="qdeclarativeimageprovider.html">QDeclarativeImageProvider</a>.</p>
@@ -263,7 +270,7 @@
 <br/>
 <!-- $$$sourceSize -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="sourceSize-prop"></a>sourceSize : <a href="qsize.html">QSize</a></td></tr></table></div><div class="qmldoc"><p>This property holds the actual width and height of the loaded image.</p>
-<p>Unlike the <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> properties, which scale the painting of the image, this property sets the actual number of pixels stored for the loaded image so that large images do not use more memory than necessary. For example, this ensures the image is memory is no larger than 1024x1024 pixels, regardless of the Image's <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> values:</p>
+<p>Unlike the <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> properties, which scale the painting of the image, this property sets the actual number of pixels stored for the loaded image so that large images do not use more memory than necessary. For example, this ensures the image in memory is no larger than 1024x1024 pixels, regardless of the Image's <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> values:</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
      width: ...
      height: ...
@@ -304,11 +311,11 @@
 <br/>
 <p>
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -321,28 +328,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

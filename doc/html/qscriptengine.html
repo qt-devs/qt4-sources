@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -139,7 +139,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -320,7 +320,7 @@
 <p>Adding custom properties to the scripting environment is one of the standard means of providing a scripting API that is specific to your application. Usually these custom properties are objects created by the <a href="qscriptengine.html#newQObject">newQObject</a>() or <a href="qscriptengine.html#newObject">newObject</a>() functions, or constructor functions created by <a href="qscriptengine.html#newFunction">newFunction</a>().</p>
 <a name="script-exceptions"></a>
 <h3>Script Exceptions</h3>
-<p><a href="qscriptengine.html#evaluate">evaluate</a>() can throw a script exception (e.g&#x2e; due to a syntax error); in that case, the return value is the value that was thrown (typically an <tt>Error</tt> object). You can check whether the evaluation caused an exception by calling <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>(). In that case, you can call toString() on the error object to obtain an error message. The current uncaught exception is also available through <a href="qscriptengine.html#uncaughtException">uncaughtException</a>(). You can obtain a human-readable backtrace of the exception with <a href="qscriptengine.html#uncaughtExceptionBacktrace">uncaughtExceptionBacktrace</a>(). Calling <a href="qscriptengine.html#clearExceptions">clearExceptions</a>() will cause any uncaught exceptions to be cleared.</p>
+<p><a href="qscriptengine.html#evaluate">evaluate</a>() can throw a script exception (e.g&#x2e; due to a syntax error); in that case, the return value is the value that was thrown (typically an <tt>Error</tt> object). You can check whether the evaluation caused an exception by calling <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>(). In that case, you can call toString() on the error object to obtain an error message. The current uncaught exception is also available through <a href="qscriptengine.html#uncaughtException">uncaughtException</a>(). Calling <a href="qscriptengine.html#clearExceptions">clearExceptions</a>() will cause any uncaught exceptions to be cleared.</p>
 <pre class="highlightedCode brush: cpp"> QScriptValue result = myEngine.evaluate(...);
  if (myEngine.hasUncaughtException()) {
      int line = myEngine.uncaughtExceptionLineNumber();
@@ -514,7 +514,7 @@
 <h3 class="fn"><a name="hasUncaughtException"></a>bool QScriptEngine::hasUncaughtException () const</h3>
 <p>Returns true if the last script evaluation resulted in an uncaught exception; otherwise returns false.</p>
 <p>The exception state is cleared when <a href="qscriptengine.html#evaluate">evaluate</a>() is called.</p>
-<p>See also <a href="qscriptengine.html#uncaughtException">uncaughtException</a>(), <a href="qscriptengine.html#uncaughtExceptionLineNumber">uncaughtExceptionLineNumber</a>(), and <a href="qscriptengine.html#uncaughtExceptionBacktrace">uncaughtExceptionBacktrace</a>().</p>
+<p>See also <a href="qscriptengine.html#uncaughtException">uncaughtException</a>() and <a href="qscriptengine.html#uncaughtExceptionLineNumber">uncaughtExceptionLineNumber</a>().</p>
 <!-- @@@hasUncaughtException -->
 <!-- $$$importExtension[overload1]$$$importExtensionconstQString& -->
 <h3 class="fn"><a name="importExtension"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptEngine::importExtension ( const <a href="qstring.html">QString</a> &amp; <i>extension</i> )</h3>
@@ -538,6 +538,8 @@
 <tr class="even topAlign"><td ><p><a href="qtglobal.html#QT_TR_NOOP">QT_TR_NOOP</a>()</p></td><td ><p><a href="qtglobal.html#QT_TR_NOOP">QT_TR_NOOP</a>()</p></td></tr>
 <tr class="odd topAlign"><td ><p>qsTranslate()</p></td><td ><p><a href="qcoreapplication.html#translate">QCoreApplication::translate</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qtglobal.html#QT_TRANSLATE_NOOP">QT_TRANSLATE_NOOP</a>()</p></td><td ><p><a href="qtglobal.html#QT_TRANSLATE_NOOP">QT_TRANSLATE_NOOP</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p>qsTrId() (since 4.7)</p></td><td ><p><a href="qtglobal.html#qtTrId">qtTrId</a>()</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qtglobal.html#QT_TRID_NOOP">QT_TRID_NOOP</a>() (since 4.7)</p></td><td ><p><a href="qtglobal.html#QT_TRID_NOOP">QT_TRID_NOOP</a>()</p></td></tr>
 </table>
 <p>This function was introduced in Qt 4.5.</p>
 <p>See also <a href="internationalization.html">Internationalization with Qt</a>.</p>
@@ -851,19 +853,19 @@
 <h3 class="fn"><a name="uncaughtException"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptEngine::uncaughtException () const</h3>
 <p>Returns the current uncaught exception, or an invalid <a href="qscriptvalue.html">QScriptValue</a> if there is no uncaught exception.</p>
 <p>The exception value is typically an <tt>Error</tt> object; in that case, you can call toString() on the return value to obtain an error message.</p>
-<p>See also <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>(), <a href="qscriptengine.html#uncaughtExceptionLineNumber">uncaughtExceptionLineNumber</a>(), and <a href="qscriptengine.html#uncaughtExceptionBacktrace">uncaughtExceptionBacktrace</a>().</p>
+<p>See also <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>() and <a href="qscriptengine.html#uncaughtExceptionLineNumber">uncaughtExceptionLineNumber</a>().</p>
 <!-- @@@uncaughtException -->
 <!-- $$$uncaughtExceptionBacktrace[overload1]$$$uncaughtExceptionBacktrace -->
 <h3 class="fn"><a name="uncaughtExceptionBacktrace"></a><a href="qstringlist.html">QStringList</a> QScriptEngine::uncaughtExceptionBacktrace () const</h3>
 <p>Returns a human-readable backtrace of the last uncaught exception.</p>
-<p>Each line is of the form <tt>&lt;function-name&gt;(&lt;arguments&gt;)@&lt;file-name&gt;:&lt;line-number&gt;</tt>.</p>
+<p>It is in the form <tt>&lt;function-name&gt;()@&lt;file-name&gt;:&lt;line-number&gt;</tt>.</p>
 <p>See also <a href="qscriptengine.html#uncaughtException">uncaughtException</a>().</p>
 <!-- @@@uncaughtExceptionBacktrace -->
 <!-- $$$uncaughtExceptionLineNumber[overload1]$$$uncaughtExceptionLineNumber -->
 <h3 class="fn"><a name="uncaughtExceptionLineNumber"></a>int QScriptEngine::uncaughtExceptionLineNumber () const</h3>
 <p>Returns the line number where the last uncaught exception occurred.</p>
 <p>Line numbers are 1-based, unless a different base was specified as the second argument to <a href="qscriptengine.html#evaluate">evaluate</a>().</p>
-<p>See also <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>() and <a href="qscriptengine.html#uncaughtExceptionBacktrace">uncaughtExceptionBacktrace</a>().</p>
+<p>See also <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>().</p>
 <!-- @@@uncaughtExceptionLineNumber -->
 <!-- $$$undefinedValue[overload1]$$$undefinedValue -->
 <h3 class="fn"><a name="undefinedValue"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptEngine::undefinedValue ()</h3>
@@ -1009,11 +1011,11 @@
 <p>This function was introduced in Qt 4.3.</p>
 <!-- @@@Q_SCRIPT_DECLARE_QMETAOBJECT -->
 </div>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -1026,28 +1028,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

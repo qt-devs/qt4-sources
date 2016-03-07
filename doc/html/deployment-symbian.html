@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- deployment.qdoc -->
-  <title>Qt 4.7: Deploying an Application on the Symbian platform</title>
+  <title>Qt 4.7: Deploying an Application on the Symbian Platform</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
   <script src="scripts/jquery.js" type="text/javascript"></script>
   <script src="scripts/functions.js" type="text/javascript"></script>
@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -127,7 +127,7 @@
             <ul>
               <li class="first"><a href="index.html">Home</a></li>
               <!--  Bread crumbs goes here -->
-              <li>Deploying an Application on the Symbian platform</li>            </ul>
+              <li>Deploying an Application on the Symbian Platform</li>            </ul>
           </div>
           <div class="toolbuttons toolblock">
             <ul>
@@ -137,26 +137,34 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
+<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#requirements">Requirements</a></li>
 <li class="level1"><a href="#static-linking">Static Linking</a></li>
 <li class="level1"><a href="#shared-libraries">Shared Libraries</a></li>
 <li class="level2"><a href="#building-qt-as-a-shared-library">Building Qt as a Shared Library</a></li>
 <li class="level1"><a href="#shared-libraries">Shared Libraries</a></li>
+<li class="level1"><a href="#further-reading">Further Reading</a></li>
 </ul>
 </div>
-<h1 class="title">Deploying an Application on the Symbian platform</h1>
+<h1 class="title">Deploying an Application on the Symbian Platform</h1>
 <span class="subtitle"></span>
 <!-- $$$deployment-symbian.html-description -->
 <div class="descr"> <a name="details"></a>
+<a name="overview"></a>
+<h2>Overview</h2>
 <p>Applications are deployed to Symbian devices in signed <tt>.sis</tt> package files. The <tt>.sis</tt> file content is controlled with <tt>.pkg</tt> files. The <tt>.pkg</tt> file contains a set of instructions used by tools to produce a <tt>.sis</tt> file. <tt>qmake</tt> generates a default <tt>.pkg</tt> file for your project. The <tt>.pkg</tt> file generated by <tt>qmake</tt> is typically fully functional for testing purposes but when planning to deliver your application to end-users some changes are needed. This document describes what changes are typically needed and how to implement them.</p>
+<a name="requirements"></a>
+<h2>Requirements</h2>
+<p>Download the latest release of the Smart Installer from <a href="http://get.qt.nokia.com/nokiasmartinstaller/">http://get.qt.nokia.com/nokiasmartinstaller/</a>, and install it on top of the Qt package.</p>
 <a name="static-linking"></a>
 <h2>Static Linking</h2>
-<p>Qt for the Symbian platform does currently not support static linking of Qt libraries.</p>
+<p>Qt for the Symbian platform does not currently support static linking of Qt libraries with application binaries. You will need to build shared libraries as described below and link your application with them.</p>
 <a name="shared-libraries"></a>
 <h2>Shared Libraries</h2>
 <p>When deploying the application using the shared libraries approach we must ensure that the Qt runtime is correctly redistributed along with the application executable, and also that all Qt dependencies are redistributed along with the application.</p>
@@ -185,7 +193,7 @@
  my_deployment.pkg_prerules += supported_platforms
  DEPLOYMENT += my_deployment</pre>
 <p>You can find a list of platform and device indentification codes from <a href="http://wiki.forum.nokia.com/index.php/S60_Platform_and_device_identification_codes">Forum Nokia Wiki</a>. By default <tt>.pkg</tt> file generated by <tt>qmake</tt> adds support for all S60 3rd edition FP1, S60 3rd edition FP2 and S60 5th edition devices.</p>
-<p>Now we are ready to compile the application and create the application deployment file. Run <tt>qmake</tt> to create Symbian specific makefiles, resources (.rss) and deployment packaging files (<tt>.pkg</tt>). And do build to create the application binaries and resources.</p>
+<p>Now we are ready to compile the application and create the application deployment file. Run <tt>qmake</tt> to create Symbian specific makefiles, resources (<tt>.rss</tt>) and deployment packaging files (<tt>.pkg</tt>). And do build to create the application binaries and resources.</p>
 <pre class="highlightedCode brush: cpp"> qmake
  make release-gcce</pre>
 <p>If everything compiled and linked without any errors, we are now ready to create an application installation package (<tt>wiggly_installer.sis</tt>).</p>
@@ -195,15 +203,19 @@
 <p>If all binaries and dependencies were found, you should now have a self signed <tt>wiggly_installer.sis</tt> ready to be installed on a device. The smart installer contained in the in the installer package will download the necessary dependencies such as Qt libraries to the device.</p>
 <p><b>Note:</b> If you want to have your application properly Symbian Signed for distribution, you will have to properly sign both the application and the application installer packages. Please see <a href="http://developer.symbian.org/wiki/index.php/Category:Symbian_Signed">Symbian Signed wiki</a> for more information about Symbian Signed.</p>
 <p>For more information about creating a <tt>.sis</tt> file and installing it to device see also <a href="symbian-with-qt-introduction.html#installing-your-own-applications">here</a>.</p>
+<a name="further-reading"></a>
+<h2>Further Reading</h2>
+<p>This document aims to cover the common case for developers who want to deploy Qt applications on devices using the Smart Installer. It does not aim to cover every possible way of installing applications, Qt and other dependencies on a device.</p>
+<p>A wider selection of deployment methods is described in the <a href="http://developer.symbian.org/wiki/index.php/Deploying_a_Qt_Application">Deploying a Qt Application article</a> on the Symbian Foundation Developer Wiki.</p>
 </div>
 <!-- @@@deployment-symbian.html -->
 <p>
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -216,28 +228,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

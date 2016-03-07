@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,16 +137,18 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
-  <link rel="start" href="index.html" />
   <link rel="start" href="index.html" />
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#overview">Overview</a></li>
 <li class="level1"><a href="#using-standard-gestures-with-widgets">Using Standard Gestures with Widgets</a></li>
+<li class="level1"><a href="#handling-events">Handling Events</a></li>
+<li class="level2"><a href="#standard-procedure-for-event-handling">Standard Procedure for Event Handling</a></li>
+<li class="level2"><a href="#example-event-handling">Example Event Handling</a></li>
 <li class="level1"><a href="#creating-your-own-gesture-recognizer">Creating Your Own Gesture Recognizer</a></li>
 <li class="level2"><a href="#filtering-input-events">Filtering Input Events</a></li>
 <li class="level2"><a href="#custom-gestures">Custom Gestures</a></li>
@@ -166,13 +168,30 @@
 <p>Developers can also implement new gestures by subclassing and extending the <a href="qgesturerecognizer.html">QGestureRecognizer</a> class. Adding support for a new gesture involves implementing code to recognize the gesture from input events. This is described in the <a href="#creating-your-own-gesture-recognizer">Creating Your Own Gesture Recognizer</a> section.</p>
 <a name="using-standard-gestures-with-widgets"></a>
 <h2>Using Standard Gestures with Widgets</h2>
-<p>Gestures can be enabled for instances of <a href="qwidget.html">QWidget</a> and <a href="qgraphicsobject.html">QGraphicsObject</a> subclasses. An object that accepts gesture input is referred to as a <i>target object</i>.</p>
+<p>Gestures can be enabled for instances of <a href="qwidget.html">QWidget</a> and <a href="qgraphicsobject.html">QGraphicsObject</a> subclasses. An object that accepts gesture input is referred to throughout the documentation as a <i>target object</i>.</p>
 <p>To enable a gesture for a target object, call its <a href="qwidget.html#grabGesture">QWidget::grabGesture</a>() or <a href="qgraphicsobject.html#grabGesture">QGraphicsObject::grabGesture</a>() function with an argument describing the required gesture type. The standard types are defined by the <a href="qt.html#GestureType-enum">Qt::GestureType</a> enum and include many commonly used gestures.</p>
 <pre class="highlightedCode brush: cpp">     grabGesture(Qt::PanGesture);
      grabGesture(Qt::PinchGesture);
      grabGesture(Qt::SwipeGesture);</pre>
-<p>In the above code, the gesture is set up in the constructor of the target object itself.</p>
+<p>In the above code, the gestures are set up in the constructor of the target object itself.</p>
+<a name="handling-events"></a>
+<h2>Handling Events</h2>
 <p>When the user performs a gesture, <a href="qgestureevent.html">QGestureEvent</a> events will be delivered to the target object, and these can be handled by reimplementing the <a href="qwidget.html#event">QWidget::event</a>() handler function for widgets or <a href="qgraphicsitem.html#sceneEvent">QGraphicsItem::sceneEvent</a>() for graphics objects.</p>
+<p>As one target object can subscribe to more than one gesture type, the <a href="qgestureevent.html">QGestureEvent</a> can contain more than one <a href="qgesture.html">QGesture</a>, indicating several possible gestures are active at the same time. It is then up to the widget to determine how to handle those multiple gestures and choose if some should be canceled in favor of others.</p>
+<p>Each <a href="qgesture.html">QGesture</a> contained within a <a href="qgestureevent.html">QGestureEvent</a> object can be accepted() or ignored() individually, or all together. Additionally, you can query the individual <a href="qgesture.html">QGesture</a> data objects (the state) using several getters.</p>
+<a name="standard-procedure-for-event-handling"></a>
+<h3>Standard Procedure for Event Handling</h3>
+<p>A <a href="qgesture.html">QGesture</a> is by default accepted when it arrives at your widget. However, it is good practice to always explicitly accept or reject a gesture. The general rule is that, if you accept a gesture, you are using it. If you are ignoring it you are not interested in it. Ignoring a gesture may mean it gets offered to another target object, or it will get canceled.</p>
+<p>Each <a href="qgesture.html">QGesture</a> has several states it goes through; there is a well defined way to change the state, typically the user input is the cause of state changes (by starting and stopping interaction, for instance) but the widget can also cause state changes.</p>
+<p>The first time a particular <a href="qgesture.html">QGesture</a> is delivered to a widget or graphics item, it will be in the <a href="qt.html#GestureState-enum">Qt::GestureStarted</a> state. The way you handle the gesture at this point influences whether you can interact with it later.</p>
+<ul>
+<li>Accepting the gesture means the widget acts on the gesture and there will follow gestures with the Qt::GestureUpdatedstate.</li>
+<li>Ignoring the gesture will mean the gesture will never be offered to you again. It will be offered to a parent widget or item as well.</li>
+<li>Calling setGestureCancelPolicy() on the gesture when it is in its starting state, and is also accepted can cause other gestures to be canceled.</li>
+</ul>
+<p>Using <a href="qgesture.html#GestureCancelPolicy-enum">QGesture::CancelAllInContext</a> to cancel a gesture will cause all gestures, in any state, to be canceled unless they are explicitly accepted. This means that active gestures on children will get canceled. It also means that gestures delivered in the same <a href="qgestureevent.html">QGestureEvent</a> will get canceled if the widget ignores them. This can be a useful way to filter out all gestures except the one you are interested in.</p>
+<a name="example-event-handling"></a>
+<h3>Example Event Handling</h3>
 <p>For convenience, the <a href="gestures-imagegestures.html">Image Gestures Example</a> reimplements the general <a href="qwidget.html#event">event()</a> handler function and delegates gesture events to a specialized gestureEvent() function:</p>
 <pre class="highlightedCode brush: cpp"> bool ImageWidget::event(QEvent *event)
  {
@@ -230,11 +249,11 @@
 <!-- @@@gestures-overview.html -->
 <p>
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -247,28 +266,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

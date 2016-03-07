@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -139,7 +139,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -191,7 +191,7 @@
 <div class="descr">
 <h2>Detailed Description</h2>
 <p>The QAbstractMessageHandler class provides a callback interface for handling messages.</p>
-<p>QAbstractMessageHandler is an abstract base class that provides a callback interface for handling messages. For example, class <a href="qxmlquery.html">QXmlQuery</a> parses and runs an XQuery. When it detects a compile or runtime error, it generates an appropriate error message, but rather than output the message itself, it passes the message to the <a href="qabstractmessagehandler.html#message">message</a>() function of its QAbstractMessageHandler. See <a href="qxmlquery.html#setMessageHandler">QXmlQuery::setMessageHandler</a>().</p>
+<p>QAbstractMessageHandler is an abstract base class that provides a callback interface for handling messages. For example, class <a href="qxmlquery.html">QXmlQuery</a> parses and runs an <a href="xmlprocessing.html">XQuery</a>. When it detects a compile or runtime error, it generates an appropriate error message, but rather than output the message itself, it passes the message to the <a href="qabstractmessagehandler.html#message">message</a>() function of its QAbstractMessageHandler. See <a href="qxmlquery.html#setMessageHandler">QXmlQuery::setMessageHandler</a>().</p>
 <p>You create a message handler by subclassing QAbstractMessageHandler and implementing <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>(). You then pass a pointer to an instance of your subclass to any classes that must generate messages. The messages are sent to the message handler via the <a href="qabstractmessagehandler.html#message">message</a>() function, which forwards them to your handleMessge(). The effect is to serialize the handling of all messages, which means your QAbstractMessageHandler subclass is thread safe.</p>
 <p>A single instance of QAbstractMessageHandler can be called on to handle messages from multiple sources. Hence, the content of a message, which is the <i>description</i> parameter passed to <a href="qabstractmessagehandler.html#message">message</a>() and <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>(), must be interpreted in light of the context that required the message to be sent. That context is specified by the <i>identifier</i> and <i>sourceLocation</i> parameters to <a href="qabstractmessagehandler.html#message">message</a>() <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>().</p>
 </div>
@@ -213,17 +213,17 @@
 <!-- $$$message[overload1]$$$messageQtMsgTypeconstQString&constQUrl&constQSourceLocation& -->
 <h3 class="fn"><a name="message"></a>void QAbstractMessageHandler::message ( <a href="qtglobal.html#QtMsgType-enum">QtMsgType</a> <i>type</i>, const <a href="qstring.html">QString</a> &amp; <i>description</i>, const <a href="qurl.html">QUrl</a> &amp; <i>identifier</i> = QUrl(), const <a href="qsourcelocation.html">QSourceLocation</a> &amp; <i>sourceLocation</i> = QSourceLocation() )</h3>
 <p>Sends a message to this message handler. <i>type</i> is the kind of message being sent. <i>description</i> is the message content. The <i>identifier</i> is a URI that identifies the message and is the key to interpreting the other arguments.</p>
-<p>Typically, this class is used for reporting errors, as is the case for <a href="qxmlquery.html">QXmlQuery</a>, which uses a <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> to report compile and runtime XQuery errors. Hence, using a <a href="qurl.html">QUrl</a> as the message <i>identifier</i> is was inspired by the explanation of <a href="http://www.w3.org/TR/xquery/#errors">error handling in the XQuery language</a>. Because the <i>identifier</i> is composed of a namespace URI and a local part, identifiers with the same local part are unique. The caller is responsible for ensuring that <i>identifier</i> is either a valid <a href="qurl.html">QUrl</a> or a default constructed <a href="qurl.html">QUrl</a>.</p>
+<p>Typically, this class is used for reporting errors, as is the case for <a href="qxmlquery.html">QXmlQuery</a>, which uses a <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> to report compile and runtime <a href="xmlprocessing.html">XQuery</a> errors. Hence, using a <a href="qurl.html">QUrl</a> as the message <i>identifier</i> is was inspired by the explanation of <a href="http://www.w3.org/TR/xquery/#errors">error handling in the XQuery language</a>. Because the <i>identifier</i> is composed of a namespace URI and a local part, identifiers with the same local part are unique. The caller is responsible for ensuring that <i>identifier</i> is either a valid <a href="qurl.html">QUrl</a> or a default constructed <a href="qurl.html">QUrl</a>.</p>
 <p><i>sourceLocation</i> identifies a location in a resource (i.e&#x2e;, file or document) where the need for reporting a message was detected.</p>
 <p>This function unconditionally calls <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>(), passing all its parameters unmodified.</p>
 <p>See also <a href="http://www.w3.org/TR/xquery/#errors">http://www.w3.org/TR/xquery/#errors</a>.</p>
 <!-- @@@message -->
 </div>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -236,28 +236,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

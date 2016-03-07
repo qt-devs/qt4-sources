@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,18 +137,19 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
-<li class="level1"><a href="#required-tools">Required tools</a></li>
-<li class="level1"><a href="#installing-qt-and-running-demos">Installing Qt and running demos</a></li>
-<li class="level1"><a href="#building-your-own-applications">Building your own applications</a></li>
-<li class="level2"><a href="#smart-installer">Smart Installer</a></li>
-<li class="level1"><a href="#installing-your-own-applications">Installing your own applications</a></li>
-<li class="level1"><a href="#running-applications-from-command-line">Running applications from command line</a></li>
+<li class="level1"><a href="#required-tools">Required Tools</a></li>
+<li class="level1"><a href="#installing-qt-and-running-demos">Installing Qt and Running Demos</a></li>
+<li class="level1"><a href="#building-your-own-applications">Building Your Own Applications</a></li>
+<li class="level2"><a href="#alternative-build-targets">Alternative Build Targets</a></li>
+<li class="level1"><a href="#running-applications-from-the-command-line">Running Applications from the Command Line</a></li>
+<li class="level1"><a href="#installing-your-own-applications">Installing Your Own Applications</a></li>
+<li class="level1"><a href="#deployment-and-the-smart-installer">Deployment and the Smart Installer</a></li>
 </ul>
 </div>
 <h1 class="title">The Symbian platform - Introduction to Qt</h1>
@@ -156,19 +157,22 @@
 <!-- $$$symbian-with-qt-introduction.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="required-tools"></a>
-<h2>Required tools</h2>
+<h2>Required Tools</h2>
 <p>See <a href="requirements-symbian.html">Qt for the Symbian platform Requirements</a> to see what tools are required to use Qt for the Symbian platform.</p>
 <a name="installing-qt-and-running-demos"></a>
-<h2>Installing Qt and running demos</h2>
+<h2>Installing Qt and Running Demos</h2>
 <p>Follow the instructions found in <a href="install-symbian-installer.html">Installing Qt on the Symbian platform from a Binary Package</a> to learn how to install Qt using a binary package and how to build and run Qt demos.</p>
 <p>Follow the instructions found in <a href="install-symbian.html">Installing Qt on the Symbian platform</a> to learn how to install Qt using using source package and how to build and run the Qt demos.</p>
 <a name="building-your-own-applications"></a>
-<h2>Building your own applications</h2>
+<h2>Building Your Own Applications</h2>
 <p>If you are new to Qt development, have a look at <a href="how-to-learn-qt.html">How to Learn Qt</a>. In general, the difference between developing a Qt application on the Symbian platform compared to any of the other platforms supported by Qt is not that big.</p>
 <p>Once you have created a <tt>.pro</tt> file for your project, generate the Symbian specific <tt>Bld.inf</tt> and <tt>.mmp</tt> files this way:</p>
 <pre class="highlightedCode brush: cpp">     qmake</pre>
-<p>For more information on how to use qmake have a look at the <a href="qmake-tutorial.html">qmake Tutorial</a>.</p>
-<p>Now you can build the Qt for the Symbian platform application with standard build tools. By default, running <tt>make</tt> will produce binaries for the emulator. However, the Symbian platform comes with several alternative build targets, as shown in the table below:</p>
+<p>For more information on how to use qmake have a look at the <a href="qmake-tutorial.html">qmake Tutorial</a>. In particular, see the <a href="qmake-platform-notes.html#symbian-platform">qmake Platform Notes</a> for details of Symbian-specific build settings.</p>
+<p>Now you can build the Qt for the Symbian platform application with standard build tools.</p>
+<a name="alternative-build-targets"></a>
+<h3>Alternative Build Targets</h3>
+<p>By default, running <tt>make</tt> will produce binaries for the emulator. However, the Symbian platform comes with several alternative build targets that can be used to create binaries for target hardware and deploy them on devices, as shown in the table below:</p>
 <table class="generic">
 <tr class="odd topAlign"><td ><p><tt>debug-winscw</tt></p></td><td ><p>Build debug binaries for the emulator (default). It is currently not possible to build release binaries for the emulator.</p></td></tr>
 <tr class="even topAlign"><td ><p><tt>debug-gcce</tt></p></td><td ><p>Build debug binaries for hardware using GCCE.</p></td></tr>
@@ -181,18 +185,24 @@
 <tr class="odd topAlign"><td ><p><tt>sis</tt></p></td><td ><p>Create signed <tt>.sis</tt> file for project.</p></td></tr>
 <tr class="even topAlign"><td ><p><tt>unsigned_sis</tt></p></td><td ><p>Create unsigned <tt>.sis</tt> file for project.</p></td></tr>
 <tr class="odd topAlign"><td ><p><tt>installer_sis</tt></p></td><td ><p>Create signed <a href="http://get.qt.nokia.com/nokiasmartinstaller/">smart installer</a> <tt>.sis</tt> file for project. Smart installer will attempt to download missing dependencies in addition to just installing the application.</p></td></tr>
-<tr class="even topAlign"><td ><p><tt>stub_sis</tt></p></td><td ><p>Create a stub sis to allow upgradability of projects that are deployed in ROM</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>unsigned_installer_sis</tt></p></td><td ><p>Create unsigned <a href="http://get.qt.nokia.com/nokiasmartinstaller/">smart installer</a> <tt>.sis</tt> file for project.</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>stub_sis</tt></p></td><td ><p>Create a stub sis to allow upgradability of projects that are deployed in ROM</p></td></tr>
 </table>
 <p>The following lines perform a debug build for the emulator and deploy all the needed files:</p>
 <pre class="highlightedCode brush: cpp">     make debug-winscw</pre>
 <p>To work on your project in Carbide, simply import the <tt>.pro</tt> file by right clicking on the project explorer and executing &quot;Import..&#x2e;&quot;&#x2e;</p>
-<a name="smart-installer"></a>
-<h3>Smart Installer</h3>
-<p>The Smart Installer makes sure that deployed applications have all the Qt dependencies they need to run on a device.</p>
-<p>Download the latest release of the Smart Installer from <a href="http://get.qt.nokia.com/nokiasmartinstaller/">http://get.qt.nokia.com/nokiasmartinstaller/</a>, and install it on top of the Qt package.</p>
+<a name="running-applications-from-the-command-line"></a>
+<h2>Running Applications from the Command Line</h2>
+<p>The application can be launched on the emulator using <tt>make run</tt> command.</p>
+<p>The application can be launched on a device using <tt>make runonphone</tt> command. When this command is invoked, a <tt>.sis</tt> file is first created as if <tt>make sis</tt> command was invoked (see above for details). <b>Note:</b> Running the application on a device using this command requires <tt>TRK</tt> application to be running on the device.</p>
+<p>Additional environment variables that can be utilized with these commands are:</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><tt>QT_RUN_OPTIONS</tt></p></td><td ><p>Any command line parameters you wish to pass to your application.</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>QT_RUN_ON_PHONE_OPTIONS</tt></p></td><td ><p>Options for runonphone application. Execute <tt>runonphone</tt> from command line for more information about available options. <tt>make runonphone</tt> only.</p></td></tr>
+</table>
 <a name="installing-your-own-applications"></a>
-<h2>Installing your own applications</h2>
-<p>To install your own applications on hardware, you need a signed <tt>.sis</tt> file. (Refer to the <a href="http://developer.symbian.org/wiki/index.php/Platform_Security_%28Fundamentals_of_Symbian_C%2B%2B%29#Self-Signed_Applications">Platform Security Article</a> for more informations about self-signing.) The signed <tt>.sis</tt> file can be created with <tt>make</tt> <tt>sis</tt> target. <tt>sis</tt> target is only supported for executables or projects with <tt>DEPLOYMENT</tt> statements. By default the <tt>sis</tt> target will create signed <tt>.sis</tt> file for last build target. For example, the following sequence will generate the needed makefiles, build the project for <tt>debug-winscw</tt> and <tt>release-armv5</tt>, and create self-signed <tt>.sis</tt> file for <tt>release-armv5</tt> target:</p>
+<h2>Installing Your Own Applications</h2>
+<p>To install your own applications on hardware, you need a signed <tt>.sis</tt> file. (Refer to the <a href="http://developer.symbian.org/wiki/index.php/Platform_Security_%28Fundamentals_of_Symbian_C%2B%2B%29#Self-Signed_Applications">Symbian Platform Security</a> article for more informations about self-signing.) The signed <tt>.sis</tt> file can be created with <tt>make</tt> <tt>sis</tt> target. <tt>sis</tt> target is only supported for executables or projects with <tt>DEPLOYMENT</tt> statements. By default the <tt>sis</tt> target will create signed <tt>.sis</tt> file for last build target. For example, the following sequence will generate the needed makefiles, build the project for <tt>debug-winscw</tt> and <tt>release-armv5</tt>, and create self-signed <tt>.sis</tt> file for <tt>release-armv5</tt> target:</p>
 <pre class="highlightedCode brush: cpp">     qmake
      make debug-winscw release-armv5
      make sis</pre>
@@ -213,6 +223,7 @@
 <tr class="odd topAlign"><td ><p>-o</p></td><td ><p>Creates only unsigned package.</p></td></tr>
 <tr class="even topAlign"><td ><p>-s</p></td><td ><p>Generates stub sis for ROM.</p></td></tr>
 <tr class="odd topAlign"><td ><p>-n &lt;name&gt;</p></td><td ><p>Specifies the final sis name.</p></td></tr>
+<tr class="even topAlign"><td ><p>-g</p></td><td ><p>Treat gcce platform as armv5.</p></td></tr>
 </table>
 <p>Execute the <tt>createpackage.pl</tt> script without any parameters for detailed information about options. By default no options are given.</p>
 <p>For example:</p>
@@ -222,22 +233,18 @@
 <pre class="highlightedCode brush: cpp">    make sis QT_SIS_TARGET=debug-armv5</pre>
 <p>If you want to install the program immediately after creating <tt>.sis</tt> file, make sure that the device is connected to the computer in &quot;PC Suite&quot; mode, and use <tt>deploy</tt> target instead of <tt>sis</tt> target:</p>
 <pre class="highlightedCode brush: cpp">    make deploy</pre>
-<a name="running-applications-from-command-line"></a>
-<h2>Running applications from command line</h2>
-<p>The application can be launched on the emulator using <tt>make run</tt> command.</p>
-<p>The application can be launched on a device using <tt>make runonphone</tt> command. When this command is invoked, a <tt>.sis</tt> file is first created as if <tt>make sis</tt> command was invoked (see above for details). <b>Note:</b> Running the application on a device using this command requires <tt>TRK</tt> application to be running on the device.</p>
-<p>Additional environment variables that can be utilized with these commands are:</p>
-<table class="generic">
-<tr class="odd topAlign"><td ><p><tt>QT_RUN_OPTIONS</tt></p></td><td ><p>Any command line parameters you wish to pass to your application.</p></td></tr>
-<tr class="even topAlign"><td ><p><tt>QT_RUN_ON_PHONE_OPTIONS</tt></p></td><td ><p>Options for runonphone application. Execute <tt>runonphone</tt> from command line for more information about available options. <tt>make runonphone</tt> only.</p></td></tr>
-</table>
+<a name="deployment-and-the-smart-installer"></a>
+<h2>Deployment and the Smart Installer</h2>
+<p>Although some Symbian devices may already have a version of Qt installed on them, there needs to be a way to ensure that an appropriate version of Qt is available for your application to use. Rather than deploy the required Qt libraries with your application, the preferred way to package Qt applications for deployment is to download and use the Smart Installer.</p>
+<p>The Smart Installer makes sure that deployed applications have all the Qt dependencies they need to run on a device, performing the necessary updates when the user installs the application.</p>
+<p>More information about deployment can be found in the <a href="deployment-symbian.html">Deploying an Application on the Symbian Platform</a> document.</p>
 </div>
 <!-- @@@symbian-with-qt-introduction.html -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -250,28 +257,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

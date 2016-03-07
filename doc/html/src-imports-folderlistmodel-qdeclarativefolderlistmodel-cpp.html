@@ -14,11 +14,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -32,7 +27,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -42,16 +37,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -90,7 +87,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -100,10 +97,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -136,7 +136,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <h1 class="title">qdeclarativefolderlistmodel.cpp Example File</h1>
@@ -236,30 +236,62 @@
 
 <span class="comment"> /*!
      \qmlclass FolderListModel QDeclarativeFolderListModel
-     \brief The FolderListModel provides a model of the contents of a folder in a filesystem.
+     \ingroup qml-working-with-data
+     \brief The FolderListModel provides a model of the contents of a file system folder.
 
-     FolderListModel provides access to the local filesystem.  The \e folder property
-     specifies the folder to list.
+     FolderListModel provides access to information about the contents of a folder
+     in the local file system, exposing a list of files to views and other data components.
+
+     \note This type is made available by importing the \c Qt.labs.folderlistmodel module.
+     \e{Elements in the Qt.labs module are not guaranteed to remain compatible
+     in future versions.}
+
+     \bold{import Qt.labs.folderlistmodel 1.0}
+
+     The \l folder property specifies the folder to access. Information about the
+     files and directories in the folder is supplied via the model's interface.
+     Components access names and paths via the following roles:
+
+     \list
+     \o fileName
+     \o filePath
+     \endlist
+
+     Additionally a file entry can be differentiated from a folder entry via the
+     isFolder() method.
+
+     \section1 Filtering
+
+     Various properties can be set to filter the number of files and directories
+     exposed by the model.
+
+     The \l nameFilters property can be set to contain a list of wildcard filters
+     that are applied to names of files and directories, causing only those that
+     match the filters to be exposed.
+
+     Directories can be included or excluded using the \l showDirs property, and
+     navigation directories can also be excluded by setting the \l showDotAndDotDot
+     property to false.
+
+     It is sometimes useful to limit the files and directories exposed to those
+     that the user can access. The \l showOnlyReadable property can be set to
+     enable this feature.
+
+     \section1 Example Usage
+
+     The following example shows a FolderListModel being used to provide a list
+     of QML files in a \l ListView:
+
+     \snippet doc/src/snippets/declarative/folderlistmodel.qml 0
+
+     \section1 Path Separators
 
      Qt uses &quot;/&quot; as a universal directory separator in the same way that &quot;/&quot; is
      used as a path separator in URLs. If you always use &quot;/&quot; as a directory
      separator, Qt will translate your paths to conform to the underlying
      operating system.
 
-     This type is made available by importing the \c Qt.labs.folderlistmodel module.
-     \e {Elements in the Qt.labs module are not guaranteed to remain compatible
-     in future versions.}
-
-     \bold{import Qt.labs.folderlistmodel 1.0}
-
-     The roles available are:
-     \list
-     \o fileName
-     \o filePath
-     \endlist
-
-     Additionally a file entry can be differentiated from a folder entry
-     via the \l isFolder() method.
+     \sa {QML Data Models}
  */</span>
 
  QDeclarativeFolderListModel::QDeclarativeFolderListModel(QObject *parent)
@@ -277,7 +309,7 @@
      connect(&amp;d-&gt;model, SIGNAL(rowsRemoved(const QModelIndex&amp;,int,int))
              , this, SLOT(removed(const QModelIndex&amp;,int,int)));
      connect(&amp;d-&gt;model, SIGNAL(dataChanged(const QModelIndex&amp;,const QModelIndex&amp;))
-             , this, SLOT(dataChanged(const QModelIndex&amp;,const QModelIndex&amp;)));
+             , this, SLOT(handleDataChanged(const QModelIndex&amp;,const QModelIndex&amp;)));
      connect(&amp;d-&gt;model, SIGNAL(modelReset()), this, SLOT(refresh()));
      connect(&amp;d-&gt;model, SIGNAL(layoutChanged()), this, SLOT(refresh()));
  }
@@ -309,9 +341,13 @@
 <span class="comment"> /*!
      \qmlproperty string FolderListModel::folder
 
-     The \a folder property holds the folder the model is currently providing.
+     The \a folder property holds a URL for the folder that the model is
+     currently providing.
 
-     It is a URL, but must be a file: or qrc: URL (or relative to such a URL).
+     The value is a URL expressed as a string, and must be a \c file: or \c qrc:
+     URL, or a relative URL.
+
+     By default, the value is an invalid URL.
  */</span>
  QUrl QDeclarativeFolderListModel::folder() const
  {
@@ -355,16 +391,18 @@
 <span class="comment"> /*!
      \qmlproperty list&lt;string&gt; FolderListModel::nameFilters
 
-     The \a nameFilters property contains a list of filename filters.
+     The \a nameFilters property contains a list of file name filters.
      The filters may include the ? and * wildcards.
 
      The example below filters on PNG and JPEG files:
 
-     \code
+     \qml
      FolderListModel {
          nameFilters: [ &quot;*.png&quot;, &quot;*.jpg&quot; ]
      }
-     \endcode
+     \endqml
+
+     \note Directories are not excluded by filters.
  */</span>
  QStringList QDeclarativeFolderListModel::nameFilters() const
  {
@@ -467,7 +505,7 @@
      }
  }
 
- void QDeclarativeFolderListModel::dataChanged(const QModelIndex &amp;start, const QModelIndex &amp;end)
+ void QDeclarativeFolderListModel::handleDataChanged(const QModelIndex &amp;start, const QModelIndex &amp;end)
  {
      if (start.parent() == d-&gt;folderIndex)
          emit dataChanged(index(start.row(),0), index(end.row(),0));
@@ -476,9 +514,14 @@
 <span class="comment"> /*!
      \qmlproperty bool FolderListModel::showDirs
 
-     If true (the default), directories are included in the model.
+     If true, directories are included in the model; otherwise only files
+     are included.
 
-     Note that the nameFilters are ignored for directories.
+     By default, this property is true.
+
+     Note that the nameFilters are not applied to directories.
+
+     \sa showDotAndDotDot
  */</span>
  bool QDeclarativeFolderListModel::showDirs() const
  {
@@ -498,9 +541,12 @@
 <span class="comment"> /*!
      \qmlproperty bool FolderListModel::showDotAndDotDot
 
-     If true, the &quot;.&quot; and &quot;..&quot; directories are included in the model.
+     If true, the &quot;.&quot; and &quot;..&quot; directories are included in the model; otherwise
+     they are excluded.
 
-     The default is false.
+     By default, this property is false.
+
+     \sa showDirs
  */</span>
  bool QDeclarativeFolderListModel::showDotAndDotDot() const
  {
@@ -520,9 +566,12 @@
 <span class="comment"> /*!
      \qmlproperty bool FolderListModel::showOnlyReadable
 
-     If true, only readable files and directories are shown.
+     If true, only readable files and directories are shown; otherwise all files
+     and directories are shown.
 
-     The default is false.
+     By default, this property is false.
+
+     \sa showDirs
  */</span>
  bool QDeclarativeFolderListModel::showOnlyReadable() const
  {
@@ -543,11 +592,11 @@
  #endif <span class="comment">// QT_NO_DIRMODEL</span></pre>
 </div>
 <!-- @@@src/imports/folderlistmodel/qdeclarativefolderlistmodel.cpp -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -560,28 +609,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

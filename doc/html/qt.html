@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -460,7 +460,7 @@
 <tr><td  class="topAlign"><tt>Qt::DeviceCoordinates</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Coordinates are relative to the upper-left corner of the object's paint device.</td></tr>
 <tr><td  class="topAlign"><tt>Qt::LogicalCoordinates</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Coordinates are relative to the upper-left corner of the object.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.6.</p>
+<p>This enum was introduced or modified in Qt 4.6.</p>
 <!-- @@@CoordinateSystem -->
 <!-- $$$Corner$$$TopLeftCorner$$$TopRightCorner$$$BottomLeftCorner$$$BottomRightCorner$$$TopLeft$$$TopRight$$$BottomLeft$$$BottomRight -->
 <h3 class="fn"><a name="Corner-enum"></a>enum Qt::Corner</h3>
@@ -623,7 +623,7 @@
 <tr><td  class="topAlign"><tt>Qt::ReceivePartialGestures</tt></td><td class=" topAlign"><tt>0x02</tt></td><td  class="topAlign">Allows any ignored gesture events to be propagated to parent widgets which have specified this hint. By default only gestures that are in the <a href="qt.html#GestureState-enum">Qt::GestureStarted</a> state are propagated and the widget always gets the full gesture sequence starting with a gesture in the <a href="qt.html#GestureState-enum">Qt::GestureStarted</a> state and ending with a gesture in the <a href="qt.html#GestureState-enum">Qt::GestureFinished</a> or <a href="qt.html#GestureState-enum">Qt::GestureCanceled</a> states.</td></tr>
 <tr><td  class="topAlign"><tt>Qt::IgnoredGesturesPropagateToParent</tt></td><td class=" topAlign"><tt>0x04</tt></td><td  class="topAlign">Since Qt 4.7, this flag allows you to fine-tune gesture event propagation. By setting the flag when <a href="qgraphicsobject.html#grabGesture">grabbing</a> a gesture all ignored partial gestures will propagate to their parent items.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.6.</p>
+<p>This enum was introduced or modified in Qt 4.6.</p>
 <p>The GestureFlags type is a typedef for <a href="qflags.html">QFlags</a>&lt;GestureFlag&gt;. It stores an OR combination of GestureFlag values.</p>
 <p>See also <a href="qwidget.html#grabGesture">QWidget::grabGesture</a>() and <a href="qgraphicsobject.html#grabGesture">QGraphicsObject::grabGesture</a>().</p>
 <!-- @@@GestureFlag -->
@@ -636,7 +636,7 @@
 <tr><td  class="topAlign"><tt>Qt::GestureFinished</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">A gesture has finished.</td></tr>
 <tr><td  class="topAlign"><tt>Qt::GestureCanceled</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">A gesture was canceled.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.6.</p>
+<p>This enum was introduced or modified in Qt 4.6.</p>
 <p>See also <a href="qgesture.html">QGesture</a>.</p>
 <!-- @@@GestureState -->
 <!-- $$$GestureType$$$TapGesture$$$TapAndHoldGesture$$$PanGesture$$$PinchGesture$$$SwipeGesture$$$CustomGesture$$$LastGestureType -->
@@ -651,7 +651,7 @@
 <tr><td  class="topAlign"><tt>Qt::CustomGesture</tt></td><td class=" topAlign"><tt>0x0100</tt></td><td  class="topAlign">A flag that can be used to test if the gesture is a user-defined gesture ID.</td></tr>
 </table>
 <p>User-defined gestures are registered with the <a href="qgesturerecognizer.html#registerRecognizer">QGestureRecognizer::registerRecognizer</a>() function which generates a custom gesture ID with the Qt::CustomGesture flag set.</p>
-<p>This enum was introduced in Qt 4.6.</p>
+<p>This enum was introduced or modified in Qt 4.6.</p>
 <p>See also <a href="qgesture.html">QGesture</a>, <a href="qwidget.html#grabGesture">QWidget::grabGesture</a>(), and <a href="qgraphicsobject.html#grabGesture">QGraphicsObject::grabGesture</a>().</p>
 <!-- @@@GestureType -->
 <!-- $$$GlobalColor$$$color0$$$color1$$$black$$$white$$$darkGray$$$gray$$$lightGray$$$red$$$green$$$blue$$$cyan$$$magenta$$$yellow$$$darkRed$$$darkGreen$$$darkBlue$$$darkCyan$$$darkMagenta$$$darkYellow$$$transparent -->
@@ -1267,7 +1267,7 @@
 <tr><td  class="topAlign"><tt>Qt::Key_ContrastAdjust</tt></td><td class=" topAlign"><tt>0x0100010d</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_MediaLast</tt></td><td class=" topAlign"><tt>0x0100ffff</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_unknown</tt></td><td class=" topAlign"><tt>0x01ffffff</tt></td><td  class="topAlign">&nbsp;</td></tr>
-<tr><td  class="topAlign"><tt>Qt::Key_Call</tt></td><td class=" topAlign"><tt>0x01100004</tt></td><td  class="topAlign">A key to answer or initiate a call (see Key_ToggleCallHangup for a key to toggle current call state)</td></tr>
+<tr><td  class="topAlign"><tt>Qt::Key_Call</tt></td><td class=" topAlign"><tt>0x01100004</tt></td><td  class="topAlign">A key to answer or initiate a call (see Qt::Key_ToggleCallHangup for a key to toggle current call state)</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_Camera</tt></td><td class=" topAlign"><tt>0x01100020</tt></td><td  class="topAlign">A key to activate the camera shutter</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_CameraFocus</tt></td><td class=" topAlign"><tt>0x01100021</tt></td><td  class="topAlign">A key to focus the camera</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_Context1</tt></td><td class=" topAlign"><tt>0x01100000</tt></td><td  class="topAlign">&nbsp;</td></tr>
@@ -1275,7 +1275,7 @@
 <tr><td  class="topAlign"><tt>Qt::Key_Context3</tt></td><td class=" topAlign"><tt>0x01100002</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_Context4</tt></td><td class=" topAlign"><tt>0x01100003</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_Flip</tt></td><td class=" topAlign"><tt>0x01100006</tt></td><td  class="topAlign">&nbsp;</td></tr>
-<tr><td  class="topAlign"><tt>Qt::Key_Hangup</tt></td><td class=" topAlign"><tt>0x01100005</tt></td><td  class="topAlign">A key to end an ongoing call (see Key_ToggleCallHangup for a key to toggle current call state)</td></tr>
+<tr><td  class="topAlign"><tt>Qt::Key_Hangup</tt></td><td class=" topAlign"><tt>0x01100005</tt></td><td  class="topAlign">A key to end an ongoing call (see Qt::Key_ToggleCallHangup for a key to toggle current call state)</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_No</tt></td><td class=" topAlign"><tt>0x01010002</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_Select</tt></td><td class=" topAlign"><tt>0x01010000</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_Yes</tt></td><td class=" topAlign"><tt>0x01010001</tt></td><td  class="topAlign">&nbsp;</td></tr>
@@ -1289,7 +1289,7 @@
 <tr><td  class="topAlign"><tt>Qt::Key_Zoom</tt></td><td class=" topAlign"><tt>0x01020006</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>Qt::Key_Cancel</tt></td><td class=" topAlign"><tt>0x01020001</tt></td><td  class="topAlign">&nbsp;</td></tr>
 </table>
-<p>See also <a href="qkeyevent.html#key">QKeyEvent::key</a>().</p>
+<p>See also <a href="qkeyevent.html#keyx">QKeyEvent::key</a>().</p>
 <!-- @@@Key -->
 <!-- $$$KeyboardModifier$$$NoModifier$$$ShiftModifier$$$ControlModifier$$$AltModifier$$$MetaModifier$$$KeypadModifier$$$GroupSwitchModifier$$$KeyboardModifierMask -->
 <h3 class="flags"><a name="KeyboardModifier-enum"></a>enum Qt::KeyboardModifier<br/>flags Qt::KeyboardModifiers</h3>
@@ -1319,7 +1319,7 @@
 <p>Right-to-left layouts are necessary for certain languages, notably Arabic and Hebrew.</p>
 <p>LayoutDirectionAuto serves two purposes. When used in conjunction with widgets and layouts, it will imply to use the layout direction set on the parent widget or <a href="qapplication.html">QApplication</a>. This has the same effect as <a href="qwidget.html#layoutDirection-prop">QWidget::unsetLayoutDirection</a>().</p>
 <p>When LayoutDirectoinAuto is used in conjunction with text layouting, it will imply that the text directionality is determined from the content of the string to be layouted.</p>
-<p>See also <a href="qapplication.html#layoutDirection-prop">QApplication::setLayoutDirection</a>(), <a href="qwidget.html#layoutDirection-prop">QWidget::setLayoutDirection</a>(), <a href="qtextoption.html#setTextDirection">QTextOption::setTextDirection</a>(), and QString::isRightToLeft().</p>
+<p>See also <a href="qapplication.html#layoutDirection-prop">QApplication::setLayoutDirection</a>(), <a href="qwidget.html#layoutDirection-prop">QWidget::setLayoutDirection</a>(), <a href="qtextoption.html#setTextDirection">QTextOption::setTextDirection</a>(), and <a href="qstring.html#isRightToLeft">QString::isRightToLeft</a>().</p>
 <!-- @@@LayoutDirection -->
 <!-- $$$MaskMode$$$MaskInColor$$$MaskOutColor -->
 <h3 class="fn"><a name="MaskMode-enum"></a>enum Qt::MaskMode</h3>
@@ -1386,7 +1386,7 @@
 <tr><td  class="topAlign"><tt>Qt::NavigationModeCursorForceVisible</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">The mouse cursor is used to change focus, it is displayed regardless of device type. The keypad is used to implement a virtual cursor, unless the device has an analog mouse type of input device (e.g&#x2e; touchpad)</td></tr>
 </table>
 <p><b>Note:</b>: in 4.6, cursor navigation is only implemented for Symbian OS. On other platforms, it behaves as NavigationModeNone.</p>
-<p>This enum was introduced in Qt 4.6.</p>
+<p>This enum was introduced or modified in Qt 4.6.</p>
 <p>See also <a href="qapplication.html#setNavigationMode">QApplication::setNavigationMode</a>() and <a href="qapplication.html#navigationMode">QApplication::navigationMode</a>().</p>
 <!-- @@@NavigationMode -->
 <!-- $$$Orientation$$$Horizontal$$$Vertical -->
@@ -1477,7 +1477,7 @@
 <tr><td  class="topAlign"><tt>Qt::MaximumSize</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">is used to specify the maximum size of a graphics layout item.</td></tr>
 <tr><td  class="topAlign"><tt>Qt::MinimumDescent</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">is used to specify the minimum descent of a text string in a graphics layout item.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.4.</p>
+<p>This enum was introduced or modified in Qt 4.4.</p>
 <p>See also <a href="qgraphicslayoutitem.html#sizeHint">QGraphicsLayoutItem::sizeHint</a>().</p>
 <!-- @@@SizeHint -->
 <!-- $$$SizeMode$$$AbsoluteSize$$$RelativeSize -->
@@ -1487,7 +1487,7 @@
 <tr><td  class="topAlign"><tt>Qt::AbsoluteSize</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Specifies the size using absolute measurements.</td></tr>
 <tr><td  class="topAlign"><tt>Qt::RelativeSize</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Specifies the size relative to the bounding rectangle, typically using percentage measurements.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.4.</p>
+<p>This enum was introduced or modified in Qt 4.4.</p>
 <!-- @@@SizeMode -->
 <!-- $$$SortOrder$$$AscendingOrder$$$DescendingOrder$$$Ascending$$$Descending -->
 <h3 class="fn"><a name="SortOrder-enum"></a>enum Qt::SortOrder</h3>
@@ -1562,7 +1562,7 @@
 <tr><td  class="topAlign"><tt>Qt::RepeatTile</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Repeat the image until there is no more space. May crop the last image.</td></tr>
 <tr><td  class="topAlign"><tt>Qt::RoundTile</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Similar to Repeat, but scales the image down to ensure that the last tile is not cropped.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.6.</p>
+<p>This enum was introduced or modified in Qt 4.6.</p>
 <!-- @@@TileRule -->
 <!-- $$$TimeSpec$$$LocalTime$$$UTC$$$OffsetFromUTC -->
 <h3 class="fn"><a name="TimeSpec-enum"></a>enum Qt::TimeSpec</h3>
@@ -1604,7 +1604,7 @@
 <tr><td  class="topAlign"><tt>Qt::TouchPointStationary</tt></td><td class=" topAlign"><tt>0x04</tt></td><td  class="topAlign">The touch point did not move.</td></tr>
 <tr><td  class="topAlign"><tt>Qt::TouchPointReleased</tt></td><td class=" topAlign"><tt>0x08</tt></td><td  class="topAlign">The touch point was released.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.6.</p>
+<p>This enum was introduced or modified in Qt 4.6.</p>
 <p>The TouchPointStates type is a typedef for <a href="qflags.html">QFlags</a>&lt;TouchPointState&gt;. It stores an OR combination of TouchPointState values.</p>
 <!-- @@@TouchPointState -->
 <!-- $$$TransformationMode$$$FastTransformation$$$SmoothTransformation -->
@@ -1752,7 +1752,7 @@
 <tr><td  class="topAlign"><tt>Qt::BottomLeftSection</tt></td><td class=" topAlign"><tt>8</tt></td></tr>
 <tr><td  class="topAlign"><tt>Qt::TitleBarArea</tt></td><td class=" topAlign"><tt>9</tt></td></tr>
 </table>
-<p>This enum was introduced in Qt 4.4.</p>
+<p>This enum was introduced or modified in Qt 4.4.</p>
 <p>See also <a href="qgraphicswidget.html#windowFrameEvent">QGraphicsWidget::windowFrameEvent</a>(), <a href="qgraphicswidget.html#paintWindowFrame">QGraphicsWidget::paintWindowFrame</a>(), and <a href="qgraphicswidget.html#windowFrameSectionAt">QGraphicsWidget::windowFrameSectionAt</a>().</p>
 <!-- @@@WindowFrameSection -->
 <!-- $$$WindowModality$$$NonModal$$$WindowModal$$$ApplicationModal -->
@@ -1895,11 +1895,11 @@
 <p>This function is defined in the <tt>&lt;QTextDocument&gt;</tt> header file.</p>
 <!-- @@@mightBeRichText -->
 </div>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -1912,28 +1912,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

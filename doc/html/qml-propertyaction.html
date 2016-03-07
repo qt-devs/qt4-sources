@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -156,7 +156,7 @@
 <li><a href="qml-propertyaction-members.html">List of all members, including inherited members</a></li>
 <a name="properties"></a>
 <h2>Properties</h2>
-<tr class="odd topAlign"><ul>
+<ul>
 <li class="fn"><b><b><a href="qml-propertyaction.html#exclude-prop">exclude</a></b></b> : list&lt;Object&gt;</li>
 <li class="fn"><b><b><a href="qml-propertyaction.html#properties-prop">properties</a></b></b> : string</li>
 <li class="fn"><b><b><a href="qml-propertyaction.html#property-prop">property</a></b></b> : string</li>
@@ -168,19 +168,46 @@
 <a name="details"></a>
 <h2>Detailed Description</h2>
 <p>PropertyAction is used to specify an immediate property change during an animation. The property change is not animated.</p>
-<p>For example, to explicitly set <tt>theImage.smooth = true</tt> during a <a href="qml-transition.html">Transition</a>:</p>
-<pre class="highlightedCode brush: cpp"> transitions: Transition {
-     ...
-     PropertyAction { target: theImage; property: &quot;smooth&quot;; value: true }
-     ...
+<p>It is useful for setting non-animated property values during an animation.</p>
+<p>For example, here is a <a href="qml-sequentialanimation.html">SequentialAnimation</a> that sets the image's <a href="qml-image.html#smooth-prop">smooth</a> property to <tt>true</tt>, animates the width of the image, then sets <a href="qml-image.html#smooth-prop">smooth</a> back to <tt>false</tt>:</p>
+<pre class="highlightedCode brush: cpp"> SequentialAnimation {
+     PropertyAction { target: img; property: &quot;smooth&quot;; value: &quot;true&quot; }
+     NumberAnimation { target: img; property: &quot;width&quot;; to: 300; duration: 1000 }
+     PropertyAction { target: img; property: &quot;smooth&quot;; value: &quot;false&quot; }
  }</pre>
-<p>Or, to set <tt>theWebView.url</tt> to the value set for the destination state:</p>
-<pre class="highlightedCode brush: cpp"> transitions: Transition {
-     ...
-     PropertyAction { target: theWebView; property: &quot;url&quot; }
-     ...
+<p>PropertyAction is also useful for setting the exact point at which a property change should occur during a <a href="qml-transition.html">Transition</a>. For example, if <a href="qml-propertychanges.html">PropertyChanges</a> was used in a <a href="qml-state.html">State</a> to rotate an item around a particular <a href="qml-item.html#transformOrigin-prop">transformOrigin</a>, it might be implemented like this:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     width: 400; height: 400
+
+     Rectangle {
+         id: rect
+         width: 200; height: 100
+         color: &quot;red&quot;
+
+         states: State {
+             name: &quot;rotated&quot;
+             PropertyChanges { target: rect; rotation: 180; transformOrigin: Item.BottomRight }
+         }
+
+         transitions: Transition {
+             RotationAnimation { duration: 1000; direction: RotationAnimation.Counterclockwise }
+         }
+
+         MouseArea {
+             anchors.fill: parent
+             onClicked: rect.state = &quot;rotated&quot;
+         }
+     }
  }</pre>
-<p>See also <a href="qtdeclarative.html">QtDeclarative</a>.</p>
+<p>However, with this code, the <tt>transformOrigin</tt> is not set until <i>after</i> the animation, as a <a href="qml-state.html">State</a> is taken to define the values at the <i>end</i> of a transition. The animation would rotate at the default <tt>transformOrigin</tt>, then jump to <tt>Item.BottomRight</tt>. To fix this, insert a <a href="qml-propertychanges.html">PropertyChanges</a> before the <a href="qml-rotationanimation.html">RotationAnimation</a> begins:</p>
+<pre class="highlightedCode brush: cpp"> transitions: Transition {
+     SequentialAnimation {
+         PropertyAction { target: rect; property: &quot;transformOrigin&quot; }
+         RotationAnimation { ... }
+     }
+ }</pre>
+<p>This immediately sets the <tt>transformOrigin</tt> property to the value defined in the end state of the <a href="qml-transition.html">Transition</a> (i.e&#x2e; the value defined in the <a href="qml-propertychanges.html">PropertyChanges</a> object) so that the rotation animation begins with the correct transform origin.</p>
+<p>See also <a href="qdeclarativeanimation.html">QML Animation</a> and <a href="qtdeclarative.html">QtDeclarative</a>.</p>
 <!-- @@@PropertyAction -->
 <h2>Property Documentation</h2>
 <!-- $$$exclude -->
@@ -195,16 +222,17 @@
 </div></div><!-- @@@target -->
 <br/>
 <!-- $$$value -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="value-prop"></a>value : any</td></tr></table></div><div class="qmldoc"><p>This property holds the value to be set on the property. If not set, then the value defined for the end state of the transition.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="value-prop"></a>value : any</td></tr></table></div><div class="qmldoc"><p>This property holds the value to be set on the property.</p>
+<p>If the <a href="qml-propertyaction.html">PropertyAction</a> is defined within a <a href="qml-transition.html">Transition</a> or <a href="qml-behavior.html">Behavior</a>, this value defaults to the value defined in the end state of the <a href="qml-transition.html">Transition</a>, or the value of the property change that triggered the <a href="qml-behavior.html">Behavior</a>.</p>
 </div></div><!-- @@@value -->
 <br/>
 <p>
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -217,28 +245,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

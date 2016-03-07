@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -179,7 +179,7 @@
 <li class="level3"><a href="#editing-hints">Editing hints</a></li>
 <li class="level1"><a href="#handling-selections-in-item-views">Handling selections in item views</a></li>
 <li class="level2"><a href="#concepts">Concepts</a></li>
-<li class="level3"><a href="#current-item-amp-selected-items">Current item &amp;amp selected items</a></li>
+<li class="level3"><a href="#current-item-and-selected-items">Current item and selected items</a></li>
 <li class="level2"><a href="#using-a-selection-model">Using a selection model</a></li>
 <li class="level3"><a href="#selecting-items">Selecting items</a></li>
 <li class="level3"><a href="#reading-the-selection-state">Reading the selection state</a></li>
@@ -189,10 +189,10 @@
 <li class="level2"><a href="#designing-a-model">Designing a model</a></li>
 <li class="level2"><a href="#a-read-only-example-model">A read-only example model</a></li>
 <li class="level3"><a href="#dimensions-of-the-model">Dimensions of the model</a></li>
-<li class="level3"><a href="#model-headers-amp-data">Model headers &amp;amp data</a></li>
+<li class="level3"><a href="#model-headers-and-data">Model headers and data</a></li>
 <li class="level2"><a href="#an-editable-model">An editable model</a></li>
 <li class="level3"><a href="#making-the-model-editable">Making the model editable</a></li>
-<li class="level3"><a href="#inserting-amp-removing-rows">Inserting &amp;amp removing rows</a></li>
+<li class="level3"><a href="#inserting-and-removing-rows">Inserting and removing rows</a></li>
 <li class="level2"><a href="#next-steps">Next steps</a></li>
 <li class="level1"><a href="#item-view-convenience-classes">Item view convenience classes</a></li>
 <li class="level2"><a href="#list-widgets">List widgets</a></li>
@@ -202,10 +202,10 @@
 <li class="level3"><a href="#hidden-items">Hidden items</a></li>
 <li class="level3"><a href="#selections">Selections</a></li>
 <li class="level3"><a href="#searching">Searching</a></li>
-<li class="level1"><a href="#using-drag-amp-drop-with-item-views">Using drag &amp;amp drop with item views</a></li>
+<li class="level1"><a href="#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a></li>
 <li class="level2"><a href="#using-convenience-views">Using convenience views</a></li>
 <li class="level2"><a href="#using-model-view-classes">Using model/view classes</a></li>
-<li class="level3"><a href="#enabling-drag-amp-drop-for-items">Enabling drag &amp;amp drop for items</a></li>
+<li class="level3"><a href="#enabling-drag-drop-for-items">Enabling drag &amp; drop for items</a></li>
 <li class="level3"><a href="#encoding-exported-data">Encoding exported data</a></li>
 <li class="level3"><a href="#inserting-dropped-data-into-a-model">Inserting dropped data into a model</a></li>
 <li class="level3"><a href="#decoding-imported-data">Decoding imported data</a></li>
@@ -220,9 +220,9 @@
 <li class="level3"><a href="#editable-items">Editable items</a></li>
 <li class="level3"><a href="#resizable-models">Resizable models</a></li>
 <li class="level3"><a href="#lazy-population-of-model-data">Lazy population of model data</a></li>
-<li class="level2"><a href="#navigation-amp-model-index-creation">Navigation &amp;amp model index creation</a></li>
-<li class="level3"><a href="#parents-amp-children">Parents &amp;amp children</a></li>
-<li class="level2"><a href="#drag-amp-drop-support-and-mime-type-handling">Drag &amp;amp drop support and MIME type handling</a></li>
+<li class="level2"><a href="#navigation-and-model-index-creation">Navigation and model index creation</a></li>
+<li class="level3"><a href="#parents-and-children">Parents and children</a></li>
+<li class="level2"><a href="#drag-drop-support-and-mime-type-handling">Drag &amp; drop support and MIME type handling</a></li>
 <li class="level3"><a href="#mime-data">MIME data</a></li>
 <li class="level3"><a href="#accepting-dropped-data">Accepting dropped data</a></li>
 <li class="level3"><a href="#convenience-views">Convenience views</a></li>
@@ -567,8 +567,8 @@
 <p>Information about the items selected in a view is stored in an instance of the <a href="qitemselectionmodel.html">QItemSelectionModel</a> class. This maintains model indexes for items in a single model, and is independent of any views. Since there can be many views onto a model, it is possible to share selections between views, allowing applications to show multiple views in a consistent way.</p>
 <p>Selections are made up of <i>selection ranges</i>. These efficiently maintain information about large selections of items by recording only the starting and ending model indexes for each range of selected items. Non-contiguous selections of items are constructed by using more than one selection range to describe the selection.</p>
 <p>Selections are applied to a collection of model indexes held by a selection model. The most recent selection of items applied is known as the <i>current selection</i>. The effects of this selection can be modified even after its application through the use of certain types of selection commands. These are discussed later in this section.</p>
-<a name="current-item-amp-selected-items"></a>
-<h4>Current item &amp;amp selected items</h4>
+<a name="current-item-and-selected-items"></a>
+<h4>Current item and selected items</h4>
 <p>In a view, there is always a current item and a selected item - two independent states. An item can be the current item and selected at the same time. The view is responsible for ensuring that there is always a current item as keyboard navigation, for example, requires a current item.</p>
 <p>The table below highlights the differences between current item and selected items.</p>
 <table class="generic">
@@ -736,8 +736,8 @@
      return stringList.count();
  }</pre>
 <p>Since the model is non-hierarchical, we can safely ignore the model index corresponding to the parent item. By default, models derived from <a href="qabstractlistmodel.html">QAbstractListModel</a> only contain one column, so we do not need to reimplement the <a href="qabstractitemmodel.html#columnCount">columnCount()</a> function.</p>
-<a name="model-headers-amp-data"></a>
-<h4>Model headers &amp;amp data</h4>
+<a name="model-headers-and-data"></a>
+<h4>Model headers and data</h4>
 <p>For items in the view, we want to return the strings in the string list. The <a href="qabstractitemmodel.html#data">data()</a> function is responsible for returning the item of data that corresponds to the index argument:</p>
 <pre class="highlightedCode brush: cpp"> QVariant StringListModel::data(const QModelIndex &amp;index, int role) const
  {
@@ -812,8 +812,8 @@
      else
          return QVariant();
  }</pre>
-<a name="inserting-amp-removing-rows"></a>
-<h4>Inserting &amp;amp removing rows</h4>
+<a name="inserting-and-removing-rows"></a>
+<h4>Inserting and removing rows</h4>
 <p>It is possible to change the number of rows and columns in a model. In the string list model it only makes sense to change the number of rows, so we only reimplement the functions for inserting and removing rows. These are declared in the class definition:</p>
 <pre class="highlightedCode brush: cpp">     bool insertRows(int position, int rows, const QModelIndex &amp;index = QModelIndex());
      bool removeRows(int position, int rows, const QModelIndex &amp;index = QModelIndex());</pre>
@@ -967,8 +967,8 @@
          <span class="comment">// Show the item-&gt;text(0) for each item.</span>
      }</pre>
 <p>The above code causes items in a tree widget to be selected if they contain the text given in the search string. This pattern can also be used in the list and table widgets.</p>
-<a name="using-drag-amp-drop-with-item-views"></a>
-<h2>Using drag &amp;amp drop with item views</h2>
+<a name="using-drag-drop-with-item-views"></a>
+<h2>Using drag &amp; drop with item views</h2>
 <p>Qt's drag and drop infrastructure is fully supported by the model/view framework. Items in lists, tables, and trees can be dragged within the views, and data can be imported and exported as MIME-encoded data.</p>
 <p>The standard views automatically support internal drag and drop, where items are moved around to change the order in which they are displayed. By default, drag and drop is not enabled for these views because they are configured for the simplest, most common uses. To allow items to be dragged around, certain properties of the view need to be enabled, and the items themselves must also allow dragging to occur.</p>
 <p>The requirements for a model that only allows items to be exported from a view, and which does not allow data to be dropped into it, are fewer than those for a fully-enabled drag and drop model.</p>
@@ -1005,8 +1005,8 @@
      return Qt::CopyAction | Qt::MoveAction;
  }</pre>
 <p>Although any combination of values from <a href="qt.html#DropAction-enum">Qt::DropActions</a> can be given, the model needs to be written to support them. For example, to allow <a href="qt.html#DropAction-enum">Qt::MoveAction</a> to be used properly with a list model, the model must provide an implementation of <a href="qabstractitemmodel.html#removeRows">QAbstractItemModel::removeRows</a>(), either directly or by inheriting the implementation from its base class.</p>
-<a name="enabling-drag-amp-drop-for-items"></a>
-<h4>Enabling drag &amp;amp drop for items</h4>
+<a name="enabling-drag-drop-for-items"></a>
+<h4>Enabling drag &amp; drop for items</h4>
 <p>Models indicate to views which items can be dragged, and which will accept drops, by reimplementing the <a href="qabstractitemmodel.html#flags">QAbstractItemModel::flags</a>() function to provide suitable flags.</p>
 <p>For example, a model which provides a simple list based on <a href="qabstractlistmodel.html">QAbstractListModel</a> can enable drag and drop for each of the items by ensuring that the flags returned contain the <a href="qt.html#ItemFlag-enum">Qt::ItemIsDragEnabled</a> and <a href="qt.html#ItemFlag-enum">Qt::ItemIsDropEnabled</a> values:</p>
 <pre class="highlightedCode brush: cpp"> Qt::ItemFlags DragDropListModel::flags(const QModelIndex &amp;index) const
@@ -1039,7 +1039,7 @@
 
      QDataStream stream(&amp;encodedData, QIODevice::WriteOnly);
 
-     foreach (QModelIndex index, indexes) {
+     foreach (const QModelIndex &amp;index, indexes) {
          if (index.isValid()) {
              QString text = data(index, Qt::DisplayRole).toString();
              stream &lt;&lt; text;
@@ -1100,7 +1100,7 @@
      }</pre>
 <p>The strings can then be inserted into the underlying data store. For consistency, this can be done through the model's own interface:</p>
 <pre class="highlightedCode brush: cpp">     insertRows(beginRow, rows, QModelIndex());
-     foreach (QString text, newItems) {
+     foreach (const QString &amp;text, newItems) {
          QModelIndex idx = index(beginRow, 0, QModelIndex());
          setData(idx, text);
          beginRow++;
@@ -1194,19 +1194,19 @@
 <p>In hierarchical models where finding the number of children of a given item is an expensive operation, it is useful to ensure that the model's <a href="qabstractitemmodel.html#rowCount">rowCount()</a> implementation is only called when necessary. In such cases, the <a href="qabstractitemmodel.html#hasChildren">hasChildren()</a> function can be reimplemented to provide an inexpensive way for views to check for the presence of children and, in the case of <a href="qtreeview.html">QTreeView</a>, draw the appropriate decoration for their parent item.</p>
 <p>Whether the reimplementation of <a href="qabstractitemmodel.html#hasChildren">hasChildren()</a> returns <tt>true</tt> or <tt>false</tt>, it may not be necessary for the view to call <a href="qabstractitemmodel.html#rowCount">rowCount()</a> to find out how many children are present. For example, <a href="qtreeview.html">QTreeView</a> does not need to know how many children there are if the parent item has not been expanded to show them.</p>
 <p>If it is known that many items will have children, reimplementing <a href="qabstractitemmodel.html#hasChildren">hasChildren()</a> to unconditionally return <tt>true</tt> is sometimes a useful approach to take. This ensures that each item can be later examined for children while making initial population of model data as fast as possible. The only disadvantage is that items without children may be displayed incorrectly in some views until the user attempts to view the non-existent child items.</p>
-<a name="navigation-amp-model-index-creation"></a>
-<h3>Navigation &amp;amp model index creation</h3>
+<a name="navigation-and-model-index-creation"></a>
+<h3>Navigation and model index creation</h3>
 <p>Hierarchical models need to provide functions that views can call to navigate the tree-like structures they expose, and obtain model indexes for items.</p>
-<a name="parents-amp-children"></a>
-<h4>Parents &amp;amp children</h4>
+<a name="parents-and-children"></a>
+<h4>Parents and children</h4>
 <p>Since the structure exposed to views is determined by the underlying data structure, it is up to each model subclass to create its own model indexes by providing implementations of the following functions:</p>
 <table class="generic">
  <tr class="odd topAlign"><td ><p><a href="qabstractitemmodel.html#index">index()</a></p></td><td ><p>Given a model index for a parent item, this function allows views and delegates to access children of that item. If no valid child item - corresponding to the specified row, column, and parent model index, can be found, the function must return QModelIndex(), which is an invalid model index.</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qabstractitemmodel.html#parent">parent()</a></p></td><td ><p>Provides a model index corresponding to the parent of any given child item. If the model index specified corresponds to a top-level item in the model, or if there is no valid parent item in the model, the function must return an invalid model index, created with the empty QModelIndex() constructor.</p></td></tr>
 </table>
 <p>Both functions above use the <a href="qabstractitemmodel.html#createIndex">createIndex()</a> factory function to generate indexes for other components to use. It is normal for models to supply some unique identifier to this function to ensure that the model index can be re-associated with its corresponding item later on.</p>
-<a name="drag-amp-drop-support-and-mime-type-handling"></a>
-<h3>Drag &amp;amp drop support and MIME type handling</h3>
+<a name="drag-drop-support-and-mime-type-handling"></a>
+<h3>Drag &amp; drop support and MIME type handling</h3>
 <p>The model/view classes support drag and drop operations, providing default behavior that is sufficient for many applications. However, it is also possible to customize the way items are encoded during drag and drop operations, whether they are copied or moved by default, and how they are inserted into existing models.</p>
 <p>Additionally, the convenience view classes implement specialized behavior that should closely follow that expected by existing developers. The <a href="#convenience-views">Convenience Views</a> section provides an overview of this behavior.</p>
 <a name="mime-data"></a>
@@ -1244,10 +1244,10 @@
 <li><a href="qabstractitemmodel.html#removeColumns">removeColumns()</a></li>
 <li><a href="qabstractitemmodel.html#removeColumn">removeColumn()</a></li>
 </ul>
-<p>For more information about drag and drop with item views, refer to Using Drag and Drop with Item Views.</p>
+<p>For more information about drag and drop with item views, refer to <a href="#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
 <a name="convenience-views"></a>
 <h4>Convenience views</h4>
-<p>The convenience views (<a href="qlistwidget.html">QListWidget</a>, <a href="qtablewidget.html">QTableWidget</a>, and <a href="qtreewidget.html">QTreeWidget</a>) override the default drag and drop functionality to provide less flexible, but more natural behavior that is appropriate for many applications. For example, since it is more common to drop data into cells in a <a href="qtablewidget.html">QTableWidget</a>, replacing the existing contents with the data being transferred, the underlying model will set the data of the target items rather than insert new rows and columns into the model. For more information on drag and drop in convenience views, you can see Using Drag and Drop with Item Views.</p>
+<p>The convenience views (<a href="qlistwidget.html">QListWidget</a>, <a href="qtablewidget.html">QTableWidget</a>, and <a href="qtreewidget.html">QTreeWidget</a>) override the default drag and drop functionality to provide less flexible, but more natural behavior that is appropriate for many applications. For example, since it is more common to drop data into cells in a <a href="qtablewidget.html">QTableWidget</a>, replacing the existing contents with the data being transferred, the underlying model will set the data of the target items rather than insert new rows and columns into the model. For more information on drag and drop in convenience views, you can see <a href="#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
 <a name="performance-optimization-for-large-amounts-of-data"></a>
 <h3>Performance optimization for large amounts of data</h3>
 <p>The <a href="qabstractitemmodel.html#canFetchMore">canFetchMore()</a> function checks if the parent has more data available and returns true or false accordingly. The <a href="qabstractitemmodel.html#fetchMore">fetchMore()</a> function fetches data based on the parent specified. Both these functions can be combined, for example, in a database query involving incremental data to populate a <a href="qabstractitemmodel.html">QAbstractItemModel</a>. We reimplement <a href="qabstractitemmodel.html#canFetchMore">canFetchMore()</a> to indicate if there is more data to be fetched and <a href="qabstractitemmodel.html#fetchMore">fetchMore()</a> to populate the model as required.</p>
@@ -1306,11 +1306,11 @@
 </div>
 <p>See also <a href="itemviews-puzzle.html">Item Views Puzzle Example</a>.</p>
 <!-- @@@model-view-programming.html -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -1323,28 +1323,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

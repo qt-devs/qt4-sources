@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -145,7 +145,9 @@
 <ul>
 <li class="level1"><a href="#declarative-ui-development-with-qt-quick">Declarative UI development with Qt Quick</a></li>
 <li class="level1"><a href="#network-bearer-management">Network Bearer Management</a></li>
-<li class="level1"><a href="#multimedia-playback-and-declarative-elements">Multimedia - playback and declarative elements</a></li>
+<li class="level1"><a href="#feature-improvements-in-qtwebkit">Feature Improvements in QtWebKit</a></li>
+<li class="level1"><a href="#qtwebkit-performance-benchmarks">QtWebKit Performance Benchmarks</a></li>
+<li class="level1"><a href="#other-performance-related-improvements">Other Performance Related Improvements</a></li>
 <li class="level1"><a href="#new-classes-functions-macros-etc">New Classes, Functions, Macros, etc.</a></li>
 </ul>
 </div>
@@ -167,10 +169,25 @@
 <h2>Network Bearer Management</h2>
 <p>Bearer Management controls the connectivity state of the system. The new Bearer Management API in the <a href="qtnetwork.html">QtNetwork</a> module allows the application to identify whether the system is online and how many interfaces there are, as well as start and stop interfaces, or roam transparently between access points.</p>
 <p><a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> uses this API for HTTP level roaming.</p>
-<a name="multimedia-playback-and-declarative-elements"></a>
-<h2>Multimedia - playback and declarative elements</h2>
-<p>The Multimedia API provides media playback and playlist support for Qt Applications. Play music and movies through a single interface with selectable output for movies to widgets or graphics view.</p>
-<p>Multimedia support for Quick is also available with the new multimedia declarative elements.</p>
+<a name="feature-improvements-in-qtwebkit"></a>
+<h2>Feature Improvements in QtWebKit</h2>
+<p>The <a href="qgraphicswebview.html">QGraphicsWebView</a> class has a new tiled backing store, which improves scrolling and zooming performance. You can even create animated zoom-in or zoom-out effects (see <a href="qwebsettings.html#WebAttribute-enum">QWebSettings::TiledBackingStoreEnabled</a>).</p>
+<p>On mobile platforms, it is often useful to avoid displaying separate scrollbars for iframes and framesets. If you switch on frame flattening, <a href="qtwebkit.html">QtWebKit</a> will resize frames to fit their content to avoid separate scrollbars (see <a href="qwebsettings.html#WebAttribute-enum">QWebSettings::FrameFlatteningEnabled</a>).</p>
+<p>Qt 4.7 adds support for accelerated compositing, which enhances the performance of CSS animations and transitions. Read more in <a href="http://labs.trolltech.com/blogs/2010/05/17/qtwebkit-now-accelerates-css-animations-3d-transforms/">this blog</a>.</p>
+<p>For hybrid <a href="qtwebkit.html">QtWebKit</a> and C++ projects, Qt 4.7 has added support for transporting <a href="qpixmap.html">QPixmap</a>s between Qt C++ and WebKit. We have also improved the documentation hybrid development. Read more here: <a href="qtwebkit-bridge.html">The QtWebKit Bridge</a>.</p>
+<a name="qtwebkit-performance-benchmarks"></a>
+<h2>QtWebKit Performance Benchmarks</h2>
+<p>We have introduced a set of performance benchmarks for <a href="qtwebkit.html">QtWebKit</a>, and made numerous improvements in rendering performance, page loading performance, scrolling performance and CSS performance. Here are some examples from the benchmarks run on a 64-bit Linux workstation with the raster graphics system.</p>
+<p>In a benchmark that measures the scrolling performance on popular websites, we found out that Qt 4.7&#x2e;0 on this platform is 350% faster than Qt 4.6&#x2e;0, thanks to several rendering related improvements.</p>
+<p>Our page loading benchmark shows an improvement of 16% in Qt 4.7&#x2e;0 from Qt 4.6&#x2e;0&#x2e; This is due to improvements in text layout speed, image decoding, resource loading and event handling.</p>
+<p>Several CSS animation benchmarks indicate a speed improvement of 31% from Qt 4.6&#x2e;0 to Qt 4.7&#x2e;0&#x2e; These benchmarks are effectively showing the improvement we get from accelerated compositing (see above).</p>
+<a name="other-performance-related-improvements"></a>
+<h2>Other Performance Related Improvements</h2>
+<p>In addition to the <a href="qtwebkit.html">QtWebKit</a> module, performance has been a focus area in Qt 4.7 throughout the Qt framework. Here are a couple of examples about performance related feature improvements.</p>
+<p>On Mac OS X, Qt now uses a different widget implementation (called &quot;alien widgets&quot;), which improves the responsiveness of applications that have complex user interfaces with several widgets.</p>
+<p>Qt 4.7 introduces the <a href="qstatictext.html">QStaticText</a> class, which can be used to improve text rendering performance. More info is available from <a href="http://labs.trolltech.com/blogs/2010/03/01/insanity-is-shaping-the-same-text-again-and-expecting-a-different-result/">this blog</a>.</p>
+<p>The <a href="qpainter.html">QPainter</a> class has a new API for rendering pixmap fragments (QPainter::drawPixmapFragments), which can improve the rendering performance of applications that need to render <a href="qpainter.html#drawPixmapFragments">pixmap fragments</a>.</p>
+<p>Qt 4.7 has an updated version of the <a href="3rdparty.html#javascriptcore">JavaScriptCore</a> engine for the <a href="qtscript.html">QtScript</a> module, which improves <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> execution performance.</p>
 <a name="new-classes-functions-macros-etc"></a>
 <h2>New Classes, Functions, Macros, etc.</h2>
 <p>Links to new classes, elements, functions, macros, and other items introduced in Qt 4.7&#x2e;</p>
@@ -218,57 +235,41 @@
 </div>
 <a name="new-member-functions"></a>
 <h3>    New Member Functions</h3>
-<p>Class <a href="qaudioformat.html">QAudioFormat</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#channelCount">channelCount</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#sampleRate">sampleRate</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#setChannelCount">setChannelCount</a></b> ( int <i>channels</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#setSampleRate">setSampleRate</a></b> ( int <i>samplerate</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qiconenginev2.html">QIconEngineV2</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qiconenginev2.html#iconName">iconName</a></b> ()</td></tr>
-</table>
-<br/><p>Class <a href="qauthenticator.html">QAuthenticator</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#option">option</a></b> ( const QString &amp; <i>opt</i> ) const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QVariantHash </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#options">options</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#setOption">setOption</a></b> ( const QString &amp; <i>opt</i>, const QVariant &amp; <i>value</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qwizard.html">QWizard</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageAdded">pageAdded</a></b> ( int <i>id</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageRemoved">pageRemoved</a></b> ( int <i>id</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#setSideWidget">setSideWidget</a></b> ( QWidget * <i>widget</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#sideWidget">sideWidget</a></b> () const</td></tr>
-</table>
-<br/><p>Class <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#activeConfiguration">activeConfiguration</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#configuration">configuration</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> NetworkAccessibility </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">networkAccessible</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#sendCustomRequest">sendCustomRequest</a></b> ( const QNetworkRequest &amp; <i>request</i>, const QByteArray &amp; <i>verb</i>, QIODevice * <i>data</i> = 0 )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#setConfiguration">setConfiguration</a></b> ( const QNetworkConfiguration &amp; <i>config</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">setNetworkAccessible</a></b> ( NetworkAccessibility <i>accessible</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qnetworkrequest.html">QNetworkRequest</a>:</p>
+<p>Class <a href="qnetworkrequest.html">QNetworkRequest</a>:</p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> Priority </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#priority">priority</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#setPriority">setPriority</a></b> ( Priority <i>priority</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qfilesystemmodel.html">QFileSystemModel</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfilesystemmodel.html#directoryLoaded">directoryLoaded</a></b> ( const QString &amp; <i>path</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qdbusmessage.html">QDBusMessage</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#autoStartService">autoStartService</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#setAutoStartService">setAutoStartService</a></b> ( bool <i>enable</i> )</td></tr>
 </table>
 <br/><p>Class <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>:</p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qaudiodeviceinfo.html#supportedChannelCounts">supportedChannelCounts</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qaudiodeviceinfo.html#supportedSampleRates">supportedSampleRates</a></b> () const</td></tr>
+</table>
+<br/><p>Class <a href="qplaintextedit.html">QPlainTextEdit</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qplaintextedit.html#anchorAt">anchorAt</a></b> ( const QPoint &amp; <i>pos</i> ) const</td></tr>
+</table>
+<br/><p>Class <a href="qscriptengine.html">QScriptEngine</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#evaluate-2">evaluate</a></b> ( const QScriptProgram &amp; <i>program</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#reportAdditionalMemoryCost">reportAdditionalMemoryCost</a></b> ( int <i>size</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qgraphicsitem.html">QGraphicsItem</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsitem.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
+</table>
+<br/><p>Class <a href="qgraphicsobject.html">QGraphicsObject</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsobject.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
+</table>
+<br/><p>Class <a href="qwebframe.html">QWebFrame</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollToAnchor">scrollToAnchor</a></b> ( const QString &amp; <i>anchor</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qdbusmessage.html">QDBusMessage</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#autoStartService">autoStartService</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#setAutoStartService">setAutoStartService</a></b> ( bool <i>enable</i> )</td></tr>
 </table>
 <br/><p>Class <a href="qglshader.html">QGLShader</a>:</p>
 <table class="alignedsummary">
@@ -291,30 +292,46 @@
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qglshaderprogram.html#setUniformValue-51">setUniformValue</a></b> ( const char * <i>name</i>, const GLfloat[2][2] <i>value</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qglshaderprogram.html#setUniformValue-52">setUniformValue</a></b> ( const char * <i>name</i>, const GLfloat[3][3] <i>value</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qgraphicsitem.html">QGraphicsItem</a>:</p>
+<br/><p>Class <a href="qiconenginev2.html">QIconEngineV2</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsitem.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qiconenginev2.html#iconName">iconName</a></b> ()</td></tr>
 </table>
-<br/><p>Class <a href="qgraphicsobject.html">QGraphicsObject</a>:</p>
+<br/><p>Class <a href="qaudioformat.html">QAudioFormat</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsobject.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#channelCount">channelCount</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#sampleRate">sampleRate</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#setChannelCount">setChannelCount</a></b> ( int <i>channels</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#setSampleRate">setSampleRate</a></b> ( int <i>samplerate</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qfilesystemmodel.html">QFileSystemModel</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfilesystemmodel.html#directoryLoaded">directoryLoaded</a></b> ( const QString &amp; <i>path</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qwizard.html">QWizard</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageAdded">pageAdded</a></b> ( int <i>id</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageRemoved">pageRemoved</a></b> ( int <i>id</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#setSideWidget">setSideWidget</a></b> ( QWidget * <i>widget</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#sideWidget">sideWidget</a></b> () const</td></tr>
+</table>
+<br/><p>Class <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#activeConfiguration">activeConfiguration</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#configuration">configuration</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> NetworkAccessibility </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">networkAccessible</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#sendCustomRequest">sendCustomRequest</a></b> ( const QNetworkRequest &amp; <i>request</i>, const QByteArray &amp; <i>verb</i>, QIODevice * <i>data</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#setConfiguration">setConfiguration</a></b> ( const QNetworkConfiguration &amp; <i>config</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">setNetworkAccessible</a></b> ( NetworkAccessibility <i>accessible</i> )</td></tr>
 </table>
 <br/><p>Class <a href="qstate.html">QState</a>:</p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> QList&lt;QAbstractTransition *&gt; </td><td class="memItemRight bottomAlign"><b><a href="qstate.html#transitions">transitions</a></b> () const</td></tr>
 </table>
-<br/><p>Class <a href="qplaintextedit.html">QPlainTextEdit</a>:</p>
+<br/><p>Class <a href="qauthenticator.html">QAuthenticator</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qplaintextedit.html#anchorAt">anchorAt</a></b> ( const QPoint &amp; <i>pos</i> ) const</td></tr>
-</table>
-<br/><p>Class <a href="qwebframe.html">QWebFrame</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollToAnchor">scrollToAnchor</a></b> ( const QString &amp; <i>anchor</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qscriptengine.html">QScriptEngine</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#evaluate-2">evaluate</a></b> ( const QScriptProgram &amp; <i>program</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#reportAdditionalMemoryCost">reportAdditionalMemoryCost</a></b> ( int <i>size</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#option">option</a></b> ( const QString &amp; <i>opt</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariantHash </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#options">options</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#setOption">setOption</a></b> ( const QString &amp; <i>opt</i>, const QVariant &amp; <i>value</i> )</td></tr>
 </table>
 <br/><p>Class <a href="qgraphicsscale.html">QGraphicsScale</a>:</p>
 <table class="alignedsummary">
@@ -325,7 +342,7 @@
 <br/><a name="new-global-functions"></a>
 <h3>    New Global Functions</h3>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-36">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
 </table>
 <a name="new-qml-elements"></a>
 <h3>    New QML Elements</h3>
@@ -443,11 +460,11 @@
 </div>
 </div>
 <!-- @@@qt4-7-intro.html -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -460,28 +477,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,11 +137,9 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
-  <link rel="prev" href="qmake-reference.html" />
-  <link rel="next" href="qmake-function-reference.html" />
   <link rel="prev" href="qmake-reference.html" />
   <link rel="next" href="qmake-function-reference.html" />
 <div class="toc">
@@ -314,6 +312,7 @@
 <li class="level1"><a href="#sources">SOURCES</a></li>
 <li class="level1"><a href="#srcmoc">SRCMOC</a></li>
 <li class="level1"><a href="#subdirs">SUBDIRS</a></li>
+<li class="level1"><a href="#symbian-version">SYMBIAN_VERSION</a></li>
 <li class="level1"><a href="#target">TARGET</a></li>
 <li class="level1"><a href="#target-capability">TARGET.CAPABILITY</a></li>
 <li class="level1"><a href="#target-epocallowdlldata">TARGET.EPOCALLOWDLLDATA</a></li>
@@ -356,7 +355,10 @@
 <p><i>This is only used on the Symbian platform.</i></p>
 <p>Generic <tt>bld.inf</tt> file content can be specified with <tt>BLD_INF_RULES</tt> variables. The section of <tt>bld.inf</tt> file where each rule goes is appended to <tt>BLD_INF_RULES</tt> with a dot.</p>
 <p>For example:</p>
-<pre class="highlightedCode brush: cpp"> DEPLOYMENT.installer_header = 0x12345678</pre>
+<pre class="highlightedCode brush: cpp"> my_exports = \
+     &quot;foo.h /epoc32/include/mylib/foo.h&quot; \
+     &quot;bar.h /epoc32/include/mylib/bar.h&quot;
+ BLD_INF_RULES.prj_exports += my_exports</pre>
 <p>This will add the specified statements to the <tt>prj_exports</tt> section of the generated <tt>bld.inf</tt> file.</p>
 <p>It is also possible to add multiple rows in a single block. Each double quoted string will be placed on a new row in the generated <tt>bld.inf</tt> file.</p>
 <p>For example:</p>
@@ -646,6 +648,7 @@
 <a name="makefile"></a><a name="makefile"></a>
 <h2>MAKEFILE</h2>
 <p>This variable specifies the name of the Makefile which <tt>qmake</tt> should use when outputting the dependency information for building a project. The value of this variable is typically handled by <tt>qmake</tt> or <a href="#qmakespec">qmake.conf</a> and rarely needs to be modified.</p>
+<p><b>Note:</b> On the Symbian platform, this variable is ignored.</p>
 <a name="makefile-generator"></a><a name="makefile-generator"></a>
 <h2>MAKEFILE_GENERATOR</h2>
 <p>This variable contains the name of the Makefile generator to use when generating a Makefile. The value of this variable is typically handled internally by <tt>qmake</tt> and rarely needs to be modified.</p>
@@ -1252,7 +1255,7 @@
 <p>This variable is set by <tt>qmake</tt> if files can be found that contain the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro. <tt>SRCMOC</tt> contains the name of all the generated moc files. The value of this variable is typically handled by <tt>qmake</tt> or <a href="#qmakespec">qmake.conf</a> and rarely needs to be modified.</p>
 <a name="subdirs"></a><a name="subdirs"></a>
 <h2>SUBDIRS</h2>
-<p>This variable, when used with the <a href="#template"><tt>subdirs</tt> template</a> contains the names of all subdirectories that contain parts of the project that need be built. Each subdirectory must contain its own project file.</p>
+<p>This variable, when used with the <a href="#template"><tt>subdirs</tt> template</a> contains the names of all subdirectories or project files that contain parts of the project that need be built. Each subdirectory specified using this variable must contain its own project file.</p>
 <p>For example:</p>
 <pre class="highlightedCode brush: cpp"> SUBDIRS = kernel \
            tools</pre>
@@ -1279,6 +1282,10 @@
      SUBDIRS += emulator_dll
      emulator_dll.condition = WINSCW
  }</pre>
+<a name="symbian-version"></a><a name="symbian-version"></a>
+<h2>SYMBIAN_VERSION</h2>
+<p><i>This is only used on the Symbian platform.</i></p>
+<p>Contains the version number of the underlying Symbian SDK; e.g&#x2e; &quot;9.2&quot; or &quot;Symbian3&quot;.</p>
 <a name="target"></a><a name="target"></a>
 <h2>TARGET</h2>
 <p>This specifies the name of the target file.</p>
@@ -1419,11 +1426,11 @@
 [Previous: <a href="qmake-reference.html">qmake Reference</a>]
 [Next: <a href="qmake-function-reference.html">qmake Function Reference</a>]
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -1436,28 +1443,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

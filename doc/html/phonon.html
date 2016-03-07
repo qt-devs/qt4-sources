@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -216,7 +216,7 @@
 <h2>Detailed Description</h2>
 <p>The Phonon namespace contains classes and functions for multimedia applications.</p>
 <p>This namespace contains classes to access multimedia functions for audio and video playback. Those classes are not dependent on any specific framework, but rather use exchangeable backends to do the work.</p>
-<p>See the <a href="phonon-module.html">Phonon Module</a> page for general information about the framework and the Phonon Overview for an introductory tour of its features.</p>
+<p>See the <a href="phonon-module.html">Phonon Module</a> page for general information about the framework and the <a href="phonon-overview.html#phonon-overview">Phonon Overview</a> for an introductory tour of its features.</p>
 </div>
 <!-- @@@Phonon -->
 <div class="nmspace">
@@ -359,14 +359,14 @@
 <p>The state enum describes the different states a media object can take. Several functions of <a href="phonon-mediaobject.html">MediaObject</a> are asynchronous, so even if a you have requested a state change through a function call, e.g&#x2e;, through <a href="phonon-mediaobject.html#play">play()</a>, you cannot be sure that the change has taken place before you receive the <a href="phonon-mediaobject.html#stateChanged">stateChanged()</a> signal.</p>
 <p>A media object can at any time change into any state, regardless of the state it previously had.</p>
 <table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
-<tr><td  class="topAlign"><tt>Phonon::LoadingState</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">After construction it might take a while before the media object is ready to <a href="phonon-mediaobject.html#play">play()</a>. This state is commonly used by backends to initialize the media graph and loading the source. When the object leaves the loading state, it will enter the StoppedState unless an error occurred or another state is requested through a function call, e.g&#x2e;, <a href="phonon-mediaobject.html#play">MediaObject::play()</a>.</td></tr>
+<tr><td  class="topAlign"><tt>Phonon::LoadingState</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">After construction it might take a while before the media object is ready to <a href="phonon-mediaobject.html#play">play()</a>. This state is commonly used by backends to initialize the <a href="phonon-overview.html#phonon-overview">media graph</a> and loading the source. When the object leaves the loading state, it will enter the StoppedState unless an error occurred or another state is requested through a function call, e.g&#x2e;, <a href="phonon-mediaobject.html#play">MediaObject::play()</a>.</td></tr>
 <tr><td  class="topAlign"><tt>Phonon::StoppedState</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">In the stopped state, the media object is ready to play its current media source. The current <a href="phonon-mediaobject.html#seek">position</a> in the media stream is then 0.</td></tr>
 <tr><td  class="topAlign"><tt>Phonon::PlayingState</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The media object is playing back its media source.</td></tr>
 <tr><td  class="topAlign"><tt>Phonon::BufferingState</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">The Player is waiting for data to be able to start or continue playing. This state is commonly used to wait for media data over a network connection.</td></tr>
 <tr><td  class="topAlign"><tt>Phonon::PausedState</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">The media player has currently paused its playback, i.e&#x2e;, it stops playing but keeps the current playback position in the stream.</td></tr>
 <tr><td  class="topAlign"><tt>Phonon::ErrorState</tt></td><td class=" topAlign"><tt>5</tt></td><td  class="topAlign">When a media object enters the error state a problem with the playback has occurred. The possible errors are grouped into two categories by <a href="phonon.html#ErrorType-enum">Phonon::ErrorType</a>, and the type can be queried through <a href="phonon-mediaobject.html#errorType">errorType()</a>. A <a href="phonon.html#ErrorType-enum">FatalError</a> implies that the playback cannot continue, but one can still try with a new media source. With a <a href="phonon.html#ErrorType-enum">NormalError</a> it might be possible to continue playback, and a media object may therefore change state from the ErrorState.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.4.</p>
+<p>This enum was introduced or modified in Qt 4.4.</p>
 <p>See also <a href="phonon-mediaobject.html">MediaObject</a>.</p>
 <!-- @@@State -->
 <!-- $$$VideoWidgetInterfaceLatest -->
@@ -395,11 +395,11 @@
 <p>This function was introduced in Qt 4.5.</p>
 <!-- @@@phononVersion -->
 </div>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -412,28 +412,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

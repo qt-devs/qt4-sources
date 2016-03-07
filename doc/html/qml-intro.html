@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -167,18 +167,28 @@
 <h2>Overview</h2>
 <p>QML is a high level, scripted language. Its commands, more correctly <i>elements</i>, leverage the power and efficiency of the Qt libraries to make easy to use commands that perform intuitive functions. Draw a rectangle, display an image at a position and so on. Behind these elements are complex C++ libraries that efficiently perform the action. As with any graphical application, always consider that this ability to easily build graphically rich applications means that some care may be needed to prevent performance problems.</p>
 <p>The language also allows more flexibility of these commands by using Javascript rather than C++ to add new layers of logic to your application. Javascript is easier to learn than C++ and can be embedded into the QML files or imported from a separate file.</p>
-<p><b>In QML the types of various 'objects' are referred to as <a href="qdeclarativeelements.html"> elements</a></b>.</p>
+<p><b>In QML the types of various 'objects' are referred to as <a href="qdeclarativeelements.html">elements</a></b>.</p>
 <p>An element usually has various <i>properties</i> that help define the element. For example, if we created an element called Circle then the radius of the circle would be a property.</p>
 <a name="a-first-look"></a>
 <h2>A First Look</h2>
 <p>The basic syntax of an <a href="qdeclarativeelements.html">element</a> is</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> SomeElement {
+     id: myObject
+     ... some other things here ...
+ }</pre>
 <p>Here we are defining a new object. We specify its 'type' first as SomeElement. Then within matching braces { ..&#x2e; } we specify the various parts of our element.</p>
 <p>The <tt>id</tt> is a unique identifier for the element, it must start with a lower case letter and only contain letters, numbers and underscores. It is this particular object's name. If this SomeElement <a href="qdeclarativeelements.html">element</a> was a Rectangle instead and it was one of many then the <i>optional</i> unique id would allow us to manipulate each element individually.</p>
 <p>Each visual element is ultimately based on, or inherits from, an element called <a href="qml-item.html">Item</a>. <a href="qml-item.html">Item</a> has certain properties and actions that may be useful. The properties have default values so you need only specify the ones you will need.</p>
 <p>Take a simple element such as a <a href="qml-rectangle.html">Rectangle</a>. It has an <tt>id</tt>, we will call it <i>myRectangle</i>, it has a <tt>width</tt> and a <tt>height</tt>. Imagine that we want a rectangle that is 500 pixels by 400 pixels in the x and y directions (horizontal by vertical).</p>
 <p>We can implement this <a href="qml-rectangle.html">Rectangle</a> with these properties this way</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ // This is a comment. And below myRectangle is defined.
+ Rectangle {
+     id: myRectangle
+     width: 500
+     height: 400
+ }</pre>
 <p>This is a valid QML script. To run it, copy it and save it to a file, say myexample.qml, and on the command line run the following command:</p>
 <pre class="highlightedCode brush: cpp"> qmlviewer myexample.qml</pre>
 <p>On Mac OS X, open the &quot;QMLViewer&quot; application instead and open the <tt>myexample.qml</tt> file, or run it from the command line:</p>
@@ -189,26 +199,69 @@
 <p>We can now add some color and text to make a Hello World QML program.</p>
 <p><a href="qml-rectangle.html">Rectangle</a> has the property <a href="qml-rectangle.html#color-prop">color</a> to produce a background color.</p>
 <p>Text is handled by a different element called <a href="qml-text.html">Text</a>. We need to create a <a href="qml-text.html">Text</a> object inside the <a href="qml-rectangle.html">Rectangle</a> and set its <a href="qml-text.html#text-prop">text</a> property to &quot;Hello World!&quot;. So to set the text to &quot;Hello world&quot; and the background colour to light gray,</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: myRectangle
+     width: 500
+     height: 400
+
+     Text { text: &quot;Hello World!&quot; }
+
+     color: &quot;lightgray&quot;
+ }</pre>
 <a name="hello-world-again"></a>
 <h2>Hello World Again</h2>
 <p>From now on we will not always show the import statement for Qt but it should still be there when you create your QML scripts.</p>
 <p>To make our Hello World example a little nicer set the position of the text to be at pixel position x = 100, y = 100 within the displayed window. This position belongs to the <a href="qml-text.html">Text</a> element so we set the position inside its definition. Note that we separate different QML statements on the same line with a semi-colon, or we could have simply put each statement on a new line</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp">     Text {
+         text: &quot;&lt;h2&gt;Hello World&lt;/h2&gt;&quot;; color: &quot;darkgreen&quot;
+         x: 100; y:100
+     }</pre>
 <p>Not only did we reposition the text, but the text was altered by adding HTML tags to change the font size. The text color was also changed from the default black to dark green by using a standard string for the color's SVG name.</p>
 <p>We could also have used a hexadecimal string for the RGB (red-green-blue, as #rrggbb) values of the color similar to the method used in HTML. For example, mostly blue with a green tint,</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp">     Text {
+         text: &quot;&lt;h1&gt;Hello world again&lt;/h1&gt;&quot;
+         color: &quot;#002288&quot;
+         x: 100; y: 100
+     }</pre>
 <p>All of these changes occurred within the <a href="qml-text.html">Text</a> object which is the scope of these property changes.</p>
 <p>Other objects may use the information but it belongs to the element where the property has been defined.</p>
 <a name="images"></a>
 <h2>Images</h2>
 <p>To add an image to our little application we use the <a href="qml-image.html">Image</a> element. An <a href="qml-image.html">Image</a> uses a path to an image file, and has properties to control the aspect ratio, the image size, to tile the area amongst others. The source of the image, the path to the file, is a URL. Therefore the file can be local: <i>mydir/myimage1.png</i>. Or it can be remote: <i>&quot;http://www.example.com/images/myimage1.png&quot;</i>.</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp">     Image {
+         source: &quot;images/qt-logo.svg&quot;
+     }</pre>
 <p>This displays the image, as we would expect, at the top left of the window. The position of the default x = 0, y = 0 coordinate. The example here uses a PNG file, but it could have been one of various supported formats, including JPG and GIF.</p>
 <p>Let us reposition the image and enlarge it. Place it at the same 'x' offset as the &quot;Hello world again&quot; text, but put it another 50 pixels below the text, also make it 150 by 150 pixels in size,</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp">     Image {
+         source: &quot;images/qt-logo.svg&quot;
+         x: 100; y: 150
+         width: 150; height: 150
+     }</pre>
 <p>Adding the Hello World example, with the text and the image example we can write a simple piece of QML that starts to look a bit better.</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: myRectangle
+     width: 500
+     height: 400
+
+     Text {
+         text: &quot;&lt;h1&gt;Hello world again&lt;/h1&gt;&quot;
+         color: &quot;#002288&quot;
+         x: 100; y: 100
+     }
+
+     Image {
+         source: &quot;images/qt-logo.svg&quot;
+         x: 100; y: 150
+         width: 150; height: 150
+     }
+
+     color: &quot;lightgray&quot;
+ }</pre>
 <p>The result is still quite simple</p>
 <p class="centerAlign"><img src="images/qml-intro-helloa.png" /></p><a name="anchors-aligning-elements"></a>
 <h2>Anchors: Aligning Elements</h2>
@@ -216,7 +269,20 @@
 <p>The anchors property is really a property group. It is a collection of related properties. It has properties within it which can be used by means of the dot notation.</p>
 <p>The dot notation uses object <tt>id</tt>s and property names to use a particular object or property. Say I have a rectangle r1, which contains a rectangle r2, which contains an Item item1, which has an 'x' property I want to change. I just use the dot notation to identify it: r1.r2.item1.x</p>
 <p>If we want to position an image at the bottom of the rectangle it is inside. I have to specify that the bottom of the image is also at the bottom of the rectangle</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: myWin
+     width: 500
+     height: 400
+
+     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         width: 150; height: 150
+         anchors.bottom: myWin.bottom
+     }
+ }</pre>
 <p>This places the logo at the bottom left of the window.</p>
 <p class="centerAlign"><img src="images/qml-intro-anchors1.png" alt="&quot;A simple anchor&quot;" /></p><p>We would like it centered and not touching the bottom of the window, for aesthetic reasons. For the centering we use the horizontalCenter property, and to prevent the touching of the image to the bottom of the rectangle, the bottomMargin property is used. So the new actions for the script are</p>
 <ul>
@@ -225,10 +291,30 @@
 <li>set a margin of 10 pixels so that the image does not touch the bottom window border</li>
 </ul>
 <p>Encoded into QML the script becomes</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: myWin
+     width: 500
+     height: 400
+
+     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         width: 150; height: 150
+         anchors.bottom: myWin.bottom
+         anchors.horizontalCenter: myWin.horizontalCenter
+         anchors.bottomMargin: 10
+     }
+ }</pre>
 <p>Run this and resize the window. You will see that now the position of the image adjusts during the resize.</p>
 <p class="centerAlign"><img src="images/qml-intro-anchors2.png" alt="&quot;Image Centered at the Bottom&quot;" /></p><p>You can also add another object say a block of descriptive text and place it above or below the image or to the side. This code places some text just above the image</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp">     Text {
+         text: &quot;&lt;h2&gt;The Qt Logo&lt;/h2&gt;&quot;
+         anchors.bottom: image1.top
+         anchors.horizontalCenter: myWin.horizontalCenter
+         anchors.bottomMargin: 15
+     }</pre>
 <p class="centerAlign"><img src="images/qml-intro-anchors3.png" /></p><p><b>Note:</b> <i>anchors</i> is a property group, to be used within the object. When referencing these properties from another object we use the property directly, instead of saying:</p>
 <pre class="highlightedCode brush: cpp"> myRectangle.anchors.top  <span class="comment">// Wrong</span></pre>
 <p>we use</p>
@@ -242,7 +328,44 @@
 <p>we can produce a list of transformations.</p>
 <p>The text will be rotated by 45 degrees anti-clockwise and scaled vertically by a factor of 1.5 and by 1.2 horizontally.</p>
 <p>Using the example above as the basis for this we have,</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: myWin
+     width: 500
+     height: 400
+
+     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         width: 150; height: 150
+         anchors.bottom: myWin.bottom
+         anchors.horizontalCenter: myWin.horizontalCenter
+         anchors.bottomMargin: 10
+
+         transform: Rotation {
+             origin.x: 75; origin.y: 75
+             axis{ x: 0; y: 0; z:1 }  angle: -90
+         }
+
+     }
+
+     Text {
+         text: &quot;&lt;h2&gt;The Qt Logo -- taking it easy&lt;/h2&gt;&quot;
+         anchors.bottom: image1.top
+         anchors.horizontalCenter: myWin.horizontalCenter
+         anchors.bottomMargin: 15
+
+         transform: [
+             Scale { xScale: 1.5; yScale: 1.2 } ,
+
+             Rotation {
+                 origin.x: 75; origin.y: 75
+                 axis{ x: 0; y: 0; z:1 }  angle: -45
+             }
+         ]
+     }
+ }</pre>
 <p>The code block in <tt>image1</tt> starting with <tt>transform</tt> specifies that the <a href="qml-item.html#transform-prop">transform</a> property will be a Rotation through -90 degrees, which is anti-clockwise, about the z-axis running through the center of the image at (75,75), since the image is 150 x 150 pixels.</p>
 <p>The other transformation available is <a href="qml-translate.html">Translate</a>. This produces a change in position of the item.</p>
 <p><b>Note:</b> In a list of transformations the order of the transformations is important. In the above example try swapping around the Scale transform with the Rotation transform, remember to remove or add the comma. The results are acceptable for our little test but not the same.</p>
@@ -252,22 +375,148 @@
 <a name="number-animation"></a>
 <h3>Number Animation</h3>
 <p>Previously we have used a rotation transformation to change the orientation of an image. We could easily animate this rotation so that instead of a straight rotation counter-clockwise of 90 degrees we could rotate the image through a full 360 degrees in an animation. The axis of rotation wont change, the position of the center of the image will not change, only the angle will change. Therefore, a <a href="qml-numberanimation.html">NumberAnimation</a> of a rotation's angle should be enough for the task. If we wish for a simple rotation about the center of the image then we can use the <tt>rotation</tt> property that is inherited from <a href="qml-item.html">Item</a>. The rotation property is a real number that specifies the angle in a clockwise direction for the rotation of the object. Here is the code for our animated rotating image.</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: mainRec
+     width:  600
+     height: 400
+
+     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         x: 200; y: 100
+         width: 100; height: 100
+
+         // Animate a rotation
+         transformOrigin: Item.Center
+         NumberAnimation on rotation {
+             from: 0; to: 360
+             duration: 2000
+             loops: Animation.Infinite
+         }
+     }
+ }</pre>
 <p>The <tt>transformOrigin: Item.Center</tt> is redundant since this is the default axis of rotation anyway. But if you change <tt>Center</tt> to <tt>BottomRight</tt> you will see an interesting variation.</p>
 <p>Also if instead the <a href="qml-rotation.html">Rotation</a> transformation had been used then we would have more control over the various parameters. We could vary the axis, to be not just a different offset from the z-axis but along the y-axis, x-axis or combination. For example, if the task had been to animate the rotation about the y-axis passing through the center of the image then the following code would do it.</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: mainRec
+     width:  600
+     height: 400
+
+     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         x: 200; y: 100
+         width: 100; height: 100
+
+         // Animate a rotation
+         transform: Rotation {
+             origin.x: 50; origin.y: 50; axis {x:0; y:1; z:0} angle:0
+             NumberAnimation on angle  {
+                 from: 0; to: 360;
+                 duration: 3000;
+                 loops: Animation.Infinite
+             }
+         }
+     }
+ }</pre>
 <p>Here there is a rectangle 600 by 400 pixels. Placed within that rectangle is an image 100 by 100 pixels. It is rotated about the center of the image about the y-axis so that it looks as if it is rotating about an invisible vertical string holding it up. The time it takes to complete the rotation is 3 seconds (3,000 milliseconds). The <a href="qml-numberanimation.html">NumberAnimation</a> is applied to the angle taking it from 0 (no change) to 360 degrees, back where it started. Strictly speaking it isn't necessary to go from 0 to 360 since the same location is duplicated, but it makes it easier to read in this example and it has no visible effect on the animation. The number of loops that the animation will execute is set to <tt>Animation.Infinite</tt> which means that the animation is in an endless loop.</p>
 <p>To see an interesting variation. Change the axis to <tt>axis { x:1; y:1; z:1 }</tt>. This is a line coming from the center of the image downwards to the right and out of the screen. Although the change is simple the rotation seems complex.</p>
 <a name="sequential-animation"></a>
 <h3>Sequential Animation</h3>
 <p>For a more complex animation we will need two images. The first image will be placed at the center of a window (Rectangle) and the second image will be at the upper left of the window. The animation will move the second image from the top left of the window to the bottom right. In doing so we will be animating the position and the size of the image.</p>
 <p>First create two images</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: mainRec
+     width:  600
+     height: 400
+     z: 0
+
+     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         x: 20; y: 20 ; z: 1
+         width: 100; height: 100
+     }
+
+     Image {
+         id: image2
+         source: &quot;images/qt-logo.svg&quot;
+         width: 100; height: 100
+         x: (mainRec.width - 100)/2; y: (mainRec.height - 100)/2
+         z: 2
+     }
+ }</pre>
 <p>We will add to 'image1' a <a href="qml-sequentialanimation.html">SequentialAnimation</a> from x = 20 to the target of x = 450. The 'from' values will be used because we will be repeating the animation, so the object needs to know where the original position is, both x and y. The <a href="qml-sequentialanimation.html">SequentialAnimation</a> of x will set it to repeat by indicating that the number of animation loops is infinite, meaning that the 'loop' counter will be set to a value Animation.Infinite that indicates an endless cycle. Also there will be a <a href="qml-numberanimation.html">NumberAnimation</a> to vary the numeric property between the x values and over a given duration. After the <a href="qml-numberanimation.html">NumberAnimation</a> there will be a <a href="qml-pauseanimation.html">PauseAnimation</a> that will pause the animation for 500 milliseconds (half a second) simply for the visual effect.</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp">     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         width: 100; height: 100
+
+         SequentialAnimation on x {
+             loops: Animation.Infinite
+             NumberAnimation {
+                 from: 20; to: 450; easing.type: &quot;InOutQuad&quot;;
+                 duration: 2000
+             }
+             PauseAnimation { duration: 500 }
+         }
+     }</pre>
 <p>A similar block of code is written for the animation of the 'y' value of the position.</p>
 <p>We will also animate the scale of the object, so as it goes from top left to bottom right of the window it will become smaller until about midway, and then become larger. To complete the animation we will set the 'z' values of the images. 'z' is the stacking order, the z-axis effectively points out from the screen to your eyes with the default value of 'z' being 0. So if we set the Rectangle to have z with value zero, just to be sure, and image1 to 1 and image2 to 2 then image2 will be in the foreground and image1 in the background. When image1 passes image2 it will pass behind it. The completed code looks like</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: mainRec
+     width:  600
+     height: 400
+     z: 0
+
+     Image {
+         id: image2
+         source: &quot;images/qt-logo.svg&quot;
+         width: 100; height: 100
+         x: (mainRec.width - 100)/2; y: (mainRec.height - 100)/2
+         z: 2
+     }
+
+     Image {
+         id: image1
+         source: &quot;images/qt-logo.svg&quot;
+         x: 20; y: 20 ; z: 1
+         width: 100; height: 100
+
+         SequentialAnimation on x {
+             loops: Animation.Infinite
+             NumberAnimation {
+                 from: 20; to: 450
+                 easing.type: &quot;InOutQuad&quot;; duration: 2000
+             }
+             PauseAnimation { duration: 500 }
+         }
+
+         SequentialAnimation on y {
+             loops: Animation.Infinite
+             NumberAnimation {
+                 from: 20; to: 250
+                 easing.type: &quot;InOutQuad&quot;; duration: 2000
+             }
+             PauseAnimation { duration: 500 }
+         }
+
+         SequentialAnimation on scale {
+             loops: Animation.Infinite
+             NumberAnimation { from: 1; to: 0.5; duration: 1000 }
+             NumberAnimation { from: 0.5; to: 1; duration: 1000 }
+             PauseAnimation { duration: 500 }
+         }
+     }
+ }</pre>
 <p>The <tt>easing.type</tt> has many options, expressed as a string. It specifies the kind of equation that describes the acceleration of the property value, not necessarily position, over time.</p>
 <p>For example, <i>InOutQuad</i> means that at the start and the end of the animation the 'velocity' is low but the acceleration or deceleration is high. Much like a car accelerating from stop, and decelerating to stop at the end of a journey, with the maximum speed being in the middle. Examine the <a href="qml-propertyanimation.html#easing.type-prop">easing</a> documentation and the various graphs that show the effect. The horizontal axis, 'progress', can be thought of as time. The vertical axis is the value of the particular property.</p>
 <p>In discussing animation we need to describe three objects: State, <a href="qml-mousearea.html">MouseArea</a> and Signals. Although independent of the animation elements, animation delivers some of the best examples that illustrate these new elements.</p>
@@ -286,7 +535,58 @@
 <p>A state is a defined set of values in the configuration of an object and often depends on the previous state. For example, a glass could be in a state we call 'HalfFull' if it is being filled with a liquid and has reached half of its total capacity. We could also have a state called HalfEmpty which is the state that occurs when the amount of liquid drops to half of the glass's capacity. Both states represent the same amount of liquid, but we consider them different. Likewise, states in a program represent not just values but may include how the current values were reached.</p>
 <p>When a state changes a <i>transition</i> occurs. This is an opportunity to make changes or take actions that depend on the movement to the new state. For example, if we had a scene in the country where the state variable has two states &quot;daylight&quot; and &quot;night&quot;. Then when the state changes to &quot;night&quot; at this transition the sky would be made dark, stars would be shown, the countryside would be darkened. And when the state changes to &quot;daylight&quot; the opposite changes would be made: the sky is now blue, the scenery is green, there is a sun in the sky.</p>
 <p>Here is a simple QML program that shows the change of state in the above example. We have two rectangles, the top one is the 'sky' and the bottom one is the 'ground'. We will animate the change from daylight to night. There will be two states, but we only need to define one since 'daylight' will be the default state. We will just go to 'night' by clicking and holding the left mouse button down, releasing the mouse button will reverse the process</p>
-<pre class="highlightedCode brush: cpp"></pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Rectangle {
+     id: mainRectangle
+     width:  600
+     height: 400
+     color: &quot;black&quot;
+
+     Rectangle {
+         id: sky
+         width: 600
+         height: 200
+         y: 0
+         color: &quot;lightblue&quot;
+     }
+
+     Rectangle {
+         id: ground
+         width: 600; height: 200
+         y: 200
+         color: &quot;green&quot;
+     }
+
+     MouseArea {
+         id: mousearea
+         anchors.fill: mainRectangle
+     }
+
+     states: [ State {
+             name: &quot;night&quot;
+             when: mousearea.pressed == true
+             PropertyChanges { target: sky; color: &quot;darkblue&quot; }
+             PropertyChanges { target: ground; color: &quot;black&quot; }
+         },
+         State {
+             name: &quot;daylight&quot;
+             when: mousearea.pressed == false
+             PropertyChanges { target: sky; color: &quot;lightblue&quot; }
+             PropertyChanges { target: ground; color: &quot;green&quot; }
+         }
+     ]
+
+     transitions: [ Transition {
+             from: &quot;daylight&quot;; to: &quot;night&quot;
+             ColorAnimation { duration: 1000 }
+         },
+         Transition {
+             from: &quot;night&quot;; to: &quot;daylight&quot;
+             ColorAnimation { duration: 500 }
+         }
+     ]
+ }</pre>
 <p>Several new things appear in this sample. Firstly, we use a <a href="qml-mousearea.html">MouseArea</a> element to detect mouse clicks in the <i>mainRectangle</i>. Secondly, we use the list notation [ thing1 , thing2, ..&#x2e; ] to build a list of states and a list of transitions.</p>
 <p><a href="qml-mousearea.html">MouseArea</a> defines a region that will respond to mouse clicks. In this case we are only concerned with when the mouse is pressed or not pressed, not the particular button or other details. The area of the <a href="qml-mousearea.html">MouseArea</a> is the entire main window, mainRectangle, so that clicking anywhere in this region will start the animation. Since we are using the 'pressed' mouse state, then the animation will move from 'daylight' to 'night' only while the mouse button remains pressed.</p>
 <p>When the button is released the 'daylight' state is entered and the transition from 'night' to 'daylight' is triggered causing the animation to run. The transition specifies the duration in milliseconds of the <a href="qml-coloranimation.html">ColorAnimation</a>, while the state specifies the color of the new state.</p>
@@ -335,8 +635,8 @@
 <p>The final image is the overlay which simply has a position defined.</p>
 <pre class="highlightedCode brush: cpp">     Image { x: 21; y: 18; source: &quot;overlay.png&quot; }</pre>
 <p><i>dialcontrol.qml</i> in the <i>examples/declarative/ui-components/dialcontrol</i> directory is the main file of the example. It defines the visual environment that the Dial will fit into. Because the <i>Dial</i> component and the images live in the <i>content</i> sub-directory we will have to import this into <i>dialcontrol.qml</i>. So the start of the file looks like</p>
-<pre class="highlightedCode brush: cpp">     import Qt 4.7
-     import &quot;content&quot;</pre>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+ import &quot;content&quot;</pre>
 <p>The visual space is bound by a 300 by 300 pixel <a href="qml-rectangle.html">Rectangle</a> which is given a gray color. Inside this rectangle is our component <i>Dial</i> and a <a href="qml-rectangle.html">Rectangle</a>. Inside the rectangle called 'container' is another rectangle with the interesting name 'slider'.</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
      color: &quot;#545454&quot;
@@ -377,31 +677,37 @@
 
              MouseArea {
                  anchors.fill: parent
+                 anchors.margins: -16 // Increase mouse area a lot outside the slider
                  drag.target: parent; drag.axis: Drag.XAxis
                  drag.minimumX: 2; drag.maximumX: container.width - 32
              }
          }
      }
+     QuitButton {
+         anchors.right: parent.right
+         anchors.top: parent.top
+         anchors.margins: 10
+     }
  }</pre>
 <p>The Dial component, named 'dial, is <i>anchored</i> to the center of the main rectangle. The <tt>value</tt> attribute of 'dial' is set to a value based on the 'slider' horizontal position and the 'container' width. So changes to the 'slider' position will change the Dial <tt>value</tt> which is used in Dial to compute the rotation of the needle image. Notice this piece of code in Dial where the change in <tt>value</tt> modifies the position of the needle.</p>
-<pre class="highlightedCode brush: cpp">     angle: Math.min(Math.max(-130, root.value*2.6 - 130), 133)
-     Behavior on angle {
-         SpringAnimation {
-             spring: 1.4
-             damping: .15
-         }
-     }</pre>
+<pre class="highlightedCode brush: cpp">             angle: Math.min(Math.max(-130, root.value*2.6 - 130), 133)
+             Behavior on angle {
+                 SpringAnimation {
+                     spring: 1.4
+                     damping: .15
+                 }
+             }</pre>
 <p>This is part of the <tt>needleRotation</tt> that rotates the needle and causes the rotation of its shadow. <a href="qml-springanimation.html">SpringAnimation</a> is an element that modifies the value of that rotation <i>angle</i> and mimics the oscillatory behavior of a spring, with the appropriate <i>spring</i> constant to control the acceleration and the <i>damping</i> to control how quickly the effect dies away.</p>
 <p>The 'container' is light gray with a color gradient defined using <a href="qml-gradientstop.html">GradientStop</a>. The gradient is applied vertically. If you need a horizontal gradient then you could apply the vertical gradient and then rotate the item by 90 degrees.</p>
 <p>The 'slider' is dark gray and also has a vertical color gradient. The most important thing about the 'slider' is that it has a <a href="qml-mousearea.html">MouseArea</a> defined, which specifies a <tt>drag.target</tt> on itself along the X-axis. With minimum and maximum values on the X-axis defined. So we can click on the 'slider' and drag it left and right within the confines of the 'container'. The motion of the 'slider' will then change the <tt>value</tt> attribute in <i>Dial</i> as discussed already.</p>
 <p>Also notice the use of a <tt>radius</tt> value for a rectangle. This produces rounded corners. That is how the 'container' and 'slider' are displayed with a pleasant rounded look.</p>
 </div>
 <!-- @@@qml-intro.html -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -414,28 +720,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

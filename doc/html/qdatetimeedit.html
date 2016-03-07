@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -139,7 +139,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -397,7 +397,7 @@
 <!-- @@@currentSectionIndex -->
 <!-- $$$date-prop$$$date$$$setDateconstQDate&$$$dateChangedconstQDate& -->
 <h3 class="fn"><a name="date-prop"></a>date : <a href="qdate.html">QDate</a></h3>
-<p>This property holds the QDate that is set in the QDateTimeEdit.</p>
+<p>This property holds the QDate that is set in the widget.</p>
 <p>By default, this property contains a date that refers to January 1, 2000.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary">
@@ -548,7 +548,7 @@
 <!-- @@@sectionCount -->
 <!-- $$$time-prop$$$time$$$setTimeconstQTime&$$$timeChangedconstQTime& -->
 <h3 class="fn"><a name="time-prop"></a>time : <a href="qtime.html">QTime</a></h3>
-<p>This property holds the QTime that is set in the QDateTimeEdit.</p>
+<p>This property holds the QTime that is set in the widget.</p>
 <p>By default, this property contains a time of 00:00:00 and 0 milliseconds.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary">
@@ -592,7 +592,7 @@
 <!-- @@@QDateTimeEdit -->
 <!-- $$$calendarWidget[overload1]$$$calendarWidget -->
 <h3 class="fn"><a name="calendarWidget"></a><a href="qcalendarwidget.html">QCalendarWidget</a> * QDateTimeEdit::calendarWidget () const</h3>
-<p>Returns the calendar widget for the editor if <a href="qdatetimeedit.html#calendarPopup-prop">calendarPopup</a> is set to true and (sections() &amp; <a href="qdatetimeedit.html#Section-enum">DateSections_Mask</a>) != 0.</p>
+<p>Returns the calendar widget for the editor if <a href="qdatetimeedit.html#calendarPopup-prop">calendarPopup</a> is set to true and (<a href="qml-presenting-data.html#sections">sections</a>() &amp; <a href="qdatetimeedit.html#Section-enum">DateSections_Mask</a>) != 0.</p>
 <p>This function creates and returns a calendar widget if none has been set.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p>See also <a href="qdatetimeedit.html#setCalendarWidget">setCalendarWidget</a>().</p>
@@ -662,6 +662,7 @@
 <!-- $$$setCalendarWidget[overload1]$$$setCalendarWidgetQCalendarWidget* -->
 <h3 class="fn"><a name="setCalendarWidget"></a>void QDateTimeEdit::setCalendarWidget ( <a href="qcalendarwidget.html">QCalendarWidget</a> * <i>calendarWidget</i> )</h3>
 <p>Sets the given <i>calendarWidget</i> as the widget to be used for the calendar pop-up. The editor does not automatically take ownership of the calendar widget.</p>
+<p><b>Note:</b> <a href="qdatetimeedit.html#calendarPopup-prop">calendarPopup</a> must be set to true before setting the calendar widget.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p>See also <a href="qdatetimeedit.html#calendarWidget">calendarWidget</a>() and <a href="qdatetimeedit.html#calendarPopup-prop">calendarPopup</a>.</p>
 <!-- @@@setCalendarWidget -->
@@ -733,11 +734,11 @@
 <p>Reimplemented from <a href="qwidget.html#wheelEvent">QWidget::wheelEvent</a>().</p>
 <!-- @@@wheelEvent -->
 </div>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -750,28 +751,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

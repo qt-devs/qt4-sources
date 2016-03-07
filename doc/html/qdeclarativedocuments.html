@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,12 +137,13 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
+<li class="level1"><a href="#introduction">Introduction</a></li>
 <li class="level1"><a href="#documents-as-component-definitions">Documents as Component Definitions</a></li>
 <li class="level1"><a href="#inline-components">Inline Components</a></li>
 </ul>
@@ -151,9 +152,11 @@
 <span class="subtitle"></span>
 <!-- $$$qdeclarativedocuments.html-description -->
 <div class="descr"> <a name="details"></a>
-<p>A QML document is a block of QML source code. QML documents generally correspond to files stored on a disk or network resource, but can also be constructed directly from text data.</p>
+<a name="introduction"></a>
+<h2>Introduction</h2>
+<p>A QML document is a block of QML source code. QML documents generally correspond to files stored on a disk or at a location on a network, but they can also be constructed directly from text data.</p>
 <p>Here is a simple QML document:</p>
-<pre class="highlightedCode brush: cpp"> import Qt 4.7
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Rectangle {
      width: 240; height: 320;
@@ -183,7 +186,7 @@
 <p>Once created, instances are not dependent on the component that created them, so they can operate on independent data. Here is an example of a simple &quot;Button&quot; component (defined in a <tt>Button.qml</tt> file) that is instantiated four times by <tt>application.qml</tt>. Each instance is created with a different value for its <tt>text</tt> property:</p>
 <table class="generic">
 <tr class="odd topAlign"><td ><p>Button.qml</p></td><td ><p>application.qml</p></td></tr>
-<tr class="even topAlign"><td ><p><pre class="highlightedCode brush: cpp"> import Qt 4.7
+<tr class="even topAlign"><td ><p><pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Rectangle {
      property alias text: textItem.text
@@ -207,7 +210,7 @@
      }
 
  }</pre>
-</p></td><td ><p><pre class="highlightedCode brush: cpp"> import Qt 4.7
+</p></td><td ><p><pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Column {
      spacing: 10
@@ -227,7 +230,7 @@
 <p>Like other <a href="qdeclarativeelements.html">QML Elements</a>, the <a href="qml-component.html">Component</a> element is an object and must be assigned to a property. <a href="qml-component.html">Component</a> objects may also have an object id. In the first example on this page, the inline component is added to the <a href="qml-rectangle.html">Rectangle</a>'s <tt>resources</tt> list, and then <a href="propertybinding.html">Property Binding</a> is used to assign the <a href="qml-component.html">Component</a> to the <a href="qml-listview.html">ListView</a>'s <tt>delegate</tt> property. While using property binding allows the <a href="qml-component.html">Component</a> object to be shared (for example, if the QML document contained multiple <a href="qml-listview.html">ListView</a>'s with the same delegate), in this case the <a href="qml-component.html">Component</a> could have been assigned directly to the <a href="qml-listview.html">ListView</a>'s <tt>delegate</tt>. The QML language even contains a syntactic optimization when assigning directly to a component property for this case where it will automatically insert the <a href="qml-component.html">Component</a> tag.</p>
 <p>These final two examples are behaviorally identical to the original document.</p>
 <table class="generic">
-<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> import Qt 4.7
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Rectangle {
      width: 240; height: 320;
@@ -242,7 +245,7 @@
          }
      }
  }</pre>
-</p></td><td ><p><pre class="highlightedCode brush: cpp"> import Qt 4.7
+</p></td><td ><p><pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Rectangle {
      width: 240; height: 320;
@@ -260,11 +263,11 @@
 </div>
 <p>See also <a href="qdeclarativecomponent.html">QDeclarativeComponent</a>.</p>
 <!-- @@@qdeclarativedocuments.html -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -277,28 +280,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -145,6 +145,9 @@
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example-usage">Example Usage</a></li>
+<li class="level2"><a href="#using-transitions">Using Transitions</a></li>
+<li class="level2"><a href="#limitations">Limitations</a></li>
 </ul>
 </div>
 <h1 class="title">QML Flow Element</h1>
@@ -156,7 +159,7 @@
 <li><a href="qml-flow-members.html">List of all members, including inherited members</a></li>
 <a name="properties"></a>
 <h2>Properties</h2>
-<tr class="odd topAlign"><ul>
+<ul>
 <li class="fn"><b><b><a href="qml-flow.html#add-prop">add</a></b></b> : Transition</li>
 <li class="fn"><b><b><a href="qml-flow.html#flow-prop">flow</a></b></b> : enumeration</li>
 <li class="fn"><b><b><a href="qml-flow.html#move-prop">move</a></b></b> : Transition</li>
@@ -165,15 +168,40 @@
 <!-- $$$Flow-description -->
 <a name="details"></a>
 <h2>Detailed Description</h2>
-<p>The Flow item positions its child items so that they are side by side and are not overlapping.</p>
+<p>The Flow item positions its child items like words on a page, wrapping them to create rows or columns of items that do not overlap.</p>
+<p>Spacing between items can be added using the <a href="qml-flow.html#spacing-prop">spacing</a> property. Transitions can be used for cases where items managed by a Column are added or moved. These are stored in the <a href="qml-flow.html#add-prop">add</a> and <a href="qml-flow.html#move-prop">move</a> properties respectively.</p>
+<p>See <a href="qml-positioners.html">Using QML Positioner and Repeater Items</a> for more details about this item and other related items.</p>
+<a name="example-usage"></a>
+<h2>Example Usage</h2>
+<p>The following example positions <a href="qml-text.html">Text</a> items within a parent item using a Flow item.</p>
+<p class="centerAlign"><img src="images/qml-flow-snippet.png" /></p><pre class="highlightedCode brush: cpp">     Flow {
+         anchors.fill: parent
+         anchors.margins: 4
+         spacing: 10
+
+         Text { text: &quot;Text&quot;; font.pixelSize: 40 }
+         Text { text: &quot;items&quot;; font.pixelSize: 40 }
+         Text { text: &quot;flowing&quot;; font.pixelSize: 40 }
+         Text { text: &quot;inside&quot;; font.pixelSize: 40 }
+         Text { text: &quot;a&quot;; font.pixelSize: 40 }
+         Text { text: &quot;Flow&quot;; font.pixelSize: 40 }
+         Text { text: &quot;item&quot;; font.pixelSize: 40 }
+     }</pre>
+<a name="using-transitions"></a>
+<h2>Using Transitions</h2>
+<p>Transitions can be used to animate items that are added to, moved within, or removed from a Flow item. The <a href="qml-flow.html#add-prop">add</a> and <a href="qml-flow.html#move-prop">move</a> properties can be set to the transitions that will be applied when items are added to, removed from, or re-positioned within a Flow item.</p>
+<p>The use of transitions with positioners is described in more detail in the <a href="qml-positioners.html#using-transitions">Using QML Positioner and Repeater Items</a> document.</p>
+<a name="limitations"></a>
+<h2>Limitations</h2>
 <p>Note that the positioner assumes that the x and y positions of its children will not change. If you manually change the x or y properties in script, bind the x or y properties, use anchors on a child of a positioner, or have the width or height of a child depend on the position of a child, then the positioner may exhibit strange behaviour. If you need to perform any of these actions, consider positioning the items without the use of a Flow.</p>
 <p>Items with a width or height of 0 will not be positioned.</p>
-<p>See also <a href="qml-grid.html">Grid</a> and <a href="declarative-positioners.html">Positioners example</a>.</p>
+<p>See also <a href="qml-column.html">Column</a>, <a href="qml-row.html">Row</a>, <a href="qml-grid.html">Grid</a>, and <a href="declarative-positioners.html">Positioners example</a>.</p>
 <!-- @@@Flow -->
 <h2>Property Documentation</h2>
 <!-- $$$add -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="add-prop"></a>add : <a href="qml-transition.html">Transition</a></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to apply when adding an item to the positioner. The transition will only be applied to the added item(s). Positioner transitions will only affect the position (x,y) of items.</p>
-<p>An object is considered to be added to the positioner if it has been created or reparented and thus is now a child or the positioner, or if the object has had its opacity increased from zero, and thus is now visible.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="add-prop"></a>add : <a href="qml-transition.html">Transition</a></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when adding an item to the positioner. The transition will only be applied to the added item(s). Positioner transitions will only affect the position (x, y) of items.</p>
+<p>For a positioner, adding an item can mean that either the object has been created or reparented, and thus is now a child or the positioner, or that the object has had its opacity increased from zero, and thus is now visible.</p>
+<p>See also <a href="qml-flow.html#move-prop">move</a>.</p>
 </div></div><!-- @@@add -->
 <br/>
 <!-- $$$flow -->
@@ -186,8 +214,8 @@
 </div></div><!-- @@@flow -->
 <br/>
 <!-- $$$move -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="move-prop"></a>move : <a href="qml-transition.html">Transition</a></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to apply when moving an item within the positioner. Positioner transitions will only affect the position (x,y) of items.</p>
-<p>This can happen when other items are added or removed from the positioner, or when items resize themselves.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="move-prop"></a>move : <a href="qml-transition.html">Transition</a></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when moving an item within the positioner. Positioner transitions will only affect the position (x, y) of items.</p>
+<p>This transition can be performed when other items are added or removed from the positioner, or when items resize themselves.</p>
 <pre class="highlightedCode brush: cpp"> Flow {
      id: positioner
      move: Transition {
@@ -197,19 +225,21 @@
          }
      }
  }</pre>
+<p>See also <a href="qml-flow.html#add-prop">add</a> and <a href="declarative-positioners.html">Positioners example</a>.</p>
 </div></div><!-- @@@move -->
 <br/>
 <!-- $$$spacing -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="spacing-prop"></a>spacing : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>spacing is the amount in pixels left empty between each adjacent item, and defaults to 0.</p>
+<p>See also <a href="qml-grid.html#spacing-prop">Grid::spacing</a>.</p>
 </div></div><!-- @@@spacing -->
 <br/>
 <p>
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -222,28 +252,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -127,7 +127,7 @@
             <ul>
               <li class="first"><a href="index.html">Home</a></li>
               <!--  Bread crumbs goes here -->
-              <li><a href="all-examples.html">Examples</a></li>              <li><a href="examples-xmlpatterns.html"></a></li>              <li>Recipes Example</li>            </ul>
+              <li><a href="all-examples.html">Examples</a></li>              <li>Recipes Example</li>            </ul>
           </div>
           <div class="toolbuttons toolblock">
             <ul>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -172,14 +172,14 @@
 <p>The recipes example shows how to use <a href="qtxmlpatterns.html">QtXmlPatterns</a> to query XML data loaded from a file.</p>
 <a name="introduction"></a>
 <h2>Introduction</h2>
-<p>In this case, the XML data represents a cookbook, <tt>cookbook.xml</tt>, which contains <tt>&lt;cookbook&gt;</tt> as its document element, which in turn contains a sequence of <tt>&lt;recipe&gt;</tt> elements. This XML data is searched using queries stored in XQuery files (<tt>*.xq</tt>).</p>
+<p>In this case, the XML data represents a cookbook, <tt>cookbook.xml</tt>, which contains <tt>&lt;cookbook&gt;</tt> as its document element, which in turn contains a sequence of <tt>&lt;recipe&gt;</tt> elements. This XML data is searched using queries stored in <a href="xmlprocessing.html">XQuery</a> files (<tt>*.xq</tt>).</p>
 <a name="the-user-interface"></a>
 <h3>The User Interface</h3>
 <p>The UI for this example was created using <a href="designer-manual.html">Qt Designer</a>:</p>
-<p class="centerAlign"><img src="images/recipes-example.png" /></p><p>The UI consists of three <a href="qgroupbox.html">group boxes</a> arranged vertically. The top one contains a <a href="qtextedit.html">text viewer</a> that displays the XML text from the cookbook file. The middle group box contains a <a href="qcombobox.html">combo box</a> for choosing the <a href="xquery-introduction.html">XQuery</a> to run and a <a href="qtextedit.html">text viewer</a> for displaying the text of the selected XQuery. The <tt>.xq</tt> files in the file list above are shown in the combo box menu. Choosing an XQuery loads, parses, and runs the selected XQuery. The query result is shown in the bottom group box's <a href="qtextedit.html">text viewer</a>.</p>
+<p class="centerAlign"><img src="images/recipes-example.png" /></p><p>The UI consists of three <a href="qgroupbox.html">group boxes</a> arranged vertically. The top one contains a <a href="qtextedit.html">text viewer</a> that displays the XML text from the cookbook file. The middle group box contains a <a href="qcombobox.html">combo box</a> for choosing the <a href="xquery-introduction.html">XQuery</a> to run and a <a href="qtextedit.html">text viewer</a> for displaying the text of the selected <a href="xmlprocessing.html">XQuery</a>. The <tt>.xq</tt> files in the file list above are shown in the combo box menu. Choosing an <a href="xmlprocessing.html">XQuery</a> loads, parses, and runs the selected <a href="xmlprocessing.html">XQuery</a>. The query result is shown in the bottom group box's <a href="qtextedit.html">text viewer</a>.</p>
 <a name="running-your-own-xqueries"></a>
 <h3>Running your own XQueries</h3>
-<p>You can write your own XQuery files and run them in the example program. The file <tt>xmlpatterns/recipes/recipes.qrc</tt> is the <a href="resources.html">resource file</a> for this example. It is used in <tt>main.cpp</tt> (<tt>Q_INIT_RESOURCE(recipes);</tt>). It lists the XQuery files (<tt>.xq</tt>) that can be selected in the combobox.</p>
+<p>You can write your own <a href="xmlprocessing.html">XQuery</a> files and run them in the example program. The file <tt>xmlpatterns/recipes/recipes.qrc</tt> is the <a href="resources.html">resource file</a> for this example. It is used in <tt>main.cpp</tt> (<tt>Q_INIT_RESOURCE(recipes);</tt>). It lists the <a href="xmlprocessing.html">XQuery</a> files (<tt>.xq</tt>) that can be selected in the combobox.</p>
 <pre class="highlightedCode brush: cpp"> &lt;!DOCTYPE RCC&gt;&lt;RCC version=&quot;1.0&quot;&gt;
  &lt;qresource&gt;
      &lt;file&gt;files/cookbook.xml&lt;/file&gt;
@@ -222,7 +222,7 @@
      void evaluate(const QString &amp;str);
      void loadInputFile();
  };</pre>
-<p>The constructor finds the window's <a href="qcombobox.html">combo box</a> child widget and connects its <a href="qcombobox.html#currentIndexChanged">currentIndexChanged()</a> signal to the window's <tt>displayQuery()</tt> slot. It then calls <tt>loadInputFile()</tt> to load <tt>cookbook.xml</tt> and display its contents in the top group box's <a href="qtextedit.html">text viewer</a> . Finally, it finds the XQuery files (<tt>.xq</tt>) and adds each one to the <a href="qcombobox.html">combo box</a> menu.</p>
+<p>The constructor finds the window's <a href="qcombobox.html">combo box</a> child widget and connects its <a href="qcombobox.html#currentIndexChanged">currentIndexChanged()</a> signal to the window's <tt>displayQuery()</tt> slot. It then calls <tt>loadInputFile()</tt> to load <tt>cookbook.xml</tt> and display its contents in the top group box's <a href="qtextedit.html">text viewer</a> . Finally, it finds the <a href="xmlprocessing.html">XQuery</a> files (<tt>.xq</tt>) and adds each one to the <a href="qcombobox.html">combo box</a> menu.</p>
 <pre class="highlightedCode brush: cpp"> QueryMainWindow::QueryMainWindow() : ui_defaultQueries(0)
  {
      setupUi(this);
@@ -240,7 +240,7 @@
      for(int i = 0; i &lt; len; ++i)
          ui_defaultQueries-&gt;addItem(queries.at(i));
  }</pre>
-<p>The work is done in the <a href="#displayquery-slot">displayQuery()</a> slot and the <a href="#evaluate-function">evaluate()</a> function it calls. <a href="#displayquery-slot">displayQuery()</a> loads and displays the selected query file and passes the XQuery text to <a href="#evaluate-function">evaluate()</a>.</p>
+<p>The work is done in the <a href="#displayquery-slot">displayQuery()</a> slot and the <a href="#evaluate-function">evaluate()</a> function it calls. <a href="#displayquery-slot">displayQuery()</a> loads and displays the selected query file and passes the <a href="xmlprocessing.html">XQuery</a> text to <a href="#evaluate-function">evaluate()</a>.</p>
 <a name="displayquery-slot"></a><pre class="highlightedCode brush: cpp"> void QueryMainWindow::displayQuery(int index)
  {
      QFile queryFile(QString(&quot;:files/&quot;) + ui_defaultQueries-&gt;itemText(index));
@@ -250,9 +250,9 @@
 
      evaluate(query);
  }</pre>
-<p><a href="#evaluate-function">evaluate()</a> demonstrates the standard <a href="qtxmlpatterns.html">QtXmlPatterns</a> usage pattern. First, an instance of <a href="qxmlquery.html">QXmlQuery</a> is created (<tt>query</tt>). The <tt>query's</tt> <a href="qxmlquery.html#bindVariable">bindVariable()</a> function is then called to bind the <tt>cookbook.xml</tt> file to the XQuery variable <tt>inputDocument</tt>. <i>After</i> the variable is bound, <a href="qxmlquery.html#setQuery">setQuery()</a> is called to pass the XQuery text to the <tt>query</tt>.</p>
+<p><a href="#evaluate-function">evaluate()</a> demonstrates the standard <a href="qtxmlpatterns.html">QtXmlPatterns</a> usage pattern. First, an instance of <a href="qxmlquery.html">QXmlQuery</a> is created (<tt>query</tt>). The <tt>query's</tt> <a href="qxmlquery.html#bindVariable">bindVariable()</a> function is then called to bind the <tt>cookbook.xml</tt> file to the <a href="xmlprocessing.html">XQuery</a> variable <tt>inputDocument</tt>. <i>After</i> the variable is bound, <a href="qxmlquery.html#setQuery">setQuery()</a> is called to pass the <a href="xmlprocessing.html">XQuery</a> text to the <tt>query</tt>.</p>
 <p><b>Note:</b> <a href="qxmlquery.html#setQuery">setQuery()</a> must be called <i>after</i> <a href="qxmlquery.html#bindVariable">bindVariable()</a>.</p>
-<p>Passing the XQuery to <a href="qxmlquery.html#setQuery">setQuery()</a> causes <a href="qtxmlpatterns.html">QtXmlPatterns</a> to parse the XQuery. <a href="qxmlquery.html#isValid">QXmlQuery::isValid</a>() is called to ensure that the XQuery was correctly parsed.</p>
+<p>Passing the <a href="xmlprocessing.html">XQuery</a> to <a href="qxmlquery.html#setQuery">setQuery()</a> causes <a href="qtxmlpatterns.html">QtXmlPatterns</a> to parse the <a href="xmlprocessing.html">XQuery</a>. <a href="qxmlquery.html#isValid">QXmlQuery::isValid</a>() is called to ensure that the <a href="xmlprocessing.html">XQuery</a> was correctly parsed.</p>
 <a name="evaluate-function"></a><pre class="highlightedCode brush: cpp"> void QueryMainWindow::evaluate(const QString &amp;str)
  {
      QFile sourceDocument;
@@ -277,8 +277,8 @@
      qFindChild&lt;QTextEdit*&gt;(this, &quot;outputTextEdit&quot;)-&gt;setPlainText(QString::fromUtf8(outArray.constData()));
 
  }</pre>
-<p>If the XQuery is valid, an instance of <a href="qxmlformatter.html">QXmlFormatter</a> is created to format the query result as XML into a <a href="qbuffer.html">QBuffer</a>. To evaluate the XQuery, an overload of <a href="qxmlquery.html#evaluateTo">evaluateTo()</a> is called that takes a <a href="qabstractxmlreceiver.html">QAbstractXmlReceiver</a> for its output (<a href="qxmlformatter.html">QXmlFormatter</a> inherits <a href="qabstractxmlreceiver.html">QAbstractXmlReceiver</a>). Finally, the formatted XML result is displayed in the UI's bottom text view.</p>
-<p><b>Note:</b> Each XQuery <tt>.xq</tt> file must declare the <tt>$inputDocument</tt> variable to represent the <tt>cookbook.xml</tt> document:</p>
+<p>If the <a href="xmlprocessing.html">XQuery</a> is valid, an instance of <a href="qxmlformatter.html">QXmlFormatter</a> is created to format the query result as XML into a <a href="qbuffer.html">QBuffer</a>. To evaluate the <a href="xmlprocessing.html">XQuery</a>, an overload of <a href="qxmlquery.html#evaluateTo">evaluateTo()</a> is called that takes a <a href="qabstractxmlreceiver.html">QAbstractXmlReceiver</a> for its output (<a href="qxmlformatter.html">QXmlFormatter</a> inherits <a href="qabstractxmlreceiver.html">QAbstractXmlReceiver</a>). Finally, the formatted XML result is displayed in the UI's bottom text view.</p>
+<p><b>Note:</b> Each <a href="xmlprocessing.html">XQuery</a> <tt>.xq</tt> file must declare the <tt>$inputDocument</tt> variable to represent the <tt>cookbook.xml</tt> document:</p>
 <pre class="highlightedCode brush: cpp"> (: All ingredients for Mushroom Soup. :)
  declare variable $inputDocument external;
 
@@ -287,11 +287,11 @@
 <p><b>Note:</b> If you add add your own query.xq files, you must declare the <tt>$inputDocument</tt> and use it as shown above.</p>
 </div>
 <!-- @@@xmlpatterns/recipes -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -304,28 +304,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

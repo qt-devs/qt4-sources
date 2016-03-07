@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -139,7 +139,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -311,7 +311,7 @@
 <p>The <i>private</i> signals that these functions emit give attached components the chance to take action before any data becomes unavailable. The encapsulation of the insert and remove operations with these begin and end functions also enables the model to manage <a href="qpersistentmodelindex.html">persistent model indexes</a> correctly. <b>If you want selections to be handled properly, you must ensure that you call these functions.</b> If you insert or remove an item with children, you do not need to call these functions for the child items. In other words, the parent item will take care of its child items.</p>
 <p>To create models that populate incrementally, you can reimplement <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() and <a href="qabstractitemmodel.html#canFetchMore">canFetchMore</a>(). If the reimplementation of <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() adds rows to the model, <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a> and <a href="qabstractitemmodel.html#endInsertRows">endInsertRows()</a> must be called.</p>
 </div>
-<p>See also <a href="model-view-programming.html#model-classes">Model Classes</a>, <a href="model-view-programming.html#model-subclassing-reference">Model Subclassing Reference</a>, <a href="qmodelindex.html">QModelIndex</a>, <a href="qabstractitemview.html">QAbstractItemView</a>, Using Drag and Drop with Item Views, <a href="itemviews-simpledommodel.html">Simple DOM Model Example</a>, <a href="itemviews-simpletreemodel.html">Simple Tree Model Example</a>, <a href="itemviews-editabletreemodel.html">Editable Tree Model Example</a>, and <a href="itemviews-fetchmore.html">Fetch More Example</a>.</p>
+<p>See also <a href="model-view-programming.html#model-classes">Model Classes</a>, <a href="model-view-programming.html#model-subclassing-reference">Model Subclassing Reference</a>, <a href="qmodelindex.html">QModelIndex</a>, <a href="qabstractitemview.html">QAbstractItemView</a>, <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>, <a href="itemviews-simpledommodel.html">Simple DOM Model Example</a>, <a href="itemviews-simpletreemodel.html">Simple Tree Model Example</a>, <a href="itemviews-editabletreemodel.html">Editable Tree Model Example</a>, and <a href="itemviews-fetchmore.html">Fetch More Example</a>.</p>
 <!-- @@@QAbstractItemModel -->
 <div class="func">
 <h2>Member Function Documentation</h2>
@@ -377,11 +377,11 @@
 <p>However, when moving rows down in the same parent (<i>sourceParent</i> and <i>destinationParent</i> are equal), the rows will be placed before the <i>destinationChild</i> index. That is, if you wish to move rows 0 and 1 so they will become rows 1 and 2, <i>destinationChild</i> should be 3. In this case, the new index for the source row <tt>i</tt> (which is between <i>sourceFirst</i> and <i>sourceLast</i>) is equal to <tt>(destinationChild-sourceLast-1+i)</tt>.</p>
 <p>Note that if <i>sourceParent</i> and <i>destinationParent</i> are the same, you must ensure that the <i>destinationChild</i> is not within the range of <i>sourceFirst</i> and <i>sourceLast</i> + 1. You must also ensure that you do not attempt to move a row to one of its own children or ancestors. This method returns false if either condition is true, in which case you should abort your move operation.</p>
 <table class="generic">
- <tr class="odd topAlign"><td ><p><img src="images/modelview-move-rows-1.png" alt="Moving rows to another parent" /></p></td><td ><p>Specify the first and last row numbers for the span of rows in the source parent you want to move in the model. Also specify the row in the destination parent to move the span to.<p>For example, as shown in the diagram, we move three rows from row 2 to 4 in the source, so <i>sourceFirst</i> is 2 and <i>sourceLast</i> is 4. We move those items to above row 2 in the destination, so <i>destinationRow</i> is 2.</p>
+ <tr class="odd topAlign"><td ><p><img src="images/modelview-move-rows-1.png" alt="Moving rows to another parent" /></p></td><td ><p>Specify the first and last row numbers for the span of rows in the source parent you want to move in the model. Also specify the row in the destination parent to move the span to.<p>For example, as shown in the diagram, we move three rows from row 2 to 4 in the source, so <i>sourceFirst</i> is 2 and <i>sourceLast</i> is 4. We move those items to above row 2 in the destination, so <i>destinationChild</i> is 2.</p>
 <pre class="highlightedCode brush: cpp"> beginMoveRows(sourceParent, 2, 4, destinationParent, 2);</pre>
 <p>This moves the three rows rows 2, 3, and 4 in the source to become 2, 3 and 4 in the destination. Other affected siblings are displaced accordingly.</p>
 </p></td></tr>
-<tr class="even topAlign"><td ><p><img src="images/modelview-move-rows-2.png" alt="Moving rows to append to another parent" /></p></td><td ><p>To append rows to another parent, move them to after the last row.<p>For example, as shown in the diagram, we move three rows to a collection of 6 existing rows (ending in row 5), so <i>destinationStart</i> is 6:</p>
+<tr class="even topAlign"><td ><p><img src="images/modelview-move-rows-2.png" alt="Moving rows to append to another parent" /></p></td><td ><p>To append rows to another parent, move them to after the last row.<p>For example, as shown in the diagram, we move three rows to a collection of 6 existing rows (ending in row 5), so <i>destinationChild</i> is 6:</p>
 <pre class="highlightedCode brush: cpp"> beginMoveRows(sourceParent, 2, 4, destinationParent, 6);</pre>
 <p>This moves the target rows to the end of the target parent as 6, 7 and 8.</p>
 </p></td></tr>
@@ -541,7 +541,7 @@
 <p>Although the specified <i>row</i>, <i>column</i> and <i>parent</i> indicate the location of an item in the model where the operation ended, it is the responsibility of the view to provide a suitable location for where the data should be inserted.</p>
 <p>For instance, a drop action on an item in a <a href="qtreeview.html">QTreeView</a> can result in new items either being inserted as children of the item specified by <i>row</i>, <i>column</i>, and <i>parent</i>, or as siblings of the item.</p>
 <p>When row and column are -1 it means that it is up to the model to decide where to place the data. This can occur in a tree when data is dropped on a parent. Models will usually append the data to the parent in this case.</p>
-<p>See also <a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions</a>() and Using Drag and Drop with Item Views.</p>
+<p>See also <a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions</a>() and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
 <!-- @@@dropMimeData -->
 <!-- $$$endInsertColumns[overload1]$$$endInsertColumns -->
 <h3 class="fn"><a name="endInsertColumns"></a>void QAbstractItemModel::endInsertColumns ()<tt> [protected]</tt></h3>
@@ -858,7 +858,7 @@
 <h3 class="fn"><a name="setSupportedDragActions"></a>void QAbstractItemModel::setSupportedDragActions ( <a href="qt.html#DropAction-enum">Qt::DropActions</a> <i>actions</i> )</h3>
 <p>Sets the supported drag <i>actions</i> for the items in the model.</p>
 <p>This function was introduced in Qt 4.2.</p>
-<p>See also <a href="qabstractitemmodel.html#supportedDragActions">supportedDragActions</a>() and Using Drag and Drop with Item Views.</p>
+<p>See also <a href="qabstractitemmodel.html#supportedDragActions">supportedDragActions</a>() and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
 <!-- @@@setSupportedDragActions -->
 <!-- $$$sibling[overload1]$$$siblingintintconstQModelIndex& -->
 <h3 class="fn"><a name="sibling"></a><a href="qmodelindex.html">QModelIndex</a> QAbstractItemModel::sibling ( int <i>row</i>, int <i>column</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const</h3>
@@ -887,21 +887,21 @@
 <p>Returns the actions supported by the data in this model.</p>
 <p>The default implementation returns <a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions</a>() unless specific values have been set with <a href="qabstractitemmodel.html#setSupportedDragActions">setSupportedDragActions</a>().</p>
 <p>supportedDragActions() is used by <a href="qabstractitemview.html#startDrag">QAbstractItemView::startDrag</a>() as the default values when a drag occurs.</p>
-<p>See also <a href="qabstractitemmodel.html#setSupportedDragActions">setSupportedDragActions</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and Using Drag and Drop with Item Views.</p>
+<p>See also <a href="qabstractitemmodel.html#setSupportedDragActions">setSupportedDragActions</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
 <!-- @@@supportedDragActions -->
 <!-- $$$supportedDropActions[overload1]$$$supportedDropActions -->
 <h3 class="fn"><a name="supportedDropActions"></a><a href="qt.html#DropAction-enum">Qt::DropActions</a> QAbstractItemModel::supportedDropActions () const<tt> [virtual]</tt></h3>
 <p>Returns the drop actions supported by this model.</p>
 <p>The default implementation returns <a href="qt.html#DropAction-enum">Qt::CopyAction</a>. Reimplement this function if you wish to support additional actions. You must also reimplement the <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>() function to handle the additional operations.</p>
 <p>This function was introduced in Qt 4.2.</p>
-<p>See also <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and Using Drag and Drop with Item Views.</p>
+<p>See also <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
 <!-- @@@supportedDropActions -->
 </div>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -914,28 +914,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

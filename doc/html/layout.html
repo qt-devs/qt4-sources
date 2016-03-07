@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,13 +137,11 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
-  <link rel="prev" href="Widget Classes" />
-  <link rel="next" href="Implementing Styles and Style Aware Widgets" />
-  <link rel="prev" href="Widget Classes" />
-  <link rel="next" href="Implementing Styles and Style Aware Widgets" />
+  <link rel="prev" href="widgets-and-layouts.html" />
+  <link rel="next" href="style-reference.html" />
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -216,7 +214,7 @@
 </ul>
 <a name="laying-out-widgets-in-code"></a>
 <h3>Laying Out Widgets in Code</h3>
-<p>The following code creates a <a href="qhboxlayout.html">QHBoxLayout</a> that manages the geometry of five <a href="qpushbutton.html">QPushButton</a>s, as shown on the first screenshot above:</p>
+<p>The following code creates a <a href="qhboxlayout.html">QHBoxLayout</a> that manages the geometry of five <a href="qpushbutton.html">QPushButtons</a>, as shown on the first screenshot above:</p>
 <pre class="highlightedCode brush: cpp">     QWidget *window = new QWidget;
      QPushButton *button1 = new QPushButton(&quot;One&quot;);
      QPushButton *button2 = new QPushButton(&quot;Two&quot;);
@@ -251,7 +249,22 @@
      window-&gt;setLayout(layout);
      window-&gt;show();</pre>
 <p>The third <a href="qpushbutton.html">QPushButton</a> spans 2 columns. This is possible by specifying 2 as the fifth argument to <a href="qgridlayout.html#addWidget">QGridLayout::addWidget</a>().</p>
-<p>Finally, the code for <a href="qformlayout.html">QFormLayout</a> is ..</p>
+<p><a href="qformlayout.html">QFormLayout</a> will add two widgets on a row, commonly a <a href="qlabel.html">QLabel</a> and a <a href="qlineedit.html">QLineEdit</a> to create forms. Adding a <a href="qlabel.html">QLabel</a> and a <a href="qlineedit.html">QLineEdit</a> on the same row will set the <a href="qlineedit.html">QLineEdit</a> as the <a href="qlabel.html">QLabel</a>'s buddy. The following code will use the <a href="qformlayout.html">QFormLayout</a> to place three <a href="qpushbutton.html">QPushButtons</a> and a corresponding <a href="qlineedit.html">QLineEdit</a> on a row.</p>
+<pre class="highlightedCode brush: cpp">     QWidget *window = new QWidget;
+     QPushButton *button1 = new QPushButton(&quot;One&quot;);
+     QLineEdit *lineEdit1 = new QLineEdit();
+     QPushButton *button2 = new QPushButton(&quot;Two&quot;);
+     QLineEdit *lineEdit2 = new QLineEdit();
+     QPushButton *button3 = new QPushButton(&quot;Three&quot;);
+     QLineEdit *lineEdit3 = new QLineEdit();
+
+     QFormLayout *layout = new QFormLayout;
+     layout-&gt;addRow(button1, lineEdit1);
+     layout-&gt;addRow(button2, lineEdit2);
+     layout-&gt;addRow(button3, lineEdit3);
+
+     window-&gt;setLayout(layout);
+     window-&gt;show();</pre>
 <a name="tips-for-using-layouts"></a>
 <h3>Tips for Using Layouts</h3>
 <p>When you use a layout, you do not need to pass a parent when constructing the child widgets. The layout will automatically reparent the widgets (using <a href="qwidget.html#setParent">QWidget::setParent</a>()) so that they are children of the widget on which the layout is installed.</p>
@@ -260,7 +273,7 @@
 <a name="adding-widgets-to-a-layout"></a>
 <h2>Adding Widgets to a Layout</h2>
 <p>When you add widgets to a layout, the layout process works as follows:</p>
-<ol type="1">
+<ol class="1">
 <li>All the widgets will initially be allocated an amount of space in accordance with their <a href="qwidget.html#sizePolicy-prop">QWidget::sizePolicy</a>() and <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>().</li>
 <li>If any of the widgets have stretch factors set, with a value greater than zero, then they are allocated space in proportion to their stretch factor (explained below).</li>
 <li>If any of the widgets have stretch factors set to zero they will only get more space if no other widgets want the space. Of these, space is allocated to widgets with an <a href="qsizepolicy.html#Policy-enum">Expanding</a> size policy first.</li>
@@ -283,7 +296,7 @@
 <p>Call <a href="qwidget.html#updateGeometry">QWidget::updateGeometry</a>() whenever the size hint, minimum size hint or size policy changes. This will cause a layout recalculation. Multiple consecutive calls to <a href="qwidget.html#updateGeometry">QWidget::updateGeometry</a>() will only cause one layout recalculation.</p>
 <p>If the preferred height of your widget depends on its actual width (e.g&#x2e;, a label with automatic word-breaking), set the <a href="qsizepolicy.html#hasHeightForWidth">height-for-width</a> flag in the widget's <a href="qwidget.html#sizePolicy-prop">size policy</a> and reimplement <a href="qwidget.html#heightForWidth">QWidget::heightForWidth</a>().</p>
 <p>Even if you implement <a href="qwidget.html#heightForWidth">QWidget::heightForWidth</a>(), it is still a good idea to provide a reasonable sizeHint().</p>
-<p>For further guidance when implementing these functions, see the <i>Qt Quarterly</i> article <a href="http://qt.nokia.com/doc/qq/qq04-height-for-width.html">Trading Height for Width</a>.</p>
+<p>For further guidance when implementing these functions, see the <i>Qt Quarterly</i> article <a href="http://doc.qt.nokia.com/qq/qq04-height-for-width.html">Trading Height for Width</a>.</p>
 <a name="layout-issues"></a>
 <h2>Layout Issues</h2>
 <p>The use of rich text in a label widget can introduce some problems to the layout of its parent widget. Problems occur due to the way rich text is handled by Qt's layout managers when the label is word wrapped.</p>
@@ -428,14 +441,14 @@
 </div>
 <!-- @@@layout.html -->
 <p>
-[Previous: <a href="Widget Classes">Widget Classes</a>]
-[Next: <a href="Implementing Styles and Style Aware Widgets">Styles</a>]
+[Previous: <a href="widgets-and-layouts.html">Widgets and Layouts</a>]
+[Next: <a href="style-reference.html">Styles</a>]
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -448,28 +461,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

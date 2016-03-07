@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -150,6 +150,7 @@
 <li class="level1"><a href="#known-issues">Known Issues</a></li>
 <li class="level1"><a href="#required-capabilities">Required Capabilities</a></li>
 <li class="level1"><a href="#multimedia-and-phonon-support">Multimedia and Phonon Support</a></li>
+<li class="level1"><a href="#ui-performance-in-devices-prior-to-symbian-3">UI Performance in devices prior to Symbian^3</a></li>
 </ul>
 </div>
 <h1 class="title">Platform Notes - Symbian</h1>
@@ -222,15 +223,35 @@
 <p>In this release the support is experimental. Video playback may have flickering issues, and support for effects and playback queueing is incomplete.</p>
 <p>The audio and video formats that Phonon supports depends on what support the platform provides for MMF. The emulator is known to have limited codec support.</p>
 <p>In addition, there exists a backend for the Helix framework. However, due to it not shipping with Qt, its availability depends on the Symbian platform in use. If available, it is loaded in preference over the MMF plugin. If the Helix plugin fails to load, the MMF plugin, if present on the device, will be loaded instead.</p>
+<a name="ui-performance-in-devices-prior-to-symbian-3"></a>
+<h2>UI Performance in devices prior to Symbian^3</h2>
+<p>Qt uses the <a href="qpainter.html">QPainter</a> class to perform low-level painting on widgets and other paint devices. <a href="qpainter.html">QPainter</a> provides functions to draw complex shapes, aligned text and pixmaps. It can also do vector path clipping, coordinate transformations and Porter-Duff composition. If the underlying graphics architecture does not support all of these operations then Qt uses the raster graphics system for rendering.</p>
+<p>Most of the Symbian devices prior to Symbian^3 use a non-ScreenPlay graphics architecture which does not have native support for all functions provided by <a href="qpainter.html">QPainter</a>. In non-ScreenPlay devices Qt uses the raster graphics system by default which has a performance penalty when compared to native Symbian rendering.</p>
+<p>In order to be able to perform all functions provided by <a href="qpainter.html">QPainter</a>, the raster graphics system needs to have pixel level framebuffer access. To make this possible in non-ScreenPlay devices Qt has to create an additional offscreen buffer that is the target for all Qt rendering operations. Qt renders the widget tree to the offscreen buffer and the offscreen buffer is blitted to the framebuffer via Symbian Window Server.</p>
+<p>The following table shows the rendering stacks of native Symbian and Qt in non-ScreenPlay devices.</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Symbian</th><th >Qt</th></tr></thead>
+<tr class="odd topAlign"><td ><p><p class="centerAlign"><img src="images/symbian-rendering-stack-non-screenplay.png" /></p></p></td><td ><p><p class="centerAlign"><img src="images/symbian-qt-rendering-stack-non-screenplay.png" /></p></p></td></tr>
+</table>
+<p>The following diagrams show a simplified sequence of drawing a pixmap in a non-ScreenPlay device.</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Symbian</th></tr></thead>
+<tr class="odd topAlign"><td ><p><p class="centerAlign"><img src="images/symbian-draw-pixmap-sequence.png" /></p></p></td></tr>
+</table>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Qt</th></tr></thead>
+<tr class="odd topAlign"><td ><p><p class="centerAlign"><img src="images/symbian-qt-draw-pixmap-sequence.png" /></p></p></td></tr>
+</table>
+<p>When compared to a native Symbian application, Qt does an additional blit to the offscreen buffer before drawing to the framebuffer. That is the performance penalty which needs to be paid to get all functionality provided by <a href="qpainter.html">QPainter</a> in non-ScreenPlay architecture.</p>
 </div>
 <!-- @@@platform-notes-symbian.html -->
 <p>
 </p>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -243,28 +264,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -139,7 +139,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -604,7 +604,7 @@
 <p>The widget is the atom of the user interface: it receives mouse, keyboard and other events from the window system, and paints a representation of itself on the screen. Every widget is rectangular, and they are sorted in a Z-order. A widget is clipped by its parent and by the widgets in front of it.</p>
 <p>A widget that is not embedded in a parent widget is called a window. Usually, windows have a frame and a title bar, although it is also possible to create windows without such decoration using suitable <a href="qt.html#WindowType-enum">window flags</a>). In Qt, <a href="qmainwindow.html">QMainWindow</a> and the various subclasses of <a href="qdialog.html">QDialog</a> are the most common window types.</p>
 <p>Every widget's constructor accepts one or two standard arguments:</p>
-<ol type="1">
+<ol class="1">
 <li><tt>QWidget *parent = 0</tt> is the parent of the new widget. If it is 0 (the default), the new widget will be a window. If not, it will be a child of <i>parent</i>, and be constrained by <i>parent</i>'s geometry (unless you specify <a href="qt.html#WindowType-enum">Qt::Window</a> as window flag).</li>
 <li><tt>Qt::WindowFlags f = 0</tt> (where available) sets the window flags; the default is suitable for almost all widgets, but to get, for example, a window without a window system frame, you must use special flags.</li>
 </ol>
@@ -710,7 +710,7 @@
 <h3>Native Widgets vs Alien Widgets</h3>
 <p>Introduced in Qt 4.4, alien widgets are widgets unknown to the windowing system. They do not have a native window handle associated with them. This feature significantly speeds up widget painting, resizing, and removes flicker.</p>
 <p>Should you require the old behavior with native windows, you can choose one of the following options:</p>
-<ol type="1">
+<ol class="1">
 <li>Use the <tt>QT_USE_NATIVE_WINDOWS=1</tt> in your environment.</li>
 <li>Set the <a href="qt.html#ApplicationAttribute-enum">Qt::AA_NativeWindows</a> attribute on your application. All widgets will be native widgets.</li>
 <li>Set the <a href="qt.html#WidgetAttribute-enum">Qt::WA_NativeWindow</a> attribute on widgets: The widget itself and all of its ancestors will become native (unless <a href="qt.html#WidgetAttribute-enum">Qt::WA_DontCreateNativeAncestors</a> is set).</li>
@@ -736,7 +736,7 @@
 <tr><td  class="topAlign"><tt>QWidget::DrawChildren</tt></td><td class=" topAlign"><tt>0x2</tt></td><td  class="topAlign">If you enable this option, the widget's children are rendered recursively into the target. By default, this option is enabled.</td></tr>
 <tr><td  class="topAlign"><tt>QWidget::IgnoreMask</tt></td><td class=" topAlign"><tt>0x4</tt></td><td  class="topAlign">If you enable this option, the widget's <a href="qwidget.html#mask">QWidget::mask</a>() is ignored when rendering into the target. By default, this option is disabled.</td></tr>
 </table>
-<p>This enum was introduced in Qt 4.3.</p>
+<p>This enum was introduced or modified in Qt 4.3.</p>
 <p>The RenderFlags type is a typedef for <a href="qflags.html">QFlags</a>&lt;RenderFlag&gt;. It stores an OR combination of RenderFlag values.</p>
 <!-- @@@RenderFlag -->
 </div>
@@ -1003,6 +1003,7 @@
 <p>This property holds the layout direction for this widget.</p>
 <p>By default, this property is set to <a href="qt.html#LayoutDirection-enum">Qt::LeftToRight</a>.</p>
 <p>When the layout direction is set on a widget, it will propagate to the widget's children, but not to a child that is a window and not to a child for which setLayoutDirection() has been explicitly called. Also, child widgets added <i>after</i> setLayoutDirection() has been called for the parent do not inherit the parent's layout direction.</p>
+<p>This method no longer affects text layout direction since Qt 4.7&#x2e;</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::LayoutDirection </td><td class="memItemRight bottomAlign"><b>layoutDirection</b> () const</td></tr>
@@ -1908,7 +1909,7 @@
 <h3 class="fn"><a name="isHidden"></a>bool QWidget::isHidden () const</h3>
 <p>Returns true if the widget is hidden, otherwise returns false.</p>
 <p>A hidden widget will only become visible when <a href="qwidget.html#show">show</a>() is called on it. It will not be automatically shown when the parent is shown.</p>
-<p>To check visiblity, use !<a href="qwidget.html#visible-prop">isVisible</a>() instead (notice the exclamation mark).</p>
+<p>To check visibility, use !<a href="qwidget.html#visible-prop">isVisible</a>() instead (notice the exclamation mark).</p>
 <p>isHidden() implies !<a href="qwidget.html#visible-prop">isVisible</a>(), but a widget can be not visible and not hidden at the same time. This is the case for widgets that are children of widgets that are not visible.</p>
 <p>Widgets are hidden if:</p>
 <ul>
@@ -2699,11 +2700,11 @@
 <p>See also <a href="qwidget.html#maximumSize-prop">QWidget::setMaximumSize</a>().</p>
 <!-- @@@QWIDGETSIZE_MAX -->
 </div>
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -2716,28 +2717,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>

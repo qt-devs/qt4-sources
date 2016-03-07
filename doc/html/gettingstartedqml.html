@@ -15,11 +15,6 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
-		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
-		<fieldset>
-		<input type="text" value="" id="pageType2" name="searchstring"/>
-		 </fieldset>
-		</form></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -33,7 +28,7 @@
     <div id="shortCut">
       <ul>
         <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
-        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+        <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
  <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
@@ -43,16 +38,18 @@
  			  <li><a href="functions.html">Function index</a></li> 
 			   <li><a href="modules.html">Modules</a></li> 
 			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global stuff</a></li> 
-			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   <li><a href="qtglobal.html">Global Declarations</a></li> 
+			   <li><a href="licensing.html">Licenses and Credits</a></li> 
 			   </ul> 
 		 </li> 
 		 <li><a href="#">Qt Topics</a> 
 			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
 			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
 			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
 			 </ul> 
 		</li> 
@@ -91,7 +88,7 @@
               <li class="defaultLink"><a href="functions.html">Function index</a></li>
               <li class="defaultLink"><a href="modules.html">Modules</a></li>
               <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
-              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
               <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
             </ul> 
           </div>
@@ -101,10 +98,13 @@
             Qt Topics</h2>
           <div id="list002" class="list">
             <ul id="ul002" >
-              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
-              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
-              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
-              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
+			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+			   <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
             </ul>  
           </div>
         </div>
@@ -137,7 +137,7 @@
               <li id="print" class="t_button"><a href="javascript:this.print();">
                 <span>Print</span></a></li>
             </ul>
-          </div>
+        </div>
         </div>
         <div class="content">
 <div class="toc">
@@ -175,7 +175,7 @@
 <p>The application we are building is a simple text editor that will load, save, and perform some text manipulation. This guide will consist of two parts. The first part will involve designing the application layout and behaviors using declarative language in QML. For the second part, file loading and saving will be implemented using Qt C++. Using <a href="metaobjects.html">Qt's Meta-Object System</a>, we can expose C++ functions as properties that QML elements can use. Utilizing QML and Qt C++, we can efficiently decouple the interface logic from the application logic.</p>
 <p class="centerAlign"><img src="images/qml-texteditor5_editmenu.png" /></p><p>To run the QML example code, merely provide the included <a href="qmlviewer.html">qmlviewer</a> tool with the QML file as the argument. The C++ portion of this tutorial assumes that the reader possesses basic knowledge of Qt's compilation procedures.</p>
 <p>Tutorial chapters:</p>
-<ol type="1">
+<ol class="1">
 <li><a href="#defining-a-button-and-a-menu">Defining a Button and a Menu</a></li>
 <li><a href="#implementing-a-menu-bar">Implementing a Menu Bar</a></li>
 <li><a href="#building-a-text-editor">Building a Text Editor</a></li>
@@ -188,19 +188,8 @@
 <h3>Basic Component - a Button</h3>
 <p>We start our text editor by building a button. Functionally, a button has a mouse sensitive area and a label. Buttons perform actions when a user presses the button.</p>
 <p>In QML, the basic visual item is the <a href="qml-rectangle.html">Rectangle</a> element. The <tt>Rectangle</tt> element has properties to control the element's appearance and location.</p>
-<pre class="highlightedCode brush: cpp"> import Qt 4.7
- Rectangle {
-     id: simplebutton
-     color: &quot;grey&quot;
-     width: 150; height: 75
-
-     Text{
-         id: buttonLabel
-         anchors.centerIn: parent
-         text: &quot;button label&quot;
-     }
- }</pre>
-<p>First, the <tt>import Qt 4.7</tt> allows the qmlviewer tool to import the QML elements we will later use. This line must exist for every QML file. Notice that the version of Qt modules is included in the import statement.</p>
+<pre class="highlightedCode brush: cpp"></pre>
+<p>First, the <tt>import QtQuick 1.0</tt> allows the qmlviewer tool to import the QML elements we will later use. This line must exist for every QML file. Notice that the version of Qt modules is included in the import statement.</p>
 <p>This simple rectangle has a unique identifier, <tt>simplebutton</tt>, which is bound to the id property. The <tt>Rectangle</tt> element's properties are bound to values by listing the property, followed by a colon, then the value. In the code sample, the color <tt>grey</tt> is bound to the the Rectangle's <tt>color</tt> property. Similarly, we bind the <tt>width</tt> and <tt>height</tt> of the Rectangle.</p>
 <p>The <a href="qml-text.html">Text</a> element is a non-editable text field. We name this <tt>Text</tt> element <tt>buttonLabel</tt>. To set the string content of the Text field, we bind a value to the <tt>text</tt> property. The label is contained within the Rectangle and in order to center it in the middle, we assign the <tt>anchors</tt> of the Text element to its parent, which is called <tt>simplebutton</tt>. Anchors may bind to other items' anchors, allowing layout assignments simpler.</p>
 <p>We shall save this code as <tt>SimpleButton.qml</tt>. Running qmlviewer with the file as the argument will display the grey rectangle with a text label.</p>
@@ -217,7 +206,7 @@
          onClicked: console.log(buttonLabel.text + &quot; clicked&quot; )
      }
  }</pre>
-<p>We include a <a href="qml-mousearea.html">MouseArea</a> element in our simplebutton. <tt>MouseArea</tt> elements describe the interactive area where mouse movements are detected. For our button, we anchor the whole <a href="qml-mousearea.html">MouseArea</a> to its parent, which is <tt>simplebutton</tt>. The <tt>anchors.fill</tt> syntax is one way of accessing a specific property called <tt>fill</tt> inside a group of properties called <tt>anchors</tt>. QML uses <a href="anchor-layout.html">anchor based layouts</a> where items can anchor to another item, creating robust layouts.</p>
+<p>We include a <a href="qml-mousearea.html">MouseArea</a> element in our simplebutton. <tt>MouseArea</tt> elements describe the interactive area where mouse movements are detected. For our button, we anchor the whole <a href="qml-mousearea.html">MouseArea</a> to its parent, which is <tt>simplebutton</tt>. The <tt>anchors.fill</tt> syntax is one way of accessing a specific property called <tt>fill</tt> inside a group of properties called <tt>anchors</tt>. QML uses <a href="qml-anchor-layout.html">anchor based layouts</a> where items can anchor to another item, creating robust layouts.</p>
 <p>The <tt>MouseArea</tt> has many signal handlers that are called during mouse movements within the specfied <tt>MouseArea</tt> boundaries. One of them is <tt>onClicked</tt> and it is called whenever the acceptable mouse button is clicked, the left click being the default. We can bind actions to the onClicked handler. In our example, <tt>console.log()</tt> outputs text whenever the mouse area is clicked. The function <tt>console.log()</tt> is a useful tool for debugging purposes and for outputting text.</p>
 <p>The code in <tt>SimpleButton.qml</tt> is sufficient to display a button on the screen and output text whenever it is clicked with a mouse.</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
@@ -253,7 +242,7 @@
 <h3>Creating a Menu Page</h3>
 <p>Up to this stage, we covered how to create elements and assign behaviors inside a single QML file. In this section, we will cover how to import QML elements and how to reuse some of the created components to build other components.</p>
 <p>Menus display the contents of a list, each item having the ability to perform an action. In QML, we can create a menu in several ways. First, we will create a menu containing buttons which will eventually perform different actions. The menu code is in <tt>FileMenu.qml</tt>.</p>
-<pre class="highlightedCode brush: cpp"> import Qt 4.7                \\import the main Qt QML module
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0                \\import the main Qt QML module
  import &quot;folderName&quot;            \\import the contents of the folder
  import &quot;script.js&quot; as Script        \\import a Javascript file and name it as Script</pre>
 <p>The syntax shown above shows how to use the <tt>import</tt> keyword. This is required to use <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> files, or QML files that are not within the same directory. Since <tt>Button.qml</tt> is in the same directory as <tt>FileMenu.qml</tt>, we do not need to import the <tt>Button.qml</tt> file to use it. We can directly create a <tt>Button</tt> element by declaring <tt>Button{}</tt>, similar to a <tt>Rectangle{}</tt> declaration.</p>
@@ -439,30 +428,29 @@
      }</pre>
 <p>A state is simply a collection of configurations and it is declared in a <a href="qml-state.html">State</a> element. A list of states can be listed and bound to the <tt>states</tt> property. In our application, the two states are called <tt>DRAWER_CLOSED</tt> and <tt>DRAWER_OPEN</tt>. Item configurations are declared in <a href="qml-propertychanges.html">PropertyChanges</a> elements. In the <tt>DRAWER_OPEN</tt> state, there are four items that will receive property changes. The first target, <tt>menuBar</tt>, will change its <tt>y</tt> property to <tt>0</tt>. Similarly, the <tt>textArea</tt> will lower to a new position when the state is <tt>DRAWER_OPEN</tt>. The <tt>textArea</tt>, the <tt>drawer</tt>, and the drawer's icon will undergo property changes to meet the current state.</p>
 <pre class="highlightedCode brush: cpp">     states:[
-         State{
+         State {
              name: &quot;DRAWER_OPEN&quot;
-             PropertyChanges { target: menuBar; y:0}
+             PropertyChanges { target: menuBar; y: 0}
              PropertyChanges { target: textArea; y: partition + drawer.height}
              PropertyChanges { target: drawer; y: partition}
              PropertyChanges { target: arrowIcon; rotation: 180}
          },
-         State{
+         State {
              name: &quot;DRAWER_CLOSED&quot;
-             PropertyChanges { target: menuBar; y:-partition}
-             PropertyChanges { target: textArea; y: drawer.height; height: screen.height - drawer.height}
-             PropertyChanges { target: drawer; y: 0}
-             PropertyChanges { target: arrowIcon; rotation: 0}
+             PropertyChanges { target: menuBar; y:-height; }
+             PropertyChanges { target: textArea; y: drawer.height; height: screen.height - drawer.height }
+             PropertyChanges { target: drawer; y: 0 }
+             PropertyChanges { target: arrowIcon; rotation: 0 }
          }
-
      ]</pre>
 <p>State changes are abrupt and needs smoother transitions. Transitions between states are defined using the <a href="qml-transition.html">Transition</a> element, which can then bind to the item's <tt>transitions</tt> property. Our text editor has a state transition whenever the state changes to either <tt>DRAWER_OPEN</tt> or <tt>DRAWER_CLOSED</tt>. Importantly, the transition needs a <tt>from</tt> and a <tt>to</tt> state but for our transitions, we can use the wild card <tt>*</tt> symbol to denote that the transition applies to all state changes.</p>
 <p>During transitions, we can assign animations to the property changes. Our <tt>menuBar</tt> switches position from <tt>y:0</tt> to <tt>y:-partition</tt> and we can animate this transition using the <a href="qml-numberanimation.html">NumberAnimation</a> element. We declare that the targets' properties will animate for a certain duration of time and using a certain easing curve. An easing curve controls the animation rates and interpolation behavior during state transitions. The easing curve we chose is <a href="qml-propertyanimation.html#easing.type-prop">Easing.OutQuint</a>, which slows the movement near the end of the animation. Pleae read <a href="qdeclarativeanimation.html">QML's Animation</a> article.</p>
 <pre class="highlightedCode brush: cpp">     transitions: [
-         Transition{
+         Transition {
              to: &quot;*&quot;
-             NumberAnimation { target: textArea; properties: &quot;y, height&quot;; duration: 100; easing.type: Easing.OutQuint }
-             NumberAnimation { target: menuBar; properties: &quot;y&quot;; duration: 100;easing.type: Easing.OutQuint }
-             NumberAnimation { target: drawer; properties: &quot;y&quot;; duration: 100;easing.type: Easing.OutQuint }
+             NumberAnimation { target: textArea; properties: &quot;y, height&quot;; duration: 100; easing.type:Easing.OutExpo }
+             NumberAnimation { target: menuBar; properties: &quot;y&quot;; duration: 100; easing.type: Easing.OutExpo }
+             NumberAnimation { target: drawer; properties: &quot;y&quot;; duration: 100; easing.type: Easing.OutExpo }
          }
      ]</pre>
 <p>Another way of animating property changes is by declaring a <a href="qml-behavior.html">Behavior</a> element. A transition only works during state changes and <tt>Behavior</tt> can set an animation for a general property change. In the text editor, the arrow has a <tt>NumberAnimation</tt> animating its <tt>rotation</tt> property whenever the property changes.</p>
@@ -499,7 +487,7 @@
 <h4>Exposing C++ Classes to QML</h4>
 <p>We will be implementing file loading and saving using Qt and C++. C++ classes and functions can be used in QML by registering them. The class also needs to be compiled as a Qt plugin and the QML file will need to know where the plugin is located.</p>
 <p>For our application, we need to create the following items:</p>
-<ol type="1">
+<ol class="1">
 <li><tt>Directory</tt> class that will handle directory related operations</li>
 <li><tt>File</tt> class which is a <a href="qobject.html">QObject</a>, simulating the list of files in a directory</li>
 <li>plugin class that will register the class to the QML context</li>
@@ -578,7 +566,7 @@
 <p>The <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a> declares a property as well as its read and write functions into Qt's Meta-Object System. For example, the <tt>filename</tt> property, of type <a href="qstring.html">QString</a>, is readable using the <tt>filename()</tt> function and writable using the function <tt>setFilename()</tt>. Additionally, there is a signal associated to the filename property called <tt>filenameChanged()</tt>, which is emitted whenever the property changes. The read and write functions are declared as <tt>public</tt> in the header file.</p>
 <p>Similarly, we have the other properties declared according to their uses. The <tt>filesCount</tt> property indicates the number of files in a directory. The filename property is set to the currently selected file's name and the loaded/saved file content is stored in <tt>fileContent</tt> property.</p>
 <pre class="highlightedCode brush: cpp">     Q_PROPERTY(QDeclarativeListProperty&lt;File&gt; files READ files CONSTANT )</pre>
-<p>The <tt>files</tt> list property is a list of all the filtered files in a directory. The <tt>Directory</tt> class is implemented to filter out invalid text files; only files with a <tt>.txt</tt> extension are valid. Further, QLists can be used in QML files by declaring them as a <tt>QDeclarativeListProperty</tt> in C++. The templated object needs to inherit from a <a href="qobject.html">QObject</a>, therefore, the <tt>File</tt> class must also inherit from <tt>QObject</tt>. In the <tt>Directory</tt> class, the list of <tt>File</tt> objects is stored in a <tt>QList</tt> called <tt>m_fileList</tt>.</p>
+<p>The <tt>files</tt> list property is a list of all the filtered files in a directory. The <tt>Directory</tt> class is implemented to filter out invalid text files; only files with a <tt>.txt</tt> extension are valid. Further, <a href="qlist.html">QList</a>s can be used in QML files by declaring them as a <a href="qdeclarativelistproperty.html">QDeclarativeListProperty</a> in C++. The templated object needs to inherit from a <a href="qobject.html">QObject</a>, therefore, the <tt>File</tt> class must also inherit from <a href="qobject.html">QObject</a>. In the <tt>Directory</tt> class, the list of <tt>File</tt> objects is stored in a <a href="qlist.html">QList</a> called <tt>m_fileList</tt>.</p>
 <pre class="highlightedCode brush: cpp">     class File : public QObject{
 
          Q_OBJECT
@@ -687,11 +675,11 @@
 <p class="centerAlign"><img src="images/qml-texteditor5_newfile.png" /></p><p>The application can function as a simple text editor, able to accept text and save the text into a file. The text editor can also load from a file and perform text manipulation.</p>
 </div>
 <!-- @@@gettingstartedqml.html -->
-        <!-- /div -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>
     </div>
+    </div> 
     <div class="ft">
       <span></span>
     </div>
@@ -704,28 +692,24 @@
     <p>
       All other trademarks are property of their respective owners. <a title="Privacy Policy"
         href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+    <br />
+    <p>
+      Licensees holding valid Qt Commercial licenses may use this document in accordance with the      Qt Commercial License Agreement provided with the Software or, alternatively, in accordance      with the terms contained in a written agreement between you and Nokia.</p>
+    <p>
+      Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+      Free Documentation License version 1.3</a>
+      as published by the Free Software Foundation.</p>
   </div>
   <div id="feedbackBox">
       <div id="feedcloseX" class="feedclose t_button">X</div>
     <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
-      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
-      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p id="noteHead">Thank you for giving your feedback.</p> <p class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</p>
       <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
       <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
     </form>
   </div>
   <div id="blurpage">
   </div>
-  <!--/div -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-4457116-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </body>
 </html>
