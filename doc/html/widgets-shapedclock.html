@@ -41,7 +41,7 @@
 <li><a href="widgets-shapedclock-main-cpp.html">widgets/shapedclock/main.cpp</a></li>
 <li><a href="widgets-shapedclock-shapedclock-pro.html">widgets/shapedclock/shapedclock.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/shapedclock-example.png" /></p><p>Widget masks are used to customize the shapes of top-level widgets by restricting the available area for painting. On some window systems, setting certain window flags will cause the window decoration (title bar, window frame, buttons) to be disabled, allowing specially-shaped windows to be created. In this example, we use this feature to create a circular window containing an analog clock.</p>
+<p>The Shaped Clock example shows how to apply a widget mask to a top-level widget to produce a shaped window.<p class="centerAlign"><img src="images/shapedclock-example.png" alt="" /></p><p>Widget masks are used to customize the shapes of top-level widgets by restricting the available area for painting. On some window systems, setting certain window flags will cause the window decoration (title bar, window frame, buttons) to be disabled, allowing specially-shaped windows to be created. In this example, we use this feature to create a circular window containing an analog clock.</p>
 <p>Since this example's window does not provide a <b>File</b> menu or a close button, we provide a context menu with an <b>Exit</b> entry so that the example can be closed. Click the right mouse button over the window to open this menu.</p>
 <a name="shapedclock-class-definition"></a>
 <h2>ShapedClock Class Definition</h2>
@@ -95,7 +95,7 @@
      }
  }</pre>
 <p>If the left mouse button is pressed over the widget, we record the displacement in global (screen) coordinates between the top-left position of the widget's frame (even when hidden) and the point where the mouse click occurred. This displacement will be used if the user moves the mouse while holding down the left button. Since we acted on the event, we accept it by calling its <a href="qevent.html#accept">accept()</a> function.</p>
-<p class="centerAlign"><img src="images/shapedclock-dragging.png" /></p><p>The <tt>mouseMoveEvent()</tt> handler is called if the mouse is moved over the widget.</p>
+<p class="centerAlign"><img src="images/shapedclock-dragging.png" alt="" /></p><p>The <tt>mouseMoveEvent()</tt> handler is called if the mouse is moved over the widget.</p>
 <pre class="cpp"> <span class="type">void</span> ShapedClock<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
  {
      <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
@@ -187,7 +187,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

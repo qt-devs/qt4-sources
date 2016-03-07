@@ -91,6 +91,7 @@
 <p>Creation of elements, text nodes, etc. is done using the various factory functions provided in this class. Using the default constructors of the QDom classes will only result in empty objects that cannot be manipulated or inserted into the Document.</p>
 <p>The QDomDocument class has several functions for creating document data, for example, <a href="qdomdocument.html#createElement">createElement</a>(), <a href="qdomdocument.html#createTextNode">createTextNode</a>(), <a href="qdomdocument.html#createComment">createComment</a>(), <a href="qdomdocument.html#createCDATASection">createCDATASection</a>(), <a href="qdomdocument.html#createProcessingInstruction">createProcessingInstruction</a>(), <a href="qdomdocument.html#createAttribute">createAttribute</a>() and <a href="qdomdocument.html#createEntityReference">createEntityReference</a>(). Some of these functions have versions that support namespaces, i.e&#x2e; <a href="qdomdocument.html#createElementNS">createElementNS</a>() and <a href="qdomdocument.html#createAttributeNS">createAttributeNS</a>(). The <a href="qdomdocument.html#createDocumentFragment">createDocumentFragment</a>() function is used to hold parts of the document; this is useful for manipulating for complex documents.</p>
 <p>The entire content of the document is set with <a href="qdomdocument.html#setContent">setContent</a>(). This function parses the string it is passed as an XML document and creates the DOM tree that represents the document. The root element is available using <a href="qdomdocument.html#documentElement">documentElement</a>(). The textual representation of the document can be obtained using <a href="qdomdocument.html#toString">toString</a>().</p>
+<p><b>Note:</b> The DOM tree might end up reserving a lot of memory if the XML document is big. For big XML documents, the <a href="qxmlstreamreader.html">QXmlStreamReader</a> or the <a href="qxmlquery.html">QXmlQuery</a> classes might be better solutions.</p>
 <p>It is possible to insert a node from another document into the document using <a href="qdomdocument.html#importNode">importNode</a>().</p>
 <p>You can obtain a list of all the elements that have a particular tag with <a href="qdomdocument.html#elementsByTagName">elementsByTagName</a>() or with <a href="qdomdocument.html#elementsByTagNameNS">elementsByTagNameNS</a>().</p>
 <p>The QDom classes are typically used as follows:</p>
@@ -361,7 +362,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

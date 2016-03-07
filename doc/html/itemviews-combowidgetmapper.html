@@ -41,7 +41,7 @@
 <li><a href="itemviews-combowidgetmapper-main-cpp.html">itemviews/combowidgetmapper/main.cpp</a></li>
 <li><a href="itemviews-combowidgetmapper-combowidgetmapper-pro.html">itemviews/combowidgetmapper/combowidgetmapper.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/combowidgetmapper-example.png" /></p><p>In the <a href="itemviews-simplewidgetmapper.html">Simple Widget Mapper Example</a>, we showed the basic use of a widget mapper to relate data exposed by a model to simple input widgets in a user interface. However, sometimes we want to use input widgets that expose data as choices to the user, such as <a href="qcombobox.html">QComboBox</a>, and we need a way to relate their input to the values stored in the model.</p>
+<p>The Combo Widget Mapper example shows how to use a custom delegate to map information from a model to specific widgets on a form.<p class="centerAlign"><img src="images/combowidgetmapper-example.png" alt="" /></p><p>In the <a href="itemviews-simplewidgetmapper.html">Simple Widget Mapper Example</a>, we showed the basic use of a widget mapper to relate data exposed by a model to simple input widgets in a user interface. However, sometimes we want to use input widgets that expose data as choices to the user, such as <a href="qcombobox.html">QComboBox</a>, and we need a way to relate their input to the values stored in the model.</p>
 <p>This example is very similar to the <a href="itemviews-simplewidgetmapper.html">Simple Widget Mapper Example</a>. Again, we create a <tt>Window</tt> class with an almost identical user interface, except that, instead of providing a spin box so that each person's age can be entered, we provide a combo box to allow their addresses to be classified as &quot;Home&quot;, &quot;Work&quot; or &quot;Other&quot;.</p>
 <a name="window-class-definition"></a>
 <h2>Window Class Definition</h2>
@@ -156,7 +156,7 @@
      }
  }</pre>
 <p>As we insert each row into the model, like a record in a database, we store values that correspond to items in <tt>typeModel</tt> for each person's address type. When the widget mapper reads these values from the final column of each row, it will need to use them as references to values in <tt>typeModel</tt>, as shown in the following diagram. This is where the delegate is used.</p>
-<p class="centerAlign"><img src="images/widgetmapper-combo-mapping.png" /></p><p>We show the implementation of the <tt>updateButtons()</tt> slot for completeness:</p>
+<p class="centerAlign"><img src="images/widgetmapper-combo-mapping.png" alt="" /></p><p>We show the implementation of the <tt>updateButtons()</tt> slot for completeness:</p>
 <pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>updateButtons(<span class="type">int</span> row)
  {
      previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(row <span class="operator">&gt;</span> <span class="number">0</span>);
@@ -174,7 +174,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

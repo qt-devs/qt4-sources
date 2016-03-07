@@ -51,7 +51,7 @@
 <li><a href="qws-svgalib-svgalibsurface-h.html">qws/svgalib/svgalibsurface.h</a></li>
 <li><a href="qws-svgalib-svgalib-pro.html">qws/svgalib/svgalib.pro</a></li>
 </ul>
-<p>In <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>, painting is a pure software implementation and is normally performed in two steps: The clients render each window onto a corresponding surface (stored in memory) using a paint engine, and then the server uses the graphics driver to compose the surface images and copy them to the screen. (See the <a href="qt-embedded-architecture.html">Qt for Embedded Linux Architecture</a> documentation for details.)</p>
+<p>The Accelerated Graphics Driver example shows how you can write your own accelerated graphics driver and <a href="qt-embedded-accel.html#add-your-graphics-driver-to-qt-for-embedded-linux">add your graphics driver to Qt for Embedded Linux</a>.<p>In <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>, painting is a pure software implementation and is normally performed in two steps: The clients render each window onto a corresponding surface (stored in memory) using a paint engine, and then the server uses the graphics driver to compose the surface images and copy them to the screen. (See the <a href="qt-embedded-architecture.html">Qt for Embedded Linux Architecture</a> documentation for details.)</p>
 <p>The rendering can be accelerated in two ways: Either by accelerating the copying of pixels to the screen, or by accelerating the explicit painting operations. The first is done in the graphics driver implementation, the latter is performed by the paint engine implementation. Typically, both the pixel copying and the painting operations are accelerated using the following approach:</p>
 <ol class="1">
 <li><a href="#step-1-creating-a-custom-graphics-driver">Creating a Custom Graphics Driver</a></li>
@@ -503,7 +503,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

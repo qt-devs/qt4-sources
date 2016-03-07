@@ -42,7 +42,7 @@
 <li><a href="tutorials-addressbook-part4-part4-pro.html">tutorials/addressbook/part4/part4.pro</a></li>
 </ul>
 <p>Now we look at ways to modify the contents of contacts stored in the address book.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-screenshot.png" /></p><p>We now have an address book that not only holds contacts in an organized manner, but also allows navigation. It would be convenient to include edit and remove functions so that a contact's details can be changed when needed. However, this requires a little improvement, in the form of enums. We defined two modes: <tt>AddingMode</tt> and <tt>NavigationMode</tt>, but they were not defined as enum values. Instead, we enabled and disabled the corresponding buttons manually, resulting in multiple lines of repeated code.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-screenshot.png" alt="" /></p><p>We now have an address book that not only holds contacts in an organized manner, but also allows navigation. It would be convenient to include edit and remove functions so that a contact's details can be changed when needed. However, this requires a little improvement, in the form of enums. We defined two modes: <tt>AddingMode</tt> and <tt>NavigationMode</tt>, but they were not defined as enum values. Instead, we enabled and disabled the corresponding buttons manually, resulting in multiple lines of repeated code.</p>
 <p>Here we define the <tt>Mode</tt> enum with three different values:</p>
 <ul>
 <li><tt>NavigationMode</tt>,</li>
@@ -148,7 +148,7 @@
      updateInterface(NavigationMode);
  }</pre>
 <p>If it does, we display a <a href="qmessagebox.html">QMessageBox</a>, to confirm the removal with the user. Once the user has confirmed, we call <tt>previous()</tt> to ensure that the user interface shows another contact, and we remove the contact using <a href="qmap.html">QMap</a>'s <a href="qmap.html#remove">remove()</a> function. As a courtesy, we display a <a href="qmessagebox.html">QMessageBox</a> to inform the user. Both the message boxes used in this function are shown below:</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part4-remove.png" /></p><a name="updating-the-user-interface"></a>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part4-remove.png" alt="" /></p><a name="updating-the-user-interface"></a>
 <h3>Updating the User Interface</h3>
 <p>We mentioned the <tt>updateInterface()</tt> function earlier as a means to enable and disable the push buttons depending on the current mode. The function updates the current mode according to the <tt>mode</tt> argument passed to it, assigning it to <tt>currentMode</tt> before checking its value.</p>
 <p>Each of the push buttons is then enabled or disabled, depending on the current mode. The code for <tt>AddingMode</tt> and <tt>EditingMode</tt> is shown below:</p>
@@ -207,7 +207,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -41,7 +41,7 @@
 <li><a href="itemviews-simplewidgetmapper-main-cpp.html">itemviews/simplewidgetmapper/main.cpp</a></li>
 <li><a href="itemviews-simplewidgetmapper-simplewidgetmapper-pro.html">itemviews/simplewidgetmapper/simplewidgetmapper.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/simplewidgetmapper-example.png" /></p><p>The <a href="qdatawidgetmapper.html">QDataWidgetMapper</a> class allows information obtained from a <a href="model-view-programming.html#model-classes">model</a> to be viewed and edited in a collection of widgets instead of in an <a href="model-view-programming.html#view-classes">item view</a>. Any model derived from <a href="qabstractitemmodel.html">QAbstractItemModel</a> can be used as the source of data and almost any input widget can be used to display it.</p>
+<p>The Simple Widget Mapper example shows how to use a widget mapper to display data from a model in a collection of widgets.<p class="centerAlign"><img src="images/simplewidgetmapper-example.png" alt="" /></p><p>The <a href="qdatawidgetmapper.html">QDataWidgetMapper</a> class allows information obtained from a <a href="model-view-programming.html#model-classes">model</a> to be viewed and edited in a collection of widgets instead of in an <a href="model-view-programming.html#view-classes">item view</a>. Any model derived from <a href="qabstractitemmodel.html">QAbstractItemModel</a> can be used as the source of data and almost any input widget can be used to display it.</p>
 <p>The example itself is very simple: we create <tt>Window</tt>, a <a href="qwidget.html">QWidget</a> subclass that we use to hold the widgets used to present the data, and show it. The <tt>Window</tt> class will provide buttons that the user can click to show different records from the model.</p>
 <a name="window-class-definition"></a>
 <h2>Window Class Definition</h2>
@@ -152,7 +152,7 @@
      }
  }</pre>
 <p>As a result, each row can be treated like a record in a database, and the widget mapper will read the data from each row, using the column numbers specified earlier to access the correct data for each widget. This is shown in the following diagram:</p>
-<p class="centerAlign"><img src="images/widgetmapper-simple-mapping.png" /></p><p>Since the user can navigate using the buttons in the user interface, the example is fully-functional at this point, but to make it a bit more user-friendly, we implement the <tt>updateButtons()</tt> slot to show when the user is viewing the first or last records:</p>
+<p class="centerAlign"><img src="images/widgetmapper-simple-mapping.png" alt="" /></p><p>Since the user can navigate using the buttons in the user interface, the example is fully-functional at this point, but to make it a bit more user-friendly, we implement the <tt>updateButtons()</tt> slot to show when the user is viewing the first or last records:</p>
 <pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>updateButtons(<span class="type">int</span> row)
  {
      previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(row <span class="operator">&gt;</span> <span class="number">0</span>);
@@ -171,7 +171,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -120,7 +120,7 @@
 <a name="the-style-elements"></a>
 <h3>The Style Elements</h3>
 <p>A style element is a graphical part of a GUI. A widget consists of a hierarchy (or tree) of style elements. For instance, when a style receives a request to draw a push button (from <a href="qpushbutton.html">QPushButton</a>, for example), it draws a label (text and icon), a button bevel, and a focus frame. The button bevel, in turn, consists of a frame around the bevel and two other elements, which we will look at later. Below is a conceptual illustration of the push button element tree. We will see the actual tree for <a href="qpushbutton.html">QPushButton</a> when we go through the individual widgets.</p>
-<p class="centerAlign"><img src="images/conceptualpushbuttontree.png" /></p><p>Widgets are not necessarily drawn by asking the style to draw only one element. Widgets can make several calls to the style to draw different elements. An example is <a href="qtabwidget.html">QTabWidget</a>, which draws its tabs and frame individually.</p>
+<p class="centerAlign"><img src="images/conceptualpushbuttontree.png" alt="" /></p><p>Widgets are not necessarily drawn by asking the style to draw only one element. Widgets can make several calls to the style to draw different elements. An example is <a href="qtabwidget.html">QTabWidget</a>, which draws its tabs and frame individually.</p>
 <p>There are three element types: primitive elements, control elements, and complex control elements. The elements are defined by the <a href="qstyle.html#ComplexControl-enum">ComplexControl</a>, <a href="qstyle.html#ControlElement-enum">ControlElement</a>, and <a href="qstyle.html#PrimitiveElement-enum">PrimitiveElement</a> enums. The values of each element enum has a prefix to identify their type: <tt>CC_</tt> for complex elements, <tt>CE_</tt> for control elements, and <tt>PE_</tt> for primitive elements. We will in the following three sections see what defines the different elements and see examples of widgets that use them.</p>
 <p>The <a href="qstyle.html">QStyle</a> class description contains a list of these elements and their roles in styling widgets. We will see how they are used when we style individual widgets.</p>
 <a name="primitive-elements"></a>
@@ -466,7 +466,7 @@
 <p>The style structure for push buttons is shown below. By doing a top-down traversal of the tree, you get the sequence in which the elements should be drawn.</p>
 <p class="centerAlign"><img src="images/pushbutton.png" alt="The style structure for push buttons" /></p><p>The layout of the buttons, with regard element bounds, varies from style to style. This makes it difficult to show conceptual images of this. Also, elements may - even be intended to - have the same bounds; the PE_PushButtonBevel, for instance, is used in <a href="qcommonstyle.html">QCommonStyle</a> to draw the elements that contains it: PE_FrameDefaultButton, PE_FrameButtonBevel, and PE_PanelButtonCommand, all of which have the same bounds in common and windows style. PE_PushButtonBevel is also responsible for drawing the menu indicator (<a href="qcommonstyle.html">QCommonStyle</a> draws PE_IndicatorArrowDown).</p>
 <p>An image of a push button in the java style that show the bounding rectangles of the elements is given below. Colors are used to separate the bounding rectangles in the image; they do not fill any other purpose. This is also true for similar images for the other widgets.</p>
-<p class="centerAlign"><img src="images/button.png" /></p><p>The java style, as well as all other styles implemented in Qt, does not use PE_FrameButtonBevel. It is usual that a button with a PE_DefaultFrame adjusts the PE_PanelButtonCommand's rectangle by PM_ButtonDefaultIndicator. The CE_PushButtonLabel is found by adjusting the rect by PM_DefaultFrameWidth.</p>
+<p class="centerAlign"><img src="images/button.png" alt="" /></p><p>The java style, as well as all other styles implemented in Qt, does not use PE_FrameButtonBevel. It is usual that a button with a PE_DefaultFrame adjusts the PE_PanelButtonCommand's rectangle by PM_ButtonDefaultIndicator. The CE_PushButtonLabel is found by adjusting the rect by PM_DefaultFrameWidth.</p>
 <p>We will now examine the style option for push buttons - <a href="qstyleoptionbutton.html">QStyleOptionButton</a>. A table for the states that <a href="qpushbutton.html">QPushButton</a> can set on the style option follows:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >State Set When</th></tr></thead>
@@ -485,7 +485,7 @@
 <a name="check-and-radio-buttons"></a>
 <h4>Check and Radio Buttons</h4>
 <p>The structures for radio and check buttons are identical. We show the structure using <a href="qcheckbox.html">QCheckBox</a> element and pixel metric names:</p>
-<p class="centerAlign"><img src="images/checkbox.png" /></p><p><a href="qstyleoptionbutton.html">QStyleOptionButton</a> is used as the style option for both check and radio buttons. We first give a table of the states that can be set in the option:</p>
+<p class="centerAlign"><img src="images/checkbox.png" alt="" /></p><p><a href="qstyleoptionbutton.html">QStyleOptionButton</a> is used as the style option for both check and radio buttons. We first give a table of the states that can be set in the option:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >State Set When</th></tr></thead>
 <tr valign="top" class="odd"><td >State_sunken</td><td >The box is pressed down</td></tr>
@@ -500,12 +500,12 @@
 <p><a href="qtabbar.html">QTabBar</a> lays out the tabs, so the style does not have control over tab placement. However, while laying out its tabs, the bar asks the style for PM_TabBarTabHSpace and PM_TabBarTabVSpace, which is extra width and height over the minimum size of the tab bar tab label (icon and text). The style can also further influence the tab size before it is laid out, as the tab bar asks for CT_TabBarTab. The bounding rectangle of the bar is decided by the tab widget when it is part of the widget (still considering CT_TabBarTab).</p>
 <p>The tab bar is responsible for drawing the buttons that appear on the tab bar when all tabs do not fit. Their placement is not controlled by the style, but the buttons are <a href="qtoolbutton.html">QToolButton</a>s and are therefore drawn by the style.</p>
 <p>Here is the style structure for <a href="qtabwidget.html">QTabWidget</a> and <a href="qtabbar.html">QTabBar</a>:</p>
-<p class="centerAlign"><img src="images/tab.png" /></p><p>The dotted lines indicate that the <a href="qtabwidget.html">QTabWidget</a> contains a tab bar, but does not draw it itself, that <a href="qtabbar.html">QTabBar</a> only draws its base line when not part of a tab widget, and that the tab bar keeps two tool buttons that scroll the bar when all tabs do not fit; see <a href="#tool-buttons">Tool Buttons</a> for their element tree. Also note that since the buttons are children of the tab bar, they are drawn after the bar. The tabs bounding rectangles overlap the base by PM_TabBarBaseOverlap.</p>
+<p class="centerAlign"><img src="images/tab.png" alt="" /></p><p>The dotted lines indicate that the <a href="qtabwidget.html">QTabWidget</a> contains a tab bar, but does not draw it itself, that <a href="qtabbar.html">QTabBar</a> only draws its base line when not part of a tab widget, and that the tab bar keeps two tool buttons that scroll the bar when all tabs do not fit; see <a href="#tool-buttons">Tool Buttons</a> for their element tree. Also note that since the buttons are children of the tab bar, they are drawn after the bar. The tabs bounding rectangles overlap the base by PM_TabBarBaseOverlap.</p>
 <p>Here is a tab widget in the java style:</p>
-<p class="centerAlign"><img src="images/tabwidget.png" /></p><p>In the java style (and also windows), the tab bar shape and label have the same bounding rectangle as CE_TabBarTab. Notice that the tabs overlap with the tab widget frame. The base of the tab bar (if drawn) is the area where the tabs and frame overlap.</p>
+<p class="centerAlign"><img src="images/tabwidget.png" alt="" /></p><p>In the java style (and also windows), the tab bar shape and label have the same bounding rectangle as CE_TabBarTab. Notice that the tabs overlap with the tab widget frame. The base of the tab bar (if drawn) is the area where the tabs and frame overlap.</p>
 <p>The style option for tabs (<a href="qstyleoptiontab.html">QStyleOptionTab</a>) contains the necessary information for drawing tabs. The option contains the position of the tab in the tab bar, the position of the selected tab, the shape of the tab, the text, and icon. After Qt 4.1 the option should be cast to a <a href="qstyleoptiontabv2.html">QStyleOptionTabV2</a>, which also contains the icons size.</p>
 <p>As the java style tabs don't overlap, we also present an image of a tab widget in the windows style. Note that if you want the tabs to overlap horizontally, you do that when drawing the tabs in CE_TabBarTabShape; the tabs bounding rectangles will not be altered by the tab bar. The tabs are drawn from left to right in a north tab bar shape, top to bottom in an east tab bar shape, etc. The selected tab is drawn last, so that it is easy to draw it over the other tabs (if it is to be bigger).</p>
-<p class="centerAlign"><img src="images/windowstabimage.png" /></p><p>A table of the states a tab bar can set on its tabs follows:</p>
+<p class="centerAlign"><img src="images/windowstabimage.png" alt="" /></p><p>A table of the states a tab bar can set on its tabs follows:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >State Set When</th></tr></thead>
 <tr valign="top" class="odd"><td >State_Sunken</td><td >The tab is pressed on with the mouse.</td></tr>
@@ -538,9 +538,9 @@
 <a name="scroll-bars"></a>
 <h4>Scroll Bars</h4>
 <p>Here is the style structure for scrollBars:</p>
-<p class="centerAlign"><img src="images/scrollbar.png" /></p><p><a href="qscrollbar.html">QScrollBar</a> simply creates its style option and then draws CC_ScrollBar. Some styles draw the background of add page and sub page with PE_PanelButtonBevel and also use indicator arrows to draw the arrows in the nest and previous line indicators; we have not included these in the tree as their use is up to the individual style. The style's PM_MaximumDragDistance is the maximum distance in pixels the mouse can move from the bounds of the scroll bar and still move the handle.</p>
+<p class="centerAlign"><img src="images/scrollbar.png" alt="" /></p><p><a href="qscrollbar.html">QScrollBar</a> simply creates its style option and then draws CC_ScrollBar. Some styles draw the background of add page and sub page with PE_PanelButtonBevel and also use indicator arrows to draw the arrows in the nest and previous line indicators; we have not included these in the tree as their use is up to the individual style. The style's PM_MaximumDragDistance is the maximum distance in pixels the mouse can move from the bounds of the scroll bar and still move the handle.</p>
 <p>Here is an image of a scrollbar in the java style:</p>
-<p class="centerAlign"><img src="images/scrollbarimage.png" /></p><p>You may notice that the scrollbar is slightly different from Java's as it has two line up indicators. We have done this to show how that you can have two separate bounding rectangles for a single sub control. The scroll bar is an example of a widget that is entirely implemented by the java style - neither <a href="qwindowsstyle.html">QWindowsStyle</a> nor <a href="qcommonstyle.html">QCommonStyle</a> are involved in the drawing.</p>
+<p class="centerAlign"><img src="images/scrollbarimage.png" alt="" /></p><p>You may notice that the scrollbar is slightly different from Java's as it has two line up indicators. We have done this to show how that you can have two separate bounding rectangles for a single sub control. The scroll bar is an example of a widget that is entirely implemented by the java style - neither <a href="qwindowsstyle.html">QWindowsStyle</a> nor <a href="qcommonstyle.html">QCommonStyle</a> are involved in the drawing.</p>
 <p>We have a look at the different states a scroll bar can set on the style option:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >State Set When</th></tr></thead>
@@ -562,8 +562,8 @@
 <a name="sliders"></a>
 <h4>Sliders</h4>
 <p>When calculating the sliders size hint, PM_SliderTickness and PM_SliderLength is queried from the style. As with scroll bars, the <a href="qslider.html">QSlider</a> only lets the user move the handle if the mouse is within PM_MaximumDragDistance from the slider bounds. When it draws itself it creates the style option and calls <tt>drawComplexControl()</tt> with CC_Slider:</p>
-<p class="centerAlign"><img src="images/slider.png" /></p><p>We also show a picture of a slider in the java style. We show the bounding rectangles of the sub elements as all drawing is done in CC_Slider.</p>
-<p class="centerAlign"><img src="images/sliderimage.png" /></p><p><a href="qslider.html">QSlider</a> uses <a href="qstyleoptionslider.html">QStyleOptionSlider</a> as all <a href="qabstractslider.html">QAbstractSlider</a>s do. We present a table with the members that affect <a href="qslider.html">QSlider</a>:</p>
+<p class="centerAlign"><img src="images/slider.png" alt="" /></p><p>We also show a picture of a slider in the java style. We show the bounding rectangles of the sub elements as all drawing is done in CC_Slider.</p>
+<p class="centerAlign"><img src="images/sliderimage.png" alt="" /></p><p><a href="qslider.html">QSlider</a> uses <a href="qstyleoptionslider.html">QStyleOptionSlider</a> as all <a href="qabstractslider.html">QAbstractSlider</a>s do. We present a table with the members that affect <a href="qslider.html">QSlider</a>:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
 <tr valign="top" class="odd"><td >maximum</td><td >the maximum value of the slider</td></tr>
@@ -581,7 +581,7 @@
 <h4>Spin Boxes</h4>
 <p>When <a href="qspinbox.html">QSpinBox</a> paints itself it creates a <a href="qstyleoptionspinbox.html">QStyleOptionSpinBox</a> and asks the style to draw CC_SpinBox. The edit field is a line edit that is a child of the spin box. The dimensions of the field is calculated by the style with SC_SpinBoxEditField.</p>
 <p>Here follows the style tree for spin boxes. It is not required that a style uses the button panel primitive to paint the indicator backgrounds. You can see an image below the tree showing the sub elements in <a href="qspinbox.html">QSpinBox</a> in the java style.</p>
-<p class="centerAlign"><img src="images/spinbox.png" /></p><p class="centerAlign"><img src="images/spinboximage.png" /></p><p>The <a href="qstyleoptionspinbox.html">QStyleOptionSpinBox</a>, which is the style option for spin boxes. It can set the following states on the spin box.:</p>
+<p class="centerAlign"><img src="images/spinbox.png" alt="" /></p><p class="centerAlign"><img src="images/spinboximage.png" alt="" /></p><p>The <a href="qstyleoptionspinbox.html">QStyleOptionSpinBox</a>, which is the style option for spin boxes. It can set the following states on the spin box.:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >State Set When</th></tr></thead>
 <tr valign="top" class="odd"><td >State_Sunken</td><td >Is set if one of the sub controls CC_SpinUp or CC_SpinDown is pressed on with the mouse.</td></tr>
@@ -597,8 +597,8 @@
 <h4>Title Bar</h4>
 <p>The title bar complex control, CC_TitleBar, is used to draw the title bars of internal windows in <a href="qmdiarea.html">QMdiArea</a>. It typically consists of a window title and close, minimize, system menu, and maximize buttons. Some styles also provide buttons for shading the window, and a button for context sensitive help.</p>
 <p>The bar is drawn in CC_TitleBar without using any sub elements. How the individual styles draw their buttons is individual, but there are standard pixmaps for the buttons that the style should provide.</p>
-<p class="centerAlign"><img src="images/titlebar.png" /></p><p>In an image over a title bar in the java style, we show the bounding rectangles of the sub elements supported by the java style (all of which are drawn with standard pixmaps). It is usual to draw the button backgrounds using PE_PanelButtonTool, but it's no rule.</p>
-<p class="centerAlign"><img src="images/titlebarimage.png" /></p><p>The style option for title bars is <a href="qstyleoptiontitlebar.html">QStyleOptionTitleBar</a>. It's members are:</p>
+<p class="centerAlign"><img src="images/titlebar.png" alt="" /></p><p>In an image over a title bar in the java style, we show the bounding rectangles of the sub elements supported by the java style (all of which are drawn with standard pixmaps). It is usual to draw the button backgrounds using PE_PanelButtonTool, but it's no rule.</p>
+<p class="centerAlign"><img src="images/titlebarimage.png" alt="" /></p><p>The style option for title bars is <a href="qstyleoptiontitlebar.html">QStyleOptionTitleBar</a>. It's members are:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
 <tr valign="top" class="odd"><td >icon</td><td >The title bars icon</td></tr>
@@ -610,8 +610,8 @@
 <h4>Combo Box</h4>
 <p>A <a href="qcombobox.html">QComboBox</a> uses the style to draw the button and label of non-editable boxes with CC_ComboBox and CE_ComboBoxLabel.</p>
 <p>The list that pops up when the user clicks on the combo box is drawn by a <a href="model-view-programming.html#delegate-classes">delegate</a>, which we do not cover in this overview. You can, however, use the style to control the list's size and position with the sub element SC_ComboBoxListBoxPopup. The style also decides where the edit field for editable boxes should be with SC_ComboBoxEditField; the field itself is a <a href="qlineedit.html">QLineEdit</a> that is a child of the combo box.</p>
-<p class="centerAlign"><img src="images/combobox.png" /></p><p>We show an image over a java style combo box in which we have outlined its sub elements and sub element rectangles:</p>
-<p class="centerAlign"><img src="images/comboboximage.png" /></p><p>Java combo boxes do not use the focus rect; it changes its background color when it has focus. The SC_ComboBoxEdit field is used both by <a href="qcombobox.html">QComboBox</a> to calculate the size of the edit field and the style for calculating the size of the combo box label.</p>
+<p class="centerAlign"><img src="images/combobox.png" alt="" /></p><p>We show an image over a java style combo box in which we have outlined its sub elements and sub element rectangles:</p>
+<p class="centerAlign"><img src="images/comboboximage.png" alt="" /></p><p>Java combo boxes do not use the focus rect; it changes its background color when it has focus. The SC_ComboBoxEdit field is used both by <a href="qcombobox.html">QComboBox</a> to calculate the size of the edit field and the style for calculating the size of the combo box label.</p>
 <p>The style option for combo boxes is <a href="qstyleoptioncombobox.html">QStyleOptionComboBox</a>. It can set the following states:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >Set When</th></tr></thead>
@@ -632,9 +632,9 @@
 <a name="group-boxes"></a>
 <h4>Group Boxes</h4>
 <p>When calculating the size hint, <a href="qgroupbox.html">QGroupBox</a> fetches three pixel metrics from the style: PM_IndicatorWidth, PM_CheckBoxLabelSpacing, and PM_IndicatorHeight. <a href="qgroupbox.html">QGroupBox</a> has the following style element tree:</p>
-<p class="centerAlign"><img src="images/groupbox.png" /></p><p>Qt does not impose restrictions on how the check box is drawn; the java style draws it with CE_IndicatorCheckBox. See <a href="#check-and-radio-buttons">Check and Radio Buttons</a> for the complete tree.</p>
+<p class="centerAlign"><img src="images/groupbox.png" alt="" /></p><p>Qt does not impose restrictions on how the check box is drawn; the java style draws it with CE_IndicatorCheckBox. See <a href="#check-and-radio-buttons">Check and Radio Buttons</a> for the complete tree.</p>
 <p>We also give an image of the widget with the sub controls and sub control rectangles drawn:</p>
-<p class="centerAlign"><img src="images/groupboximage.png" /></p><p>The style option for group boxes are <a href="qstyleoptiongroupbox.html">QStyleOptionGroupBox</a>. The following states can be set on it:</p>
+<p class="centerAlign"><img src="images/groupboximage.png" alt="" /></p><p>The style option for group boxes are <a href="qstyleoptiongroupbox.html">QStyleOptionGroupBox</a>. The following states can be set on it:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >Set When</th></tr></thead>
 <tr valign="top" class="odd"><td >State_On</td><td >The check box is checked</td></tr>
@@ -662,8 +662,8 @@
 <a name="progress-bar"></a>
 <h4>Progress Bar</h4>
 <p>The CE_ProgressBar element is used by <a href="qprogressbar.html">QProgressBar</a>, and it is the only element used by this widget. We start with looking at the style structure:</p>
-<p class="centerAlign"><img src="images/progressbar.png" /></p><p>Here is a progress bar in the windows style (the java style bounding rectangles are equal):</p>
-<p class="centerAlign"><img src="images/progressbarimage.png" /></p><p>The style option for <a href="qprogressbar.html">QProgressBar</a> is <a href="qstyleoptionprogressbarv2.html">QStyleOptionProgressBarV2</a>. The bar does not set any state flags, but the other members of the option are:</p>
+<p class="centerAlign"><img src="images/progressbar.png" alt="" /></p><p>Here is a progress bar in the windows style (the java style bounding rectangles are equal):</p>
+<p class="centerAlign"><img src="images/progressbarimage.png" alt="" /></p><p>The style option for <a href="qprogressbar.html">QProgressBar</a> is <a href="qstyleoptionprogressbarv2.html">QStyleOptionProgressBarV2</a>. The bar does not set any state flags, but the other members of the option are:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
 <tr valign="top" class="odd"><td >minimum</td><td >The minimum value of the bar</td></tr>
@@ -680,9 +680,9 @@
 <h4>Tool Buttons</h4>
 <p>Tool buttons exist either independently or as part of tool bars. They are drawn equally either way. The <a href="qtoolbutton.html">QToolButton</a> draws only one style element: CC_ToolButton.</p>
 <p>As you must be used to by now (at least if you have read this document sequentially), we have a tree of the widget's style structure:</p>
-<p class="centerAlign"><img src="images/toolbutton.png" /></p><p>Note that PE_FrameButtonTool and PE_IndicatorArrowDown are included in the tree as the java style draws them, but they can safely be omitted if you prefer it. The structure may also be different. <a href="qwindowsstyle.html">QWindowsStyle</a>, for instance, draws both PE_IndicatorButtonDropDown and PE_IndicatorArrowDown in CE_ToolButton.</p>
+<p class="centerAlign"><img src="images/toolbutton.png" alt="" /></p><p>Note that PE_FrameButtonTool and PE_IndicatorArrowDown are included in the tree as the java style draws them, but they can safely be omitted if you prefer it. The structure may also be different. <a href="qwindowsstyle.html">QWindowsStyle</a>, for instance, draws both PE_IndicatorButtonDropDown and PE_IndicatorArrowDown in CE_ToolButton.</p>
 <p>We also have an image of a tool button where we have outlined the sub element bounding rectangles and sub controls.</p>
-<p class="centerAlign"><img src="images/toolbuttonimage.png" /></p><p>Here is the states table for tool buttons:</p>
+<p class="centerAlign"><img src="images/toolbuttonimage.png" alt="" /></p><p>Here is the states table for tool buttons:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >Set When</th></tr></thead>
 <tr valign="top" class="odd"><td >State_AutoRise</td><td >the tool button has the autoRise property set</td></tr>
@@ -707,9 +707,9 @@
 <p>Toolbars are part of the <a href="qmainwindow.html">main window framework</a> and cooperates with the <a href="qmainwindow.html">QMainWindow</a> to which it belongs while it builds its style option. A main window has 4 areas that toolbars can be placed in. They are positioned next to the four sides of the window (i.e&#x2e;, north, south, west, and east). Within each area there can be more than one line of toolbars; a line consists of toolbars with equal orientation (vertical or horizontal) placed next to each other.</p>
 <p><a href="porting4.html#qtoolbar">QToolbar</a>s in Qt consists of three elements CE_ToolBar, PE_IndicatorToolBarHandle, and PE_IndicatorToolBarSeparator. It is QMainWindowLayout that calculates the bounding rectangles (i.e&#x2e;, position and size of the toolbars and their contents. The main window also uses the <tt>sizeHint()</tt> of the items in the toolbars when calculating the size of the bars.</p>
 <p>Here is the element tree for <a href="qtoolbar.html">QToolBar</a>:</p>
-<p class="centerAlign"><img src="images/toolbar.png" /></p><p>The dotted lines indicate that the <a href="qtoolbar.html">QToolBar</a> keeps an instance of QToolBarLayout and that QToolBarSeparators are kept by QToolBarLayout. When the toolbar is floating (i.e&#x2e;, has its own window) the PE_FrameMenu element is drawn, else <a href="porting4.html#qtoolbar">QToolbar</a> draws CE_ToolBar.</p>
+<p class="centerAlign"><img src="images/toolbar.png" alt="" /></p><p>The dotted lines indicate that the <a href="qtoolbar.html">QToolBar</a> keeps an instance of QToolBarLayout and that QToolBarSeparators are kept by QToolBarLayout. When the toolbar is floating (i.e&#x2e;, has its own window) the PE_FrameMenu element is drawn, else <a href="porting4.html#qtoolbar">QToolbar</a> draws CE_ToolBar.</p>
 <p>Here is an image of a toolbar in the java style:</p>
-<p class="centerAlign"><img src="images/toolbarimage.png" /></p><p>QToolBarSaparator uses <a href="qstyleoption.html">QStyleOption</a> for their style option. It sets the State_horizontal flag if the toolbar they live in is horizontal. Other than that, they use <a href="qstyleoption.html#initFrom">initFrom()</a>.</p>
+<p class="centerAlign"><img src="images/toolbarimage.png" alt="" /></p><p>QToolBarSaparator uses <a href="qstyleoption.html">QStyleOption</a> for their style option. It sets the State_horizontal flag if the toolbar they live in is horizontal. Other than that, they use <a href="qstyleoption.html#initFrom">initFrom()</a>.</p>
 <p>The style option for <a href="qtoolbar.html">QToolBar</a> is <a href="qstyleoptiontoolbar.html">QStyleOptionToolBar</a>. The only state flag set (besides the common flags) is State_Horizontal if the bar is horizontal (i.e&#x2e;, in the north or south toolbar area). The member variables of the style option are:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
@@ -724,10 +724,10 @@
 <h4>Menus</h4>
 <p>Menus in Qt are implemented in <a href="qmenu.html">QMenu</a>. The <a href="qmenu.html">QMenu</a> keeps a list of action, which it draws as menu items. When <a href="qmenu.html">QMenu</a> receives paint events ,it calculates the size of each menu item and draws them individually with CE_MenuItem. (Menu items do not have a separate element for their label (contents), so all drawing is done in CE_MenuItem. The menu also draws the frame of the menu with PE_FrameMenu. It also draws CE_MenuScroller if the style supports scrolling. CE_MenuTearOff is drawn if the menu is to large for its bounding rectangle.</p>
 <p>In the style structure tree, we also include <a href="qmenu.html">QMenu</a> as it also does styling related work. The bounding rectangles of menu items are calculated for the menus size hint and when the menu is displayed or resized.</p>
-<p class="centerAlign"><img src="images/menu.png" /></p><p>The CE_MenuScroller and CE_MenuTearOff elements are handled by <a href="qcommonstyle.html">QCommonStyle</a> and are not shown unless the menu is to large to fit on the screen. PE_FrameMenu is only drawn for pop-up menus.</p>
+<p class="centerAlign"><img src="images/menu.png" alt="" /></p><p>The CE_MenuScroller and CE_MenuTearOff elements are handled by <a href="qcommonstyle.html">QCommonStyle</a> and are not shown unless the menu is to large to fit on the screen. PE_FrameMenu is only drawn for pop-up menus.</p>
 <p><a href="qmenu.html">QMenu</a> calculates rectangles based on its actions and calls CE_MenuItem and CE_MenuScroller if the style supports that.</p>
 <p>It is also usual to use PE_IndicatorCheckBox (instead of using PE_IndicatorMenuCheckMark) and PE_IndicatorRadioButton for drawing checkable menu items; we have not included them in the style tree as this is optional and varies from style to style.</p>
-<p class="centerAlign"><img src="images/menuimage.png" /></p><p>The style option for menu items is <a href="qstyleoptionmenuitem.html">QStyleOptionMenuItem</a>. The following tables describe its state flags and other members.</p>
+<p class="centerAlign"><img src="images/menuimage.png" alt="" /></p><p>The style option for menu items is <a href="qstyleoptionmenuitem.html">QStyleOptionMenuItem</a>. The following tables describe its state flags and other members.</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >State</th><th >Set When</th></tr></thead>
 <tr valign="top" class="odd"><td >State_Selected</td><td >The mouse is over the action and the action is not a separator.</td></tr>
@@ -751,8 +751,8 @@
 <a name="menu-bar"></a>
 <h4>Menu Bar</h4>
 <p><a href="qmenubar.html">QMenuBar</a> uses the style to draw each menu bar item and the empty area of the menu bar. The pull-down menus themselves are <a href="qmenu.html">QMenu</a>s (see <a href="#menus">Menus</a>). The style element tree for the menu bar follows:</p>
-<p class="centerAlign"><img src="images/menubar.png" /></p><p>The panel and empty area is drawn after the menu items. The <a href="qpainter.html">QPainter</a> that the <a href="qmenubar.html">QMenuBar</a> sends to the style has the bounding rectangles of the items clipped out (i.e&#x2e;, clip region), so you don't need to worry about drawing over the items. The pixel metrics in <a href="qmenubar.html">QMenuBar</a> is used when the bounding rectangles of the menu bar items are calculated.</p>
-<p class="centerAlign"><img src="images/menubarimage.png" /></p><p><a href="qstyleoptionmenuitem.html">QStyleOptionMenuItem</a> is used for menu bar items. The members that are used by <a href="qmenubar.html">QMenuBar</a> is described in the following table:</p>
+<p class="centerAlign"><img src="images/menubar.png" alt="" /></p><p>The panel and empty area is drawn after the menu items. The <a href="qpainter.html">QPainter</a> that the <a href="qmenubar.html">QMenuBar</a> sends to the style has the bounding rectangles of the items clipped out (i.e&#x2e;, clip region), so you don't need to worry about drawing over the items. The pixel metrics in <a href="qmenubar.html">QMenuBar</a> is used when the bounding rectangles of the menu bar items are calculated.</p>
+<p class="centerAlign"><img src="images/menubarimage.png" alt="" /></p><p><a href="qstyleoptionmenuitem.html">QStyleOptionMenuItem</a> is used for menu bar items. The members that are used by <a href="qmenubar.html">QMenuBar</a> is described in the following table:</p>
 <table class="generic">
 <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
 <tr valign="top" class="odd"><td >menuRect</td><td >the bounding rectangle of the entire menu bar to which the item belongs.</td></tr>
@@ -764,8 +764,8 @@
 <a name="item-view-headers"></a>
 <h4>Item View Headers</h4>
 <p>It is the style that draws the headers of Qt's item views. The item views keeps the dimensions on individual sections. Also note that the delegates may use the style to paint decorations and frames around items. <a href="qitemdelegate.html">QItemDelegate</a>, for instance, draws PE_FrameFocusRect and PE_IndicatorViewItemCheck.</p>
-<p class="centerAlign"><img src="images/header.png" /></p><p>Here is a <a href="qtablewidget.html">QTableWidget</a> showing the bounding rects of a Java header:</p>
-<p class="centerAlign"><img src="images/headerimage.png" /></p><p>The <a href="qheaderview.html">QHeaderView</a> uses CT_HeaderSection, PM_HeaderMargin and PM_HeaderGripMargin for size and hit test calculations. The PM_HeaderMarkSize is currently not used by Qt. <a href="qtableview.html">QTableView</a> draws the button in the top-left corner (i.e&#x2e;, the area where the vertical and horizontal headers intersect) as a CE_Header.</p>
+<p class="centerAlign"><img src="images/header.png" alt="" /></p><p>Here is a <a href="qtablewidget.html">QTableWidget</a> showing the bounding rects of a Java header:</p>
+<p class="centerAlign"><img src="images/headerimage.png" alt="" /></p><p>The <a href="qheaderview.html">QHeaderView</a> uses CT_HeaderSection, PM_HeaderMargin and PM_HeaderGripMargin for size and hit test calculations. The PM_HeaderMarkSize is currently not used by Qt. <a href="qtableview.html">QTableView</a> draws the button in the top-left corner (i.e&#x2e;, the area where the vertical and horizontal headers intersect) as a CE_Header.</p>
 <p>The style option for header views is <a href="qstyleoptionheader.html">QStyleOptionHeader</a>. The view paints one header section at a time, so the data is for the section being drawn. Its contents are:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
@@ -792,12 +792,12 @@
 <p>The tree view (and tree widget) use the style to draw the branches (or nodes if you will) of the tree.</p>
 <p><a href="qstyleoption.html">QStyleOption</a> is used as the style for PE_IndicatorBranch has state flags set depending on what type of branch it is.</p>
 <p>Since there is no tree structure for branch indicators, we only present an image of a tree in the java style. Each state is marked in the image with a rectangle in a specific color (i.e&#x2e;, these rectangles are not bounding rectangles). All combinations of states you must be aware of are represented in the image.</p>
-<p class="centerAlign"><img src="images/branchindicatorimage.png" /></p><a name="tool-boxes"></a>
+<p class="centerAlign"><img src="images/branchindicatorimage.png" alt="" /></p><a name="tool-boxes"></a>
 <h4>Tool Boxes</h4>
 <p>PM_SmallIconSize for sizeHints.</p>
 <p><a href="qtoolbox.html">QToolBox</a> is a container that keeps a collection of widgets. It has one tab for each widget and display one of them at a time. The tool box lays the components it displays (the tool box buttons and selected widget) in a <a href="qvboxlayout.html">QVBoxLayout</a>. The style tree for tool boxes looks like this:</p>
-<p class="centerAlign"><img src="images/toolbox.png" /></p><p>We show an image of a tool box in the Plastique style:</p>
-<p class="centerAlign"><img src="images/toolboximage.png" /></p><p>All elements have the same bounding rectangles in the Plastique as well as the other Qt built-in styles.</p>
+<p class="centerAlign"><img src="images/toolbox.png" alt="" /></p><p>We show an image of a tool box in the Plastique style:</p>
+<p class="centerAlign"><img src="images/toolboximage.png" alt="" /></p><p>All elements have the same bounding rectangles in the Plastique as well as the other Qt built-in styles.</p>
 <p>The style option for tool boxes is <a href="qstyleoptiontoolbox.html">QStyleOptionToolBox</a>. It contains the text and icon of the tool box contents. The only state set by <a href="qtoolbox.html">QToolBox</a> is State_Sunken, which is set when the user presses a tab down with the mouse. The rest of the <a href="qstyleoptiontoolbox.html">QStyleOptionToolBox</a> members are:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
@@ -807,7 +807,7 @@
 <a name="size-grip"></a>
 <h4>Size Grip</h4>
 <p>The size grip calculates its size hint with CT_SizeGrip. The pixel metric PM_SizeGripSize is currently unused by Qt. The element tree for and an image in the Plastique style of <a href="qsizegrip.html">QSizeGrip</a> follows:</p>
-<p class="centerAlign"><img src="images/sizegrip.png" /></p><p class="centerAlign"><img src="images/sizegripimage.png" /></p><p>We show the size grip in a <a href="qmainwindow.html">QMainWindow</a>'s bottom right corner.</p>
+<p class="centerAlign"><img src="images/sizegrip.png" alt="" /></p><p class="centerAlign"><img src="images/sizegripimage.png" alt="" /></p><p>We show the size grip in a <a href="qmainwindow.html">QMainWindow</a>'s bottom right corner.</p>
 <p>The size grip style option, <a href="qstyleoptionsizegrip.html">QStyleOptionSizeGrip</a>, have one member except the common members from <a href="qstyleoption.html">QStyleOption</a>:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
@@ -816,8 +816,8 @@
 <a name="rubber-band"></a>
 <h4>Rubber Band</h4>
 <p>The <a href="qrubberband.html">QRubberBand</a>'s style tree consists of two nodes.</p>
-<p class="centerAlign"><img src="images/rubberband.png" /></p><p>We present an image of a Java style window being moved in a <a href="qmdiarea.html">QMdiArea</a> with a rubber band:</p>
-<p class="centerAlign"><img src="images/rubberbandimage.png" /></p><p>The style option for rubber bands is <a href="qstyleoptionrubberband.html">QStyleOptionRubberBand</a>. Its members are:</p>
+<p class="centerAlign"><img src="images/rubberband.png" alt="" /></p><p>We present an image of a Java style window being moved in a <a href="qmdiarea.html">QMdiArea</a> with a rubber band:</p>
+<p class="centerAlign"><img src="images/rubberbandimage.png" alt="" /></p><p>The style option for rubber bands is <a href="qstyleoptionrubberband.html">QStyleOptionRubberBand</a>. Its members are:</p>
 <table class="generic">
 <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
 <tr valign="top" class="odd"><td >opaque</td><td >boolean that is true if the rubber band must be drawn in an opaque style (i.e&#x2e;, color)</td></tr>
@@ -826,8 +826,8 @@
 <a name="dock-widgets"></a>
 <h4>Dock Widgets</h4>
 <p>When the dock widget lays out its contents it asks the style for these pixel metrics: PM_DockWidgetSeparatorExtent, PM_DockWidgetTitleBarButtonMargin, PM_DockWidgetFrameWidth, and PM_DockWidgetTitleMargin. It also calculates the bounding rectangles of the float and close buttons with SE_DockWidgetCloseButton and SE_DockWidgetFloatButton.</p>
-<p class="centerAlign"><img src="images/dockwidget.png" /></p><p>The dotted lines indicate that the sender keeps instances of the recipient of the arrow (i.e&#x2e;, it is not a style element to draw). The dock widget only draws PE_frameDockWidget when it is detached from its main window (i.e&#x2e;, it is a top level window). If it is docked it draws the indicator dock widget resize handle. We show a dock widget in both docked and floating state in the plastique style:</p>
-<p class="centerAlign"><img src="images/dockwidgetimage.png" /></p><p>The style option is <a href="qstyleoptiondockwidget.html">QStyleOptionDockWidget</a>:</p>
+<p class="centerAlign"><img src="images/dockwidget.png" alt="" /></p><p>The dotted lines indicate that the sender keeps instances of the recipient of the arrow (i.e&#x2e;, it is not a style element to draw). The dock widget only draws PE_frameDockWidget when it is detached from its main window (i.e&#x2e;, it is a top level window). If it is docked it draws the indicator dock widget resize handle. We show a dock widget in both docked and floating state in the plastique style:</p>
+<p class="centerAlign"><img src="images/dockwidgetimage.png" alt="" /></p><p>The style option is <a href="qstyleoptiondockwidget.html">QStyleOptionDockWidget</a>:</p>
 <table class="generic" width="90%">
  <thead><tr class="qt-style"><th >Member</th><th >Content</th></tr></thead>
 <tr valign="top" class="odd"><td >closeable</td><td >boolean that holds whether the dock window can be closed</td></tr>
@@ -844,7 +844,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

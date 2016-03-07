@@ -151,9 +151,9 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-17">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-lt-lt-96">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QUrl &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-gt-gt-52">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-lt-lt-41">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-gt-gt-19">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QUrl &amp; <i>url</i> )</td></tr>
 </table>
 <a name="macros"></a>
 <h2>Macros</h2>
@@ -229,7 +229,7 @@
 <!-- @@@QUrl -->
 <!-- $$$QUrl$$$QUrlconstQString& -->
 <h3 class="fn"><a name="QUrl-2"></a>QUrl::<span class="name">QUrl</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>url</i> )</h3>
-<p>Constructs a URL by parsing <i>url</i>. <i>url</i> is assumed to be in human readable representation, with no percent encoding. <a href="qurl.html">QUrl</a> will automatically percent encode all characters that are not allowed in a URL.</p>
+<p>Constructs a URL by parsing <i>url</i>. <i>url</i> is assumed to be in human readable representation, with no percent encoding. <a href="qurl.html">QUrl</a> will automatically percent encode all characters that are not allowed in a URL. The default parsing mode is <a href="qurl.html#ParsingMode-enum">TolerantMode</a>.</p>
 <p>Example:</p>
 <pre class="cpp"> <span class="type"><a href="qurl.html">QUrl</a></span> url(<span class="string">&quot;http://www.example.com/List of holidays.xml&quot;</span>);
  <span class="comment">// url.toEncoded() == &quot;http://www.example.com/List%20of%20holidays.xml&quot;</span></pre>
@@ -244,7 +244,7 @@
 <!-- $$$QUrl$$$QUrlconstQString&ParsingMode -->
 <h3 class="fn"><a name="QUrl-4"></a>QUrl::<span class="name">QUrl</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>url</i>, <span class="type"><a href="qurl.html#ParsingMode-enum">ParsingMode</a></span> <i>parsingMode</i> )</h3>
 <p>This is an overloaded function.</p>
-<p>Parses the <i>url</i> using the parser mode <i>parsingMode</i>.</p>
+<p>Parses the <i>url</i> using the parser mode <i>parsingMode</i>. The default parsing mode is <a href="qurl.html#ParsingMode-enum">TolerantMode</a>.</p>
 <p><b>See also </b><a href="qurl.html#setUrl">setUrl</a>().</p>
 <!-- @@@QUrl -->
 <!-- $$$~QUrl[overload1]$$$~QUrl -->
@@ -551,12 +551,12 @@
 <p>The authority of a URL is the combination of user info, a host name and a port. All of these elements are optional; an empty authority is therefore valid.</p>
 <p>The user info and host are separated by a '<a href="index.html">@</a>', and the host and port are separated by a ':'. If the user info is empty, the '<a href="index.html">@</a>' must be omitted; although a stray ':' is permitted if the port is empty.</p>
 <p>The following example shows a valid authority string:</p>
-<p class="centerAlign"><img src="images/qurl-authority.png" /></p><p><b>See also </b><a href="qurl.html#authority">authority</a>().</p>
+<p class="centerAlign"><img src="images/qurl-authority.png" alt="" /></p><p><b>See also </b><a href="qurl.html#authority">authority</a>().</p>
 <!-- @@@setAuthority -->
 <!-- $$$setEncodedFragment[overload1]$$$setEncodedFragmentconstQByteArray& -->
 <h3 class="fn"><a name="setEncodedFragment"></a><span class="type">void</span> QUrl::<span class="name">setEncodedFragment</span> ( const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp; <i>fragment</i> )</h3>
 <p>Sets the URL's fragment to the percent-encoded <i>fragment</i>. The fragment is the last part of the URL, represented by a '#' followed by a string of characters. It is typically used in HTTP for referring to a certain link or point on a page:</p>
-<p class="centerAlign"><img src="images/qurl-fragment.png" /></p><p>The fragment is sometimes also referred to as the URL &quot;reference&quot;.</p>
+<p class="centerAlign"><img src="images/qurl-fragment.png" alt="" /></p><p>The fragment is sometimes also referred to as the URL &quot;reference&quot;.</p>
 <p>Passing an argument of QByteArray() (a null <a href="qbytearray.html">QByteArray</a>) will unset the fragment. Passing an argument of <a href="qbytearray.html">QByteArray</a>(&quot;&quot;) (an empty but not null <a href="qbytearray.html">QByteArray</a>) will set the fragment to an empty string (as if the original URL had a lone &quot;#&quot;).</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p><b>See also </b><a href="qurl.html#setFragment">setFragment</a>() and <a href="qurl.html#encodedFragment">encodedFragment</a>().</p>
@@ -577,8 +577,8 @@
 <!-- $$$setEncodedPath[overload1]$$$setEncodedPathconstQByteArray& -->
 <h3 class="fn"><a name="setEncodedPath"></a><span class="type">void</span> QUrl::<span class="name">setEncodedPath</span> ( const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp; <i>path</i> )</h3>
 <p>Sets the URL's path to the percent-encoded <i>path</i>. The path is the part of the URL that comes after the authority but before the query string.</p>
-<p class="centerAlign"><img src="images/qurl-ftppath.png" /></p><p>For non-hierarchical schemes, the path will be everything following the scheme declaration, as in the following example:</p>
-<p class="centerAlign"><img src="images/qurl-mailtopath.png" /></p><p>Note: this function does not verify that <i>path</i> is properly encoded. It is the caller's responsibility to ensure that the any delimiters (such as '?' and '#') are properly encoded.</p>
+<p class="centerAlign"><img src="images/qurl-ftppath.png" alt="" /></p><p>For non-hierarchical schemes, the path will be everything following the scheme declaration, as in the following example:</p>
+<p class="centerAlign"><img src="images/qurl-mailtopath.png" alt="" /></p><p>Note: this function does not verify that <i>path</i> is properly encoded. It is the caller's responsibility to ensure that the any delimiters (such as '?' and '#') are properly encoded.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p><b>See also </b><a href="qurl.html#setPath">setPath</a>(), <a href="qurl.html#encodedPath">encodedPath</a>(), and <a href="qurl.html#setUserInfo">setUserInfo</a>().</p>
 <!-- @@@setEncodedPath -->
@@ -617,7 +617,7 @@
 <!-- $$$setFragment[overload1]$$$setFragmentconstQString& -->
 <h3 class="fn"><a name="setFragment"></a><span class="type">void</span> QUrl::<span class="name">setFragment</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>fragment</i> )</h3>
 <p>Sets the fragment of the URL to <i>fragment</i>. The fragment is the last part of the URL, represented by a '#' followed by a string of characters. It is typically used in HTTP for referring to a certain link or point on a page:</p>
-<p class="centerAlign"><img src="images/qurl-fragment.png" /></p><p>The fragment is sometimes also referred to as the URL &quot;reference&quot;.</p>
+<p class="centerAlign"><img src="images/qurl-fragment.png" alt="" /></p><p>The fragment is sometimes also referred to as the URL &quot;reference&quot;.</p>
 <p>Passing an argument of QString() (a null <a href="qstring.html">QString</a>) will unset the fragment. Passing an argument of <a href="qstring.html">QString</a>(&quot;&quot;) (an empty but not null <a href="qstring.html">QString</a>) will set the fragment to an empty string (as if the original URL had a lone &quot;#&quot;).</p>
 <p><b>See also </b><a href="qurl.html#fragment">fragment</a>() and <a href="qurl.html#hasFragment">hasFragment</a>().</p>
 <!-- @@@setFragment -->
@@ -643,8 +643,8 @@
 <!-- $$$setPath[overload1]$$$setPathconstQString& -->
 <h3 class="fn"><a name="setPath"></a><span class="type">void</span> QUrl::<span class="name">setPath</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>path</i> )</h3>
 <p>Sets the path of the URL to <i>path</i>. The path is the part of the URL that comes after the authority but before the query string.</p>
-<p class="centerAlign"><img src="images/qurl-ftppath.png" /></p><p>For non-hierarchical schemes, the path will be everything following the scheme declaration, as in the following example:</p>
-<p class="centerAlign"><img src="images/qurl-mailtopath.png" /></p><p><b>See also </b><a href="qurl.html#pathx">path</a>().</p>
+<p class="centerAlign"><img src="images/qurl-ftppath.png" alt="" /></p><p>For non-hierarchical schemes, the path will be everything following the scheme declaration, as in the following example:</p>
+<p class="centerAlign"><img src="images/qurl-mailtopath.png" alt="" /></p><p><b>See also </b><a href="qurl.html#pathx">path</a>().</p>
 <!-- @@@setPath -->
 <!-- $$$setPort[overload1]$$$setPortint -->
 <h3 class="fn"><a name="setPort"></a><span class="type">void</span> QUrl::<span class="name">setPort</span> ( <span class="type">int</span> <i>port</i> )</h3>
@@ -655,7 +655,7 @@
 <!-- $$$setQueryDelimiters[overload1]$$$setQueryDelimiterscharchar -->
 <h3 class="fn"><a name="setQueryDelimiters"></a><span class="type">void</span> QUrl::<span class="name">setQueryDelimiters</span> ( <span class="type">char</span> <i>valueDelimiter</i>, <span class="type">char</span> <i>pairDelimiter</i> )</h3>
 <p>Sets the characters used for delimiting between keys and values, and between key-value pairs in the URL's query string. The default value delimiter is '=' and the default pair delimiter is '&amp;'.</p>
-<p class="centerAlign"><img src="images/qurl-querystring.png" /></p><p><i>valueDelimiter</i> will be used for separating keys from values, and <i>pairDelimiter</i> will be used to separate key-value pairs. Any occurrences of these delimiting characters in the encoded representation of the keys and values of the query string are percent encoded.</p>
+<p class="centerAlign"><img src="images/qurl-querystring.png" alt="" /></p><p><i>valueDelimiter</i> will be used for separating keys from values, and <i>pairDelimiter</i> will be used to separate key-value pairs. Any occurrences of these delimiting characters in the encoded representation of the keys and values of the query string are percent encoded.</p>
 <p>If <i>valueDelimiter</i> is set to '-' and <i>pairDelimiter</i> is '/', the above query string would instead be represented like this:</p>
 <pre class="cpp"> http:<span class="comment">//www.example.com/cgi-bin/drawgraph.cgi?type-pie/color-green</span></pre>
 <p>Calling this function does not change the delimiters of the current query string. It only affects <a href="qurl.html#queryItems">queryItems</a>(), <a href="qurl.html#setQueryItems">setQueryItems</a>() and addQueryItems().</p>
@@ -670,7 +670,7 @@
 <h3 class="fn"><a name="setScheme"></a><span class="type">void</span> QUrl::<span class="name">setScheme</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>scheme</i> )</h3>
 <p>Sets the scheme of the URL to <i>scheme</i>. As a scheme can only contain ASCII characters, no conversion or encoding is done on the input.</p>
 <p>The scheme describes the type (or protocol) of the URL. It's represented by one or more ASCII characters at the start the URL, and is followed by a ':'. The following example shows a URL where the scheme is &quot;ftp&quot;:</p>
-<p class="centerAlign"><img src="images/qurl-authority2.png" /></p><p>The scheme can also be empty, in which case the URL is interpreted as relative.</p>
+<p class="centerAlign"><img src="images/qurl-authority2.png" alt="" /></p><p>The scheme can also be empty, in which case the URL is interpreted as relative.</p>
 <p><b>See also </b><a href="qurl.html#scheme">scheme</a>() and <a href="qurl.html#isRelative">isRelative</a>().</p>
 <!-- @@@setScheme -->
 <!-- $$$setUrl[overload1]$$$setUrlconstQString& -->
@@ -690,7 +690,7 @@
 <h3 class="fn"><a name="setUserInfo"></a><span class="type">void</span> QUrl::<span class="name">setUserInfo</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>userInfo</i> )</h3>
 <p>Sets the user info of the URL to <i>userInfo</i>. The user info is an optional part of the authority of the URL, as described in <a href="qurl.html#setAuthority">setAuthority</a>().</p>
 <p>The user info consists of a user name and optionally a password, separated by a ':'. If the password is empty, the colon must be omitted. The following example shows a valid user info string:</p>
-<p class="centerAlign"><img src="images/qurl-authority3.png" /></p><p><b>See also </b><a href="qurl.html#userInfo">userInfo</a>(), <a href="qurl.html#setUserName">setUserName</a>(), <a href="qurl.html#setPassword">setPassword</a>(), and <a href="qurl.html#setAuthority">setAuthority</a>().</p>
+<p class="centerAlign"><img src="images/qurl-authority3.png" alt="" /></p><p><b>See also </b><a href="qurl.html#userInfo">userInfo</a>(), <a href="qurl.html#setUserName">setUserName</a>(), <a href="qurl.html#setPassword">setPassword</a>(), and <a href="qurl.html#setAuthority">setAuthority</a>().</p>
 <!-- @@@setUserInfo -->
 <!-- $$$setUserName[overload1]$$$setUserNameconstQString& -->
 <h3 class="fn"><a name="setUserName"></a><span class="type">void</span> QUrl::<span class="name">setUserName</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>userName</i> )</h3>
@@ -718,6 +718,7 @@
 <h3 class="fn"><a name="toLocalFile"></a><span class="type"><a href="qstring.html">QString</a></span> QUrl::<span class="name">toLocalFile</span> () const</h3>
 <p>Returns the path of this URL formatted as a local file path. The path returned will use forward slashes, even if it was originally created from one with backslashes.</p>
 <p>If this URL contains a non-empty hostname, it will be encoded in the returned value in the form found on SMB networks (for example, &quot;//servername/path/to/file.txt&quot;).</p>
+<p>If this is a relative URL, in Qt 4.x this function returns the path to maintain backward compatability. This will change from 5.0 onwards. Then the path is returned only for URLs where the scheme is &quot;file&quot;, and for all other URLs an empty string is returned.</p>
 <p><b>See also </b><a href="qurl.html#fromLocalFile">fromLocalFile</a>() and <a href="qurl.html#isLocalFile">isLocalFile</a>().</p>
 <!-- @@@toLocalFile -->
 <!-- $$$toPercentEncoding[overload1]$$$toPercentEncodingconstQString&constQByteArray&constQByteArray& -->
@@ -767,18 +768,18 @@
 </div>
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
-<!-- $$$qHash$$$qHashconstQUrl& -->
-<h3 class="fn"><a name="qHash-17"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="name">qHash</span> ( const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<!-- $$$qHash[overload1]$$$qHashconstQUrl& -->
+<h3 class="fn"><a name="qHash"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="name">qHash</span> ( const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Computes a hash key from the normalized version of <i>url</i>.</p>
 <p>This function was introduced in Qt 4.7.</p>
 <!-- @@@qHash -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQUrl& -->
-<h3 class="fn"><a name="operator-lt-lt-96"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-41"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Writes url <i>url</i> to the stream <i>out</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QUrl& -->
-<h3 class="fn"><a name="operator-gt-gt-52"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-19"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Reads a url into <i>url</i> from the stream <i>in</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->
@@ -803,7 +804,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

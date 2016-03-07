@@ -43,7 +43,7 @@
 <li><a href="linguist-arrowpad-main-cpp.html">linguist/arrowpad/main.cpp</a></li>
 <li><a href="linguist-arrowpad-arrowpad-pro.html">linguist/arrowpad/arrowpad.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/linguist-arrowpad_en.png" /></p><p>We will use two translations, French and Dutch, although there is no effective limit on the number of possible translations that can be used with an application. The relevant lines of <tt>arrowpad.pro</tt> are</p>
+<p>ThArrow Pad Linguist example is a slightly more involved and introduces a key <i>Qt Linguist</i> concept: &quot;contexts&quot;. It also shows how to use two or more languages.<p class="centerAlign"><img src="images/linguist-arrowpad_en.png" alt="" /></p><p>We will use two translations, French and Dutch, although there is no effective limit on the number of possible translations that can be used with an application. The relevant lines of <tt>arrowpad.pro</tt> are</p>
 <pre class="cpp"> HEADERS      = arrowpad.h \
                 mainwindow.h
  SOURCES      = arrowpad.cpp \
@@ -69,7 +69,7 @@
      leftButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Left&quot;</span>));
      rightButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Right&quot;</span>));</pre>
 <p>We call <tt>ArrowPad::tr()</tt> for each button's label since the labels are user-visible text.</p>
-<p class="centerAlign"><img src="images/linguist-arrowpad_en.png" /></p><pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
+<p class="centerAlign"><img src="images/linguist-arrowpad_en.png" alt="" /></p><pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
  {
      Q_OBJECT</pre>
 <p>In the screenshot above, the whole window is a <tt>MainWindow</tt>. This is defined in the <tt>mainwindow.h</tt> header file. Here too, we use <tt>Q_OBJECT</tt>, so that <tt>MainWindow</tt> will become a context in <i>Qt Linguist</i>.</p>
@@ -131,8 +131,8 @@
 <p>In Windows, either modify <tt>autoexec.bat</tt> or run</p>
 <pre class="cpp"> set LANG=fr</pre>
 <p>When you run the program, you should now see the French version:</p>
-<p class="centerAlign"><img src="images/linguist-arrowpad_fr.png" /></p><p>Try the same with Dutch, by setting <tt>LANG=nl</tt>. Now the Dutch version should appear:</p>
-<p class="centerAlign"><img src="images/linguist-arrowpad_nl.png" /></p><a name="exercises"></a>
+<p class="centerAlign"><img src="images/linguist-arrowpad_fr.png" alt="" /></p><p>Try the same with Dutch, by setting <tt>LANG=nl</tt>. Now the Dutch version should appear:</p>
+<p class="centerAlign"><img src="images/linguist-arrowpad_nl.png" alt="" /></p><a name="exercises"></a>
 <h2>Exercises</h2>
 <p>Mark one of the translations in <i>Qt Linguist</i> as not done, i.e&#x2e; by unchecking the &quot;done&quot; checkbox; run <tt>lupdate</tt>, then <tt>lrelease</tt>, then the example. What effect did this change have?</p>
 <p>Set <tt>LANG=fr_CA</tt> (French Canada) and run the example program again. Explain why the result is the same as with <tt>LANG=fr</tt>.</p>
@@ -145,7 +145,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

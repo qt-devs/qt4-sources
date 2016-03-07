@@ -48,18 +48,18 @@
 <p>There are several available types of extensions in <i>Qt Designer</i>. You can use all of these extensions in the same pattern, only replacing the respective extension base class.</p>
 <p><a href="qdesignercontainerextension.html">QDesignerContainerExtension</a> is necessary when implementing a custom multi-page container.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/designer-manual-taskmenuextension.png" /></td><td ><b><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a></b><p><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a> is useful for custom widgets. It provides an extension that allows you to add custom menu entries to <i>Qt Designer</i>'s task menu.</p>
+<tr valign="top" class="odd"><td ><img src="images/designer-manual-taskmenuextension.png" alt="" /></td><td ><b><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a></b><p><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a> is useful for custom widgets. It provides an extension that allows you to add custom menu entries to <i>Qt Designer</i>'s task menu.</p>
 <p>The <a href="designer-taskmenuextension.html">Task Menu Extension</a> example illustrates how to use this class.</p>
 </td></tr>
-<tr valign="top" class="even"><td ><img src="images/designer-manual-containerextension.png" /></td><td ><b><a href="qdesignercontainerextension.html">QDesignerContainerExtension</a></b><p><a href="qdesignercontainerextension.html">QDesignerContainerExtension</a> is necessary when implementing a custom multi-page container. It provides an extension that allows you to add and delete pages for a multi-page container plugin in <i>Qt Designer</i>.</p>
+<tr valign="top" class="even"><td ><img src="images/designer-manual-containerextension.png" alt="" /></td><td ><b><a href="qdesignercontainerextension.html">QDesignerContainerExtension</a></b><p><a href="qdesignercontainerextension.html">QDesignerContainerExtension</a> is necessary when implementing a custom multi-page container. It provides an extension that allows you to add and delete pages for a multi-page container plugin in <i>Qt Designer</i>.</p>
 <p>The <a href="designer-containerextension.html">Container Extension</a> example further explains how to use this class.</p>
 <p><b>Note:</b> It is not possible to add custom per-page properties for some widgets (e.g&#x2e;, <a href="qtabwidget.html">QTabWidget</a>) due to the way they are implemented.</p>
 </td></tr>
 </table>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/designer-manual-membersheetextension.png" /></td><td ><b><a href="qdesignermembersheetextension.html">QDesignerMemberSheetExtension</a></b><p>The <a href="qdesignermembersheetextension.html">QDesignerMemberSheetExtension</a> class allows you to manipulate a widget's member functions displayed when connecting signals and slots.</p>
+<tr valign="top" class="odd"><td ><img src="images/designer-manual-membersheetextension.png" alt="" /></td><td ><b><a href="qdesignermembersheetextension.html">QDesignerMemberSheetExtension</a></b><p>The <a href="qdesignermembersheetextension.html">QDesignerMemberSheetExtension</a> class allows you to manipulate a widget's member functions displayed when connecting signals and slots.</p>
 </td></tr>
-<tr valign="top" class="even"><td ><img src="images/designer-manual-propertysheetextension.png" /></td><td ><b><a href="qdesignerpropertysheetextension.html">QDesignerPropertySheetExtension</a>, <a href="qdesignerdynamicpropertysheetextension.html">QDesignerDynamicPropertySheetExtension</a></b><p>These extension classes allow you to control how a widget's properties are displayed in <i>Qt Designer</i>'s property editor.</p>
+<tr valign="top" class="even"><td ><img src="images/designer-manual-propertysheetextension.png" alt="" /></td><td ><b><a href="qdesignerpropertysheetextension.html">QDesignerPropertySheetExtension</a>, <a href="qdesignerdynamicpropertysheetextension.html">QDesignerDynamicPropertySheetExtension</a></b><p>These extension classes allow you to control how a widget's properties are displayed in <i>Qt Designer</i>'s property editor.</p>
 </td></tr>
 </table>
 <p><i>Qt Designer</i> uses the <a href="qdesignerpropertysheetextension.html">QDesignerPropertySheetExtension</a> and the <a href="qdesignermembersheetextension.html">QDesignerMemberSheetExtension</a> classes to feed its property and signal and slot editors. Whenever a widget is selected in its workspace, <i>Qt Designer</i> will query for the widget's property sheet extension; likewise, whenever a connection between two widgets is requested, <i>Qt Designer</i> will query for the widgets' member sheet extensions.</p>
@@ -80,7 +80,7 @@
 <h2>Exposing an Extension to Qt Designer</h2>
 <p>In <i>Qt Designer</i> the extensions are not created until they are required. For this reason, when implementing extensions, you must subclass <a href="qextensionfactory.html">QExtensionFactory</a> to create a class that is able to make instances of your extensions. Also, you must register your factory with <i>Qt Designer</i>'s extension manager; the extension manager handles the construction of extensions.</p>
 <p>When an extension is requested, <i>Qt Designer</i>'s extension manager will run through its registered factories calling <a href="qextensionfactory.html#createExtension">QExtensionFactory::createExtension</a>() for each of them until it finds one that is able to create the requested extension for the selected widget. This factory will then make an instance of the extension.</p>
-<p class="centerAlign"><img src="images/qtdesignerextensions.png" /></p><a name="creating-an-extension-factory"></a>
+<p class="centerAlign"><img src="images/qtdesignerextensions.png" alt="" /></p><a name="creating-an-extension-factory"></a>
 <h3>Creating an Extension Factory</h3>
 <p>The <a href="qextensionfactory.html">QExtensionFactory</a> class provides a standard extension factory, but it can also be used as an interface for custom extension factories.</p>
 <p>The purpose is to reimplement the <a href="qextensionfactory.html#createExtension">QExtensionFactory::createExtension</a>() function, making it able to create your extension, such as a <a href="designer-containerextension.html">MultiPageWidget</a> container extension.</p>
@@ -145,7 +145,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

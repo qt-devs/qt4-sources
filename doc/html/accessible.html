@@ -51,7 +51,7 @@
 <a name="architecture"></a>
 <h2>Architecture</h2>
 <p>Providing accessibility is a collaboration between accessibility compliant applications, the assistive technology, and the assistive tools.</p>
-<p class="centerAlign"><img src="images/accessibilityarchitecture.png" /></p><p>Accessibility compliant applications are called AT-Servers while assistive tools are called AT-Clients. A Qt application will typically be an AT-Server, but specialized programs might also function like AT-Clients. We will refer to clients and servers when talking about AT-Clients and AT-Servers in the rest of this document.</p>
+<p class="centerAlign"><img src="images/accessibilityarchitecture.png" alt="" /></p><p>Accessibility compliant applications are called AT-Servers while assistive tools are called AT-Clients. A Qt application will typically be an AT-Server, but specialized programs might also function like AT-Clients. We will refer to clients and servers when talking about AT-Clients and AT-Servers in the rest of this document.</p>
 <p>We will from now on focus on the Qt accessibility interface and how it is implemented to create Qt applications that support accessibility.</p>
 <a name="accessibility-in-qt"></a>
 <h3>Accessibility in Qt</h3>
@@ -84,7 +84,7 @@
 <p>AT-Clients have access to the accessibility object tree through the root object in the tree, which is the <a href="qapplication.html">QApplication</a>. They can query other objects through QAccessible::navigate(), which fetches objects based on <a href="qaccessible.html#RelationFlag-enum">Relation</a>s. The children of any node is 1-based numbered. The child numbered 0 is the object itself. The children of all interfaces are numbered this way, i.e&#x2e;, it is not a fixed numbering from the root node in the entire tree.</p>
 <p>Qt provides accessible interfaces for its widgets. Interfaces for any <a href="qobject.html">QObject</a> subclass can be requested through QAccessible::queryInterface(). A default implementation is provided if a more specialized interface is not defined. An AT-Client cannot acquire an interface for accessible objects that do not have an equivalent <a href="qobject.html">QObject</a>, e.g&#x2e;, scroll bar handles, but they appear as normal objects through interfaces of parent accessible objects, e.g&#x2e;, you can query their relationships with QAccessible::relationTo().</p>
 <p>To illustrate, we present an image of an accessible object tree. Beneath the tree is a table with examples of object relationships.</p>
-<p class="centerAlign"><img src="images/accessibleobjecttree.png" /></p><p>The labels in top-down order are: the <a href="qaccessibleinterface.html">QAccessibleInterface</a> class name, the widget for which an interface is provided, and the <a href="qaccessible.html#Role-enum">Role</a> of the object. The Position, PageLeft and PageRight correspond to the slider handle, the slider groove left and the slider groove right, respectively. These accessible objects do not have an equivalent <a href="qobject.html">QObject</a>.</p>
+<p class="centerAlign"><img src="images/accessibleobjecttree.png" alt="" /></p><p>The labels in top-down order are: the <a href="qaccessibleinterface.html">QAccessibleInterface</a> class name, the widget for which an interface is provided, and the <a href="qaccessible.html#Role-enum">Role</a> of the object. The Position, PageLeft and PageRight correspond to the slider handle, the slider groove left and the slider groove right, respectively. These accessible objects do not have an equivalent <a href="qobject.html">QObject</a>.</p>
 <table class="generic" width="40%">
  <thead><tr class="qt-style"><th >Source Object</th><th >Target Object</th><th >Relation</th></tr></thead>
 <tr valign="top" class="odd"><td >Slider</td><td >Indicator</td><td >Controller</td></tr>
@@ -314,7 +314,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

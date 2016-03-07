@@ -47,14 +47,14 @@
 <li><a href="itemviews-simpletreemodel-simpletreemodel-pro.html">itemviews/simpletreemodel/simpletreemodel.pro</a></li>
 <li><a href="itemviews-simpletreemodel-simpletreemodel-qrc.html">itemviews/simpletreemodel/simpletreemodel.qrc</a></li>
 </ul>
-<p>For a description of simple non-hierarchical list and table models, see the <a href="model-view-programming.html">Model/View Programming</a> overview.</p>
-<p class="centerAlign"><img src="images/simpletreemodel-example.png" /></p><p>Qt's model/view architecture provides a standard way for views to manipulate information in a data source, using an abstract model of the data to simplify and standardize the way it is accessed. Simple models represent data as a table of items, and allow views to access this data via an <a href="model-view-programming.html#models">index-based</a> system. More generally, models can be used to represent data in the form of a tree structure by allowing each item to act as a parent to a table of child items.</p>
+<p>The Simple Tree Model example shows how to create a basic, read-only hierarchical model to use with Qt's standard view classes.<p>For a description of simple non-hierarchical list and table models, see the <a href="model-view-programming.html">Model/View Programming</a> overview.</p>
+<p class="centerAlign"><img src="images/simpletreemodel-example.png" alt="" /></p><p>Qt's model/view architecture provides a standard way for views to manipulate information in a data source, using an abstract model of the data to simplify and standardize the way it is accessed. Simple models represent data as a table of items, and allow views to access this data via an <a href="model-view-programming.html#models">index-based</a> system. More generally, models can be used to represent data in the form of a tree structure by allowing each item to act as a parent to a table of child items.</p>
 <p>Before attempting to implement a tree model, it is worth considering whether the data is supplied by an external source, or whether it is going to be maintained within the model itself. In this example, we will implement an internal structure to hold data rather than discuss how to package data from an external source.</p>
 <a name="design-and-concepts"></a>
 <h2>Design and Concepts</h2>
 <p>The data structure that we use to represent the structure of the data takes the form of a tree built from <tt>TreeItem</tt> objects. Each <tt>TreeItem</tt> represents an item in a tree view, and contains several columns of data.</p>
 <a name="simpletreemodelstructure"></a><table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/treemodel-structure.png" /></td><td ><b>Simple Tree Model Structure</b><p>The data is stored internally in the model using <tt>TreeItem</tt> objects that are linked together in a pointer-based tree structure. Generally, each <tt>TreeItem</tt> has a parent item, and can have a number of child items. However, the root item in the tree structure has no parent item and it is never referenced outside the model.</p>
+<tr valign="top" class="odd"><td ><img src="images/treemodel-structure.png" alt="" /></td><td ><b>Simple Tree Model Structure</b><p>The data is stored internally in the model using <tt>TreeItem</tt> objects that are linked together in a pointer-based tree structure. Generally, each <tt>TreeItem</tt> has a parent item, and can have a number of child items. However, the root item in the tree structure has no parent item and it is never referenced outside the model.</p>
 <p>Each <tt>TreeItem</tt> contains information about its place in the tree structure; it can return its parent item and its row number. Having this information readily available makes implementing the model easier.</p>
 <p>Since each item in a tree view usually contains several columns of data (a title and a summary in this example), it is natural to store this information in each item. For simplicity, we will use a list of <a href="qvariant.html">QVariant</a> objects to store the data for each column in the item.</p>
 </td></tr>
@@ -310,7 +310,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

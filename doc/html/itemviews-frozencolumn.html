@@ -41,9 +41,9 @@
 <li><a href="itemviews-frozencolumn-frozencolumn-pro.html">itemviews/frozencolumn/frozencolumn.pro</a></li>
 <li><a href="itemviews-frozencolumn-grades-qrc.html">itemviews/frozencolumn/grades.qrc</a></li>
 </ul>
-<p class="centerAlign"><img src="images/frozencolumn-example.png" alt="&quot;Screenshot of the example&quot;" /></p><p>We use Qt's model/view framework to implement a table with its first column frozen. This technique can be aplied to several columns or rows, as long as they are on the edge of the table.</p>
+<p>The Frozen Column example demonstrates how to freeze a column within a <a href="qtableview.html">QTableView</a>.<p class="centerAlign"><img src="images/frozencolumn-example.png" alt="&quot;Screenshot of the example&quot;" /></p><p>We use Qt's model/view framework to implement a table with its first column frozen. This technique can be aplied to several columns or rows, as long as they are on the edge of the table.</p>
 <p>The model/view framework allows for one model to be displayed in different ways using multiple views. For this example, we use two views on the same model - two <a href="qtableview.html">table views</a> sharing one model. The frozen column is a child of the main tableview, and we provide the desired visual effect using an overlay technique which will be described step by step in the coming sections.</p>
-<p class="centerAlign"><img src="images/frozencolumn-tableview.png" /></p><a name="freezetablewidget-class-definition"></a>
+<p class="centerAlign"><img src="images/frozencolumn-tableview.png" alt="" /></p><a name="freezetablewidget-class-definition"></a>
 <h2>FreezeTableWidget Class Definition</h2>
 <p>The <tt>FreezeTableWidget</tt> class has a constructor and a destructor. Also, it has two private members: the table view that we will use as an overlay, and the shared model for both table views. Two slots are added to help keep the section sizes in sync, as well as a function to readjust the frozen column's geometry. In addition, we reimplement two functions: <a href="qabstractitemview.html#resizeEvent">resizeEvent()</a> and <a href="qtableview.html#moveCursor">moveCursor()</a>.</p>
 <pre class="cpp"> <span class="keyword">class</span> FreezeTableWidget : <span class="keyword">public</span> <span class="type"><a href="qtableview.html">QTableView</a></span> {
@@ -170,7 +170,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

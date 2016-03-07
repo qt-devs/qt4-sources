@@ -47,13 +47,13 @@
 <li><a href="qws-simpledecoration-main-cpp.html">qws/simpledecoration/main.cpp</a></li>
 <li><a href="qws-simpledecoration-simpledecoration-pro.html">qws/simpledecoration/simpledecoration.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/embedded-simpledecoration-example.png" /></p><p>By default, Qt for Embedded Linux applications display windows with one of the standard window decorations provided by Qt which are perfectly suitable for many situations. Nonetheless, for certain applications and devices, it is necessary to provide custom window decorations.</p>
+<p>The Simple Decoration example shows how to create a custom window decoration for embedded applications.<p class="centerAlign"><img src="images/embedded-simpledecoration-example.png" alt="" /></p><p>By default, Qt for Embedded Linux applications display windows with one of the standard window decorations provided by Qt which are perfectly suitable for many situations. Nonetheless, for certain applications and devices, it is necessary to provide custom window decorations.</p>
 <p>In this document, we examine the fundamental features of custom window decorations, and create a simple decoration as an example.</p>
 <a name="styles-and-window-decorations"></a>
 <h2>Styles and Window Decorations</h2>
 <p>On many platforms, the style used for the contents of a window (including scroll bars) and the style used for the window decorations (the title bar, window borders, close, maximize and other buttons) are handled differently. This is usually because each application is responsible for rendering the contents of its own windows and the window manager renders the window decorations.</p>
 <p>Although the situation is not quite like this on Qt for Embedded Linux because <a href="qapplication.html">QApplication</a> automatically handles window decorations as well, there are still two style mechanisms at work: <a href="qstyle.html">QStyle</a> and its associated classes are responsible for rendering widgets and subclasses of <a href="qdecoration.html">QDecoration</a> are responsible for rendering window decorations.</p>
-<p class="centerAlign"><img src="images/embedded-simpledecoration-example-styles.png" /></p><p>Three decorations are provided with Qt for Embedded Linux: <i>default</i> is a basic style, <i>windows</i> resembles the classic Windows look and feel, and <i>styled</i> uses the <a href="qstyle.html">QStyle</a> classes for <a href="qmdisubwindow.html">QMdiSubWindow</a> to draw window decorations. Of these, <i>styled</i> is the most useful if you want to impose a consistent look and feel, but the window decorations may be too large for some use cases.</p>
+<p class="centerAlign"><img src="images/embedded-simpledecoration-example-styles.png" alt="" /></p><p>Three decorations are provided with Qt for Embedded Linux: <i>default</i> is a basic style, <i>windows</i> resembles the classic Windows look and feel, and <i>styled</i> uses the <a href="qstyle.html">QStyle</a> classes for <a href="qmdisubwindow.html">QMdiSubWindow</a> to draw window decorations. Of these, <i>styled</i> is the most useful if you want to impose a consistent look and feel, but the window decorations may be too large for some use cases.</p>
 <p>If none of these built-in decorations are suitable, a custom style can easily be created and used. To do this, we simply need to create a subclass of <a href="qdecorationdefault.html">QDecorationDefault</a> and apply it to a <a href="qapplication.html">QApplication</a> instance in a running application.</p>
 <a name="mydecoration-class-definition"></a>
 <h2>MyDecoration Class Definition</h2>
@@ -331,7 +331,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

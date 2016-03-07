@@ -571,7 +571,7 @@
 <h3>Transparency and Double Buffering</h3>
 <p>Since Qt 4.0, QWidget automatically double-buffers its painting, so there is no need to write double-buffering code in <a href="qwidget.html#paintEvent">paintEvent</a>() to avoid flicker.</p>
 <p>Since Qt 4.1, the <a href="qt.html#WidgetAttribute-enum">Qt::WA_ContentsPropagated</a> widget attribute has been deprecated. Instead, the contents of parent widgets are propagated by default to each of their children as long as <a href="qt.html#WidgetAttribute-enum">Qt::WA_PaintOnScreen</a> is not set. Custom widgets can be written to take advantage of this feature by updating irregular regions (to create non-rectangular child widgets), or painting with colors that have less than full alpha component. The following diagram shows how attributes and properties of a custom widget can be fine-tuned to achieve different effects.</p>
-<p class="centerAlign"><img src="images/propagation-custom.png" /></p><p>In the above diagram, a semi-transparent rectangular child widget with an area removed is constructed and added to a parent widget (a <a href="qlabel.html">QLabel</a> showing a pixmap). Then, different properties and widget attributes are set to achieve different effects:</p>
+<p class="centerAlign"><img src="images/propagation-custom.png" alt="" /></p><p>In the above diagram, a semi-transparent rectangular child widget with an area removed is constructed and added to a parent widget (a <a href="qlabel.html">QLabel</a> showing a pixmap). Then, different properties and widget attributes are set to achieve different effects:</p>
 <ul>
 <li>The left widget has no additional properties or widget attributes set. This default state suits most custom widgets using transparency, are irregularly-shaped, or do not paint over their entire area with an opaque brush.</li>
 <li>The center widget has the <a href="qwidget.html#autoFillBackground-prop">autoFillBackground</a> property set. This property is used with custom widgets that rely on the widget to supply a default background, and do not paint over their entire area with an opaque brush.</li>
@@ -581,7 +581,7 @@
 <p>To rapidly update custom widgets that constantly paint over their entire areas with opaque content, e.g&#x2e;, video streaming widgets, it is better to set the widget's <a href="qt.html#WidgetAttribute-enum">Qt::WA_OpaquePaintEvent</a>, avoiding any unnecessary overhead associated with repainting the widget's background.</p>
 <p>If a widget has both the <a href="qt.html#WidgetAttribute-enum">Qt::WA_OpaquePaintEvent</a> widget attribute <i>and</i> the <a href="qwidget.html#autoFillBackground-prop">autoFillBackground</a> property set, the <a href="qt.html#WidgetAttribute-enum">Qt::WA_OpaquePaintEvent</a> attribute takes precedence. Depending on your requirements, you should choose either one of them.</p>
 <p>Since Qt 4.1, the contents of parent widgets are also propagated to standard Qt widgets. This can lead to some unexpected results if the parent widget is decorated in a non-standard way, as shown in the diagram below.</p>
-<p class="centerAlign"><img src="images/propagation-standard.png" /></p><p>The scope for customizing the painting behavior of standard Qt widgets, without resorting to subclassing, is slightly less than that possible for custom widgets. Usually, the desired appearance of a standard widget can be achieved by setting its <a href="qwidget.html#autoFillBackground-prop">autoFillBackground</a> property.</p>
+<p class="centerAlign"><img src="images/propagation-standard.png" alt="" /></p><p>The scope for customizing the painting behavior of standard Qt widgets, without resorting to subclassing, is slightly less than that possible for custom widgets. Usually, the desired appearance of a standard widget can be achieved by setting its <a href="qwidget.html#autoFillBackground-prop">autoFillBackground</a> property.</p>
 <a name="creating-translucent-windows"></a>
 <h3>Creating Translucent Windows</h3>
 <p>Since Qt 4.5, it has been possible to create windows with translucent regions on window systems that support compositing.</p>
@@ -746,7 +746,7 @@
 <!-- $$$enabled-prop$$$isEnabled$$$setEnabledbool -->
 <h3 class="fn"><a name="enabled-prop"></a><span class="name">enabled</span> : <span class="type">bool</span></h3>
 <p>This property holds whether the widget is enabled.</p>
-<p>An enabled widget handles keyboard and mouse events; a disabled widget does not.</p>
+<p>In general an enabled widget handles keyboard and mouse events; a disabled widget does not. An exception is made with <a href="qabstractbutton.html">QAbstractButton</a>.</p>
 <p>Some widgets display themselves differently when they are disabled. For example a button might draw its label grayed out. If your widget needs to know when it becomes enabled or disabled, you can use the <a href="qwidget.html#changeEvent">changeEvent</a>() with type <a href="qevent.html#Type-enum">QEvent::EnabledChange</a>.</p>
 <p>Disabling a widget implicitly disables all its children. Enabling respectively enables all child widgets unless they have been explicitly disabled.</p>
 <p>By default, this property is true.</p>
@@ -2618,7 +2618,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

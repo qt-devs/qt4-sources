@@ -53,8 +53,8 @@
 <li><a href="help-simpletextviewer-main-cpp.html">help/simpletextviewer/main.cpp</a></li>
 <li><a href="help-simpletextviewer-simpletextviewer-pro.html">help/simpletextviewer/simpletextviewer.pro</a></li>
 </ul>
-<p>This is done in two stages. Firstly, documentation is created and <i>Qt Assistant</i> is customized; secondly, the functionality to launch and control <i>Qt Assistant</i> is added to the application.</p>
-<p class="centerAlign"><img src="images/simpletextviewer-example.png" /></p><p>The Simple Text Viewer application lets the user select and view existing files.</p>
+<p>The Simple Text Viewer example shows how to use <i>Qt Assistant</i> as a customized help viewer for your application.<p>This is done in two stages. Firstly, documentation is created and <i>Qt Assistant</i> is customized; secondly, the functionality to launch and control <i>Qt Assistant</i> is added to the application.</p>
+<p class="centerAlign"><img src="images/simpletextviewer-example.png" alt="" /></p><p>The Simple Text Viewer application lets the user select and view existing files.</p>
 <p>The application provides its own custom documentation that is available from the <b>Help</b> menu in the main window's menu bar or by clicking the <b>Help</b> button in the application's find file dialog.</p>
 <p>The example consists of four classes:</p>
 <ul>
@@ -242,7 +242,7 @@
  }</pre>
 <a name="mainwindow-class"></a>
 <h2>MainWindow Class</h2>
-<p class="centerAlign"><img src="images/simpletextviewer-mainwindow.png" /></p><p>The <tt>MainWindow</tt> class provides the main application window with two menus: the <b>File</b> menu lets the user open and view an existing file, while the <b>Help</b> menu provides information about the application and about Qt, and lets the user open <i>Qt Assistant</i> to display the application's documentation.</p>
+<p class="centerAlign"><img src="images/simpletextviewer-mainwindow.png" alt="" /></p><p>The <tt>MainWindow</tt> class provides the main application window with two menus: the <b>File</b> menu lets the user open and view an existing file, while the <b>Help</b> menu provides information about the application and about Qt, and lets the user open <i>Qt Assistant</i> to display the application's documentation.</p>
 <p>To be able to access the help functionality, we initialize the <tt>Assistant</tt> object in the <tt>MainWindow</tt>'s constructor.</p>
 <pre class="cpp"> MainWindow<span class="operator">::</span>MainWindow()
  {
@@ -269,7 +269,7 @@
  }</pre>
 <a name="findfiledialog-class"></a>
 <h2>FindFileDialog Class</h2>
-<p class="centerAlign"><img src="images/simpletextviewer-findfiledialog.png" /></p><p>The Simple Text Viewer application provides a find file dialog allowing the user to search for files using wildcard matching. The search is performed within the specified directory, and the user is given an option to browse the existing file system to find the relevant directory.</p>
+<p class="centerAlign"><img src="images/simpletextviewer-findfiledialog.png" alt="" /></p><p>The Simple Text Viewer application provides a find file dialog allowing the user to search for files using wildcard matching. The search is performed within the specified directory, and the user is given an option to browse the existing file system to find the relevant directory.</p>
 <p>In the constructor we save the references to the <tt>Assistant</tt> and <tt>QTextEdit</tt> objects passed as arguments. The <tt>Assistant</tt> object will be used in the <tt>FindFileDialog</tt>'s <tt>help()</tt> slot, as we will see shortly, while the <a href="qtextedit.html">QTextEdit</a> will be used in the dialog's <tt>openFile()</tt> slot to display the chosen file.</p>
 <pre class="cpp"> FindFileDialog<span class="operator">::</span>FindFileDialog(TextEdit <span class="operator">*</span>editor<span class="operator">,</span> Assistant <span class="operator">*</span>assistant)
      : <span class="type"><a href="qdialog.html">QDialog</a></span>(editor)
@@ -295,7 +295,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

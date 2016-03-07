@@ -29,7 +29,7 @@
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#properties">Attached Properties</a></li>
-<li class="level1"><a href="#signals">Attached Signals</a></li>
+<li class="level1"><a href="#signal-handlers">Attached Signal Handlers</a></li>
 <li class="level1"><a href="#methods">Methods</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
 <li class="level2"><a href="#example-usage">Example Usage</a></li>
@@ -86,8 +86,8 @@
 <li class="fn"><b><b><a href="qml-listview.html#section-prop">section</a></b></b> : string</li>
 <li class="fn"><b><b><a href="qml-listview.html#view-prop">view</a></b></b> : ListView</li>
 </ul>
-<a name="attached-signals"></a>
-<h2>Attached Signals</h2>
+<a name="attached-signal-handlers"></a>
+<h2>Attached Signal Handlers</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-listview.html#onAdd-signal">onAdd</a></b></b></li>
 <li class="fn"><b><b><a href="qml-listview.html#onRemove-signal">onRemove</a></b></b></li>
@@ -137,7 +137,7 @@
          <span class="name">text</span>: <span class="name">name</span> <span class="operator">+</span> <span class="string">&quot;: &quot;</span> <span class="operator">+</span> <span class="name">number</span>
      }
  }</pre>
-<p class="centerAlign"><img src="images/listview-simple.png" /></p><p>Here, the ListView creates a <tt>ContactModel</tt> component for its model, and a <a href="qml-text.html">Text</a> element for its delegate. The view will create a new <a href="qml-text.html">Text</a> component for each item in the model. Notice the delegate is able to access the model's <tt>name</tt> and <tt>number</tt> data directly.</p>
+<p class="centerAlign"><img src="images/listview-simple.png" alt="" /></p><p>Here, the ListView creates a <tt>ContactModel</tt> component for its model, and a <a href="qml-text.html">Text</a> element for its delegate. The view will create a new <a href="qml-text.html">Text</a> component for each item in the model. Notice the delegate is able to access the model's <tt>name</tt> and <tt>number</tt> data directly.</p>
 <p>An improved list view is shown below. The delegate is visually improved and is moved into a separate <tt>contactDelegate</tt> component.</p>
 <pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
      <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">200</span>
@@ -161,7 +161,7 @@
          <span class="name">focus</span>: <span class="number">true</span>
      }
  }</pre>
-<p class="centerAlign"><img src="images/listview-highlight.png" /></p><p>The currently selected item is highlighted with a blue <a href="qml-rectangle.html">Rectangle</a> using the <a href="qml-listview.html#highlight-prop">highlight</a> property, and <tt>focus</tt> is set to <tt>true</tt> to enable keyboard navigation for the list view. The list view itself is a focus scope (see <a href="qdeclarativefocus.html#acquiring-focus-and-focus-scopes">the focus documentation page</a> for more details).</p>
+<p class="centerAlign"><img src="images/listview-highlight.png" alt="" /></p><p>The currently selected item is highlighted with a blue <a href="qml-rectangle.html">Rectangle</a> using the <a href="qml-listview.html#highlight-prop">highlight</a> property, and <tt>focus</tt> is set to <tt>true</tt> to enable keyboard navigation for the list view. The list view itself is a focus scope (see <a href="qdeclarativefocus.html#acquiring-focus-and-focus-scopes">the focus documentation page</a> for more details).</p>
 <p>Delegates are instantiated as needed and may be destroyed at any time. State should <i>never</i> be stored in a delegate.</p>
 <p>ListView attaches a number of properties to the root item of the delegate, for example <tt>ListView.isCurrentItem</tt>. In the following example, the root delegate item can access this attached property directly as <tt>ListView.isCurrentItem</tt>, while the child <tt>contactInfo</tt> object must refer to this property as <tt>wrapper.ListView.isCurrentItem</tt>.</p>
 <pre class="qml"> <span class="type">ListView</span> {
@@ -315,8 +315,8 @@
 <li><a href="qml-listview.html">ListView</a>.Vertical (default) - Items are laid out vertically</li>
 </ul>
 <table class="generic">
-<tr valign="top" class="odd"><td >Horizontal orientation:<p class="centerAlign"><img src="images/ListViewHorizontal.png" /></p></td></tr>
-<tr valign="top" class="even"><td >Vertical orientation:<p class="centerAlign"><img src="images/listview-highlight.png" /></p></td></tr>
+<tr valign="top" class="odd"><td >Horizontal orientation:<p class="centerAlign"><img src="images/ListViewHorizontal.png" alt="" /></p></td></tr>
+<tr valign="top" class="even"><td >Vertical orientation:<p class="centerAlign"><img src="images/listview-highlight.png" alt="" /></p></td></tr>
 </table>
 </div></div><!-- @@@orientation -->
 <br/>
@@ -344,7 +344,7 @@
 <p>Each item in the list has attached properties named <tt>ListView.section</tt>, <tt>ListView.previousSection</tt> and <tt>ListView.nextSection</tt>. These may be used to place a section header for related items.</p>
 <p>For example, here is a <a href="qml-listview.html">ListView</a> that displays a list of animals, separated into sections. Each item in the <a href="qml-listview.html">ListView</a> is placed in a different section depending on the &quot;size&quot; property of the model item. The <tt>sectionHeading</tt> delegate component provides the light blue bar that marks the beginning of each section.</p>
 <pre class="qml"></pre>
-<p class="centerAlign"><img src="images/qml-listview-sections-example.png" /></p><p><b>Note:</b> Adding sections to a <a href="qml-listview.html">ListView</a> does not automatically re-order the list items by the section criteria. If the model is not ordered by section, then it is possible that the sections created will not be unique; each boundary between differing sections will result in a section header being created even if that section exists elsewhere.</p>
+<p class="centerAlign"><img src="images/qml-listview-sections-example.png" alt="" /></p><p><b>Note:</b> Adding sections to a <a href="qml-listview.html">ListView</a> does not automatically re-order the list items by the section criteria. If the model is not ordered by section, then it is possible that the sections created will not be unique; each boundary between differing sections will result in a section header being created even if that section exists elsewhere.</p>
 <p><b>See also </b><a href="qml-listview-examples.html">ListView examples</a>.</p>
 </div></div><!-- @@@section.property -->
 <br/>
@@ -433,7 +433,7 @@
 <p>It is attached to each instance of the delegate.</p>
 </div></div><!-- @@@view -->
 <br/>
-<h2>Attached Signal Documentation</h2>
+<h2>Attached Signal Handler Documentation</h2>
 <!-- $$$onAdd -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onAdd-signal"></a>ListView::<span class="name">onAdd</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This attached handler is called immediately after an item is added to the view.</p>
 </div></div><!-- @@@onAdd -->
@@ -498,7 +498,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -41,7 +41,7 @@
 <li><a href="tutorials-addressbook-part2-part2-pro.html">tutorials/addressbook/part2/part2.pro</a></li>
 </ul>
 <p>The next step in creating the address book is to implement some user interactions.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part2-add-contact.png" /></p><p>We will provide a push button that the user can click to add a new contact. Also, some form of data structure is needed to store these contacts in an organized way.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part2-add-contact.png" alt="" /></p><p>We will provide a push button that the user can click to add a new contact. Also, some form of data structure is needed to store these contacts in an organized way.</p>
 <a name="defining-the-addressbook-class"></a>
 <h2>Defining the AddressBook Class</h2>
 <p>Now that we have the labels and input fields set up, we add push buttons to complete the process of adding a contact. This means that our <tt>addressbook.h</tt> file now has three <a href="qpushbutton.html">QPushButton</a> objects declared and three corresponding public slots.</p>
@@ -82,14 +82,14 @@
      connect(submitButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(submitContact()));
      connect(cancelButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(cancel()));</pre>
 <p>We connect the push buttons' <a href="qabstractbutton.html#clicked">clicked()</a> signal to their respective slots. The figure below illustrates this.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part2-signals-and-slots.png" /></p><p>Next, we arrange our push buttons neatly to the right of our address book widget, using a <a href="qvboxlayout.html">QVBoxLayout</a> to line them up vertically.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part2-signals-and-slots.png" alt="" /></p><p>Next, we arrange our push buttons neatly to the right of our address book widget, using a <a href="qvboxlayout.html">QVBoxLayout</a> to line them up vertically.</p>
 <pre class="cpp">     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>buttonLayout1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
      buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addButton<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignTop);
      buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(submitButton);
      buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(cancelButton);
      buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addStretch();</pre>
 <p>The <a href="qboxlayout.html#addStretch">addStretch()</a> function is used to ensure the push buttons are not evenly spaced, but arranged closer to the top of the widget. The figure below shows the difference between using <a href="qboxlayout.html#addStretch">addStretch()</a> and not using it.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part2-stretch-effects.png" /></p><p>We then add <tt>buttonLayout1</tt> to <tt>mainLayout</tt>, using <a href="qgridlayout.html#addLayout">addLayout()</a>. This gives us nested layouts as <tt>buttonLayout1</tt> is now a child of <tt>mainLayout</tt>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part2-stretch-effects.png" alt="" /></p><p>We then add <tt>buttonLayout1</tt> to <tt>mainLayout</tt>, using <a href="qgridlayout.html#addLayout">addLayout()</a>. This gives us nested layouts as <tt>buttonLayout1</tt> is now a child of <tt>mainLayout</tt>.</p>
 <pre class="cpp">     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLine<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
@@ -97,7 +97,7 @@
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressText<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(buttonLayout1<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);</pre>
 <p>Our layout coordinates now look like this:</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part2-labeled-layout.png" /></p><p>In the <tt>addContact()</tt> function, we store the last displayed contact details in <tt>oldName</tt> and <tt>oldAddress</tt>. Then we clear these input fields and turn off the read-only mode. The focus is set on <tt>nameLine</tt> and we display <tt>submitButton</tt> and <tt>cancelButton</tt>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part2-labeled-layout.png" alt="" /></p><p>In the <tt>addContact()</tt> function, we store the last displayed contact details in <tt>oldName</tt> and <tt>oldAddress</tt>. Then we clear these input fields and turn off the read-only mode. The focus is set on <tt>nameLine</tt> and we display <tt>submitButton</tt> and <tt>cancelButton</tt>.</p>
 <pre class="cpp"> <span class="type">void</span> AddressBook<span class="operator">::</span>addContact()
  {
      oldName <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
@@ -152,7 +152,7 @@
 </li>
 </ol>
 <p>The screenshot below shows the <a href="qmessagebox.html">QMessageBox</a> object we use to display information messages to the user.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part2-add-successful.png" /></p><p>The <tt>cancel()</tt> function restores the last displayed contact details and enables <tt>addButton</tt>, as well as hides <tt>submitButton</tt> and <tt>cancelButton</tt>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part2-add-successful.png" alt="" /></p><p>The <tt>cancel()</tt> function restores the last displayed contact details and enables <tt>addButton</tt>, as well as hides <tt>submitButton</tt> and <tt>cancelButton</tt>.</p>
 <pre class="cpp"> <span class="type">void</span> AddressBook<span class="operator">::</span>cancel()
  {
      nameLine<span class="operator">-</span><span class="operator">&gt;</span>setText(oldName);
@@ -166,7 +166,7 @@
      cancelButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
  }</pre>
 <p>The general idea behind adding a contact is to give the user the flexibility to click <b>Submit</b> or <b>Cancel</b> at any time. The flowchart below further explains this concept:</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part2-add-flowchart.png" /></p></div>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part2-add-flowchart.png" alt="" /></p></div>
 <!-- @@@tutorials/addressbook/part2 -->
   <div class="ft">
     <span></span>
@@ -174,7 +174,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

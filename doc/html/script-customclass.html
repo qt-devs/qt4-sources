@@ -44,7 +44,7 @@
 <li><a href="script-customclass-main-cpp.html">script/customclass/main.cpp</a></li>
 <li><a href="script-customclass-customclass-pro.html">script/customclass/customclass.pro</a></li>
 </ul>
-<p>The script class we are going to implement is called <tt>ByteArray</tt>. It provides a wrapper around the <a href="qbytearray.html">QByteArray</a> class in Qt, with a simplified API. Why do we need such a class? Well, neither the ECMAScript <tt>Array</tt> class or <tt>String</tt> class is appropriate to use when working with arrays of bytes. Our <tt>ByteArray</tt> class will have the right semantics; objects will use only the amount of memory that is really needed (a byte is stored as a byte, not as a floating-point number or a Unicode character) and can be passed directly to C++ slots taking <a href="qbytearray.html">QByteArray</a> arguments (no costly conversion necessary).</p>
+<p>The Custom Script Class example shows how to use <a href="qscriptclass.html">QScriptClass</a> and <a href="qscriptclasspropertyiterator.html">QScriptClassPropertyIterator</a> to implement a custom script class.<p>The script class we are going to implement is called <tt>ByteArray</tt>. It provides a wrapper around the <a href="qbytearray.html">QByteArray</a> class in Qt, with a simplified API. Why do we need such a class? Well, neither the ECMAScript <tt>Array</tt> class or <tt>String</tt> class is appropriate to use when working with arrays of bytes. Our <tt>ByteArray</tt> class will have the right semantics; objects will use only the amount of memory that is really needed (a byte is stored as a byte, not as a floating-point number or a Unicode character) and can be passed directly to C++ slots taking <a href="qbytearray.html">QByteArray</a> arguments (no costly conversion necessary).</p>
 <a name="bytearray-class-in-use"></a>
 <h2>ByteArray Class In Use</h2>
 <p>When the <tt>ByteArray</tt> class has been made available to the scripting environment, <tt>ByteArray</tt> objects can be constructed like so:</p>
@@ -299,7 +299,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

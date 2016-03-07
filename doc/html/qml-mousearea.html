@@ -28,7 +28,7 @@
 <h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
-<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#signal-handlers">Signal Handlers</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
 <li class="level2"><a href="#example-usage">Example Usage</a></li>
 </ul>
@@ -64,8 +64,8 @@
 <li class="fn"><b><b><a href="qml-mousearea.html#pressedButtons-prop">pressedButtons</a></b></b> : MouseButtons</li>
 <li class="fn"><b><b><a href="qml-mousearea.html#preventStealing-prop">preventStealing</a></b></b> : bool</li>
 </ul>
-<a name="signals"></a>
-<h2>Signals</h2>
+<a name="signal-handlers"></a>
+<h2>Signal Handlers</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-mousearea.html#onCanceled-signal">onCanceled</a></b></b></li>
 <li class="fn"><b><b><a href="qml-mousearea.html#onClicked-signal">onClicked</a></b></b></li>
@@ -88,7 +88,7 @@
 <p>By default, MouseArea items only report mouse clicks and not changes to the position of the mouse cursor. Setting the <a href="qml-mousearea.html#hoverEnabled-prop">hoverEnabled</a> property ensures that handlers defined for <a href="qml-mousearea.html#onPositionChanged-signal">onPositionChanged</a>, <a href="qml-mousearea.html#onEntered-signal">onEntered</a> and <a href="qml-mousearea.html#onExited-signal">onExited</a> are used and that the <a href="qml-mousearea.html#containsMouse-prop">containsMouse</a> property is updated even when no mouse buttons are pressed.</p>
 <a name="example-usage"></a>
 <h2>Example Usage</h2>
-<div class="float-right"><p><img src="images/qml-mousearea-snippet.png" /></p>
+<div class="float-right"><p><img src="images/qml-mousearea-snippet.png" alt="" /></p>
 </div><p>The following example uses a MouseArea in a <a href="qml-rectangle.html">Rectangle</a> that changes the <a href="qml-rectangle.html">Rectangle</a> color to red when clicked:</p>
 <pre class="qml"> import QtQuick 1.0
 
@@ -259,7 +259,7 @@
 <p>This property group was introduced in  QtQuick 1.1.</p>
 </div></div><!-- @@@preventStealing -->
 <br/>
-<h2>Signal Documentation</h2>
+<h2>Signal Handler Documentation</h2>
 <!-- $$$onCanceled -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onCanceled-signal"></a>MouseArea::<span class="name">onCanceled</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when mouse events have been canceled, either because an event was not accepted, or because another element stole the mouse event handling.</p>
 <p>This signal is for advanced use: it is useful when there is more than one <a href="qml-mousearea.html">MouseArea</a> that is handling input, or when there is a <a href="qml-mousearea.html">MouseArea</a> inside a <a href="qml-flickable.html">Flickable</a>. In the latter case, if you execute some logic on the pressed signal and then start dragging, the <a href="qml-flickable.html">Flickable</a> will steal the mouse handling from the <a href="qml-mousearea.html">MouseArea</a>. In these cases, to reset the logic when the <a href="qml-mousearea.html">MouseArea</a> has lost the mouse handling to the <a href="qml-flickable.html">Flickable</a>, <tt>onCanceled</tt> should be used in addition to <a href="qml-mousearea.html#onReleased-signal">onReleased</a>.</p>
@@ -319,7 +319,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

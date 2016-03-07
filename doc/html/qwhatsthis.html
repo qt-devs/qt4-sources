@@ -62,7 +62,7 @@
      newAct<span class="operator">-</span><span class="operator">&gt;</span>setStatusTip(tr(<span class="string">&quot;Create a new file&quot;</span>));
      newAct<span class="operator">-</span><span class="operator">&gt;</span>setWhatsThis(tr(<span class="string">&quot;Click this option to create a new file.&quot;</span>));</pre>
 <p>An alternative way to enter &quot;What's This?&quot; mode is to call <a href="qwhatsthis.html#createAction">createAction</a>(), and add the returned <a href="qaction.html">QAction</a> to either a menu or a tool bar. By invoking this context help action (in the picture below, the button with the arrow and question mark icon) the user switches into &quot;What's This?&quot; mode. If they now click on a widget the appropriate help text is shown. The mode is left when help is given or when the user presses Esc.</p>
-<p class="centerAlign"><img src="images/whatsthis.png" /></p><p>You can enter &quot;What's This?&quot; mode programmatically with <a href="qwhatsthis.html#enterWhatsThisMode">enterWhatsThisMode</a>(), check the mode with <a href="qwhatsthis.html#inWhatsThisMode">inWhatsThisMode</a>(), and return to normal mode with <a href="qwhatsthis.html#leaveWhatsThisMode">leaveWhatsThisMode</a>().</p>
+<p class="centerAlign"><img src="images/whatsthis.png" alt="" /></p><p>You can enter &quot;What's This?&quot; mode programmatically with <a href="qwhatsthis.html#enterWhatsThisMode">enterWhatsThisMode</a>(), check the mode with <a href="qwhatsthis.html#inWhatsThisMode">inWhatsThisMode</a>(), and return to normal mode with <a href="qwhatsthis.html#leaveWhatsThisMode">leaveWhatsThisMode</a>().</p>
 <p>If you want to control the &quot;What's This?&quot; behavior of a widget manually see <a href="qt.html#WidgetAttribute-enum">Qt::WA_CustomWhatsThis</a>.</p>
 <p>It is also possible to show different help texts for different regions of a widget, by using a <a href="qhelpevent.html">QHelpEvent</a> of type <a href="qevent.html#Type-enum">QEvent::WhatsThis</a>. Intercept the help event in your widget's <a href="qwidget.html#event">QWidget::event</a>() function and call <a href="qwhatsthis.html#showText">QWhatsThis::showText</a>() with the text you want to display for the position specified in <a href="qhelpevent.html#pos">QHelpEvent::pos</a>(). If the text is rich text and the user clicks on a link, the widget also receives a <a href="qwhatsthisclickedevent.html">QWhatsThisClickedEvent</a> with the link's reference as <a href="qwhatsthisclickedevent.html#href">QWhatsThisClickedEvent::href</a>(). If a <a href="qwhatsthisclickedevent.html">QWhatsThisClickedEvent</a> is handled (i.e&#x2e; <a href="qwidget.html#event">QWidget::event</a>() returns true), the help window remains visible. Call <a href="qwhatsthis.html#hideText">QWhatsThis::hideText</a>() to hide it explicitly.</p>
 </div>
@@ -109,7 +109,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

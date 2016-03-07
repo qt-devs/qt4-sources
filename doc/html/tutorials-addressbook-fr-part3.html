@@ -43,7 +43,7 @@
 <p>L'application &quot;Carnet d'adresses&quot; est maintenant à moitié terminée. Il nous faut maintenant ajouter quelques fonctions pour naviguer entre les contacts. Avant de commencer, il faut se décider sur le type de structure de données le plus approprié pour stocker les contacts.</p>
 <p>Dans le chapitre 2, nous avons utilisé un <a href="qmap.html">QMap</a> utilisant des paires clé-valeur, avec le nom du contact comme <i>clé</i>, et l'adresse du contact comme <i>valeur</i>. Cela fonctionnait bien jusqu'ici, mais pour ajouter la navigation entre les entrées, quelques améliorations sont nécessaires.</p>
 <p>Nous améliorerons le <a href="qmap.html">QMap</a> en le faisant ressembler à une structure de données similaire à une liste liée, où tous les éléments sont connectés, y compris le premier et le dernier élément. La figure ci-dessous illustre cette structure de donnée.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part3-linkedlist.png" /></p><a name="d-finition-de-la-classe-addressbook"></a>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part3-linkedlist.png" alt="" /></p><a name="d-finition-de-la-classe-addressbook"></a>
 <h2>Définition de la classe AddressBook</h2>
 <p>Pour ajouter les fonctions de navigation au carnet d'adresses, nous avons besoin de deux slots supplémentaires dans notre classe <tt>AddressBook</tt>: <tt>next()</tt> et <tt>previous()</tt>. Ceux-ci sont ajoutés au fichier addressbook.h:</p>
 <pre class="cpp">     <span class="type">void</span> next();
@@ -62,14 +62,14 @@
 <pre class="cpp">     connect(nextButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(next()));
      connect(previousButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(previous()));</pre>
 <p>L'image ci-dessous montre l'interface utilisateur que nous allons créer. Remarquez que cela ressemble de plus en plus à l'interface du programme complet.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part3-screenshot.png" /></p><p>Nous suivons les conventions pour les fonctions <tt>next()</tt> et <tt>previous()</tt> en plaçant <tt>nextButton</tt> à droite et <tt>previousButton</tt> à gauche. Pour faire cette mise en page intuitive, nous utilisons un <a href="qhboxlayout.html">QHBoxLayout</a> pour placer les widgets côte à côte:</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part3-screenshot.png" alt="" /></p><p>Nous suivons les conventions pour les fonctions <tt>next()</tt> et <tt>previous()</tt> en plaçant <tt>nextButton</tt> à droite et <tt>previousButton</tt> à gauche. Pour faire cette mise en page intuitive, nous utilisons un <a href="qhboxlayout.html">QHBoxLayout</a> pour placer les widgets côte à côte:</p>
 <pre class="cpp">     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>buttonLayout2 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
      buttonLayout2<span class="operator">-</span><span class="operator">&gt;</span>addWidget(previousButton);
      buttonLayout2<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nextButton);</pre>
 <p>L'objet <a href="qhboxlayout.html">QHBoxLayout</a>, <tt>buttonLayout2</tt>, est ensuite ajouté à <tt>mainLayout</tt>.</p>
 <pre class="cpp">     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(buttonLayout2<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span>);</pre>
 <p>La figure ci-dessous montre les systèmes de coordonnées pour les widgets du <tt>mainLayout</tt>.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part3-labeled-layout.png" /></p><p>Dans notre méthode <tt>addContact()</tt>, nous avons desactivé ces boutons pour être sûr que l'utilisateur n'utilise pas la navigation lors de l'ajout d'un contact.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part3-labeled-layout.png" alt="" /></p><p>Dans notre méthode <tt>addContact()</tt>, nous avons desactivé ces boutons pour être sûr que l'utilisateur n'utilise pas la navigation lors de l'ajout d'un contact.</p>
 <pre class="cpp">     nextButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
      previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);</pre>
 <p>Dans notre méthode <tt>submitContact()</tt>, nous activons les boutons de navigation, <tt>nextButton</tt> et <tt>previousButton</tt>, en fonction de la taille de <tt>contacts</tt>. Commen mentionné plus tôt, la navigation n'est activée que si il y a plus d'un contact dans le carnet d'adresses. Les lignes suivantes montrent comment faire cela:</p>
@@ -130,7 +130,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

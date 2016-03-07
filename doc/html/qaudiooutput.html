@@ -91,47 +91,51 @@
 <p>You can construct an audio output with the system's <a href="qaudiodeviceinfo.html#defaultOutputDevice">default audio output device</a>. It is also possible to create QAudioOutput with a specific <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>. When you create the audio output, you should also send in the <a href="qaudioformat.html">QAudioFormat</a> to be used for the playback (see the <a href="qaudioformat.html">QAudioFormat</a> class description for details).</p>
 <p>To play a file:</p>
 <p>Starting to play an audio stream is simply a matter of calling <a href="qaudiooutput.html#start">start</a>() with a <a href="qiodevice.html">QIODevice</a>. QAudioOutput will then fetch the data it needs from the io device. So playing back an audio file is as simple as:</p>
-<pre class="cpp"> <span class="type"><a href="qfile.html">QFile</a></span> inputFile;     <span class="comment">// class member.</span>
- <span class="type">QAudioOutput</span><span class="operator">*</span> audio; <span class="comment">// class member.</span></pre>
-<pre class="cpp"> inputFile<span class="operator">.</span>setFileName(<span class="string">&quot;/tmp/test.raw&quot;</span>);
- inputFile<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+<pre class="cpp">     <span class="type"><a href="qfile.html">QFile</a></span> inputFile;           <span class="comment">// class member.</span>
+     <span class="type">QAudioOutput</span> <span class="operator">*</span>audioOutput; <span class="comment">// class member.</span>
+     ...
+     <span class="type">void</span> startPlaying()
+     {
+         inputFile<span class="operator">.</span>setFileName(<span class="string">&quot;/tmp/test.raw&quot;</span>);
+         inputFile<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
 
- <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> format;
- <span class="comment">// Set up the format, eg.</span>
- format<span class="operator">.</span>setFrequency(<span class="number">8000</span>);
- format<span class="operator">.</span>setChannels(<span class="number">1</span>);
- format<span class="operator">.</span>setSampleSize(<span class="number">8</span>);
- format<span class="operator">.</span>setCodec(<span class="string">&quot;audio/pcm&quot;</span>);
- format<span class="operator">.</span>setByteOrder(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>LittleEndian);
- format<span class="operator">.</span>setSampleType(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>UnSignedInt);
+         <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> format;
+         <span class="comment">// Set up the format, eg.</span>
+         format<span class="operator">.</span>setFrequency(<span class="number">8000</span>);
+         format<span class="operator">.</span>setChannels(<span class="number">1</span>);
+         format<span class="operator">.</span>setSampleSize(<span class="number">8</span>);
+         format<span class="operator">.</span>setCodec(<span class="string">&quot;audio/pcm&quot;</span>);
+         format<span class="operator">.</span>setByteOrder(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>LittleEndian);
+         format<span class="operator">.</span>setSampleType(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>UnSignedInt);
 
- <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> info(<span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>defaultOutputDevice());
- <span class="keyword">if</span> (<span class="operator">!</span>info<span class="operator">.</span>isFormatSupported(format)) {
-     <a href="qtglobal.html#qWarning">qWarning</a>()<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="string">&quot;raw audio format not supported by backend, cannot play audio.&quot;</span>;
-     <span class="keyword">return</span>;
- }
+         <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> info(<span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>defaultOutputDevice());
+         <span class="keyword">if</span> (<span class="operator">!</span>info<span class="operator">.</span>isFormatSupported(format)) {
+             <a href="qtglobal.html#qWarning">qWarning</a>()<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="string">&quot;raw audio format not supported by backend, cannot play audio.&quot;</span>;
+             <span class="keyword">return</span>;
+         }
 
- audio <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QAudioOutput</span>(format<span class="operator">,</span> <span class="keyword">this</span>);
- <a href="qobject.html#connect">connect</a>(audio<span class="operator">,</span>SIGNAL(stateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State))<span class="operator">,</span>SLOT(finishedPlaying(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State)));
- audio<span class="operator">-</span><span class="operator">&gt;</span><a href="qaudiooutput.html#start">start</a>(<span class="operator">&amp;</span>inputFile);</pre>
+         audioOutput <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QAudioOutput</span>(format<span class="operator">,</span> <span class="keyword">this</span>);
+         connect(audioOutput<span class="operator">,</span>SIGNAL(stateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State))<span class="operator">,</span>SLOT(finishedPlaying(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State)));
+         audioOutput<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="operator">&amp;</span>inputFile);
+     }</pre>
 <p>The file will start playing assuming that the audio system and output device support it. If you run out of luck, check what's up with the <a href="qaudiooutput.html#error">error</a>() function.</p>
 <p>After the file has finished playing, we need to stop the device:</p>
-<pre class="cpp"> <span class="type">void</span> finishedPlaying(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state)
- {
-   <span class="keyword">if</span>(state <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>IdleState) {
-     audio<span class="operator">-</span><span class="operator">&gt;</span>stop();
-     inputFile<span class="operator">.</span>close();
-     <span class="keyword">delete</span> audio;
-   }
- }</pre>
+<pre class="cpp">     <span class="type">void</span> finishedPlaying(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state)
+     {
+         <span class="keyword">if</span> (state <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>IdleState) {
+             audioOutput<span class="operator">-</span><span class="operator">&gt;</span>stop();
+             inputFile<span class="operator">.</span>close();
+             <span class="keyword">delete</span> audioOutput;
+         }
+     }</pre>
 <p>At any given time, the QAudioOutput will be in one of four states: active, suspended, stopped, or idle. These states are described by the <a href="qaudio.html#State-enum">QAudio::State</a> enum. State changes are reported through the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal. You can use this signal to, for instance, update the GUI of the application; the mundane example here being changing the state of a <tt>play/pause</tt> button. You request a state change directly with <a href="qaudiooutput.html#suspend">suspend</a>(), <a href="qaudiooutput.html#stop">stop</a>(), <a href="qaudiooutput.html#reset">reset</a>(), <a href="qaudiooutput.html#resume">resume</a>(), and <a href="qaudiooutput.html#start">start</a>().</p>
 <p>While the stream is playing, you can set a notify interval in milliseconds with <a href="qaudiooutput.html#setNotifyInterval">setNotifyInterval</a>(). This interval specifies the time between two emissions of the <a href="qaudiooutput.html#notify">notify</a>() signal. This is relative to the position in the stream, i.e&#x2e;, if the QAudioOutput is in the SuspendedState or the IdleState, the <a href="qaudiooutput.html#notify">notify</a>() signal is not emitted. A typical use-case would be to update a <a href="qslider.html">slider</a> that allows seeking in the stream. If you want the time since playback started regardless of which states the audio output has been in, <a href="qaudiooutput.html#elapsedUSecs">elapsedUSecs</a>() is the function for you.</p>
 <p>If an error occurs, you can fetch the <a href="qaudio.html#Error-enum">error type</a> with the <a href="qaudiooutput.html#error">error</a>() function. Please see the <a href="qaudio.html#Error-enum">QAudio::Error</a> enum for a description of the possible errors that are reported. When an error is encountered, the state changes to <a href="qaudio.html#State-enum">QAudio::StoppedState</a>. You can check for errors by connecting to the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal:</p>
 <pre class="cpp">     <span class="type">void</span> stateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State newState)
      {
          <span class="keyword">switch</span> (newState) {
-             <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>StopState:
-                 <span class="keyword">if</span> (output<span class="operator">-</span><span class="operator">&gt;</span>error() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>NoError) {
+             <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>StoppedState:
+                 <span class="keyword">if</span> (audioOutput<span class="operator">-</span><span class="operator">&gt;</span>error() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>NoError) {
                      <span class="comment">// Perform error handling</span>
                  } <span class="keyword">else</span> {
                      <span class="comment">// Normal stop</span>
@@ -261,7 +265,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

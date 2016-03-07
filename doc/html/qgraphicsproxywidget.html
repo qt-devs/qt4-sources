@@ -170,7 +170,7 @@
  <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span> view(<span class="operator">&amp;</span>scene);
  view<span class="operator">.</span><a href="qgraphicsitem.html#show">show</a>();</pre>
 <p>The image below is the output obtained with its contents margin and contents rect labeled.</p>
-<p class="centerAlign"><img src="images/qgraphicsproxywidget-embed.png" /></p><p>Alternatively, you can start by creating a new QGraphicsProxyWidget item, and then call <a href="qgraphicsproxywidget.html#setWidget">setWidget</a>() to embed a <a href="qwidget.html">QWidget</a> later. The <a href="qgraphicsproxywidget.html#widget">widget</a>() function returns a pointer to the embedded widget. QGraphicsProxyWidget shares ownership with <a href="qwidget.html">QWidget</a>, so if either of the two widgets are destroyed, the other widget will be automatically destroyed as well.</p>
+<p class="centerAlign"><img src="images/qgraphicsproxywidget-embed.png" alt="" /></p><p>Alternatively, you can start by creating a new QGraphicsProxyWidget item, and then call <a href="qgraphicsproxywidget.html#setWidget">setWidget</a>() to embed a <a href="qwidget.html">QWidget</a> later. The <a href="qgraphicsproxywidget.html#widget">widget</a>() function returns a pointer to the embedded widget. QGraphicsProxyWidget shares ownership with <a href="qwidget.html">QWidget</a>, so if either of the two widgets are destroyed, the other widget will be automatically destroyed as well.</p>
 <a name="synchronizing-widget-states"></a>
 <h3>Synchronizing Widget States</h3>
 <p>QGraphicsProxyWidget keeps its state in sync with the embedded widget. For example, if the proxy is hidden or disabled, the embedded widget will be hidden or disabled as well, and vice versa. When the widget is embedded by calling addWidget(), QGraphicsProxyWidget copies the state from the widget into the proxy, and after that, the two will stay synchronized where possible. By default, when you embed a widget into a proxy, both the widget and the proxy will be visible because a <a href="qgraphicswidget.html">QGraphicsWidget</a> is visible when created (you do not have to call <a href="qgraphicsitem.html#show">show</a>()). If you explicitly hide the embedded widget, the proxy will also become invisible.</p>
@@ -382,7 +382,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

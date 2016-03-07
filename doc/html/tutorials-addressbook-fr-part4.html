@@ -42,7 +42,7 @@
 <li><a href="tutorials-addressbook-fr-part4-part4-pro.html">tutorials/addressbook-fr/part4/part4.pro</a></li>
 </ul>
 <p>Dans ce chapitre, nous verrons comment modifier les données des contacts contenus dans l'application carnet d'adresses.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-screenshot.png" /></p><p>Nous avons maintenant un carnet d'adresses qui ne se contente pas de lister des contacts de façon ordonnée, mais permet également la navigation. Il serait pratique d'inclure des fonctions telles qu'éditer et supprimer, afin que les détails associés à un contact puissent être modifiés lorsque c'est nécessaire. Cependant, cela requiert une légère modification, sous la forme d'énumérations. Au chapitre précédent, nous avions deux modes: <tt>AddingMode</tt> et <tt>NavigationMode</tt>, mais ils n'étaient pas définis en tant qu'énumérations. Au lieu de ça, on activait et désactivait les boutons correspondants manuellement, au prix de multiples redondances dans le code.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-screenshot.png" alt="" /></p><p>Nous avons maintenant un carnet d'adresses qui ne se contente pas de lister des contacts de façon ordonnée, mais permet également la navigation. Il serait pratique d'inclure des fonctions telles qu'éditer et supprimer, afin que les détails associés à un contact puissent être modifiés lorsque c'est nécessaire. Cependant, cela requiert une légère modification, sous la forme d'énumérations. Au chapitre précédent, nous avions deux modes: <tt>AddingMode</tt> et <tt>NavigationMode</tt>, mais ils n'étaient pas définis en tant qu'énumérations. Au lieu de ça, on activait et désactivait les boutons correspondants manuellement, au prix de multiples redondances dans le code.</p>
 <p>Dans ce chapitre, on définit l'énumération <tt>Mode</tt> avec trois valeurs possibles.</p>
 <ul>
 <li><tt>NavigationMode</tt>,</li>
@@ -148,7 +148,7 @@
      updateInterface(NavigationMode);
  }</pre>
 <p>Si c'est le cas, on affiche une boîte de dialogue <a href="qmessagebox.html">QMessageBox</a>, demandant confirmation de la suppression à l'utilisateur. Une fois la confirmation effectuée, on appelle <tt>previous()</tt>, afin de s'assurer que l'interface utilisateur affiche une autre entrée, et on supprime le contact en utilisant le méthode <a href="qmap.html#remove">remove()</a> de <a href="qmap.html">QMap</a>. Dans un souci pratique, on informe l'utilisateur de la suppression par le biais d'une autre <a href="qmessagebox.html">QMessageBox</a>. Les deux boîtes de dialogue utilisées dans cette méthode sont représentées ci-dessous.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part4-remove.png" /></p><a name="mise-jour-de-l-interface-utilisateur"></a>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part4-remove.png" alt="" /></p><a name="mise-jour-de-l-interface-utilisateur"></a>
 <h3>Mise à jour de l'Interface utilisateur</h3>
 <p>On a évoqué plus haut la méthode <tt>updateInterface()</tt> comme moyen d'activer et de désactiver les différents boutons de l'interface en fonction du mode. Cette méthode met à jour le mode courant selon l'argument <tt>mode</tt> qui lui est passé, en l'assignant à <tt>currentMode</tt>, avant de tester sa valeur.</p>
 <p>Chacun des boutons est ensuite activé ou désactivé, en fonction du mode. Le code source pour les cas <tt>AddingMode</tt> et <tt>EditingMode</tt> est visible ci-dessous:</p>
@@ -207,7 +207,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

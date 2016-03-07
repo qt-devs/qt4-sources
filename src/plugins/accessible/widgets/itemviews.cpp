@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -792,7 +792,7 @@ QString QAccessibleTable2Cell::text(Text t, int child) const
 void QAccessibleTable2Cell::setText(Text /*t*/, int child, const QString &text)
 {
     Q_ASSERT(child == 0);
-    if (!m_index.flags() & Qt::ItemIsEditable)
+    if (!(m_index.flags() & Qt::ItemIsEditable))
         return;
     view->model()->setData(m_index, text);
 }

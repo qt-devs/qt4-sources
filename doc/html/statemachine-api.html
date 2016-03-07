@@ -64,12 +64,12 @@
 <tr class="odd topAlign"><td class="tblName"><p><a href="qstate.html">QState</a></p></td><td class="tblDescr"><p>General-purpose state for QStateMachine</p></td></tr>
 <tr class="even topAlign"><td class="tblName"><p><a href="qstatemachine.html">QStateMachine</a></p></td><td class="tblDescr"><p>Hierarchical finite state machine</p></td></tr>
 <tr class="odd topAlign"><td class="tblName"><p><a href="qstatemachine-signalevent.html">QStateMachine::SignalEvent</a></p></td><td class="tblDescr"><p>Represents a Qt signal event</p></td></tr>
-<tr class="even topAlign"><td class="tblName"><p><a href="qstatemachine-wrappedevent.html">QStateMachine::WrappedEvent</a></p></td><td class="tblDescr"><p>Holds a clone of an event associated with a QObject</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qstatemachine-wrappedevent.html">QStateMachine::WrappedEvent</a></p></td><td class="tblDescr"><p>Inherits QEvent and holds a clone of an event associated with a QObject</p></td></tr>
 </table>
 <a name="a-simple-state-machine"></a>
 <h2>A Simple State Machine</h2>
 <p>To demonstrate the core functionality of the State Machine API, let's look at a small example: A state machine with three states, <tt>s1</tt>, <tt>s2</tt> and <tt>s3</tt>. The state machine is controlled by a single <a href="qpushbutton.html">QPushButton</a>; when the button is clicked, the machine transitions to another state. Initially, the state machine is in state <tt>s1</tt>. The statechart for this machine is as follows:</p>
-<p class="centerAlign"><img src="images/statemachine-button.png" /></p><p>The following snippet shows the code needed to create such a state machine. First, we create the state machine and states:</p>
+<p class="centerAlign"><img src="images/statemachine-button.png" alt="" /></p><p>The following snippet shows the code needed to create such a state machine. First, we create the state machine and states:</p>
 <pre class="cpp">     <span class="type"><a href="qstatemachine.html">QStateMachine</a></span> machine;
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s2 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
@@ -105,7 +105,7 @@
 <h2>Sharing Transitions By Grouping States</h2>
 <p>Assume we wanted the user to be able to quit the application at any time by clicking a Quit button. In order to achieve this, we need to create a final state and make it the target of a transition associated with the Quit button's clicked() signal. We could add a transition from each of <tt>s1</tt>, <tt>s2</tt> and <tt>s3</tt>; however, this seems redundant, and one would also have to remember to add such a transition from every new state that is added in the future.</p>
 <p>We can achieve the same behavior (namely that clicking the Quit button quits the state machine, regardless of which state the state machine is in) by grouping states <tt>s1</tt>, <tt>s2</tt> and <tt>s3</tt>. This is done by creating a new top-level state and making the three original states children of the new state. The following diagram shows the new state machine.</p>
-<p class="centerAlign"><img src="images/statemachine-button-nested.png" /></p><p>The three original states have been renamed <tt>s11</tt>, <tt>s12</tt> and <tt>s13</tt> to reflect that they are now children of the new top-level state, <tt>s1</tt>. Child states implicitly inherit the transitions of their parent state. This means it is now sufficient to add a single transition from <tt>s1</tt> to the final state <tt>s2</tt>. New states added to <tt>s1</tt> will also automatically inherit this transition.</p>
+<p class="centerAlign"><img src="images/statemachine-button-nested.png" alt="" /></p><p>The three original states have been renamed <tt>s11</tt>, <tt>s12</tt> and <tt>s13</tt> to reflect that they are now children of the new top-level state, <tt>s1</tt>. Child states implicitly inherit the transitions of their parent state. This means it is now sufficient to add a single transition from <tt>s1</tt> to the final state <tt>s2</tt>. New states added to <tt>s1</tt> will also automatically inherit this transition.</p>
 <p>All that's needed to group states is to specify the proper parent when the state is created. You also need to specify which of the child states is the initial one (i.e&#x2e; which child state the state machine should enter when the parent state is the target of a transition).</p>
 <pre class="cpp">     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s11 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>(s1);
@@ -128,7 +128,7 @@
 <p>Such behavior can easily be modeled using <i>history states</i>. A history state (<a href="qhistorystate.html">QHistoryState</a> object) is a pseudo-state that represents the child state that the parent state was in the last time the parent state was exited.</p>
 <p>A history state is created as a child of the state for which we wish to record the current child state; when the state machine detects the presence of such a state at runtime, it automatically records the current (real) child state when the parent state is exited. A transition to the history state is in fact a transition to the child state that the state machine had previously saved; the state machine automatically &quot;forwards&quot; the transition to the real child state.</p>
 <p>The following diagram shows the state machine after the interrupt mechanism has been added.</p>
-<p class="centerAlign"><img src="images/statemachine-button-history.png" /></p><p>The following code shows how it can be implemented; in this example we simply display a message box when <tt>s3</tt> is entered, then immediately return to the previous child state of <tt>s1</tt> via the history state.</p>
+<p class="centerAlign"><img src="images/statemachine-button-history.png" alt="" /></p><p>The following code shows how it can be implemented; in this example we simply display a message box when <tt>s3</tt> is entered, then immediately return to the previous child state of <tt>s1</tt> via the history state.</p>
 <pre class="cpp">     <span class="type"><a href="qhistorystate.html">QHistoryState</a></span> <span class="operator">*</span>s1h <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhistorystate.html">QHistoryState</a></span>(s1);
 
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s3 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
@@ -145,9 +145,9 @@
 <a name="using-parallel-states-to-avoid-a-combinatorial-explosion-of-states"></a>
 <h2>Using Parallel States to Avoid a Combinatorial Explosion of States</h2>
 <p>Assume that you wanted to model a set of mutually exclusive properties of a car in a single state machine. Let's say the properties we are interested in are Clean vs Dirty, and Moving vs Not moving. It would take four mutually exclusive states and eight transitions to be able to represent and freely move between all possible combinations.</p>
-<p class="centerAlign"><img src="images/statemachine-nonparallel.png" /></p><p>If we added a third property (say, Red vs Blue), the total number of states would double, to eight; and if we added a fourth property (say, Enclosed vs Convertible), the total number of states would double again, to 16.</p>
+<p class="centerAlign"><img src="images/statemachine-nonparallel.png" alt="" /></p><p>If we added a third property (say, Red vs Blue), the total number of states would double, to eight; and if we added a fourth property (say, Enclosed vs Convertible), the total number of states would double again, to 16.</p>
 <p>Using parallel states, the total number of states and transitions grows linearly as we add more properties, instead of exponentially. Furthermore, states can be added to or removed from the parallel state without affecting any of their sibling states.</p>
-<p class="centerAlign"><img src="images/statemachine-parallel.png" /></p><p>To create a parallel state group, pass <a href="qstate.html#ChildMode-enum">QState::ParallelStates</a> to the <a href="qstate.html">QState</a> constructor.</p>
+<p class="centerAlign"><img src="images/statemachine-parallel.png" alt="" /></p><p>To create a parallel state group, pass <a href="qstate.html#ChildMode-enum">QState::ParallelStates</a> to the <a href="qstate.html">QState</a> constructor.</p>
 <pre class="cpp">     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>(<span class="type"><a href="qstate.html">QState</a></span><span class="operator">::</span>ParallelStates);
      <span class="comment">// s11 and s12 will be entered in parallel</span>
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s11 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>(s1);
@@ -157,7 +157,7 @@
 <a name="detecting-that-a-composite-state-has-finished"></a>
 <h2>Detecting that a Composite State has Finished</h2>
 <p>A child state can be final (a <a href="qfinalstate.html">QFinalState</a> object); when a final child state is entered, the parent state emits the <a href="qstate.html#finished">QState::finished</a>() signal. The following diagram shows a composite state <tt>s1</tt> which does some processing before entering a final state:</p>
-<p class="centerAlign"><img src="images/statemachine-finished.png" /></p><p>When <tt>s1</tt> 's final state is entered, <tt>s1</tt> will automatically emit finished(). We use a signal transition to cause this event to trigger a state change:</p>
+<p class="centerAlign"><img src="images/statemachine-finished.png" alt="" /></p><p>When <tt>s1</tt> 's final state is entered, <tt>s1</tt> will automatically emit finished(). We use a signal transition to cause this event to trigger a state change:</p>
 <pre class="cpp">   s1<span class="operator">-</span><span class="operator">&gt;</span>addTransition(s1<span class="operator">,</span> SIGNAL(finished())<span class="operator">,</span> s2);</pre>
 <p>Using final states in composite states is useful when you want to hide the internal details of a composite state; i.e&#x2e; the only thing the outside world should be able to do is enter the state, and get a notification when the state has completed its work. This is a very powerful abstraction and encapsulation mechanism when building complex (deeply nested) state machines. (In the above example, you could of course create a transition directly from <tt>s1</tt> 's <tt>done</tt> state rather than relying on <tt>s1</tt> 's finished() signal, but with the consequence that implementation details of <tt>s1</tt> are exposed and depended on).</p>
 <p>For parallel state groups, the <a href="qstate.html#finished">QState::finished</a>() signal is emitted when <i>all</i> the child states have entered final states.</p>
@@ -214,7 +214,7 @@
  };</pre>
 <p>In the eventTest() reimplementation, we first check if the event type is the desired one; if so, we cast the event to a StringEvent and perform the string comparison.</p>
 <p>The following is a statechart that uses the custom event and transition:</p>
-<p class="centerAlign"><img src="images/statemachine-customevents.png" /></p><p>Here's what the implementation of the statechart looks like:</p>
+<p class="centerAlign"><img src="images/statemachine-customevents.png" alt="" /></p><p>Here's what the implementation of the statechart looks like:</p>
 <pre class="cpp">     <span class="type"><a href="qstatemachine.html">QStateMachine</a></span> machine;
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>s2 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
@@ -235,7 +235,7 @@
 <pre class="cpp">     machine<span class="operator">.</span>postEvent(<span class="keyword">new</span> StringEvent(<span class="string">&quot;Hello&quot;</span>));
      machine<span class="operator">.</span>postEvent(<span class="keyword">new</span> StringEvent(<span class="string">&quot;world&quot;</span>));</pre>
 <p>An event that is not handled by any relevant transition will be silently consumed by the state machine. It can be useful to group states and provide a default handling of such events; for example, as illustrated in the following statechart:</p>
-<p class="centerAlign"><img src="images/statemachine-customevents2.png" /></p><p>For deeply nested statecharts, you can add such &quot;fallback&quot; transitions at the level of granularity that's most appropriate.</p>
+<p class="centerAlign"><img src="images/statemachine-customevents2.png" alt="" /></p><p>For deeply nested statecharts, you can add such &quot;fallback&quot; transitions at the level of granularity that's most appropriate.</p>
 <a name="using-restore-policy-to-automatically-restore-properties"></a>
 <h2>Using Restore Policy To Automatically Restore Properties</h2>
 <p>In some state machines it can be useful to focus the attention on assigning properties in states, not on restoring them when the state is no longer active. If you know that a property should always be restored to its initial value when the machine enters a state that does not explicitly give the property a value, you can set the global restore policy to <a href="qstatemachine.html#RestorePolicy-enum">QStateMachine::RestoreProperties</a>.</p>
@@ -361,7 +361,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

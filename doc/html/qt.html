@@ -234,7 +234,7 @@
 <!-- $$$AspectRatioMode$$$IgnoreAspectRatio$$$KeepAspectRatio$$$KeepAspectRatioByExpanding$$$ScaleFree$$$ScaleMin$$$ScaleMax -->
 <h3 class="fn"><a name="AspectRatioMode-enum"></a>enum Qt::<span class="name">AspectRatioMode</span></h3>
 <p>This enum type defines what happens to the aspect ratio when scaling an rectangle.</p>
-<p class="centerAlign"><img src="images/qimage-scaling.png" /></p><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<p class="centerAlign"><img src="images/qimage-scaling.png" alt="" /></p><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td class="topAlign"><tt>Qt::IgnoreAspectRatio</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">The size is scaled freely. The aspect ratio is not preserved.</td></tr>
 <tr><td class="topAlign"><tt>Qt::KeepAspectRatio</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">The size is scaled to a rectangle as large as possible inside a given rectangle, preserving the aspect ratio.</td></tr>
 <tr><td class="topAlign"><tt>Qt::KeepAspectRatioByExpanding</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">The size is scaled to a rectangle as small as possible outside a given rectangle, preserving the aspect ratio.</td></tr>
@@ -326,7 +326,7 @@
 <pre class="cpp"> QObject::connect: Cannot queue arguments of type 'MyType'</pre>
 <p>Call <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>() to register the data type before you establish the connection.</p>
 <p>When using signals and slots with multiple threads, see <a href="threads-qobject.html#signals-and-slots-across-threads">Signals and Slots Across Threads</a>.</p>
-<p><b>See also </b><a href="threads.html">Thread Support in Qt</a>, <a href="qobject.html#connect">QObject::connect</a>(), and <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>().</p>
+<p><b>See also </b><a href="threads.html">Thread Support in Qt</a>, <a href="qobject.html#connect">QObject::connect</a>(), <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>(), and <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>().</p>
 <!-- @@@ConnectionType -->
 <!-- $$$ContextMenuPolicy$$$NoContextMenu$$$DefaultContextMenu$$$ActionsContextMenu$$$CustomContextMenu$$$PreventContextMenu -->
 <h3 class="fn"><a name="ContextMenuPolicy-enum"></a>enum Qt::<span class="name">ContextMenuPolicy</span></h3>
@@ -372,25 +372,25 @@
 <p>This enum type defines the various cursors that can be used.</p>
 <p>The standard arrow cursor is the default for widgets in a normal state.</p>
 <table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
-<tr><td class="topAlign"><tt>Qt::ArrowCursor</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign"><img src="images/cursor-arrow.png" /> The standard arrow cursor.</td></tr>
-<tr><td class="topAlign"><tt>Qt::UpArrowCursor</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign"><img src="images/cursor-uparrow.png" /> An arrow pointing upwards toward the top of the screen.</td></tr>
-<tr><td class="topAlign"><tt>Qt::CrossCursor</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign"><img src="images/cursor-cross.png" /> A crosshair cursor, typically used to help the user accurately select a point on the screen.</td></tr>
-<tr><td class="topAlign"><tt>Qt::WaitCursor</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign"><img src="images/cursor-wait.png" /> An hourglass or watch cursor, usually shown during operations that prevent the user from interacting with the application.</td></tr>
-<tr><td class="topAlign"><tt>Qt::IBeamCursor</tt></td><td class="topAlign"><tt>4</tt></td><td class="topAlign"><img src="images/cursor-ibeam.png" /> A caret or ibeam cursor, indicating that a widget can accept and display text input.</td></tr>
-<tr><td class="topAlign"><tt>Qt::SizeVerCursor</tt></td><td class="topAlign"><tt>5</tt></td><td class="topAlign"><img src="images/cursor-sizev.png" /> A cursor used for elements that are used to vertically resize top-level windows.</td></tr>
-<tr><td class="topAlign"><tt>Qt::SizeHorCursor</tt></td><td class="topAlign"><tt>6</tt></td><td class="topAlign"><img src="images/cursor-sizeh.png" /> A cursor used for elements that are used to horizontally resize top-level windows.</td></tr>
-<tr><td class="topAlign"><tt>Qt::SizeBDiagCursor</tt></td><td class="topAlign"><tt>7</tt></td><td class="topAlign"><img src="images/cursor-sizeb.png" /> A cursor used for elements that are used to diagonally resize top-level windows at their top-right and bottom-left corners.</td></tr>
-<tr><td class="topAlign"><tt>Qt::SizeFDiagCursor</tt></td><td class="topAlign"><tt>8</tt></td><td class="topAlign"><img src="images/cursor-sizef.png" /> A cursor used for elements that are used to diagonally resize top-level windows at their top-left and bottom-right corners.</td></tr>
-<tr><td class="topAlign"><tt>Qt::SizeAllCursor</tt></td><td class="topAlign"><tt>9</tt></td><td class="topAlign"><img src="images/cursor-sizeall.png" /> A cursor used for elements that are used to resize top-level windows in any direction.</td></tr>
+<tr><td class="topAlign"><tt>Qt::ArrowCursor</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign"><img src="images/cursor-arrow.png" alt="" /> The standard arrow cursor.</td></tr>
+<tr><td class="topAlign"><tt>Qt::UpArrowCursor</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign"><img src="images/cursor-uparrow.png" alt="" /> An arrow pointing upwards toward the top of the screen.</td></tr>
+<tr><td class="topAlign"><tt>Qt::CrossCursor</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign"><img src="images/cursor-cross.png" alt="" /> A crosshair cursor, typically used to help the user accurately select a point on the screen.</td></tr>
+<tr><td class="topAlign"><tt>Qt::WaitCursor</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign"><img src="images/cursor-wait.png" alt="" /> An hourglass or watch cursor, usually shown during operations that prevent the user from interacting with the application.</td></tr>
+<tr><td class="topAlign"><tt>Qt::IBeamCursor</tt></td><td class="topAlign"><tt>4</tt></td><td class="topAlign"><img src="images/cursor-ibeam.png" alt="" /> A caret or ibeam cursor, indicating that a widget can accept and display text input.</td></tr>
+<tr><td class="topAlign"><tt>Qt::SizeVerCursor</tt></td><td class="topAlign"><tt>5</tt></td><td class="topAlign"><img src="images/cursor-sizev.png" alt="" /> A cursor used for elements that are used to vertically resize top-level windows.</td></tr>
+<tr><td class="topAlign"><tt>Qt::SizeHorCursor</tt></td><td class="topAlign"><tt>6</tt></td><td class="topAlign"><img src="images/cursor-sizeh.png" alt="" /> A cursor used for elements that are used to horizontally resize top-level windows.</td></tr>
+<tr><td class="topAlign"><tt>Qt::SizeBDiagCursor</tt></td><td class="topAlign"><tt>7</tt></td><td class="topAlign"><img src="images/cursor-sizeb.png" alt="" /> A cursor used for elements that are used to diagonally resize top-level windows at their top-right and bottom-left corners.</td></tr>
+<tr><td class="topAlign"><tt>Qt::SizeFDiagCursor</tt></td><td class="topAlign"><tt>8</tt></td><td class="topAlign"><img src="images/cursor-sizef.png" alt="" /> A cursor used for elements that are used to diagonally resize top-level windows at their top-left and bottom-right corners.</td></tr>
+<tr><td class="topAlign"><tt>Qt::SizeAllCursor</tt></td><td class="topAlign"><tt>9</tt></td><td class="topAlign"><img src="images/cursor-sizeall.png" alt="" /> A cursor used for elements that are used to resize top-level windows in any direction.</td></tr>
 <tr><td class="topAlign"><tt>Qt::BlankCursor</tt></td><td class="topAlign"><tt>10</tt></td><td class="topAlign">A blank/invisible cursor, typically used when the cursor shape needs to be hidden.</td></tr>
-<tr><td class="topAlign"><tt>Qt::SplitVCursor</tt></td><td class="topAlign"><tt>11</tt></td><td class="topAlign"><img src="images/cursor-vsplit.png" /> A cursor used for vertical splitters, indicating that a handle can be dragged horizontally to adjust the use of available space.</td></tr>
-<tr><td class="topAlign"><tt>Qt::SplitHCursor</tt></td><td class="topAlign"><tt>12</tt></td><td class="topAlign"><img src="images/cursor-hsplit.png" /> A cursor used for horizontal splitters, indicating that a handle can be dragged vertically to adjust the use of available space.</td></tr>
-<tr><td class="topAlign"><tt>Qt::PointingHandCursor</tt></td><td class="topAlign"><tt>13</tt></td><td class="topAlign"><img src="images/cursor-hand.png" /> A pointing hand cursor that is typically used for clickable elements such as hyperlinks.</td></tr>
-<tr><td class="topAlign"><tt>Qt::ForbiddenCursor</tt></td><td class="topAlign"><tt>14</tt></td><td class="topAlign"><img src="images/cursor-forbidden.png" /> A slashed circle cursor, typically used during drag and drop operations to indicate that dragged content cannot be dropped on particular widgets or inside certain regions.</td></tr>
-<tr><td class="topAlign"><tt>Qt::OpenHandCursor</tt></td><td class="topAlign"><tt>17</tt></td><td class="topAlign"><img src="images/cursor-openhand.png" /> A cursor representing an open hand, typically used to indicate that the area under the cursor is the visible part of a canvas that the user can click and drag in order to scroll around.</td></tr>
-<tr><td class="topAlign"><tt>Qt::ClosedHandCursor</tt></td><td class="topAlign"><tt>18</tt></td><td class="topAlign"><img src="images/cursor-closedhand.png" /> A cursor representing a closed hand, typically used to indicate that a dragging operation is in progress that involves scrolling.</td></tr>
-<tr><td class="topAlign"><tt>Qt::WhatsThisCursor</tt></td><td class="topAlign"><tt>15</tt></td><td class="topAlign"><img src="images/cursor-whatsthis.png" /> An arrow with a question mark, typically used to indicate the presence of What's This? help for a widget.</td></tr>
-<tr><td class="topAlign"><tt>Qt::BusyCursor</tt></td><td class="topAlign"><tt>16</tt></td><td class="topAlign"><img src="images/cursor-wait.png" /> An hourglass or watch cursor, usually shown during operations that allow the user to interact with the application while they are performed in the background.</td></tr>
+<tr><td class="topAlign"><tt>Qt::SplitVCursor</tt></td><td class="topAlign"><tt>11</tt></td><td class="topAlign"><img src="images/cursor-vsplit.png" alt="" /> A cursor used for vertical splitters, indicating that a handle can be dragged horizontally to adjust the use of available space.</td></tr>
+<tr><td class="topAlign"><tt>Qt::SplitHCursor</tt></td><td class="topAlign"><tt>12</tt></td><td class="topAlign"><img src="images/cursor-hsplit.png" alt="" /> A cursor used for horizontal splitters, indicating that a handle can be dragged vertically to adjust the use of available space.</td></tr>
+<tr><td class="topAlign"><tt>Qt::PointingHandCursor</tt></td><td class="topAlign"><tt>13</tt></td><td class="topAlign"><img src="images/cursor-hand.png" alt="" /> A pointing hand cursor that is typically used for clickable elements such as hyperlinks.</td></tr>
+<tr><td class="topAlign"><tt>Qt::ForbiddenCursor</tt></td><td class="topAlign"><tt>14</tt></td><td class="topAlign"><img src="images/cursor-forbidden.png" alt="" /> A slashed circle cursor, typically used during drag and drop operations to indicate that dragged content cannot be dropped on particular widgets or inside certain regions.</td></tr>
+<tr><td class="topAlign"><tt>Qt::OpenHandCursor</tt></td><td class="topAlign"><tt>17</tt></td><td class="topAlign"><img src="images/cursor-openhand.png" alt="" /> A cursor representing an open hand, typically used to indicate that the area under the cursor is the visible part of a canvas that the user can click and drag in order to scroll around.</td></tr>
+<tr><td class="topAlign"><tt>Qt::ClosedHandCursor</tt></td><td class="topAlign"><tt>18</tt></td><td class="topAlign"><img src="images/cursor-closedhand.png" alt="" /> A cursor representing a closed hand, typically used to indicate that a dragging operation is in progress that involves scrolling.</td></tr>
+<tr><td class="topAlign"><tt>Qt::WhatsThisCursor</tt></td><td class="topAlign"><tt>15</tt></td><td class="topAlign"><img src="images/cursor-whatsthis.png" alt="" /> An arrow with a question mark, typically used to indicate the presence of What's This? help for a widget.</td></tr>
+<tr><td class="topAlign"><tt>Qt::BusyCursor</tt></td><td class="topAlign"><tt>16</tt></td><td class="topAlign"><img src="images/cursor-wait.png" alt="" /> An hourglass or watch cursor, usually shown during operations that allow the user to interact with the application while they are performed in the background.</td></tr>
 <tr><td class="topAlign"><tt>Qt::DragMoveCursor</tt></td><td class="topAlign"><tt>20</tt></td><td class="topAlign">A cursor that is usually used when dragging an item.</td></tr>
 <tr><td class="topAlign"><tt>Qt::DragCopyCursor</tt></td><td class="topAlign"><tt>19</tt></td><td class="topAlign">A cursor that is usually used when dragging an item to copy it.</td></tr>
 <tr><td class="topAlign"><tt>Qt::DragLinkCursor</tt></td><td class="topAlign"><tt>21</tt></td><td class="topAlign">A cursor that is usually used when dragging an item to make a link to it.</td></tr>
@@ -1264,7 +1264,7 @@
 <h3 class="fn"><a name="PenCapStyle-enum"></a>enum Qt::<span class="name">PenCapStyle</span></h3>
 <p>This enum type defines the pen cap styles supported by Qt, i.e&#x2e; the line end caps that can be drawn using <a href="qpainter.html">QPainter</a>.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/qpen-square.png" /></td><td ><img src="images/qpen-flat.png" /></td><td ><img src="images/qpen-roundcap.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/qpen-square.png" alt="" /></td><td ><img src="images/qpen-flat.png" alt="" /></td><td ><img src="images/qpen-roundcap.png" alt="" /></td></tr>
 <tr valign="top" class="even"><td >Qt::SquareCap</td><td >Qt::FlatCap</td><td >Qt::RoundCap</td></tr>
 </table>
 <table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -1278,7 +1278,7 @@
 <h3 class="fn"><a name="PenJoinStyle-enum"></a>enum Qt::<span class="name">PenJoinStyle</span></h3>
 <p>This enum type defines the pen join styles supported by Qt, i.e&#x2e; which joins between two connected lines can be drawn using <a href="qpainter.html">QPainter</a>.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/qpen-bevel.png" /></td><td ><img src="images/qpen-miter.png" /></td><td ><img src="images/qpen-roundjoin.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/qpen-bevel.png" alt="" /></td><td ><img src="images/qpen-miter.png" alt="" /></td><td ><img src="images/qpen-roundjoin.png" alt="" /></td></tr>
 <tr valign="top" class="even"><td >Qt::BevelJoin</td><td >Qt::MiterJoin</td><td >Qt::RoundJoin</td></tr>
 </table>
 <table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -1293,9 +1293,9 @@
 <h3 class="fn"><a name="PenStyle-enum"></a>enum Qt::<span class="name">PenStyle</span></h3>
 <p>This enum type defines the pen styles that can be drawn using <a href="qpainter.html">QPainter</a>. The styles are:</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/qpen-solid.png" /></td><td ><img src="images/qpen-dash.png" /></td><td ><img src="images/qpen-dot.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/qpen-solid.png" alt="" /></td><td ><img src="images/qpen-dash.png" alt="" /></td><td ><img src="images/qpen-dot.png" alt="" /></td></tr>
 <tr valign="top" class="even"><td >Qt::SolidLine</td><td >Qt::DashLine</td><td >Qt::DotLine</td></tr>
-<tr valign="top" class="odd"><td ><img src="images/qpen-dashdot.png" /></td><td ><img src="images/qpen-dashdotdot.png" /></td><td ><img src="images/qpen-custom.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/qpen-dashdot.png" alt="" /></td><td ><img src="images/qpen-dashdotdot.png" alt="" /></td><td ><img src="images/qpen-custom.png" alt="" /></td></tr>
 <tr valign="top" class="even"><td >Qt::DashDotLine</td><td >Qt::DashDotDotLine</td><td >Qt::CustomDashLine</td></tr>
 </table>
 <table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -1367,7 +1367,7 @@
 <tr><td class="topAlign"><tt>Qt::ElideMiddle</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">The ellipsis should appear in the middle of the text.</td></tr>
 <tr><td class="topAlign"><tt>Qt::ElideNone</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">Ellipsis should NOT appear in the text.</td></tr>
 </table>
-<p>Qt::ElideMiddle is normally the most appropriate choice for URLs (e.g&#x2e;, &quot;<a href="http://bugreports.qt.nokia.com/browse/QTWEBSITE-13">http://bugreports.qt..&#x2e;/QTWEBSITE-13/</a>&quot;), whereas Qt::ElideRight is appropriate for other strings (e.g&#x2e;, &quot;<a href="http://qt.nokia.com/doc/qq/qq09-mac-deployment.html">Deploying Applications on Ma..&#x2e;</a>&quot;).</p>
+<p>Qt::ElideMiddle is normally the most appropriate choice for URLs (e.g&#x2e;, &quot;<a href="http://bugreports.qt-project.org/browse/QTWEBSITE-13">http://bugreports.qt..&#x2e;/QTWEBSITE-13/</a>&quot;), whereas Qt::ElideRight is appropriate for other strings (e.g&#x2e;, &quot;<a href="http://qt.nokia.com/doc/qq/qq09-mac-deployment.html">Deploying Applications on Ma..&#x2e;</a>&quot;).</p>
 <p><b>See also </b><a href="qabstractitemview.html#textElideMode-prop">QAbstractItemView::textElideMode</a>, <a href="qfontmetrics.html#elidedText">QFontMetrics::elidedText</a>(), <a href="qt.html#AlignmentFlag-enum">AlignmentFlag</a>, and <a href="qtabbar.html#elideMode-prop">QTabBar::elideMode</a>.</p>
 <!-- @@@TextElideMode -->
 <!-- $$$TextFlag$$$TextSingleLine$$$TextDontClip$$$TextExpandTabs$$$TextShowMnemonic$$$TextWordWrap$$$TextWrapAnywhere$$$TextDontPrint$$$TextIncludeTrailingSpaces$$$TextHideMnemonic$$$TextJustificationForced$$$TextForceLeftToRight$$$TextForceRightToLeft$$$TextLongestVariant$$$TextBypassShaping$$$SingleLine$$$DontClip$$$ExpandTabs$$$ShowPrefix$$$WordBreak$$$BreakAnywhere$$$DontPrint$$$IncludeTrailingSpaces$$$NoAccel -->
@@ -1766,7 +1766,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

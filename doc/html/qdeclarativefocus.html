@@ -89,7 +89,7 @@
          }
      }
  }</pre>
-<p class="centerAlign"><img src="images/declarative-qmlfocus1.png" /></p><p>However, were the above example to be used as a reusable or imported component, this simple use of the <tt>focus</tt> property is no longer sufficient.</p>
+<p class="centerAlign"><img src="images/declarative-qmlfocus1.png" alt="" /></p><p>However, were the above example to be used as a reusable or imported component, this simple use of the <tt>focus</tt> property is no longer sufficient.</p>
 <p>To demonstrate, we create two instances of our previously defined component and set the first one to have focus. The intention is that when the <tt>A</tt>, <tt>B</tt>, or <tt>C</tt> keys are pressed, the first of the two components receives the event and responds accordingly.</p>
 <p>The code that imports and creates two MyWidget instances:</p>
 <pre class="qml"> <span class="comment">//Window code that imports MyWidget</span>
@@ -125,7 +125,7 @@
      }
  }</pre>
 <p>We would like to have the first MyWidget object to have the focus by setting its <tt>focus</tt> property to <tt>true</tt>. However, by running the code, we can confirm that the second widget receives the focus.</p>
-<p class="centerAlign"><img src="images/declarative-qmlfocus2.png" /></p><p>Looking at both <tt>MyWidget</tt> and <tt>window</tt> code, the problem is evident - there are three elements that set the <tt>focus</tt> property set to <tt>true</tt>. The two MyWidget sets the <tt>focus</tt> to <tt>true</tt> and the <tt>window</tt> component also sets the focus. Ultimately, only one element can have keyboard focus, and the system has to decide which element receives the focus. When the second MyWidget is created, it receives the focus because it is the last element to set its <tt>focus</tt> property to <tt>true</tt>.</p>
+<p class="centerAlign"><img src="images/declarative-qmlfocus2.png" alt="" /></p><p>Looking at both <tt>MyWidget</tt> and <tt>window</tt> code, the problem is evident - there are three elements that set the <tt>focus</tt> property set to <tt>true</tt>. The two MyWidget sets the <tt>focus</tt> to <tt>true</tt> and the <tt>window</tt> component also sets the focus. Ultimately, only one element can have keyboard focus, and the system has to decide which element receives the focus. When the second MyWidget is created, it receives the focus because it is the last element to set its <tt>focus</tt> property to <tt>true</tt>.</p>
 <p>This problem is due to visibility. The <tt>MyWidget</tt> component would like to have the focus, but it cannot control the focus when it is imported or reused. Likewise, the <tt>window</tt> component does not have the ability to know if its imported components are requesting the focus.</p>
 <p>To solve this problem, the QML introduces a concept known as a <i>focus scope</i>. For existing Qt users, a focus scope is like an automatic focus proxy. A focus scope is created by declaring the <a href="qml-focusscope.html">FocusScope</a> element.</p>
 <p>In the next example, a <a href="qml-focusscope.html">FocusScope</a> element is added to the component, and the visual result shown.</p>
@@ -152,7 +152,7 @@
          }
      }
  }</pre>
-<p class="centerAlign"><img src="images/declarative-qmlfocus3.png" /></p><p>Conceptually <i>focus scopes</i> are quite simple.</p>
+<p class="centerAlign"><img src="images/declarative-qmlfocus3.png" alt="" /></p><p>Conceptually <i>focus scopes</i> are quite simple.</p>
 <ul>
 <li>Within each focus scope one element may have <tt>Item::focus</tt> set to <tt>true</tt>. If more than one <a href="qml-item.html">Item</a> has the <tt>focus</tt> property set, the last element to set the <tt>focus</tt> will have the focus and the others are unset, similar to when there are no focus scopes.</li>
 <li>When a focus scope receives active focus, the contained element with <tt>focus</tt> set (if any) also gets the active focus. If this element is also a <a href="qml-focusscope.html">FocusScope</a>, the proxying behavior continues. Both the focus scope and the sub-focused item will have <tt>activeFocus</tt> property set.</li>
@@ -205,7 +205,7 @@
      }
      <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> { <span class="name">anchors</span>.fill: <span class="name">parent</span>; <span class="name">onClicked</span>: { <span class="name">scope</span>.<span class="name">focus</span> <span class="operator">=</span> <span class="number">true</span> } }
  }</pre>
-<p class="centerAlign"><img src="images/declarative-qmlfocus4.png" /></p><p>When a QML <a href="qml-item.html">Item</a> explicitly relinquishes focus (by setting its <tt>focus</tt> property to <tt>false</tt> while it has active focus), the system does not automatically select another element to receive focus. That is, it is possible for there to be no currently active focus.</p>
+<p class="centerAlign"><img src="images/declarative-qmlfocus4.png" alt="" /></p><p>When a QML <a href="qml-item.html">Item</a> explicitly relinquishes focus (by setting its <tt>focus</tt> property to <tt>false</tt> while it has active focus), the system does not automatically select another element to receive focus. That is, it is possible for there to be no currently active focus.</p>
 <p>See the <a href="declarative-keyinteraction-focus.html">Keyboard Focus example</a> for a demonstration of moving keyboard focus between multiple areas using <a href="qml-focusscope.html">FocusScope</a> elements.</p>
 <a name="advanced-uses-of-focus-scopes"></a>
 <h2>Advanced uses of Focus Scopes</h2>
@@ -236,7 +236,7 @@
          }
      }
  }</pre>
-<p class="centerAlign"><img src="images/declarative-qmlfocus5.png" /></p><p>While the example is simple, there are a lot going on behind the scenes. Whenever the current item changes, the <a href="qml-listview.html">ListView</a> sets the delegate's <tt>Item::focus</tt> property. As the <a href="qml-listview.html">ListView</a> is a focus scope, this doesn't affect the rest of the application. However, if the <a href="qml-listview.html">ListView</a> itself has active focus this causes the delegate itself to receive active focus. In this example, the root element of the delegate is also a focus scope, which in turn gives active focus to the <tt>Text</tt> element that actually performs the work of handling the <tt>Return</tt> key.</p>
+<p class="centerAlign"><img src="images/declarative-qmlfocus5.png" alt="" /></p><p>While the example is simple, there are a lot going on behind the scenes. Whenever the current item changes, the <a href="qml-listview.html">ListView</a> sets the delegate's <tt>Item::focus</tt> property. As the <a href="qml-listview.html">ListView</a> is a focus scope, this doesn't affect the rest of the application. However, if the <a href="qml-listview.html">ListView</a> itself has active focus this causes the delegate itself to receive active focus. In this example, the root element of the delegate is also a focus scope, which in turn gives active focus to the <tt>Text</tt> element that actually performs the work of handling the <tt>Return</tt> key.</p>
 <p>All of the QML view classes, such as <a href="qml-pathview.html">PathView</a> and <a href="qml-gridview.html">GridView</a>, behave in a similar manner to allow key handling in their respective delegates.</p>
 </div>
 <!-- @@@qdeclarativefocus.html -->
@@ -250,7 +250,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

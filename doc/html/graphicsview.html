@@ -90,7 +90,7 @@
  view<span class="operator">.</span>show();</pre>
 <p>The view receives input events from the keyboard and mouse, and translates these to scene events (converting the coordinates used to scene coordinates where appropriate), before sending the events to the visualized scene.</p>
 <p>Using its transformation matrix, <a href="qgraphicsview.html#transform">QGraphicsView::transform</a>(), the view can <i>transform</i> the scene's coordinate system. This allows advanced navigation features such as zooming and rotation. For convenience, <a href="qgraphicsview.html">QGraphicsView</a> also provides functions for translating between view and scene coordinates: <a href="qgraphicsview.html#mapToScene">QGraphicsView::mapToScene</a>() and <a href="qgraphicsview.html#mapFromScene">QGraphicsView::mapFromScene</a>().</p>
-<p class="centerAlign"><img src="images/graphicsview-view.png" /></p><a name="the-item"></a>
+<p class="centerAlign"><img src="images/graphicsview-view.png" alt="" /></p><a name="the-item"></a>
 <h3>The Item</h3>
 <p><a href="qgraphicsitem.html">QGraphicsItem</a> is the base class for graphical items in a scene. Graphics View provides several standard items for typical shapes, such as rectangles (<a href="qgraphicsrectitem.html">QGraphicsRectItem</a>), ellipses (<a href="qgraphicsellipseitem.html">QGraphicsEllipseItem</a>) and text items (<a href="qgraphicstextitem.html">QGraphicsTextItem</a>), but the most powerful <a href="qgraphicsitem.html">QGraphicsItem</a> features are available when you write a custom item. Among other things, <a href="qgraphicsitem.html">QGraphicsItem</a> supports the following features:</p>
 <ul>
@@ -103,7 +103,7 @@
 <p>Items live in a local coordinate system, and like <a href="qgraphicsview.html">QGraphicsView</a>, it also provides many functions for mapping coordinates between the item and the scene, and from item to item. Also, like <a href="qgraphicsview.html">QGraphicsView</a>, it can transform its coordinate system using a matrix: <a href="qgraphicsitem.html#transform">QGraphicsItem::transform</a>(). This is useful for rotating and scaling individual items.</p>
 <p>Items can contain other items (children). Parent items' transformations are inherited by all its children. Regardless of an item's accumulated transformation, though, all its functions (e.g&#x2e;, <a href="qgraphicsitem.html#contains">QGraphicsItem::contains</a>(), <a href="qgraphicsitem.html#boundingRect">QGraphicsItem::boundingRect</a>(), QGraphicsItem::collidesWith()) still operate in local coordinates.</p>
 <p><a href="qgraphicsitem.html">QGraphicsItem</a> supports collision detection through the <a href="qgraphicsitem.html#shape">QGraphicsItem::shape</a>() function, and QGraphicsItem::collidesWith(), which are both virtual functions. By returning your item's shape as a local coordinate <a href="qpainterpath.html">QPainterPath</a> from <a href="qgraphicsitem.html#shape">QGraphicsItem::shape</a>(), <a href="qgraphicsitem.html">QGraphicsItem</a> will handle all collision detection for you. If you want to provide your own collision detection, however, you can reimplement QGraphicsItem::collidesWith().</p>
-<p class="centerAlign"><img src="images/graphicsview-items.png" /></p><a name="classes-in-the-graphics-view-framework"></a>
+<p class="centerAlign"><img src="images/graphicsview-items.png" alt="" /></p><a name="classes-in-the-graphics-view-framework"></a>
 <h2>Classes in the Graphics View Framework</h2>
 <p>These classes provide a framework for creating interactive applications.</p>
 <table class="annotated">
@@ -150,7 +150,7 @@
 <p><b>Note:</b> The inverted Y-axis coordinate system (where <tt>y</tt> grows upwards) is unsupported as Graphics Views uses Qt's coordinate system.</p>
 <p>There are three effective coordinate systems in play in Graphics View: Item coordinates, scene coordinates, and view coordinates. To simplify your implementation, Graphics View provides convenience functions that allow you to map between the three coordinate systems.</p>
 <p>When rendering, Graphics View's scene coordinates correspond to <a href="qpainter.html">QPainter</a>'s <i>logical</i> coordinates, and view coordinates are the same as <i>device</i> coordinates. In the <a href="coordsys.html">Coordinate System</a> documentation, you can read about the relationship between logical coordinates and device coordinates.</p>
-<p class="centerAlign"><img src="images/graphicsview-parentchild.png" /></p><a name="item-coordinates"></a>
+<p class="centerAlign"><img src="images/graphicsview-parentchild.png" alt="" /></p><a name="item-coordinates"></a>
 <h3>Item Coordinates</h3>
 <p>Items live in their own local coordinate system. Their coordinates are usually centered around its center point (0, 0), and this is also the center for all transformations. Geometric primitives in the item coordinate system are often referred to as item points, item lines, or item rectangles.</p>
 <p>When creating a custom item, item coordinates are all you need to worry about; <a href="qgraphicsscene.html">QGraphicsScene</a> and <a href="qgraphicsview.html">QGraphicsView</a> will perform all transformations for you. This makes it very easy to implement custom items. For example, if you receive a mouse press or a drag enter event, the event position is given in item coordinates. The <a href="qgraphicsitem.html#contains">QGraphicsItem::contains</a>() virtual function, which returns true if a certain point is inside your item, and false otherwise, takes a point argument in item coordinates. Similarly, an item's bounding rect and shape are in item coordinates.</p>
@@ -280,7 +280,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -176,7 +176,20 @@
 <!-- $$$tag[overload1]$$$tag -->
 <h3 class="fn"><a name="tag"></a>const <span class="type">char</span> * QMetaMethod::<span class="name">tag</span> () const</h3>
 <p>Returns the tag associated with this method.</p>
-<p>Tags are special macros recognized by <tt>moc</tt> that make it possible to add extra information about a method. For the moment, <tt>moc</tt> doesn't support any special tags.</p>
+<p>Tags are special macros recognized by <tt>moc</tt> that make it possible to add extra information about a method.</p>
+<p>Tag information can be added in the following way in the function declaration:</p>
+<pre class="cpp"> <span class="preprocessor">#define THISISTESTTAG // tag text</span>
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     THISISTESTTAG <span class="type">void</span> testFunc();</pre>
+<p>and the information can be accessed by using:</p>
+<pre class="cpp"> MainWindow win;
+ win<span class="operator">.</span>show();
+
+ <span class="type">int</span> functionIndex <span class="operator">=</span> win<span class="operator">.</span>metaObject()<span class="operator">-</span><span class="operator">&gt;</span>indexOfSlot(<span class="string">&quot;testFunc()&quot;</span>);
+ <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> mm <span class="operator">=</span> metaObject()<span class="operator">-</span><span class="operator">&gt;</span>method(functionIndex);
+ <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> mm<span class="operator">.</span>tag(); <span class="comment">// prints THISISTESTTAG</span></pre>
+<p>For the moment, <tt>moc</tt> doesn't support any special tags.</p>
 <!-- @@@tag -->
 <!-- $$$typeName[overload1]$$$typeName -->
 <h3 class="fn"><a name="typeName"></a>const <span class="type">char</span> * QMetaMethod::<span class="name">typeName</span> () const</h3>
@@ -189,7 +202,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

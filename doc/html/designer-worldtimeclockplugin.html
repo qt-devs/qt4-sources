@@ -42,7 +42,7 @@
 <li><a href="designer-worldtimeclockplugin-worldtimeclockplugin-h.html">designer/worldtimeclockplugin/worldtimeclockplugin.h</a></li>
 <li><a href="designer-worldtimeclockplugin-worldtimeclockplugin-pro.html">designer/worldtimeclockplugin/worldtimeclockplugin.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/worldtimeclockplugin-example.png" /></p><p>In this example, we simply extend the <a href="designer-customwidgetplugin.html">Custom Widget Plugin</a> example and its custom widget (based on the <a href="widgets-analogclock.html">Analog Clock</a> example), by introducing the concept of signals and slots.</p>
+<p>The World Time Clock Plugin example shows how to create a custom widget plugin for <i>Qt Designer</i> that uses signals and slots.<p class="centerAlign"><img src="images/worldtimeclockplugin-example.png" alt="" /></p><p>In this example, we simply extend the <a href="designer-customwidgetplugin.html">Custom Widget Plugin</a> example and its custom widget (based on the <a href="widgets-analogclock.html">Analog Clock</a> example), by introducing the concept of signals and slots.</p>
 <p>The World Time Clock Plugin example consists of two classes:</p>
 <ul>
 <li><tt>WorldTimeClock</tt> is a custom clock widget with hour and minute hands that is automatically updated every few seconds.</li>
@@ -74,8 +74,8 @@
  };</pre>
 <p>Note the use of the <a href="qdesignercustomwidgetinterface.html#QDESIGNER_WIDGET_EXPORT">QDESIGNER_WIDGET_EXPORT</a> macro. This is needed to ensure that <i>Qt Designer</i> can create instances of the widget on some platforms, but it is a good idea to use it on all platforms.</p>
 <p>We declare the <tt>setTimeZone()</tt> slot with an associated <tt>timeZoneOffset</tt> variable, and we declare an <tt>updated()</tt> signal which takes the current time as argument and is emitted whenever the widget is repainted.</p>
-<p class="centerAlign"><img src="images/worldtimeclock-connection.png" /></p><p>In <i>Qt Designer</i>'s workspace we can then, for example, connect the <tt>WorldTimeClock</tt> widget's <tt>updated()</tt> signal to a <a href="qtimeedit.html">QTimeEdit</a>'s <a href="qdatetimeedit.html#time-prop">setTime()</a> slot using <i>Qt Designer</i>'s mode for editing signal and slots.</p>
-<p class="centerAlign"><img src="images/worldtimeclock-signalandslot.png" /></p><p>We can also connect a <a href="qspinbox.html">QSpinBox</a>'s <a href="qspinbox.html#valueChanged">valueChanged()</a> signal to the <tt>WorldTimeClock</tt>'s <tt>setTimeZone()</tt> slot.</p>
+<p class="centerAlign"><img src="images/worldtimeclock-connection.png" alt="" /></p><p>In <i>Qt Designer</i>'s workspace we can then, for example, connect the <tt>WorldTimeClock</tt> widget's <tt>updated()</tt> signal to a <a href="qtimeedit.html">QTimeEdit</a>'s <a href="qdatetimeedit.html#time-prop">setTime()</a> slot using <i>Qt Designer</i>'s mode for editing signal and slots.</p>
+<p class="centerAlign"><img src="images/worldtimeclock-signalandslot.png" alt="" /></p><p>We can also connect a <a href="qspinbox.html">QSpinBox</a>'s <a href="qspinbox.html#valueChanged">valueChanged()</a> signal to the <tt>WorldTimeClock</tt>'s <tt>setTimeZone()</tt> slot.</p>
 <a name="worldtimeclockplugin-class"></a>
 <h2>WorldTimeClockPlugin Class</h2>
 <p>The <tt>WorldTimeClockPlugin</tt> class exposes the <tt>WorldTimeClock</tt> class to <i>Qt Designer</i>. Its definition is equivalent to the <a href="designer-customwidgetplugin.html">Custom Widget Plugin</a> example's plugin class which is explained in detail. The only part of the class definition that is specific to this particular custom widget is the class name:</p>
@@ -138,7 +138,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

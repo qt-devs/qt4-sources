@@ -45,16 +45,16 @@
 <li><a href="threads-mandelbrot-main-cpp.html">threads/mandelbrot/main.cpp</a></li>
 <li><a href="threads-mandelbrot-mandelbrot-pro.html">threads/mandelbrot/mandelbrot.pro</a></li>
 </ul>
-<p>The heavy computation here is the Mandelbrot set, probably the world's most famous fractal. These days, while sophisticated programs such as <a href="http://xaos.sourceforge.net/">XaoS</a> that provide real-time zooming in the Mandelbrot set, the standard Mandelbrot algorithm is just slow enough for our purposes.</p>
+<p>The Mandelbrot example shows how to use a worker thread to perform heavy computations without blocking the main thread's event loop.<p>The heavy computation here is the Mandelbrot set, probably the world's most famous fractal. These days, while sophisticated programs such as <a href="http://xaos.sourceforge.net/">XaoS</a> that provide real-time zooming in the Mandelbrot set, the standard Mandelbrot algorithm is just slow enough for our purposes.</p>
 <p class="centerAlign"><img src="images/mandelbrot-example.png" alt="Screenshot of the Mandelbrot example" /></p><p>In real life, the approach described here is applicable to a large set of problems, including synchronous network I/O and database access, where the user interface must remain responsive while some heavy operation is taking place. The <a href="network-blockingfortuneclient.html">network/blockingfortuneclient</a> example shows the same principle at work in a TCP client.</p>
 <p>The Mandelbrot application supports zooming and scrolling using the mouse or the keyboard. To avoid freezing the main thread's event loop (and, as a consequence, the application's user interface), we put all the fractal computation in a separate worker thread. The thread emits a signal when it is done rendering the fractal.</p>
 <p>During the time where the worker thread is recomputing the fractal to reflect the new zoom factor position, the main thread simply scales the previously rendered pixmap to provide immediate feedback. The result doesn't look as good as what the worker thread eventually ends up providing, but at least it makes the application more responsive. The sequence of screenshots below shows the original image, the scaled image, and the rerendered image.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/mandelbrot_zoom1.png" /></td><td ><img src="images/mandelbrot_zoom2.png" /></td><td ><img src="images/mandelbrot_zoom3.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/mandelbrot_zoom1.png" alt="" /></td><td ><img src="images/mandelbrot_zoom2.png" alt="" /></td><td ><img src="images/mandelbrot_zoom3.png" alt="" /></td></tr>
 </table>
 <p>Similarly, when the user scrolls, the previous pixmap is scrolled immediately, revealing unpainted areas beyond the edge of the pixmap, while the image is rendered by the worker thread.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/mandelbrot_scroll1.png" /></td><td ><img src="images/mandelbrot_scroll2.png" /></td><td ><img src="images/mandelbrot_scroll3.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/mandelbrot_scroll1.png" alt="" /></td><td ><img src="images/mandelbrot_scroll2.png" alt="" /></td><td ><img src="images/mandelbrot_scroll3.png" alt="" /></td></tr>
 </table>
 <p>The application consists of two classes:</p>
 <ul>
@@ -506,7 +506,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

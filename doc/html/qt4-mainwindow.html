@@ -104,7 +104,7 @@
  setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopRightCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightDockWidgetArea);
  setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomRightCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightDockWidgetArea);</pre>
 <p>The following diagram shows the configuration produced by the above code. Note that the left and right dock widgets will occupy the top and bottom corners of the main window in this layout.</p>
-<p class="centerAlign"><img src="images/mainwindow-docks-example.png" /></p><p>Once all of the main window components have been set up, the central widget is created and installed by using code similar to the following:</p>
+<p class="centerAlign"><img src="images/mainwindow-docks-example.png" alt="" /></p><p>Once all of the main window components have been set up, the central widget is created and installed by using code similar to the following:</p>
 <pre class="cpp"> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>centralWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>(<span class="keyword">this</span>);
  setCentralWidget(centralWidget);</pre>
 <p>The central widget can be any subclass of <a href="qwidget.html">QWidget</a>.</p>
@@ -122,7 +122,7 @@
 <a name="independent-qdockwidget-and-qtoolbar-classes"></a>
 <h3>Independent QDockWidget And QToolBar Classes</h3>
 <p>Toolbar and dock window functionality is provided by two independent classes: <a href="qtoolbar.html">QToolBar</a> and <a href="qdockwidget.html">QDockWidget</a>. Toolbars and dock widgets reside in separate areas, with toolbars outside the dock widget area. This behavior differs from the Qt 3 behavior, where <a href="qtoolbar.html">QToolBar</a> inherited functionality from <a href="qdockwidget.html">QDockWidget</a>, and both types of component shared the same areas. The result is a more consistent and predictable experience for users. Toolbars and dock widgets provide feedback while being dragged into their new positions.</p>
-<p class="centerAlign"><img src="images/mainwindow-docks.png" /></p><p>The diagram above shows the layout of a main window that contains both toolbars and dock widgets. Each corner area can be used by either of the adjacent dock widget areas, allowing dock widget behavior and main window layout to be specified precisely.</p>
+<p class="centerAlign"><img src="images/mainwindow-docks.png" alt="" /></p><p>The diagram above shows the layout of a main window that contains both toolbars and dock widgets. Each corner area can be used by either of the adjacent dock widget areas, allowing dock widget behavior and main window layout to be specified precisely.</p>
 <p>Toolbars and dock widgets are child widgets of the main window. They are no longer reparented into a dock area widget by the main window. Instead, layouts are used to manage the placement of toolbars and dock widgets. One consequence is that the old <a href="porting4.html#qdockarea">QDockArea</a> class is no longer required in Qt 4.</p>
 <a name="code-change-examples"></a>
 <h3>Code Change Examples</h3>
@@ -168,7 +168,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

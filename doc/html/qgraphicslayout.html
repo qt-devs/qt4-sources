@@ -103,6 +103,7 @@
 </table>
 <p>For more details on how to implement each function, refer to the individual function documentation.</p>
 <p>Each layout defines its own API for arranging widgets and layout items. For example, with a grid layout, you require a row and a column index with optional row and column spans, alignment, spacing, and more. A linear layout, however, requires a single row or column index to position its items. For a grid layout, the order of insertion does not affect the layout in any way, but for a linear layout, the order is essential. When writing your own layout subclass, you are free to choose the API that best suits your layout.</p>
+<p>For adding layout items to the custom layout, the QGraphicsLayout provides convenience function <a href="qgraphicslayout.html#addChildLayoutItem">addChildLayoutItem</a>(). The function will take care of automatically reparenting graphics items, if needed.</p>
 <a name="activating-the-layout"></a>
 <h3>Activating the Layout</h3>
 <p>When the layout's geometry changes, QGraphicsLayout immediately rearranges all of its managed items by calling <a href="qgraphicslayoutitem.html#setGeometry">setGeometry</a>() on each item. This rearrangement is called <i>activating</i> the layout.</p>
@@ -218,7 +219,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

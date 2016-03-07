@@ -53,7 +53,7 @@
 <a name="the-bundle"></a>
 <h2>The Bundle</h2>
 <p>On the Mac, a GUI application must be built and run from a bundle. A bundle is a directory structure that appears as a single entity when viewed in the Finder. A bundle for an application typcially contains the executable and all the resources it needs. See the image below:</p>
-<p class="centerAlign"><img src="images/deployment-mac-bundlestructure.png" /></p><p>The bundle provides many advantages to the user. One primary advantage is that, since it is a single entity, it allows for drag-and-drop installation. As a programmer you can access bundle information in your own code. This is specific to Mac OS X and beyond the scope of this document. More information about bundles is available on <a href="http://developer.apple.com/documentation/CoreFoundation/Conceptual/CFBundles/index.html">Apple's Developer Website</a>.</p>
+<p class="centerAlign"><img src="images/deployment-mac-bundlestructure.png" alt="" /></p><p>The bundle provides many advantages to the user. One primary advantage is that, since it is a single entity, it allows for drag-and-drop installation. As a programmer you can access bundle information in your own code. This is specific to Mac OS X and beyond the scope of this document. More information about bundles is available on <a href="http://developer.apple.com/documentation/CoreFoundation/Conceptual/CFBundles/index.html">Apple's Developer Website</a>.</p>
 <p>A Qt command line application on Mac OS X works similar to a command line application on Unix and Windows. You probably don't want to run it in a bundle: Add this to your application's .pro:</p>
 <pre class="cpp"> CONFIG-=app_bundle</pre>
 <p>This will tell <tt>qmake</tt> not to put the executable inside a bundle. Please refer to the <a href="deployment-x11.html">X11 deployment documentation</a> for information about how to deploy these &quot;bundle-less&quot; applications.</p>
@@ -224,7 +224,7 @@
  }
  #endif</pre>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/deployment-mac-application.png" /></td><td >The additional code in <tt>tools/plugandpaint/mainwindow.cpp</tt> also enables us to view the plugins in the Finder, as shown to the left.<p>We can also add plugins extending Qt, for example adding SQL drivers or image formats. We just need to follow the directory structure outlined in plugin documentation, and make sure they are included in the <a href="qcoreapplication.html#libraryPaths">QCoreApplication::libraryPaths</a>(). Let's quickly do this with the image formats, following the approach from above.</p>
+<tr valign="top" class="odd"><td ><img src="images/deployment-mac-application.png" alt="" /></td><td >The additional code in <tt>tools/plugandpaint/mainwindow.cpp</tt> also enables us to view the plugins in the Finder, as shown to the left.<p>We can also add plugins extending Qt, for example adding SQL drivers or image formats. We just need to follow the directory structure outlined in plugin documentation, and make sure they are included in the <a href="qcoreapplication.html#libraryPaths">QCoreApplication::libraryPaths</a>(). Let's quickly do this with the image formats, following the approach from above.</p>
 <p>Copy Qt's image format plugins into the bundle:</p>
 <pre class="cpp"> cp -R /path/to/Qt/plugins/imageformats
          pluginandpaint.app/Contents/plugins</pre>
@@ -325,7 +325,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

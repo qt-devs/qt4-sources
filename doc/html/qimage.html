@@ -159,8 +159,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#operator-lt-lt-67">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QImage &amp; <i>image</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#operator-gt-gt-35">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QImage &amp; <i>image</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#operator-lt-lt-137">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QImage &amp; <i>image</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#operator-gt-gt-77">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QImage &amp; <i>image</i> )</td></tr>
 </table>
 <h3>Additional Inherited Members</h3>
 <ul>
@@ -219,7 +219,7 @@
 <p>In case of a 32-bit image, the <a href="qimage.html#setPixel">setPixel</a>() function can be used to alter the color of the pixel at the given coordinates to any other color specified as an ARGB quadruplet. To make a suitable <a href="qcolor.html#QRgb-typedef">QRgb</a> value, use the <a href="qcolor.html#qRgb">qRgb</a>() (adding a default alpha component to the given RGB values, i.e&#x2e; creating an opaque color) or <a href="qcolor.html#qRgba">qRgba</a>() function. For example:</p>
 <table class="generic">
 <thead><tr class="qt-style"><th  colspan="2">32-bit</th></tr></thead>
-<tr valign="top" class="odd"><td ><img src="images/qimage-32bit_scaled.png" /></td><td ><pre class="cpp"> <span class="type">QImage</span> image(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="type">QImage</span><span class="operator">::</span>Format_RGB32);
+<tr valign="top" class="odd"><td ><img src="images/qimage-32bit_scaled.png" alt="" /></td><td ><pre class="cpp"> <span class="type">QImage</span> image(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="type">QImage</span><span class="operator">::</span>Format_RGB32);
  <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> value;
 
  value <span class="operator">=</span> <a href="qcolor.html#qRgb">qRgb</a>(<span class="number">189</span><span class="operator">,</span> <span class="number">149</span><span class="operator">,</span> <span class="number">39</span>); <span class="comment">// 0xffbd9527</span>
@@ -237,7 +237,7 @@
 <p>An entry in the color table is an ARGB quadruplet encoded as an <a href="qcolor.html#QRgb-typedef">QRgb</a> value. Use the <a href="qcolor.html#qRgb">qRgb</a>() and <a href="qcolor.html#qRgba">qRgba</a>() functions to make a suitable <a href="qcolor.html#QRgb-typedef">QRgb</a> value for use with the <a href="qimage.html#setColor">setColor</a>() function. For example:</p>
 <table class="generic">
 <thead><tr class="qt-style"><th  colspan="2">8-bit</th></tr></thead>
-<tr valign="top" class="odd"><td ><img src="images/qimage-8bit_scaled.png" /></td><td ><pre class="cpp"> <span class="type">QImage</span> image(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="type">QImage</span><span class="operator">::</span>Format_Indexed8);
+<tr valign="top" class="odd"><td ><img src="images/qimage-8bit_scaled.png" alt="" /></td><td ><pre class="cpp"> <span class="type">QImage</span> image(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="type">QImage</span><span class="operator">::</span>Format_Indexed8);
  <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> value;
 
  value <span class="operator">=</span> <a href="qcolor.html#qRgb">qRgb</a>(<span class="number">122</span><span class="operator">,</span> <span class="number">163</span><span class="operator">,</span> <span class="number">39</span>); <span class="comment">// 0xff7aa327</span>
@@ -701,7 +701,7 @@
 <!-- $$$scaled[overload1]$$$scaledconstQSize&Qt::AspectRatioModeQt::TransformationMode -->
 <h3 class="fn"><a name="scaled"></a><span class="type">QImage</span> QImage::<span class="name">scaled</span> ( const <span class="type"><a href="qsize.html">QSize</a></span> &amp; <i>size</i>, <span class="type"><a href="qt.html#AspectRatioMode-enum">Qt::AspectRatioMode</a></span> <i>aspectRatioMode</i> = Qt::IgnoreAspectRatio, <span class="type"><a href="qt.html#TransformationMode-enum">Qt::TransformationMode</a></span> <i>transformMode</i> = Qt::FastTransformation ) const</h3>
 <p>Returns a copy of the image scaled to a rectangle defined by the given <i>size</i> according to the given <i>aspectRatioMode</i> and <i>transformMode</i>.</p>
-<p class="centerAlign"><img src="images/qimage-scaling.png" /></p><ul>
+<p class="centerAlign"><img src="images/qimage-scaling.png" alt="" /></p><ul>
 <li>If <i>aspectRatioMode</i> is <a href="qt.html#AspectRatioMode-enum">Qt::IgnoreAspectRatio</a>, the image is scaled to <i>size</i>.</li>
 <li>If <i>aspectRatioMode</i> is <a href="qt.html#AspectRatioMode-enum">Qt::KeepAspectRatio</a>, the image is scaled to a rectangle as large as possible inside <i>size</i>, preserving the aspect ratio.</li>
 <li>If <i>aspectRatioMode</i> is <a href="qt.html#AspectRatioMode-enum">Qt::KeepAspectRatioByExpanding</a>, the image is scaled to a rectangle as small as possible outside <i>size</i>, preserving the aspect ratio.</li>
@@ -891,12 +891,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQImage& -->
-<h3 class="fn"><a name="operator-lt-lt-67"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, const <span class="type">QImage</span> &amp; <i>image</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-137"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, const <span class="type">QImage</span> &amp; <i>image</i> )</h3>
 <p>Writes the given <i>image</i> to the given <i>stream</i> as a PNG image, or as a BMP image if the stream's version is 1. Note that writing the stream to a file will not produce a valid image file.</p>
 <p><b>See also </b><a href="qimage.html#save">QImage::save</a>() and <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QImage& -->
-<h3 class="fn"><a name="operator-gt-gt-35"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, <span class="type">QImage</span> &amp; <i>image</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-77"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, <span class="type">QImage</span> &amp; <i>image</i> )</h3>
 <p>Reads an image from the given <i>stream</i> and stores it in the given <i>image</i>.</p>
 <p><b>See also </b><a href="qimage.html#load">QImage::load</a>() and <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->
@@ -907,7 +907,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

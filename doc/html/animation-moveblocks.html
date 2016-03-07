@@ -43,7 +43,7 @@
 <li><a href="animation-moveblocks-main-cpp.html">animation/moveblocks/main.cpp</a></li>
 <li><a href="animation-moveblocks-moveblocks-pro.html">animation/moveblocks/moveblocks.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/moveblocks-example.png" /></p><p>The example animates the blue blocks that you can see in the image above. The animation moves the blocks between four preset positions.</p>
+<p>The Move Blocks example shows how to animate items in a <a href="qgraphicsscene.html">QGraphicsScene</a> using a <a href="qstatemachine.html">QStateMachine</a> with a custom transition.<p class="centerAlign"><img src="images/moveblocks-example.png" alt="" /></p><p>The example animates the blue blocks that you can see in the image above. The animation moves the blocks between four preset positions.</p>
 <p>The example consists of the following classes:</p>
 <ul>
 <li><tt>StateSwitcher</tt> inherits <a href="qstate.html">QState</a> and can add <tt>StateSwitchTransition</tt>s to other states. When entered, it will randomly transition to one of these states.</li>
@@ -69,7 +69,7 @@
      scene<span class="operator">.</span>addItem(button3);
      scene<span class="operator">.</span>addItem(button4);</pre>
 <p>After adding the scene to a <a href="qgraphicsview.html">QGraphicsView</a>, it is time to build the state graph. Let's first look at a statechart of what we are trying to build.</p>
-<p class="centerAlign"><img src="images/move-blocks-chart.png" /></p><p>Note that the <tt>group</tt> has seven sub states, but we have only included three of them in the diagram. The code that builds this graph will be examined line-by-line, and will show how the graph works. First off, we construct the <tt>group</tt> state:</p>
+<p class="centerAlign"><img src="images/move-blocks-chart.png" alt="" /></p><p>Note that the <tt>group</tt> has seven sub states, but we have only included three of them in the diagram. The code that builds this graph will be examined line-by-line, and will show how the graph works. First off, we construct the <tt>group</tt> state:</p>
 <pre class="cpp">     <span class="type"><a href="qstatemachine.html">QStateMachine</a></span> machine;
 
      <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>group <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
@@ -234,7 +234,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

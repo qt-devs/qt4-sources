@@ -45,8 +45,8 @@
 <li><a href="richtext-orderform-main-cpp.html">richtext/orderform/main.cpp</a></li>
 <li><a href="richtext-orderform-orderform-pro.html">richtext/orderform/orderform.pro</a></li>
 </ul>
-<p>Data is extracted from a <tt>DetailsDialog</tt> object and displayed on a <a href="qtextedit.html">QTextEdit</a> with a <a href="qtextcursor.html">QTextCursor</a>, using various formats. Each form generated is added to a <a href="qtabwidget.html">QTabWidget</a> for easy access.</p>
-<p class="centerAlign"><img src="images/orderform-example.png" /></p><a name="detailsdialog-definition"></a>
+<p>The Order Form example shows how to generate rich text documents by combining a simple template with data input by the user in a dialog.<p>Data is extracted from a <tt>DetailsDialog</tt> object and displayed on a <a href="qtextedit.html">QTextEdit</a> with a <a href="qtextcursor.html">QTextCursor</a>, using various formats. Each form generated is added to a <a href="qtabwidget.html">QTabWidget</a> for easy access.</p>
+<p class="centerAlign"><img src="images/orderform-example.png" alt="" /></p><a name="detailsdialog-definition"></a>
 <h2>DetailsDialog Definition</h2>
 <p>The <tt>DetailsDialog</tt> class is a subclass of <a href="qdialog.html">QDialog</a>, implementing a slot <tt>verify()</tt> to allow contents of the <tt>DetailsDialog</tt> to be verified later. This is further explained in <tt>DetailsDialog</tt> Implementation.</p>
 <pre class="cpp"> <span class="keyword">class</span> DetailsDialog : <span class="keyword">public</span> <span class="type"><a href="qdialog.html">QDialog</a></span>
@@ -80,7 +80,7 @@
 <p>The constructor of <tt>DetailsDialog</tt> accepts parameters <i>title</i> and <i>parent</i>. The class defines four <i>getter</i> functions: <tt>orderItems()</tt>, <tt>senderName()</tt>, <tt>senderAddress()</tt>, and <tt>sendOffers()</tt> to allow data to be accessed externally.</p>
 <p>The class definition includes input widgets for the required fields, <tt>nameEdit</tt> and <tt>addressEdit</tt>. Also, a <a href="qcheckbox.html">QCheckBox</a> and a <a href="qdialogbuttonbox.html">QDialogButtonBox</a> are defined; the former to provide the user with the option to receive information on products and offers, and the latter to ensure that buttons used are arranged according to the user's native platform. In addition, a <a href="qtablewidget.html">QTableWidget</a>, <tt>itemsTable</tt>, is used to hold order details.</p>
 <p>The screenshot below shows the <tt>DetailsDialog</tt> we intend to create.</p>
-<p class="centerAlign"><img src="images/orderform-example-detailsdialog.png" /></p><a name="detailsdialog-implementation"></a>
+<p class="centerAlign"><img src="images/orderform-example-detailsdialog.png" alt="" /></p><a name="detailsdialog-implementation"></a>
 <h2>DetailsDialog Implementation</h2>
 <p>The constructor of <tt>DetailsDialog</tt> instantiates the earlier defined fields and their respective labels. The label for <tt>offersCheckBox</tt> is set and the <tt>setupItemsTable()</tt> function is invoked to setup and populate <tt>itemsTable</tt>. The <a href="qdialogbuttonbox.html">QDialogButtonBox</a> object, <tt>buttonBox</tt>, is instantiated with <b>OK</b> and <b>Cancel</b> buttons. This <tt>buttonBox</tt>'s <tt>accepted()</tt> and <tt>rejected()</tt> signals are connected to the <tt>verify()</tt> and <tt>reject()</tt> slots in <tt>DetailsDialog</tt>.</p>
 <pre class="cpp"> DetailsDialog<span class="operator">::</span>DetailsDialog(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>title<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
@@ -497,7 +497,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

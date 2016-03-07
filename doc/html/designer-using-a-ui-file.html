@@ -71,7 +71,7 @@
 <p>To demonstrate, we create a simple Calculator Form application. It is based on the original <a href="designer-calculatorform.html">Calculator Form</a> example.</p>
 <p>The application consists of one source file, <tt>main.cpp</tt> and a UI file.</p>
 <p>The <tt>calculatorform.ui</tt> file designed with <i>Qt Designer</i> is shown below:</p>
-<p class="centerAlign"><img src="images/directapproach-calculatorform.png" /></p><p>We will use <tt>qmake</tt> to build the executable, so we need to write a <tt>.pro</tt> file:</p>
+<p class="centerAlign"><img src="images/directapproach-calculatorform.png" alt="" /></p><p>We will use <tt>qmake</tt> to build the executable, so we need to write a <tt>.pro</tt> file:</p>
 <pre class="cpp"> TEMPLATE    = app
  FORMS       = calculatorform.ui
  SOURCES     = main.cpp</pre>
@@ -131,7 +131,7 @@
  {
      ui<span class="operator">.</span>setupUi(<span class="keyword">this</span>);
  }</pre>
-<p>We can connect signals and slots in user interface widgets in the usual way, taking care to prefix the <tt>ui</tt> object to each widget used.</p>
+<p>We can connect signals and slots in user interface widgets in the usual way by adding the on_&lt;object name&gt; - prefix. For more information, see <a href="#widgets-and-dialogs-with-auto-connect">widgets-and-dialogs-with-auto-connect</a>.</p>
 <p>The advantages of this approach are its simple use of inheritance to provide a <a href="qwidget.html">QWidget</a>-based interface, and its encapsulation of the user interface widget variables within the <tt>ui</tt> data member. We can use this method to define a number of user interfaces within the same widget, each of which is contained within its own namespace, and overlay (or compose) them. This approach can be used to create individual tabs from existing forms, for example.</p>
 <a name="using-a-pointer-member-variable"></a>
 <h4>Using a Pointer Member Variable</h4>
@@ -329,7 +329,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

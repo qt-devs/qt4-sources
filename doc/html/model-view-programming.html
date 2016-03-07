@@ -127,7 +127,7 @@
 </blockquote>
 <p>If the view and the controller objects are combined, the result is the model/view architecture. This still separates the way that data is stored from the way that it is presented to the user, but provides a simpler framework based on the same principles. This separation makes it possible to display the same data in several different views, and to implement new types of views, without changing the underlying data structures. To allow flexible handling of user input, we introduce the concept of the <i>delegate</i>. The advantage of having a delegate in this framework is that it allows the way items of data are rendered and edited to be customized.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/modelview-overview.png" /></td><td ><b>The model/view architecture</b><p>The model communicates with a source of data, providing an <i>interface</i> for the other components in the architecture. The nature of the communication depends on the type of data source, and the way the model is implemented.</p>
+<tr valign="top" class="odd"><td ><img src="images/modelview-overview.png" alt="" /></td><td ><b>The model/view architecture</b><p>The model communicates with a source of data, providing an <i>interface</i> for the other components in the architecture. The nature of the communication depends on the type of data source, and the way the model is implemented.</p>
 <p>The view obtains <i>model indexes</i> from the model; these are references to items of data. By supplying model indexes to the model, the view can retrieve items of data from the data source.</p>
 <p>In standard views, a <i>delegate</i> renders the items of data. When an item is edited, the delegate communicates with the model directly using model indexes.</p>
 </td></tr>
@@ -181,7 +181,7 @@
 <a name="using-views-with-an-existing-model"></a>
 <h3>Using views with an existing model</h3>
 <p>The <a href="qlistview.html">QListView</a> and <a href="qtreeview.html">QTreeView</a> classes are the most suitable views to use with <a href="qfilesystemmodel.html">QFileSystemModel</a>. The example presented below displays the contents of a directory in a tree view next to the same information in a list view. The views share the user's selection so that the selected items are highlighted in both views.</p>
-<p class="centerAlign"><img src="images/shareddirmodel.png" /></p><p>We set up a <a href="qfilesystemmodel.html">QFileSystemModel</a> so that it is ready for use, and create some views to display the contents of a directory. This shows the simplest way to use a model. The construction and use of the model is performed from within a single <tt>main()</tt> function:</p>
+<p class="centerAlign"><img src="images/shareddirmodel.png" alt="" /></p><p>We set up a <a href="qfilesystemmodel.html">QFileSystemModel</a> so that it is ready for use, and create some views to display the contents of a directory. This shows the simplest way to use a model. The construction and use of the model is performed from within a single <tt>main()</tt> function:</p>
 <pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
  {
      <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
@@ -212,7 +212,7 @@
 <a name="basic-concepts"></a>
 <h3>Basic concepts</h3>
 <p>In the model/view architecture, the model provides a standard interface that views and delegates use to access data. In Qt, the standard interface is defined by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> class. No matter how the items of data are stored in any underlying data structure, all subclasses of <a href="qabstractitemmodel.html">QAbstractItemModel</a> represent the data as a hierarchical structure containing tables of items. Views use this <i>convention</i> to access items of data in the model, but they are not restricted in the way that they present this information to the user.</p>
-<p class="centerAlign"><img src="images/modelview-models.png" /></p><p>Models also notify any attached views about changes to data through the signals and slots mechanism.</p>
+<p class="centerAlign"><img src="images/modelview-models.png" alt="" /></p><p>Models also notify any attached views about changes to data through the signals and slots mechanism.</p>
 <p>This section describes some basic concepts that are central to the way item of data are accessed by other components via a model class. More advanced concepts are discussed in later sections.</p>
 <a name="model-indexes"></a>
 <h4>Model indexes</h4>
@@ -227,7 +227,7 @@
 <pre class="cpp"> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> column<span class="operator">,</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>);</pre>
 <p>Models that provide interfaces to simple, single level data structures like lists and tables do not need any other information to be provided but, as the above code indicates, we need to supply more information when obtaining a model index.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/modelview-tablemodel.png" /></td><td ><b>Rows and columns</b><p>The diagram shows a representation of a basic table model in which each item is located by a pair of row and column numbers. We obtain a model index that refers to an item of data by passing the relevant row and column numbers to the model.</p>
+<tr valign="top" class="odd"><td ><img src="images/modelview-tablemodel.png" alt="" /></td><td ><b>Rows and columns</b><p>The diagram shows a representation of a basic table model in which each item is located by a pair of row and column numbers. We obtain a model index that refers to an item of data by passing the relevant row and column numbers to the model.</p>
 <pre class="cpp"> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> indexA <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>());
  <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> indexB <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>());
  <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> indexC <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>());</pre>
@@ -240,7 +240,7 @@
 <p>When requesting an index for a model item, we must provide some information about the item's parent. Outside the model, the only way to refer to an item is through a model index, so a parent model index must also be given:</p>
 <pre class="cpp"> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(row<span class="operator">,</span> column<span class="operator">,</span> parent);</pre>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/modelview-treemodel.png" /></td><td ><b>Parents, rows, and columns</b><p>The diagram shows a representation of a tree model in which each item is referred to by a parent, a row number, and a column number.</p>
+<tr valign="top" class="odd"><td ><img src="images/modelview-treemodel.png" alt="" /></td><td ><b>Parents, rows, and columns</b><p>The diagram shows a representation of a tree model in which each item is referred to by a parent, a row number, and a column number.</p>
 <p>Items &quot;A&quot; and &quot;C&quot; are represented as top-level siblings in the model:</p>
 <pre class="cpp"> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> indexA <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>());
  <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> indexC <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>());</pre>
@@ -254,7 +254,7 @@
 <p>We can ask the model for the item's data by passing it the model index corresponding to the item, and by specifying a role to obtain the type of data we want:</p>
 <pre class="cpp"> <span class="type"><a href="qvariant.html">QVariant</a></span> value <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>data(index<span class="operator">,</span> role);</pre>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/modelview-roles.png" /></td><td ><b>Item roles</b><p>The role indicates to the model which type of data is being referred to. Views can display the roles in different ways, so it is important to supply appropriate information for each role.</p>
+<tr valign="top" class="odd"><td ><img src="images/modelview-roles.png" alt="" /></td><td ><b>Item roles</b><p>The role indicates to the model which type of data is being referred to. Views can display the roles in different ways, so it is important to supply appropriate information for each role.</p>
 <p>The <a href="#creating-new-models">Creating New Models</a> section covers some specific uses of roles in more detail.</p>
 </td></tr>
 </table>
@@ -307,7 +307,7 @@
 <a name="using-an-existing-view"></a>
 <h3>Using an existing view</h3>
 <p>Qt provides three ready-to-use view classes that present data from models in ways that are familiar to most users. <a href="qlistview.html">QListView</a> can display items from a model as a simple list, or in the form of a classic icon view. <a href="qtreeview.html">QTreeView</a> displays items from a model as a hierarchy of lists, allowing deeply nested structures to be represented in a compact way. <a href="qtableview.html">QTableView</a> presents items from a model in the form of a table, much like the layout of a spreadsheet application.</p>
-<p class="centerAlign"><img src="images/standard-views.png" /></p><p>The default behavior of the standard views shown above should be sufficient for most applications. They provide basic editing facilities, and can be customized to suit the needs of more specialized user interfaces.</p>
+<p class="centerAlign"><img src="images/standard-views.png" alt="" /></p><p>The default behavior of the standard views shown above should be sufficient for most applications. They provide basic editing facilities, and can be customized to suit the needs of more specialized user interfaces.</p>
 <a name="using-a-model"></a>
 <h4>Using a model</h4>
 <p>We take the string list model that <a href="#creating-new-models">we created as an example model</a>, set it up with some data, and construct a view to display the contents of the model. This can all be performed within a single function:</p>
@@ -329,7 +329,7 @@
      <span class="keyword">return</span> app<span class="operator">.</span>exec();
  }</pre>
 <p>The view renders the contents of a model, accessing data via the model's interface. When the user tries to edit an item, the view uses a default delegate to provide an editor widget.</p>
-<p class="centerAlign"><img src="images/stringlistmodel.png" /></p><p>The above image shows how a <a href="qlistview.html">QListView</a> represents the data in the string list model. Since the model is editable, the view automatically allows each item in the list to be edited using the default delegate.</p>
+<p class="centerAlign"><img src="images/stringlistmodel.png" alt="" /></p><p>The above image shows how a <a href="qlistview.html">QListView</a> represents the data in the string list model. Since the model is editable, the view automatically allows each item in the list to be edited using the default delegate.</p>
 <a name="using-multiple-views-of-a-model"></a>
 <h4>Using multiple views of a model</h4>
 <p>Providing multiple views onto the same model is simply a matter of setting the same model for each view. In the following code we create two table views, each using the same simple table model which we have created for this example:</p>
@@ -339,7 +339,7 @@
      firstTableView<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
      secondTableView<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);</pre>
 <p>The use of signals and slots in the model/view architecture means that changes to the model can be propagated to all the attached views, ensuring that we can always access the same data regardless of the view being used.</p>
-<p class="centerAlign"><img src="images/sharedmodel-tableviews.png" /></p><p>The above image shows two different views onto the same model, each containing a number of selected items. Although the data from the model is shown consistently across view, each view maintains its own internal selection model. This can be useful in certain situations but, for many applications, a shared selection model is desirable.</p>
+<p class="centerAlign"><img src="images/sharedmodel-tableviews.png" alt="" /></p><p>The above image shows two different views onto the same model, each containing a number of selected items. Although the data from the model is shown consistently across view, each view maintains its own internal selection model. This can be useful in certain situations but, for many applications, a shared selection model is desirable.</p>
 <a name="handling-selections-of-items"></a>
 <h3>Handling selections of items</h3>
 <p>The mechanism for handling selections of items within views is provided by the <a href="qitemselectionmodel.html">QItemSelectionModel</a> class. All of the standard views construct their own selection models by default, and interact with them in the normal way. The selection model being used by a view can be obtained through the <a href="qabstractitemview.html#selectionModel">selectionModel()</a> function, and a replacement selection model can be specified with <a href="qabstractitemview.html#setSelectionModel">setSelectionModel()</a>. The ability to control the selection model used by a view is useful when we want to provide multiple consistent views onto the same model data.</p>
@@ -349,7 +349,7 @@
 <p>Although it is convenient that the view classes provide their own selection models by default, when we use more than one view onto the same model it is often desirable that both the model's data and the user's selection are shown consistently in all views. Since the view classes allow their internal selection models to be replaced, we can achieve a unified selection between views with the following line:</p>
 <pre class="cpp">     secondTableView<span class="operator">-</span><span class="operator">&gt;</span>setSelectionModel(firstTableView<span class="operator">-</span><span class="operator">&gt;</span>selectionModel());</pre>
 <p>The second view is given the selection model for the first view. Both views now operate on the same selection model, keeping both the data and the selected items synchronized.</p>
-<p class="centerAlign"><img src="images/sharedselection-tableviews.png" /></p><p>In the example shown above, two views of the same type were used to display the same model's data. However, if two different types of view were used, the selected items may be represented very differently in each view; for example, a contiguous selection in a table view can be represented as a fragmented set of highlighted items in a tree view.</p>
+<p class="centerAlign"><img src="images/sharedselection-tableviews.png" alt="" /></p><p>In the example shown above, two views of the same type were used to display the same model's data. However, if two different types of view were used, the selected items may be represented very differently in each view; for example, a contiguous selection in a table view can be represented as a fragmented set of highlighted items in a tree view.</p>
 <a name="delegate-classes"></a>
 <h2>Delegate classes</h2>
 <a name="concepts"></a>
@@ -366,7 +366,7 @@
 <a name="a-simple-delegate"></a>
 <h3>A simple delegate</h3>
 <p>The delegate implemented here uses a <a href="qspinbox.html">QSpinBox</a> to provide editing facilities, and is mainly intended for use with models that display integers. Although we set up a custom integer-based table model for this purpose, we could easily have used <a href="qstandarditemmodel.html">QStandardItemModel</a> instead, since the custom delegate controls data entry. We construct a table view to display the contents of the model, and this will use the custom delegate for editing.</p>
-<p class="centerAlign"><img src="images/spinboxdelegate-example.png" /></p><p>We subclass the delegate from <a href="qitemdelegate.html">QItemDelegate</a> because we do not want to write custom display functions. However, we must still provide functions to manage the editor widget:</p>
+<p class="centerAlign"><img src="images/spinboxdelegate-example.png" alt="" /></p><p>We subclass the delegate from <a href="qitemdelegate.html">QItemDelegate</a> because we do not want to write custom display functions. However, we must still provide functions to manage the editor widget:</p>
 <pre class="cpp"> <span class="keyword">class</span> SpinBoxDelegate : <span class="keyword">public</span> <span class="type"><a href="qitemdelegate.html">QItemDelegate</a></span>
  {
      Q_OBJECT
@@ -484,7 +484,7 @@
 <pre class="cpp">     <span class="type"><a href="qitemselection.html">QItemSelection</a></span> selection(topLeft<span class="operator">,</span> bottomRight);
      selectionModel<span class="operator">-</span><span class="operator">&gt;</span>select(selection<span class="operator">,</span> <span class="type"><a href="qitemselectionmodel.html">QItemSelectionModel</a></span><span class="operator">::</span>Select);</pre>
 <p>The selection is applied to the selection model using a command defined by a combination of <a href="qitemselectionmodel.html#SelectionFlag-enum">selection flags</a>. In this case, the flags used cause the items recorded in the selection object to be included in the selection model, regardless of their previous state. The resulting selection is shown by the view.</p>
-<p class="centerAlign"><img src="images/selected-items1.png" /></p><p>The selection of items can be modified using various operations that are defined by the selection flags. The selection that results from these operations may have a complex structure, but it is represented efficiently by the selection model. The use of different selection flags to manipulate the selected items is described when we examine how to update a selection.</p>
+<p class="centerAlign"><img src="images/selected-items1.png" alt="" /></p><p>The selection of items can be modified using various operations that are defined by the selection flags. The selection that results from these operations may have a complex structure, but it is represented efficiently by the selection model. The use of different selection flags to manipulate the selected items is described when we examine how to update a selection.</p>
 <a name="reading-the-selection-state"></a>
 <h4>Reading the selection state</h4>
 <p>The model indexes stored in the selection model can be read using the <a href="qitemselectionmodel.html#selectedIndexes">selectedIndexes()</a> function. This returns an unsorted list of model indexes that we can iterate over as long as we know which model they are for:</p>
@@ -537,7 +537,7 @@
 
      selectionModel<span class="operator">-</span><span class="operator">&gt;</span>select(toggleSelection<span class="operator">,</span> <span class="type"><a href="qitemselectionmodel.html">QItemSelectionModel</a></span><span class="operator">::</span>Toggle);</pre>
 <p>The results of this operation are displayed in the table view, providing a convenient way of visualizing what we have achieved:</p>
-<p class="centerAlign"><img src="images/selected-items2.png" /></p><p>By default, the selection commands only operate on the individual items specified by the model indexes. However, the flag used to describe the selection command can be combined with additional flags to change entire rows and columns. For example if you call <a href="qitemselectionmodel.html#select">select()</a> with only one index, but with a command that is a combination of <a href="qitemselectionmodel.html#SelectionFlag-enum">Select</a> and <a href="qitemselectionmodel.html#SelectionFlag-enum">Rows</a>, the entire row containing the item referred to is selected. The following code demonstrates the use of the <a href="qitemselectionmodel.html#SelectionFlag-enum">Rows</a> and <a href="qitemselectionmodel.html#SelectionFlag-enum">Columns</a> flags:</p>
+<p class="centerAlign"><img src="images/selected-items2.png" alt="" /></p><p>By default, the selection commands only operate on the individual items specified by the model indexes. However, the flag used to describe the selection command can be combined with additional flags to change entire rows and columns. For example if you call <a href="qitemselectionmodel.html#select">select()</a> with only one index, but with a command that is a combination of <a href="qitemselectionmodel.html#SelectionFlag-enum">Select</a> and <a href="qitemselectionmodel.html#SelectionFlag-enum">Rows</a>, the entire row containing the item referred to is selected. The following code demonstrates the use of the <a href="qitemselectionmodel.html#SelectionFlag-enum">Rows</a> and <a href="qitemselectionmodel.html#SelectionFlag-enum">Columns</a> flags:</p>
 <pre class="cpp">     <span class="type"><a href="qitemselection.html">QItemSelection</a></span> columnSelection;
 
      topLeft <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>());
@@ -558,7 +558,7 @@
      selectionModel<span class="operator">-</span><span class="operator">&gt;</span>select(rowSelection<span class="operator">,</span>
          <span class="type"><a href="qitemselectionmodel.html">QItemSelectionModel</a></span><span class="operator">::</span>Select <span class="operator">|</span> <span class="type"><a href="qitemselectionmodel.html">QItemSelectionModel</a></span><span class="operator">::</span>Rows);</pre>
 <p>Although only four indexes are supplied to the selection model, the use of the <a href="qitemselectionmodel.html#SelectionFlag-enum">Columns</a> and <a href="qitemselectionmodel.html#SelectionFlag-enum">Rows</a> selection flags means that two columns and two rows are selected. The following image shows the result of these two selections:</p>
-<p class="centerAlign"><img src="images/selected-items3.png" /></p><p>The commands performed on the example model have all involved accumulating a selection of items in the model. It is also possible to clear the selection, or to replace the current selection with a new one.</p>
+<p class="centerAlign"><img src="images/selected-items3.png" alt="" /></p><p>The commands performed on the example model have all involved accumulating a selection of items in the model. It is also possible to clear the selection, or to replace the current selection with a new one.</p>
 <p>To replace the current selection with a new selection, combine the other selection flags with the <a href="qitemselectionmodel.html#SelectionFlag-enum">Current</a> flag. A command using this flag instructs the selection model to replace its current collection of model indexes with those specified in a call to <a href="qitemselectionmodel.html#select">select()</a>. To clear all selections before you start adding new ones, combine the other selection flags with the <a href="qitemselectionmodel.html#SelectionFlag-enum">Clear</a> flag. This has the effect of resetting the selection model's collection of model indexes.</p>
 <a name="selecting-all-items-in-a-model"></a>
 <h4>Selecting all items in a model</h4>
@@ -815,9 +815,9 @@
 <h4>Selections</h4>
 <p>The way items are selected is controlled by the widget's selection mode (<a href="qabstractitemview.html#SelectionMode-enum">QAbstractItemView::SelectionMode</a>). This property controls whether the user can select one or many items and, in many-item selections, whether the selection must be a continuous range of items. The selection mode works in the same way for all of the above widgets.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/selection-single.png" /></p></td><td ><b>Single item selections:</b> Where the user needs to choose a single item from a widget, the default <tt>SingleSelection</tt> mode is most suitable. In this mode, the current item and the selected item are the same.</td></tr>
-<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/selection-multi.png" /></p></td><td ><b>Multi-item selections:</b> In this mode, the user can toggle the selection state of any item in the widget without changing the existing selection, much like the way non-exclusive checkboxes can be toggled independently.</td></tr>
-<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/selection-extended.png" /></p></td><td ><b>Extended selections:</b> Widgets that often require many adjacent items to be selected, such as those found in spreadsheets, require the <tt>ExtendedSelection</tt> mode. In this mode, continuous ranges of items in the widget can be selected with both the mouse and the keyboard. Complex selections, involving many items that are not adjacent to other selected items in the widget, can also be created if modifier keys are used.<p>If the user selects an item without using a modifier key, the existing selection is cleared.</p>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/selection-single.png" alt="" /></p></td><td ><b>Single item selections:</b> Where the user needs to choose a single item from a widget, the default <tt>SingleSelection</tt> mode is most suitable. In this mode, the current item and the selected item are the same.</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/selection-multi.png" alt="" /></p></td><td ><b>Multi-item selections:</b> In this mode, the user can toggle the selection state of any item in the widget without changing the existing selection, much like the way non-exclusive checkboxes can be toggled independently.</td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/selection-extended.png" alt="" /></p></td><td ><b>Extended selections:</b> Widgets that often require many adjacent items to be selected, such as those found in spreadsheets, require the <tt>ExtendedSelection</tt> mode. In this mode, continuous ranges of items in the widget can be selected with both the mouse and the keyboard. Complex selections, involving many items that are not adjacent to other selected items in the widget, can also be created if modifier keys are used.<p>If the user selects an item without using a modifier key, the existing selection is cleared.</p>
 </td></tr>
 </table>
 <p>The selected items in a widget are read using the <tt>selectedItems()</tt> function, providing a list of relevant items that can be iterated over. For example, we can find the sum of all the numeric values within a list of selected items with the following code:</p>
@@ -1198,7 +1198,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

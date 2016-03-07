@@ -65,7 +65,7 @@
 <p>The rendering <b>context</b> defines the methods and attributes needed to draw on the canvas. <a href="qtwebkit.html">QtWebKit</a> currently supports the two-dimensional rendering context. The following assigns the canvas rendering context to a <tt>context</tt> variable:</p>
 <pre class="cpp"> var context <span class="operator">=</span> canvas<span class="operator">.</span>getContext(<span class="string">&quot;2d&quot;</span>)</pre>
 <p>The 2d context renders the canvas as a coordinate system whose origin (0,0) is at the top left corner, as shown in the figure below. Coordinates increase along the <tt>x</tt> axis from left to right and along the <tt>y</tt> axis from top to bottom of the canvas.</p>
-<p class="centerAlign"><img src="images/canvas_context.gif" /></p><a name="drawing-shapes"></a>
+<p class="centerAlign"><img src="images/canvas_context.gif" alt="" /></p><a name="drawing-shapes"></a>
 <h2>Drawing Shapes</h2>
 <p>The 2D rendering context supports rectangles, lines, and arcs, which you can combine to build complex shapes and graphic images.</p>
 <a name="drawing-rectangles"></a>
@@ -86,7 +86,7 @@
      canvas<span class="operator">.</span>strokeRect(<span class="number">50</span><span class="operator">,</span><span class="number">50</span><span class="operator">,</span><span class="number">50</span><span class="operator">,</span><span class="number">50</span>);
      canvas<span class="operator">.</span>fillRect(<span class="number">60</span><span class="operator">,</span><span class="number">60</span><span class="operator">,</span><span class="number">30</span><span class="operator">,</span><span class="number">30</span>);
      canvas<span class="operator">.</span>clearRect(<span class="number">70</span><span class="operator">,</span><span class="number">70</span><span class="operator">,</span><span class="number">10</span><span class="operator">,</span><span class="number">10</span>);</pre>
-<p class="centerAlign"><img src="images/canvas_rectangles.gif" /></p><a name="drawing-lines"></a>
+<p class="centerAlign"><img src="images/canvas_rectangles.gif" alt="" /></p><a name="drawing-lines"></a>
 <h3>Drawing Lines</h3>
 <p>To draw a line, you first have to <i>&quot;put your pencil down&quot;</i> on the canvas by creating a path. The <tt>context.beginPath()</tt> method sets a new path in the canvas. Each line that you draw is stored as a sub-path. Sub-paths can be closed to form a shape, or they can be left open. Each time you want to draw a new shape, you have to call the <tt>beginPath()</tt> method to reset the current path.</p>
 <p>After calling <tt>beginPath()</tt>, you set your starting position on the canvas by calling the <tt>context.moveTo(x,y)</tt> method. The <tt>moveTo(x,y)</tt> method creates a new subpath on the canvas that begins at the Cartesian point <tt>(x,y)</tt>.</p>
@@ -99,7 +99,7 @@
 <p>(The <tt>strokeStyle</tt> property can be a CSS color, a pattern, or a gradient.) Then use the <tt>context.stroke()</tt> method to actually draw the line on the canvas:</p>
 <pre class="cpp">     context<span class="operator">.</span>stroke();</pre>
 <p>This produces the image below. The numeric coordinates are added for clarity but are not part of the image drawn by the code:</p>
-<p class="centerAlign"><img src="images/canvas_lineStrokeTo.gif" /></p><p>To create a shape, call the <tt>context.closePath()</tt> method:</p>
+<p class="centerAlign"><img src="images/canvas_lineStrokeTo.gif" alt="" /></p><p>To create a shape, call the <tt>context.closePath()</tt> method:</p>
 <pre class="cpp">     context<span class="operator">.</span>closePath();
      context<span class="operator">.</span>moveTo(<span class="number">10</span><span class="operator">,</span><span class="number">10</span>);        <span class="comment">// starting point</span>
      context<span class="operator">.</span>lineTo(<span class="number">30</span><span class="operator">,</span><span class="number">30</span>);        <span class="comment">// specify first line</span>
@@ -113,7 +113,7 @@
 <pre class="cpp">     context<span class="operator">.</span>fillStyle(<span class="string">&quot;#FF0000&quot;</span>); <span class="comment">// use red color for fill</span>
      context<span class="operator">.</span>fill(); <span class="comment">// fill the triangle</span></pre>
 <p>The commands, if coded fully, would create the shape below:</p>
-<p class="centerAlign"><img src="images/canvas_closepath.gif" /></p><p><b>Note:</b> It is not necessary to close the path when calling the <tt>fill()</tt> method. Calling <tt>fill()</tt> closes the path and creates the completed shape.</p>
+<p class="centerAlign"><img src="images/canvas_closepath.gif" alt="" /></p><p><b>Note:</b> It is not necessary to close the path when calling the <tt>fill()</tt> method. Calling <tt>fill()</tt> closes the path and creates the completed shape.</p>
 <p>You can draw lines of various widths, endcap types, and joining options by configuring the following attributes:</p>
 <ul>
 <li><tt>lineWidth</tt> sets the thickness of the current line. The value can be any number greater than <tt>0</tt>. For example, <tt>context.lineWidth = 10</tt> sets the line thickness to <tt>10</tt> units. The default value is <tt>1</tt> unit, which is not the same as <tt>1</tt> <i>pixel</i>. Instead, the line is centered on the current path, with half its thickness on each side of the path.</li>
@@ -131,17 +131,17 @@
 </li>
 <li><tt>miterLimit</tt> sets the <i>miter limit ratio</i>. The value can be any number greater than <tt>0</tt>. The miter limit ratio determines how far the connection point of the outside of the lines can be from the connection point of the inside of the lines. (The default value is <tt>10</tt>.)</li>
 </ul>
-<p class="centerAlign"><img src="images/canvas_linecap.png" /></p><a name="drawing-arcs"></a>
+<p class="centerAlign"><img src="images/canvas_linecap.png" alt="" /></p><a name="drawing-arcs"></a>
 <h3>Drawing Arcs</h3>
 <p>To draw an arc, you begin with the same steps your followed to create a line:</p>
 <ol class="1">
 <li>Call the <tt>context.beginPath()</tt> method to <i>&quot;put your pencil down&quot;</i> on the canvas and set a new path.</li>
 <li>Call the <tt>context.moveTo(x,y)</tt> method to set your starting position on the canvas at the point (x,y).</li>
-<li>To draw an arc or circle, call the <tt>context.arcTo(x1,y1,x2,y2,radius)</tt> method. This adds an arc with starting point <tt>(x1,y1)</tt>, ending point <tt>(x2,y2)</tt>, and radius <tt>radius</tt> to the current subpath and connects it to the previous subpath by a straight line.<p class="centerAlign"><img src="images/canvas_arcTo.png" /></p></li>
-<li>An alternative way to draw an arc or circle is to call the <tt>context.arc(x,y,radius,startAngle,endAngle,anticlockwise)</tt> method. This adds an arc to the current subpath that lies on the circumference of the circle whose center is at the point (x,y) and whose radius is <tt>radius</tt>.<p class="centerAlign"><img src="images/canvas_arcTo2.png" /></p><p>Both <tt>startAngle</tt> and <tt>endAngle</tt> are measured from the x axis in units of radians.</p>
+<li>To draw an arc or circle, call the <tt>context.arcTo(x1,y1,x2,y2,radius)</tt> method. This adds an arc with starting point <tt>(x1,y1)</tt>, ending point <tt>(x2,y2)</tt>, and radius <tt>radius</tt> to the current subpath and connects it to the previous subpath by a straight line.<p class="centerAlign"><img src="images/canvas_arcTo.png" alt="" /></p></li>
+<li>An alternative way to draw an arc or circle is to call the <tt>context.arc(x,y,radius,startAngle,endAngle,anticlockwise)</tt> method. This adds an arc to the current subpath that lies on the circumference of the circle whose center is at the point (x,y) and whose radius is <tt>radius</tt>.<p class="centerAlign"><img src="images/canvas_arcTo2.png" alt="" /></p><p>Both <tt>startAngle</tt> and <tt>endAngle</tt> are measured from the x axis in units of radians.</p>
 <p>A complete circle is <tt>360</tt> degrees, or 2&Pi; radians. A semicircle is <tt>180</tt> degrees, or &Pi; radians. The number of radians is the number of degrees multiplied by &Pi;/180, expressed in JavaScript as:</p>
 <pre class="cpp">     var radians <span class="operator">=</span> (Math<span class="operator">.</span>PI<span class="operator">/</span><span class="number">180</span>)<span class="operator">*</span>degrees;</pre>
-<p class="centerAlign"><img src="images/canvas_startAngle.png" /></p><p><tt>anticlockwise</tt> has the value <tt>TRUE</tt> for each arc in the figure above because they are all drawn in the counterclockwise direction.</p>
+<p class="centerAlign"><img src="images/canvas_startAngle.png" alt="" /></p><p><tt>anticlockwise</tt> has the value <tt>TRUE</tt> for each arc in the figure above because they are all drawn in the counterclockwise direction.</p>
 </li>
 <li>To create a shape, call the <tt>context.closePath()</tt> method. This marks the current subpath as closed and draws a straight line from the current point to the first point in the path.</li>
 <li>To draw only the outline of the shape, call the <tt>context.stroke()</tt> method.</li>
@@ -164,7 +164,7 @@
 <li>Call the <tt>context.clip()</tt> method.</li>
 </ol>
 <p>The new shape displays. The following shows how a clipping path can modify how an image displays:</p>
-<p class="centerAlign"><img src="images/canvas_clip-complex.png" /></p><a name="compositing"></a>
+<p class="centerAlign"><img src="images/canvas_clip-complex.png" alt="" /></p><a name="compositing"></a>
 <h2>Compositing</h2>
 <p>You can build complex shapes by drawing shapes on top of each other. It is also possible to draw shapes behind existing shapes and to mask parts of shapes by using <i>compositing operations</i>. The <tt>globalCompositeOperation</tt> attribute sets the way shapes can be combined.</p>
 <p>The first shape drawn on the canvas to which additional shapes are added is called the <i>destination</i> shape. The shape drawn on the canvas afterwards to create the composite image is called the <i>source</i> shape. The value of the <tt>globalCompositeOperation</tt> attribute must be set to one of the following:</p>
@@ -182,7 +182,7 @@
 <li><tt>xor</tt> displays both the source and the destination shapes except the areas of overlap, in which both shapes are completely transparent.</li>
 </ul>
 <p>The following figure shows the various compositing effects:</p>
-<p class="centerAlign"><img src="images/canvas_composite.png" /></p><a name="saving-and-exporting-canvas-drawings-as-image-files"></a>
+<p class="centerAlign"><img src="images/canvas_composite.png" alt="" /></p><a name="saving-and-exporting-canvas-drawings-as-image-files"></a>
 <h2>Saving and Exporting Canvas Drawings as Image Files</h2>
 <p>You can save or export your canvas drawings as .png or .jpeg image files by calling the <tt>toDataURL()</tt> method:</p>
 <pre class="cpp"> canvas<span class="operator">.</span>toDataURL(<span class="operator">[</span>type<span class="operator">,</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span>)</pre>
@@ -226,7 +226,7 @@
 </ul>
 </li>
 </ul>
-<p class="centerAlign"><img src="images/canvas_text.png" /></p><p>To draw text on a canvas:</p>
+<p class="centerAlign"><img src="images/canvas_text.png" alt="" /></p><p>To draw text on a canvas:</p>
 <ol class="1">
 <li>Set the <tt>font</tt> attribute on the drawing context. For example:<pre class="cpp">     context<span class="operator">.</span>font <span class="operator">=</span> <span class="string">&quot;bold 11px arial&quot;</span></pre>
 </li>
@@ -308,7 +308,7 @@
 <pre class="cpp">     roses<span class="operator">.</span>onload <span class="operator">=</span> function(){
          var pattern <span class="operator">=</span> context<span class="operator">.</span>createPattern(roses<span class="operator">,</span>repeat<span class="operator">-</span>x);
      };</pre>
-<p class="centerAlign"><img src="images/canvas_pattern.png" /></p><a name="applying-colors"></a>
+<p class="centerAlign"><img src="images/canvas_pattern.png" alt="" /></p><a name="applying-colors"></a>
 <h2>Applying Colors</h2>
 <p>To draw the outline of a shape in color, set the <tt>strokeStyle</tt> attribute to any valid <a href="http://www.w3schools.com/css/css_colors.asp">CSS color value</a>. The color value can be in hexadecimal notation or in RGB/HSL notation, as described in <a href="qtwebkit-guide-css.html#specifying-color-and-opacity">Specifying Color and Opacity</a>. For example, either of the following sets a shape's outline to red:</p>
 <pre class="cpp"> context<span class="operator">.</span>strokeStyle <span class="operator">=</span> <span class="string">&quot;#FF0000&quot;</span>
@@ -399,7 +399,7 @@
 <pre class="cpp">     context<span class="operator">.</span>rotate(angle);</pre>
 <p>where <tt>angle</tt> is the clockwise rotation angle in radians. The number of radians is the number of degrees multiplied by &Pi;/180, expressed in JavaScript as:</p>
 <pre class="cpp">     var radians <span class="operator">=</span> (Math<span class="operator">.</span>PI<span class="operator">/</span><span class="number">180</span>)<span class="operator">*</span>degrees;</pre>
-<p class="centerAlign"><img src="images/canvas_rotate.png" /></p><a name="scaling-the-canvas-grid"></a>
+<p class="centerAlign"><img src="images/canvas_rotate.png" alt="" /></p><a name="scaling-the-canvas-grid"></a>
 <h3>Scaling the Canvas Grid</h3>
 <p>To increase or decrease the size of each unit in the canvas grid, call the <tt>scale</tt> method:</p>
 <pre class="cpp">     context<span class="operator">.</span>scale(x<span class="operator">,</span>y);</pre>
@@ -409,24 +409,24 @@
 <li><tt>y</tt> is the scale factor in the vertical direction</li>
 </ul>
 <p>The scale factors are in multiples. For example, <tt>scale(2.0, 0.5)</tt> would double the horizontal size of an object drawn on the canvas and half its vertical size, as shown below:</p>
-<p class="centerAlign"><img src="images/canvas_scale.png" /></p><a name="manipulating-the-transformation-matrix"></a>
+<p class="centerAlign"><img src="images/canvas_scale.png" alt="" /></p><a name="manipulating-the-transformation-matrix"></a>
 <h3>Manipulating the Transformation Matrix</h3>
 <p>Modifying the transformation matrix directly enables you to perform scaling, rotating, and translating transformations in a single step.</p>
 <p>The transformation matrix is an <i>affine transformation</i> matrix from linear algebra. Affine transformations preserve colinearity and relative distance in the transformed coordinate space. This means that points in a line remain in a line, parallel lines remain parallel, and the distance between lines and objects maintains the same ratio, even if a scale factor is applied. Repositioning by translation, rotation, or skewing is also possible.</p>
 <p>Each point on the canvas is multiplied by the matrix before anything is drawn. The <a href="http://dev.w3.org/html5/canvas-api/canvas-2d-api.html">HTML5 Canvas API</a> defines the transformation matrix as:</p>
-<p class="centerAlign"><img src="images/canvas_math.png" /></p><p>where:</p>
+<p class="centerAlign"><img src="images/canvas_math.png" alt="" /></p><p>where:</p>
 <ul>
-<li><tt>a</tt> is the scale factor in the horizontal (x) direction<p class="centerAlign"><img src="images/canvas_scalex.png" /></p></li>
-<li><tt>c</tt> is the skew factor in the x direction<p class="centerAlign"><img src="images/canvas_skewx.png" /></p></li>
-<li><tt>e</tt> is the translation in the x direction<p class="centerAlign"><img src="images/canvas_translate.png" /></p></li>
-<li><tt>b</tt> is the skew factor in the y (vertical) direction<p class="centerAlign"><img src="images/canvas_skewy.png" /></p></li>
-<li><tt>d</tt> is the scale factor in the y direction<p class="centerAlign"><img src="images/canvas_scaley.png" /></p></li>
-<li><tt>f</tt> is the translation in the y direction<p class="centerAlign"><img src="images/canvas_translatey.png" /></p></li>
+<li><tt>a</tt> is the scale factor in the horizontal (x) direction<p class="centerAlign"><img src="images/canvas_scalex.png" alt="" /></p></li>
+<li><tt>c</tt> is the skew factor in the x direction<p class="centerAlign"><img src="images/canvas_skewx.png" alt="" /></p></li>
+<li><tt>e</tt> is the translation in the x direction<p class="centerAlign"><img src="images/canvas_translate.png" alt="" /></p></li>
+<li><tt>b</tt> is the skew factor in the y (vertical) direction<p class="centerAlign"><img src="images/canvas_skewy.png" alt="" /></p></li>
+<li><tt>d</tt> is the scale factor in the y direction<p class="centerAlign"><img src="images/canvas_scaley.png" alt="" /></p></li>
+<li><tt>f</tt> is the translation in the y direction<p class="centerAlign"><img src="images/canvas_translatey.png" alt="" /></p></li>
 <li>the last row remains constant</li>
 </ul>
 <p>The scale factors and skew factors are multiples; <tt>e</tt> and <tt>f</tt> are coordinate space units, just like the units in the <tt>translate(x,y)</tt> method.</p>
 <p>The rotation transformation matrix is as follows:</p>
-<p class="centerAlign"><img src="images/canvas_math_rotate.png" /></p><p>where the <tt>angle</tt> of rotation is in radians.</p>
+<p class="centerAlign"><img src="images/canvas_math_rotate.png" alt="" /></p><p>where the <tt>angle</tt> of rotation is in radians.</p>
 <p><b>See Also:</b> <a href="http://www.senocular.com/flash/tutorials/transformmatrix/">senocular.com</a> for a good explanation of how transformation matrices are used identically within Adobe Flash.</p>
 <a name="canvas-animations"></a>
 <h2>Canvas Animations</h2>
@@ -480,7 +480,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

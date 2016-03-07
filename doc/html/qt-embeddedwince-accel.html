@@ -47,7 +47,7 @@
 <p>Qt uses <a href="qpainter.html">QPainter</a> for all graphics operations. By using the same API regardless of platform, the code can be reused on different devices. <a href="qpainter.html">QPainter</a> use different paint engines implemented in the <a href="qpaintengine.html">QPaintEngine</a> API to do the actual painting.</p>
 <p>The <a href="qpaintengine.html">QPaintEngine</a> API provides paint engines for each window system and painting framework supported by Qt. In regards to Qt for Embedded, this also includes implementations for OpenGL ES versions 1.1 and 2.0, as well as OpenVG and DirectFB(Embedded Linux only).</p>
 <p>By using one of these paint engines, you will be able to improve the graphics performance of your Qt application. However, if the graphics operations used are not supported, this might as well be a trap, slowing down your application significantly. This all depends on what kind of graphics operations that are supported by the target devices hardware configuration.</p>
-<p class="centerAlign"><img src="images/platformHWAcc.png" /></p><p>The paint engine will direct all graphics operations supported by the devices hardware to the GPU, and from there they are sent to the framebuffer. Unsupported graphics operations falls back to the <a href="qrasterpaintengine.html">QRasterPaintEngine</a> and are handled by the CPU before sent to the framebuffer. In the end, the operating system sends the paint updates off to the screen/display. The fallback operation is quite expensive in regards to memory consumption, and should be avoided.</p>
+<p class="centerAlign"><img src="images/platformHWAcc.png" alt="" /></p><p>The paint engine will direct all graphics operations supported by the devices hardware to the GPU, and from there they are sent to the framebuffer. Unsupported graphics operations falls back to the <a href="qrasterpaintengine.html">QRasterPaintEngine</a> and are handled by the CPU before sent to the framebuffer. In the end, the operating system sends the paint updates off to the screen/display. The fallback operation is quite expensive in regards to memory consumption, and should be avoided.</p>
 <a name="hardware-configuration-requirements"></a>
 <h3>Hardware configuration requirements</h3>
 <p>Before implementing any application using hardware acceleration, it is wise to get an overview of what kind of hardware accelerated graphics operations that are available for the target device.</p>
@@ -92,7 +92,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

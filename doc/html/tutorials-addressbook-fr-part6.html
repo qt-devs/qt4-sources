@@ -43,7 +43,7 @@
 <li><a href="tutorials-addressbook-fr-part6-part6-pro.html">tutorials/addressbook-fr/part6/part6.pro</a></li>
 </ul>
 <p>Ce chapitre couvre les fonctionnalités de gestion des fichiers de Qt que l'on utilise pour écrire les procédures de sauvegarde et chargement pour l'application carnet d'adresses.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part6-screenshot.png" /></p><p>Bien que la navigation et la recherche de contacts soient des fonctionnalités importantes, notre carnet d'adresses ne sera pleinement utilisable qu'une fois que l'on pourra sauvegarder les contacts existants et les charger à nouveau par la suite. Qt fournit de nombreuses classes pour gérer les <a href="io.html">entrées et sorties</a>, mais nous avons choisi de nous contenter d'une combinaison de deux classes simples à utiliser ensemble: <a href="qfile.html">QFile</a> et <a href="qdatastream.html">QDataStream</a>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-screenshot.png" alt="" /></p><p>Bien que la navigation et la recherche de contacts soient des fonctionnalités importantes, notre carnet d'adresses ne sera pleinement utilisable qu'une fois que l'on pourra sauvegarder les contacts existants et les charger à nouveau par la suite. Qt fournit de nombreuses classes pour gérer les <a href="io.html">entrées et sorties</a>, mais nous avons choisi de nous contenter d'une combinaison de deux classes simples à utiliser ensemble: <a href="qfile.html">QFile</a> et <a href="qdatastream.html">QDataStream</a>.</p>
 <p>Un objet <a href="qfile.html">QFile</a> représente un fichier sur le disque qui peut être lu, et dans lequel on peut écrire. <a href="qfile.html">QFile</a> est une classe fille de la classe plus générique <a href="qiodevice.html">QIODevice</a>, qui peut représenter différents types de périphériques.</p>
 <p>Un objet <a href="qdatastream.html">QDataStream</a> est utilisé pour sérialiser des données binaires dans le but de les passer à un <a href="qiodevice.html">QIODevice</a> pour les récupérer dans le futur. Pour lire ou écrire dans un <a href="qiodevice.html">QIODevice</a>, il suffit d'ouvrir le flux, avec le périphérique approprié en paramètre, et d'y lire ou écrire.</p>
 <a name="d-finition-de-la-classe-addressbook"></a>
@@ -68,7 +68,7 @@
          tr(<span class="string">&quot;Save Address Book&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span><span class="operator">,</span>
          tr(<span class="string">&quot;Address Book (*.abk);;All Files (*)&quot;</span>));</pre>
 <p>La boîte de dialogue affichée est visible sur la capture d'écran ci- dessous.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part6-save.png" /></p><p>Si <tt>fileName</tt> n'est pas vide, on crée un objet <a href="qfile.html">QFile</a>, <tt>file</tt>, à partir de <tt>fileName</tt>. <a href="qfile.html">QFile</a> fonctionne avec <a href="qdatastream.html">QDataStream</a> puisqu'il dérive de <a href="qiodevice.html">QIODevice</a>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-save.png" alt="" /></p><p>Si <tt>fileName</tt> n'est pas vide, on crée un objet <a href="qfile.html">QFile</a>, <tt>file</tt>, à partir de <tt>fileName</tt>. <a href="qfile.html">QFile</a> fonctionne avec <a href="qdatastream.html">QDataStream</a> puisqu'il dérive de <a href="qiodevice.html">QIODevice</a>.</p>
 <p>Ensuite, on essaie d'ouvrir le fichier en écriture, ce qui correspond au mode <a href="qiodevice.html#OpenModeFlag-enum">WriteOnly</a>. Si cela échoue, on en informe l'utilisateur avec une <a href="qmessagebox.html">QMessageBox</a>.</p>
 <pre class="cpp">     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
          <span class="keyword">return</span>;
@@ -92,7 +92,7 @@
          tr(<span class="string">&quot;Open Address Book&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span><span class="operator">,</span>
          tr(<span class="string">&quot;Address Book (*.abk);;All Files (*)&quot;</span>));</pre>
 <p>Sous Windows, par exemple, cette méthode affiche une boîte de dialogue native pour la sélection de fichier, comme illustré sur la capture d'écran suivante:</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part6-load.png" /></p><p>Si <tt>fileName</tt> n'est pas vide, on utilise une fois de plus un objet <a href="qfile.html">QFile</a>, <tt>file</tt>, et on tente de l'ouvrir en lecture, avec le mode <a href="qiodevice.html#OpenModeFlag-enum">ReadOnly</a>. De même que précédemment dans notre implémentation de <tt>saveToFile()</tt>, si cette tentative s'avère infructueuse, on en informe l'utilisateur par le biais d'une <a href="qmessagebox.html">QMessageBox</a>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-load.png" alt="" /></p><p>Si <tt>fileName</tt> n'est pas vide, on utilise une fois de plus un objet <a href="qfile.html">QFile</a>, <tt>file</tt>, et on tente de l'ouvrir en lecture, avec le mode <a href="qiodevice.html#OpenModeFlag-enum">ReadOnly</a>. De même que précédemment dans notre implémentation de <tt>saveToFile()</tt>, si cette tentative s'avère infructueuse, on en informe l'utilisateur par le biais d'une <a href="qmessagebox.html">QMessageBox</a>.</p>
 <pre class="cpp">     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
          <span class="keyword">return</span>;
      <span class="keyword">else</span> {
@@ -131,7 +131,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

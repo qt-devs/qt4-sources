@@ -117,10 +117,10 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-not-eq-7">operator!=</a></b> ( const QRectF &amp; <i>r1</i>, const QRectF &amp; <i>r2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-lt-lt-30">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QRectF &amp; <i>rectangle</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-eq-eq-15">operator==</a></b> ( const QRectF &amp; <i>r1</i>, const QRectF &amp; <i>r2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-gt-gt-15">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QRectF &amp; <i>rectangle</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-not-eq-9">operator!=</a></b> ( const QRectF &amp; <i>r1</i>, const QRectF &amp; <i>r2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-lt-lt-14">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QRectF &amp; <i>rectangle</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-eq-eq-11">operator==</a></b> ( const QRectF &amp; <i>r1</i>, const QRectF &amp; <i>r2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qrectf.html#operator-gt-gt-8">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QRectF &amp; <i>rectangle</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QRectF-description -->
@@ -136,7 +136,7 @@
 <p>The <a href="qrectf.html#size">size</a>() function returns the rectange's dimensions as a <a href="qsize.html">QSize</a>. The dimensions can also be retrieved separately using the <a href="qrectf.html#width">width</a>() and <a href="qrectf.html#height">height</a>() functions. To manipulate the dimensions use the <a href="qrectf.html#setSize">setSize</a>(), <a href="qrectf.html#setWidth">setWidth</a>() or <a href="qrectf.html#setHeight">setHeight</a>() functions. Alternatively, the size can be changed by applying either of the functions setting the rectangle coordinates, for example, <a href="qrectf.html#setBottom">setBottom</a>() or <a href="qrectf.html#setRight">setRight</a>().</p>
 <p>The <a href="qrectf.html#contains">contains</a>() function tells whether a given point is inside the rectangle or not, and the <a href="qrectf.html#intersects">intersects</a>() function returns true if this rectangle intersects with a given rectangle (otherwise false). The QRectF class also provides the <a href="qrectf.html#intersected">intersected</a>() function which returns the intersection rectangle, and the <a href="qrectf.html#united">united</a>() function which returns the rectangle that encloses the given rectangle and this:</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/qrect-intersect.png" /></td><td ><img src="images/qrect-unite.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/qrect-intersect.png" alt="" /></td><td ><img src="images/qrect-unite.png" alt="" /></td></tr>
 <tr valign="top" class="even"><td ><a href="qrectf.html#intersected">intersected</a>()</td><td ><a href="qrectf.html#united">united</a>()</td></tr>
 </table>
 <p>The <a href="qrectf.html#isEmpty">isEmpty</a>() function returns true if the rectangle's width or height is less than, or equal to, 0. Note that an empty rectangle is not valid: The <a href="qrectf.html#isValid">isValid</a>() function returns true if both width and height is larger than 0. A null rectangle (<a href="qrectf.html#isNull">isNull</a>() == true) on the other hand, has both width and height set to 0.</p>
@@ -148,16 +148,16 @@
 <p>Then, when rendering with a one pixel wide pen the QRectF's boundary line will be rendered to the right and below the mathematical rectangle's boundary line.</p>
 <p>When rendering with a two pixels wide pen the boundary line will be split in the middle by the mathematical rectangle. This will be the case whenever the pen is set to an even number of pixels, while rendering with a pen with an odd number of pixels, the spare pixel will be rendered to the right and below the mathematical rectangle as in the one pixel case.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/qrect-diagram-zero.png" /></td><td ><img src="images/qrectf-diagram-one.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/qrect-diagram-zero.png" alt="" /></td><td ><img src="images/qrectf-diagram-one.png" alt="" /></td></tr>
 <tr valign="top" class="even"><td >Logical representation</td><td >One pixel wide pen</td></tr>
-<tr valign="top" class="odd"><td ><img src="images/qrectf-diagram-two.png" /></td><td ><img src="images/qrectf-diagram-three.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/qrectf-diagram-two.png" alt="" /></td><td ><img src="images/qrectf-diagram-three.png" alt="" /></td></tr>
 <tr valign="top" class="even"><td >Two pixel wide pen</td><td >Three pixel wide pen</td></tr>
 </table>
 <a name="coordinates"></a>
 <h3>Coordinates</h3>
 <p>The QRectF class provides a collection of functions that return the various rectangle coordinates, and enable manipulation of these. QRectF also provide functions to move the rectangle relative to the various coordinates.</p>
 <p>For example: the <a href="qrectf.html#bottom">bottom</a>(), <a href="qrectf.html#setBottom">setBottom</a>() and <a href="qrectf.html#moveBottom">moveBottom</a>() functions: <a href="qrectf.html#bottom">bottom</a>() returns the y-coordinate of the rectangle's bottom edge, <a href="qrectf.html#setBottom">setBottom</a>() sets the bottom edge of the rectangle to the given y coordinate (it may change the height, but will never change the rectangle's top edge) and <a href="qrectf.html#moveBottom">moveBottom</a>() moves the entire rectangle vertically, leaving the rectangle's bottom edge at the given y coordinate and its size unchanged.</p>
-<p class="centerAlign"><img src="images/qrectf-coordinates.png" /></p><p>It is also possible to add offsets to this rectangle's coordinates using the <a href="qrectf.html#adjust">adjust</a>() function, as well as retrieve a new rectangle based on adjustments of the original one using the <a href="qrectf.html#adjusted">adjusted</a>() function. If either of the width and height is negative, use the <a href="qrectf.html#normalized">normalized</a>() function to retrieve a rectangle where the corners are swapped.</p>
+<p class="centerAlign"><img src="images/qrectf-coordinates.png" alt="" /></p><p>It is also possible to add offsets to this rectangle's coordinates using the <a href="qrectf.html#adjust">adjust</a>() function, as well as retrieve a new rectangle based on adjustments of the original one using the <a href="qrectf.html#adjusted">adjusted</a>() function. If either of the width and height is negative, use the <a href="qrectf.html#normalized">normalized</a>() function to retrieve a rectangle where the corners are swapped.</p>
 <p>In addition, QRectF provides the <a href="qrectf.html#getCoords">getCoords</a>() function which extracts the position of the rectangle's top-left and bottom-right corner, and the <a href="qrectf.html#getRect">getRect</a>() function which extracts the rectangle's top-left corner, width and height. Use the <a href="qrectf.html#setCoords">setCoords</a>() and <a href="qrectf.html#setRect">setRect</a>() function to manipulate the rectangle's coordinates and dimensions in one go.</p>
 </div>
 <p><b>See also </b><a href="qrect.html">QRect</a> and <a href="qregion.html">QRegion</a>.</p>
@@ -253,7 +253,7 @@
 <!-- $$$intersected[overload1]$$$intersectedconstQRectF& -->
 <h3 class="fn"><a name="intersected"></a><span class="type">QRectF</span> QRectF::<span class="name">intersected</span> ( const <span class="type">QRectF</span> &amp; <i>rectangle</i> ) const</h3>
 <p>Returns the intersection of this rectangle and the given <i>rectangle</i>. Note that <tt>r.intersected(s)</tt> is equivalent to <tt>r &amp; s</tt>.</p>
-<p class="centerAlign"><img src="images/qrect-intersect.png" /></p><p>This function was introduced in Qt 4.2.</p>
+<p class="centerAlign"><img src="images/qrect-intersect.png" alt="" /></p><p>This function was introduced in Qt 4.2.</p>
 <p><b>See also </b><a href="qrectf.html#intersects">intersects</a>(), <a href="qrectf.html#united">united</a>(), and <a href="qrectf.html#operator-and-eq">operator&amp;=</a>().</p>
 <!-- @@@intersected -->
 <!-- $$$intersects[overload1]$$$intersectsconstQRectF& -->
@@ -485,7 +485,7 @@
 <!-- $$$united[overload1]$$$unitedconstQRectF& -->
 <h3 class="fn"><a name="united"></a><span class="type">QRectF</span> QRectF::<span class="name">united</span> ( const <span class="type">QRectF</span> &amp; <i>rectangle</i> ) const</h3>
 <p>Returns the bounding rectangle of this rectangle and the given <i>rectangle</i>.</p>
-<p class="centerAlign"><img src="images/qrect-unite.png" /></p><p>This function was introduced in Qt 4.2.</p>
+<p class="centerAlign"><img src="images/qrect-unite.png" alt="" /></p><p>This function was introduced in Qt 4.2.</p>
 <p><b>See also </b><a href="qrectf.html#intersected">intersected</a>().</p>
 <!-- @@@united -->
 <!-- $$$width[overload1]$$$width -->
@@ -527,20 +527,20 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator!=$$$operator!=constQRectF&constQRectF& -->
-<h3 class="fn"><a name="operator-not-eq-7"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type">QRectF</span> &amp; <i>r1</i>, const <span class="type">QRectF</span> &amp; <i>r2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-9"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type">QRectF</span> &amp; <i>r1</i>, const <span class="type">QRectF</span> &amp; <i>r2</i> )</h3>
 <p>Returns true if the rectangles <i>r1</i> and <i>r2</i> are different, otherwise returns false.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQRectF& -->
-<h3 class="fn"><a name="operator-lt-lt-30"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, const <span class="type">QRectF</span> &amp; <i>rectangle</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-14"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, const <span class="type">QRectF</span> &amp; <i>rectangle</i> )</h3>
 <p>Writes the <i>rectangle</i> to the <i>stream</i>, and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator==$$$operator==constQRectF&constQRectF& -->
-<h3 class="fn"><a name="operator-eq-eq-15"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type">QRectF</span> &amp; <i>r1</i>, const <span class="type">QRectF</span> &amp; <i>r2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-11"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type">QRectF</span> &amp; <i>r1</i>, const <span class="type">QRectF</span> &amp; <i>r2</i> )</h3>
 <p>Returns true if the rectangles <i>r1</i> and <i>r2</i> are equal, otherwise returns false.</p>
 <!-- @@@operator== -->
 <!-- $$$operator>>$$$operator>>QDataStream&QRectF& -->
-<h3 class="fn"><a name="operator-gt-gt-15"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, <span class="type">QRectF</span> &amp; <i>rectangle</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-8"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, <span class="type">QRectF</span> &amp; <i>rectangle</i> )</h3>
 <p>Reads a <i>rectangle</i> from the <i>stream</i>, and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->
@@ -551,7 +551,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

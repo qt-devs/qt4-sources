@@ -39,27 +39,27 @@
 <!-- $$$qml-anchor-layout.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="anchor-layout"></a><p>In addition to the more traditional <a href="qml-grid.html">Grid</a>, <a href="qml-row.html">Row</a>, and <a href="qml-column.html">Column</a>, QML also provides a way to layout items using the concept of <i>anchors</i>. Each item can be thought of as having a set of 7 invisible &quot;anchor lines&quot;: <a href="qml-item.html#anchors.left-prop">left</a>, <a href="qml-item.html#anchors.horizontalCenter-prop">horizontalCenter</a>, <a href="qml-item.html#anchors.right-prop">right</a>, <a href="qml-item.html#anchors.top-prop">top</a>, <a href="qml-item.html#anchors.verticalCenter-prop">verticalCenter</a>, <a href="qml-item.html#anchors.baseline-prop">baseline</a>, and <a href="qml-item.html#anchors.bottom-prop">bottom</a>.</p>
-<p class="centerAlign"><img src="images/edges_qml.png" /></p><p>The baseline (not pictured above) corresponds to the imaginary line on which text would sit. For items with no text it is the same as <i>top</i>.</p>
+<p class="centerAlign"><img src="images/edges_qml.png" alt="" /></p><p>The baseline (not pictured above) corresponds to the imaginary line on which text would sit. For items with no text it is the same as <i>top</i>.</p>
 <p>The QML anchoring system allows you to define relationships between the anchor lines of different items. For example, you can write:</p>
 <pre class="cpp"> Rectangle { id: rect1; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
  Rectangle { id: rect2; anchors<span class="operator">.</span>left: rect1<span class="operator">.</span>right; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }</pre>
 <p>Each Item has two properties for each anchor line: one to bind from and one to bind to. The properties to bind from are contained in the anchors attached property (seen as <tt>anchors.left</tt> above). The properties to bind to are normal properties (seen as <tt>rect1.right</tt> above). This way, each item can have several bindings to the same anchor line. Note that the properties to bind to are not visible in the documentation for Item. So in the example above, the left edge of <i>rect2</i> is bound to the right edge of <i>rect1</i>, producing the following:</p>
-<p class="centerAlign"><img src="images/edge1.png" /></p><p>You can specify multiple anchors. For example:</p>
+<p class="centerAlign"><img src="images/edge1.png" alt="" /></p><p>You can specify multiple anchors. For example:</p>
 <pre class="cpp"> Rectangle { id: rect1; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
  Rectangle { id: rect2; anchors<span class="operator">.</span>left: rect1<span class="operator">.</span>right; anchors<span class="operator">.</span>top: rect1<span class="operator">.</span>bottom; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }</pre>
-<p class="centerAlign"><img src="images/edge3.png" /></p><p>By specifying multiple horizontal or vertical anchors you can control the size of an item. Below, <i>rect2</i> is anchored to the right of <i>rect1</i> and the left of <i>rect3</i>. If either of the blue rectangles are moved, <i>rect2</i> will stretch and shrink as necessary:</p>
+<p class="centerAlign"><img src="images/edge3.png" alt="" /></p><p>By specifying multiple horizontal or vertical anchors you can control the size of an item. Below, <i>rect2</i> is anchored to the right of <i>rect1</i> and the left of <i>rect3</i>. If either of the blue rectangles are moved, <i>rect2</i> will stretch and shrink as necessary:</p>
 <pre class="cpp"> Rectangle { id: rect1; x: <span class="number">0</span>; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
  Rectangle { id: rect2; anchors<span class="operator">.</span>left: rect1<span class="operator">.</span>right; anchors<span class="operator">.</span>right: rect3<span class="operator">.</span>left; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
  Rectangle { id: rect3; x: <span class="number">150</span>; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }</pre>
-<p class="centerAlign"><img src="images/edge4.png" /></p><p>There are also some convenience anchors. anchors.fill is a convenience that is the same as setting the left,right,top and bottom anchors to the left,right,top and bottom of the target item. anchors.centerIn is another convenience anchor, and is the same as setting the verticalCenter and horizontalCenter anchors to the verticalCenter and horizontalCenter of the target item.</p>
+<p class="centerAlign"><img src="images/edge4.png" alt="" /></p><p>There are also some convenience anchors. anchors.fill is a convenience that is the same as setting the left,right,top and bottom anchors to the left,right,top and bottom of the target item. anchors.centerIn is another convenience anchor, and is the same as setting the verticalCenter and horizontalCenter anchors to the verticalCenter and horizontalCenter of the target item.</p>
 <a name="anchor-margins-and-offsets"></a>
 <h2>Anchor Margins and Offsets</h2>
 <p>The anchoring system also allows <i>margins</i> and <i>offsets</i> to be specified for an item's anchors. Margins specify the amount of empty space to leave to the outside of an item's anchor, while offsets allow positioning to be manipulated using the center anchor lines. An item can specify its anchor margins individually through <a href="qml-item.html#anchors.leftMargin-prop">leftMargin</a>, <a href="qml-item.html#anchors.rightMargin-prop">rightMargin</a>, <a href="qml-item.html#anchors.topMargin-prop">topMargin</a> and <a href="qml-item.html#anchors.bottomMargin-prop">bottomMargin</a>, or use <a href="qml-item.html#anchors.margins-prop">anchors.margins</a> to specify the same margin value for all four edges. Anchor offsets are specified using <a href="qml-item.html#anchors.horizontalCenterOffset-prop">horizontalCenterOffset</a>, <a href="qml-item.html#anchors.verticalCenterOffset-prop">verticalCenterOffset</a> and <a href="qml-item.html#anchors.baselineOffset-prop">baselineOffset</a>.</p>
-<p class="centerAlign"><img src="images/margins_qml.png" /></p><p>The following example specifies a left margin:</p>
+<p class="centerAlign"><img src="images/margins_qml.png" alt="" /></p><p>The following example specifies a left margin:</p>
 <pre class="cpp"> Rectangle { id: rect1; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
  Rectangle { id: rect2; anchors<span class="operator">.</span>left: rect1<span class="operator">.</span>right; anchors<span class="operator">.</span>leftMargin: <span class="number">5</span>; <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }</pre>
 <p>In this case, a margin of 5 pixels is reserved to the left of <i>rect2</i>, producing the following:</p>
-<p class="centerAlign"><img src="images/edge2.png" /></p><p><b>Note:</b> Anchor margins only apply to anchors; they are <i>not</i> a generic means of applying margins to an <a href="qml-item.html">Item</a>. If an anchor margin is specified for an edge but the item is not anchored to any item on that edge, the margin is not applied.</p>
+<p class="centerAlign"><img src="images/edge2.png" alt="" /></p><p><b>Note:</b> Anchor margins only apply to anchors; they are <i>not</i> a generic means of applying margins to an <a href="qml-item.html">Item</a>. If an anchor margin is specified for an edge but the item is not anchored to any item on that edge, the margin is not applied.</p>
 <a name="restrictions"></a>
 <h2>Restrictions</h2>
 <p>For performance reasons, you can only anchor an item to its siblings and direct parent. For example, the following anchor is invalid and would produce a warning:</p>
@@ -84,7 +84,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

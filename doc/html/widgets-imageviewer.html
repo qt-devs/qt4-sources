@@ -40,7 +40,7 @@
 <li><a href="widgets-imageviewer-main-cpp.html">widgets/imageviewer/main.cpp</a></li>
 <li><a href="widgets-imageviewer-imageviewer-pro.html">widgets/imageviewer/imageviewer.pro</a></li>
 </ul>
-<p><a href="qlabel.html">QLabel</a> is typically used for displaying text, but it can also display an image. <a href="qscrollarea.html">QScrollArea</a> provides a scrolling view around another widget. If the child widget exceeds the size of the frame, <a href="qscrollarea.html">QScrollArea</a> automatically provides scroll bars.</p>
+<p>The Image Viewer example shows how to combine <a href="qlabel.html">QLabel</a> and <a href="qscrollarea.html">QScrollArea</a> to display an image.<p><a href="qlabel.html">QLabel</a> is typically used for displaying text, but it can also display an image. <a href="qscrollarea.html">QScrollArea</a> provides a scrolling view around another widget. If the child widget exceeds the size of the frame, <a href="qscrollarea.html">QScrollArea</a> automatically provides scroll bars.</p>
 <p>The example demonstrates how <a href="qlabel.html">QLabel</a>'s ability to scale its contents (<a href="qlabel.html#scaledContents-prop">QLabel::scaledContents</a>), and <a href="qscrollarea.html">QScrollArea</a>'s ability to automatically resize its contents (<a href="qscrollarea.html#widgetResizable-prop">QScrollArea::widgetResizable</a>), can be used to implement zooming and scaling features. In addition the example shows how to use <a href="qpainter.html">QPainter</a> to print an image.</p>
 <p class="centerAlign"><img src="images/imageviewer-example.png" alt="Screenshot of the Image Viewer example" /></p><p>With the Image Viewer application, the users can view an image of their choice. The <b>File</b> menu gives the user the possibility to:</p>
 <ul>
@@ -196,7 +196,7 @@
 <p>We implement the zooming slots using the private <tt>scaleImage()</tt> function. We set the scaling factors to 1.25 and 0.8, respectively. These factor values ensure that a <b>Zoom In</b> action and a <b>Zoom Out</b> action will cancel each other (since 1.25 * 0.8 == 1), and in that way the normal image size can be restored using the zooming features.</p>
 <p>The screenshots below show an image in its normal size, and the same image after zooming in:</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/imageviewer-original_size.png" /></td><td ><img src="images/imageviewer-zoom_in_1.png" /></td><td ><img src="images/imageviewer-zoom_in_2.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/imageviewer-original_size.png" alt="" /></td><td ><img src="images/imageviewer-zoom_in_1.png" alt="" /></td><td ><img src="images/imageviewer-zoom_in_2.png" alt="" /></td></tr>
 </table>
 <pre class="cpp"> <span class="type">void</span> ImageViewer<span class="operator">::</span>normalSize()
  {
@@ -217,7 +217,7 @@
 <p>If the <a href="qscrollarea.html#widgetResizable-prop">QScrollArea::widgetResizable</a> property is set to <tt>false</tt> (the default), the scroll area honors the size of its child widget. If this property is set to <tt>true</tt>, the scroll area will automatically resize the widget in order to avoid scroll bars where they can be avoided, or to take advantage of extra space. But the scroll area will honor the minimum size hint of its child widget independent of the widget resizable property. So in this example we set <tt>imageLabel</tt>'s size policy to <a href="qsizepolicy.html#Policy-enum">ignored</a> in the constructor, to avoid that scroll bars appear when the scroll area becomes smaller than the label's minimum size hint.</p>
 <p>The screenshots below shows an image in its normal size, and the same image with the <b>Fit to window</b> option turned on. Enlarging the window will stretch the image further, as shown in the third screenshot.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/imageviewer-original_size.png" /></td><td ><img src="images/imageviewer-fit_to_window_1.png" /></td><td ><img src="images/imageviewer-fit_to_window_2.png" /></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/imageviewer-original_size.png" alt="" /></td><td ><img src="images/imageviewer-fit_to_window_1.png" alt="" /></td><td ><img src="images/imageviewer-fit_to_window_2.png" alt="" /></td></tr>
 </table>
 <p>If the slot is called to turn off the option, the {QScrollArea::setWidgetResizable} property is set to <tt>false</tt>. We also restore the image pixmap to its normal size by adjusting the label's size to its content. And in the end we update the view menu entries.</p>
 <pre class="cpp"> <span class="type">void</span> ImageViewer<span class="operator">::</span>about()
@@ -343,7 +343,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -83,11 +83,11 @@
 <!-- @@@~QNetworkProxyFactory -->
 <!-- $$$proxyForQuery[overload1]$$$proxyForQueryconstQNetworkProxyQuery& -->
 <h3 class="fn"><a name="proxyForQuery"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkproxy.html">QNetworkProxy</a></span>&gt; QNetworkProxyFactory::<span class="name">proxyForQuery</span> ( const <span class="type"><a href="qnetworkproxyquery.html">QNetworkProxyQuery</a></span> &amp; <i>query</i> )<tt> [static]</tt></h3>
-<p>This function examines takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
+<p>This function takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
 <!-- @@@proxyForQuery -->
 <!-- $$$queryProxy[overload1]$$$queryProxyconstQNetworkProxyQuery& -->
 <h3 class="fn"><a name="queryProxy"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkproxy.html">QNetworkProxy</a></span>&gt; QNetworkProxyFactory::<span class="name">queryProxy</span> ( const <span class="type"><a href="qnetworkproxyquery.html">QNetworkProxyQuery</a></span> &amp; <i>query</i> = QNetworkProxyQuery() )<tt> [pure virtual]</tt></h3>
-<p>This function examines takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
+<p>This function takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
 <p>When reimplementing this class, take care to return at least one element.</p>
 <p>If you cannot determine a better proxy alternative, use <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::DefaultProxy</a>, which tells the code querying for a proxy to use a higher alternative. For example, if this factory is set to a <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> object, DefaultProxy will tell it to query the application-level proxy settings.</p>
 <p>If this factory is set as the application proxy factory, DefaultProxy and NoProxy will have the same meaning.</p>
@@ -108,7 +108,7 @@
 <!-- @@@setUseSystemConfiguration -->
 <!-- $$$systemProxyForQuery[overload1]$$$systemProxyForQueryconstQNetworkProxyQuery& -->
 <h3 class="fn"><a name="systemProxyForQuery"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkproxy.html">QNetworkProxy</a></span>&gt; QNetworkProxyFactory::<span class="name">systemProxyForQuery</span> ( const <span class="type"><a href="qnetworkproxyquery.html">QNetworkProxyQuery</a></span> &amp; <i>query</i> = QNetworkProxyQuery() )<tt> [static]</tt></h3>
-<p>This function examines takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
+<p>This function takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
 <p>This function can be used to determine the platform-specific proxy settings. This function will use the libraries provided by the operating system to determine the proxy for a given connection, if such libraries exist. If they don't, this function will just return a <a href="qnetworkproxy.html">QNetworkProxy</a> of type <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::NoProxy</a>.</p>
 <p>On Windows, this function will use the WinHTTP DLL functions. Despite its name, Microsoft suggests using it for all applications that require network connections, not just HTTP. This will respect the proxy settings set on the registry with the proxycfg.exe tool. If those settings are not found, this function will attempt to obtain Internet Explorer's settings and use them.</p>
 <p>On MacOS X, this function will obtain the proxy settings using the SystemConfiguration framework from Apple. It will apply the FTP, HTTP and HTTPS proxy configurations for queries that contain the protocol tag &quot;ftp&quot;, &quot;http&quot; and &quot;https&quot;, respectively. If the SOCKS proxy is enabled in that configuration, this function will use the SOCKS server for all queries. If SOCKS isn't enabled, it will use the HTTPS proxy for all TcpSocket and UrlRequest queries.</p>
@@ -128,7 +128,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

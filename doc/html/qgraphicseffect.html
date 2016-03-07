@@ -122,11 +122,11 @@
 <li><a href="qgraphicsopacityeffect.html">QGraphicsOpacityEffect</a> - renders the item with an opacity</li>
 </ul>
 <table class="generic">
-<tr valign="top" class="odd"><td  colspan="2"><p class="centerAlign"><img src="images/graphicseffect-plain.png" /></p></td></tr>
-<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/graphicseffect-blur.png" /></p></td><td ><p class="centerAlign"><img src="images/graphicseffect-colorize.png" /></p></td></tr>
-<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/graphicseffect-opacity.png" /></p></td><td ><p class="centerAlign"><img src="images/graphicseffect-drop-shadow.png" /></p></td></tr>
+<tr valign="top" class="odd"><td  colspan="2"><p class="centerAlign"><img src="images/graphicseffect-plain.png" alt="" /></p></td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/graphicseffect-blur.png" alt="" /></p></td><td ><p class="centerAlign"><img src="images/graphicseffect-colorize.png" alt="" /></p></td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/graphicseffect-opacity.png" alt="" /></p></td><td ><p class="centerAlign"><img src="images/graphicseffect-drop-shadow.png" alt="" /></p></td></tr>
 </table>
-<p class="centerAlign"><img src="images/graphicseffect-widget.png" /></p><p>For more information on how to use each effect, refer to the specific effect's documentation.</p>
+<p class="centerAlign"><img src="images/graphicseffect-widget.png" alt="" /></p><p>For more information on how to use each effect, refer to the specific effect's documentation.</p>
 <p>To create your own custom effect, create a subclass of QGraphicsEffect (or any other existing effects) and reimplement the virtual function <a href="qgraphicseffect.html#draw">draw</a>(). This function is called whenever the effect needs to redraw. The <a href="qgraphicseffect.html#draw">draw</a>() function takes the painter with which to draw as an argument. For more information, refer to the documenation for <a href="qgraphicseffect.html#draw">draw</a>(). In the <a href="qgraphicseffect.html#draw">draw</a>() function you can call <a href="qgraphicseffect.html#sourcePixmap">sourcePixmap</a>() to get a pixmap of the graphics effect source which you can then process.</p>
 <p>If your effect changes, use <a href="qgraphicseffect.html#update">update</a>() to request for a redraw. If your custom effect changes the bounding rectangle of the source, e.g&#x2e;, a radial glow effect may need to apply an extra margin, you can reimplement the virtual <a href="qgraphicseffect.html#boundingRectFor">boundingRectFor</a>() function, and call <a href="qgraphicseffect.html#updateBoundingRect">updateBoundingRect</a>() to notify the framework whenever this rectangle changes. The virtual <a href="qgraphicseffect.html#sourceChanged">sourceChanged</a>() function is called to notify the effects that the source has changed in some way - e.g&#x2e;, if the source is a <a href="qgraphicsrectitem.html">QGraphicsRectItem</a> and its rectangle parameters have changed.</p>
 </div>
@@ -227,7 +227,7 @@
 <pre class="cpp"> MyGraphicsOpacityEffect<span class="operator">::</span><a href="qgraphicseffect.html#draw">draw</a>(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter)
  {
      <span class="comment">// Fully opaque; draw directly without going through a pixmap.</span>
-     <span class="keyword">if</span> (<a href="qquaternion.html#qFuzzyCompare">qFuzzyCompare</a>(m_opacity<span class="operator">,</span> <span class="number">1</span>)) {
+     <span class="keyword">if</span> (<a href="qtglobal.html#qFuzzyCompare">qFuzzyCompare</a>(m_opacity<span class="operator">,</span> <span class="number">1</span>)) {
          drawSource(painter);
          <span class="keyword">return</span>;
      }
@@ -282,7 +282,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

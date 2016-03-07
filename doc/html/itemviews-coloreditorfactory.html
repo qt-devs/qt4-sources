@@ -44,7 +44,7 @@
 <li><a href="itemviews-coloreditorfactory-main-cpp.html">itemviews/coloreditorfactory/main.cpp</a></li>
 <li><a href="itemviews-coloreditorfactory-coloreditorfactory-pro.html">itemviews/coloreditorfactory/coloreditorfactory.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/coloreditorfactoryimage.png" /></p><p>When editing data in a <a href="qlistview.html">QListView</a>, <a href="qtableview.html">QTableView</a>, or <a href="qtreeview.html">QTreeView</a>, editors are created and displayed by a <a href="model-view-programming.html#delegate-classes">delegate</a>. <a href="qitemdelegate.html">QItemDelegate</a>, which is the default delegate used by Qt's <a href="model-view-programming.html#view-classes">item views</a>, uses a <a href="qitemeditorfactory.html">QItemEditorFactory</a> to create editors for it. A unique instance provided by <a href="qitemeditorfactory.html">QItemEditorFactory</a> is by default installed on all item delegates.</p>
+<p>The Color Editor Factory example shows how to create an editor that can be used by a <a href="qitemdelegate.html">QItemDelegate</a>.<p class="centerAlign"><img src="images/coloreditorfactoryimage.png" alt="" /></p><p>When editing data in a <a href="qlistview.html">QListView</a>, <a href="qtableview.html">QTableView</a>, or <a href="qtreeview.html">QTreeView</a>, editors are created and displayed by a <a href="model-view-programming.html#delegate-classes">delegate</a>. <a href="qitemdelegate.html">QItemDelegate</a>, which is the default delegate used by Qt's <a href="model-view-programming.html#view-classes">item views</a>, uses a <a href="qitemeditorfactory.html">QItemEditorFactory</a> to create editors for it. A unique instance provided by <a href="qitemeditorfactory.html">QItemEditorFactory</a> is by default installed on all item delegates.</p>
 <p>An item editor factory contains a collection of <a href="qitemeditorcreatorbase.html">QItemEditorCreatorBase</a> instances, which are specialized factories that produce editors for one particular <a href="qvariant.html">QVariant</a> data type (all models in Qt store their data in <a href="qvariant.html">QVariant</a>s). An editor can be any Qt or custom widget.</p>
 <p>In this example, we will create an editor (implemented in the <tt>ColorListEditor</tt> class) that can edit the <a href="qcolor.html">QColor</a> data type and be used by <a href="qitemdelegate.html">QItemDelegate</a>s. We do this by creating a new <a href="qitemeditorcreatorbase.html">QItemEditorCreatorBase</a> that produces <tt>ColorListEditors</tt> and register it with a new factory, which we set as the default editor item factory (the unique factory instance). To test our editor, we have implemented the <tt>Window</tt> class, which displays a <a href="qtablewidget.html">QTableWidget</a> in which <a href="qcolor.html">QColor</a>s can be edited.</p>
 <a name="window-class-implementation"></a>
@@ -129,7 +129,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

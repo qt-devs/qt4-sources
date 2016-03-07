@@ -39,12 +39,12 @@
 <li><a href="webkit-imageanalyzer-imageanalyzer-pro.html">webkit/imageanalyzer/imageanalyzer.pro</a></li>
 <li><a href="webkit-imageanalyzer-resources-imageanalyzer-qrc.html">webkit/imageanalyzer/resources/imageanalyzer.qrc</a></li>
 </ul>
-<p>The application uses <a href="qtconcurrent.html">QtConcurrent</a> to distribute its work across as many CPU cores as are available from the system, so it can process each image in parallel.</p>
+<p>In this example, we will show how to write a hybrid application using <a href="qtwebkit-bridge.html">QtWebKit Bridge</a>, which distinguishes itself from a thin client in that it performs heavy calculations on the client side in C++, like a native application, but presents nothing more than a <tt>QWebView</tt> for its user interface, displaying web content written in HTML/JavaScript.<p>The application uses <a href="qtconcurrent.html">QtConcurrent</a> to distribute its work across as many CPU cores as are available from the system, so it can process each image in parallel.</p>
 <p>For the full reference documentation of <a href="qtwebkit.html">QtWebKit</a> hybrid development, see <a href="qtwebkit-bridge.html">The QtWebKit Bridge</a>.</p>
 <p>Initially, you will see a user interface with an empty list of images. Clicking on some of the images in the lower pane below adds them to the list view above, as shown in the screenshot below.</p>
-<p class="centerAlign"><img src="images/webkit-imageanalyzer-screenshot.png" /></p><p>Now, we can click on <b>Analyze</b>, and each image is analyzed using some computationally intensive C++ function, in parallel and on different cores. Progress is shown while the analysis is proceeding.</p>
-<p class="centerAlign"><img src="images/webkit-imageanalyzer-progress.png" /></p><p>and in the end, we will see something like this, where the average RGB values of each image are shown.</p>
-<p class="centerAlign"><img src="images/webkit-imageanalyzer-complete.png" /></p><p>The <a href="designer-to-know.html#mainwindow">MainWindow</a> is defined in C++, and creates a <a href="qnetworkdiskcache.html">QNetworkDiskCache</a> and a <a href="qwebview.html">QWebView</a>, and tells the <a href="qwebview.html">QWebView</a> to load the starting page, providing us with a user interface for the client.</p>
+<p class="centerAlign"><img src="images/webkit-imageanalyzer-screenshot.png" alt="" /></p><p>Now, we can click on <b>Analyze</b>, and each image is analyzed using some computationally intensive C++ function, in parallel and on different cores. Progress is shown while the analysis is proceeding.</p>
+<p class="centerAlign"><img src="images/webkit-imageanalyzer-progress.png" alt="" /></p><p>and in the end, we will see something like this, where the average RGB values of each image are shown.</p>
+<p class="centerAlign"><img src="images/webkit-imageanalyzer-complete.png" alt="" /></p><p>The <a href="designer-to-know.html#mainwindow">MainWindow</a> is defined in C++, and creates a <a href="qnetworkdiskcache.html">QNetworkDiskCache</a> and a <a href="qwebview.html">QWebView</a>, and tells the <a href="qwebview.html">QWebView</a> to load the starting page, providing us with a user interface for the client.</p>
 <pre class="cpp"> MainWin<span class="operator">::</span>MainWin(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span> parent) : <span class="type"><a href="qwebview.html">QWebView</a></span>(parent)
  {
      m_network <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qnetworkaccessmanager.html">QNetworkAccessManager</a></span>(<span class="keyword">this</span>);
@@ -273,7 +273,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

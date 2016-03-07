@@ -37,7 +37,7 @@
 <div class="descr"> <a name="details"></a>
 <p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> applications write directly to the framebuffer, eliminating the need for the X Window System and saving memory. For development and debugging purposes, a virtual framebuffer can be used, allowing <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> programs to be developed on a desktop machine, without switching between consoles and X11.</p>
 <p>QVFb is an X11 application supplied with Qt for X11 that provides a virtual framebuffer for Qt for Embedded Linux to use. To use it, you need to <a href="install-x11.html">configure and install Qt for X11 platforms</a> appropriately. Further requirements can be found in the <a href="requirements-embedded-linux.html">Qt for Embedded Linux Requirements</a> document.</p>
-<p class="centerAlign"><img src="images/qt-embedded-virtualframebuffer.png" /></p><p>The virtual framebuffer emulates a framebuffer using a shared memory region and the <tt>qvfb</tt> tool to display the framebuffer in a window. The <tt>qvfb</tt> tool also supports a feature known as a skin which can be used to change the look and feel of the display. The tool is located in Qt's <tt>tools/qvfb</tt> directory, and provides several additional features accessible through its <b>File</b> and <b>View</b> menus.</p>
+<p class="centerAlign"><img src="images/qt-embedded-virtualframebuffer.png" alt="" /></p><p>The virtual framebuffer emulates a framebuffer using a shared memory region and the <tt>qvfb</tt> tool to display the framebuffer in a window. The <tt>qvfb</tt> tool also supports a feature known as a skin which can be used to change the look and feel of the display. The tool is located in Qt's <tt>tools/qvfb</tt> directory, and provides several additional features accessible through its <b>File</b> and <b>View</b> menus.</p>
 <p>Please note that the virtual framebuffer is a development tool only. No security issues have been considered in the virtual framebuffer design. It should be avoided in a production environment; i.e&#x2e; do not configure production libraries with the <tt>-qvfb</tt> option.</p>
 <a name="displaying-the-virtual-framebuffer"></a>
 <h2>Displaying the Virtual Framebuffer</h2>
@@ -77,7 +77,7 @@
 <li>TouchscreenPhone</li>
 </ul>
 <p>In addition, it is possible to create custom skins.</p>
-</td><td ><p class="centerAlign"><img src="images/qt-embedded-phone.png" /></p></td><td ><p class="centerAlign"><img src="images/qt-embedded-pda.png" /></p></td></tr>
+</td><td ><p class="centerAlign"><img src="images/qt-embedded-phone.png" alt="" /></p></td><td ><p class="centerAlign"><img src="images/qt-embedded-pda.png" alt="" /></p></td></tr>
 </table>
 <p><b>Creating Custom Skins</b></p>
 <p>The XML and pixmap files specifying a custom skin must be located in subdirectory of the Qt's <tt>/tools/qvfb</tt> directory, called <tt>/customskin.skin</tt>. See the ClamshellPhone skin for an example of the file structure:</p>
@@ -137,12 +137,12 @@
 </table>
 <a name="the-file-menu"></a>
 <h3>The File Menu</h3>
-<p class="centerAlign"><img src="images/qt-embedded-qvfbfilemenu.png" /></p><p>The <b>File</b> menu allows the user to configure the virtual framebuffer display (<b>File|Configure..&#x2e;</b>), save a snapshot of the framebuffer contents (<b>File|Save Image..&#x2e;</b>) and record the movements in the framebuffer (<b>File|Animation..&#x2e;</b>).</p>
+<p class="centerAlign"><img src="images/qt-embedded-qvfbfilemenu.png" alt="" /></p><p>The <b>File</b> menu allows the user to configure the virtual framebuffer display (<b>File|Configure..&#x2e;</b>), save a snapshot of the framebuffer contents (<b>File|Save Image..&#x2e;</b>) and record the movements in the framebuffer (<b>File|Animation..&#x2e;</b>).</p>
 <p>When choosing the <b>File|Configure</b> menu item, the <tt>qvfb</tt> tool provides a configuration dialog allowing the user to customize the display of the virtual framebuffer. The user can modify the size and depth as well as the Gamma values, and also select the preferred skin (i.e&#x2e; making the virtual framebuffer simulate the target device environment). In addition, it is possible to emulate a touch screen and a LCD screen.</p>
 <p>Note that when configuring (except when changing the Gamma values only), any applications using the virtual framebuffer will be terminated.</p>
 <a name="the-view-menu"></a>
 <h3>The View Menu</h3>
-<p class="centerAlign"><img src="images/qt-embedded-qvfbviewmenu.png" /></p><p>The <b>View</b> menu allows the user to modify the target's refresh rate (<b>View|Refresh Rate..&#x2e;</b>), making <tt>qvfb</tt> check for updated regions more or less frequently.</p>
+<p class="centerAlign"><img src="images/qt-embedded-qvfbviewmenu.png" alt="" /></p><p>The <b>View</b> menu allows the user to modify the target's refresh rate (<b>View|Refresh Rate..&#x2e;</b>), making <tt>qvfb</tt> check for updated regions more or less frequently.</p>
 <p>The regions of the display that have changed are updated periodically, i.e&#x2e; the virtual framebuffer is displaying discrete snapshots of the framebuffer rather than each individual drawing operation. For this reason drawing problems such as flickering may not be apparent until the program is run using a real framebuffer. If little drawing is being done, the framebuffer will not show any updates between drawing events. If an application is displaying an animation, the updates will be frequent, and the application and <tt>qvfb</tt> will compete for processor time.</p>
 <p>The <b>View</b> menu also allows the user to zoom the view of the application (<b>View|Zoom *</b>).</p>
 <a name="running-applications-using-the-virtual-framebuffer"></a>
@@ -164,7 +164,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -44,19 +44,19 @@
 
 #include <stddef.h>
 
-#define QT_VERSION_STR "4.8.0"
+#define QT_VERSION_STR "4.8.1"
 /*
    QT_VERSION is (major << 16) + (minor << 8) + patch.
 */
-#define QT_VERSION 0x040800
+#define QT_VERSION 0x040801
 /*
    can be used like #if (QT_VERSION >= QT_VERSION_CHECK(4, 4, 0))
 */
 #define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))
 
-#define QT_PACKAGEDATE_STR "2011-12-08"
+#define QT_PACKAGEDATE_STR "2012-03-14"
 
-#define QT_PACKAGE_TAG "f33b28d27a8e738fa93a45f44445d0fe255810b0"
+#define QT_PACKAGE_TAG "1e0021d8d9e374ae3959fcd4eac5d9e7238cbc54"
 
 #if !defined(QT_BUILD_MOC)
 #include <QtCore/qconfig.h>

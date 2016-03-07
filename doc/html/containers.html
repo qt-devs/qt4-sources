@@ -126,7 +126,7 @@
 </table>
 <p>In this discussion, we will concentrate on <a href="qlist.html">QList</a> and <a href="qmap.html">QMap</a>. The iterator types for <a href="qlinkedlist.html">QLinkedList</a>, <a href="qvector.html">QVector</a>, and <a href="qset.html">QSet</a> have exactly the same interface as <a href="qlist.html">QList</a>'s iterators; similarly, the iterator types for <a href="qhash.html">QHash</a> have the same interface as <a href="qmap.html">QMap</a>'s iterators.</p>
 <p>Unlike STL-style iterators (covered <a href="#stl-style-iterators">below</a>), Java-style iterators point <i>between</i> items rather than directly <i>at</i> items. For this reason, they are either pointing to the very beginning of the container (before the first item), at the very end of the container (after the last item), or between two items. The diagram below shows the valid iterator positions as red arrows for a list containing four items:</p>
-<p class="centerAlign"><img src="images/javaiterators1.png" /></p><p>Here's a typical loop for iterating through all the elements of a <a href="qlist.html">QList</a>&lt;<a href="qstring.html">QString</a>&gt; in order and printing them to the console:</p>
+<p class="centerAlign"><img src="images/javaiterators1.png" alt="" /></p><p>Here's a typical loop for iterating through all the elements of a <a href="qlist.html">QList</a>&lt;<a href="qstring.html">QString</a>&gt; in order and printing them to the console:</p>
 <pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> list;
  list <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;A&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;B&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;C&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;D&quot;</span>;
 
@@ -141,7 +141,7 @@
      <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> i<span class="operator">.</span>previous();</pre>
 <p>The code is symmetric with iterating forward, except that we start by calling <a href="qlistiterator.html#toBack">toBack()</a> to move the iterator after the last item in the list.</p>
 <p>The diagram below illustrates the effect of calling <a href="qlistiterator.html#next">next()</a> and <a href="qlistiterator.html#previous">previous()</a> on an iterator:</p>
-<p class="centerAlign"><img src="images/javaiterators2.png" /></p><p>The following table summarizes the <a href="qlistiterator.html">QListIterator</a> API:</p>
+<p class="centerAlign"><img src="images/javaiterators2.png" alt="" /></p><p>The following table summarizes the <a href="qlistiterator.html">QListIterator</a> API:</p>
 <table class="generic">
 <thead><tr class="qt-style"><th >Function</th><th >Behavior</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qlistiterator.html#toFront">toFront()</a></td><td >Moves the iterator to the front of the list (before the first item)</td></tr>
@@ -229,7 +229,7 @@
      <span class="operator">*</span>i <span class="operator">=</span> (<span class="operator">*</span>i)<span class="operator">.</span>toLower();</pre>
 <p>Unlike <a href="#java-style-iterators">Java-style iterators</a>, STL-style iterators point directly at items. The begin() function of a container returns an iterator that points to the first item in the container. The end() function of a container returns an iterator to the imaginary item one position past the last item in the container. end() marks an invalid position; it must never be dereferenced. It is typically used in a loop's break condition. If the list is empty, begin() equals end(), so we never execute the loop.</p>
 <p>The diagram below shows the valid iterator positions as red arrows for a vector containing four items:</p>
-<p class="centerAlign"><img src="images/stliterators1.png" /></p><p>Iterating backward with an STL-style iterator requires us to decrement the iterator <i>before</i> we access the item. This requires a <tt>while</tt> loop:</p>
+<p class="centerAlign"><img src="images/stliterators1.png" alt="" /></p><p>Iterating backward with an STL-style iterator requires us to decrement the iterator <i>before</i> we access the item. This requires a <tt>while</tt> loop:</p>
 <pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> list;
  list <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;A&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;B&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;C&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;D&quot;</span>;
 
@@ -400,7 +400,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

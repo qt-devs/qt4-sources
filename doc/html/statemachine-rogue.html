@@ -43,7 +43,7 @@
 <li><a href="statemachine-rogue-main-cpp.html">statemachine/rogue/main.cpp</a></li>
 <li><a href="statemachine-rogue-rogue-pro.html">statemachine/rogue/rogue.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/rogue-example.png" /></p><p>This example implements a simple text based game. Do you see the <tt>@</tt> in the screenshot? That's you, the rogue. The <tt>#</tt> characters are walls, and the dots represent floor. In a real game, other ASCII characters would represent all kinds of objects and creatures, for instance, ancient dragons (<tt>D</tt>s) or food rations (<tt>%</tt>s). But let's not get carried away. In this game, the rogue is simply running around in an empty room.</p>
+<p>The Rogue example shows how to use the Qt state machine for event handling.<p class="centerAlign"><img src="images/rogue-example.png" alt="" /></p><p>This example implements a simple text based game. Do you see the <tt>@</tt> in the screenshot? That's you, the rogue. The <tt>#</tt> characters are walls, and the dots represent floor. In a real game, other ASCII characters would represent all kinds of objects and creatures, for instance, ancient dragons (<tt>D</tt>s) or food rations (<tt>%</tt>s). But let's not get carried away. In this game, the rogue is simply running around in an empty room.</p>
 <p>The rogue is moved with the keypad (2, 4, 8, 6). That aside, we have implemented a <tt>quit</tt> command that triggers if the player types <tt>q</tt>. The player is then asked if he/she really wants to quit.</p>
 <p>Most games have commands that need more than one key press (we think of consecutive presses, i.e&#x2e;, not of several keys being pressed at the same time). In this game, only the <tt>quit</tt> command falls under this category, but for the sake of argument, let's imagine a fully-fledged game with a rich set of commands. If we were to implement these by catching key events in <a href="qwidget.html#keyPressEvent">keyPressEvent()</a>, we would have to keep a lot of class member variables to track the sequence of keys already typed (or find some other way of deducing the current state of a command). This can easily lead to spaghetti, which is--as we all well know, I'm sure--unpleasant. With a state machine, on the other hand, separate states can wait for a single key press, and that makes our lives a lot simpler.</p>
 <p>The example consists of two classes:</p>
@@ -52,7 +52,7 @@
 <li><tt>MovementTransition</tt> is a transition that carries out a single move of the rogue.</li>
 </ul>
 <p>Before we embark on a code walkthrough, it is necessary to take a closer look at the design of the machine. Here is a state chart that shows what we want to achieve:</p>
-<p class="centerAlign"><img src="images/rogue-statechart.png" /></p><p>The input state waits for a key press to start a new command. When receiving a key it recognizes, it transitions to one of the two commands of the game; though, as we will see, movement is handled by the transition itself. The quit state waits for the player to answer yes or no (by typing <tt>y</tt> or <tt>n</tt>) when asked whether he/she really wants to quit the game.</p>
+<p class="centerAlign"><img src="images/rogue-statechart.png" alt="" /></p><p>The input state waits for a key press to start a new command. When receiving a key it recognizes, it transitions to one of the two commands of the game; though, as we will see, movement is handled by the transition itself. The quit state waits for the player to answer yes or no (by typing <tt>y</tt> or <tt>n</tt>) when asked whether he/she really wants to quit the game.</p>
 <p>The chart demonstrates how we use one state to wait for a single key press. The press received may trigger one of the transitions connected to the state.</p>
 <a name="window-class-definition"></a>
 <h2>Window Class Definition</h2>
@@ -206,7 +206,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

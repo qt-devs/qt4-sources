@@ -201,6 +201,7 @@
 <p>QProcess can merge the two output channels, so that standard output and standard error data from the running process both use the standard output channel. Call <a href="qprocess.html#setProcessChannelMode">setProcessChannelMode</a>() with <a href="qprocess.html#ProcessChannelMode-enum">MergedChannels</a> before starting the process to activative this feature. You also have the option of forwarding the output of the running process to the calling, main process, by passing <a href="qprocess.html#ProcessChannelMode-enum">ForwardedChannels</a> as the argument.</p>
 <p>Certain processes need special environment settings in order to operate. You can set environment variables for your process by calling <a href="qprocess.html#setEnvironment">setEnvironment</a>(). To set a working directory, call <a href="qprocess.html#setWorkingDirectory">setWorkingDirectory</a>(). By default, processes are run in the current working directory of the calling process.</p>
 <p><b>Note:</b> On Symbian, setting environment or working directory is not supported. The working directory will always be the private directory of the running process.</p>
+<p><b>Note:</b> On QNX, setting the working directory may cause all application threads, with the exception of the QProcess caller thread, to temporarily freeze, owing to a limitation in the operating system.</p>
 <a name="synchronous-process-api"></a>
 <h3>Synchronous Process API</h3>
 <p>QProcess provides a set of functions which allow it to be used without an event loop, by suspending the calling thread until certain signals are emitted:</p>
@@ -554,6 +555,7 @@
 <h3 class="fn"><a name="setWorkingDirectory"></a><span class="type">void</span> QProcess::<span class="name">setWorkingDirectory</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>dir</i> )</h3>
 <p>Sets the working directory to <i>dir</i>. <a href="qprocess.html">QProcess</a> will start the process in this directory. The default behavior is to start the process in the working directory of the calling process.</p>
 <p><b>Note:</b> The working directory setting is ignored on Symbian; the private directory of the process is considered its working directory.</p>
+<p><b>Note:</b> On QNX, this may cause all application threads to temporarily freeze.</p>
 <p><b>See also </b><a href="qprocess.html#workingDirectory">workingDirectory</a>() and <a href="qprocess.html#start">start</a>().</p>
 <!-- @@@setWorkingDirectory -->
 <!-- $$$setupChildProcess[overload1]$$$setupChildProcess -->
@@ -581,7 +583,7 @@
  <span class="preprocessor">#endif</span>
  }</pre>
 <p>You cannot exit the process (by calling exit(), for instance) from this function. If you need to stop the program before it starts execution, your workaround is to emit <a href="qprocess.html#finished">finished</a>() and then call exit().</p>
-<p><b>Warning:</b> This function is called by <a href="qprocess.html">QProcess</a> on Unix and Mac OS X only. On Windows, it is not called.</p>
+<p><b>Warning:</b> This function is called by <a href="qprocess.html">QProcess</a> on Unix and Mac OS X only. On Windows and QNX, it is not called.</p>
 <!-- @@@setupChildProcess -->
 <!-- $$$start[overload1]$$$startconstQString&constQStringList&OpenMode -->
 <h3 class="fn"><a name="start"></a><span class="type">void</span> QProcess::<span class="name">start</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>program</i>, const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp; <i>arguments</i>, <span class="type"><a href="qiodevice.html#OpenModeFlag-enum">OpenMode</a></span> <i>mode</i> = ReadWrite )</h3>
@@ -616,6 +618,7 @@
 <p><b>Unix:</b> The started process will run in its own session and act like a daemon.</p>
 <p><b>Windows:</b> Arguments that contain spaces are wrapped in quotes. The started process will run as a regular standalone process.</p>
 <p>The process will be started in the directory <i>workingDirectory</i>.</p>
+<p><b>Note:</b> On QNX, this may cause all application threads to temporarily freeze.</p>
 <p>If the function is successful then *<i>pid</i> is set to the process identifier of the started process.</p>
 <!-- @@@startDetached -->
 <!-- $$$startDetached$$$startDetachedconstQString&constQStringList& -->
@@ -716,7 +719,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

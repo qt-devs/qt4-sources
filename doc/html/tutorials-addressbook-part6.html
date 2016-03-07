@@ -43,7 +43,7 @@
 <li><a href="tutorials-addressbook-part6-part6-pro.html">tutorials/addressbook/part6/part6.pro</a></li>
 </ul>
 <p>This part covers the Qt file handling features we use to write loading and saving routines for the address book.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part6-screenshot.png" /></p><p>Although browsing and searching the contact list are useful features, our address book is not complete until we can save existing contacts and load them again at a later time.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-screenshot.png" alt="" /></p><p>Although browsing and searching the contact list are useful features, our address book is not complete until we can save existing contacts and load them again at a later time.</p>
 <p>Qt provides a number of classes for <a href="io.html">input and output</a>, but we have chosen to use two which are simple to use in combination: <a href="qfile.html">QFile</a> and <a href="qdatastream.html">QDataStream</a>.</p>
 <p>A <a href="qfile.html">QFile</a> object represents a file on disk that can be read from and written to. <a href="qfile.html">QFile</a> is a subclass of the more general <a href="qiodevice.html">QIODevice</a> class which represents many different kinds of devices.</p>
 <p>A <a href="qdatastream.html">QDataStream</a> object is used to serialize binary data so that it can be stored in a <a href="qiodevice.html">QIODevice</a> and retrieved again later. Reading from a <a href="qiodevice.html">QIODevice</a> and writing to it is as simple as opening the stream - with the respective device as a parameter - and reading from or writing to it.</p>
@@ -69,7 +69,7 @@
          tr(<span class="string">&quot;Save Address Book&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span><span class="operator">,</span>
          tr(<span class="string">&quot;Address Book (*.abk);;All Files (*)&quot;</span>));</pre>
 <p>The file dialog that pops up is displayed in the screenshot below:</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part6-save.png" /></p><p>If <tt>fileName</tt> is not empty, we create a <a href="qfile.html">QFile</a> object, <tt>file</tt>, with <tt>fileName</tt>. <a href="qfile.html">QFile</a> works with <a href="qdatastream.html">QDataStream</a> as <a href="qfile.html">QFile</a> is a <a href="qiodevice.html">QIODevice</a>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-save.png" alt="" /></p><p>If <tt>fileName</tt> is not empty, we create a <a href="qfile.html">QFile</a> object, <tt>file</tt>, with <tt>fileName</tt>. <a href="qfile.html">QFile</a> works with <a href="qdatastream.html">QDataStream</a> as <a href="qfile.html">QFile</a> is a <a href="qiodevice.html">QIODevice</a>.</p>
 <p>Next, we attempt to open the file in <a href="qiodevice.html#OpenModeFlag-enum">WriteOnly</a> mode. If this is unsuccessful, we display a <a href="qmessagebox.html">QMessageBox</a> to inform the user.</p>
 <pre class="cpp">     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
          <span class="keyword">return</span>;
@@ -93,7 +93,7 @@
          tr(<span class="string">&quot;Open Address Book&quot;</span>)<span class="operator">,</span> <span class="string">&quot;&quot;</span><span class="operator">,</span>
          tr(<span class="string">&quot;Address Book (*.abk);;All Files (*)&quot;</span>));</pre>
 <p>On Windows, for example, this function pops up a native file dialog, as shown in the following screenshot.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part6-load.png" /></p><p>If <tt>fileName</tt> is not empty, again, we use a <a href="qfile.html">QFile</a> object, <tt>file</tt>, and attempt to open it in <a href="qiodevice.html#OpenModeFlag-enum">ReadOnly</a> mode. Similar to our implementation of <tt>saveToFile()</tt>, if this attempt is unsuccessful, we display a <a href="qmessagebox.html">QMessageBox</a> to inform the user.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-load.png" alt="" /></p><p>If <tt>fileName</tt> is not empty, again, we use a <a href="qfile.html">QFile</a> object, <tt>file</tt>, and attempt to open it in <a href="qiodevice.html#OpenModeFlag-enum">ReadOnly</a> mode. Similar to our implementation of <tt>saveToFile()</tt>, if this attempt is unsuccessful, we display a <a href="qmessagebox.html">QMessageBox</a> to inform the user.</p>
 <pre class="cpp">     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
          <span class="keyword">return</span>;
      <span class="keyword">else</span> {
@@ -132,7 +132,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

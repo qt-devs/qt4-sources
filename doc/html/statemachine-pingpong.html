@@ -31,8 +31,8 @@
 <li><a href="statemachine-pingpong-main-cpp.html">statemachine/pingpong/main.cpp</a></li>
 <li><a href="statemachine-pingpong-pingpong-pro.html">statemachine/pingpong/pingpong.pro</a></li>
 </ul>
-<p>This example implements a statechart where two states communicate by posting events to the state machine. The state chart looks as follows:</p>
-<p class="centerAlign"><img src="images/pingpong-example.png" /></p><p>The <tt>pinger</tt> and <tt>ponger</tt> states are parallel states, i.e&#x2e; they are entered simultaneously and will take transitions independently of eachother.</p>
+<p>The Ping Pong States example shows how to use parallel states together with custom events and transitions in <a href="statemachine-api.html">The State Machine Framework</a>.<p>This example implements a statechart where two states communicate by posting events to the state machine. The state chart looks as follows:</p>
+<p class="centerAlign"><img src="images/pingpong-example.png" alt="" /></p><p>The <tt>pinger</tt> and <tt>ponger</tt> states are parallel states, i.e&#x2e; they are entered simultaneously and will take transitions independently of eachother.</p>
 <p>The <tt>pinger</tt> state will post the first <tt>ping</tt> event upon entry; the <tt>ponger</tt> state will respond by posting a <tt>pong</tt> event; this will cause the <tt>pinger</tt> state to post a new <tt>ping</tt> event; and so on.</p>
 <pre class="cpp"> <span class="keyword">class</span> PingEvent : <span class="keyword">public</span> <span class="type"><a href="qevent.html">QEvent</a></span>
  {
@@ -125,7 +125,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

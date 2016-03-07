@@ -59,7 +59,7 @@
 <ul>
 <li><a href="images/used-in-examples/tools/undoframework/images/cross.png">tools/undoframework/images/cross.png</a></li>
 </ul>
-<p class="centerAlign"><img src="images/undoframeworkexample.png" alt="The Undo Diagram Example" /></p><p>In the Qt undo framework, all actions that the user performs are implemented in classes that inherit <a href="qundocommand.html">QUndoCommand</a>. An undo command class knows how to both <a href="qundocommand.html#redo">redo()</a> - or just do the first time - and <a href="qundocommand.html#undo">undo()</a> an action. For each action the user performs, a command is placed on a <a href="qundostack.html">QUndoStack</a>. Since the stack contains all commands executed (stacked in chronological order) on the document, it can roll the state of the document backwards and forwards by undoing and redoing its commands. See the <a href="qundo.html">overview document</a> for a high-level introduction to the undo framework.</p>
+<p>The Undo Framework example shows how to implement undo/redo functionality with the Qt undo framework.<p class="centerAlign"><img src="images/undoframeworkexample.png" alt="The Undo Diagram Example" /></p><p>In the Qt undo framework, all actions that the user performs are implemented in classes that inherit <a href="qundocommand.html">QUndoCommand</a>. An undo command class knows how to both <a href="qundocommand.html#redo">redo()</a> - or just do the first time - and <a href="qundocommand.html#undo">undo()</a> an action. For each action the user performs, a command is placed on a <a href="qundostack.html">QUndoStack</a>. Since the stack contains all commands executed (stacked in chronological order) on the document, it can roll the state of the document backwards and forwards by undoing and redoing its commands. See the <a href="qundo.html">overview document</a> for a high-level introduction to the undo framework.</p>
 <p>The undo example implements a simple diagram application. It is possible to add and delete items, which are either box or rectangular shaped, and move the items by dragging them with the mouse. The undo stack is shown in a <a href="qundoview.html">QUndoView</a>, which is a list in which the commands are shown as list items. Undo and redo are available through the edit menu. The user can also select a command from the undo view.</p>
 <p>We use the <a href="graphicsview.html">graphics view framework</a> to implement the diagram. We only treat the related code briefly as the framework has examples of its own (e.g&#x2e;, the <a href="graphicsview-diagramscene.html">Diagram Scene Example</a>).</p>
 <p>The example consists of the following classes:</p>
@@ -427,7 +427,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

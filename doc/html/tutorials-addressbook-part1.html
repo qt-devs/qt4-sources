@@ -44,8 +44,8 @@
 </ul>
 <p>This first part covers the design of the basic graphical user interface (GUI) for our address book application.</p>
 <p>The first step in creating a GUI program is to design the user interface. Here the our goal is to set up the labels and input fields to implement a basic address book. The figure below is a screenshot of the expected output.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part1-screenshot.png" /></p><p>We require two <a href="qlabel.html">QLabel</a> objects, <tt>nameLabel</tt> and <tt>addressLabel</tt>, as well as two input fields, a <a href="qlineedit.html">QLineEdit</a> object, <tt>nameLine</tt>, and a <a href="qtextedit.html">QTextEdit</a> object, <tt>addressText</tt>, to enable the user to enter a contact's name and address. The widgets used and their positions are shown in the figure below.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-screenshot.png" /></p><p>There are three files used to implement this address book:</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part1-screenshot.png" alt="" /></p><p>We require two <a href="qlabel.html">QLabel</a> objects, <tt>nameLabel</tt> and <tt>addressLabel</tt>, as well as two input fields, a <a href="qlineedit.html">QLineEdit</a> object, <tt>nameLine</tt>, and a <a href="qtextedit.html">QTextEdit</a> object, <tt>addressText</tt>, to enable the user to enter a contact's name and address. The widgets used and their positions are shown in the figure below.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-screenshot.png" alt="" /></p><p>There are three files used to implement this address book:</p>
 <ul>
 <li><tt>addressbook.h</tt> - the definition file for the <tt>AddressBook</tt> class,</li>
 <li><tt>addressbook.cpp</tt> - the implementation file for the <tt>AddressBook</tt> class, and</li>
@@ -92,7 +92,7 @@
      addressText <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>;</pre>
 <p>In this constructor, the <a href="qlabel.html">QLabel</a> objects <tt>nameLabel</tt> and <tt>addressLabel</tt> are instantiated, as well as <tt>nameLine</tt> and <tt>addressText</tt>. The <a href="qobject.html#tr">tr()</a> function returns a translated version of the string, if there is one available. Otherwise it returns the string itself. This function marks its <a href="qstring.html">QString</a> parameter as one that should be translated into other languages. It should be used wherever a translatable string appears.</p>
 <p>When programming with Qt, it is useful to know how layouts work. Qt provides three main layout classes: <a href="qhboxlayout.html">QHBoxLayout</a>, <a href="qvboxlayout.html">QVBoxLayout</a> and <a href="qgridlayout.html">QGridLayout</a> to handle the positioning of widgets.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-layout.png" /></p><p>We use a <a href="qgridlayout.html">QGridLayout</a> to position our labels and input fields in a structured manner. <a href="qgridlayout.html">QGridLayout</a> divides the available space into a grid and places widgets in the cells we specify with row and column numbers. The diagram above shows the layout cells and the position of our widgets, and we specify this arrangement using the following code:</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-layout.png" alt="" /></p><p>We use a <a href="qgridlayout.html">QGridLayout</a> to position our labels and input fields in a structured manner. <a href="qgridlayout.html">QGridLayout</a> divides the available space into a grid and places widgets in the cells we specify with row and column numbers. The diagram above shows the layout cells and the position of our widgets, and we specify this arrangement using the following code:</p>
 <pre class="cpp">     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLine<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
@@ -125,7 +125,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

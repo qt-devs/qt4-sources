@@ -202,7 +202,7 @@
  msgBox<span class="operator">.</span><a href="qmessagebox.html#text-prop">setText</a>(<span class="string">&quot;The document has been modified.&quot;</span>);
  msgBox<span class="operator">.</span><a href="qmessagebox.html#exec">exec</a>();</pre>
 <p>The user must click the <b>OK</b> button to dismiss the message box. The rest of the GUI is blocked until the message box is dismissed.</p>
-<p class="centerAlign"><img src="images/msgbox1.png" /></p><p>A better approach than just alerting the user to an event is to also ask the user what to do about it. Store the question in the <a href="qmessagebox.html#informativeText-prop">informative text</a> property, and set the <a href="qmessagebox.html#standardButtons-prop">standard buttons</a> property to the set of buttons you want as the set of user responses. The buttons are specified by combining values from <a href="qmessagebox.html#StandardButton-enum">StandardButtons</a> using the bitwise OR operator. The display order for the buttons is platform-dependent. For example, on Windows, <b>Save</b> is displayed to the left of <b>Cancel</b>, whereas on Mac OS, the order is reversed.</p>
+<p class="centerAlign"><img src="images/msgbox1.png" alt="" /></p><p>A better approach than just alerting the user to an event is to also ask the user what to do about it. Store the question in the <a href="qmessagebox.html#informativeText-prop">informative text</a> property, and set the <a href="qmessagebox.html#standardButtons-prop">standard buttons</a> property to the set of buttons you want as the set of user responses. The buttons are specified by combining values from <a href="qmessagebox.html#StandardButton-enum">StandardButtons</a> using the bitwise OR operator. The display order for the buttons is platform-dependent. For example, on Windows, <b>Save</b> is displayed to the left of <b>Cancel</b>, whereas on Mac OS, the order is reversed.</p>
 <p>Mark one of your standard buttons to be your <a href="qmessagebox.html#defaultButton">default button</a>.</p>
 <pre class="cpp"> <span class="type">QMessageBox</span> msgBox;
  msgBox<span class="operator">.</span><a href="qmessagebox.html#text-prop">setText</a>(<span class="string">&quot;The document has been modified.&quot;</span>);
@@ -211,7 +211,7 @@
  msgBox<span class="operator">.</span><a href="qmessagebox.html#setDefaultButton">setDefaultButton</a>(<span class="type">QMessageBox</span><span class="operator">::</span>Save);
  <span class="type">int</span> ret <span class="operator">=</span> msgBox<span class="operator">.</span><a href="qmessagebox.html#exec">exec</a>();</pre>
 <p>This is the approach recommended in the <a href="http://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/AppleHIGuidelines/Windows/Windows.html#//apple_ref/doc/uid/20000961-BABCAJID">Mac OS X Guidelines</a>. Similar guidelines apply for the other platforms, but note the different ways the <a href="qmessagebox.html#informativeText-prop">informative text</a> is handled for different platforms.</p>
-<p class="centerAlign"><img src="images/msgbox2.png" /></p><p>The <a href="qmessagebox.html#exec">exec</a>() slot returns the <a href="qmessagebox.html#StandardButton-enum">StandardButtons</a> value of the button that was clicked.</p>
+<p class="centerAlign"><img src="images/msgbox2.png" alt="" /></p><p>The <a href="qmessagebox.html#exec">exec</a>() slot returns the <a href="qmessagebox.html#StandardButton-enum">StandardButtons</a> value of the button that was clicked.</p>
 <pre class="cpp"> <span class="keyword">switch</span> (ret) {
    <span class="keyword">case</span> <span class="type">QMessageBox</span><span class="operator">::</span>Save:
        <span class="comment">// Save was clicked</span>
@@ -227,8 +227,8 @@
        <span class="keyword">break</span>;
  }</pre>
 <p>To give the user more information to help him answer the question, set the <a href="qmessagebox.html#detailedText-prop">detailed text</a> property. If the <a href="qmessagebox.html#detailedText-prop">detailed text</a> property is set, the <b>Show Details..&#x2e;</b> button will be shown.</p>
-<p class="centerAlign"><img src="images/msgbox3.png" /></p><p>Clicking the <b>Show Details..&#x2e;</b> button displays the detailed text.</p>
-<p class="centerAlign"><img src="images/msgbox4.png" /></p><a name="rich-text-and-the-text-format-property"></a>
+<p class="centerAlign"><img src="images/msgbox3.png" alt="" /></p><p>Clicking the <b>Show Details..&#x2e;</b> button displays the detailed text.</p>
+<p class="centerAlign"><img src="images/msgbox4.png" alt="" /></p><a name="rich-text-and-the-text-format-property"></a>
 <h4>Rich Text and the Text Format Property</h4>
 <p>The <a href="qmessagebox.html#detailedText-prop">detailed text</a> property is always interpreted as plain text. The <a href="qmessagebox.html#text-prop">main text</a> and <a href="qmessagebox.html#informativeText-prop">informative text</a> properties can be either plain text or rich text. These strings are interpreted according to the setting of the <a href="qmessagebox.html#textFormat-prop">text format</a> property. The default setting is <a href="qt.html#TextFormat-enum">auto-text</a>.</p>
 <p>Note that for some plain text strings containing XML meta-characters, the auto-text <a href="qt.html#mightBeRichText">rich text detection test</a> may fail causing your plain text string to be interpreted incorrectly as rich text. In these rare cases, use <a href="qt.html#convertFromPlainText">Qt::convertFromPlainText</a>() to convert your plain text string to a visually equivalent rich text string, or set the <a href="qmessagebox.html#textFormat-prop">text format</a> property explicitly with <a href="qmessagebox.html#textFormat-prop">setTextFormat</a>().</p>
@@ -236,10 +236,10 @@
 <h4>Severity Levels and the Icon and Pixmap Properties</h4>
 <p>QMessageBox supports four predefined message severity levels, or message types, which really only differ in the predefined icon they each show. Specify one of the four predefined message types by setting the <a href="qmessagebox.html#icon-prop">icon</a> property to one of the <a href="qmessagebox.html#Icon-enum">predefined icons</a>. The following rules are guidelines:</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/qmessagebox-quest.png" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Question</a></td><td >For asking a question during normal operations.</td></tr>
-<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/qmessagebox-info.png" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Information</a></td><td >For reporting information about normal operations.</td></tr>
-<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/qmessagebox-warn.png" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Warning</a></td><td >For reporting non-critical errors.</td></tr>
-<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/qmessagebox-crit.png" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Critical</a></td><td >For reporting critical errors.</td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/qmessagebox-quest.png" alt="" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Question</a></td><td >For asking a question during normal operations.</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/qmessagebox-info.png" alt="" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Information</a></td><td >For reporting information about normal operations.</td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/qmessagebox-warn.png" alt="" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Warning</a></td><td >For reporting non-critical errors.</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/qmessagebox-crit.png" alt="" /></p></td><td ><a href="qmessagebox.html#Icon-enum">Critical</a></td><td >For reporting critical errors.</td></tr>
 </table>
 <p><a href="qmessagebox.html#Icon-enum">Predefined icons</a> are not defined by QMessageBox, but provided by the style. The default value is <a href="qmessagebox.html#Icon-enum">No Icon</a>. The message boxes are otherwise the same for all cases. When using a standard icon, use the one recommended in the table, or use the one recommended by the style guidelines for your platform. If none of the standard icons is right for your message box, you can use a custom icon by setting the <a href="qmessagebox.html#iconPixmap-prop">icon pixmap</a> property instead of setting the <a href="qmessagebox.html#icon-prop">icon</a> property.</p>
 <p>In summary, to set an icon, use <i>either</i> <a href="qmessagebox.html#icon-prop">setIcon</a>() for one of the standard icons, <i>or</i> <a href="qmessagebox.html#iconPixmap-prop">setIconPixmap</a>() for a custom icon.</p>
@@ -589,6 +589,7 @@
 <h3 class="fn"><a name="exec"></a><span class="type">int</span> QMessageBox::<span class="name">exec</span> ()<tt> [slot]</tt></h3>
 <p>Shows the message box as a <a href="qdialog.html#modal-dialogs">modal dialog</a>, blocking until the user closes it.</p>
 <p>When using a <a href="qmessagebox.html">QMessageBox</a> with standard buttons, this functions returns a <a href="qmessagebox.html#StandardButton-enum">StandardButton</a> value indicating the standard button that was clicked. When using <a href="qmessagebox.html">QMessageBox</a> with custom buttons, this function returns an opaque value; use <a href="qmessagebox.html#clickedButton">clickedButton</a>() to determine which button was clicked.</p>
+<p><b>Note:</b> The <a href="qdialog.html#result">result</a>() function returns also <a href="qmessagebox.html#StandardButton-enum">StandardButton</a> value instead of <a href="qdialog.html#DialogCode-enum">QDialog::DialogCode</a></p>
 <p>Users cannot interact with any other window in the same application until they close the dialog, either by clicking a button or by using a mechanism provided by the window system.</p>
 <p><b>See also </b><a href="qwidget.html#show">show</a>() and <a href="qdialog.html#result">result</a>().</p>
 <!-- @@@exec -->
@@ -700,7 +701,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

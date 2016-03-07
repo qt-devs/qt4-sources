@@ -49,7 +49,7 @@
 <p>In the model/view architecture, the view and the controller objects are combined. This still separates the way that data is stored from the way that it is presented to the user, but provides a simpler framework based on the same principles. This separation makes it possible to display the same data in several different views, and to implement new types of views, without changing the underlying data structures.</p>
 <p>User input is handled by <i>delegates</i>. The advantage of this approach is that it allows rendering and editing of individual items of data to be customized to suit each data type in use.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/modelview-overview.png" /></td><td ><b>The model/view architecture</b><p>The model communicates with a source of data, providing an <i>interface</i> for the other components in the architecture. The nature of the communication depends on the type of data source, and the way the model is implemented.</p>
+<tr valign="top" class="odd"><td ><img src="images/modelview-overview.png" alt="" /></td><td ><b>The model/view architecture</b><p>The model communicates with a source of data, providing an <i>interface</i> for the other components in the architecture. The nature of the communication depends on the type of data source, and the way the model is implemented.</p>
 <p>The view obtains <i>model indexes</i> from the model; these are references to items of data. By supplying model indexes to the model, the view can retrieve items of data from the data source.</p>
 <p>In standard views, a <i>delegate</i> renders the items of data. When an item is edited, the delegate communicates with the model directly using model indexes.</p>
 </td></tr>
@@ -57,7 +57,7 @@
 <a name="model-view-classes"></a>
 <h2>Model/View Classes</h2>
 <p>On a fundamental level, the Interview classes define the interfaces and common functionality for models, views, and delegates. All implemented components subclass <a href="qabstractitemmodel.html">QAbstractItemModel</a>, <a href="qabstractitemview.html">QAbstractItemView</a>, or <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a>. The use of a common API ensures a level of interoperability between the components.</p>
-<p class="centerAlign"><img src="images/standard-views.png" /></p><p>Interview provides ready-to-use implementations of views for table, tree, and list widgets: <a href="qtableview.html">QTableView</a>, <a href="qtreeview.html">QTreeView</a>, and <a href="qlistview.html">QListView</a>. These standard views are suitable for displaying the most common types of data structures used in applications, and can be used with the ready-made models supplied with Qt:</p>
+<p class="centerAlign"><img src="images/standard-views.png" alt="" /></p><p>Interview provides ready-to-use implementations of views for table, tree, and list widgets: <a href="qtableview.html">QTableView</a>, <a href="qtreeview.html">QTreeView</a>, and <a href="qlistview.html">QListView</a>. These standard views are suitable for displaying the most common types of data structures used in applications, and can be used with the ready-made models supplied with Qt:</p>
 <ul>
 <li><a href="qstandarditemmodel.html">QStandardItemModel</a> is a minimal convenience model that developers can use to manage items of data.</li>
 <li><a href="qfilesystemmodel.html">QFileSystemModel</a> provides directory information for use with <a href="qlistview.html">QListView</a> and <a href="qtreeview.html">QTreeView</a>.</li>
@@ -103,7 +103,7 @@
      <span class="keyword">return</span> app<span class="operator">.</span>exec();
  }</pre>
 <p>In the above function, we construct a directory model to display the contents of a default directory. The two views are constructed and given the same model to work with. By default, each view will maintain and display its own selection of items from the model, so we explicitly create a new selection that is shared between the tree view and the list view. As a result, changes to the selection in either of these views will automatically cause the selection in the other to change.</p>
-<p class="centerAlign"><img src="images/interview-shareddirmodel.png" /></p><p>The model/view architecture allows us to replace the <a href="qfilesystemmodel.html">QFileSystemModel</a> in this example with a completely different model, one that will perhaps obtain data from a remote server, or from a database.</p>
+<p class="centerAlign"><img src="images/interview-shareddirmodel.png" alt="" /></p><p>The model/view architecture allows us to replace the <a href="qfilesystemmodel.html">QFileSystemModel</a> in this example with a completely different model, one that will perhaps obtain data from a remote server, or from a database.</p>
 <a name="creating-a-custom-model"></a>
 <h3>Creating a Custom Model</h3>
 <p>In this example, we display items of data obtained from a custom list model using a standard view. The custom model is a subclass of <a href="qabstractlistmodel.html">QAbstractListModel</a> and provides implementations of a core set of functions.</p>
@@ -167,7 +167,7 @@
  view<span class="operator">-</span><span class="operator">&gt;</span>setWindowTitle(<span class="string">&quot;View onto a string list model&quot;</span>);
  view<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);</pre>
 <p>We create a string list to use with the model, and we supply it to the model when it is constructed. The information in the string list is made available to the view via the model.</p>
-<p class="centerAlign"><img src="images/stringlistmodel.png" /></p><p>This example shows that it can be easy to populate views with data from a simple model. The standard models and views planned for Qt 4 will make the process even easier, and the convenience widgets supplied provide support for the classic item-based approach.</p>
+<p class="centerAlign"><img src="images/stringlistmodel.png" alt="" /></p><p>This example shows that it can be easy to populate views with data from a simple model. The standard models and views planned for Qt 4 will make the process even easier, and the convenience widgets supplied provide support for the classic item-based approach.</p>
 <a name="what-s-changed-since-qt-3"></a>
 <h2>What's Changed Since Qt 3?</h2>
 <p>The table and item view classes in Qt 3 implemented widgets that both stored data and presented it to the user. These classes were designed to be easy-to-use and consistent, but were sometimes difficult to customize and extend.</p>
@@ -198,7 +198,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

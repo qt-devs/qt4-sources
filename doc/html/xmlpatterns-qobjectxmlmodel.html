@@ -51,7 +51,7 @@
 <li><a href="xmlpatterns-qobjectxmlmodel-qobjectxmlmodel-pro.html">xmlpatterns/qobjectxmlmodel/qobjectxmlmodel.pro</a></li>
 <li><a href="xmlpatterns-qobjectxmlmodel-queries-qrc.html">xmlpatterns/qobjectxmlmodel/queries.qrc</a></li>
 </ul>
-<a name="introduction"></a>
+<p>The XML Model example shows how to use <a href="qtxmlpatterns.html">QtXmlPatterns</a> to query <a href="qobject.html">QObject</a> trees by modeling the non-XML data structure of a <a href="qobject.html">QObject</a> tree to look like XML.<a name="introduction"></a>
 <h2>Introduction</h2>
 <p>This example illustrates two important points about using <a href="xmlprocessing.html">XQuery</a> to query non-XML data modeled to look like XML. The first point is that a custom node model class doesn't always have to actually build the node model. Sometimes the node model can be an already existing data structure, like the <a href="qobject.html">QObject</a> tree used in this example. The second point is to explain what is required to make non-XML data look like XML.</p>
 <p>In this example, we want to model a <a href="qobject.html">QObject</a> tree to look like XML. That is easy to do because a <a href="qobject.html">QObject</a> tree maps to the XML tree structure in a staightforward way. Each <a href="qobject.html">QObject</a> node is modeled as an XML element node. However, when we want to add the <a href="qmetaobject.html">QMetaObject</a> tree to the <a href="qobject.html">QObject</a> tree node model, we are trying to add a second tree to the node model. The <a href="qmetaobject.html">QMetaObject</a> tree exists <i>behind</i> the <a href="qobject.html">QObject</a> tree. Adding the <a href="qmetaobject.html">QMetaObject</a> tree to the node model changes the two dimensional tree into a three dimensional tree.</p>
@@ -59,7 +59,7 @@
 <a name="the-user-interface"></a>
 <h3>The User Interface</h3>
 <p>The UI for this example was created using Qt Designer:</p>
-<p class="centerAlign"><img src="images/qobjectxmlmodel-example.png" /></p><a name="code-walk-through"></a>
+<p class="centerAlign"><img src="images/qobjectxmlmodel-example.png" alt="" /></p><a name="code-walk-through"></a>
 <h2>Code Walk-Through</h2>
 <p>The strategy for this example is different from the strategy for the <a href="xmlpatterns-filetree.html">file system example</a>. In the file system example, the node model class had to actually build a node model because the non-XML data to be traversed was the computer's file system, a structure stored on disk in a form that the query engine couldn't use. The node model class had to build an analog of the computer's file system in memory.</p>
 <p>For this example, the data structure to be traversed already exists in memory in a usable form. It is the <a href="qobject.html">QObject</a> tree of the example application itself. All we need is the pointer to the root of the <a href="qobject.html">QObject</a> tree.</p>
@@ -366,7 +366,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

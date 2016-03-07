@@ -35,7 +35,7 @@
 <li><a href="network-blockingfortuneclient-main-cpp.html">network/blockingfortuneclient/main.cpp</a></li>
 <li><a href="network-blockingfortuneclient-blockingfortuneclient-pro.html">network/blockingfortuneclient/blockingfortuneclient.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/blockingfortuneclient-example.png" /></p><p><a href="qtcpsocket.html">QTcpSocket</a> supports two general approaches to network programming:</p>
+<p>The Blocking Fortune Client example shows how to create a client for a network service using <a href="qtcpsocket.html">QTcpSocket</a>'s synchronous API in a non-GUI thread.<p class="centerAlign"><img src="images/blockingfortuneclient-example.png" alt="" /></p><p><a href="qtcpsocket.html">QTcpSocket</a> supports two general approaches to network programming:</p>
 <ul>
 <li><i>The asynchronous (non-blocking) approach.</i> Operations are scheduled and performed when control returns to Qt's event loop. When the operation is finished, <a href="qtcpsocket.html">QTcpSocket</a> emits a signal. For example, <a href="qabstractsocket.html#connectToHost">QTcpSocket::connectToHost</a>() returns immediately, and when the connection has been established, <a href="qtcpsocket.html">QTcpSocket</a> emits <a href="qabstractsocket.html#connected">connected()</a>.</li>
 <li><i>The synchronous (blocking) approach.</i> In non-GUI and multithreaded applications, you can call the <tt>waitFor..&#x2e;()</tt> functions (e.g&#x2e;, <a href="qabstractsocket.html#waitForConnected">QTcpSocket::waitForConnected</a>()) to suspend the calling thread until the operation has completed, instead of connecting to signals.</li>
@@ -220,7 +220,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

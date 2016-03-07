@@ -31,7 +31,7 @@
 <li><a href="statemachine-trafficlight-main-cpp.html">statemachine/trafficlight/main.cpp</a></li>
 <li><a href="statemachine-trafficlight-trafficlight-pro.html">statemachine/trafficlight/trafficlight.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/trafficlight-example.png" /></p><p>In this example we write a TrafficLightWidget class. The traffic light has three lights: Red, yellow and green. The traffic light transitions from one light to another (red to yellow to green to yellow to red again) at certain intervals.</p>
+<p>The Traffic Light example shows how to use <a href="statemachine-api.html">The State Machine Framework</a> to implement the control flow of a traffic light.<p class="centerAlign"><img src="images/trafficlight-example.png" alt="" /></p><p>In this example we write a TrafficLightWidget class. The traffic light has three lights: Red, yellow and green. The traffic light transitions from one light to another (red to yellow to green to yellow to red again) at certain intervals.</p>
 <pre class="cpp"> <span class="keyword">class</span> LightWidget : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
  {
      Q_OBJECT
@@ -121,7 +121,7 @@
      <span class="keyword">return</span> lightState;
  }</pre>
 <p>The createLightState() function creates a state that turns a light on when the state is entered, and off when the state is exited. The state uses a timer, and as we shall see the timeout is used to transition from one LightState to another. Here is the statechart for the light state:</p>
-<p class="centerAlign"><img src="images/trafficlight-example1.png" /></p><pre class="cpp"> <span class="keyword">class</span> TrafficLight : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+<p class="centerAlign"><img src="images/trafficlight-example1.png" alt="" /></p><pre class="cpp"> <span class="keyword">class</span> TrafficLight : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
  {
  <span class="keyword">public</span>:
      TrafficLight(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>)
@@ -155,7 +155,7 @@
      }
  };</pre>
 <p>The TrafficLight class combines the TrafficLightWidget with a state machine. The state graph has four states: red-to-yellow, yellow-to-green, green-to-yellow and yellow-to-red. The initial state is red-to-yellow; when the state's timer times out, the state machine transitions to yellow-to-green. The same process repeats through the other states. This is what the statechart looks like:</p>
-<p class="centerAlign"><img src="images/trafficlight-example2.png" /></p><pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span><span class="operator">*</span>argv)
+<p class="centerAlign"><img src="images/trafficlight-example2.png" alt="" /></p><pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span><span class="operator">*</span>argv)
  {
      <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
 
@@ -180,7 +180,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

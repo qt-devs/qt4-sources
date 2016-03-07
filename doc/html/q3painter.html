@@ -67,7 +67,7 @@
 <p>The Q3Painter class is a Qt 3 compatibility wrapper for <a href="qpainter.html">QPainter</a>.</p>
 <p>Prior to Qt 4, <a href="qpainter.html">QPainter</a> specialized the pen drawing for rectangle based functions (in particular: drawRect, drawEllipse, drawRoundRect, drawArc, drawChord and drawPie). When stroking a rectangle of width 10, the pen would draw a rectangle of width 10. Drawing a polygon defined by the corner points of the same rectangle the stroke would have a width of 11.</p>
 <p>The reason for this is best explained using the picture below:</p>
-<p class="centerAlign"><img src="images/q3painter_rationale.png" /></p><p>As we can see, stroking the rectangle so it gets a width of 10, means the pen is drawn on a rectangle on width 9. The polygon, however follows a consistent model.</p>
+<p class="centerAlign"><img src="images/q3painter_rationale.png" alt="" /></p><p>As we can see, stroking the rectangle so it gets a width of 10, means the pen is drawn on a rectangle on width 9. The polygon, however follows a consistent model.</p>
 <p>In Qt 4, all rectangle based functions have changed to follow the polygon approach, which means that the rectangle defines the size of the fill, and the pen follows the edges of the shape. For pen widths of 0 and 1 this means that the stroke will be inside the shape on the left and the top and outside on the bottom and right.</p>
 <p>The reason for the change in Qt 4 is so that we provide consistency for all drawing functions even with complex transformations.</p>
 </div>
@@ -154,7 +154,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

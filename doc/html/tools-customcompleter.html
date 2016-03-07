@@ -47,7 +47,7 @@
 <li><a href="tools-customcompleter-customcompleter-pro.html">tools/customcompleter/customcompleter.pro</a></li>
 <li><a href="tools-customcompleter-customcompleter-qrc.html">tools/customcompleter/customcompleter.qrc</a></li>
 </ul>
-<p class="centerAlign"><img src="images/customcompleter-example.png" /></p><a name="setting-up-the-resource-file"></a>
+<p>The Custom Completer example shows how to provide string-completion facilities for an input widget based on data provided by a model. The completer pops up suggestions for possible words based on the first three characters input by the user and the user's choice of word is inserted into the <tt>TextEdit</tt> using <a href="qtextcursor.html">QTextCursor</a>.<p class="centerAlign"><img src="images/customcompleter-example.png" alt="" /></p><a name="setting-up-the-resource-file"></a>
 <h2>Setting Up The Resource File</h2>
 <p>The Custom Completer example requires a resource file, <i>wordlist.txt</i>, that has a list of words to help <a href="qcompleter.html">QCompleter</a> complete words. This file contains the following:</p>
 <pre class="cpp"> &lt;!DOCTYPE RCC&gt;&lt;RCC version=&quot;1.0&quot;&gt;
@@ -134,7 +134,7 @@
      setTextCursor(tc);
  }</pre>
 <p>The figure below illustrates this process:</p>
-<p class="centerAlign"><img src="images/customcompleter-insertcompletion.png" /></p><p><tt>completion.length()</tt> = 6</p>
+<p class="centerAlign"><img src="images/customcompleter-insertcompletion.png" alt="" /></p><p><tt>completion.length()</tt> = 6</p>
 <p><tt>c-&gt;completionPrefix().length()</tt>=3</p>
 <p>The difference between these two values is <tt>extra</tt>, which is 3. This means that the last three characters from the right, &quot;U&quot;, &quot;A&quot;, and &quot;L&quot;, will be inserted by <tt>tc</tt>.</p>
 <p>The <tt>textUnderCursor()</tt> function uses a <a href="qtextcursor.html">QTextCursor</a>, <tt>tc</tt>, to select a word under the cursor and return it.</p>
@@ -305,7 +305,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

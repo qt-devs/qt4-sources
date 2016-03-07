@@ -58,7 +58,7 @@
 <h2>Architecture</h2>
 <p>Phonon has three basic concepts: media objects, sinks, and paths. A media object manages a media source, for instance, a music file; it provides simple playback control, such as starting, stopping, and pausing the playback. A sink outputs the media from Phonon, e.g&#x2e;, by rendering video on a widget, or by sending audio to a sound card. Paths are used to connect Phonon objects, i.e&#x2e;, a media object and a sink, in a graph - called a media graph in Phonon.</p>
 <p>As an example, we show a media graph for an audio stream:</p>
-<p class="centerAlign"><img src="images/conceptaudio.png" /></p><p>The playback is started and managed by the media object, which send the media stream to any sinks connected to it by a path. The sink then plays the stream back, usually though a sound card.</p>
+<p class="centerAlign"><img src="images/conceptaudio.png" alt="" /></p><p>The playback is started and managed by the media object, which send the media stream to any sinks connected to it by a path. The sink then plays the stream back, usually though a sound card.</p>
 <a name="media-objects"></a>
 <h3>Media Objects</h3>
 <p>The media object, an instance of the <a href="phonon-mediaobject.html">MediaObject</a> class, lets you start, pause, and stop the playback of a media stream, i.e&#x2e;, it provided basic control over the playback. You may think of the object as a simple media player.</p>
@@ -71,7 +71,7 @@
 <p>The input of sinks in a Phonon media graph comes from a <a href="phonon-mediaobject.html">MediaObject</a>, though it might have been processed through other nodes on the way.</p>
 <p>While the <a href="phonon-mediaobject.html">MediaObject</a> controls the playback, the sink has basic controls for manipulation of the media. With an audio sink, for instance, you can control the volume and mute the sound, i.e&#x2e;, it represents a virtual audio device. Another example is the <a href="phonon-videowidget.html">VideoWidget</a>, which can render video on a <a href="qwidget.html">QWidget</a> and alter the brightness, hue, and scaling of the video.</p>
 <p>As an example we give an image of a graph used for playing back a video file with sound.</p>
-<p class="centerAlign"><img src="images/conceptvideo.png" /></p><a name="processors"></a>
+<p class="centerAlign"><img src="images/conceptvideo.png" alt="" /></p><a name="processors"></a>
 <h3>Processors</h3>
 <p>Phonon does not allow manipulation of media streams directly, i.e&#x2e;, one cannot alter a media stream's bytes programmatically after they have been given to a media object. We have other nodes to help with this: processors, which are placed in the graph on the path somewhere between the media object and its sinks. In Phonon, processors are of the <a href="phonon-effect.html">Effect</a> class.</p>
 <p>When inserted into the rendering process, the processor will alter the media stream, and will be active as long as it is part of the graph. To stop, it needs to be removed.</p>
@@ -200,7 +200,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

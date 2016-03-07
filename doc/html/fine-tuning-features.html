@@ -54,7 +54,7 @@
 <h2>Managing Large Numbers of Features</h2>
 <p>If you want to disable a lot of features, it is more comfortable to use the <tt>qconfig</tt> tool. You can disable a <i>set</i> of features by creating a custom configuration file that defines the preferred subset of Qt's functionality. Such a file uses macros to disable the unwanted features, and can be created manually or by using the <tt>qconfig</tt> tool located in the <tt>tools/qconfig</tt> directory of the Qt source distribution.</p>
 <p><b>Note:</b> The <tt>qconfig</tt> tool is intended to be built against Qt on desktop platforms.</p>
-<p class="centerAlign"><img src="images/qt-embedded-qconfigtool.png" /></p><p>The <tt>qconfig</tt> tool's interface displays all of Qt's functionality, and allows the user to both disable and enable features. The user can open and edit any custom configuration file located in the <tt>src/corelib/global</tt> directory. When creating a custom configuration file manually, a description of the currently available Qt features can be found in the <tt>src/corelib/global/qfeatures.txt</tt> file.</p>
+<p class="centerAlign"><img src="images/qt-embedded-qconfigtool.png" alt="" /></p><p>The <tt>qconfig</tt> tool's interface displays all of Qt's functionality, and allows the user to both disable and enable features. The user can open and edit any custom configuration file located in the <tt>src/corelib/global</tt> directory. When creating a custom configuration file manually, a description of the currently available Qt features can be found in the <tt>src/corelib/global/qfeatures.txt</tt> file.</p>
 <p>Note that some features depend on others; disabling any feature will automatically disable all features depending on it. The feature dependencies can be explored using the <tt>qconfig</tt> tool, but they are also described in the <tt>src/corelib/global/qfeatures.h</tt> file.</p>
 <p>To be able to apply the custom configuration, it must be saved in a file called <tt>qconfig-myfile.h</tt> in the <tt>src/corelib/global</tt> directory. Then use the <tt>configure</tt> tool's <tt>-qconfig</tt> option and pass the configuration's file name without the <tt>qconfig-</tt> prefix and <tt>.h</tt> extension, as argument. The following examples show how this is invoked on each of the embedded platforms for a file called <tt>qconfig-myfile.h</tt>:</p>
 <p><b>Embedded Linux:</b></p>
@@ -70,7 +70,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

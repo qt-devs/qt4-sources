@@ -96,8 +96,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-lt-lt-65">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-gt-gt-34">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-lt-lt-40">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-gt-gt-18">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QRegExp-description -->
@@ -177,7 +177,7 @@
 <p>We can use captured text within the regexp itself. To refer to the captured text we use <i>backreferences</i> which are indexed from 1, the same as for <a href="qregexp.html#cap">cap</a>(). For example we could search for duplicate words in a string using <b>\b(\w+)\W+\1\b</b> which means match a word boundary followed by one or more word characters followed by one or more non-word characters followed by the same text as the first parenthesized expression followed by a word boundary.</p>
 <p>If we want to use parentheses purely for grouping and not for capturing we can use the non-capturing syntax, e.g&#x2e; <b>(?:green|blue)</b>. Non-capturing parentheses begin '(?:' and end ')'. In this example we match either 'green' or 'blue' but we do not capture the match so we only know whether or not we matched but not which color we actually found. Using non-capturing parentheses is more efficient than using capturing parentheses since the regexp engine has to do less book-keeping.</p>
 <p>Both capturing and non-capturing parentheses may be nested.</p>
-<a name="greedy-quantifiers"></a><p>For historical reasons, quantifiers (e.g&#x2e; <b>*</b>) that apply to capturing parentheses are more &quot;greedy&quot; than other quantifiers. For example, <b>a*(a)*</b> will match &quot;aaa&quot; with cap(1) == &quot;aaa&quot;. This behavior is different from what other regexp engines do (notably, Perl). To obtain a more intuitive capturing behavior, specify <a href="qregexp.html#PatternSyntax-enum">QRegExp::RegExp2</a> to the QRegExp constructor or call setPatternSyntax(<a href="qregexp.html#PatternSyntax-enum">QRegExp::RegExp2</a>).</p>
+<a name="greedy-quantifiers"></a><p>For historical reasons, quantifiers (e.g&#x2e; <b>*</b>) that apply to capturing parentheses are more &quot;greedy&quot; than other quantifiers. For example, <b>a*(a*)</b> will match &quot;aaa&quot; with cap(1) == &quot;aaa&quot;. This behavior is different from what other regexp engines do (notably, Perl). To obtain a more intuitive capturing behavior, specify <a href="qregexp.html#PatternSyntax-enum">QRegExp::RegExp2</a> to the QRegExp constructor or call setPatternSyntax(<a href="qregexp.html#PatternSyntax-enum">QRegExp::RegExp2</a>).</p>
 <a name="cap-in-a-loop"></a><p>When the number of matches cannot be determined in advance, a common idiom is to use <a href="qregexp.html#cap">cap</a>() in a loop. For example:</p>
 <pre class="cpp"> <span class="type">QRegExp</span> rx(<span class="string">&quot;(\\d+)&quot;</span>);
  <span class="type"><a href="qstring.html">QString</a></span> str <span class="operator">=</span> <span class="string">&quot;Offsets: 12 14 99 231 7&quot;</span>;
@@ -294,7 +294,7 @@
  rx<span class="operator">.</span><a href="qregexp.html#exactMatch">exactMatch</a>(<span class="string">&quot;index.html&quot;</span>);                <span class="comment">// returns true</span>
  rx<span class="operator">.</span><a href="qregexp.html#exactMatch">exactMatch</a>(<span class="string">&quot;default.htm&quot;</span>);               <span class="comment">// returns false</span>
  rx<span class="operator">.</span><a href="qregexp.html#exactMatch">exactMatch</a>(<span class="string">&quot;readme.txt&quot;</span>);                <span class="comment">// returns false</span></pre>
-<p>Wildcard matching can be convenient because of its simplicity, but any wildcard regexp can be defined using full regexps, e.g&#x2e; <b>.*.html$</b>. Notice that we can't match both <tt>.html</tt> and <tt>.htm</tt> files with a wildcard unless we use <b>*.htm*</b> which will also match 'test.html.bak'. A full regexp gives us the precision we need, <b>.*\.html?$</b>.</p>
+<p>Wildcard matching can be convenient because of its simplicity, but any wildcard regexp can be defined using full regexps, e.g&#x2e; <b>.*\.html$</b>. Notice that we can't match both <tt>.html</tt> and <tt>.htm</tt> files with a wildcard unless we use <b>*.htm*</b> which will also match 'test.html.bak'. A full regexp gives us the precision we need, <b>.*\.html?$</b>.</p>
 <p>QRegExp can match case insensitively using <a href="qregexp.html#setCaseSensitivity">setCaseSensitivity</a>(), and can use non-greedy matching, see <a href="qregexp.html#setMinimal">setMinimal</a>(). By default QRegExp uses full regexps but this can be changed with <a href="qregexp-qt3.html#setWildcard" class="compat">setWildcard</a>(). Searching can be forward with <a href="qregexp.html#indexIn">indexIn</a>() or backward with <a href="qregexp.html#lastIndexIn">lastIndexIn</a>(). Captured text can be accessed using <a href="qregexp.html#capturedTexts">capturedTexts</a>() which returns a string list of all captured strings, or using <a href="qregexp.html#cap">cap</a>() which returns the captured string for the given index. The <a href="qregexp.html#pos">pos</a>() function takes a match index and returns the position in the string where the match was made (or -1 if there was no match).</p>
 </div>
 <p><b>See also </b><a href="qstring.html">QString</a>, <a href="qstringlist.html">QStringList</a>, <a href="qregexpvalidator.html">QRegExpValidator</a>, <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>, and <a href="tools-regexp.html">Regular Expression Example</a>.</p>
@@ -538,12 +538,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQRegExp& -->
-<h3 class="fn"><a name="operator-lt-lt-65"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QRegExp</span> &amp; <i>regExp</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-40"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QRegExp</span> &amp; <i>regExp</i> )</h3>
 <p>Writes the regular expression <i>regExp</i> to stream <i>out</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QRegExp& -->
-<h3 class="fn"><a name="operator-gt-gt-34"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QRegExp</span> &amp; <i>regExp</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-18"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QRegExp</span> &amp; <i>regExp</i> )</h3>
 <p>Reads a regular expression from stream <i>in</i> into <i>regExp</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->
@@ -554,7 +554,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

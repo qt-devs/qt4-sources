@@ -154,7 +154,7 @@
 <p>Depending on configuration, compiler specific libraries must be redistributed along with your application. You can check which libraries your application is linking against by using the <a href="http://www.dependencywalker.com/">Dependency Walker</a> tool. All you need to do is to run it like this:</p>
 <pre class="cpp"> depends &lt;application executable&gt;</pre>
 <p>This will provide a list of the libraries that your application depends on and other information.</p>
-<p class="centerAlign"><img src="images/deployment-windows-depends.png" /></p><p>When looking at the release build of the Plug &amp; Paint executable (<tt>plugandpaint.exe</tt>) with the <tt>depends</tt> tool, the tool lists the following immediate dependencies to non-system libraries:</p>
+<p class="centerAlign"><img src="images/deployment-windows-depends.png" alt="" /></p><p>When looking at the release build of the Plug &amp; Paint executable (<tt>plugandpaint.exe</tt>) with the <tt>depends</tt> tool, the tool lists the following immediate dependencies to non-system libraries:</p>
 <table class="generic" width="100%">
  <thead><tr class="qt-style"><th >Qt</th><th >VC++ 6.0</th><th >VC++ 7.1 (2003)</th><th >VC++ 8.0 (2005)</th><th >MinGW</th></tr></thead>
 <tr valign="top" class="odd"><td ><ul>
@@ -175,6 +175,7 @@
 </ul>
 </td><td ><ul>
 <li>MINGWM10.DLL - The MinGW run-time</li>
+<li>LIBGCC_S_DW2-1.DLL</li>
 </ul>
 </td></tr>
 </table>
@@ -192,7 +193,7 @@
 <p>If you add a custom path using QApplication::addLibraryPath it could look like this:</p>
 <pre class="cpp"> qApp-&gt;addLibraryPath(&quot;C:/customPath/plugins&quot;);</pre>
 <p>Then <a href="qapplication.html#qApp">qApp</a>-&gt;libraryPaths() would return something like this:</p>
-<p>&quot;C:/customPath/plugins &quot; &quot;C:/Qt/4.8&#x2e;0/plugins&quot; &quot;E:/myApplication/directory/&quot;</p>
+<p>&quot;C:/customPath/plugins &quot; &quot;C:/Qt/4.8&#x2e;1/plugins&quot; &quot;E:/myApplication/directory/&quot;</p>
 <p>The executable will look for the plugins in these directories and the same order as the <a href="qstringlist.html">QStringList</a> returned by <a href="qapplication.html#qApp">qApp</a>-&gt;libraryPaths(). The newly added path is prepended to the <a href="qapplication.html#qApp">qApp</a>-&gt;libraryPaths() which means that it will be searched through first. However, if you use <a href="qapplication.html#qApp">qApp</a>-&gt;setLibraryPaths(), you will be able to determend which paths and in which order they will be searched.</p>
 <p>The <a href="plugins-howto.html">How to Create Qt Plugins</a> document outlines the issues you need to pay attention to when building and deploying plugins for Qt applications.</p>
 <a name="related-third-party-resources"></a>
@@ -211,7 +212,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -85,7 +85,7 @@
  painter<span class="operator">.</span>setBrush(gradient);
  painter<span class="operator">.</span>drawRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);</pre>
 <p>The code shown above produces a pattern as show in the following pixmap:</p>
-<p class="centerAlign"><img src="images/diagonalGradient.png" /></p><p>Radial gradients are specified using a center, a radius, and a focal point. Setting a radial brush is done by creating a <a href="qradialgradient.html">QRadialGradient</a> object and setting it as a brush.</p>
+<p class="centerAlign"><img src="images/diagonalGradient.png" alt="" /></p><p>Radial gradients are specified using a center, a radius, and a focal point. Setting a radial brush is done by creating a <a href="qradialgradient.html">QRadialGradient</a> object and setting it as a brush.</p>
 <pre class="cpp"> <span class="type"><a href="qradialgradient.html">QRadialGradient</a></span> gradient(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">30</span><span class="operator">,</span> <span class="number">30</span>);
  gradient<span class="operator">.</span>setColorAt(<span class="number">0.2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
  gradient<span class="operator">.</span>setColorAt(<span class="number">0.8</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green);
@@ -93,7 +93,7 @@
  painter<span class="operator">.</span>setBrush(gradient);
  painter<span class="operator">.</span>drawEllipse(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);</pre>
 <p>The code shown above produces a pattern as shown in the following pixmap:</p>
-<p class="centerAlign"><img src="images/radialGradient.png" /></p><p>Conical gradients are specified using a center and a start angle. Setting a conical brush is done by creating a <a href="qconicalgradient.html">QConicalGradient</a> object and setting it as a brush.</p>
+<p class="centerAlign"><img src="images/radialGradient.png" alt="" /></p><p>Conical gradients are specified using a center and a start angle. Setting a conical brush is done by creating a <a href="qconicalgradient.html">QConicalGradient</a> object and setting it as a brush.</p>
 <pre class="cpp"> <span class="type"><a href="qconicalgradient.html">QConicalGradient</a></span> gradient(<span class="number">60</span><span class="operator">,</span> <span class="number">40</span><span class="operator">,</span> <span class="number">0</span>);
  gradient<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
  gradient<span class="operator">.</span>setColorAt(<span class="number">0.4</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green);
@@ -102,18 +102,18 @@
  painter<span class="operator">.</span>setBrush(gradient);
  painter<span class="operator">.</span>drawEllipse(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);</pre>
 <p>The code shown above produces a pattern as shown in the following pixmap:</p>
-<p class="centerAlign"><img src="images/conicalGradient.png" /></p><a name="alpha-blended-drawing"></a>
+<p class="centerAlign"><img src="images/conicalGradient.png" alt="" /></p><a name="alpha-blended-drawing"></a>
 <h3>Alpha-Blended Drawing</h3>
 <p>With Qt 4 we support alpha-blended outlining and filling. The alpha channel of a color is defined through <a href="qcolor.html">QColor</a>. The alpha channel specifies the transparency effect, 0 represents a fully transparent color, while 255 represents a fully opaque color. For example:</p>
 <pre class="cpp"> <span class="comment">// Specfiy semi-transparent red</span>
  painter<span class="operator">.</span>setBrush(<span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">255</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">127</span>));
  painter<span class="operator">.</span>drawRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> height());
 
- <span class="comment">// Specify semi-transparend blue</span>
+ <span class="comment">// Specify semi-transparent blue</span>
  painter<span class="operator">.</span>setBrush(<span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">127</span>));
  painter<span class="operator">.</span>drawRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">,</span> height()<span class="operator">/</span><span class="number">2</span>);</pre>
 <p>The code shown above produces the following output:</p>
-<p class="centerAlign"><img src="images/alphafill.png" /></p><p>Alpha-blended drawing is supported on Windows, Mac OS X, and on X11 systems that have the X Render extension installed.</p>
+<p class="centerAlign"><img src="images/alphafill.png" alt="" /></p><p>Alpha-blended drawing is supported on Windows, Mac OS X, and on X11 systems that have the X Render extension installed.</p>
 <a name="qpainter-and-qglwidget"></a>
 <h3>QPainter and QGLWidget</h3>
 <p>It is now possible to open a <a href="qpainter.html">QPainter</a> on a <a href="qglwidget.html">QGLWidget</a> as if it were a normal <a href="qwidget.html">QWidget</a>. One huge benefit from this is that we utilize the high performance of OpenGL for most drawing operations, such as transformations and pixmap drawing.</p>
@@ -125,9 +125,9 @@
 
  <span class="comment">// One line with anti-aliasing</span>
  painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
- painter<span class="operator">.</span>drawLine(width()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> height());</pre>
+ painter<span class="operator">.</span>drawLine(width()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">,</span> height());</pre>
 <p>This produces the following output:</p>
-<p class="centerAlign"><img src="images/antialiased.png" /></p><p>Anti-aliasing is supported when drawing to a <a href="qimage.html">QImage</a> and on all systems, except on X11 when XRender is not present.</p>
+<p class="centerAlign"><img src="images/antialiased.png" alt="" /></p><p>Anti-aliasing is supported when drawing to a <a href="qimage.html">QImage</a> and on all systems, except on X11 when XRender is not present.</p>
 <a name="extensive-use-of-native-graphics-operations"></a>
 <h3>Extensive Use of Native Graphics Operations</h3>
 <p>Where this makes sense, Qt uses native graphics operations. The benefit we gain from this is that these operations can potentially be performed in hardware, giving significant speed improvements over many pure-software implementations.</p>
@@ -139,11 +139,12 @@
 <p>Below is a code example on how a path can be used. The painter in this case has a pen width of 3 and a light blue brush. We first add a rectangle, which becomes a closed subpath. We then add two bezier curves, and finally draw the entire path.</p>
 <pre class="cpp"> <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
  path<span class="operator">.</span>addRect(<span class="number">20</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">60</span><span class="operator">,</span> <span class="number">60</span>);
- path<span class="operator">.</span>addBezier(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span>  <span class="number">99</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span>  <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span>  <span class="number">99</span><span class="operator">,</span> <span class="number">99</span>);
- path<span class="operator">.</span>addBezier(<span class="number">99</span><span class="operator">,</span> <span class="number">99</span><span class="operator">,</span>  <span class="number">0</span><span class="operator">,</span> <span class="number">99</span><span class="operator">,</span>  <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span>  <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+ path<span class="operator">.</span>moveTo(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+ path<span class="operator">.</span>cubicTo(<span class="number">99</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">99</span><span class="operator">,</span> <span class="number">99</span>);
+ path<span class="operator">.</span>cubicTo(<span class="number">0</span><span class="operator">,</span> <span class="number">99</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
  painter<span class="operator">.</span>drawPath(path);</pre>
 <p>The code above produces the following output:</p>
-<p class="centerAlign"><img src="images/pathexample.png" /></p><a name="widget-double-buffering"></a>
+<p class="centerAlign"><img src="images/pathexample.png" alt="" /></p><a name="widget-double-buffering"></a>
 <h3>Widget Double-Buffering</h3>
 <p>In Qt 4, all widgets are double-buffered by default.</p>
 <p>In previous versions of Qt double-buffering was achieved by painting to an off-screen pixmap then copying the pixmap to the screen. For example:</p>
@@ -177,7 +178,7 @@
  <span class="keyword">for</span> (<span class="type">int</span> y<span class="operator">=</span>fontSize; y<span class="operator">&lt;</span><span class="number">100</span>; y<span class="operator">+</span><span class="operator">=</span>fontSize)
      drawText(<span class="number">0</span><span class="operator">,</span> y<span class="operator">,</span> text);</pre>
 <p>The code above produces the following output:</p>
-<p class="centerAlign"><img src="images/gradientText.png" /></p><a name="qimage-as-a-paint-device"></a>
+<p class="centerAlign"><img src="images/gradientText.png" alt="" /></p><a name="qimage-as-a-paint-device"></a>
 <h3>QImage as a Paint Device</h3>
 <p>A great improvement of Qt 4 over previous versions it that it now provides a pixel-based raster paint engine which allows users to open a painter on a <a href="qimage.html">QImage</a>. The <a href="qimage.html">QImage</a> paint engine supports the full feature set of <a href="qpainter.html">QPainter</a> (paths, antialiasing, alphablending, etc.) and can be used on all platforms.</p>
 <p>One advantage of this is that it is possible to guarantee the pixel exactness of any drawing operation in a platform-independent way.</p>
@@ -191,7 +192,7 @@
 <a name="svg-rendering-support"></a>
 <h3>SVG Rendering Support</h3>
 <p><a href="http://www.w3.org/Graphics/SVG/About.html#scalable-vector-graphics">Scalable Vector Graphics</a> (SVG) is an language for describing both static and animated two-dimensional vector graphics. Qt includes support for the <a href="http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static">static features</a> of <a href="http://www.w3.org/TR/SVGMobile12/">SVG 1.2 Tiny</a>, taking advantage of the improved paint system in Qt 4. SVG drawings can be rendered onto any <a href="qpaintdevice.html">QPaintDevice</a> subclass, such as <a href="qwidget.html">QWidget</a>, <a href="qimage.html">QImage</a>, and <a href="qglwidget.html">QGLWidget</a>, to take advantage of specific advantages of each device. This approach gives developers the flexibility to experiment, in order to find the best solution for each application.</p>
-<p class="centerAlign"><img src="images/svg-image.png" /></p><p>Since SVG is an XML-based format, the <a href="qtxml.html">QtXml</a> module is required to read SVG files. For this reason, classes for SVG handling are provided separately in the <a href="qtsvg.html">QtSvg</a> module.</p>
+<p class="centerAlign"><img src="images/svg-image.png" alt="" /></p><p>Since SVG is an XML-based format, the <a href="qtxml.html">QtXml</a> module is required to read SVG files. For this reason, classes for SVG handling are provided separately in the <a href="qtsvg.html">QtSvg</a> module.</p>
 <p>Displaying an SVG drawing in an application is as simple as displaying a bitmap image. <a href="qsvgwidget.html">QSvgWidget</a> is a display widget that can be placed in an appropriate place in a user interface, and new content can be loaded as required. For example, a predetermined file can be loaded and displayed in a widget with little effort:</p>
 <pre class="cpp">     <span class="type"><a href="qsvgwidget.html">QSvgWidget</a></span> window(<span class="string">&quot;:/files/spheres.svg&quot;</span>);
      window<span class="operator">.</span>show();</pre>
@@ -208,7 +209,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

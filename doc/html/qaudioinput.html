@@ -93,48 +93,50 @@
 <p>To record to a file:</p>
 <p>QAudioInput lets you record audio with an audio input device. The default constructor of this class will use the systems default audio device, but you can also specify a <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a> for a specific device. You also need to pass in the <a href="qaudioformat.html">QAudioFormat</a> in which you wish to record.</p>
 <p>Starting up the QAudioInput is simply a matter of calling <a href="qaudioinput.html#start">start</a>() with a <a href="qiodevice.html">QIODevice</a> opened for writing. For instance, to record to a file, you can:</p>
-<pre class="cpp"> <span class="type"><a href="qfile.html">QFile</a></span> outputFile;   <span class="comment">// class member.</span>
- <span class="type">QAudioInput</span><span class="operator">*</span> audio; <span class="comment">// class member.</span></pre>
-<pre class="cpp"> {
-   outputFile<span class="operator">.</span>setFileName(<span class="string">&quot;/tmp/test.raw&quot;</span>);
-   outputFile<span class="operator">.</span>open( <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly <span class="operator">|</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>Truncate );
+<pre class="cpp">     <span class="type"><a href="qfile.html">QFile</a></span> outputFile;         <span class="comment">// class member.</span>
+     <span class="type">QAudioInput</span> <span class="operator">*</span>audioInput;  <span class="comment">// class member.</span>
+     ...
+     <span class="type">void</span> startRecording()
+     {
+         outputFile<span class="operator">.</span>setFileName(<span class="string">&quot;/tmp/test.raw&quot;</span>);
+         outputFile<span class="operator">.</span>open( <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly <span class="operator">|</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>Truncate );
 
-   <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> format;
-   <span class="comment">// set up the format you want, eg.</span>
-   format<span class="operator">.</span>setFrequency(<span class="number">8000</span>);
-   format<span class="operator">.</span>setChannels(<span class="number">1</span>);
-   format<span class="operator">.</span>setSampleSize(<span class="number">8</span>);
-   format<span class="operator">.</span>setCodec(<span class="string">&quot;audio/pcm&quot;</span>);
-   format<span class="operator">.</span>setByteOrder(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>LittleEndian);
-   format<span class="operator">.</span>setSampleType(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>UnSignedInt);
+         <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> format;
+         <span class="comment">// set up the format you want, eg.</span>
+         format<span class="operator">.</span>setFrequency(<span class="number">8000</span>);
+         format<span class="operator">.</span>setChannels(<span class="number">1</span>);
+         format<span class="operator">.</span>setSampleSize(<span class="number">8</span>);
+         format<span class="operator">.</span>setCodec(<span class="string">&quot;audio/pcm&quot;</span>);
+         format<span class="operator">.</span>setByteOrder(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>LittleEndian);
+         format<span class="operator">.</span>setSampleType(<span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>UnSignedInt);
 
-   <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> info <span class="operator">=</span> <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>defaultInputDevice();
-   <span class="keyword">if</span> (<span class="operator">!</span>info<span class="operator">.</span>isFormatSupported(format)) {
-       <a href="qtglobal.html#qWarning">qWarning</a>()<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="string">&quot;default format not supported try to use nearest&quot;</span>;
-       format <span class="operator">=</span> info<span class="operator">.</span>nearestFormat(format);
-   }
+         <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> info <span class="operator">=</span> <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">::</span>defaultInputDevice();
+         <span class="keyword">if</span> (<span class="operator">!</span>info<span class="operator">.</span>isFormatSupported(format)) {
+             <a href="qtglobal.html#qWarning">qWarning</a>()<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="string">&quot;default format not supported try to use nearest&quot;</span>;
+             format <span class="operator">=</span> info<span class="operator">.</span>nearestFormat(format);
+         }
 
-   audio <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QAudioInput</span>(format<span class="operator">,</span> <span class="keyword">this</span>);
-   <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">3000</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(stopRecording()));
-   audio<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="operator">&amp;</span>outputFile);
-   <span class="comment">// Records audio for 3000ms</span>
- }</pre>
+         audioInput <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QAudioInput</span>(format<span class="operator">,</span> <span class="keyword">this</span>);
+         <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">3000</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(stopRecording()));
+         audioInput<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="operator">&amp;</span>outputFile);
+         <span class="comment">// Records audio for 3000ms</span>
+     }</pre>
 <p>This will start recording if the format specified is supported by the input device (you can check this with <a href="qaudiodeviceinfo.html#isFormatSupported">QAudioDeviceInfo::isFormatSupported</a>(). In case there are any snags, use the <a href="qaudioinput.html#error">error</a>() function to check what went wrong. We stop recording in the <tt>stopRecording()</tt> slot.</p>
-<pre class="cpp"> <span class="type">void</span> stopRecording()
- {
-   audio<span class="operator">-</span><span class="operator">&gt;</span>stop();
-   outputFile<span class="operator">-</span><span class="operator">&gt;</span>close();
-   <span class="keyword">delete</span> audio;
- }</pre>
+<pre class="cpp">     <span class="type">void</span> stopRecording()
+     {
+         audioInput<span class="operator">-</span><span class="operator">&gt;</span>stop();
+         outputFile<span class="operator">.</span>close();
+         <span class="keyword">delete</span> audioInput;
+     }</pre>
 <p>At any point in time, QAudioInput will be in one of four states: active, suspended, stopped, or idle. These states are specified by the <a href="qaudio.html#State-enum">QAudio::State</a> enum. You can request a state change directly through <a href="qaudioinput.html#suspend">suspend</a>(), <a href="qaudioinput.html#resume">resume</a>(), <a href="qaudioinput.html#stop">stop</a>(), <a href="qaudioinput.html#reset">reset</a>(), and <a href="qaudioinput.html#start">start</a>(). The current state is reported by <a href="qaudioinput.html#state">state</a>(). <a href="qaudiooutput.html">QAudioOutput</a> will also signal you when the state changes (<a href="qaudioinput.html#stateChanged">stateChanged</a>()).</p>
 <p>QAudioInput provides several ways of measuring the time that has passed since the <a href="qaudioinput.html#start">start</a>() of the recording. The <tt>processedUSecs()</tt> function returns the length of the stream in microseconds written, i.e&#x2e;, it leaves out the times the audio input was suspended or idle. The <a href="qaudioinput.html#elapsedUSecs">elapsedUSecs</a>() function returns the time elapsed since <a href="qaudioinput.html#start">start</a>() was called regardless of which states the QAudioInput has been in.</p>
 <p>If an error should occur, you can fetch its reason with <a href="qaudioinput.html#error">error</a>(). The possible error reasons are described by the <a href="qaudio.html#Error-enum">QAudio::Error</a> enum. The QAudioInput will enter the <a href="qaudio.html#State-enum">StoppedState</a> when an error is encountered. Connect to the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal to handle the error:</p>
 <pre class="cpp">     <span class="type">void</span> stateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State newState)
      {
          <span class="keyword">switch</span>(newState) {
-             <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>StopState:
-             <span class="keyword">if</span> (input<span class="operator">-</span><span class="operator">&gt;</span>error() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>NoError) {
-                 <span class="comment">// Error handling</span>
+             <span class="keyword">case</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>StoppedState:
+             <span class="keyword">if</span> (audioInput<span class="operator">-</span><span class="operator">&gt;</span>error() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>NoError) {
+                  <span class="comment">// Perform error handling</span>
              } <span class="keyword">else</span> {
 
              }
@@ -263,7 +265,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

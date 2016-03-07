@@ -43,7 +43,7 @@
 <li><a href="opengl-overpainting-main-cpp.html">opengl/overpainting/main.cpp</a></li>
 <li><a href="opengl-overpainting-overpainting-pro.html">opengl/overpainting/overpainting.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/overpainting-example.png" /></p><p><a href="qglwidget.html">QGLWidget</a> provides a widget with integrated OpenGL graphics support that enables 3D graphics to be displayed using normal OpenGL calls, yet also behaves like any other standard Qt widget with support for signals and slots, properties, and Qt's action system.</p>
+<p>The Overpainting example shows how <a href="qpainter.html">QPainter</a> can be used to overpaint a scene rendered using OpenGL in a <a href="qglwidget.html">QGLWidget</a>.<p class="centerAlign"><img src="images/overpainting-example.png" alt="" /></p><p><a href="qglwidget.html">QGLWidget</a> provides a widget with integrated OpenGL graphics support that enables 3D graphics to be displayed using normal OpenGL calls, yet also behaves like any other standard Qt widget with support for signals and slots, properties, and Qt's action system.</p>
 <p>Usually, <a href="qglwidget.html">QGLWidget</a> is subclassed to display a pure 3D scene. The developer reimplements <a href="qglwidget.html#initializeGL">initializeGL()</a> to initialize any required resources, <a href="qglwidget.html#resizeGL">resizeGL()</a> to set up the projection and viewport, and <a href="qglwidget.html#paintGL">paintGL()</a> to perform the OpenGL calls needed to render the scene. However, it is possible to subclass <a href="qglwidget.html">QGLWidget</a> differently to allow 2D graphics, drawn using <a href="qpainter.html">QPainter</a>, to be painted over a scene rendered using OpenGL.</p>
 <p>In this example, we demonstrate how this is done by reusing the code from the <a href="opengl-hellogl.html">Hello GL</a> example to provide a 3D scene, and painting over it with some translucent 2D graphics. Instead of examining each class in detail, we only cover the parts of the <tt>GLWidget</tt> class that enable overpainting, and provide more detailed discussion in the final section of this document.</p>
 <a name="glwidget-class-definition"></a>
@@ -251,7 +251,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

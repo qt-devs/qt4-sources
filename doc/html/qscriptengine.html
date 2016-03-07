@@ -222,7 +222,7 @@
  scriptButton<span class="operator">.</span><a href="qobject.html#property">property</a>(<span class="string">&quot;show&quot;</span>)<span class="operator">.</span>call(); <span class="comment">// call the show() slot</span></pre>
 <p>Use <a href="qscriptengine.html#qScriptConnect">qScriptConnect</a>() to connect a C++ signal to a script function; this is the Qt Script equivalent of <a href="qobject.html#connect">QObject::connect</a>(). When a script function is invoked in response to a C++ signal, it can cause a script exception; you can connect to the <a href="qscriptengine.html#signalHandlerException">signalHandlerException</a>() signal to catch such an exception.</p>
 <p>Use <a href="qscriptengine.html#newQMetaObject">newQMetaObject</a>() to wrap a <a href="qmetaobject.html">QMetaObject</a>; this gives you a &quot;script representation&quot; of a <a href="qobject.html">QObject</a>-based class. <a href="qscriptengine.html#newQMetaObject">newQMetaObject</a>() returns a proxy script object; enum values of the class are available as properties of the proxy object. You can also specify a function that will be used to construct objects of the class (e.g&#x2e; when the constructor is invoked from a script). For classes that have a &quot;standard&quot; Qt constructor, Qt Script can provide a default script constructor for you; see <a href="qscriptengine.html#scriptValueFromQMetaObject">scriptValueFromQMetaObject</a>().</p>
-<p>See the <a href="qtscript.html">QtScript</a> documentation for more information on the <a href="qobject.html">QObject</a> integration.</p>
+<p>For more information about <a href="qobject.html">QObject</a> integration, see <a href="scripting.html">Making Applications Scriptable</a></p>
 <a name="support-for-custom-c-types"></a>
 <h3>Support for Custom C++ Types</h3>
 <p>Use <a href="qscriptengine.html#newVariant">newVariant</a>() to wrap a <a href="qvariant.html">QVariant</a>. This can be used to store values of custom (non-<a href="qobject.html">QObject</a>) C++ types that have been registered with the Qt meta-type system. To make such types scriptable, you typically associate a prototype (delegate) object with the C++ type by calling <a href="qscriptengine.html#setDefaultPrototype">setDefaultPrototype</a>(); the prototype object defines the scripting API for the C++ type. Unlike the <a href="qobject.html">QObject</a> integration, there is no automatic binding possible here; i.e&#x2e; you have to create the scripting API yourself, for example by using the <a href="qscriptable.html">QScriptable</a> class.</p>
@@ -872,7 +872,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

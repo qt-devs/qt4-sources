@@ -41,7 +41,7 @@
 <li><a href="sql-sqlwidgetmapper-main-cpp.html">sql/sqlwidgetmapper/main.cpp</a></li>
 <li><a href="sql-sqlwidgetmapper-sqlwidgetmapper-pro.html">sql/sqlwidgetmapper/sqlwidgetmapper.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/sql-widget-mapper.png" /></p><p>In the <a href="itemviews-combowidgetmapper.html">Combo Widget Mapper Example</a>, we showed how to use a named mapping between a widget mapper and a <a href="qcombobox.html">QComboBox</a> widget with a special purpose model to relate values in the model to a list of choices.</p>
+<p>The SQL Widget Mapper example shows how to use a map information from a database to widgets on a form.<p class="centerAlign"><img src="images/sql-widget-mapper.png" alt="" /></p><p>In the <a href="itemviews-combowidgetmapper.html">Combo Widget Mapper Example</a>, we showed how to use a named mapping between a widget mapper and a <a href="qcombobox.html">QComboBox</a> widget with a special purpose model to relate values in the model to a list of choices.</p>
 <p>Again, we create a <tt>Window</tt> class with an almost identical user interface, providing a combo box to allow their addresses to be classified as &quot;Home&quot;, &quot;Work&quot; or &quot;Other&quot;. However, instead of using a separate model to hold these address types, we use one database table to hold the example data and another to hold the address types. In this way, we store all the information in the same place.</p>
 <a name="window-class-definition"></a>
 <h2>Window Class Definition</h2>
@@ -107,7 +107,7 @@
                 <span class="string">&quot;'&lt;qt&gt;Research Station&lt;br/&gt;Base Camp&lt;br/&gt;&quot;</span>
                 <span class="string">&quot;Big Mountain&lt;/qt&gt;', 103)&quot;</span>);</pre>
 <p>On each row of the table, we insert default values for these fields, including values for the address types that correspond to the address types are stored in a separate table.</p>
-<p class="centerAlign"><img src="images/widgetmapper-sql-mapping-table.png" /></p><p>We create an &quot;addresstype&quot; table containing the identifiers used in the &quot;person&quot; table and the corresponding strings:</p>
+<p class="centerAlign"><img src="images/widgetmapper-sql-mapping-table.png" alt="" /></p><p>We create an &quot;addresstype&quot; table containing the identifiers used in the &quot;person&quot; table and the corresponding strings:</p>
 <pre class="cpp">     query<span class="operator">.</span>exec(<span class="string">&quot;create table addresstype (id int, description varchar(20))&quot;</span>);
      query<span class="operator">.</span>exec(<span class="string">&quot;insert into addresstype values(101, 'Home')&quot;</span>);
      query<span class="operator">.</span>exec(<span class="string">&quot;insert into addresstype values(102, 'Work')&quot;</span>);
@@ -125,7 +125,7 @@
  }</pre>
 <p>The &quot;typeid&quot; field in the &quot;person&quot; table is related to the contents of the &quot;addresstype&quot; table via a relation in a <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a>. This kind of model performs all the necessary work to store the data in a database and also allows any relations to be used as models in their own right.</p>
 <p>In this case, we have defined a relation for the &quot;typeid&quot; field in the &quot;person&quot; table that relates it to the &quot;id&quot; field in the &quot;addresstype&quot; table and which causes the contents of the &quot;description&quot; field to be used wherever the &quot;typeid&quot; is presented to the user. (See the <a href="qsqlrelationaltablemodel.html#setRelation">QSqlRelationalTableModel::setRelation</a>() documentation for details.)</p>
-<p class="centerAlign"><img src="images/widgetmapper-sql-mapping.png" /></p><p>The constructor of the <tt>Window</tt> class can be explained in three parts. In the first part, we set up the model used to hold the data, then we set up the widgets used for the user interface:</p>
+<p class="centerAlign"><img src="images/widgetmapper-sql-mapping.png" alt="" /></p><p>The constructor of the <tt>Window</tt> class can be explained in three parts. In the first part, we set up the model used to hold the data, then we set up the widgets used for the user interface:</p>
 <pre class="cpp"> Window<span class="operator">::</span>Window(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
      : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
  {
@@ -198,7 +198,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

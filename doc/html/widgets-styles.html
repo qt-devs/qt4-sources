@@ -49,7 +49,7 @@
 <li><a href="images/used-in-examples/widgets/styles/images/woodbackground.png">widgets/styles/images/woodbackground.png</a></li>
 <li><a href="images/used-in-examples/widgets/styles/images/woodbutton.png">widgets/styles/images/woodbutton.png</a></li>
 </ul>
-<p class="centerAlign"><img src="images/styles-enabledwood.png" alt="Screenshot of the Styles example" /></p><p>A style in Qt is a subclass of <a href="qstyle.html">QStyle</a> or of one of its subclasses. Styles perform drawing on behalf of widgets. Qt provides a whole range of predefined styles, either built into the <a href="qtgui.html">QtGui</a> library or found in plugins. Custom styles are usually created by subclassing one of Qt's existing style and reimplementing a few virtual functions.</p>
+<p>The Styles example illustrates how to create custom widget drawing styles using Qt, and demonstrates Qt's predefined styles.<p class="centerAlign"><img src="images/styles-enabledwood.png" alt="Screenshot of the Styles example" /></p><p>A style in Qt is a subclass of <a href="qstyle.html">QStyle</a> or of one of its subclasses. Styles perform drawing on behalf of widgets. Qt provides a whole range of predefined styles, either built into the <a href="qtgui.html">QtGui</a> library or found in plugins. Custom styles are usually created by subclassing one of Qt's existing style and reimplementing a few virtual functions.</p>
 <p>In this example, the custom style is called <tt>NorwegianWoodStyle</tt> and derives from <a href="qmotifstyle.html">QMotifStyle</a>. Its main features are the wooden textures used for filling most of the widgets and its round buttons and comboboxes.</p>
 <p>To implement the style, we use some advanced features provided by <a href="qpainter.html">QPainter</a>, such as <a href="qpainter.html#RenderHint-enum">antialiasing</a> (to obtain smoother button edges), <a href="qcolor.html#alpha">alpha blending</a> (to make the buttons appeared raised or sunken), and <a href="qpainterpath.html">painter paths</a> (to fill the buttons and draw the outline). We also use many features of <a href="qbrush.html">QBrush</a> and <a href="qpalette.html">QPalette</a>.</p>
 <p>The example consists of the following classes:</p>
@@ -106,9 +106,9 @@
 <p>The <tt>polish()</tt> function is reimplemented from <a href="qstyle.html">QStyle</a>. It takes a <a href="qpalette.html">QPalette</a> as a reference and adapts the palette to fit the style. Most styles don't need to reimplement that function. The Norwegian Wood style reimplements it to set a &quot;wooden&quot; palette.</p>
 <p>We start by defining a few <a href="qcolor.html">QColor</a>s that we'll need. Then we load two PNG images. The <tt>:</tt> prefix in the file path indicates that the PNG files are <a href="resources.html">embedded resources</a>.</p>
 <table class="generic">
-<tr valign="top" class="odd"><td ><img src="images/woodbackground.png" /></td><td ><b>woodbackground.png</b><p>This texture is used as the background of most widgets. The wood pattern is horizontal.</p>
+<tr valign="top" class="odd"><td ><img src="images/woodbackground.png" alt="" /></td><td ><b>woodbackground.png</b><p>This texture is used as the background of most widgets. The wood pattern is horizontal.</p>
 </td></tr>
-<tr valign="top" class="even"><td ><img src="images/woodbutton.png" /></td><td ><b>woodbutton.png</b><p>This texture is used for filling push buttons and comboboxes. The wood pattern is vertical and more reddish than the texture used for the background.</p>
+<tr valign="top" class="even"><td ><img src="images/woodbutton.png" alt="" /></td><td ><b>woodbutton.png</b><p>This texture is used for filling push buttons and comboboxes. The wood pattern is vertical and more reddish than the texture used for the background.</p>
 </td></tr>
 </table>
 <p>The <tt>midImage</tt> variable is initialized to be the same as <tt>buttonImage</tt>, but then we use a <a href="qpainter.html">QPainter</a> and fill it with a 25% opaque black color (a black with an <a href="qcolor.html#alpha">alpha channel</a> of 63). The result is a somewhat darker image than <tt>buttonImage</tt>. This image will be used for filling buttons that the user is holding down.</p>
@@ -273,7 +273,7 @@
              painter<span class="operator">-</span><span class="operator">&gt;</span>drawPath(roundRect);</pre>
 <p>We draw the top-left part of the outline by calling <a href="qpainter.html#drawPath">QPainter::drawPath</a>() with an appropriate <a href="qpainter.html#setClipRegion">clip region</a>. If the <a href="qstyleoption.html#direction-var">layout direction</a> is right-to-left instead of left-to-right, we swap the <tt>x1</tt>, <tt>x2</tt>, <tt>x3</tt>, and <tt>x4</tt> variables to obtain correct results. On right-to-left desktop, the &quot;light&quot; comes from the top-right corner of the screen instead of the top-left corner; raised and sunken widgets must be drawn accordingly.</p>
 <p>The diagram below illustrates how 3D effects are drawn according to the layout direction. The area in red on the diagram corresponds to the <tt>topHalf</tt> polygon:</p>
-<p class="centerAlign"><img src="images/styles-3d.png" /></p><p>An easy way to test how a style looks in right-to-left mode is to pass the <tt>-reverse</tt> command-line option to the application. This option is recognized by the <a href="qapplication.html">QApplication</a> constructor.</p>
+<p class="centerAlign"><img src="images/styles-3d.png" alt="" /></p><p>An easy way to test how a style looks in right-to-left mode is to pass the <tt>-reverse</tt> command-line option to the application. This option is recognized by the <a href="qapplication.html">QApplication</a> constructor.</p>
 <pre class="cpp">             <span class="type"><a href="qpolygon.html">QPolygon</a></span> bottomHalf <span class="operator">=</span> topHalf;
              bottomHalf<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(x4<span class="operator">,</span> y <span class="operator">+</span> height);
 
@@ -515,7 +515,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

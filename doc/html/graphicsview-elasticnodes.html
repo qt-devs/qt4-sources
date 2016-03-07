@@ -46,8 +46,8 @@
 <li><a href="graphicsview-elasticnodes-main-cpp.html">graphicsview/elasticnodes/main.cpp</a></li>
 <li><a href="graphicsview-elasticnodes-elasticnodes-pro.html">graphicsview/elasticnodes/elasticnodes.pro</a></li>
 </ul>
-<p>You can click to drag a node around, and zoom in and out using the mouse wheel or the keyboard. Hitting the space bar will randomize the nodes. The example is also resolution independent; as you zoom in, the graphics remain crisp.</p>
-<p class="centerAlign"><img src="images/elasticnodes-example.png" /></p><p>Graphics View provides the <a href="qgraphicsscene.html">QGraphicsScene</a> class for managing and interacting with a large number of custom-made 2D graphical items derived from the <a href="qgraphicsitem.html">QGraphicsItem</a> class, and a <a href="qgraphicsview.html">QGraphicsView</a> widget for visualizing the items, with support for zooming and rotation.</p>
+<p>The Elastic Nodes example shows how to implement edges between nodes in a graph, with basic interaction.<p>You can click to drag a node around, and zoom in and out using the mouse wheel or the keyboard. Hitting the space bar will randomize the nodes. The example is also resolution independent; as you zoom in, the graphics remain crisp.</p>
+<p class="centerAlign"><img src="images/elasticnodes-example.png" alt="" /></p><p>Graphics View provides the <a href="qgraphicsscene.html">QGraphicsScene</a> class for managing and interacting with a large number of custom-made 2D graphical items derived from the <a href="qgraphicsitem.html">QGraphicsItem</a> class, and a <a href="qgraphicsview.html">QGraphicsView</a> widget for visualizing the items, with support for zooming and rotation.</p>
 <p>This example consists of a <tt>Node</tt> class, an <tt>Edge</tt> class, a <tt>GraphWidget</tt> test, and a <tt>main</tt> function: the <tt>Node</tt> class represents draggable yellow nodes in a grid, the <tt>Edge</tt> class represents the lines between the nodes, the <tt>GraphWidget</tt> class represents the application window, and the <tt>main()</tt> function creates and shows this window, and runs the event loop.</p>
 <a name="node-class-definition"></a>
 <h2>Node Class Definition</h2>
@@ -345,7 +345,7 @@
          <span class="keyword">return</span>;
 
      <span class="type"><a href="qlinef.html">QLineF</a></span> line(sourcePoint<span class="operator">,</span> destPoint);
-     <span class="keyword">if</span> (<a href="qquaternion.html#qFuzzyCompare">qFuzzyCompare</a>(line<span class="operator">.</span>length()<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">0.</span>)))
+     <span class="keyword">if</span> (<a href="qtglobal.html#qFuzzyCompare">qFuzzyCompare</a>(line<span class="operator">.</span>length()<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">0.</span>)))
          <span class="keyword">return</span>;</pre>
 <p>We start the reimplementation of <a href="qgraphicsitem.html#paint">paint()</a> by checking a few preconditions. Firstly, if either the source or destination node is not set, then we return immediately; there is nothing to draw.</p>
 <p>At the same time, we check if the length of the edge is approximately 0, and if it is, then we also return.</p>
@@ -589,7 +589,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -37,8 +37,8 @@
 <li><a href="network-threadedfortuneserver-main-cpp.html">network/threadedfortuneserver/main.cpp</a></li>
 <li><a href="network-threadedfortuneserver-threadedfortuneserver-pro.html">network/threadedfortuneserver/threadedfortuneserver.pro</a></li>
 </ul>
-<p>The example is intended to be run alongside the Fortune Client example.</p>
-<p class="centerAlign"><img src="images/threadedfortuneserver-example.png" /></p><p>The implementation of this example is similar to that of the <a href="network-fortuneserver.html">Fortune Server</a> example, but here we will implement a subclass of <a href="qtcpserver.html">QTcpServer</a> that starts each connection in a different thread.</p>
+<p>The Threaded Fortune Server example shows how to create a server for a simple network service that uses threads to handle requests from different clients.<p>The example is intended to be run alongside the Fortune Client example.</p>
+<p class="centerAlign"><img src="images/threadedfortuneserver-example.png" alt="" /></p><p>The implementation of this example is similar to that of the <a href="network-fortuneserver.html">Fortune Server</a> example, but here we will implement a subclass of <a href="qtcpserver.html">QTcpServer</a> that starts each connection in a different thread.</p>
 <p>For this we need two classes: FortuneServer, a <a href="qtcpserver.html">QTcpServer</a> subclass, and FortuneThread, which inherits <a href="qthread.html">QThread</a>.</p>
 <pre class="cpp"> <span class="keyword">class</span> FortuneServer : <span class="keyword">public</span> <span class="type"><a href="qtcpserver.html">QTcpServer</a></span>
  {
@@ -127,7 +127,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

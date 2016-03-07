@@ -40,7 +40,7 @@
 <li><a href="threads-semaphores-semaphores-cpp.html">threads/semaphores/semaphores.cpp</a></li>
 <li><a href="threads-semaphores-semaphores-pro.html">threads/semaphores/semaphores.pro</a></li>
 </ul>
-<p>The producer writes data to the buffer until it reaches the end of the buffer, at which point it restarts from the beginning, overwriting existing data. The consumer thread reads the data as it is produced and writes it to standard error.</p>
+<p>The Semaphores example shows how to use <a href="qsemaphore.html">QSemaphore</a> to control access to a circular buffer shared by a producer thread and a consumer thread.<p>The producer writes data to the buffer until it reaches the end of the buffer, at which point it restarts from the beginning, overwriting existing data. The consumer thread reads the data as it is produced and writes it to standard error.</p>
 <p>Semaphores make it possible to have a higher level of concurrency than mutexes. If accesses to the buffer were guarded by a <a href="qmutex.html">QMutex</a>, the consumer thread couldn't access the buffer at the same time as the producer thread. Yet, there is no harm in having both threads working on <i>different parts</i> of the buffer at the same time.</p>
 <p>The example comprises two classes: <tt>Producer</tt> and <tt>Consumer</tt>. Both inherit from <a href="qthread.html">QThread</a>. The circular buffer used for communicating between these two classes and the semaphores that protect it are global variables.</p>
 <p>An alternative to using <a href="qsemaphore.html">QSemaphore</a> to solve the producer-consumer problem is to use <a href="qwaitcondition.html">QWaitCondition</a> and <a href="qmutex.html">QMutex</a>. This is what the <a href="threads-waitconditions.html">Wait Conditions</a> example does.</p>
@@ -154,7 +154,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -41,7 +41,7 @@
 <li><a href="phonon-capabilities-main-cpp.html">phonon/capabilities/main.cpp</a></li>
 <li><a href="phonon-capabilities-capabilities-pro.html">phonon/capabilities/capabilities.pro</a></li>
 </ul>
-<p class="centerAlign"><img src="images/capabilitiesexample.png" /></p><p>Phonon does not implement the multimedia functionality itself, but relies on a backend to manage this. The backends do not manage the hardware directly, but use intermediate technologies: QuickTime on Mac, GStreamer on Linux, and DirectShow (which requires DirectX) on Windows.</p>
+<p>The Backend Capabilities example shows how to check which MIME types, audio devices, and audio effects are available.<p class="centerAlign"><img src="images/capabilitiesexample.png" alt="" /></p><p>Phonon does not implement the multimedia functionality itself, but relies on a backend to manage this. The backends do not manage the hardware directly, but use intermediate technologies: QuickTime on Mac, GStreamer on Linux, and DirectShow (which requires DirectX) on Windows.</p>
 <p>The user may add support for new MIME types and effects to these systems, and the systems abilities may also be different. The support for multimedia MIME types, and audio effects in Phonon will therefore vary from system to system.</p>
 <p>Backends informs the programmer about current capabilities through an implementation of the <a href="phonon-backendcapabilities.html">Phonon::BackendCapabilities</a> namespace. The backend reports which MIME types can be played back, which audio effects are available, and which sound devices are available on the system. When the capabilities of a backend changes, it will emit the <a href="phonon-backendcapabilities-notifier.html#capabilitiesChanged">capabilitiesChanged()</a> signal.</p>
 <p>The example consists of one class, <tt>Window</tt>, which displays capabilities information from the current backend used by Phonon.</p>
@@ -156,7 +156,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -29,7 +29,7 @@
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#properties">Attached Properties</a></li>
-<li class="level1"><a href="#signals">Attached Signals</a></li>
+<li class="level1"><a href="#signal-handlers">Attached Signal Handlers</a></li>
 <li class="level1"><a href="#methods">Methods</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
 <li class="level2"><a href="#example-usage">Example Usage</a></li>
@@ -77,8 +77,8 @@
 <li class="fn"><b><b><a href="qml-gridview.html#isCurrentItem-prop">isCurrentItem</a></b></b> : bool</li>
 <li class="fn"><b><b><a href="qml-gridview.html#view-prop">view</a></b></b> : GridView</li>
 </ul>
-<a name="attached-signals"></a>
-<h2>Attached Signals</h2>
+<a name="attached-signal-handlers"></a>
+<h2>Attached Signal Handlers</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-gridview.html#onAdd-signal">onAdd</a></b></b></li>
 <li class="fn"><b><b><a href="qml-gridview.html#onRemove-signal">onRemove</a></b></b></li>
@@ -124,7 +124,7 @@
          <span class="name">portrait</span>: <span class="string">&quot;pics/portrait.png&quot;</span>
      }
  }</pre>
-<div class="float-right"><p><img src="images/gridview-simple.png" /></p>
+<div class="float-right"><p><img src="images/gridview-simple.png" alt="" /></p>
 </div><p>This model can be referenced as <tt>ContactModel</tt> in other QML files. See <a href="qdeclarativemodules.html#qml-modules">QML Modules</a> for more information about creating reusable components like this.</p>
 <p>Another component can display this model data in a GridView, as in the following example, which creates a <tt>ContactModel</tt> component for its model, and a <a href="qml-column.html">Column</a> element (containing <a href="qml-image.html">Image</a> and <a href="qml-text.html">Text</a> elements) for its delegate.</p>
 <br style="clear: both" /><pre class="qml"> import QtQuick 1.0
@@ -138,7 +138,7 @@
          <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">text</span>: <span class="name">name</span>; <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span> }
      }
  }</pre>
-<div class="float-right"><p><img src="images/gridview-highlight.png" /></p>
+<div class="float-right"><p><img src="images/gridview-highlight.png" alt="" /></p>
 </div><p>The view will create a new delegate for each item in the model. Note that the delegate is able to access the model's <tt>name</tt> and <tt>portrait</tt> data directly.</p>
 <p>An improved grid view is shown below. The delegate is visually improved and is moved into a separate <tt>contactDelegate</tt> component.</p>
 <br style="clear: both" /><pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
@@ -393,7 +393,7 @@
  }</pre>
 </div></div><!-- @@@view -->
 <br/>
-<h2>Attached Signal Documentation</h2>
+<h2>Attached Signal Handler Documentation</h2>
 <!-- $$$onAdd -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onAdd-signal"></a>GridView::<span class="name">onAdd</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This attached handler is called immediately after an item is added to the view.</p>
 </div></div><!-- @@@onAdd -->
@@ -468,7 +468,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

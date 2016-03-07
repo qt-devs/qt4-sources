@@ -45,11 +45,11 @@
 <li><a href="tutorials-addressbook-part5-part5-pro.html">tutorials/addressbook/part5/part5.pro</a></li>
 </ul>
 <p>Here we look at ways to locate contacts and addresses in the address book.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part5-screenshot.png" /></p><p>As we add contacts to our address book, it becomes tedious to navigate the list with the <i>Next</i> and <i>Previous</i> buttons. A <i>Find</i> function would be more efficient. The screenshot above shows the <i>Find</i> button and its position on the panel of buttons.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-screenshot.png" alt="" /></p><p>As we add contacts to our address book, it becomes tedious to navigate the list with the <i>Next</i> and <i>Previous</i> buttons. A <i>Find</i> function would be more efficient. The screenshot above shows the <i>Find</i> button and its position on the panel of buttons.</p>
 <p>When the user clicks on the <i>Find</i> button, it is useful to display a dialog that prompts for a contact's name. Qt provides <a href="qdialog.html">QDialog</a>, which we subclass here to implement a <tt>FindDialog</tt> class.</p>
 <a name="defining-the-finddialog-class"></a>
 <h2>Defining the FindDialog Class</h2>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part5-finddialog.png" /></p><p>In order to subclass <a href="qdialog.html">QDialog</a>, we first include the header for <a href="qdialog.html">QDialog</a> in the <tt>finddialog.h</tt> file. Also, we use forward declaration to declare <a href="qlineedit.html">QLineEdit</a> and <a href="qpushbutton.html">QPushButton</a> since we will be using those widgets in our dialog class.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-finddialog.png" alt="" /></p><p>In order to subclass <a href="qdialog.html">QDialog</a>, we first include the header for <a href="qdialog.html">QDialog</a> in the <tt>finddialog.h</tt> file. Also, we use forward declaration to declare <a href="qlineedit.html">QLineEdit</a> and <a href="qpushbutton.html">QPushButton</a> since we will be using those widgets in our dialog class.</p>
 <p>As in our <tt>AddressBook</tt> class, the <tt>FindDialog</tt> class includes the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro and its constructor is defined to accept a parent <a href="qwidget.html">QWidget</a>, even though the dialog will be opened as a separate window.</p>
 <pre class="cpp"> <span class="preprocessor">#include &lt;QDialog&gt;</span>
 
@@ -97,7 +97,7 @@
      connect(findButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(accept()));
  }</pre>
 <p>We set the layout and window title, as well as connect the signals to their respective slots. Notice that <tt>findButton</tt>'s <a href="qabstractbutton.html#clicked">clicked()</a> signal is connected to to <tt>findClicked()</tt> and <a href="qdialog.html#accept">accept()</a>. The <a href="qdialog.html#accept">accept()</a> slot provided by <a href="qdialog.html">QDialog</a> hides the dialog and sets the result code to <a href="qdialog.html#DialogCode-enum">Accepted</a>. We use this function to help <tt>AddressBook</tt>'s <tt>findContact()</tt> function know when the <tt>FindDialog</tt> object has been closed. We will explain this logic in further detail when discussing the <tt>findContact()</tt> function.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part5-signals-and-slots.png" /></p><p>In <tt>findClicked()</tt>, we validate <tt>lineEdit</tt> to ensure that the user did not click the <b>Find</b> button without entering a contact's name. Then, we set <tt>findText</tt> to the search string, extracted from <tt>lineEdit</tt>. After that, we clear the contents of <tt>lineEdit</tt> and hide the dialog.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-signals-and-slots.png" alt="" /></p><p>In <tt>findClicked()</tt>, we validate <tt>lineEdit</tt> to ensure that the user did not click the <b>Find</b> button without entering a contact's name. Then, we set <tt>findText</tt> to the search string, extracted from <tt>lineEdit</tt>. After that, we clear the contents of <tt>lineEdit</tt> and hide the dialog.</p>
 <pre class="cpp"> <span class="type">void</span> FindDialog<span class="operator">::</span>findClicked()
  {
      <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> lineEdit<span class="operator">-</span><span class="operator">&gt;</span>text();
@@ -160,7 +160,7 @@
  }</pre>
 <p>We start out by displaying the <tt>FindDialog</tt> instance, <tt>dialog</tt>. This is when the user enters a contact name to look up. Once the user clicks the dialog's <tt>findButton</tt>, the dialog is hidden and the result code is set to <a href="qdialog.html#DialogCode-enum">QDialog::Accepted</a>. This ensures that our <tt>if</tt> statement is always true.</p>
 <p>We then proceed to extract the search string, which in this case is <tt>contactName</tt>, using <tt>FindDialog</tt>'s <tt>getFindText()</tt> function. If the contact exists in our address book, we display it immediately. Otherwise, we display the <a href="qmessagebox.html">QMessageBox</a> shown below to indicate that their search failed.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part5-notfound.png" /></p></div>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-notfound.png" alt="" /></p></div>
 <!-- @@@tutorials/addressbook/part5 -->
   <div class="ft">
     <span></span>
@@ -168,7 +168,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

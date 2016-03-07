@@ -44,8 +44,8 @@
 </ul>
 <p>La première partie de ce tutoriel traite de la conception d'une interface graphique (GUI) basique, que l'on utilisera pour l'application Carnet d'adresses.</p>
 <p>La première étape dans la création d'applications graphiques est la conception de l'interface utilisateur. Dans ce chapitre, nous verrons comment créer les labels et champs de saisie nécessaires à l'implementation d'un carnet d'adresses de base. Le résultat attendu est illustré par la capture d'écran ci-dessous.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part1-screenshot.png" /></p><p>Nous allons avoir besoin de deux objets <a href="qlabel.html">QLabel</a>, <tt>nameLabel</tt> et <tt>addressLabel</tt>, ainsi que deux champs de saisie: un objet <a href="qlineedit.html">QLineEdit</a>, <tt>nameLine</tt>, et un objet <a href="qtextedit.html">QTextEdit</a>, <tt>addressText</tt>, afin de permettre à l'utilisateur d'entrer le nom d'un contact et son adresse. Les widgets utilisés ainsi que leur placement sont visibles ci-dessous.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-screenshot.png" /></p><p>Trois fichiers sont nécessaires à l'implémentation de ce carnet d'adresses:</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part1-screenshot.png" alt="" /></p><p>Nous allons avoir besoin de deux objets <a href="qlabel.html">QLabel</a>, <tt>nameLabel</tt> et <tt>addressLabel</tt>, ainsi que deux champs de saisie: un objet <a href="qlineedit.html">QLineEdit</a>, <tt>nameLine</tt>, et un objet <a href="qtextedit.html">QTextEdit</a>, <tt>addressText</tt>, afin de permettre à l'utilisateur d'entrer le nom d'un contact et son adresse. Les widgets utilisés ainsi que leur placement sont visibles ci-dessous.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-screenshot.png" alt="" /></p><p>Trois fichiers sont nécessaires à l'implémentation de ce carnet d'adresses:</p>
 <ul>
 <li><tt>addressbook.h</tt> - le fichier de définition (header) pour la classe <tt>AddressBook</tt>,</li>
 <li><tt>addressbook.cpp</tt> - le fichier source, qui comprend l'implémentation de la classe <tt>AddressBook</tt></li>
@@ -92,7 +92,7 @@
      addressText <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>;</pre>
 <p>à l'intérieur de ce constructeur, on déclare et instancie deux objets locaux <a href="qlabel.html">QLabel</a>, <tt>nameLabel</tt> et <tt>addressLabel</tt>, de même on instancie <tt>nameLine</tt> et <tt>addressText</tt>. La méthode <a href="qobject.html#tr">tr()</a> renvoie une version traduite de la chaîne de caractères, si elle existe; dans le cas contraire, elle renvoie la chaîne elle même. On peut voir cette méthode comme un marqueur <tt>&lt;insérer la traduction ici&gt;</tt>, permettant de repérer les objets <a href="qstring.html">QString</a> à considérer pour traduire une application. Vous remarquerez, dans les chapitres à venir comme dans les <a href="all-examples.html">exemples Qt</a>, qu'elle est utilisée chaque fois que l'on utilise une chaîne susceptible d'être traduite.</p>
 <p>Lorsque l'on programme avec Qt, il est utile de savoir comment fonctionnent les agencements ou layouts. Qt fournit trois classes principales de layouts pour contrôler le placement des widgets: <a href="qhboxlayout.html">QHBoxLayout</a>, <a href="qvboxlayout.html">QVBoxLayout</a> et <a href="qgridlayout.html">QGridLayout</a>.</p>
-<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-layout.png" /></p><p>On utilise un <a href="qgridlayout.html">QGridLayout</a> pour positionner nos labels et champs de saisie de manière structurée. <a href="qgridlayout.html">QGridLayout</a> divise l'espace disponible en une grille, et place les widgets dans les cellules que l'on spécifie par les numéros de ligne et de colonne. Le diagramme ci-dessus présente les cellules et la position des widgets, et cette organisation est obtenue à l'aide du code suivant:</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-layout.png" alt="" /></p><p>On utilise un <a href="qgridlayout.html">QGridLayout</a> pour positionner nos labels et champs de saisie de manière structurée. <a href="qgridlayout.html">QGridLayout</a> divise l'espace disponible en une grille, et place les widgets dans les cellules que l'on spécifie par les numéros de ligne et de colonne. Le diagramme ci-dessus présente les cellules et la position des widgets, et cette organisation est obtenue à l'aide du code suivant:</p>
 <pre class="cpp">     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
      mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLine<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
@@ -125,7 +125,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

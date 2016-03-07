@@ -29,7 +29,7 @@
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#properties">Attached Properties</a></li>
-<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#signal-handlers">Signal Handlers</a></li>
 <li class="level1"><a href="#methods">Methods</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
 </ul>
@@ -73,8 +73,8 @@
 <li class="fn"><b><b><a href="qml-pathview.html#onPath-prop">onPath</a></b></b> : bool</li>
 <li class="fn"><b><b><a href="qml-pathview.html#view-prop">view</a></b></b> : PathView</li>
 </ul>
-<a name="signals"></a>
-<h2>Signals</h2>
+<a name="signal-handlers"></a>
+<h2>Signal Handlers</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-pathview.html#onFlickEnded-signal">onFlickEnded</a></b></b></li>
 <li class="fn"><b><b><a href="qml-pathview.html#onFlickStarted-signal">onFlickStarted</a></b></b></li>
@@ -144,7 +144,7 @@
          }
      }
  }</pre>
-<p class="centerAlign"><img src="images/pathview.gif" /></p><p>(Note the above example uses <a href="qml-pathattribute.html">PathAttribute</a> to scale and modify the opacity of the items as they rotate. This additional code can be seen in the <a href="qml-pathattribute.html">PathAttribute</a> documentation.)</p>
+<p class="centerAlign"><img src="images/pathview.gif" alt="" /></p><p>(Note the above example uses <a href="qml-pathattribute.html">PathAttribute</a> to scale and modify the opacity of the items as they rotate. This additional code can be seen in the <a href="qml-pathattribute.html">PathAttribute</a> documentation.)</p>
 <p>PathView does not automatically handle keyboard navigation. This is because the keys to use for navigation will depend upon the shape of the path. Navigation can be added quite simply by setting <tt>focus</tt> to <tt>true</tt> and calling <a href="qml-pathview.html#decrementCurrentIndex-method">decrementCurrentIndex()</a> or <a href="qml-pathview.html#incrementCurrentIndex-method">incrementCurrentIndex()</a>, for example to navigate using the left and right arrow keys:</p>
 <pre class="qml"> <span class="type">PathView</span> {
      <span class="comment">// ...</span>
@@ -320,11 +320,11 @@
 </div></div><!-- @@@onPath -->
 <br/>
 <!-- $$$view -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="view-prop"></a><span class="qmlreadonly">read-only</span><span class="name">PathView.view</span> : <span class="type">PathView</span></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds the view that manages this delegate instance.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="view-prop"></a><span class="name">PathView.view</span> : <span class="type">PathView</span></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds the view that manages this delegate instance.</p>
 <p>It is attached to each instance of the delegate.</p>
 </div></div><!-- @@@view -->
 <br/>
-<h2>Signal Documentation</h2>
+<h2>Signal Handler Documentation</h2>
 <!-- $$$onFlickEnded -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onFlickEnded-signal"></a>PathView::<span class="name">onFlickEnded</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the view stops moving due to a flick.</p>
 </div></div><!-- @@@onFlickEnded -->
@@ -360,7 +360,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>

@@ -60,7 +60,7 @@
 <a name="qml-to-build-user-interfaces"></a>
 <h2>QML to Build User Interfaces</h2>
 <p>The application we are building is a simple text editor that will load, save, and perform some text manipulation. This guide will consist of two parts. The first part will involve designing the application layout and behaviors using declarative language in QML. For the second part, file loading and saving will be implemented using Qt C++. Using <a href="metaobjects.html">Qt's Meta-Object System</a>, we can expose C++ functions as properties that QML elements can use. Utilizing QML and Qt C++, we can efficiently decouple the interface logic from the application logic.</p>
-<p class="centerAlign"><img src="images/qml-texteditor5_editmenu.png" /></p><p>The final source code is in the <tt>examples/tutorials/gettingStarted/gsQml</tt> directory. You may need to compile the C++ plugin in the <tt>examples/tutorials/gettingStarted/gsQml/</tt> first. This will put the C++ plugin in a directory where the QML files may find it.</p>
+<p class="centerAlign"><img src="images/qml-texteditor5_editmenu.png" alt="" /></p><p>The final source code is in the <tt>examples/tutorials/gettingStarted/gsQml</tt> directory. You may need to compile the C++ plugin in the <tt>examples/tutorials/gettingStarted/gsQml/</tt> first. This will put the C++ plugin in a directory where the QML files may find it.</p>
 <p>To launch the text editor, merely provide the included <a href="qmlviewer.html">qmlviewer</a> tool with the QML file as the argument. The C++ portion of this tutorial assumes that the reader possesses basic knowledge of Qt's compilation procedures.</p>
 <p>Tutorial chapters:</p>
 <ol class="1">
@@ -93,7 +93,7 @@
 <p>This simple rectangle has a unique identifier, <tt>simplebutton</tt>, which is bound to the id property. The <tt>Rectangle</tt> element's properties are bound to values by listing the property, followed by a colon, then the value. In the code sample, the color <tt>grey</tt> is bound to the the Rectangle's <tt>color</tt> property. Similarly, we bind the <tt>width</tt> and <tt>height</tt> of the Rectangle.</p>
 <p>The <a href="qml-text.html">Text</a> element is a non-editable text field. We name this <tt>Text</tt> element <tt>buttonLabel</tt>. To set the string content of the Text field, we bind a value to the <tt>text</tt> property. The label is contained within the Rectangle and in order to center it in the middle, we assign the <tt>anchors</tt> of the Text element to its parent, which is called <tt>simplebutton</tt>. Anchors may bind to other items' anchors, allowing layout assignments simpler.</p>
 <p>We shall save this code as <tt>SimpleButton.qml</tt>. Running qmlviewer with the file as the argument will display the grey rectangle with a text label.</p>
-<p class="centerAlign"><img src="images/qml-texteditor1_simplebutton.png" /></p><p>To implement the button click functionality, we can use QML's event handling. QML's event handling is very similar to <a href="signalsandslots.html">Qt's signal and slot</a> mechanism. Signals are emitted and the connected slot is called.</p>
+<p class="centerAlign"><img src="images/qml-texteditor1_simplebutton.png" alt="" /></p><p>To implement the button click functionality, we can use QML's event handling. QML's event handling is very similar to <a href="signalsandslots.html">Qt's signal and slot</a> mechanism. Signals are emitted and the connected slot is called.</p>
 <pre class="cpp"> Rectangle{
      id:simplebutton
      <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
@@ -138,7 +138,7 @@
 <p>A <tt>buttonClick()</tt> signal is declared in <tt>Button.qml</tt> by placing the <tt>signal</tt> keyword in front of the signal name. All signals have their handlers automatically created, their names starting with <tt>on</tt>. As a result, the <tt>onButtonClick</tt> is <tt>buttonClick</tt>'s handler. The <tt>onButtonClick</tt> is then assigned an action to perform. In our button example, the <tt>onClicked</tt> mouse handler will simply call <tt>onButtonClick</tt>, which displays a text. The <tt>onButtonClick</tt> enables outside objects to access the <tt>Button</tt>'s mouse area easily. For example, items may have more than one <tt>MouseArea</tt> declarations and a <tt>buttonClick</tt> signal can make the distinction between the several <tt>MouseArea</tt> signal handlers better.</p>
 <p>We now have the basic knowledge to implement items in QML that can handle basic mouse movements. We created a <tt>Text</tt> label inside a <tt>Rectangle</tt>, customized its properties, and implemented behaviors that respond to mouse movements. This idea of creating elements within elements is repeated throughout the text editor application.</p>
 <p>This button is not useful unless used as a component to perform an action. In the next section, we will soon create a menu containing several of these buttons.</p>
-<p class="centerAlign"><img src="images/qml-texteditor1_button.png" /></p><a name="creating-a-menu-page"></a>
+<p class="centerAlign"><img src="images/qml-texteditor1_button.png" alt="" /></p><a name="creating-a-menu-page"></a>
 <h3>Creating a Menu Page</h3>
 <p>Up to this stage, we covered how to create elements and assign behaviors inside a single QML file. In this section, we will cover how to import QML elements and how to reuse some of the created components to build other components.</p>
 <p>Menus display the contents of a list, each item having the ability to perform an action. In QML, we can create a menu in several ways. First, we will create a menu containing buttons which will eventually perform different actions. The menu code is in <tt>FileMenu.qml</tt>.</p>
@@ -171,9 +171,9 @@
          }
      }</pre>
 <p>In <tt>FileMenu.qml</tt>, we declare three <tt>Button</tt> elements. They are declared inside a <a href="qml-row.html">Row</a> element, a positioner that will position its children along a vertical row. The <tt>Button</tt> declaration resides in Button.qml, which is the same as the <tt>Button.qml</tt> we used in the previous section. New property bindings can be declared within the newly created buttons, effectively overwriting the properties set in <tt>Button.qml</tt>. The button called <tt>exitButton</tt> will quit and close the window when it is clicked. Note that the signal handler <tt>onButtonClick</tt> in <tt>Button.qml</tt> will be called in addition to the <tt>onButtonClick</tt> handler in <tt>exitButton</tt>.</p>
-<p class="centerAlign"><img src="images/qml-texteditor1_filemenu.png" /></p><p>The <tt>Row</tt> declaration is declared in a <tt>Rectangle</tt>, creating a rectangle container for the row of buttons. This additional rectangle creates an indirect way of organizing the row of buttons inside a menu.</p>
+<p class="centerAlign"><img src="images/qml-texteditor1_filemenu.png" alt="" /></p><p>The <tt>Row</tt> declaration is declared in a <tt>Rectangle</tt>, creating a rectangle container for the row of buttons. This additional rectangle creates an indirect way of organizing the row of buttons inside a menu.</p>
 <p>The declaration of the edit menu is very similar at this stage. The menu has buttons that have the labels: <tt>Copy</tt>, <tt>Paste</tt>, and <tt>Select All</tt>.</p>
-<p class="centerAlign"><img src="images/qml-texteditor1_editmenu.png" /></p><p>Armed with our knowledge of importing and customizing previously made components, we may now combine these menu pages to create a menu bar, consisting of buttons to select the menu, and look at how we may structure data using QML.</p>
+<p class="centerAlign"><img src="images/qml-texteditor1_editmenu.png" alt="" /></p><p>Armed with our knowledge of importing and customizing previously made components, we may now combine these menu pages to create a menu bar, consisting of buttons to select the menu, and look at how we may structure data using QML.</p>
 <a name="implementing-a-menu-bar"></a>
 <h2>Implementing a Menu Bar</h2>
 <p>Our text editor application will need a way to display menus using a menu bar. The menu bar will switch the different menus and the user can choose which menu to display. Menu switching implies that the menus need more structure than merely displaying them in a row. QML uses models and views to structure data and display the structured data.</p>
@@ -241,7 +241,7 @@
          }
      }</pre>
 <p>The menu bar we just created can be flicked to access the menus or by clicking on the menu names at the top. Switching menu screens feel intuitive and responsive.</p>
-<p class="centerAlign"><img src="images/qml-texteditor2_menubar.png" /></p><a name="building-a-text-editor"></a>
+<p class="centerAlign"><img src="images/qml-texteditor2_menubar.png" alt="" /></p><a name="building-a-text-editor"></a>
 <h2>Building a Text Editor</h2>
 <a name="declaring-a-textarea"></a>
 <h3>Declaring a TextArea</h3>
@@ -296,7 +296,7 @@
          }
      }</pre>
 <p>By importing reusable components, our <tt>TextEditor</tt> code looks much simpler. We can then customize the main application, without worrying about properties that already have defined behaviors. Using this approach, application layouts and UI components can be created easily.</p>
-<p class="centerAlign"><img src="images/qml-texteditor3_texteditor.png" /></p><a name="decorating-the-text-editor"></a>
+<p class="centerAlign"><img src="images/qml-texteditor3_texteditor.png" alt="" /></p><a name="decorating-the-text-editor"></a>
 <h2>Decorating the Text Editor</h2>
 <a name="implementing-a-drawer-interface"></a>
 <h3>Implementing a Drawer Interface</h3>
@@ -380,7 +380,7 @@
 <a name="where-to-go-from-here"></a>
 <h4>Where to Go from Here</h4>
 <p>We are finished building the user interface of a very simple text editor. Going forward, the user interface is complete, and we can implement the application logic using regular Qt and C++. QML works nicely as a prototyping tool, separating the application logic away from the UI design.</p>
-<p class="centerAlign"><img src="images/qml-texteditor4_texteditor.png" /></p><a name="extending-qml-using-qt-c"></a>
+<p class="centerAlign"><img src="images/qml-texteditor4_texteditor.png" alt="" /></p><a name="extending-qml-using-qt-c"></a>
 <h3>Extending QML using Qt C++</h3>
 <p>Now that we have our text editor layout, we may now implement the text editor functionalities in C++. Using QML with C++ enables us to create our application logic using Qt. We can create a QML context in a C++ application using the <a href="qtbinding.html">Qt's Declarative</a> classes and display the QML elements using a Graphics Scene. Alternatively, we can export our C++ code into a plugin that the <a href="qmlviewer.html">qmlviewer</a> tool can read. For our application, we shall implement the load and save functions in C++ and export it as a plugin. This way, we only need to load the QML file directly instead of running an executable.</p>
 <a name="exposing-c-classes-to-qml"></a>
@@ -570,9 +570,9 @@
      }</pre>
 <p>Our <tt>FileMenu</tt> can now connect to their respective actions. The <tt>saveButton</tt> will transfer the text from the <tt>TextEdit</tt> onto the directory's <tt>fileContent</tt> property, then copy its file name from the editable text input. Finally, the button calls the <tt>saveFile()</tt> function, saving the file. The <tt>loadButton</tt> has a similar execution. Also, the <tt>New</tt> action will empty the contents of the <tt>TextEdit</tt>.</p>
 <p>Further, the <tt>EditMenu</tt> buttons are connected to the <tt>TextEdit</tt> functions to copy, paste, and select all the text in the text editor.</p>
-<p class="centerAlign"><img src="images/qml-texteditor5_filemenu.png" /></p><a name="text-editor-completion"></a>
+<p class="centerAlign"><img src="images/qml-texteditor5_filemenu.png" alt="" /></p><a name="text-editor-completion"></a>
 <h3>Text Editor Completion</h3>
-<p class="centerAlign"><img src="images/qml-texteditor5_newfile.png" /></p><p>The application can function as a simple text editor, able to accept text and save the text into a file. The text editor can also load from a file and perform text manipulation.</p>
+<p class="centerAlign"><img src="images/qml-texteditor5_newfile.png" alt="" /></p><p>The application can function as a simple text editor, able to accept text and save the text into a file. The text editor can also load from a file and perform text manipulation.</p>
 <a name="running-the-text-editor"></a>
 <h2>Running the Text Editor</h2>
 <p>We need to compile the file dialog C++ plugin before the text editor can run. To compile, enter the <tt>gsQml</tt> directory, then run <tt>qmake</tt> and compile using <tt>make</tt> or <tt>nmake</tt>, depending on your platform. To run, launch qmlviewer and open the <tt>texteditor.qml</tt> file.</p>
@@ -585,7 +585,7 @@
 </div> 
 <div class="footer">
   <p>
-     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
      in Finland and/or other countries worldwide.</p>
   <p>
