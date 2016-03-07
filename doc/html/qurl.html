@@ -151,9 +151,9 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-33">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-lt-lt-138">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QUrl &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-gt-gt-70">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-41">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-lt-lt-186">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-gt-gt-106">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QUrl &amp; <i>url</i> )</td></tr>
 </table>
 <a name="macros"></a>
 <h2>Macros</h2>
@@ -437,7 +437,7 @@
 <h3 class="fn"><a name="isLocalFile"></a><span class="type">bool</span> QUrl::<span class="name">isLocalFile</span> () const</h3>
 <p>Returns true if this URL is pointing to a local file path. A URL is a local file path if the scheme is &quot;file&quot;.</p>
 <p>Note that this function considers URLs with hostnames to be local file paths, even if the eventual file path cannot be opened with <a href="qfile.html#open">QFile::open</a>().</p>
-<p>This function was introduced in Qt 4.7.</p>
+<p>This function was introduced in Qt 4.8.</p>
 <p><b>See also </b><a href="qurl.html#fromLocalFile">fromLocalFile</a>() and <a href="qurl.html#toLocalFile">toLocalFile</a>().</p>
 <!-- @@@isLocalFile -->
 <!-- $$$isParentOf[overload1]$$$isParentOfconstQUrl& -->
@@ -629,6 +629,7 @@
 <!-- $$$setIdnWhitelist[overload1]$$$setIdnWhitelistconstQStringList& -->
 <h3 class="fn"><a name="setIdnWhitelist"></a><span class="type">void</span> QUrl::<span class="name">setIdnWhitelist</span> ( const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp; <i>list</i> )<tt> [static]</tt></h3>
 <p>Sets the whitelist of Top-Level Domains (TLDs) that are allowed to have non-ASCII characters in domains to the value of <i>list</i>.</p>
+<p>Note that if you call this function, you need to do so <b class="redFont"><code>\em</code></b> before you start any threads that might access <a href="qurl.html#idnWhitelist">idnWhitelist</a>().</p>
 <p>Qt has comes a default list that contains the Internet top-level domains that have published support for Internationalized Domain Names (IDNs) and rules to guarantee that no deception can happen between similarly-looking characters (such as the Latin lowercase letter <tt>'a'</tt> and the Cyrillic equivalent, which in most fonts are visually identical).</p>
 <p>This list is periodically maintained, as registrars publish new rules.</p>
 <p>This function is provided for those who need to manipulate the list, in order to add or remove a TLD. It is not recommended to change its value for purposes other than testing, as it may expose users to security risks.</p>
@@ -769,17 +770,17 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$qHash$$$qHashconstQUrl& -->
-<h3 class="fn"><a name="qHash-33"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="name">qHash</span> ( const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="qHash-41"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="name">qHash</span> ( const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Computes a hash key from the normalized version of <i>url</i>.</p>
 <p>This function was introduced in Qt 4.7.</p>
 <!-- @@@qHash -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQUrl& -->
-<h3 class="fn"><a name="operator-lt-lt-138"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-186"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Writes url <i>url</i> to the stream <i>out</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QUrl& -->
-<h3 class="fn"><a name="operator-gt-gt-70"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-106"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Reads a url into <i>url</i> from the stream <i>in</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->

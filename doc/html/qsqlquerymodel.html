@@ -115,7 +115,7 @@
 <pre class="cpp">     <span class="type">int</span> salary <span class="operator">=</span> model<span class="operator">.</span>data(model<span class="operator">.</span>index(<span class="number">4</span><span class="operator">,</span> <span class="number">2</span>))<span class="operator">.</span>toInt();</pre>
 <p>The model is read-only by default. To make it read-write, you must subclass it and reimplement <a href="qabstractitemmodel.html#setData">setData</a>() and <a href="qabstractitemmodel.html#flags">flags</a>(). Another option is to use <a href="qsqltablemodel.html">QSqlTableModel</a>, which provides a read-write model based on a single database table.</p>
 <p>The <a href="sql-querymodel.html">sql/querymodel</a> example illustrates how to use QSqlQueryModel to display the result of a query. It also shows how to subclass QSqlQueryModel to customize the contents of the data before showing it to the user, and how to create a read-write model based on QSqlQueryModel.</p>
-<p>If the database doesn't return the amount of selected rows in a query, the model will fetch rows incrementally. See <a href="qsqlquerymodel.html#fetchMore">fetchMore</a>() for more information.</p>
+<p>If the database doesn't return the number of selected rows in a query, the model will fetch rows incrementally. See <a href="qsqlquerymodel.html#fetchMore">fetchMore</a>() for more information.</p>
 </div>
 <p><b>See also </b><a href="qsqltablemodel.html">QSqlTableModel</a>, <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a>, <a href="qsqlquery.html">QSqlQuery</a>, <a href="model-view-programming.html">Model/View Programming</a>, and <a href="sql-querymodel.html">Query Model Example</a>.</p>
 <!-- @@@QSqlQueryModel -->
@@ -231,7 +231,7 @@
 <!-- $$$rowCount[overload1]$$$rowCountconstQModelIndex& -->
 <h3 class="fn"><a name="rowCount"></a><span class="type">int</span> QSqlQueryModel::<span class="name">rowCount</span> ( const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp; <i>parent</i> = QModelIndex() ) const<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemmodel.html#rowCount">QAbstractItemModel::rowCount</a>().</p>
-<p>If the database supports returning the size of a query (see <a href="qsqldriver.html#hasFeature">QSqlDriver::hasFeature</a>()), the amount of rows of the current query is returned. Otherwise, returns the amount of rows currently cached on the client.</p>
+<p>If the database supports returning the size of a query (see <a href="qsqldriver.html#hasFeature">QSqlDriver::hasFeature</a>()), the number of rows of the current query is returned. Otherwise, returns the number of rows currently cached on the client.</p>
 <p><i>parent</i> should always be an invalid <a href="qmodelindex.html">QModelIndex</a>.</p>
 <p>This function was introduced in Qt 4.1.</p>
 <p><b>See also </b><a href="qsqlquerymodel.html#canFetchMore">canFetchMore</a>() and <a href="qsqldriver.html#hasFeature">QSqlDriver::hasFeature</a>().</p>

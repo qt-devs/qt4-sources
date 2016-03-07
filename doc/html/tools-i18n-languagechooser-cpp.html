@@ -26,8 +26,7 @@
 <pre class="cpp"> <span class="comment">/****************************************************************************
  **
  ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).
- ** All rights reserved.
- ** Contact: Nokia Corporation (qt-info@nokia.com)
+ ** Contact: http://www.qt-project.org/
  **
  ** This file is part of the examples of the Qt Toolkit.
  **
@@ -59,6 +58,7 @@
  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
  ** $QT_END_LICENSE$
  **
  ****************************************************************************/</span>
@@ -182,7 +182,7 @@
 
  <span class="type"><a href="qcolor.html">QColor</a></span> LanguageChooser<span class="operator">::</span>colorForLanguage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>language)
  {
-     <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> hashValue <span class="operator">=</span> <a href="qhash.html#qHashx">qHash</a>(language);
+     <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> hashValue <span class="operator">=</span> <a href="qsourcelocation.html#qHash">qHash</a>(language);
      <span class="type">int</span> red <span class="operator">=</span> <span class="number">156</span> <span class="operator">+</span> (hashValue <span class="operator">&amp;</span> <span class="number">0x3F</span>);
      <span class="type">int</span> green <span class="operator">=</span> <span class="number">156</span> <span class="operator">+</span> ((hashValue <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">6</span>) <span class="operator">&amp;</span> <span class="number">0x3F</span>);
      <span class="type">int</span> blue <span class="operator">=</span> <span class="number">156</span> <span class="operator">+</span> ((hashValue <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">12</span>) <span class="operator">&amp;</span> <span class="number">0x3F</span>);

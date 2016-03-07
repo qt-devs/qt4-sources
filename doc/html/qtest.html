@@ -584,7 +584,7 @@
 <!-- $$$QCOMPARE[overload1]$$$QCOMPARE -->
 <h3 class="fn"><a name="QCOMPARE"></a><span class="name">QCOMPARE</span> (  <i>actual</i>,  <i>expected</i> )</h3>
 <p>The QCOMPARE macro compares an <i>actual</i> value to an <i>expected</i> value using the equals operator. If <i>actual</i> and <i>expected</i> are identical, execution continues. If not, a failure is recorded in the test log and the test won't be executed further.</p>
-<p>In the case of comparing floats and doubles, <a href="qvector3d.html#qFuzzyCompare">qFuzzyCompare</a>() is used for comparing. This means that comparing to 0 will likely fail. One solution to this is to compare to 1, and add 1 to the produced output.</p>
+<p>In the case of comparing floats and doubles, <a href="qquaternion.html#qFuzzyCompare">qFuzzyCompare</a>() is used for comparing. This means that comparing to 0 will likely fail. One solution to this is to compare to 1, and add 1 to the produced output.</p>
 <p>QCOMPARE tries to output the contents of the values if the comparison fails, so it is visible from the test log why the comparison failed.</p>
 <p>QCOMPARE is very strict on the data types. Both <i>actual</i> and <i>expected</i> have to be of the same type, otherwise the test won't compile. This prohibits unspecified behavior from being introduced; that is behavior that usually occurs when the compiler implicitly casts the argument.</p>
 <p>If you use QCOMPARE() to compare two <a href="qstringlist.html">QStringList</a> objects, it will start comparing the objects from the end of the lists.</p>

@@ -2,8 +2,7 @@
 #############################################################################
 ##
 ## Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).
-## All rights reserved.
-## Contact: Nokia Corporation (qt-info@nokia.com)
+## Contact: http://www.qt-project.org/
 ##
 ## This file is the build configuration utility of the Qt Toolkit.
 ##
@@ -31,6 +30,7 @@
 ## Other Usage
 ## Alternatively, this file may be used in accordance with the terms and
 ## conditions contained in a signed written agreement between you and Nokia.
+##
 ##
 ##
 ##
@@ -71,8 +71,10 @@ QTCONFIG_CONFIG=
 QT_CONFIG=
 SUPPORTED=
 QMAKE_VARS_FILE=.qmake.vars
+DEVICE_VARS_FILE=.device.vars
 
 :> "$QMAKE_VARS_FILE"
+:> "$DEVICE_VARS_FILE"
 
 #-------------------------------------------------------------------------------
 # utility functions
@@ -153,7 +155,7 @@ BEGIN {
         ovalue = ovalue substr(value, 1, RSTART - 1)
         var = substr(value, RSTART + 2, RLENGTH - 2)
         value = substr(value, RSTART + RLENGTH)
-        if (var ~ /^{/) {
+        if (var ~ /^\{/) {
             var = substr(var, 2, length(var) - 2)
         }
         ovalue = ovalue values[var]
@@ -221,6 +223,23 @@ linkerSupportsFlag()
 	lflags=$lflags,$safe_flag
     done
     compilerSupportsFlag "$lflags" >/dev/null 2>&1
+}
+
+#-------------------------------------------------------------------------------
+# device options
+#-------------------------------------------------------------------------------
+DeviceVar()
+{
+    case "$1" in
+        set)
+            eq="="
+            ;;
+        *)
+            echo >&2 "BUG: wrong command to QMakeVar: $1"
+            ;;
+    esac
+
+    echo "$2" "$eq" "$3" >> "$DEVICE_VARS_FILE"
 }
 
 #-------------------------------------------------------------------------------
@@ -934,6 +953,9 @@ QT_LIBS_GLIB=
 QT_CFLAGS_GSTREAMER=
 QT_LIBS_GSTREAMER=
 
+# default qpa platform
+QT_QPA_DEFAULT_PLATFORM=
+
 #flag for Symbian fpu settings
 QT_CFLAGS_FPU=
 
@@ -1119,7 +1141,7 @@ while [ "$#" -gt 0 ]; do
         shift
         VAL=$1
         ;;
-    -prefix|-docdir|-headerdir|-plugindir|-importdir|-datadir|-libdir|-bindir|-translationdir|-sysconfdir|-examplesdir|-demosdir|-depths|-make|-nomake|-platform|-xplatform|-buildkey|-sdk|-arch|-host-arch|-mysql_config|-sysroot)
+    -prefix|-docdir|-headerdir|-plugindir|-importdir|-datadir|-libdir|-bindir|-translationdir|-sysconfdir|-examplesdir|-demosdir|-depths|-make|-nomake|-platform|-xplatform|-device-option|-buildkey|-sdk|-arch|-host-arch|-mysql_config|-sysroot)
         VAR=`echo $1 | sed "s,^-\(.*\),\1,"`
         shift
         VAL="$1"
@@ -1404,6 +1426,9 @@ while [ "$#" -gt 0 ]; do
         PLATFORM_MAC=no
         PLATFORM_QWS=no
         PLATFORM_QPA=yes
+        if [ "$VAL" != "auto" ]; then
+            QT_QPA_DEFAULT_PLATFORM="$VAL"
+        fi
         ;;
     nacl)
         ;;
@@ -1656,10 +1681,21 @@ while [ "$#" -gt 0 ]; do
         ;;
     xplatform)
         XPLATFORM="$VAL"
-        case `basename "$XPLATFORM"` in win32-g++*) XPLATFORM_MINGW=yes;; esac
+        case `basename "$XPLATFORM"` in win32-g++*)
+            XPLATFORM_MINGW=yes
+            CFG_RPATH=no
+            PKG_CONFIG=no
+            CFG_REDUCE_EXPORTS=no
+            ;;
+        esac
         case "$XPLATFORM" in *integrity*) XPLATFORM_INTEGRITY=yes;; esac
         case "$XPLATFORM" in *symbian*) XPLATFORM_SYMBIAN=yes;; esac
         case "$XPLATFORM" in symbian-sbsv2) XPLATFORM_SYMBIAN_SBSV2=yes;; esac
+        ;;
+    device-option)
+        DEV_VAR=`echo $VAL | sed "s,^\(.*\)=.*,\1,"`
+        DEV_VAL=`echo $VAL | sed "s,^.*=\(.*\),\1,"`
+        DeviceVar set $DEV_VAR $DEV_VAL
         ;;
     debug-and-release)
         if [ "$VAL" = "yes" ] || [ "$VAL" = "no" ]; then
@@ -2767,10 +2803,10 @@ if [ "$CFG_EMBEDDED" != "no" ]; then
         fi
         ;;
     QNX:*)
-        [ -z "$PLATFORM" ] && PLATFORM=unsupported/qws/qnx-generic-g++
+        [ -z "$PLATFORM" ] && PLATFORM=qws/qnx-generic-g++
         if [ -z "$XPLATFORM" ]; then
             [ "$CFG_EMBEDDED" = "auto" ] && CFG_EMBEDDED=generic
-            XPLATFORM="unsupported/qws/qnx-$CFG_EMBEDDED-g++"
+            XPLATFORM="qws/qnx-$CFG_EMBEDDED-g++"
         fi
         ;;
     CYGWIN*:*)
@@ -2978,6 +3014,7 @@ fi
 if [ "$PLATFORM" != "$XPLATFORM" ]; then
     QT_CROSS_COMPILE=yes
     QMAKE_CONFIG="$QMAKE_CONFIG cross_compile"
+    QTCONFIG_CONFIG="$QTCONFIG_CONFIG cross_compile"
 fi
 
 if [ "$PLATFORM_MAC" = "yes" ]; then
@@ -3291,6 +3328,17 @@ if [ "$OPT_VERBOSE" = "yes" ]; then
 fi
 
 #-------------------------------------------------------------------------------
+# write out device config before we run the test.
+#-------------------------------------------------------------------------------
+DEVICE_VARS_OUTFILE="$outpath/mkspecs/qdevice.pri"
+if cmp -s "$DEVICE_VARS_FILE" "$DEVICE_VARS_OUTFILE"; then
+    rm -f "$DEVICE_VARS_FILE"
+else
+    mv -f $DEVICE_VARS_FILE "$DEVICE_VARS_OUTFILE"
+    DEVICE_VARS_FILE="$DEVICE_VARS_OUTFILE"
+fi
+
+#-------------------------------------------------------------------------------
 # tests that don't need qmake (must be run before displaying help)
 #-------------------------------------------------------------------------------
 
@@ -3400,7 +3448,7 @@ fi
 
 SYSROOT_FLAG=
 if [ -n "$CFG_SYSROOT" ]; then
-    if compilerSupportsFlag --sysroot="$CFG_SYSROOT"; then
+    if compilerSupportsFlag -c --sysroot="$CFG_SYSROOT"; then
 	[ "$OPT_VERBOSE" = "yes" ] && echo "Setting sysroot to: $CFG_SYSROOT"
 	SYSROOT_FLAG="--sysroot=$CFG_SYSROOT"
     else
@@ -3641,7 +3689,7 @@ else
         if [ "$CFG_PREFIX_INSTALL" = "no" ]; then
 	    if [ "$PLATFORM_MAC" = "yes" ]; then
 	        if [ "$CFG_FRAMEWORK" = "yes" ]; then
-		    QT_INSTALL_LIBS="/Libraries/Frameworks"
+                   QT_INSTALL_LIBS="/Library/Frameworks"
                 fi
             fi
         fi
@@ -3814,8 +3862,9 @@ Usage:  $relconf [-h] [-prefix <dir>] [-prefix-install] [-bindir <dir>] [-libdir
 
 Installation options:
 
-    -qpa ................ This will enable the QPA build.
+    -qpa [name] ......... This will enable the QPA build.
                           QPA is a window system agnostic implementation of Qt.
+                          If [name] is given, sets the default QPA platform (e.g xcb, cocoa).
 
  These are optional, but you may specify install directories.
 
@@ -4376,6 +4425,9 @@ if [ "$PLATFORM_QWS" = "yes" -o "$PLATFORM_QPA" = "yes" ]; then
     cat << EOF
 
     -xplatform target ... The target platform when cross-compiling.
+
+    -device-option <key=value> ... Add device specific options for the device mkspec
+                                   (experimental)
 
     -no-feature-<feature> Do not compile in <feature>.
     -feature-<feature> .. Compile in <feature>. The available features
@@ -5555,6 +5607,9 @@ for _SQLDR in $CFG_SQL_AVAILABLE; do
                     if [ -n "$PKG_CONFIG" ]; then
                         QT_CFLAGS_SQLITE=`$PKG_CONFIG --cflags sqlite3 2>/dev/null`
                         QT_LFLAGS_SQLITE=`$PKG_CONFIG --libs sqlite3 2>/dev/null`
+                    else
+                        QT_CFLAGS_SQLITE=
+                        QT_LFLAGS_SQLITE="-lsqlite3 -lz"
                     fi
                     if "$unixtests/compile.test" "$XQMAKESPEC" "$QMAKE_CONFIG" $OPT_VERBOSE "$relpath" "$outpath" config.tests/unix/sqlite "SQLite" $QT_LFLAGS_SQLITE $L_FLAGS $QT_CFLAGS_SQLITE $I_FLAGS $l_FLAGS $MAC_CONFIG_TEST_COMMANDLINE; then
                         if [ "$CFG_SQL_sqlite" = "auto" ]; then
@@ -7506,12 +7561,14 @@ fi
 #
 canBuildQtXmlPatterns="yes"
 canBuildWebKit="$HAVE_STL"
+canBuildQtScript="$HAVE_STL"
 canBuildQtConcurrent="yes"
 
-# WebKit requires stdint.h
+# WebKit and QtScript require stdint.h
 "$unixtests/compile.test" "$XQMAKESPEC" "$QMAKE_CONFIG" $OPT_VERBOSE "$relpath" "$outpath" config.tests/unix/stdint "Stdint" $L_FLAGS $I_FLAGS $l_FLAGS
 if [ $? != "0" ]; then
     canBuildWebKit="no"
+    canBuildQtScript="no"
 fi
 
 case "$XPLATFORM" in
@@ -7697,8 +7754,13 @@ else
     QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_WEBKIT"
 fi
 
+if [ "$CFG_SCRIPT" = "yes" -a "$canBuildQtScript" = "no" ]; then
+    echo "Error: QtScript was requested, but it can't be built on this platform."
+    exit 1
+fi
+
 if [ "$CFG_SCRIPT" = "auto" ]; then
-    CFG_SCRIPT="yes"
+    CFG_SCRIPT="$canBuildQtScript"
 fi
 
 if [ "$CFG_SCRIPT" = "yes" ]; then
@@ -8357,6 +8419,12 @@ cat >>"$outpath/src/corelib/global/qconfig.h.new" << EOF
 #ifndef QT_BOOTSTRAPPED
 
 EOF
+    # default QPA platform specified?
+    if [ -n "$QT_QPA_DEFAULT_PLATFORM" ] && [ "$QT_QPA_DEFAULT_PLATFORM" != "auto" ]; then
+        echo "#define QT_QPA_DEFAULT_PLATFORM_NAME \"$QT_QPA_DEFAULT_PLATFORM\"" >>"$outpath/src/corelib/global/qconfig.h.new"
+        echo >>"$outpath/src/corelib/global/qconfig.h.new"
+    fi
+
     for cfg in $QCONFIG_FLAGS; do
         cfgd=`echo $cfg | sed 's/=.*$//'` # trim pushed 'Foo=Bar' defines
         cfg=`echo $cfg | sed 's/=/ /'`    # turn first '=' into a space
