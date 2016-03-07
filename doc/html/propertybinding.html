@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -152,13 +160,13 @@
 <span class="subtitle"></span>
 <!-- $$$propertybinding.html-description -->
 <div class="descr"> <a name="details"></a>
-<p>Property binding is a declarative way of specifying the value of a property. Binding allows a property's value to be expressed as an <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> expression that defines the value relative to other property values or data accessible in the application. The property value is automatically kept up to date if the other properties or data values change.</p>
-<p>Property bindings are created implicitly in QML whenever a property is assigned an <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> expression. The following QML uses two property bindings to connect the size of the rectangle to that of <tt>otherItem</tt>.</p>
+<p>Property binding is a declarative way of specifying the value of a property. Binding allows a property's value to be expressed as an JavaScript expression that defines the value relative to other property values or data accessible in the application. The property value is automatically kept up to date if the other properties or data values change.</p>
+<p>Property bindings are created implicitly in QML whenever a property is assigned an JavaScript expression. The following QML uses two property bindings to connect the size of the rectangle to that of <tt>otherItem</tt>.</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
      width: otherItem.width
      height: otherItem.height
  }</pre>
-<p>QML extends a standards compliant <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> engine, so any valid <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> expression can be used as a property binding. Bindings can access object properties, make function calls and even use builtin <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> objects like <i>Date</i> and <i>Math</i>. Assigning a constant value to a property can even be thought of as a binding - afterall, a constant is a valid <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> expression! Here are some examples of more complex bindings:</p>
+<p>QML extends a standards compliant JavaScript engine, so any valid JavaScript expression can be used as a property binding. Bindings can access object properties, make function calls and even use builtin JavaScript objects like <i>Date</i> and <i>Math</i>. Assigning a constant value to a property can even be thought of as a binding - after all, a constant is a valid JavaScript expression! Here are some examples of more complex bindings:</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
      function calculateMyHeight() {
          return Math.max(otherItem.height, thirdItem.height);
@@ -189,14 +197,14 @@
  }</pre>
 <a name="effects-of-property-assignment-in-javascript"></a>
 <h2>Effects of Property Assignment in JavaScript</h2>
-<p>Assigning a property value from <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> does <i>not</i> create a property binding. For example:</p>
+<p>Assigning a property value from JavaScript does <i>not</i> create a property binding. For example:</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
 
      Component.onCompleted: {
          width = otherItem.width;
      }
  }</pre>
-<p>Instead of creating a property binding, this simply sets the <tt>width</tt> of the <a href="qml-rectangle.html">Rectangle</a> to the value of <tt>other.width</tt> at the time the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> code is invoked. See <a href="qdeclarativejavascript.html#property-assignment-vs-property-binding">Property Assignment vs Property Binding</a> for more details.</p>
+<p>Instead of creating a property binding, this simply sets the <tt>width</tt> of the <a href="qml-rectangle.html">Rectangle</a> to the value of <tt>other.width</tt> at the time the JavaScript code is invoked. See <a href="qdeclarativejavascript.html#property-assignment-vs-property-binding">Property Assignment vs Property Binding</a> for more details.</p>
 <p>Also note that assigning a value to a property that is currently bound will remove the binding. A property can only have one value at a time, and if any code explicitly sets this value, the binding is removed. The <a href="qml-rectangle.html">Rectangle</a> in the example below will have a width of 13, regardless of the <tt>otherItem</tt>'s width.</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
      width: otherItem.width
@@ -205,7 +213,7 @@
          width = 13;
      }
  }</pre>
-<p>There is no way to create a property binding directly from imperative <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> code, although it is possible to set up a <a href="qml-binding.html">Binding</a> object (shown below).</p>
+<p>There is no way to create a property binding directly from imperative JavaScript code, although it is possible to set up a <a href="qml-binding.html">Binding</a> object (shown below).</p>
 <a name="binding-element"></a>
 <h2>Binding Element</h2>
 <p>The implicit binding syntax shown previously is easy to use and works perfectly for most uses of bindings. In some advanced cases, it is necessary to create bindings explicitly using the <a href="qml-binding.html">Binding</a> element.</p>

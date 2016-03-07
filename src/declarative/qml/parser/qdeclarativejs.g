@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------
 --
--- Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+-- Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 -- All rights reserved.
 -- Contact: Nokia Corporation (qt-info@nokia.com)
 --
@@ -83,7 +83,7 @@
 
 /./****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -136,7 +136,7 @@
 
 /:/****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -1254,7 +1254,7 @@ case $rule_number: {
   else
     node = makeAstNode<AST::ObjectLiteral> (driver->nodePool());
   node->lbraceToken = loc(1);
-  node->lbraceToken = loc(3);
+  node->rbraceToken = loc(3);
   sym(1).Node = node;
 } break;
 ./
@@ -1265,7 +1265,7 @@ case $rule_number: {
   AST::ObjectLiteral *node = makeAstNode<AST::ObjectLiteral> (driver->nodePool(),
     sym(2).PropertyNameAndValueList->finish ());
   node->lbraceToken = loc(1);
-  node->lbraceToken = loc(4);
+  node->rbraceToken = loc(4);
   sym(1).Node = node;
 } break;
 ./

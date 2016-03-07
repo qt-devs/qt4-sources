@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,22 +149,22 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QPalette</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qpalette.html">QPalette class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#QPalette-7">QPalette</a></b> ( const QColorGroup &amp; <i>active</i>, const QColorGroup &amp; <i>disabled</i>, const QColorGroup &amp; <i>inactive</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#active">active</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPalette </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#copy">copy</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#disabled">disabled</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#inactive">inactive</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#normal">normal</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#setActive">setActive</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#setDisabled">setDisabled</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#setInactive">setInactive</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#setNormal">setNormal</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#QPalette-7">QPalette</a></b> ( const QColorGroup &amp; <i>active</i>, const QColorGroup &amp; <i>disabled</i>, const QColorGroup &amp; <i>inactive</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#active">active</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPalette </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#copy">copy</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#disabled">disabled</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#inactive">inactive</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#normal">normal</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#setActive">setActive</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#setDisabled">setDisabled</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#setInactive">setInactive</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpalette-qt3.html#setNormal">setNormal</a></b> ( const QColorGroup &amp; <i>colorGroup</i> )</td></tr>
 </table>
 <h2>Member Function Documentation</h2>
 <!-- $$$QPalette$$$QPaletteconstQColorGroup&constQColorGroup&constQColorGroup& -->
@@ -166,7 +174,7 @@
 <!-- $$$active[overload1]$$$active -->
 <h3 class="fn"><a name="active"></a><a href="qcolorgroup.html">QColorGroup</a> QPalette::active () const</h3>
 <p>Returns the active color group.</p>
-<p>See also <a href="qpalette.html#setActive">setActive</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
+<p>See also <a href="qpalette-qt3.html#setActive">setActive</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
 <!-- @@@active -->
 <!-- $$$copy[overload1]$$$copy -->
 <h3 class="fn"><a name="copy"></a>QPalette QPalette::copy () const</h3>
@@ -175,38 +183,38 @@
 <!-- $$$disabled[overload1]$$$disabled -->
 <h3 class="fn"><a name="disabled"></a><a href="qcolorgroup.html">QColorGroup</a> QPalette::disabled () const</h3>
 <p>Returns the disabled color group.</p>
-<p>See also <a href="qpalette.html#setDisabled">setDisabled</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
+<p>See also <a href="qpalette-qt3.html#setDisabled">setDisabled</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
 <!-- @@@disabled -->
 <!-- $$$inactive[overload1]$$$inactive -->
 <h3 class="fn"><a name="inactive"></a><a href="qcolorgroup.html">QColorGroup</a> QPalette::inactive () const</h3>
 <p>Returns the inactive color group.</p>
-<p>See also <a href="qpalette.html#setInactive">setInactive</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
+<p>See also <a href="qpalette-qt3.html#setInactive">setInactive</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
 <!-- @@@inactive -->
 <!-- $$$normal[overload1]$$$normal -->
 <h3 class="fn"><a name="normal"></a><a href="qcolorgroup.html">QColorGroup</a> QPalette::normal () const</h3>
-<p>Returns the active color group. Use <a href="qpalette.html#active">active</a>() instead.</p>
+<p>Returns the active color group. Use <a href="qpalette-qt3.html#active">active</a>() instead.</p>
 <p>Use createColorGroup(Active) instead.</p>
-<p>See also <a href="qpalette.html#setNormal">setNormal</a>().</p>
+<p>See also <a href="qpalette-qt3.html#setNormal">setNormal</a>().</p>
 <!-- @@@normal -->
 <!-- $$$setActive[overload1]$$$setActiveconstQColorGroup& -->
 <h3 class="fn"><a name="setActive"></a>void QPalette::setActive ( const <a href="qcolorgroup.html">QColorGroup</a> &amp; <i>colorGroup</i> )</h3>
 <p>Sets the active color group to <i>colorGroup</i>.</p>
-<p>See also <a href="qpalette.html#active">active</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
+<p>See also <a href="qpalette-qt3.html#active">active</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
 <!-- @@@setActive -->
 <!-- $$$setDisabled[overload1]$$$setDisabledconstQColorGroup& -->
 <h3 class="fn"><a name="setDisabled"></a>void QPalette::setDisabled ( const <a href="qcolorgroup.html">QColorGroup</a> &amp; <i>colorGroup</i> )</h3>
 <p>Sets the disabled color group to <i>colorGroup</i>.</p>
-<p>See also <a href="qpalette.html#disabled">disabled</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
+<p>See also <a href="qpalette-qt3.html#disabled">disabled</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
 <!-- @@@setDisabled -->
 <!-- $$$setInactive[overload1]$$$setInactiveconstQColorGroup& -->
 <h3 class="fn"><a name="setInactive"></a>void QPalette::setInactive ( const <a href="qcolorgroup.html">QColorGroup</a> &amp; <i>colorGroup</i> )</h3>
 <p>Sets the inactive color group.</p>
-<p>See also <a href="qpalette.html#inactive">inactive</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
+<p>See also <a href="qpalette-qt3.html#inactive">inactive</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
 <!-- @@@setInactive -->
 <!-- $$$setNormal[overload1]$$$setNormalconstQColorGroup& -->
 <h3 class="fn"><a name="setNormal"></a>void QPalette::setNormal ( const <a href="qcolorgroup.html">QColorGroup</a> &amp; <i>colorGroup</i> )</h3>
 <p>Sets the normal color group to <i>colorGroup</i>.</p>
-<p>See also <a href="qpalette.html#normal">normal</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
+<p>See also <a href="qpalette-qt3.html#normal">normal</a>() and <a href="qcolorgroup.html">QColorGroup</a>.</p>
 <!-- @@@setNormal -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

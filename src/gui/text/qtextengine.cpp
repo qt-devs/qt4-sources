@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -894,16 +894,16 @@ void QTextEngine::shapeText(int item) const
                 if (letterSpacingIsAbsolute)
                     glyphs.advances_x[i-1] += letterSpacing;
                 else {
-                    const QFixed advance = glyphs.advances_x[i-1];
-                    glyphs.advances_x[i-1] += (letterSpacing - 100) * advance / 100;
+                    QFixed &advance = glyphs.advances_x[i-1];
+                    advance += (letterSpacing - 100) * advance / 100;
                 }
             }
         }
         if (letterSpacingIsAbsolute)
             glyphs.advances_x[si.num_glyphs-1] += letterSpacing;
         else {
-            const QFixed advance = glyphs.advances_x[si.num_glyphs-1];
-            glyphs.advances_x[si.num_glyphs-1] += (letterSpacing - 100) * advance / 100;
+            QFixed &advance = glyphs.advances_x[si.num_glyphs-1];
+            advance += (letterSpacing - 100) * advance / 100;
         }
     }
     if (wordSpacing != 0) {
@@ -1879,7 +1879,7 @@ void QTextEngine::justify(const QScriptLine &line)
         if (end == layoutData->string.length())
             return; // no justification at end of paragraph
         if (end && layoutData->items[findItem(end-1)].analysis.flags == QScriptAnalysis::LineOrParagraphSeparator)
-            return; // no justification at the end of an explicitely separated line
+            return; // no justification at the end of an explicitly separated line
     }
 
     // justify line
@@ -1949,9 +1949,11 @@ void QTextEngine::justify(const QScriptLine &line)
                 if (kashida_pos >= 0) {
 //                     qDebug("kashida position at %d in word", kashida_pos);
                     set(&justificationPoints[nPoints], kashida_type, g.mid(kashida_pos), fontEngine(si));
-                    minKashida = qMin(minKashida, justificationPoints[nPoints].kashidaWidth);
-                    maxJustify = qMax(maxJustify, justificationPoints[nPoints].type);
-                    ++nPoints;
+                    if (justificationPoints[nPoints].kashidaWidth > 0) {
+                        minKashida = qMin(minKashida, justificationPoints[nPoints].kashidaWidth);
+                        maxJustify = qMax(maxJustify, justificationPoints[nPoints].type);
+                        ++nPoints;
+                    }
                 }
                 kashida_pos = -1;
                 kashida_type = HB_Arabic_Normal;
@@ -1975,9 +1977,11 @@ void QTextEngine::justify(const QScriptLine &line)
         }
         if (kashida_pos >= 0) {
             set(&justificationPoints[nPoints], kashida_type, g.mid(kashida_pos), fontEngine(si));
-            minKashida = qMin(minKashida, justificationPoints[nPoints].kashidaWidth);
-            maxJustify = qMax(maxJustify, justificationPoints[nPoints].type);
-            ++nPoints;
+            if (justificationPoints[nPoints].kashidaWidth > 0) {
+                minKashida = qMin(minKashida, justificationPoints[nPoints].kashidaWidth);
+                maxJustify = qMax(maxJustify, justificationPoints[nPoints].type);
+                ++nPoints;
+            }
         }
     }
 
@@ -2517,14 +2521,14 @@ void QTextEngine::setBoundary(int strPos) const
         return;
 
     int itemToSplit = 0;
-    while (itemToSplit < layoutData->items.size() && layoutData->items[itemToSplit].position <= strPos)
+    while (itemToSplit < layoutData->items.size() && layoutData->items.at(itemToSplit).position <= strPos)
         itemToSplit++;
     itemToSplit--;
-    if (layoutData->items[itemToSplit].position == strPos) {
+    if (layoutData->items.at(itemToSplit).position == strPos) {
         // already a split at the requested position
         return;
     }
-    splitItem(itemToSplit, strPos - layoutData->items[itemToSplit].position);
+    splitItem(itemToSplit, strPos - layoutData->items.at(itemToSplit).position);
 }
 
 void QTextEngine::splitItem(int item, int pos) const

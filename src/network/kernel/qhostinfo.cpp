@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -243,7 +243,10 @@ QHostInfo QHostInfo::fromName(const QString &name)
     qDebug("QHostInfo::fromName(\"%s\")",name.toLatin1().constData());
 #endif
 
-    return QHostInfoAgent::fromName(name);
+    QHostInfo hostInfo = QHostInfoAgent::fromName(name);
+    QHostInfoLookupManager *manager = theHostInfoLookupManager();
+    manager->cache.put(name, hostInfo);
+    return hostInfo;
 }
 
 /*!

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -109,7 +109,7 @@ Item {
         states: State {
             name: "DetailedView"
             PropertyChanges { target: views; x: -parent.width }
-            PropertyChanges { target: toolBar; button1Label: "More..." }
+            PropertyChanges { target: toolBar; button1Label: "View..." }
             PropertyChanges {
                 target: toolBar
                 onButton1Clicked: if (imageDetails.state=='') imageDetails.state='Back'; else imageDetails.state=''

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -335,7 +335,7 @@ QDeclarativeMouseAreaPrivate::~QDeclarativeMouseAreaPrivate()
 
     If the \e accepted property of the \l {MouseEvent}{mouse} parameter is set to false
     in the handler, the onPressed/onReleased/onClicked handlers will be called for the second
-    click; otherwise they are supressed.  The accepted property defaults to true.
+    click; otherwise they are suppressed.  The accepted property defaults to true.
 */
 
 /*!
@@ -500,17 +500,9 @@ void QDeclarativeMouseArea::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         const int dragThreshold = QApplication::startDragDistance();
         qreal dx = qAbs(curLocalPos.x() - startLocalPos.x());
         qreal dy = qAbs(curLocalPos.y() - startLocalPos.y());
-        if ((d->dragX && !(dx < dragThreshold)) || (d->dragY && !(dy < dragThreshold))) {
+
+        if (keepMouseGrab() && d->stealMouse)
             d->drag->setActive(true);
-            d->stealMouse = true;
-        }
-        if (!keepMouseGrab()) {
-            if ((!d->dragY && dy < dragThreshold && d->dragX && dx > dragThreshold)
-                || (!d->dragX && dx < dragThreshold && d->dragY && dy > dragThreshold)
-                || (d->dragX && d->dragY)) {
-                setKeepMouseGrab(true);
-            }
-        }
 
         if (d->dragX && d->drag->active()) {
             qreal x = (curLocalPos.x() - startLocalPos.x()) + d->startX;
@@ -528,6 +520,16 @@ void QDeclarativeMouseArea::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
                 y = drag()->ymax();
             drag()->target()->setY(y);
         }
+
+        if (!keepMouseGrab()) {
+            if ((!d->dragY && dy < dragThreshold && d->dragX && dx > dragThreshold)
+                || (!d->dragX && dx < dragThreshold && d->dragY && dy > dragThreshold)
+                || (d->dragX && d->dragY && (dx > dragThreshold || dy > dragThreshold))) {
+                setKeepMouseGrab(true);
+                d->stealMouse = true;
+            }
+        }
+
         d->moved = true;
     }
     QDeclarativeMouseEvent me(d->lastPos.x(), d->lastPos.y(), d->lastButton, d->lastButtons, d->lastModifiers, false, d->longPress);
@@ -557,6 +559,7 @@ void QDeclarativeMouseArea::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             ungrabMouse();
         setKeepMouseGrab(false);
     }
+    d->doubleClick = false;
 }
 
 void QDeclarativeMouseArea::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
@@ -565,14 +568,13 @@ void QDeclarativeMouseArea::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *even
     if (!d->absorb) {
         QDeclarativeItem::mouseDoubleClickEvent(event);
     } else {
+        if (d->isDoubleClickConnected())
+            d->doubleClick = true;
         d->saveEvent(event);
         QDeclarativeMouseEvent me(d->lastPos.x(), d->lastPos.y(), d->lastButton, d->lastButtons, d->lastModifiers, true, false);
         me.setAccepted(d->isDoubleClickConnected());
         emit this->doubleClicked(&me);
-        if (!me.isAccepted()) {
-            // Only deliver the press event if we haven't accepted the double click.
-            QDeclarativeItem::mouseDoubleClickEvent(event);
-        }
+        QDeclarativeItem::mouseDoubleClickEvent(event);
     }
 }
 
@@ -618,6 +620,7 @@ bool QDeclarativeMouseArea::sceneEvent(QEvent *event)
             // if our mouse grab has been removed (probably by Flickable), fix our
             // state
             d->pressed = false;
+            d->stealMouse = false;
             setKeepMouseGrab(false);
             emit canceled();
             emit pressedChanged();
@@ -672,8 +675,18 @@ bool QDeclarativeMouseArea::sendMouseEvent(QGraphicsSceneMouseEvent *event)
         return stealThisEvent;
     }
     if (mouseEvent.type() == QEvent::GraphicsSceneMouseRelease) {
-        d->stealMouse = false;
-        ungrabMouse();
+        if (d->pressed) {
+            d->pressed = false;
+            d->stealMouse = false;
+            if (s && s->mouseGrabberItem() == this)
+                ungrabMouse();
+            emit canceled();
+            emit pressedChanged();
+            if (d->hovered) {
+                d->hovered = false;
+                emit hoveredChanged();
+            }
+        }
     }
     return false;
 }
@@ -841,7 +854,8 @@ bool QDeclarativeMouseArea::setPressed(bool p)
         d->pressed = p;
         QDeclarativeMouseEvent me(d->lastPos.x(), d->lastPos.y(), d->lastButton, d->lastButtons, d->lastModifiers, isclick, d->longPress);
         if (d->pressed) {
-            emit pressed(&me);
+            if (!d->doubleClick)
+                emit pressed(&me);
             me.setX(d->lastPos.x());
             me.setY(d->lastPos.y());
             emit mousePositionChanged(&me);
@@ -849,7 +863,7 @@ bool QDeclarativeMouseArea::setPressed(bool p)
             emit released(&me);
             me.setX(d->lastPos.x());
             me.setY(d->lastPos.y());
-            if (isclick && !d->longPress)
+            if (isclick && !d->longPress && !d->doubleClick)
                 emit clicked(&me);
         }
 

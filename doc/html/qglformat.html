@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -236,8 +244,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qglformat.html#operator-not-eq-13">operator!=</a></b> ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qglformat.html#operator-eq-eq-21">operator==</a></b> ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qglformat.html#operator-not-eq-31">operator!=</a></b> ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qglformat.html#operator-eq-eq-39">operator==</a></b> ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QGLFormat-description -->
@@ -292,7 +300,7 @@
 <!-- $$$OpenGLContextProfile$$$NoProfile$$$CoreProfile$$$CompatibilityProfile -->
 <h3 class="fn"><a name="OpenGLContextProfile-enum"></a>enum QGLFormat::OpenGLContextProfile</h3>
 <p>This enum describes the OpenGL context profiles that can be specified for contexts implementing OpenGL version 3.2 or higher. These profiles are different from OpenGL ES profiles.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QGLFormat::NoProfile</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">OpenGL version is lower than 3.2&#x2e;</td></tr>
 <tr><td  class="topAlign"><tt>QGLFormat::CoreProfile</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Functionality deprecated in OpenGL version 3.0 is not available.</td></tr>
 <tr><td  class="topAlign"><tt>QGLFormat::CompatibilityProfile</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Functionality from earlier OpenGL versions is available.</td></tr>
@@ -302,7 +310,7 @@
 <!-- $$$OpenGLVersionFlag$$$OpenGL_Version_None$$$OpenGL_Version_1_1$$$OpenGL_Version_1_2$$$OpenGL_Version_1_3$$$OpenGL_Version_1_4$$$OpenGL_Version_1_5$$$OpenGL_Version_2_0$$$OpenGL_Version_2_1$$$OpenGL_ES_Common_Version_1_0$$$OpenGL_ES_CommonLite_Version_1_0$$$OpenGL_ES_Common_Version_1_1$$$OpenGL_ES_CommonLite_Version_1_1$$$OpenGL_ES_Version_2_0$$$OpenGL_Version_3_0$$$OpenGL_Version_3_1$$$OpenGL_Version_3_2$$$OpenGL_Version_3_3$$$OpenGL_Version_4_0 -->
 <h3 class="flags"><a name="OpenGLVersionFlag-enum"></a>enum QGLFormat::OpenGLVersionFlag<br/>flags QGLFormat::OpenGLVersionFlags</h3>
 <p>This enum describes the various OpenGL versions that are recognized by Qt. Use the <a href="qglformat.html#openGLVersionFlags">QGLFormat::openGLVersionFlags</a>() function to identify which versions that are supported at runtime.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QGLFormat::OpenGL_Version_None</tt></td><td class=" topAlign"><tt>0x00000000</tt></td><td  class="topAlign">If no OpenGL is present or if no OpenGL context is current.</td></tr>
 <tr><td  class="topAlign"><tt>QGLFormat::OpenGL_Version_1_1</tt></td><td class=" topAlign"><tt>0x00000001</tt></td><td  class="topAlign">OpenGL version 1.1 or higher is present.</td></tr>
 <tr><td  class="topAlign"><tt>QGLFormat::OpenGL_Version_1_2</tt></td><td class=" topAlign"><tt>0x00000002</tt></td><td  class="topAlign">OpenGL version 1.2 or higher is present.</td></tr>
@@ -605,6 +613,7 @@
 <p>If <i>enable</i> is true sets double buffering; otherwise sets single buffering.</p>
 <p>Double buffering is enabled by default.</p>
 <p>Double buffering is a technique where graphics are rendered on an off-screen buffer and not directly to the screen. When the drawing has been completed, the program calls a swapBuffers() function to exchange the screen contents with the buffer. The result is flicker-free drawing and often better performance.</p>
+<p>Note that single buffered contexts are currently not supported with EGL.</p>
 <p>See also <a href="qglformat.html#doubleBuffer">doubleBuffer</a>(), <a href="qglcontext.html#swapBuffers">QGLContext::swapBuffers</a>(), and <a href="qglwidget.html#swapBuffers">QGLWidget::swapBuffers</a>().</p>
 <!-- @@@setDoubleBuffer -->
 <!-- $$$setGreenBufferSize[overload1]$$$setGreenBufferSizeint -->
@@ -727,11 +736,11 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator!=$$$operator!=constQGLFormat&constQGLFormat& -->
-<h3 class="fn"><a name="operator-not-eq-13"></a>bool operator!= ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-31"></a>bool operator!= ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</h3>
 <p>Returns false if all the options of the two <a href="qglformat.html">QGLFormat</a> objects <i>a</i> and <i>b</i> are equal; otherwise returns true.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator==$$$operator==constQGLFormat&constQGLFormat& -->
-<h3 class="fn"><a name="operator-eq-eq-21"></a>bool operator== ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-39"></a>bool operator== ( const QGLFormat &amp; <i>a</i>, const QGLFormat &amp; <i>b</i> )</h3>
 <p>Returns true if all the options of the two <a href="qglformat.html">QGLFormat</a> objects <i>a</i> and <i>b</i> are equal; otherwise returns false.</p>
 <!-- @@@operator== -->
 </div>

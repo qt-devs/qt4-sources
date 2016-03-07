@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -241,17 +249,17 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#qFuzzyCompare-9">qFuzzyCompare</a></b> ( const QTransform &amp; <i>t1</i>, const QTransform &amp; <i>t2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-38">operator*</a></b> ( const QPoint &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QPointF </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-39">operator*</a></b> ( const QPointF &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QLineF </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-40">operator*</a></b> ( const QLineF &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QLine </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-41">operator*</a></b> ( const QLine &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-42">operator*</a></b> ( const QPolygon &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QPolygonF </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-43">operator*</a></b> ( const QPolygonF &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QRegion </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-44">operator*</a></b> ( const QRegion &amp; <i>region</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QPainterPath </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-45">operator*</a></b> ( const QPainterPath &amp; <i>path</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-lt-lt-129">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-gt-gt-75">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#qFuzzyCompare-2">qFuzzyCompare</a></b> ( const QTransform &amp; <i>t1</i>, const QTransform &amp; <i>t2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-9">operator*</a></b> ( const QPoint &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPointF </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-10">operator*</a></b> ( const QPointF &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QLineF </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-11">operator*</a></b> ( const QLineF &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QLine </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-12">operator*</a></b> ( const QLine &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-13">operator*</a></b> ( const QPolygon &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPolygonF </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-14">operator*</a></b> ( const QPolygonF &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QRegion </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-15">operator*</a></b> ( const QRegion &amp; <i>region</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPainterPath </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-2a-16">operator*</a></b> ( const QPainterPath &amp; <i>path</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-lt-lt-20">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QTransform &amp; <i>matrix</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtransform.html#operator-gt-gt-18">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QTransform &amp; <i>matrix</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QTransform-description -->
@@ -708,60 +716,60 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$qFuzzyCompare$$$qFuzzyCompareconstQTransform&constQTransform& -->
-<h3 class="fn"><a name="qFuzzyCompare-9"></a>bool qFuzzyCompare ( const QTransform &amp; <i>t1</i>, const QTransform &amp; <i>t2</i> )</h3>
+<h3 class="fn"><a name="qFuzzyCompare-2"></a>bool qFuzzyCompare ( const QTransform &amp; <i>t1</i>, const QTransform &amp; <i>t2</i> )</h3>
 <p>Returns true if <i>t1</i> and <i>t2</i> are equal, allowing for a small fuzziness factor for floating-point comparisons; false otherwise.</p>
 <p>This function was introduced in Qt 4.6.</p>
 <!-- @@@qFuzzyCompare -->
 <!-- $$$operator*$$$operator*constQPoint&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-38"></a><a href="qpoint.html">QPoint</a> operator* ( const <a href="qpoint.html">QPoint</a> &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-9"></a><a href="qpoint.html">QPoint</a> operator* ( const <a href="qpoint.html">QPoint</a> &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>This is the same as <i>matrix</i>.map(<i>point</i>).</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQPointF&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-39"></a><a href="qpointf.html">QPointF</a> operator* ( const <a href="qpointf.html">QPointF</a> &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-10"></a><a href="qpointf.html">QPointF</a> operator* ( const <a href="qpointf.html">QPointF</a> &amp; <i>point</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>Same as <i>matrix</i>.map(<i>point</i>).</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQLineF&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-40"></a><a href="qlinef.html">QLineF</a> operator* ( const <a href="qlinef.html">QLineF</a> &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-11"></a><a href="qlinef.html">QLineF</a> operator* ( const <a href="qlinef.html">QLineF</a> &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>This is the same as <i>matrix</i>.map(<i>line</i>).</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQLine&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-41"></a><a href="qline.html">QLine</a> operator* ( const <a href="qline.html">QLine</a> &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-12"></a><a href="qline.html">QLine</a> operator* ( const <a href="qline.html">QLine</a> &amp; <i>line</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>This is the same as <i>matrix</i>.map(<i>line</i>).</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQPolygon&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-42"></a><a href="qpolygon.html">QPolygon</a> operator* ( const <a href="qpolygon.html">QPolygon</a> &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-13"></a><a href="qpolygon.html">QPolygon</a> operator* ( const <a href="qpolygon.html">QPolygon</a> &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>This is the same as <i>matrix</i>.map(<i>polygon</i>).</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQPolygonF&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-43"></a><a href="qpolygonf.html">QPolygonF</a> operator* ( const <a href="qpolygonf.html">QPolygonF</a> &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-14"></a><a href="qpolygonf.html">QPolygonF</a> operator* ( const <a href="qpolygonf.html">QPolygonF</a> &amp; <i>polygon</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>This is the same as <i>matrix</i>.map(<i>polygon</i>).</p>
 <p>This function was introduced in Qt 4.3.</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQRegion&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-44"></a><a href="qregion.html">QRegion</a> operator* ( const <a href="qregion.html">QRegion</a> &amp; <i>region</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-15"></a><a href="qregion.html">QRegion</a> operator* ( const <a href="qregion.html">QRegion</a> &amp; <i>region</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>This is the same as <i>matrix</i>.map(<i>region</i>).</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQPainterPath&constQTransform& -->
-<h3 class="fn"><a name="operator-2a-45"></a><a href="qpainterpath.html">QPainterPath</a> operator* ( const <a href="qpainterpath.html">QPainterPath</a> &amp; <i>path</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-2a-16"></a><a href="qpainterpath.html">QPainterPath</a> operator* ( const <a href="qpainterpath.html">QPainterPath</a> &amp; <i>path</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>This is the same as <i>matrix</i>.map(<i>path</i>).</p>
 <p>This function was introduced in Qt 4.3.</p>
 <p>See also <a href="qtransform.html#map">QTransform::map</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQTransform& -->
-<h3 class="fn"><a name="operator-lt-lt-129"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-20"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QTransform &amp; <i>matrix</i> )</h3>
 <p>Writes the given <i>matrix</i> to the given <i>stream</i> and returns a reference to the stream.</p>
 <p>This function was introduced in Qt 4.3.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QTransform& -->
-<h3 class="fn"><a name="operator-gt-gt-75"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QTransform &amp; <i>matrix</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-18"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QTransform &amp; <i>matrix</i> )</h3>
 <p>Reads the given <i>matrix</i> from the given <i>stream</i> and returns a reference to the stream.</p>
 <p>This function was introduced in Qt 4.3.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -163,7 +171,7 @@
 <p>The QPainter class performs low-level painting on widgets and other paint devices. <a href="#details">More...</a></p>
 <!-- @@@QPainter -->
 <pre class="highlightedCode brush: cpp"> #include &lt;QPainter&gt;</pre><p>Inherited by <a href="q3painter.html" class="compat">Q3Painter</a> and <a href="qstylepainter.html">QStylePainter</a>.</p>
-<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>, but <a href="qpainter.html#setRedirected" class="obsolete">setRedirected</a>(), <a href="qpainter.html#redirected" class="obsolete">redirected</a>(), and <a href="qpainter.html#restoreRedirected" class="obsolete">restoreRedirected</a>() are also <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>.</p>
 <ul>
 <li><a href="qpainter-members.html">List of all members, including inherited members</a></li>
 <li><a href="qpainter-obsolete.html">Obsolete members</a></li>
@@ -389,7 +397,7 @@
 <p>The core functionality of QPainter is drawing, but the class also provide several functions that allows you to customize QPainter's settings and its rendering quality, and others that enable clipping. In addition you can control how different shapes are merged together by specifying the painter's composition mode.</p>
 <p>The <a href="qpainter.html#isActive">isActive</a>() function indicates whether the painter is active. A painter is activated by the <a href="qpainter.html#begin">begin</a>() function and the constructor that takes a <a href="qpaintdevice.html">QPaintDevice</a> argument. The <a href="qpainter.html#end">end</a>() function, and the destructor, deactivates it.</p>
 <p>Together with the <a href="qpaintdevice.html">QPaintDevice</a> and <a href="qpaintengine.html">QPaintEngine</a> classes, QPainter form the basis for Qt's paint system. QPainter is the class used to perform drawing operations. <a href="qpaintdevice.html">QPaintDevice</a> represents a device that can be painted on using a QPainter. <a href="qpaintengine.html">QPaintEngine</a> provides the interface that the painter uses to draw onto different types of devices. If the painter is active, <a href="qpainter.html#device">device</a>() returns the paint device on which the painter paints, and <a href="qpainter.html#paintEngine">paintEngine</a>() returns the paint engine that the painter is currently operating on. For more information, see the <a href="paintsystem.html">Paint System</a>.</p>
-<p>Sometimes it is desirable to make someone else paint on an unusual <a href="qpaintdevice.html">QPaintDevice</a>. QPainter supports a static function to do this, <a href="qpainter.html#setRedirected" class="obsolete">setRedirected</a>().</p>
+<p>Sometimes it is desirable to make someone else paint on an unusual <a href="qpaintdevice.html">QPaintDevice</a>. QPainter supports a static function to do this, <a href="qpainter-obsolete.html#setRedirected" class="obsolete">setRedirected</a>().</p>
 <p><b>Warning:</b> When the paintdevice is a widget, QPainter can only be used inside a paintEvent() function or in a function called by paintEvent(); that is unless the <a href="qt.html#WidgetAttribute-enum">Qt::WA_PaintOutsidePaintEvent</a> widget attribute is set. On Mac OS X and Windows, you can only paint in a paintEvent() function regardless of this attribute's setting.</p>
 <a name="settings"></a>
 <h3>Settings</h3>
@@ -411,7 +419,7 @@
 <p>You can at any time save the QPainter's state by calling the <a href="qpainter.html#save">save</a>() function which saves all the available settings on an internal stack. The <a href="qpainter.html#restore">restore</a>() function pops them back.</p>
 <a name="drawing"></a>
 <h3>Drawing</h3>
-<p>QPainter provides functions to draw most primitives: <a href="qpainter.html#drawPoint">drawPoint</a>(), <a href="qpainter.html#drawPoints">drawPoints</a>(), <a href="qpainter.html#drawLine">drawLine</a>(), <a href="qpainter.html#drawRect">drawRect</a>(), <a href="qpainter.html#drawRoundedRect">drawRoundedRect</a>(), <a href="qpainter.html#drawEllipse">drawEllipse</a>(), <a href="qpainter.html#drawArc">drawArc</a>(), <a href="qpainter.html#drawPie">drawPie</a>(), <a href="qpainter.html#drawChord">drawChord</a>(), <a href="qpainter.html#drawPolyline">drawPolyline</a>(), <a href="qpainter.html#drawPolygon">drawPolygon</a>(), <a href="qpainter.html#drawConvexPolygon">drawConvexPolygon</a>() and <a href="qpainter.html#drawCubicBezier" class="compat">drawCubicBezier</a>(). The two convenience functions, <a href="qpainter.html#drawRects">drawRects</a>() and <a href="qpainter.html#drawLines">drawLines</a>(), draw the given number of rectangles or lines in the given array of <a href="qrect.html">QRects</a> or <a href="qline.html">QLines</a> using the current pen and brush.</p>
+<p>QPainter provides functions to draw most primitives: <a href="qpainter.html#drawPoint">drawPoint</a>(), <a href="qpainter.html#drawPoints">drawPoints</a>(), <a href="qpainter.html#drawLine">drawLine</a>(), <a href="qpainter.html#drawRect">drawRect</a>(), <a href="qpainter.html#drawRoundedRect">drawRoundedRect</a>(), <a href="qpainter.html#drawEllipse">drawEllipse</a>(), <a href="qpainter.html#drawArc">drawArc</a>(), <a href="qpainter.html#drawPie">drawPie</a>(), <a href="qpainter.html#drawChord">drawChord</a>(), <a href="qpainter.html#drawPolyline">drawPolyline</a>(), <a href="qpainter.html#drawPolygon">drawPolygon</a>(), <a href="qpainter.html#drawConvexPolygon">drawConvexPolygon</a>() and <a href="qpainter-qt3.html#drawCubicBezier" class="compat">drawCubicBezier</a>(). The two convenience functions, <a href="qpainter.html#drawRects">drawRects</a>() and <a href="qpainter.html#drawLines">drawLines</a>(), draw the given number of rectangles or lines in the given array of <a href="qrect.html">QRects</a> or <a href="qline.html">QLines</a> using the current pen and brush.</p>
 <p>The QPainter class also provides the <a href="qpainter.html#fillRect">fillRect</a>() function which fills the given <a href="qrect.html">QRect</a>, with the given <a href="qbrush.html">QBrush</a>, and the <a href="qpainter.html#eraseRect">eraseRect</a>() function that erases the area inside the given rectangle.</p>
 <p>All of these functions have both integer and floating point versions.</p>
 <table class="generic">
@@ -510,7 +518,7 @@
 <p class="centerAlign"><img src="images/qpainter-compositionmode1.png" /></p><p class="centerAlign"><img src="images/qpainter-compositionmode2.png" /></p><p>The most common type is SourceOver (often referred to as just alpha blending) where the source pixel is blended on top of the destination pixel in such a way that the alpha component of the source defines the translucency of the pixel.</p>
 <p>When the paint device is a <a href="qimage.html">QImage</a>, the image format must be set to <a href="qimage.html#Format-enum">Format_ARGB32Premultiplied</a> or <a href="qimage.html#Format-enum">Format_ARGB32</a> for the composition modes to have any effect. For performance the premultiplied version is the preferred format.</p>
 <p>When a composition mode is set it applies to all painting operator, pens, brushes, gradients and pixmap/image drawing.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPainter::CompositionMode_SourceOver</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">This is the default mode. The alpha of the source is used to blend the pixel on top of the destination.</td></tr>
 <tr><td  class="topAlign"><tt>QPainter::CompositionMode_DestinationOver</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The alpha of the destination is used to blend it on top of the source pixels. This mode is the inverse of CompositionMode_SourceOver.</td></tr>
 <tr><td  class="topAlign"><tt>QPainter::CompositionMode_Clear</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The pixels in the destination are cleared (set to fully transparent) independent of the source.</td></tr>
@@ -549,7 +557,7 @@
 <!-- @@@CompositionMode -->
 <!-- $$$PixmapFragmentHint$$$OpaqueHint -->
 <h3 class="flags"><a name="PixmapFragmentHint-enum"></a>enum QPainter::PixmapFragmentHint<br/>flags QPainter::PixmapFragmentHints</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPainter::OpaqueHint</tt></td><td class=" topAlign"><tt>0x01</tt></td><td  class="topAlign">Indicates that the pixmap fragments to be drawn are opaque. Opaque fragments are potentially faster to draw.</td></tr>
 </table>
 <p>This enum was introduced or modified in Qt 4.7.</p>
@@ -559,7 +567,7 @@
 <!-- $$$RenderHint$$$Antialiasing$$$TextAntialiasing$$$SmoothPixmapTransform$$$HighQualityAntialiasing$$$NonCosmeticDefaultPen -->
 <h3 class="flags"><a name="RenderHint-enum"></a>enum QPainter::RenderHint<br/>flags QPainter::RenderHints</h3>
 <p>Renderhints are used to specify flags to <a href="qpainter.html">QPainter</a> that may or may not be respected by any given engine.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPainter::Antialiasing</tt></td><td class=" topAlign"><tt>0x01</tt></td><td  class="topAlign">Indicates that the engine should antialias edges of primitives if possible.</td></tr>
 <tr><td  class="topAlign"><tt>QPainter::TextAntialiasing</tt></td><td class=" topAlign"><tt>0x02</tt></td><td  class="topAlign">Indicates that the engine should antialias text if possible. To forcibly disable antialiasing for text, do not use this hint. Instead, set <a href="qfont.html#StyleStrategy-enum">QFont::NoAntialias</a> on your font's style strategy.</td></tr>
 <tr><td  class="topAlign"><tt>QPainter::SmoothPixmapTransform</tt></td><td class=" topAlign"><tt>0x04</tt></td><td  class="topAlign">Indicates that the engine should use a smooth pixmap transformation algorithm (such as bilinear) rather than nearest neighbor.</td></tr>
@@ -1409,7 +1417,7 @@
 <li><a href="qt.html#TextFlag-enum">Qt::TextWordWrap</a></li>
 </ul>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note:</b> The y-position is used as the baseline of the font.</p>
+<p><b>Note:</b> The y-position is used as the top of the font.</p>
 <p>See also <a href="qt.html#AlignmentFlag-enum">Qt::AlignmentFlag</a> and <a href="qt.html#TextFlag-enum">Qt::TextFlag</a>.</p>
 <!-- @@@drawText -->
 <!-- $$$drawText$$$drawTextconstQRectF&constQString&constQTextOption& -->

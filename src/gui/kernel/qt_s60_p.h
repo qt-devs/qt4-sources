@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -141,7 +141,9 @@ public:
     int supportsPremultipliedAlpha : 1;
     int avkonComponentsSupportTransparency : 1;
     int menuBeingConstructed : 1;
+    int orientationSet : 1;
     QApplication::QS60MainApplicationFactory s60ApplicationFactory; // typedef'ed pointer type
+    static CEikButtonGroupContainer *cba;
 
     enum ScanCodeState {
         Unpressed,
@@ -162,6 +164,7 @@ public:
     static inline CAknTitlePane* titlePane();
     static inline CAknContextPane* contextPane();
     static inline CEikButtonGroupContainer* buttonGroupContainer();
+    static inline void setButtonGroupContainer(CEikButtonGroupContainer* newCba);
     static void setStatusPaneAndButtonGroupVisibility(bool statusPaneVisible, bool buttonGroupVisible);
 #endif
     static void controlVisibilityChanged(CCoeControl *control, bool visible);
@@ -293,6 +296,7 @@ inline QS60Data::QS60Data()
   supportsPremultipliedAlpha(0),
   avkonComponentsSupportTransparency(0),
   menuBeingConstructed(0),
+  orientationSet(0),
   s60ApplicationFactory(0)
 #ifdef Q_OS_SYMBIAN
   ,s60InstalledTrapHandler(0)
@@ -383,7 +387,12 @@ inline CAknContextPane* QS60Data::contextPane()
 
 inline CEikButtonGroupContainer* QS60Data::buttonGroupContainer()
 {
-    return CEikonEnv::Static()->AppUiFactory()->Cba();
+    return QS60Data::cba;
+}
+
+inline void QS60Data::setButtonGroupContainer(CEikButtonGroupContainer *newCba)
+{
+    QS60Data::cba = newCba;
 }
 #endif // Q_WS_S60
 

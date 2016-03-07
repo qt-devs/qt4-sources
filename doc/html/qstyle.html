@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -415,7 +423,7 @@
 <!-- $$$ComplexControl$$$CC_SpinBox$$$CC_ComboBox$$$CC_ScrollBar$$$CC_Slider$$$CC_ToolButton$$$CC_TitleBar$$$CC_Q3ListView$$$CC_Dial$$$CC_GroupBox$$$CC_MdiControls$$$CC_CustomBase -->
 <h3 class="fn"><a name="ComplexControl-enum"></a>enum QStyle::ComplexControl</h3>
 <p>This enum describes the available complex controls. Complex controls have different behavior depending upon where the user clicks on them or which keys are pressed.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::CC_SpinBox</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">A spinbox, like <a href="qspinbox.html">QSpinBox</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::CC_ComboBox</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">A combobox, like <a href="qcombobox.html">QComboBox</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::CC_ScrollBar</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">A scroll bar, like <a href="qscrollbar.html">QScrollBar</a>.</td></tr>
@@ -433,7 +441,7 @@
 <!-- $$$ContentsType$$$CT_PushButton$$$CT_CheckBox$$$CT_RadioButton$$$CT_ToolButton$$$CT_ComboBox$$$CT_Splitter$$$CT_Q3DockWindow$$$CT_ProgressBar$$$CT_MenuItem$$$CT_MenuBarItem$$$CT_MenuBar$$$CT_Menu$$$CT_TabBarTab$$$CT_Slider$$$CT_ScrollBar$$$CT_Q3Header$$$CT_LineEdit$$$CT_SpinBox$$$CT_SizeGrip$$$CT_TabWidget$$$CT_DialogButtons$$$CT_HeaderSection$$$CT_GroupBox$$$CT_MdiControls$$$CT_ItemViewItem$$$CT_CustomBase -->
 <h3 class="fn"><a name="ContentsType-enum"></a>enum QStyle::ContentsType</h3>
 <p>This enum describes the available contents types. These are used to calculate sizes for the contents of various widgets.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::CT_CheckBox</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">A check box, like <a href="qcheckbox.html">QCheckBox</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::CT_ComboBox</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">A combo box, like <a href="qcombobox.html">QComboBox</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::CT_Q3DockWindow</tt></td><td class=" topAlign"><tt>6</tt></td><td  class="topAlign">A <a href="q3dockwindow.html" class="compat">Q3DockWindow</a>.</td></tr>
@@ -465,7 +473,7 @@
 <!-- $$$ControlElement$$$CE_PushButton$$$CE_PushButtonBevel$$$CE_PushButtonLabel$$$CE_CheckBox$$$CE_CheckBoxLabel$$$CE_RadioButton$$$CE_RadioButtonLabel$$$CE_TabBarTab$$$CE_TabBarTabShape$$$CE_TabBarTabLabel$$$CE_ProgressBar$$$CE_ProgressBarGroove$$$CE_ProgressBarContents$$$CE_ProgressBarLabel$$$CE_MenuItem$$$CE_MenuScroller$$$CE_MenuVMargin$$$CE_MenuHMargin$$$CE_MenuTearoff$$$CE_MenuEmptyArea$$$CE_MenuBarItem$$$CE_MenuBarEmptyArea$$$CE_ToolButtonLabel$$$CE_Header$$$CE_HeaderSection$$$CE_HeaderLabel$$$CE_Q3DockWindowEmptyArea$$$CE_ToolBoxTab$$$CE_SizeGrip$$$CE_Splitter$$$CE_RubberBand$$$CE_DockWidgetTitle$$$CE_ScrollBarAddLine$$$CE_ScrollBarSubLine$$$CE_ScrollBarAddPage$$$CE_ScrollBarSubPage$$$CE_ScrollBarSlider$$$CE_ScrollBarFirst$$$CE_ScrollBarLast$$$CE_FocusFrame$$$CE_ComboBoxLabel$$$CE_ToolBar$$$CE_ToolBoxTabShape$$$CE_ToolBoxTabLabel$$$CE_HeaderEmptyArea$$$CE_ColumnViewGrip$$$CE_ItemViewItem$$$CE_ShapedFrame$$$CE_CustomBase -->
 <h3 class="fn"><a name="ControlElement-enum"></a>enum QStyle::ControlElement</h3>
 <p>This enum represents a control element. A control element is a part of a widget that performs some action or displays information to the user.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::CE_PushButton</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">A <a href="qpushbutton.html">QPushButton</a>, draws CE_PushButtonBevel, CE_PushButtonLabel and <a href="qstyle.html#PrimitiveElement-enum">PE_FrameFocusRect</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::CE_PushButtonBevel</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The bevel and default indicator of a <a href="qpushbutton.html">QPushButton</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::CE_PushButtonLabel</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The label (an icon with text or pixmap) of a <a href="qpushbutton.html">QPushButton</a>.</td></tr>
@@ -520,7 +528,7 @@
 <!-- $$$PixelMetric$$$PM_ButtonMargin$$$PM_ButtonDefaultIndicator$$$PM_MenuButtonIndicator$$$PM_ButtonShiftHorizontal$$$PM_ButtonShiftVertical$$$PM_DefaultFrameWidth$$$PM_SpinBoxFrameWidth$$$PM_ComboBoxFrameWidth$$$PM_MaximumDragDistance$$$PM_ScrollBarExtent$$$PM_ScrollBarSliderMin$$$PM_SliderThickness$$$PM_SliderControlThickness$$$PM_SliderLength$$$PM_SliderTickmarkOffset$$$PM_SliderSpaceAvailable$$$PM_DockWidgetSeparatorExtent$$$PM_DockWidgetHandleExtent$$$PM_DockWidgetFrameWidth$$$PM_TabBarTabOverlap$$$PM_TabBarTabHSpace$$$PM_TabBarTabVSpace$$$PM_TabBarBaseHeight$$$PM_TabBarBaseOverlap$$$PM_ProgressBarChunkWidth$$$PM_SplitterWidth$$$PM_TitleBarHeight$$$PM_MenuScrollerHeight$$$PM_MenuHMargin$$$PM_MenuVMargin$$$PM_MenuPanelWidth$$$PM_MenuTearoffHeight$$$PM_MenuDesktopFrameWidth$$$PM_MenuBarPanelWidth$$$PM_MenuBarItemSpacing$$$PM_MenuBarVMargin$$$PM_MenuBarHMargin$$$PM_IndicatorWidth$$$PM_IndicatorHeight$$$PM_ExclusiveIndicatorWidth$$$PM_ExclusiveIndicatorHeight$$$PM_CheckListButtonSize$$$PM_CheckListControllerSize$$$PM_DialogButtonsSeparator$$$PM_DialogButtonsButtonWidth$$$PM_DialogButtonsButtonHeight$$$PM_MdiSubWindowFrameWidth$$$PM_MDIFrameWidth$$$PM_MdiSubWindowMinimizedWidth$$$PM_MDIMinimizedWidth$$$PM_HeaderMargin$$$PM_HeaderMarkSize$$$PM_HeaderGripMargin$$$PM_TabBarTabShiftHorizontal$$$PM_TabBarTabShiftVertical$$$PM_TabBarScrollButtonWidth$$$PM_ToolBarFrameWidth$$$PM_ToolBarHandleExtent$$$PM_ToolBarItemSpacing$$$PM_ToolBarItemMargin$$$PM_ToolBarSeparatorExtent$$$PM_ToolBarExtensionExtent$$$PM_SpinBoxSliderHeight$$$PM_DefaultTopLevelMargin$$$PM_DefaultChildMargin$$$PM_DefaultLayoutSpacing$$$PM_ToolBarIconSize$$$PM_ListViewIconSize$$$PM_IconViewIconSize$$$PM_SmallIconSize$$$PM_LargeIconSize$$$PM_FocusFrameVMargin$$$PM_FocusFrameHMargin$$$PM_ToolTipLabelFrameWidth$$$PM_CheckBoxLabelSpacing$$$PM_TabBarIconSize$$$PM_SizeGripSize$$$PM_DockWidgetTitleMargin$$$PM_MessageBoxIconSize$$$PM_ButtonIconSize$$$PM_DockWidgetTitleBarButtonMargin$$$PM_RadioButtonLabelSpacing$$$PM_LayoutLeftMargin$$$PM_LayoutTopMargin$$$PM_LayoutRightMargin$$$PM_LayoutBottomMargin$$$PM_LayoutHorizontalSpacing$$$PM_LayoutVerticalSpacing$$$PM_TabBar_ScrollButtonOverlap$$$PM_TextCursorWidth$$$PM_TabCloseIndicatorWidth$$$PM_TabCloseIndicatorHeight$$$PM_ScrollView_ScrollBarSpacing$$$PM_SubMenuOverlap$$$PM_CustomBase -->
 <h3 class="fn"><a name="PixelMetric-enum"></a>enum QStyle::PixelMetric</h3>
 <p>This enum describes the various available pixel metrics. A pixel metric is a style dependent size represented by a single pixel value.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::PM_ButtonMargin</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Amount of whitespace between push button labels and the frame.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::PM_DockWidgetTitleBarButtonMargin</tt></td><td class=" topAlign">?</td><td  class="topAlign">Amount of whitespace between dock widget's title bar button labels and the frame.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::PM_ButtonDefaultIndicator</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Width of the default-button indicator frame.</td></tr>
@@ -610,7 +618,7 @@
 <tr><td  class="topAlign"><tt>QStyle::PM_CustomBase</tt></td><td class=" topAlign"><tt>0xf0000000</tt></td><td  class="topAlign">Base value for custom pixel metrics. Custom values must be greater than this value.</td></tr>
 </table>
 <p>The following values are obsolete:</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::PM_DefaultTopLevelMargin</tt></td><td class=" topAlign">?</td><td  class="topAlign">Use PM_LayoutLeftMargin, PM_LayoutTopMargin, PM_LayoutRightMargin, and PM_LayoutBottomMargin instead.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::PM_DefaultChildMargin</tt></td><td class=" topAlign">?</td><td  class="topAlign">Use PM_LayoutLeftMargin, PM_LayoutTopMargin, PM_LayoutRightMargin, and PM_LayoutBottomMargin instead.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::PM_DefaultLayoutSpacing</tt></td><td class=" topAlign">?</td><td  class="topAlign">Use PM_LayoutHorizontalSpacing and PM_LayoutVerticalSpacing instead.</td></tr>
@@ -622,7 +630,7 @@
 <!-- $$$PrimitiveElement$$$PE_Q3CheckListController$$$PE_Q3CheckListExclusiveIndicator$$$PE_Q3CheckListIndicator$$$PE_Q3DockWindowSeparator$$$PE_Q3Separator$$$PE_Frame$$$PE_FrameDefaultButton$$$PE_FrameDockWidget$$$PE_FrameFocusRect$$$PE_FrameGroupBox$$$PE_FrameLineEdit$$$PE_FrameMenu$$$PE_FrameStatusBar$$$PE_FrameStatusBarItem$$$PE_FrameTabWidget$$$PE_FrameWindow$$$PE_FrameButtonBevel$$$PE_FrameButtonTool$$$PE_FrameTabBarBase$$$PE_PanelButtonCommand$$$PE_PanelButtonBevel$$$PE_PanelButtonTool$$$PE_PanelMenuBar$$$PE_PanelToolBar$$$PE_PanelLineEdit$$$PE_IndicatorArrowDown$$$PE_IndicatorArrowLeft$$$PE_IndicatorArrowRight$$$PE_IndicatorArrowUp$$$PE_IndicatorBranch$$$PE_IndicatorButtonDropDown$$$PE_IndicatorViewItemCheck$$$PE_IndicatorItemViewItemCheck$$$PE_IndicatorCheckBox$$$PE_IndicatorDockWidgetResizeHandle$$$PE_IndicatorHeaderArrow$$$PE_IndicatorMenuCheckMark$$$PE_IndicatorProgressChunk$$$PE_IndicatorRadioButton$$$PE_IndicatorSpinDown$$$PE_IndicatorSpinMinus$$$PE_IndicatorSpinPlus$$$PE_IndicatorSpinUp$$$PE_IndicatorToolBarHandle$$$PE_IndicatorToolBarSeparator$$$PE_PanelTipLabel$$$PE_IndicatorTabTear$$$PE_PanelScrollAreaCorner$$$PE_Widget$$$PE_IndicatorColumnViewArrow$$$PE_IndicatorItemViewItemDrop$$$PE_PanelItemViewItem$$$PE_PanelItemViewRow$$$PE_PanelStatusBar$$$PE_IndicatorTabClose$$$PE_PanelMenu$$$PE_CustomBase -->
 <h3 class="fn"><a name="PrimitiveElement-enum"></a>enum QStyle::PrimitiveElement</h3>
 <p>This enum describes the various primitive elements. A primitive element is a common GUI element, such as a checkbox indicator or button bevel.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::PE_FrameStatusBar</tt></td><td class=" topAlign"><tt>12</tt></td><td  class="topAlign">Frame</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::PE_PanelButtonCommand</tt></td><td class=" topAlign">?</td><td  class="topAlign">Button used to initiate an action, for example, a <a href="qpushbutton.html">QPushButton</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::PE_FrameDefaultButton</tt></td><td class=" topAlign"><tt>6</tt></td><td  class="topAlign">This frame around a default button, e.g&#x2e; in a dialog.</td></tr>
@@ -685,7 +693,7 @@
 <!-- $$$RequestSoftwareInputPanel$$$RSIP_OnMouseClickAndAlreadyFocused$$$RSIP_OnMouseClick -->
 <h3 class="fn"><a name="RequestSoftwareInputPanel-enum"></a>enum QStyle::RequestSoftwareInputPanel</h3>
 <p>This enum describes under what circumstances a software input panel will be requested by input capable widgets.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::RSIP_OnMouseClickAndAlreadyFocused</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Requests an input panel if the user clicks on the widget, but only if it is already focused.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::RSIP_OnMouseClick</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Requests an input panel if the user clicks on the widget.</td></tr>
 </table>
@@ -694,7 +702,7 @@
 <!-- $$$StandardPixmap$$$SP_TitleBarMenuButton$$$SP_TitleBarMinButton$$$SP_TitleBarMaxButton$$$SP_TitleBarCloseButton$$$SP_TitleBarNormalButton$$$SP_TitleBarShadeButton$$$SP_TitleBarUnshadeButton$$$SP_TitleBarContextHelpButton$$$SP_DockWidgetCloseButton$$$SP_MessageBoxInformation$$$SP_MessageBoxWarning$$$SP_MessageBoxCritical$$$SP_MessageBoxQuestion$$$SP_DesktopIcon$$$SP_TrashIcon$$$SP_ComputerIcon$$$SP_DriveFDIcon$$$SP_DriveHDIcon$$$SP_DriveCDIcon$$$SP_DriveDVDIcon$$$SP_DriveNetIcon$$$SP_DirOpenIcon$$$SP_DirClosedIcon$$$SP_DirLinkIcon$$$SP_FileIcon$$$SP_FileLinkIcon$$$SP_ToolBarHorizontalExtensionButton$$$SP_ToolBarVerticalExtensionButton$$$SP_FileDialogStart$$$SP_FileDialogEnd$$$SP_FileDialogToParent$$$SP_FileDialogNewFolder$$$SP_FileDialogDetailedView$$$SP_FileDialogInfoView$$$SP_FileDialogContentsView$$$SP_FileDialogListView$$$SP_FileDialogBack$$$SP_DirIcon$$$SP_DialogOkButton$$$SP_DialogCancelButton$$$SP_DialogHelpButton$$$SP_DialogOpenButton$$$SP_DialogSaveButton$$$SP_DialogCloseButton$$$SP_DialogApplyButton$$$SP_DialogResetButton$$$SP_DialogDiscardButton$$$SP_DialogYesButton$$$SP_DialogNoButton$$$SP_ArrowUp$$$SP_ArrowDown$$$SP_ArrowLeft$$$SP_ArrowRight$$$SP_ArrowBack$$$SP_ArrowForward$$$SP_DirHomeIcon$$$SP_CommandLink$$$SP_VistaShield$$$SP_BrowserReload$$$SP_BrowserStop$$$SP_MediaPlay$$$SP_MediaStop$$$SP_MediaPause$$$SP_MediaSkipForward$$$SP_MediaSkipBackward$$$SP_MediaSeekForward$$$SP_MediaSeekBackward$$$SP_MediaVolume$$$SP_MediaVolumeMuted$$$SP_CustomBase -->
 <h3 class="fn"><a name="StandardPixmap-enum"></a>enum QStyle::StandardPixmap</h3>
 <p>This enum describes the available standard pixmaps. A standard pixmap is a pixmap that can follow some existing GUI style or guideline.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::SP_TitleBarMinButton</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Minimize button on title bars (e.g&#x2e;, in <a href="qmdisubwindow.html">QMdiSubWindow</a>).</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SP_TitleBarMenuButton</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Menu button on a title bar.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SP_TitleBarMaxButton</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Maximize button on title bars.</td></tr>
@@ -772,7 +780,7 @@
 <h3 class="flags"><a name="StateFlag-enum"></a>enum QStyle::StateFlag<br/>flags QStyle::State</h3>
 <p>This enum describes flags that are used when drawing primitive elements.</p>
 <p>Note that not all primitives use all of these flags, and that the flags may mean different things to different items.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::State_None</tt></td><td class=" topAlign"><tt>0x00000000</tt></td><td  class="topAlign">Indicates that the widget does not have a state.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::State_Active</tt></td><td class=" topAlign"><tt>0x00010000</tt></td><td  class="topAlign">Indicates that the widget is active.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::State_AutoRaise</tt></td><td class=" topAlign"><tt>0x00001000</tt></td><td  class="topAlign">Used to indicate if auto-raise appearance should be usd on a tool button.</td></tr>
@@ -805,7 +813,7 @@
 <!-- $$$StyleHint$$$SH_EtchDisabledText$$$SH_DitherDisabledText$$$SH_ScrollBar_MiddleClickAbsolutePosition$$$SH_ScrollBar_ScrollWhenPointerLeavesControl$$$SH_TabBar_SelectMouseType$$$SH_TabBar_Alignment$$$SH_Header_ArrowAlignment$$$SH_Slider_SnapToValue$$$SH_Slider_SloppyKeyEvents$$$SH_ProgressDialog_CenterCancelButton$$$SH_ProgressDialog_TextLabelAlignment$$$SH_PrintDialog_RightAlignButtons$$$SH_MainWindow_SpaceBelowMenuBar$$$SH_FontDialog_SelectAssociatedText$$$SH_Menu_AllowActiveAndDisabled$$$SH_Menu_SpaceActivatesItem$$$SH_Menu_SubMenuPopupDelay$$$SH_ScrollView_FrameOnlyAroundContents$$$SH_MenuBar_AltKeyNavigation$$$SH_ComboBox_ListMouseTracking$$$SH_Menu_MouseTracking$$$SH_MenuBar_MouseTracking$$$SH_ItemView_ChangeHighlightOnFocus$$$SH_Widget_ShareActivation$$$SH_Workspace_FillSpaceOnMaximize$$$SH_ComboBox_Popup$$$SH_TitleBar_NoBorder$$$SH_Slider_StopMouseOverSlider$$$SH_ScrollBar_StopMouseOverSlider$$$SH_BlinkCursorWhenTextSelected$$$SH_RichText_FullWidthSelection$$$SH_Menu_Scrollable$$$SH_GroupBox_TextLabelVerticalAlignment$$$SH_GroupBox_TextLabelColor$$$SH_Menu_SloppySubMenus$$$SH_Table_GridLineColor$$$SH_LineEdit_PasswordCharacter$$$SH_DialogButtons_DefaultButton$$$SH_ToolBox_SelectedPageTitleBold$$$SH_TabBar_PreferNoArrows$$$SH_ScrollBar_LeftClickAbsolutePosition$$$SH_Q3ListViewExpand_SelectMouseType$$$SH_UnderlineShortcut$$$SH_SpinBox_AnimateButton$$$SH_SpinBox_KeyPressAutoRepeatRate$$$SH_SpinBox_ClickAutoRepeatRate$$$SH_Menu_FillScreenWithScroll$$$SH_ToolTipLabel_Opacity$$$SH_DrawMenuBarSeparator$$$SH_TitleBar_ModifyNotification$$$SH_Button_FocusPolicy$$$SH_MenuBar_DismissOnSecondClick$$$SH_MessageBox_UseBorderForButtonSpacing$$$SH_TitleBar_AutoRaise$$$SH_ToolButton_PopupDelay$$$SH_FocusFrame_Mask$$$SH_RubberBand_Mask$$$SH_WindowFrame_Mask$$$SH_SpinControls_DisableOnBounds$$$SH_Dial_BackgroundRole$$$SH_ComboBox_LayoutDirection$$$SH_ItemView_EllipsisLocation$$$SH_ItemView_ShowDecorationSelected$$$SH_ItemView_ActivateItemOnSingleClick$$$SH_ScrollBar_ContextMenu$$$SH_ScrollBar_RollBetweenButtons$$$SH_Slider_AbsoluteSetButtons$$$SH_Slider_PageSetButtons$$$SH_Menu_KeyboardSearch$$$SH_TabBar_ElideMode$$$SH_DialogButtonLayout$$$SH_ComboBox_PopupFrameStyle$$$SH_MessageBox_TextInteractionFlags$$$SH_DialogButtonBox_ButtonsHaveIcons$$$SH_SpellCheckUnderlineStyle$$$SH_MessageBox_CenterButtons$$$SH_Menu_SelectionWrap$$$SH_ItemView_MovementWithoutUpdatingSelection$$$SH_ToolTip_Mask$$$SH_FocusFrame_AboveWidget$$$SH_TextControl_FocusIndicatorTextCharFormat$$$SH_WizardStyle$$$SH_ItemView_ArrowKeysNavigateIntoChildren$$$SH_Menu_Mask$$$SH_Menu_FlashTriggeredItem$$$SH_Menu_FadeOutOnHide$$$SH_SpinBox_ClickAutoRepeatThreshold$$$SH_ItemView_PaintAlternatingRowColorsForEmptyArea$$$SH_FormLayoutWrapPolicy$$$SH_TabWidget_DefaultTabPosition$$$SH_ToolBar_Movable$$$SH_FormLayoutFieldGrowthPolicy$$$SH_FormLayoutFormAlignment$$$SH_FormLayoutLabelAlignment$$$SH_ItemView_DrawDelegateFrame$$$SH_TabBar_CloseButtonPosition$$$SH_DockWidget_ButtonsHaveFrame$$$SH_ToolButtonStyle$$$SH_RequestSoftwareInputPanel$$$SH_GUIStyle$$$SH_ScrollBar_BackgroundMode$$$SH_UnderlineAccelerator$$$SH_CustomBase -->
 <h3 class="fn"><a name="StyleHint-enum"></a>enum QStyle::StyleHint</h3>
 <p>This enum describes the available style hints. A style hint is a general look and/or feel hint.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_EtchDisabledText</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Disabled text is &quot;etched&quot; as it is on Windows.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_DitherDisabledText</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Disabled text is dithered as it is on Motif.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_GUIStyle</tt></td><td class=" topAlign"><tt>0x00000100</tt></td><td  class="topAlign">The GUI style to use.</td></tr>
@@ -815,7 +823,7 @@
 <tr><td  class="topAlign"><tt>QStyle::SH_ScrollBar_ScrollWhenPointerLeavesControl</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">A boolean value. If true, when clicking a scroll bar <a href="qstyle.html#SubControl-enum">SubControl</a>, holding the mouse button down and moving the pointer outside the <a href="qstyle.html#SubControl-enum">SubControl</a>, the scroll bar continues to scroll. If false, the scollbar stops scrolling when the pointer leaves the <a href="qstyle.html#SubControl-enum">SubControl</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_ScrollBar_RollBetweenButtons</tt></td><td class=" topAlign">?</td><td  class="topAlign">A boolean value. If true, when clicking a scroll bar button (<a href="qstyle.html#SubControl-enum">SC_ScrollBarAddLine</a> or <a href="qstyle.html#SubControl-enum">SC_ScrollBarSubLine</a>) and dragging over to the opposite button (rolling) will press the new button and release the old one. When it is false, the original button is released and nothing happens (like a push button).</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_TabBar_Alignment</tt></td><td class=" topAlign"><tt>5</tt></td><td  class="topAlign">The alignment for tabs in a <a href="qtabwidget.html">QTabWidget</a>. Possible values are <a href="qt.html#AlignmentFlag-enum">Qt::AlignLeft</a>, <a href="qt.html#AlignmentFlag-enum">Qt::AlignCenter</a> and <a href="qt.html#AlignmentFlag-enum">Qt::AlignRight</a>.</td></tr>
-<tr><td  class="topAlign"><tt>QStyle::SH_Header_ArrowAlignment</tt></td><td class=" topAlign"><tt>6</tt></td><td  class="topAlign">The placement of the sorting indicator may appear in list or table headers. Possible values are <a href="qt.html#Dock-enum" class="compat">Qt::Left</a> or <a href="qt.html#Dock-enum" class="compat">Qt::Right</a>.</td></tr>
+<tr><td  class="topAlign"><tt>QStyle::SH_Header_ArrowAlignment</tt></td><td class=" topAlign"><tt>6</tt></td><td  class="topAlign">The placement of the sorting indicator may appear in list or table headers. Possible values are <a href="qt-qt3.html#Dock-enum" class="compat">Qt::Left</a> or <a href="qt-qt3.html#Dock-enum" class="compat">Qt::Right</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_Slider_SnapToValue</tt></td><td class=" topAlign"><tt>7</tt></td><td  class="topAlign">Sliders snap to values while moving, as they do on Windows.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_Slider_SloppyKeyEvents</tt></td><td class=" topAlign"><tt>8</tt></td><td  class="topAlign">Key presses handled in a sloppy manner, i.e&#x2e;, left on a vertical slider subtracts a line.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SH_ProgressDialog_CenterCancelButton</tt></td><td class=" topAlign"><tt>9</tt></td><td  class="topAlign">Center button on progress dialogs, like Motif, otherwise right aligned.</td></tr>
@@ -914,7 +922,7 @@
 <!-- $$$SubControl$$$SC_None$$$SC_ScrollBarAddLine$$$SC_ScrollBarSubLine$$$SC_ScrollBarAddPage$$$SC_ScrollBarSubPage$$$SC_ScrollBarFirst$$$SC_ScrollBarLast$$$SC_ScrollBarSlider$$$SC_ScrollBarGroove$$$SC_SpinBoxUp$$$SC_SpinBoxDown$$$SC_SpinBoxFrame$$$SC_SpinBoxEditField$$$SC_ComboBoxFrame$$$SC_ComboBoxEditField$$$SC_ComboBoxArrow$$$SC_ComboBoxListBoxPopup$$$SC_SliderGroove$$$SC_SliderHandle$$$SC_SliderTickmarks$$$SC_ToolButton$$$SC_ToolButtonMenu$$$SC_TitleBarSysMenu$$$SC_TitleBarMinButton$$$SC_TitleBarMaxButton$$$SC_TitleBarCloseButton$$$SC_TitleBarNormalButton$$$SC_TitleBarShadeButton$$$SC_TitleBarUnshadeButton$$$SC_TitleBarContextHelpButton$$$SC_TitleBarLabel$$$SC_Q3ListView$$$SC_Q3ListViewBranch$$$SC_Q3ListViewExpand$$$SC_DialGroove$$$SC_DialHandle$$$SC_DialTickmarks$$$SC_GroupBoxCheckBox$$$SC_GroupBoxLabel$$$SC_GroupBoxContents$$$SC_GroupBoxFrame$$$SC_MdiMinButton$$$SC_MdiNormalButton$$$SC_MdiCloseButton$$$SC_CustomBase$$$SC_All -->
 <h3 class="flags"><a name="SubControl-enum"></a>enum QStyle::SubControl<br/>flags QStyle::SubControls</h3>
 <p>This enum describes the available sub controls. A subcontrol is a control element within a complex control (<a href="qstyle.html#ComplexControl-enum">ComplexControl</a>).</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::SC_None</tt></td><td class=" topAlign"><tt>0x00000000</tt></td><td  class="topAlign">Special value that matches no other sub control.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SC_ScrollBarAddLine</tt></td><td class=" topAlign"><tt>0x00000001</tt></td><td  class="topAlign">Scroll bar add line (i.e&#x2e;, down/right arrow); see also <a href="qscrollbar.html">QScrollBar</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SC_ScrollBarSubLine</tt></td><td class=" topAlign"><tt>0x00000002</tt></td><td  class="topAlign">Scroll bar sub line (i.e&#x2e;, up/left arrow).</td></tr>
@@ -966,7 +974,7 @@
 <!-- $$$SubElement$$$SE_PushButtonContents$$$SE_PushButtonFocusRect$$$SE_CheckBoxIndicator$$$SE_CheckBoxContents$$$SE_CheckBoxFocusRect$$$SE_CheckBoxClickRect$$$SE_RadioButtonIndicator$$$SE_RadioButtonContents$$$SE_RadioButtonFocusRect$$$SE_RadioButtonClickRect$$$SE_ComboBoxFocusRect$$$SE_SliderFocusRect$$$SE_Q3DockWindowHandleRect$$$SE_ProgressBarGroove$$$SE_ProgressBarContents$$$SE_ProgressBarLabel$$$SE_DialogButtonAccept$$$SE_DialogButtonReject$$$SE_DialogButtonApply$$$SE_DialogButtonHelp$$$SE_DialogButtonAll$$$SE_DialogButtonAbort$$$SE_DialogButtonIgnore$$$SE_DialogButtonRetry$$$SE_DialogButtonCustom$$$SE_ToolBoxTabContents$$$SE_HeaderLabel$$$SE_HeaderArrow$$$SE_TabWidgetTabBar$$$SE_TabWidgetTabPane$$$SE_TabWidgetTabContents$$$SE_TabWidgetLeftCorner$$$SE_TabWidgetRightCorner$$$SE_ViewItemCheckIndicator$$$SE_ItemViewItemCheckIndicator$$$SE_TabBarTearIndicator$$$SE_TreeViewDisclosureItem$$$SE_LineEditContents$$$SE_FrameContents$$$SE_DockWidgetCloseButton$$$SE_DockWidgetFloatButton$$$SE_DockWidgetTitleBarText$$$SE_DockWidgetIcon$$$SE_CheckBoxLayoutItem$$$SE_ComboBoxLayoutItem$$$SE_DateTimeEditLayoutItem$$$SE_DialogButtonBoxLayoutItem$$$SE_LabelLayoutItem$$$SE_ProgressBarLayoutItem$$$SE_PushButtonLayoutItem$$$SE_RadioButtonLayoutItem$$$SE_SliderLayoutItem$$$SE_SpinBoxLayoutItem$$$SE_ToolButtonLayoutItem$$$SE_FrameLayoutItem$$$SE_GroupBoxLayoutItem$$$SE_TabWidgetLayoutItem$$$SE_ItemViewItemDecoration$$$SE_ItemViewItemText$$$SE_ItemViewItemFocusRect$$$SE_TabBarTabLeftButton$$$SE_TabBarTabRightButton$$$SE_TabBarTabText$$$SE_ShapedFrameContents$$$SE_ToolBarHandle$$$SE_CustomBase -->
 <h3 class="fn"><a name="SubElement-enum"></a>enum QStyle::SubElement</h3>
 <p>This enum represents a sub-area of a widget. Style implementations use these areas to draw the different parts of a widget.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyle::SE_PushButtonContents</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Area containing the label (icon with text or pixmap).</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SE_PushButtonFocusRect</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Area for the focus rect (usually larger than the contents rect).</td></tr>
 <tr><td  class="topAlign"><tt>QStyle::SE_PushButtonLayoutItem</tt></td><td class=" topAlign">?</td><td  class="topAlign">Area that counts for the parent layout.</td></tr>
@@ -1228,7 +1236,7 @@
 <h3 class="fn"><a name="polish"></a>void QStyle::polish ( <a href="qwidget.html">QWidget</a> * <i>widget</i> )<tt> [virtual]</tt></h3>
 <p>Initializes the appearance of the given <i>widget</i>.</p>
 <p>This function is called for every widget at some point after it has been fully created but just <i>before</i> it is shown for the very first time.</p>
-<p>Note that the default implementation does nothing. Reasonable actions in this function might be to call the <a href="qwidget.html#setBackgroundMode" class="compat">QWidget::setBackgroundMode</a>() function for the widget. Do not use the function to set, for example, the geometry; reimplementing this function do provide a back-door through which the appearance of a widget can be changed, but with Qt 4.0's style engine there is rarely necessary to implement this function; reimplement the <a href="qstyle.html#drawItemPixmap">drawItemPixmap</a>(), <a href="qstyle.html#drawItemText">drawItemText</a>(), <a href="qstyle.html#drawPrimitive">drawPrimitive</a>(), etc. instead.</p>
+<p>Note that the default implementation does nothing. Reasonable actions in this function might be to call the <a href="qwidget-qt3.html#setBackgroundMode" class="compat">QWidget::setBackgroundMode</a>() function for the widget. Do not use the function to set, for example, the geometry. Reimplementing this function provides a back-door through which the appearance of a widget can be changed, but with Qt's style engine it is rarely necessary to implement this function; reimplement <a href="qstyle.html#drawItemPixmap">drawItemPixmap</a>(), <a href="qstyle.html#drawItemText">drawItemText</a>(), <a href="qstyle.html#drawPrimitive">drawPrimitive</a>(), etc. instead.</p>
 <p>The <a href="qobject.html#inherits">QWidget::inherits</a>() function may provide enough information to allow class-specific customizations. But because new <a href="qstyle.html">QStyle</a> subclasses are expected to work reasonably with all current and <i>future</i> widgets, limited use of hard-coded customization is recommended.</p>
 <p>See also <a href="qstyle.html#unpolish">unpolish</a>().</p>
 <!-- @@@polish -->

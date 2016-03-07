@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,77 +149,77 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QWidget</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qwidget.html">QWidget class reference</a></li></ul></p>
 <h2>Public Types</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#BackgroundOrigin-enum">BackgroundOrigin</a></b> { WidgetOrigin, ParentOrigin, WindowOrigin, AncestorOrigin }</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#BackgroundOrigin-enum">BackgroundOrigin</a></b> { WidgetOrigin, ParentOrigin, WindowOrigin, AncestorOrigin }</td></tr>
 </table>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#QWidget-3">QWidget</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i>, Qt::WindowFlags <i>f</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> Qt::BackgroundMode </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#backgroundMode">backgroundMode</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#backgroundOffset">backgroundOffset</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> BackgroundOrigin </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#backgroundOrigin">backgroundOrigin</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#caption">caption</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#childAt-2">childAt</a></b> ( int <i>x</i>, int <i>y</i>, bool <i>includeThis</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#childAt-3">childAt</a></b> ( const QPoint &amp; <i>p</i>, bool <i>includeThis</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#close-2">close</a></b> ( bool <i>alsoDelete</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#colorGroup">colorGroup</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#constPolish">constPolish</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#drawText">drawText</a></b> ( const QPoint &amp; <i>p</i>, const QString &amp; <i>s</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#drawText-2">drawText</a></b> ( int <i>x</i>, int <i>y</i>, const QString &amp; <i>s</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#erase">erase</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#erase-2">erase</a></b> ( int <i>x</i>, int <i>y</i>, int <i>w</i>, int <i>h</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#erase-3">erase</a></b> ( const QRect &amp; <i>rect</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#erase-4">erase</a></b> ( const QRegion &amp; <i>rgn</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#hasMouse">hasMouse</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> const QPixmap * </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#icon">icon</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#iconText">iconText</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#iconify">iconify</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#isDesktop">isDesktop</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#isDialog">isDialog</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#isInputMethodEnabled">isInputMethodEnabled</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#isPopup">isPopup</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#isShown">isShown</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#isUpdatesEnabled">isUpdatesEnabled</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#isVisibleToTLW">isVisibleToTLW</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#ownCursor">ownCursor</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#ownFont">ownFont</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#ownPalette">ownPalette</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#parentWidget-2">parentWidget</a></b> ( bool <i>sameWindow</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#polish">polish</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#recreate">recreate</a></b> ( QWidget * <i>parent</i>, Qt::WindowFlags <i>f</i>, const QPoint &amp; <i>p</i>, bool <i>showIt</i> = false )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#repaint-2">repaint</a></b> ( bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#repaint-3">repaint</a></b> ( int <i>x</i>, int <i>y</i>, int <i>w</i>, int <i>h</i>, bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#repaint-4">repaint</a></b> ( const QRect &amp; <i>r</i>, bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#repaint-5">repaint</a></b> ( const QRegion &amp; <i>rgn</i>, bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#reparent">reparent</a></b> ( QWidget * <i>parent</i>, Qt::WindowFlags <i>f</i>, const QPoint &amp; <i>p</i>, bool <i>showIt</i> = false )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#reparent-2">reparent</a></b> ( QWidget * <i>parent</i>, const QPoint &amp; <i>p</i>, bool <i>showIt</i> = false )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setActiveWindow">setActiveWindow</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setBackgroundColor">setBackgroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setBackgroundMode">setBackgroundMode</a></b> ( Qt::BackgroundMode <i>widgetBackground</i>, Qt::BackgroundMode <i>paletteBackground</i> = Qt::PaletteBackground )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setBackgroundOrigin">setBackgroundOrigin</a></b> ( BackgroundOrigin <i>background</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setBackgroundPixmap">setBackgroundPixmap</a></b> ( const QPixmap &amp; <i>pixmap</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setCaption">setCaption</a></b> ( const QString &amp; <i>c</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setEraseColor">setEraseColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setErasePixmap">setErasePixmap</a></b> ( const QPixmap &amp; <i>pixmap</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setFont-2">setFont</a></b> ( const QFont &amp; <i>f</i>, bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setIcon">setIcon</a></b> ( const QPixmap &amp; <i>i</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setIconText">setIconText</a></b> ( const QString &amp; <i>it</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setInputMethodEnabled">setInputMethodEnabled</a></b> ( bool <i>enabled</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setKeyCompression">setKeyCompression</a></b> ( bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setPalette-2">setPalette</a></b> ( const QPalette &amp; <i>p</i>, bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setPaletteBackgroundColor">setPaletteBackgroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setPaletteBackgroundPixmap">setPaletteBackgroundPixmap</a></b> ( const QPixmap &amp; <i>pixmap</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setPaletteForegroundColor">setPaletteForegroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setSizePolicy-2">setSizePolicy</a></b> ( QSizePolicy::Policy <i>hor</i>, QSizePolicy::Policy <i>ver</i>, bool <i>hfw</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QStyle * </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setStyle-2">setStyle</a></b> ( const QString &amp; <i>style</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#unsetFont">unsetFont</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#unsetPalette">unsetPalette</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#visibleRect">visibleRect</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#QWidget-3">QWidget</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i>, Qt::WindowFlags <i>f</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> Qt::BackgroundMode </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#backgroundMode">backgroundMode</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#backgroundOffset">backgroundOffset</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> BackgroundOrigin </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#backgroundOrigin">backgroundOrigin</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#caption">caption</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#childAt-2">childAt</a></b> ( int <i>x</i>, int <i>y</i>, bool <i>includeThis</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#childAt-3">childAt</a></b> ( const QPoint &amp; <i>p</i>, bool <i>includeThis</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#close-2">close</a></b> ( bool <i>alsoDelete</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QColorGroup </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#colorGroup">colorGroup</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#constPolish">constPolish</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#drawText">drawText</a></b> ( const QPoint &amp; <i>p</i>, const QString &amp; <i>s</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#drawText-2">drawText</a></b> ( int <i>x</i>, int <i>y</i>, const QString &amp; <i>s</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#erase">erase</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#erase-2">erase</a></b> ( int <i>x</i>, int <i>y</i>, int <i>w</i>, int <i>h</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#erase-3">erase</a></b> ( const QRect &amp; <i>rect</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#erase-4">erase</a></b> ( const QRegion &amp; <i>rgn</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#hasMouse">hasMouse</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const QPixmap * </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#icon">icon</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#iconText">iconText</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#iconify">iconify</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#isDesktop">isDesktop</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#isDialog">isDialog</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#isInputMethodEnabled">isInputMethodEnabled</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#isPopup">isPopup</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#isShown">isShown</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#isUpdatesEnabled">isUpdatesEnabled</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#isVisibleToTLW">isVisibleToTLW</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#ownCursor">ownCursor</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#ownFont">ownFont</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#ownPalette">ownPalette</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#parentWidget-2">parentWidget</a></b> ( bool <i>sameWindow</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#polish">polish</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#recreate">recreate</a></b> ( QWidget * <i>parent</i>, Qt::WindowFlags <i>f</i>, const QPoint &amp; <i>p</i>, bool <i>showIt</i> = false )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#repaint-2">repaint</a></b> ( bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#repaint-3">repaint</a></b> ( int <i>x</i>, int <i>y</i>, int <i>w</i>, int <i>h</i>, bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#repaint-4">repaint</a></b> ( const QRect &amp; <i>r</i>, bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#repaint-5">repaint</a></b> ( const QRegion &amp; <i>rgn</i>, bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#reparent">reparent</a></b> ( QWidget * <i>parent</i>, Qt::WindowFlags <i>f</i>, const QPoint &amp; <i>p</i>, bool <i>showIt</i> = false )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#reparent-2">reparent</a></b> ( QWidget * <i>parent</i>, const QPoint &amp; <i>p</i>, bool <i>showIt</i> = false )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setActiveWindow">setActiveWindow</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setBackgroundColor">setBackgroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setBackgroundMode">setBackgroundMode</a></b> ( Qt::BackgroundMode <i>widgetBackground</i>, Qt::BackgroundMode <i>paletteBackground</i> = Qt::PaletteBackground )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setBackgroundOrigin">setBackgroundOrigin</a></b> ( BackgroundOrigin <i>background</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setBackgroundPixmap">setBackgroundPixmap</a></b> ( const QPixmap &amp; <i>pixmap</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setCaption">setCaption</a></b> ( const QString &amp; <i>c</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setEraseColor">setEraseColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setErasePixmap">setErasePixmap</a></b> ( const QPixmap &amp; <i>pixmap</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setFont-2">setFont</a></b> ( const QFont &amp; <i>f</i>, bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setIcon">setIcon</a></b> ( const QPixmap &amp; <i>i</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setIconText">setIconText</a></b> ( const QString &amp; <i>it</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setInputMethodEnabled">setInputMethodEnabled</a></b> ( bool <i>enabled</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setKeyCompression">setKeyCompression</a></b> ( bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setPalette-2">setPalette</a></b> ( const QPalette &amp; <i>p</i>, bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setPaletteBackgroundColor">setPaletteBackgroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setPaletteBackgroundPixmap">setPaletteBackgroundPixmap</a></b> ( const QPixmap &amp; <i>pixmap</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setPaletteForegroundColor">setPaletteForegroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setSizePolicy-2">setSizePolicy</a></b> ( QSizePolicy::Policy <i>hor</i>, QSizePolicy::Policy <i>ver</i>, bool <i>hfw</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QStyle * </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setStyle-2">setStyle</a></b> ( const QString &amp; <i>style</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#unsetFont">unsetFont</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#unsetPalette">unsetPalette</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#visibleRect">visibleRect</a></b> () const</td></tr>
 </table>
 <ul>
 <li class="fn">8 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
@@ -219,11 +227,11 @@
 </ul>
 <h2>Public Slots</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#setShown">setShown</a></b> ( bool <i>shown</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#setShown">setShown</a></b> ( bool <i>shown</i> )</td></tr>
 </table>
 <h2>Static Public Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> QWidgetMapper * </td><td class="memItemRight bottomAlign"><b><a href="qwidget.html#wmapper">wmapper</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QWidgetMapper * </td><td class="memItemRight bottomAlign"><b><a href="qwidget-qt3.html#wmapper">wmapper</a></b> ()</td></tr>
 </table>
 <ul>
 <li class="fn">13 static public members inherited from <a href="qpaintdevice.html#static-public-members">QPaintDevice</a></li>
@@ -244,24 +252,24 @@
 <p>This is an overloaded function.</p>
 <!-- @@@QWidget -->
 <!-- $$$backgroundMode[overload1]$$$backgroundMode -->
-<h3 class="fn"><a name="backgroundMode"></a><a href="qt.html#BackgroundMode-enum">Qt::BackgroundMode</a> QWidget::backgroundMode () const</h3>
+<h3 class="fn"><a name="backgroundMode"></a><a href="qt-qt3.html#BackgroundMode-enum">Qt::BackgroundMode</a> QWidget::backgroundMode () const</h3>
 <p>Returns the color role used for painting the widget's background.</p>
 <p>Use <a href="qpalette.html">QPalette</a>(backgroundRole(()) instead.</p>
-<p>See also <a href="qwidget.html#setBackgroundMode">setBackgroundMode</a>().</p>
+<p>See also <a href="qwidget-qt3.html#setBackgroundMode">setBackgroundMode</a>().</p>
 <!-- @@@backgroundMode -->
 <!-- $$$backgroundOffset[overload1]$$$backgroundOffset -->
 <h3 class="fn"><a name="backgroundOffset"></a><a href="qpoint.html">QPoint</a> QWidget::backgroundOffset () const</h3>
 <p>Always returns QPoint().</p>
 <!-- @@@backgroundOffset -->
 <!-- $$$backgroundOrigin[overload1]$$$backgroundOrigin -->
-<h3 class="fn"><a name="backgroundOrigin"></a><a href="qwidget.html#BackgroundOrigin-enum">BackgroundOrigin</a> QWidget::backgroundOrigin () const</h3>
+<h3 class="fn"><a name="backgroundOrigin"></a><a href="qwidget-qt3.html#BackgroundOrigin-enum">BackgroundOrigin</a> QWidget::backgroundOrigin () const</h3>
 <p>Always returns <tt>WindowOrigin</tt>.</p>
-<p>See also <a href="qwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>().</p>
+<p>See also <a href="qwidget-qt3.html#setBackgroundOrigin">setBackgroundOrigin</a>().</p>
 <!-- @@@backgroundOrigin -->
 <!-- $$$caption[overload1]$$$caption -->
 <h3 class="fn"><a name="caption"></a><a href="qstring.html">QString</a> QWidget::caption () const</h3>
 <p>Use <a href="qwidget.html#windowTitle-prop">windowTitle</a>() instead.</p>
-<p>See also <a href="qwidget.html#setCaption">setCaption</a>().</p>
+<p>See also <a href="qwidget-qt3.html#setCaption">setCaption</a>().</p>
 <!-- @@@caption -->
 <!-- $$$childAt$$$childAtintintbool -->
 <h3 class="fn"><a name="childAt-2"></a>QWidget * QWidget::childAt ( int <i>x</i>, int <i>y</i>, bool <i>includeThis</i> ) const</h3>
@@ -326,12 +334,12 @@
 <h3 class="fn"><a name="icon"></a>const <a href="qpixmap.html">QPixmap</a> * QWidget::icon () const</h3>
 <p>Return's the widget's icon.</p>
 <p>Use <a href="qwidget.html#windowIcon-prop">windowIcon</a>() instead.</p>
-<p>See also <a href="qwidget.html#setIcon">setIcon</a>().</p>
+<p>See also <a href="qwidget-qt3.html#setIcon">setIcon</a>().</p>
 <!-- @@@icon -->
 <!-- $$$iconText[overload1]$$$iconText -->
 <h3 class="fn"><a name="iconText"></a><a href="qstring.html">QString</a> QWidget::iconText () const</h3>
 <p>Use <a href="qwidget.html#windowIconText-prop">windowIconText</a>() instead.</p>
-<p>See also <a href="qwidget.html#setIconText">setIconText</a>().</p>
+<p>See also <a href="qwidget-qt3.html#setIconText">setIconText</a>().</p>
 <!-- @@@iconText -->
 <!-- $$$iconify[overload1]$$$iconify -->
 <h3 class="fn"><a name="iconify"></a>void QWidget::iconify ()</h3>
@@ -429,13 +437,13 @@
  widget-&gt;setPalette(palette);</pre>
 <!-- @@@setBackgroundColor -->
 <!-- $$$setBackgroundMode[overload1]$$$setBackgroundModeQt::BackgroundModeQt::BackgroundMode -->
-<h3 class="fn"><a name="setBackgroundMode"></a>void QWidget::setBackgroundMode ( <a href="qt.html#BackgroundMode-enum">Qt::BackgroundMode</a> <i>widgetBackground</i>, <a href="qt.html#BackgroundMode-enum">Qt::BackgroundMode</a> <i>paletteBackground</i> = Qt::PaletteBackground )</h3>
+<h3 class="fn"><a name="setBackgroundMode"></a>void QWidget::setBackgroundMode ( <a href="qt-qt3.html#BackgroundMode-enum">Qt::BackgroundMode</a> <i>widgetBackground</i>, <a href="qt-qt3.html#BackgroundMode-enum">Qt::BackgroundMode</a> <i>paletteBackground</i> = Qt::PaletteBackground )</h3>
 <p>Sets the color role used for painting the widget's background to background mode <i>widgetBackground</i>. The <i>paletteBackground</i> mode parameter is ignored.</p>
-<p>See also <a href="qwidget.html#backgroundMode">backgroundMode</a>().</p>
+<p>See also <a href="qwidget-qt3.html#backgroundMode">backgroundMode</a>().</p>
 <!-- @@@setBackgroundMode -->
 <!-- $$$setBackgroundOrigin[overload1]$$$setBackgroundOriginBackgroundOrigin -->
-<h3 class="fn"><a name="setBackgroundOrigin"></a>void QWidget::setBackgroundOrigin ( <a href="qwidget.html#BackgroundOrigin-enum">BackgroundOrigin</a> <i>background</i> )</h3>
-<p>See also <a href="qwidget.html#backgroundOrigin">backgroundOrigin</a>().</p>
+<h3 class="fn"><a name="setBackgroundOrigin"></a>void QWidget::setBackgroundOrigin ( <a href="qwidget-qt3.html#BackgroundOrigin-enum">BackgroundOrigin</a> <i>background</i> )</h3>
+<p>See also <a href="qwidget-qt3.html#backgroundOrigin">backgroundOrigin</a>().</p>
 <!-- @@@setBackgroundOrigin -->
 <!-- $$$setBackgroundPixmap[overload1]$$$setBackgroundPixmapconstQPixmap& -->
 <h3 class="fn"><a name="setBackgroundPixmap"></a>void QWidget::setBackgroundPixmap ( const <a href="qpixmap.html">QPixmap</a> &amp; <i>pixmap</i> )</h3>
@@ -450,7 +458,7 @@
 <!-- $$$setCaption[overload1]$$$setCaptionconstQString& -->
 <h3 class="fn"><a name="setCaption"></a>void QWidget::setCaption ( const <a href="qstring.html">QString</a> &amp; <i>c</i> )</h3>
 <p>Use <a href="qwidget.html#windowTitle-prop">setWindowTitle</a>() instead.</p>
-<p>See also <a href="qwidget.html#caption">caption</a>().</p>
+<p>See also <a href="qwidget-qt3.html#caption">caption</a>().</p>
 <!-- @@@setCaption -->
 <!-- $$$setEraseColor[overload1]$$$setEraseColorconstQColor& -->
 <h3 class="fn"><a name="setEraseColor"></a>void QWidget::setEraseColor ( const <a href="qcolor.html">QColor</a> &amp; <i>color</i> )</h3>
@@ -479,17 +487,17 @@
 <!-- $$$setIcon[overload1]$$$setIconconstQPixmap& -->
 <h3 class="fn"><a name="setIcon"></a>void QWidget::setIcon ( const <a href="qpixmap.html">QPixmap</a> &amp; <i>i</i> )</h3>
 <p>Use <a href="qwidget.html#windowIcon-prop">setWindowIcon</a>() instead.</p>
-<p>See also <a href="qwidget.html#icon">icon</a>().</p>
+<p>See also <a href="qwidget-qt3.html#icon">icon</a>().</p>
 <!-- @@@setIcon -->
 <!-- $$$setIconText[overload1]$$$setIconTextconstQString& -->
 <h3 class="fn"><a name="setIconText"></a>void QWidget::setIconText ( const <a href="qstring.html">QString</a> &amp; <i>it</i> )</h3>
 <p>Use <a href="qwidget.html#windowIconText-prop">setWindowIconText</a>() instead.</p>
-<p>See also <a href="qwidget.html#iconText">iconText</a>().</p>
+<p>See also <a href="qwidget-qt3.html#iconText">iconText</a>().</p>
 <!-- @@@setIconText -->
 <!-- $$$setInputMethodEnabled[overload1]$$$setInputMethodEnabledbool -->
 <h3 class="fn"><a name="setInputMethodEnabled"></a>void QWidget::setInputMethodEnabled ( bool <i>enabled</i> )</h3>
 <p>Use setAttribute(<a href="qt.html#WidgetAttribute-enum">Qt::WA_InputMethodEnabled</a>, <i>enabled</i>) instead.</p>
-<p>See also <a href="qwidget.html#isInputMethodEnabled">isInputMethodEnabled</a>().</p>
+<p>See also <a href="qwidget-qt3.html#isInputMethodEnabled">isInputMethodEnabled</a>().</p>
 <!-- @@@setInputMethodEnabled -->
 <!-- $$$setKeyCompression[overload1]$$$setKeyCompressionbool -->
 <h3 class="fn"><a name="setKeyCompression"></a>void QWidget::setKeyCompression ( bool <i>b</i> )</h3>
@@ -532,7 +540,7 @@
 <!-- $$$setShown[overload1]$$$setShownbool -->
 <h3 class="fn"><a name="setShown"></a>void QWidget::setShown ( bool <i>shown</i> )<tt> [slot]</tt></h3>
 <p>Use setVisible(<i>shown</i>) instead.</p>
-<p>See also <a href="qwidget.html#isShown">isShown</a>().</p>
+<p>See also <a href="qwidget-qt3.html#isShown">isShown</a>().</p>
 <!-- @@@setShown -->
 <!-- $$$setSizePolicy$$$setSizePolicyQSizePolicy::PolicyQSizePolicy::Policybool -->
 <h3 class="fn"><a name="setSizePolicy-2"></a>void QWidget::setSizePolicy ( <a href="qsizepolicy.html#Policy-enum">QSizePolicy::Policy</a> <i>hor</i>, <a href="qsizepolicy.html#Policy-enum">QSizePolicy::Policy</a> <i>ver</i>, bool <i>hfw</i> )</h3>

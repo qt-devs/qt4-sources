@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -190,7 +198,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> Q3ListViewItem * </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#itemAbove">itemAbove</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Q3ListViewItem * </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#itemBelow">itemBelow</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#itemPos">itemPos</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#keyx">key</a></b> ( int <i>column</i>, bool <i>ascending</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#key">key</a></b> ( int <i>column</i>, bool <i>ascending</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Q3ListView * </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#listView">listView</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#moveItem">moveItem</a></b> ( Q3ListViewItem * <i>after</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3listviewitem.html#multiLinesEnabled">multiLinesEnabled</a></b> () const</td></tr>
@@ -272,7 +280,7 @@
 <table class="generic">
 <thead><tr class="qt-style topAlign"><th >Function</th><th >Description</th></tr></thead>
 <tr class="odd topAlign"><td ><p><a href="q3listviewitem.html#text">text</a>()</p></td><td ><p>Returns the text in a column. Many subclasses will compute this on the fly.</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="q3listviewitem.html#keyx">key</a>()</p></td><td ><p>Used for sorting. The default <a href="q3listviewitem.html#keyx">key</a>() simply calls <a href="q3listviewitem.html#text">text</a>(), but judicious use of <a href="q3listviewitem.html#keyx">key</a>() can give you fine control over sorting; for example, <a href="qfiledialog.html">QFileDialog</a> reimplements <a href="q3listviewitem.html#keyx">key</a>() to sort by date.</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="q3listviewitem.html#key">key</a>()</p></td><td ><p>Used for sorting. The default <a href="q3listviewitem.html#key">key</a>() simply calls <a href="q3listviewitem.html#text">text</a>(), but judicious use of <a href="q3listviewitem.html#key">key</a>() can give you fine control over sorting; for example, <a href="qfiledialog.html">QFileDialog</a> reimplements <a href="q3listviewitem.html#key">key</a>() to sort by date.</p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="q3listviewitem.html#setup">setup</a>()</p></td><td ><p>Called before showing the item and whenever the list view's font changes, for example.</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="q3listviewitem.html#activate">activate</a>()</p></td><td ><p>Called whenever the user clicks on the item or presses Space when the item is the current item.</p></td></tr>
 </table>
@@ -311,13 +319,13 @@
 <!-- $$$Q3ListViewItem$$$Q3ListViewItemQ3ListView*Q3ListViewItem*constQString&constQString&constQString&constQString&constQString&constQString&constQString&constQString& -->
 <h3 class="fn"><a name="Q3ListViewItem-7"></a>Q3ListViewItem::Q3ListViewItem ( <a href="q3listview.html">Q3ListView</a> * <i>parent</i>, Q3ListViewItem * <i>after</i>, const <a href="qstring.html">QString</a> &amp; <i>label1</i>, const <a href="qstring.html">QString</a> &amp; <i>label2</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label3</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label4</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label5</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label6</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label7</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label8</i> = QString() )</h3>
 <p>Constructs a new list view item in the <a href="q3listview.html" class="compat">Q3ListView</a> <i>parent</i> that is included after item <i>after</i> and that has up to eight column texts, <i>label1</i>, <i>label2</i>, <i>label3</i>, <i>label4</i>, <i>label5</i>, <i>label6</i>, <i>label7</i> and<i>label8</i>.</p>
-<p>Note that the order is changed according to <a href="q3listviewitem.html#keyx">Q3ListViewItem::key</a>() unless the list view's sorting is disabled using Q3ListView::setSorting(-1).</p>
+<p>Note that the order is changed according to <a href="q3listviewitem.html#key">Q3ListViewItem::key</a>() unless the list view's sorting is disabled using Q3ListView::setSorting(-1).</p>
 <p>See also <a href="q3listviewitem.html#setText">setText</a>().</p>
 <!-- @@@Q3ListViewItem -->
 <!-- $$$Q3ListViewItem$$$Q3ListViewItemQ3ListViewItem*Q3ListViewItem*constQString&constQString&constQString&constQString&constQString&constQString&constQString&constQString& -->
 <h3 class="fn"><a name="Q3ListViewItem-8"></a>Q3ListViewItem::Q3ListViewItem ( Q3ListViewItem * <i>parent</i>, Q3ListViewItem * <i>after</i>, const <a href="qstring.html">QString</a> &amp; <i>label1</i>, const <a href="qstring.html">QString</a> &amp; <i>label2</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label3</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label4</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label5</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label6</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label7</i> = QString(), const <a href="qstring.html">QString</a> &amp; <i>label8</i> = QString() )</h3>
 <p>Constructs a new list view item as a child of the <a href="q3listviewitem.html" class="compat">Q3ListViewItem</a> <i>parent</i>. It is inserted after item <i>after</i> and may contain up to eight strings, <i>label1</i>, <i>label2</i>, <i>label3</i>, <i>label4</i>, <i>label5</i>, <i>label6</i>, <i>label7</i> and <i>label8</i> as column entries.</p>
-<p>Note that the order is changed according to <a href="q3listviewitem.html#keyx">Q3ListViewItem::key</a>() unless the list view's sorting is disabled using Q3ListView::setSorting(-1).</p>
+<p>Note that the order is changed according to <a href="q3listviewitem.html#key">Q3ListViewItem::key</a>() unless the list view's sorting is disabled using Q3ListView::setSorting(-1).</p>
 <p>See also <a href="q3listviewitem.html#setText">setText</a>().</p>
 <!-- @@@Q3ListViewItem -->
 <!-- $$$~Q3ListViewItem[overload1]$$$~Q3ListViewItem -->
@@ -354,14 +362,14 @@
 <h3 class="fn"><a name="compare"></a>int Q3ListViewItem::compare ( Q3ListViewItem * <i>i</i>, int <i>col</i>, bool <i>ascending</i> ) const<tt> [virtual]</tt></h3>
 <p>Compares this list view item to <i>i</i> using the column <i>col</i> in <i>ascending</i> order. Returns &lt; 0 if this item is less than <i>i</i>, 0 if they are equal and &gt; 0 if this item is greater than <i>i</i>.</p>
 <p>This function is used for sorting.</p>
-<p>The default implementation compares the item keys (<a href="q3listviewitem.html#keyx">key</a>()) using <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(). A reimplementation can use different values and a different comparison function. Here is a reimplementation that uses plain Unicode comparison:</p>
+<p>The default implementation compares the item keys (<a href="q3listviewitem.html#key">key</a>()) using <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(). A reimplementation can use different values and a different comparison function. Here is a reimplementation that uses plain Unicode comparison:</p>
 <pre class="highlightedCode brush: cpp"> int MyListViewItem::compare(Q3ListViewItem *i, int col,
                               bool ascending) const
  {
      return key(col, ascending).compare(i-&gt;key(col, ascending));
  }</pre>
 <p>We don't recommend using <i>ascending</i> so your code can safely ignore it.</p>
-<p>See also <a href="q3listviewitem.html#keyx">key</a>(), <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(), and <a href="qstring.html#compare">QString::compare</a>().</p>
+<p>See also <a href="q3listviewitem.html#key">key</a>(), <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(), and <a href="qstring.html#compare">QString::compare</a>().</p>
 <!-- @@@compare -->
 <!-- $$$depth[overload1]$$$depth -->
 <h3 class="fn"><a name="depth"></a>int Q3ListViewItem::depth () const</h3>
@@ -467,7 +475,7 @@
 <p>See also <a href="q3listview.html#itemAt">Q3ListView::itemAt</a>(), <a href="q3listview.html#itemRect">Q3ListView::itemRect</a>(), and <a href="q3listview.html#itemPos">Q3ListView::itemPos</a>().</p>
 <!-- @@@itemPos -->
 <!-- $$$key[overload1]$$$keyintbool -->
-<h3 class="fn"><a name="keyx"></a><a href="qstring.html">QString</a> Q3ListViewItem::key ( int <i>column</i>, bool <i>ascending</i> ) const<tt> [virtual]</tt></h3>
+<h3 class="fn"><a name="key"></a><a href="qstring.html">QString</a> Q3ListViewItem::key ( int <i>column</i>, bool <i>ascending</i> ) const<tt> [virtual]</tt></h3>
 <p>Returns a key that can be used for sorting by column <i>column</i>. The default implementation returns <a href="q3listviewitem.html#text">text</a>(). Derived classes may also incorporate the order indicated by <i>ascending</i> into this key, although this is not recommended.</p>
 <p>If you want to sort on non-alphabetical data, e.g&#x2e; dates, numbers, etc., it is more efficient to reimplement <a href="q3listviewitem.html#compare">compare</a>().</p>
 <p>See also <a href="q3listviewitem.html#compare">compare</a>() and <a href="q3listviewitem.html#sortChildItems">sortChildItems</a>().</p>
@@ -614,7 +622,7 @@
 <h3 class="fn"><a name="setText"></a>void Q3ListViewItem::setText ( int <i>column</i>, const <a href="qstring.html">QString</a> &amp; <i>text</i> )<tt> [virtual]</tt></h3>
 <p>Sets the text in column <i>column</i> to <i>text</i>, if <i>column</i> is a valid column number and <i>text</i> is different from the existing text.</p>
 <p>If the <a href="q3listviewitem.html#text">text</a>() function has been reimplemented, this function may be a no-op.</p>
-<p>See also <a href="q3listviewitem.html#text">text</a>() and <a href="q3listviewitem.html#keyx">key</a>().</p>
+<p>See also <a href="q3listviewitem.html#text">text</a>() and <a href="q3listviewitem.html#key">key</a>().</p>
 <!-- @@@setText -->
 <!-- $$$setVisible[overload1]$$$setVisiblebool -->
 <h3 class="fn"><a name="setVisible"></a>void Q3ListViewItem::setVisible ( bool <i>b</i> )</h3>
@@ -636,7 +644,7 @@
 <h3 class="fn"><a name="sortChildItems"></a>void Q3ListViewItem::sortChildItems ( int <i>column</i>, bool <i>ascending</i> )<tt> [virtual]</tt></h3>
 <p>Sorts this item's children using column <i>column</i>. This is done in ascending order if <i>ascending</i> is true and in descending order if <i>ascending</i> is false.</p>
 <p>Asks some of the children to sort their children. (<a href="q3listview.html" class="compat">Q3ListView</a> and <a href="q3listviewitem.html" class="compat">Q3ListViewItem</a> ensure that all on-screen objects are properly sorted but may avoid or defer sorting other objects in order to be more responsive.)</p>
-<p>See also <a href="q3listviewitem.html#keyx">key</a>() and <a href="q3listviewitem.html#compare">compare</a>().</p>
+<p>See also <a href="q3listviewitem.html#key">key</a>() and <a href="q3listviewitem.html#compare">compare</a>().</p>
 <!-- @@@sortChildItems -->
 <!-- $$$startRename[overload1]$$$startRenameint -->
 <h3 class="fn"><a name="startRename"></a>void Q3ListViewItem::startRename ( int <i>col</i> )<tt> [virtual]</tt></h3>
@@ -654,7 +662,7 @@
 <!-- $$$text[overload1]$$$textint -->
 <h3 class="fn"><a name="text"></a><a href="qstring.html">QString</a> Q3ListViewItem::text ( int <i>column</i> ) const<tt> [virtual]</tt></h3>
 <p>Returns the text in column <i>column</i>, or an empty string if there is no text in that column.</p>
-<p>See also <a href="q3listviewitem.html#setText">setText</a>(), <a href="q3listviewitem.html#keyx">key</a>(), and <a href="q3listviewitem.html#paintCell">paintCell</a>().</p>
+<p>See also <a href="q3listviewitem.html#setText">setText</a>(), <a href="q3listviewitem.html#key">key</a>(), and <a href="q3listviewitem.html#paintCell">paintCell</a>().</p>
 <!-- @@@text -->
 <!-- $$$totalHeight[overload1]$$$totalHeight -->
 <h3 class="fn"><a name="totalHeight"></a>int Q3ListViewItem::totalHeight () const</h3>

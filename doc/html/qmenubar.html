@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -182,6 +190,8 @@
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#QMenuBar">QMenuBar</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#dtor.QMenuBar">~QMenuBar</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#actionAt">actionAt</a></b> ( const QPoint &amp; <i>pt</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#actionGeometry">actionGeometry</a></b> ( QAction * <i>act</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#activeAction">activeAction</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#addAction">addAction</a></b> ( const QString &amp; <i>text</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#addAction-2">addAction</a></b> ( const QString &amp; <i>text</i>, const QObject * <i>receiver</i>, const char * <i>member</i> )</td></tr>
@@ -191,12 +201,14 @@
 <tr><td class="memItemLeft rightAlign topAlign"> QMenu * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#addMenu-3">addMenu</a></b> ( const QIcon &amp; <i>icon</i>, const QString &amp; <i>title</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#addSeparator">addSeparator</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#clear">clear</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#cornerWidget">cornerWidget</a></b> ( Qt::Corner <i>corner</i> = Qt::TopRightCorner ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#defaultAction">defaultAction</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertMenu">insertMenu</a></b> ( QAction * <i>before</i>, QMenu * <i>menu</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QAction * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertSeparator">insertSeparator</a></b> ( QAction * <i>before</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#defaultUp-prop">isDefaultUp</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#nativeMenuBar-prop">isNativeMenuBar</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setActiveAction">setActiveAction</a></b> ( QAction * <i>act</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setCornerWidget">setCornerWidget</a></b> ( QWidget * <i>widget</i>, Qt::Corner <i>corner</i> = Qt::TopRightCorner )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setDefaultAction">setDefaultAction</a></b> ( QAction * <i>act</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#defaultUp-prop">setDefaultUp</a></b> ( bool )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#nativeMenuBar-prop">setNativeMenuBar</a></b> ( bool <i>nativeMenuBar</i> )</td></tr>
@@ -351,10 +363,20 @@
 <h3 class="fn"><a name="dtor.QMenuBar"></a>QMenuBar::~QMenuBar ()</h3>
 <p>Destroys the menu bar.</p>
 <!-- @@@~QMenuBar -->
+<!-- $$$actionAt[overload1]$$$actionAtconstQPoint& -->
+<h3 class="fn"><a name="actionAt"></a><a href="qaction.html">QAction</a> * QMenuBar::actionAt ( const <a href="qpoint.html">QPoint</a> &amp; <i>pt</i> ) const</h3>
+<p>Returns the <a href="qaction.html">QAction</a> at <i>pt</i>. Returns 0 if there is no action at <i>pt</i> or if the location has a separator.</p>
+<p>See also <a href="qmenubar.html#addAction">addAction</a>() and <a href="qmenubar.html#addSeparator">addSeparator</a>().</p>
+<!-- @@@actionAt -->
 <!-- $$$actionEvent[overload1]$$$actionEventQActionEvent* -->
 <h3 class="fn"><a name="actionEvent"></a>void QMenuBar::actionEvent ( <a href="qactionevent.html">QActionEvent</a> * <i>e</i> )<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#actionEvent">QWidget::actionEvent</a>().</p>
 <!-- @@@actionEvent -->
+<!-- $$$actionGeometry[overload1]$$$actionGeometryQAction* -->
+<h3 class="fn"><a name="actionGeometry"></a><a href="qrect.html">QRect</a> QMenuBar::actionGeometry ( <a href="qaction.html">QAction</a> * <i>act</i> ) const</h3>
+<p>Returns the geometry of action <i>act</i> as a <a href="qrect.html">QRect</a>.</p>
+<p>See also <a href="qmenubar.html#actionAt">actionAt</a>().</p>
+<!-- @@@actionGeometry -->
 <!-- $$$activeAction[overload1]$$$activeAction -->
 <h3 class="fn"><a name="activeAction"></a><a href="qaction.html">QAction</a> * QMenuBar::activeAction () const</h3>
 <p>Returns the <a href="qaction.html">QAction</a> that is currently highlighted. A null pointer will be returned if no action is currently selected.</p>
@@ -408,6 +430,12 @@
 <p><b>Note:</b> On Mac OS X, menu items that have been merged to the system menu bar are not removed by this function. One way to handle this would be to remove the extra actions yourself. You can set the <a href="qaction.html#MenuRole-enum">menu role</a> on the different menus, so that you know ahead of time which menu items get merged and which do not. Then decide what to recreate or remove yourself.</p>
 <p>See also <a href="qwidget.html#removeAction">removeAction</a>().</p>
 <!-- @@@clear -->
+<!-- $$$cornerWidget[overload1]$$$cornerWidgetQt::Corner -->
+<h3 class="fn"><a name="cornerWidget"></a><a href="qwidget.html">QWidget</a> * QMenuBar::cornerWidget ( <a href="qt.html#Corner-enum">Qt::Corner</a> <i>corner</i> = Qt::TopRightCorner ) const</h3>
+<p>Returns the widget on the left of the first or on the right of the last menu item, depending on <i>corner</i>.</p>
+<p><b>Note:</b> Using a corner other than <a href="qt.html#Corner-enum">Qt::TopRightCorner</a> or <a href="qt.html#Corner-enum">Qt::TopLeftCorner</a> will result in a warning.</p>
+<p>See also <a href="qmenubar.html#setCornerWidget">setCornerWidget</a>().</p>
+<!-- @@@cornerWidget -->
 <!-- $$$defaultAction[overload1]$$$defaultAction -->
 <h3 class="fn"><a name="defaultAction"></a><a href="qaction.html">QAction</a> * QMenuBar::defaultAction () const</h3>
 <p>Returns the current default action.</p>
@@ -493,6 +521,13 @@
 <p>This function was introduced in Qt 4.1.</p>
 <p>See also <a href="qmenubar.html#activeAction">activeAction</a>().</p>
 <!-- @@@setActiveAction -->
+<!-- $$$setCornerWidget[overload1]$$$setCornerWidgetQWidget*Qt::Corner -->
+<h3 class="fn"><a name="setCornerWidget"></a>void QMenuBar::setCornerWidget ( <a href="qwidget.html">QWidget</a> * <i>widget</i>, <a href="qt.html#Corner-enum">Qt::Corner</a> <i>corner</i> = Qt::TopRightCorner )</h3>
+<p>This sets the given <i>widget</i> to be shown directly on the left of the first menu item, or on the right of the last menu item, depending on <i>corner</i>.</p>
+<p>The menu bar takes ownership of <i>widget</i>, reparenting it into the menu bar. However, if the <i>corner</i> already contains a widget, this previous widget will no longer be managed and will still be a visible child of the menu bar.</p>
+<p><b>Note:</b> Using a corner other than <a href="qt.html#Corner-enum">Qt::TopRightCorner</a> or <a href="qt.html#Corner-enum">Qt::TopLeftCorner</a> will result in a warning.</p>
+<p>See also <a href="qmenubar.html#cornerWidget">cornerWidget</a>().</p>
+<!-- @@@setCornerWidget -->
 <!-- $$$setDefaultAction[overload1]$$$setDefaultActionQAction* -->
 <h3 class="fn"><a name="setDefaultAction"></a>void QMenuBar::setDefaultAction ( <a href="qaction.html">QAction</a> * <i>act</i> )</h3>
 <p>Sets the default action to <i>act</i>.</p>

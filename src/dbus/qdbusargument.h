@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -172,7 +172,7 @@ template<typename T> inline T qdbus_cast(const QVariant &v
         return qvariant_cast<T>(v);
 }
 
-// specialise for QVariant, allowing it to be used in place of QDBusVariant
+// specialize for QVariant, allowing it to be used in place of QDBusVariant
 template<> inline QVariant qdbus_cast<QVariant>(const QDBusArgument &arg, QVariant *)
 {
     QDBusVariant item;

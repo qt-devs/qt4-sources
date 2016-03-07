@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -201,7 +201,7 @@ QAudioInput::~QAudioInput()
 
 /*!
      Uses the \a device as the QIODevice to transfer data.
-     Passing a QIODevice allows the data to be transfered without any extra code.
+     Passing a QIODevice allows the data to be transferred without any extra code.
      All that is required is to open the QIODevice.
 
      If able to successfully get audio data from the systems audio device the

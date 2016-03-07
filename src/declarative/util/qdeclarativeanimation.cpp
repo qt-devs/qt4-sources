@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -305,6 +305,8 @@ void QDeclarativeAbstractAnimation::componentFinalized()
     animation will finish playing normally but not restart.
 
     By default, the alwaysRunToEnd property is not set.
+
+    \note alwaysRunToEnd has no effect on animations in a Transition.
 */
 bool QDeclarativeAbstractAnimation::alwaysRunToEnd() const
 {
@@ -1322,7 +1324,7 @@ void QDeclarativeVector3dAnimation::setTo(QVector3D t)
 
 /*!
     \qmlclass RotationAnimation QDeclarativeRotationAnimation
-  \ingroup qml-animation-transition
+    \ingroup qml-animation-transition
     \since 4.7
     \inherits PropertyAnimation
     \brief The RotationAnimation element animates changes in rotation values.
@@ -1331,8 +1333,8 @@ void QDeclarativeVector3dAnimation::setTo(QVector3D t)
     over the direction of rotation during an animation. 
 
     By default, it rotates in the direction
-    of the numerical change; a rotation from 0 to 240 will rotate 220 degrees
-    clockwise, while a rotation from 240 to 0 will rotate 220 degrees
+    of the numerical change; a rotation from 0 to 240 will rotate 240 degrees
+    clockwise, while a rotation from 240 to 0 will rotate 240 degrees
     counterclockwise. The \l direction property can be set to specify the
     direction in which the rotation should occur.
 
@@ -1340,7 +1342,7 @@ void QDeclarativeVector3dAnimation::setTo(QVector3D t)
     between states via the shortest path:
 
     \snippet doc/src/snippets/declarative/rotationanimation.qml 0
-    
+
     Notice the RotationAnimation did not need to set a \l target
     value. As a convenience, when used in a transition, RotationAnimation will rotate all
     properties named "rotation" or "angle". You can override this by providing
@@ -2192,6 +2194,13 @@ void QDeclarativePropertyAnimation::setProperties(const QString &prop)
     The singular forms are slightly optimized, so if you do have only a single target/property
     to animate you should try to use them.
 
+    The \c targets property allows multiple targets to be set. For example, this animates the
+    \c x property of both \c itemA and \c itemB:
+
+    \qml
+    NumberAnimation { targets: [itemA, itemB]; properties: "x"; to: 500 }
+    \endqml
+
     In many cases these properties do not need to be explicitly specified, as they can be
     inferred from the animation framework:
 
@@ -2255,7 +2264,7 @@ void QDeclarativePropertyAnimation::setProperties(const QString &prop)
 
     As seen in the above example, properties is specified as a comma-separated string of property names to animate.
 
-    \sa exclude
+    \sa exclude, {QML Animation}
 */
 QDeclarativeListProperty<QObject> QDeclarativePropertyAnimation::targets()
 {

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -2717,7 +2717,7 @@ void QPainter::setClipRect(const QRectF &rect, Qt::ClipOperation op)
     Q_D(QPainter);
 
     if (d->extended) {
-        if (!hasClipping() && (op == Qt::IntersectClip || op == Qt::UniteClip))
+        if ((!d->state->clipEnabled && op != Qt::NoClip) || (d->state->clipOperation == Qt::NoClip && op == Qt::UniteClip))
             op = Qt::ReplaceClip;
 
         if (!d->engine) {
@@ -2775,7 +2775,7 @@ void QPainter::setClipRect(const QRect &rect, Qt::ClipOperation op)
         return;
     }
 
-    if (!hasClipping() && (op == Qt::IntersectClip || op == Qt::UniteClip))
+    if ((!d->state->clipEnabled && op != Qt::NoClip) || (d->state->clipOperation == Qt::NoClip && op == Qt::UniteClip))
         op = Qt::ReplaceClip;
 
     if (d->extended) {
@@ -2830,7 +2830,7 @@ void QPainter::setClipRegion(const QRegion &r, Qt::ClipOperation op)
         return;
     }
 
-    if (!hasClipping() && (op == Qt::IntersectClip || op == Qt::UniteClip))
+    if ((!d->state->clipEnabled && op != Qt::NoClip) || (d->state->clipOperation == Qt::NoClip && op == Qt::UniteClip))
         op = Qt::ReplaceClip;
 
     if (d->extended) {
@@ -3235,7 +3235,7 @@ void QPainter::setClipPath(const QPainterPath &path, Qt::ClipOperation op)
         return;
     }
 
-    if (!hasClipping() && (op == Qt::IntersectClip || op == Qt::UniteClip))
+    if ((!d->state->clipEnabled && op != Qt::NoClip) || (d->state->clipOperation == Qt::NoClip && op == Qt::UniteClip))
         op = Qt::ReplaceClip;
 
     if (d->extended) {
@@ -5746,7 +5746,7 @@ void QPainterPrivate::drawGlyphs(const quint32 *glyphArray, const QPointF *posit
         QStaticTextItem staticTextItem;
         staticTextItem.color = state->pen.color();
         staticTextItem.font = state->font;
-        staticTextItem.fontEngine = fontEngine;
+        staticTextItem.setFontEngine(fontEngine);
         staticTextItem.numGlyphs = glyphCount;
         staticTextItem.glyphs = reinterpret_cast<glyph_t *>(const_cast<glyph_t *>(glyphArray));
         staticTextItem.glyphPositions = positions.data();
@@ -5938,7 +5938,7 @@ void QPainter::drawStaticText(const QPointF &topLeftPosition, const QStaticText 
         d->extended->drawStaticTextItem(item);
 
         drawDecorationForGlyphs(this, item->glyphs, item->glyphPositions,
-                                item->numGlyphs, item->fontEngine, staticText_d->font,
+                                item->numGlyphs, item->fontEngine(), staticText_d->font,
                                 QTextCharFormat());
     }
     if (currentColor != oldPen.color())
@@ -6185,7 +6185,7 @@ void QPainter::drawText(const QRectF &r, int flags, const QString &str, QRectF *
 
     By default, QPainter draws text anti-aliased.
 
-    \note The y-position is used as the baseline of the font.
+    \note The y-position is used as the top of the font.
 
     \sa Qt::AlignmentFlag, Qt::TextFlag
 */
@@ -9085,7 +9085,7 @@ void QPainter::drawPixmapFragments(const PixmapFragment *fragments, int fragment
     QPainter::drawPixmapFragments() function. The variables \a x, \a y, \a
     width and \a height are used to calculate the target rectangle that is
     drawn. \a x and \a y denotes the center of the target rectangle. The \a
-    width and \a heigth in the target rectangle is scaled by the \a scaleX and
+    width and \a height in the target rectangle is scaled by the \a scaleX and
     \a scaleY values. The resulting target rectangle is then rotated \a
     rotation degrees around the \a x, \a y center point.
 

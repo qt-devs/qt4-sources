@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -505,17 +505,26 @@ int QGIFFormat::decode(QImage *image, const uchar *buffer, int length,
                             code=oldcode;
                         }
                         while (code>=clear_code+2) {
+                            if (code >= max_code) {
+                                state = Error;
+                                return -1;
+                            }
                             *sp++=table[1][code];
                             if (code==table[0][code]) {
                                 state=Error;
-                                break;
+                                return -1;
                             }
                             if (sp-stack>=(1<<(max_lzw_bits))*2) {
                                 state=Error;
-                                break;
+                                return -1;
                             }
                             code=table[0][code];
                         }
+                        if (code < 0) {
+                            state = Error;
+                            return -1;
+                        }
+
                         *sp++=firstcode=table[1][code];
                         code=max_code;
                         if (code<(1<<max_lzw_bits)) {
@@ -1037,7 +1046,7 @@ QGifHandler::QGifHandler()
 {
     gifFormat = new QGIFFormat;
     nextDelay = 100;
-    loopCnt = 1;
+    loopCnt = -1;
     frameNumber = -1;
     scanIsCached = false;
 }
@@ -1183,7 +1192,13 @@ int QGifHandler::loopCount() const
         QGIFFormat::scan(device(), &imageSizes, &loopCnt);
         scanIsCached = true;
     }
-    return loopCnt-1; // In GIF, loop count is iteration count, so subtract one
+
+    if (loopCnt == 0)
+        return -1;
+    else if (loopCnt == -1)
+        return 0;
+    else
+        return loopCnt;
 }
 
 int QGifHandler::currentImageNumber() const

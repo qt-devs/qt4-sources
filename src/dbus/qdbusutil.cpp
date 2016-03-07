@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -309,7 +309,7 @@ namespace QDBusUtil
         Returns true if \a connName is a valid unique connection name.
 
         Unique connection names start with a colon (":") and are followed by a list of dot-separated
-        components composed of ASCII letters, digits, the hypen or the underscore ("_") character.
+        components composed of ASCII letters, digits, the hyphen or the underscore ("_") character.
     */
     bool isValidUniqueConnectionName(const QString &connName)
     {

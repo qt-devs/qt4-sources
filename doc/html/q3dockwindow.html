@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -315,7 +323,7 @@
 <p>In the example above we create a new <a href="q3toolbar.html">Q3ToolBar</a> in the constructor of a <a href="q3mainwindow.html">Q3MainWindow</a> subclass (so that the <i>this</i> pointer points to the <a href="q3mainwindow.html">Q3MainWindow</a>). By default the toolbar will be added to the <tt>Top</tt> dock area, but we've moved it to the <tt>Left</tt> dock area.</p>
 <p>A dock window is often used to contain a single widget. In these cases the widget can be set by calling <a href="q3dockwindow.html#setWidget">setWidget</a>(). If you're constructing a dock window that contains multiple widgets, e.g&#x2e; a toolbar, arrange the widgets within a box layout inside the dock window. To do this use the <a href="q3dockwindow.html#boxLayout">boxLayout</a>() function to get a pointer to the dock window's box layout, then add widgets to the layout using the box layout's <a href="qboxlayout.html#addWidget">QBoxLayout::addWidget</a>() function. The dock window will dynamically set the orientation of the layout to be vertical or horizontal as necessary, although you can control this yourself with <a href="q3dockwindow.html#setOrientation">setOrientation</a>().</p>
 <p>Although a common use of dock windows is for toolbars, they can be used with any widgets. When using larger widgets it may make sense for the dock window to be resizable by calling <a href="q3dockwindow.html#resizeEnabled-prop">setResizeEnabled</a>(). Resizable dock windows are given splitter-like handles to allow the user to resize them within their dock area. When resizable dock windows are undocked they become top level windows and can be resized like any other top level windows, e.g&#x2e; by dragging a corner or edge.</p>
-<p><a href="qt.html#Dock-enum">Qt::Dock</a> windows can be docked and undocked using <a href="q3dockwindow.html#dock">dock</a>() and <a href="q3dockwindow.html#undock">undock</a>(). A dock window's orientation can be set with <a href="q3dockwindow.html#setOrientation">setOrientation</a>(). You can also use <a href="q3dockarea.html#moveDockWindow">Q3DockArea::moveDockWindow</a>(). If you're using a <a href="q3mainwindow.html">Q3MainWindow</a>, <a href="q3mainwindow.html#moveDockWindow">Q3MainWindow::moveDockWindow</a>() and <a href="q3mainwindow.html#removeDockWindow">Q3MainWindow::removeDockWindow</a>() are available.</p>
+<p><a href="qt-qt3.html#Dock-enum">Qt::Dock</a> windows can be docked and undocked using <a href="q3dockwindow.html#dock">dock</a>() and <a href="q3dockwindow.html#undock">undock</a>(). A dock window's orientation can be set with <a href="q3dockwindow.html#setOrientation">setOrientation</a>(). You can also use <a href="q3dockarea.html#moveDockWindow">Q3DockArea::moveDockWindow</a>(). If you're using a <a href="q3mainwindow.html">Q3MainWindow</a>, <a href="q3mainwindow.html#moveDockWindow">Q3MainWindow::moveDockWindow</a>() and <a href="q3mainwindow.html#removeDockWindow">Q3MainWindow::removeDockWindow</a>() are available.</p>
 <p>A dock window can have some preferred settings, for example, you can set a preferred offset from the left edge (or top edge for vertical dock areas) of the dock area using <a href="q3dockwindow.html#offset-prop">setOffset</a>(). If you'd prefer a dock window to start on a new line when it is docked use <a href="q3dockwindow.html#newLine-prop">setNewLine</a>(). The <a href="q3dockwindow.html#setFixedExtentWidth">setFixedExtentWidth</a>() and <a href="q3dockwindow.html#setFixedExtentHeight">setFixedExtentHeight</a>() functions can be used to define the dock window's preferred size, and the <a href="q3dockwindow.html#horizontallyStretchable-prop">setHorizontallyStretchable</a>() and <a href="q3dockwindow.html#verticallyStretchable-prop">setVerticallyStretchable</a>() functions set whether the dock window can be stretched or not. Dock windows can be moved by default, but this can be changed with <a href="q3dockwindow.html#movingEnabled-prop">setMovingEnabled</a>(). When a dock window is moved it is shown as a rectangular outline, but it can be shown normally using <a href="q3dockwindow.html#opaqueMoving-prop">setOpaqueMoving</a>().</p>
 <p>When a dock window's visibility changes, i.e&#x2e; it is shown or hidden, the <a href="q3dockwindow.html#visibilityChanged">visibilityChanged</a>() signal is emitted. When a dock window is docked, undocked or moved inside the dock area the <a href="q3dockwindow.html#placeChanged">placeChanged</a>() signal is emitted.</p>
 </div>
@@ -325,7 +333,7 @@
 <!-- $$$CloseMode$$$Never$$$Docked$$$Undocked$$$Always -->
 <h3 class="fn"><a name="CloseMode-enum"></a>enum Q3DockWindow::CloseMode</h3>
 <p>This enum type specifies when (if ever) a dock window has a close button.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3DockWindow::Never</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The dock window never has a close button and cannot be closed by the user.</td></tr>
 <tr><td  class="topAlign"><tt>Q3DockWindow::Docked</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The dock window has a close button only when docked.</td></tr>
 <tr><td  class="topAlign"><tt>Q3DockWindow::Undocked</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The dock window has a close button only when floating.</td></tr>
@@ -335,7 +343,7 @@
 <!-- $$$Place$$$InDock$$$OutsideDock -->
 <h3 class="fn"><a name="Place-enum"></a>enum Q3DockWindow::Place</h3>
 <p>This enum specifies the possible locations for a <a href="q3dockwindow.html" class="compat">Q3DockWindow</a>:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3DockWindow::InDock</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Inside a <a href="q3dockarea.html" class="compat">Q3DockArea</a>.</td></tr>
 <tr><td  class="topAlign"><tt>Q3DockWindow::OutsideDock</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Floating as a top level window on the desktop.</td></tr>
 </table>

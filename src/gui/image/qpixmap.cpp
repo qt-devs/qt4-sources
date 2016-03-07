@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -664,14 +664,19 @@ void QPixmap::resize_helper(const QSize &s)
 
 #if defined(Q_WS_X11)
     if (x11Data && x11Data->x11_mask) {
-        QX11PixmapData *pmData = static_cast<QX11PixmapData*>(pd);
-        pmData->x11_mask = (Qt::HANDLE)XCreatePixmap(X11->display,
-                                                     RootWindow(x11Data->xinfo.display(),
-                                                                x11Data->xinfo.screen()),
-                                                      w, h, 1);
-        GC gc = XCreateGC(X11->display, pmData->x11_mask, 0, 0);
-        XCopyArea(X11->display, x11Data->x11_mask, pmData->x11_mask, gc, 0, 0, qMin(width(), w), qMin(height(), h), 0, 0);
-        XFreeGC(X11->display, gc);
+        QPixmapData *newPd = pm.pixmapData();
+        QX11PixmapData *pmData = (newPd && newPd->classId() == QPixmapData::X11Class)
+                                 ? static_cast<QX11PixmapData*>(newPd) : 0;
+        if (pmData) {
+            pmData->x11_mask = (Qt::HANDLE)XCreatePixmap(X11->display,
+                                                         RootWindow(x11Data->xinfo.display(),
+                                                                    x11Data->xinfo.screen()),
+                                                         w, h, 1);
+            GC gc = XCreateGC(X11->display, pmData->x11_mask, 0, 0);
+            XCopyArea(X11->display, x11Data->x11_mask, pmData->x11_mask, gc, 0, 0,
+                      qMin(width(), w), qMin(height(), h), 0, 0);
+            XFreeGC(X11->display, gc);
+        }
     }
 #endif
     *this = pm;
@@ -770,8 +775,8 @@ QBitmap QPixmap::createHeuristicMask(bool clipTight) const
 /*!
     Creates and returns a mask for this pixmap based on the given \a
     maskColor. If the \a mode is Qt::MaskInColor, all pixels matching the
-    maskColor will be opaque. If \a mode is Qt::MaskOutColor, all pixels
-    matching the maskColor will be transparent.
+    maskColor will be transparent. If \a mode is Qt::MaskOutColor, all pixels
+    matching the maskColor will be opaque.
 
     This function is slow because it involves converting to/from a
     QImage.
@@ -836,7 +841,7 @@ bool QPixmap::load(const QString &fileName, const char *format, Qt::ImageConvers
                   % HexString<quint64>(info.size())
                   % HexString<uint>(data ? data->pixelType() : QPixmapData::PixmapType);
 
-    // Note: If no extension is provided, we try to match the 
+    // Note: If no extension is provided, we try to match the
     // file against known plugin extensions
     if (!info.completeSuffix().isEmpty() && !info.exists())
         return false;
@@ -1097,6 +1102,9 @@ QPixmap QPixmap::grabWidget(QWidget * widget, const QRect &rect)
         return QPixmap();
 
     QPixmap res(r.size());
+    if (!qt_widget_private(widget)->isOpaque)
+        res.fill(Qt::transparent);
+
     widget->d_func()->render(&res, QPoint(), r, QWidget::DrawWindowBackground
                              | QWidget::DrawChildren | QWidget::IgnoreMask, true);
     return res;
@@ -1177,8 +1185,12 @@ Qt::HANDLE QPixmap::handle() const
 {
 #if defined(Q_WS_X11)
     const QPixmapData *pd = pixmapData();
-    if (pd && pd->classId() == QPixmapData::X11Class)
-        return static_cast<const QX11PixmapData*>(pd)->handle();
+    if (pd) {
+        if (pd->classId() == QPixmapData::X11Class)
+            return static_cast<const QX11PixmapData*>(pd)->handle();
+        else
+            qWarning("QPixmap::handle(): Pixmap is not an X11 class pixmap");
+    }
 #endif
     return 0;
 }
@@ -1789,13 +1801,27 @@ QPixmap QPixmap::transformed(const QMatrix &matrix, Qt::TransformationMode mode)
     Returns true if this pixmap has an alpha channel, \e or has a
     mask, otherwise returns false.
 
-    \warning This is potentially an expensive operation.
-
     \sa hasAlphaChannel(), mask()
 */
 bool QPixmap::hasAlpha() const
 {
-    return data && (data->hasAlphaChannel() || !data->mask().isNull());
+#if defined(Q_WS_X11)
+    if (data && data->hasAlphaChannel())
+        return true;
+    QPixmapData *pd = pixmapData();
+    if (pd && pd->classId() == QPixmapData::X11Class) {
+        QX11PixmapData *x11Data = static_cast<QX11PixmapData*>(pd);
+#ifndef QT_NO_XRENDER
+        if (x11Data->picture && x11Data->d == 32)
+            return true;
+#endif
+        if (x11Data->d == 1 || x11Data->x11_mask)
+            return true;
+    }
+    return false;
+#else
+    return data && data->hasAlphaChannel();
+#endif
 }
 
 /*!

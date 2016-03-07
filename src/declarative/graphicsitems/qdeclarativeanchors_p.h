@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -48,6 +48,8 @@
 
 #include <QtCore/QObject>
 
+#include <private/qdeclarativeglobal_p.h>
+
 QT_BEGIN_HEADER
 
 QT_BEGIN_NAMESPACE
@@ -56,7 +58,7 @@ QT_MODULE(Declarative)
 
 class QDeclarativeAnchorsPrivate;
 class QDeclarativeAnchorLine;
-class Q_DECLARATIVE_EXPORT QDeclarativeAnchors : public QObject
+class Q_DECLARATIVE_PRIVATE_EXPORT QDeclarativeAnchors : public QObject
 {
     Q_OBJECT
 

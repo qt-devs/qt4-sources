@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -51,12 +51,16 @@
 #include <private/qimage_p.h>
 #include <private/qeglproperties_p.h>
 #include <private/qeglcontext_p.h>
+#include <private/qpixmap_x11_p.h>
 
 #include "qmeegopixmapdata.h"
+#include "qmeegolivepixmapdata.h"
 #include "qmeegographicssystem.h"
 #include "qmeegoextensions.h"
 
 bool QMeeGoGraphicsSystem::surfaceWasCreated = false;
+
+QHash <Qt::HANDLE, QPixmap*> QMeeGoGraphicsSystem::liveTexturePixmaps;
 
 QMeeGoGraphicsSystem::QMeeGoGraphicsSystem()
 {
@@ -71,6 +75,8 @@ QMeeGoGraphicsSystem::~QMeeGoGraphicsSystem()
 
 QWindowSurface* QMeeGoGraphicsSystem::createWindowSurface(QWidget *widget) const
 {
+    QGLShareContextScope ctx(qt_gl_share_widget()->context());
+
     QMeeGoGraphicsSystem::surfaceWasCreated = true;
     QWindowSurface *surface = new QGLWindowSurface(widget);
     return surface;
@@ -78,12 +84,6 @@ QWindowSurface* QMeeGoGraphicsSystem::createWindowSurface(QWidget *widget) const
 
 QPixmapData *QMeeGoGraphicsSystem::createPixmapData(QPixmapData::PixelType type) const
 {
-    // Long story short: without this it's possible to hit an 
-    // unitialized paintDevice due to a Qt bug too complex to even 
-    // explain here... not to mention fix without going crazy. 
-    // MDK
-    QGLShareContextScope ctx(qt_gl_share_widget()->context());
- 
     return new QRasterPixmapData(type);
 }
 
@@ -99,8 +99,8 @@ QPixmapData *QMeeGoGraphicsSystem::createPixmapData(QPixmapData *origin)
 
         if (QMeeGoPixmapData::sharedImagesMap.contains(rawResource))
             return new QMeeGoPixmapData();
-    } 
-        
+    }
+
     return new QRasterPixmapData(origin->pixelType());
 }
 
@@ -120,8 +120,10 @@ QPixmapData* QMeeGoGraphicsSystem::wrapPixmapData(QPixmapData *pmd)
 
 void QMeeGoGraphicsSystem::setSurfaceFixedSize(int /*width*/, int /*height*/)
 {
-    if (QMeeGoGraphicsSystem::surfaceWasCreated)
+    if (QMeeGoGraphicsSystem::surfaceWasCreated) {
         qWarning("Trying to set surface fixed size but surface already created!");
+        return;
+    }
 
 #ifdef QT_WAS_PATCHED
     QEglProperties *properties = new QEglProperties();
@@ -139,6 +141,11 @@ void QMeeGoGraphicsSystem::setSurfaceScaling(int x, int y, int width, int height
 
 void QMeeGoGraphicsSystem::setTranslucent(bool translucent)
 {
+    if (QMeeGoGraphicsSystem::surfaceWasCreated) {
+        qWarning("Trying to set translucency but surface already created!");
+        return;
+    }
+
     QGLWindowSurface::surfaceFormat.setSampleBuffers(false);
     QGLWindowSurface::surfaceFormat.setSamples(0);
     QGLWindowSurface::surfaceFormat.setAlpha(translucent);
@@ -147,11 +154,11 @@ void QMeeGoGraphicsSystem::setTranslucent(bool translucent)
 QPixmapData *QMeeGoGraphicsSystem::pixmapDataFromEGLSharedImage(Qt::HANDLE handle, const QImage &softImage)
 {
     if (softImage.format() != QImage::Format_ARGB32_Premultiplied &&
-        softImage.format() != QImage::Format_ARGB32) {
-        qFatal("For egl shared images, the soft image has to be ARGB32 or ARGB32_Premultiplied");
+        softImage.format() != QImage::Format_RGB32) {
+        qFatal("For egl shared images, the soft image has to be ARGB32_Premultiplied or RGB32");
         return NULL;
     }
-    
+
     if (QMeeGoGraphicsSystem::meeGoRunning()) {
         QMeeGoPixmapData *pmd = new QMeeGoPixmapData;
         pmd->fromEGLSharedImage(handle, softImage);
@@ -173,9 +180,9 @@ QPixmapData *QMeeGoGraphicsSystem::pixmapDataFromEGLSharedImage(Qt::HANDLE handl
 void QMeeGoGraphicsSystem::updateEGLSharedImagePixmap(QPixmap *pixmap)
 {
     QMeeGoPixmapData *pmd = (QMeeGoPixmapData *) pixmap->pixmapData();
-    
+
     // Basic sanity check to make sure this is really a QMeeGoPixmapData...
-    if (pmd->classId() != QPixmapData::OpenGLClass) 
+    if (pmd->classId() != QPixmapData::OpenGLClass)
         qFatal("Trying to updated EGLSharedImage pixmap but it's not really a shared image pixmap!");
 
     pmd->updateFromSoftImage();
@@ -202,6 +209,48 @@ bool QMeeGoGraphicsSystem::meeGoRunning()
     }
 
     return (name == "meego");
+}
+
+QPixmapData* QMeeGoGraphicsSystem::pixmapDataWithNewLiveTexture(int w, int h, QImage::Format format)
+{
+    return new QMeeGoLivePixmapData(w, h, format);
+}
+
+QPixmapData* QMeeGoGraphicsSystem::pixmapDataFromLiveTextureHandle(Qt::HANDLE handle)
+{
+    return new QMeeGoLivePixmapData(handle);
+}
+
+QImage* QMeeGoGraphicsSystem::lockLiveTexture(QPixmap* pixmap, void* fenceSync)
+{
+    QMeeGoLivePixmapData *pixmapData = static_cast<QMeeGoLivePixmapData*>(pixmap->data_ptr().data());
+    return pixmapData->lock(fenceSync);
+}
+
+bool QMeeGoGraphicsSystem::releaseLiveTexture(QPixmap *pixmap, QImage *image)
+{
+    QMeeGoLivePixmapData *pixmapData = static_cast<QMeeGoLivePixmapData*>(pixmap->data_ptr().data());
+    return pixmapData->release(image);
+}
+
+Qt::HANDLE QMeeGoGraphicsSystem::getLiveTextureHandle(QPixmap *pixmap)
+{
+    QMeeGoLivePixmapData *pixmapData = static_cast<QMeeGoLivePixmapData*>(pixmap->data_ptr().data());
+    return pixmapData->handle();
+}
+
+void* QMeeGoGraphicsSystem::createFenceSync()
+{
+    QGLShareContextScope ctx(qt_gl_share_widget()->context());
+    QMeeGoExtensions::ensureInitialized();
+    return QMeeGoExtensions::eglCreateSyncKHR(QEgl::display(), EGL_SYNC_FENCE_KHR, NULL);
+}
+
+void QMeeGoGraphicsSystem::destroyFenceSync(void *fenceSync)
+{
+    QGLShareContextScope ctx(qt_gl_share_widget()->context());
+    QMeeGoExtensions::ensureInitialized();
+    QMeeGoExtensions::eglDestroySyncKHR(QEgl::display(), fenceSync);
 }
 
 /* C API */
@@ -244,4 +293,39 @@ void qt_meego_set_translucent(bool translucent)
 void qt_meego_update_egl_shared_image_pixmap(QPixmap *pixmap)
 {
     QMeeGoGraphicsSystem::updateEGLSharedImagePixmap(pixmap);
+}
+
+QPixmapData* qt_meego_pixmapdata_with_new_live_texture(int w, int h, QImage::Format format)
+{
+    return QMeeGoGraphicsSystem::pixmapDataWithNewLiveTexture(w, h, format);
+}
+
+QPixmapData* qt_meego_pixmapdata_from_live_texture_handle(Qt::HANDLE handle)
+{
+    return QMeeGoGraphicsSystem::pixmapDataFromLiveTextureHandle(handle);
+}
+
+QImage* qt_meego_live_texture_lock(QPixmap *pixmap, void *fenceSync)
+{
+    return QMeeGoGraphicsSystem::lockLiveTexture(pixmap, fenceSync);
+}
+
+bool qt_meego_live_texture_release(QPixmap *pixmap, QImage *image)
+{
+    return QMeeGoGraphicsSystem::releaseLiveTexture(pixmap, image);
+}
+
+Qt::HANDLE qt_meego_live_texture_get_handle(QPixmap *pixmap)
+{
+    return QMeeGoGraphicsSystem::getLiveTextureHandle(pixmap);
+}
+
+void* qt_meego_create_fence_sync(void)
+{
+    return QMeeGoGraphicsSystem::createFenceSync();
+}
+
+void qt_meego_destroy_fence_sync(void* fs)
+{
+    return QMeeGoGraphicsSystem::destroyFenceSync(fs);
 }

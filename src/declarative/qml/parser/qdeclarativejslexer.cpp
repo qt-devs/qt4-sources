@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -510,15 +510,18 @@ int Lexer::lex()
                     setDone(Eof);
                 }
             } else if (isLineTerminator()) {
-                shiftWindowsLineBreak();
-                yylineno++;
-                yycolumn = 0;
-                bol = true;
-                terminator = true;
-                syncProhibitAutomaticSemicolon();
                 if (restrKeyword) {
+                    // automatic semicolon insertion
+                    recordStartPos();
                     token = QDeclarativeJSGrammar::T_SEMICOLON;
                     setDone(Other);
+                } else {
+                    shiftWindowsLineBreak();
+                    yylineno++;
+                    yycolumn = 0;
+                    bol = true;
+                    terminator = true;
+                    syncProhibitAutomaticSemicolon();
                 }
             } else if (current == '"' || current == '\'') {
                 recordStartPos();

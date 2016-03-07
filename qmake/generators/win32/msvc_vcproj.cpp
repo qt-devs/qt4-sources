@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -67,7 +67,7 @@ QT_END_NAMESPACE
 
 #ifdef Q_OS_WIN32
 #include <qt_windows.h>
-#include <windows/registry.h>
+#include <windows/registry_p.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -119,7 +119,7 @@ DotNET which_dotnet_version()
     int installed = 0;
     int i = 0;
     for(; dotNetCombo[i].version; ++i) {
-        QString path = readRegistryKey(HKEY_LOCAL_MACHINE, dotNetCombo[i].regKey);
+        QString path = qt_readRegistryKey(HKEY_LOCAL_MACHINE, dotNetCombo[i].regKey);
         if(!path.isEmpty()) {
             ++installed;
             current_version = dotNetCombo[i].version;
@@ -136,7 +136,7 @@ DotNET which_dotnet_version()
 
     i = installed = 0;
     for(; dotNetCombo[i].version; ++i) {
-        QString productPath = readRegistryKey(HKEY_LOCAL_MACHINE, dotNetCombo[i].regKey).toLower();
+        QString productPath = qt_readRegistryKey(HKEY_LOCAL_MACHINE, dotNetCombo[i].regKey).toLower();
                 if (productPath.isEmpty())
                         continue;
         QStringList::iterator it;
@@ -1027,37 +1027,23 @@ void VcprojGenerator::initPreBuildEventTools()
 {
 }
 
-QString VcprojGenerator::fixCommandLine(DotNET version, const QString &input) const
-{
-    QString result = input;
-
-    if (version >= NET2005)
-        result = result.replace(QLatin1Char('\n'), QLatin1String("&#x000D;&#x000A;"));
-
-    return result;
-}
-
 void VcprojGenerator::initPostBuildEventTools()
 {
     VCConfiguration &conf = vcProject.Configuration;
     if(!project->values("QMAKE_POST_LINK").isEmpty()) {
-        QString cmdline = fixCommandLine(conf.CompilerVersion, var("QMAKE_POST_LINK"));
+        QStringList cmdline = VCToolBase::fixCommandLine(var("QMAKE_POST_LINK"));
         conf.postBuild.CommandLine = cmdline;
-        if (conf.CompilerVersion < NET2005)
-            cmdline = cmdline.replace("\n", "&&");
-        conf.postBuild.Description = cmdline;
+        conf.postBuild.Description = cmdline.join(QLatin1String("\r\n"));
     }
 
     QString signature = !project->isEmpty("SIGNATURE_FILE") ? var("SIGNATURE_FILE") : var("DEFAULT_SIGNATURE");
     bool useSignature = !signature.isEmpty() && !project->isActiveConfig("staticlib") &&
                         !project->isEmpty("CE_SDK") && !project->isEmpty("CE_ARCH");
     if(useSignature)
-        conf.postBuild.CommandLine.prepend(QLatin1String("signtool sign /F ") + signature + " \"$(TargetPath)\"\n" +
-            (!conf.postBuild.CommandLine.isEmpty() ? " && " : ""));
+        conf.postBuild.CommandLine.prepend(
+                QLatin1String("signtool sign /F ") + signature + QLatin1String(" \"$(TargetPath)\""));
 
     if(!project->values("MSVCPROJ_COPY_DLL").isEmpty()) {
-        if(!conf.postBuild.CommandLine.isEmpty())
-            conf.postBuild.CommandLine += " && ";
         conf.postBuild.Description += var("MSVCPROJ_COPY_DLL_DESC");
         conf.postBuild.CommandLine += var("MSVCPROJ_COPY_DLL");
     }
@@ -1186,9 +1172,9 @@ void VcprojGenerator::initPreLinkEventTools()
 {
     VCConfiguration &conf = vcProject.Configuration;
     if(!project->values("QMAKE_PRE_LINK").isEmpty()) {
-        QString cmdline = fixCommandLine(conf.CompilerVersion, var("QMAKE_PRE_LINK"));
-        conf.preLink.Description = cmdline;
+        QStringList cmdline = VCToolBase::fixCommandLine(var("QMAKE_PRE_LINK"));
         conf.preLink.CommandLine = cmdline;
+        conf.preLink.Description = cmdline.join(QLatin1String("\r\n"));
     }
 }
 
@@ -1601,10 +1587,10 @@ QString VcprojGenerator::fixFilename(QString ofile) const
     if(slashfind == -1) {
         ofile = ofile.replace('-', '_');
     } else {
-        int hypenfind = ofile.indexOf('-', slashfind);
-        while (hypenfind != -1 && slashfind < hypenfind) {
-            ofile = ofile.replace(hypenfind, 1, '_');
-            hypenfind = ofile.indexOf('-', hypenfind + 1);
+        int hyphenfind = ofile.indexOf('-', slashfind);
+        while (hyphenfind != -1 && slashfind < hyphenfind) {
+            ofile = ofile.replace(hyphenfind, 1, '_');
+            hyphenfind = ofile.indexOf('-', hyphenfind + 1);
         }
     }
     return ofile;

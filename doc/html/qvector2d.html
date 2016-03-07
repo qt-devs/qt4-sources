@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -197,17 +205,17 @@
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#qFuzzyCompare-6">qFuzzyCompare</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-not-eq-26">operator!=</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2a-21">operator*</a></b> ( qreal <i>factor</i>, const QVector2D &amp; <i>vector</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2a-22">operator*</a></b> ( const QVector2D &amp; <i>vector</i>, qreal <i>factor</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2a-23">operator*</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2b-17">operator+</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator--7">operator-</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator--21">operator-</a></b> ( const QVector2D &amp; <i>vector</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-not-eq-30">operator!=</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2a-36">operator*</a></b> ( const QVector2D &amp; <i>vector</i>, qreal <i>factor</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2a-37">operator*</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2a-35">operator*</a></b> ( qreal <i>factor</i>, const QVector2D &amp; <i>vector</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2b-14">operator+</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator--5">operator-</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator--22">operator-</a></b> ( const QVector2D &amp; <i>vector</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const QVector2D </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-2f-5">operator/</a></b> ( const QVector2D &amp; <i>vector</i>, qreal <i>divisor</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-lt-lt-108">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QVector2D &amp; <i>vector</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-eq-eq-39">operator==</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-gt-gt-62">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QVector2D &amp; <i>vector</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-lt-lt-51">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QVector2D &amp; <i>vector</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-eq-eq-38">operator==</a></b> ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qvector2d.html#operator-gt-gt-31">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QVector2D &amp; <i>vector</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QVector2D-description -->
@@ -351,35 +359,35 @@
 <p>Returns true if <i>v1</i> and <i>v2</i> are equal, allowing for a small fuzziness factor for floating-point comparisons; false otherwise.</p>
 <!-- @@@qFuzzyCompare -->
 <!-- $$$operator!=$$$operator!=constQVector2D&constQVector2D& -->
-<h3 class="fn"><a name="operator-not-eq-26"></a>bool operator!= ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-30"></a>bool operator!= ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
 <p>Returns true if <i>v1</i> is not equal to <i>v2</i>; otherwise returns false. This operator uses an exact floating-point comparison.</p>
 <!-- @@@operator!= -->
-<!-- $$$operator*$$$operator*qrealconstQVector2D& -->
-<h3 class="fn"><a name="operator-2a-21"></a>const QVector2D operator* ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>factor</i>, const QVector2D &amp; <i>vector</i> )</h3>
-<p>Returns a copy of the given <i>vector</i>, multiplied by the given <i>factor</i>.</p>
-<p>See also <a href="qvector2d.html#operator-2a-eq">QVector2D::operator*=</a>().</p>
-<!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQVector2D&qreal -->
-<h3 class="fn"><a name="operator-2a-22"></a>const QVector2D operator* ( const QVector2D &amp; <i>vector</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>factor</i> )</h3>
+<h3 class="fn"><a name="operator-2a-36"></a>const QVector2D operator* ( const QVector2D &amp; <i>vector</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>factor</i> )</h3>
 <p>Returns a copy of the given <i>vector</i>, multiplied by the given <i>factor</i>.</p>
 <p>See also <a href="qvector2d.html#operator-2a-eq">QVector2D::operator*=</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator*$$$operator*constQVector2D&constQVector2D& -->
-<h3 class="fn"><a name="operator-2a-23"></a>const QVector2D operator* ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
+<h3 class="fn"><a name="operator-2a-37"></a>const QVector2D operator* ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
 <p>Multiplies the components of <i>v1</i> by the corresponding components in <i>v2</i>.</p>
 <!-- @@@operator* -->
+<!-- $$$operator*$$$operator*qrealconstQVector2D& -->
+<h3 class="fn"><a name="operator-2a-35"></a>const QVector2D operator* ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>factor</i>, const QVector2D &amp; <i>vector</i> )</h3>
+<p>Returns a copy of the given <i>vector</i>, multiplied by the given <i>factor</i>.</p>
+<p>See also <a href="qvector2d.html#operator-2a-eq">QVector2D::operator*=</a>().</p>
+<!-- @@@operator* -->
 <!-- $$$operator+$$$operator+constQVector2D&constQVector2D& -->
-<h3 class="fn"><a name="operator-2b-17"></a>const QVector2D operator+ ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
+<h3 class="fn"><a name="operator-2b-14"></a>const QVector2D operator+ ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
 <p>Returns a <a href="qvector2d.html">QVector2D</a> object that is the sum of the given vectors, <i>v1</i> and <i>v2</i>; each component is added separately.</p>
 <p>See also <a href="qvector2d.html#operator-2b-eq">QVector2D::operator+=</a>().</p>
 <!-- @@@operator+ -->
 <!-- $$$operator-$$$operator-constQVector2D&constQVector2D& -->
-<h3 class="fn"><a name="operator--7"></a>const QVector2D operator- ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
+<h3 class="fn"><a name="operator--5"></a>const QVector2D operator- ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
 <p>Returns a <a href="qvector2d.html">QVector2D</a> object that is formed by subtracting <i>v2</i> from <i>v1</i>; each component is subtracted separately.</p>
 <p>See also <a href="qvector2d.html#operator--eq">QVector2D::operator-=</a>().</p>
 <!-- @@@operator- -->
 <!-- $$$operator-$$$operator-constQVector2D& -->
-<h3 class="fn"><a name="operator--21"></a>const QVector2D operator- ( const QVector2D &amp; <i>vector</i> )</h3>
+<h3 class="fn"><a name="operator--22"></a>const QVector2D operator- ( const QVector2D &amp; <i>vector</i> )</h3>
 <p>This is an overloaded function.</p>
 <p>Returns a <a href="qvector2d.html">QVector2D</a> object that is formed by changing the sign of the components of the given <i>vector</i>.</p>
 <p>Equivalent to <tt>QVector2D(0,0) - vector</tt>.</p>
@@ -390,16 +398,16 @@
 <p>See also <a href="qvector2d.html#operator-2f-eq">QVector2D::operator/=</a>().</p>
 <!-- @@@operator/ -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQVector2D& -->
-<h3 class="fn"><a name="operator-lt-lt-108"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QVector2D &amp; <i>vector</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-51"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QVector2D &amp; <i>vector</i> )</h3>
 <p>Writes the given <i>vector</i> to the given <i>stream</i> and returns a reference to the stream.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator==$$$operator==constQVector2D&constQVector2D& -->
-<h3 class="fn"><a name="operator-eq-eq-39"></a>bool operator== ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-38"></a>bool operator== ( const QVector2D &amp; <i>v1</i>, const QVector2D &amp; <i>v2</i> )</h3>
 <p>Returns true if <i>v1</i> is equal to <i>v2</i>; otherwise returns false. This operator uses an exact floating-point comparison.</p>
 <!-- @@@operator== -->
 <!-- $$$operator>>$$$operator>>QDataStream&QVector2D& -->
-<h3 class="fn"><a name="operator-gt-gt-62"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QVector2D &amp; <i>vector</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-31"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QVector2D &amp; <i>vector</i> )</h3>
 <p>Reads a 2D vector from the given <i>stream</i> into the given <i>vector</i> and returns a reference to the stream.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -40,6 +40,7 @@
 ****************************************************************************/
 
 #include "private/qdeclarativeproxymetaobject_p.h"
+#include "private/qdeclarativeproperty_p.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -95,8 +96,7 @@ int QDeclarativeProxyMetaObject::metaCall(QMetaObject::Call c, int id, void **a)
                         QMetaMethod method = 
                             metaObject->method(jj + methodOffset);
                         if (method.methodType() == QMetaMethod::Signal)
-                            QMetaObject::connect(proxy, methodOffset + jj,
-                                                 object, localOffset + jj);
+                            QDeclarativePropertyPrivate::connect(proxy, methodOffset + jj, object, localOffset + jj);
                     }
                 }
 

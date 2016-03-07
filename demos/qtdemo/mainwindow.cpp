@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -388,7 +388,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
             s += "\nAdapt: ";
             s += Colors::noAdapt ? "off" : "on";
-            s += "\nAdaption occured: ";
+            s += "\nAdaption occurred: ";
             s += Colors::adapted ? "yes" : "no";
             s += "\nOpenGL version: ";
             s += Colors::glVersion;

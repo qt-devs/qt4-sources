@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -381,7 +389,7 @@
 <!-- $$$Refresh$$$RefreshData$$$RefreshColumns$$$RefreshAll -->
 <h3 class="fn"><a name="Refresh-enum"></a>enum Q3DataTable::Refresh</h3>
 <p>This enum describes the refresh options.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3DataTable::RefreshData</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">refresh the data, i.e&#x2e; read it from the database</td></tr>
 <tr><td  class="topAlign"><tt>Q3DataTable::RefreshColumns</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">refresh the list of fields, e.g&#x2e; the column headings</td></tr>
 <tr><td  class="topAlign"><tt>Q3DataTable::RefreshAll</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">refresh both the data and the list of fields</td></tr>
@@ -621,11 +629,11 @@
 <p>Reimplemented from <a href="q3table.html#columnClicked">Q3Table::columnClicked</a>().</p>
 <!-- @@@columnClicked -->
 <!-- $$$confirmCancel[overload1]$$$confirmCancelQSql::Op -->
-<h3 class="fn"><a name="confirmCancel"></a><a href="qsql.html#Confirm-enum">QSql::Confirm</a> Q3DataTable::confirmCancel ( <a href="qsql.html#Op-enum">QSql::Op</a> <i>m</i> )<tt> [virtual protected]</tt></h3>
+<h3 class="fn"><a name="confirmCancel"></a><a href="qsql-qt3.html#Confirm-enum">QSql::Confirm</a> Q3DataTable::confirmCancel ( <a href="qsql-qt3.html#Op-enum">QSql::Op</a> <i>m</i> )<tt> [virtual protected]</tt></h3>
 <p>Protected virtual function which returns a confirmation for canceling an edit mode of <i>m</i>. Derived classes can reimplement this function to provide their own cancel dialog. The default implementation uses a message box which prompts the user to confirm the cancel.</p>
 <!-- @@@confirmCancel -->
 <!-- $$$confirmEdit[overload1]$$$confirmEditQSql::Op -->
-<h3 class="fn"><a name="confirmEdit"></a><a href="qsql.html#Confirm-enum">QSql::Confirm</a> Q3DataTable::confirmEdit ( <a href="qsql.html#Op-enum">QSql::Op</a> <i>m</i> )<tt> [virtual protected]</tt></h3>
+<h3 class="fn"><a name="confirmEdit"></a><a href="qsql-qt3.html#Confirm-enum">QSql::Confirm</a> Q3DataTable::confirmEdit ( <a href="qsql-qt3.html#Op-enum">QSql::Op</a> <i>m</i> )<tt> [virtual protected]</tt></h3>
 <p>Protected virtual function which returns a confirmation for an edit of mode <i>m</i>. Derived classes can reimplement this function to provide their own confirmation dialog. The default implementation uses a message box which prompts the user to confirm the edit action.</p>
 <!-- @@@confirmEdit -->
 <!-- $$$contentsContextMenuEvent[overload1]$$$contentsContextMenuEventQContextMenuEvent* -->
@@ -650,7 +658,7 @@
 <p>Returns the currently selected record, or 0 if there is no current selection. The table owns the pointer, so do <i>not</i> delete it or otherwise modify it or the cursor it points to.</p>
 <!-- @@@currentRecord -->
 <!-- $$$cursorChanged[overload1]$$$cursorChangedQSql::Op -->
-<h3 class="fn"><a name="cursorChanged"></a>void Q3DataTable::cursorChanged ( <a href="qsql.html#Op-enum">QSql::Op</a> <i>mode</i> )<tt> [signal]</tt></h3>
+<h3 class="fn"><a name="cursorChanged"></a>void Q3DataTable::cursorChanged ( <a href="qsql-qt3.html#Op-enum">QSql::Op</a> <i>mode</i> )<tt> [signal]</tt></h3>
 <p>This signal is emitted whenever the cursor record was changed due to an edit. The <i>mode</i> parameter is the type of edit that just took place.</p>
 <!-- @@@cursorChanged -->
 <!-- $$$deleteCurrent[overload1]$$$deleteCurrent -->
@@ -822,7 +830,7 @@
 <!-- $$$setSqlCursor[overload1]$$$setSqlCursorQ3SqlCursor*boolbool -->
 <h3 class="fn"><a name="setSqlCursor"></a>void Q3DataTable::setSqlCursor ( <a href="q3sqlcursor.html">Q3SqlCursor</a> * <i>cursor</i> = 0, bool <i>autoPopulate</i> = false, bool <i>autoDelete</i> = false )<tt> [virtual]</tt></h3>
 <p>Sets <i>cursor</i> as the data source for the table. To force the display of the data from <i>cursor</i>, use <a href="q3datatable.html#refresh">refresh</a>(). If <i>autoPopulate</i> is true, columns are automatically created based upon the fields in the <i>cursor</i> record. If <i>autoDelete</i> is true (the default is false), the table will take ownership of the <i>cursor</i> and delete it when appropriate. If the <i>cursor</i> is read-only, the table becomes read-only. The table adopts the cursor's driver's definition for representing NULL values as strings.</p>
-<p>See also <a href="q3datatable.html#sqlCursor">sqlCursor</a>(), <a href="q3datatable.html#refresh">refresh</a>(), <a href="q3table.html#readOnly-prop">setReadOnly</a>(), <a href="q3datatable.html#setAutoDelete">setAutoDelete</a>(), and <a href="qsqldriver.html#nullText" class="compat">QSqlDriver::nullText</a>().</p>
+<p>See also <a href="q3datatable.html#sqlCursor">sqlCursor</a>(), <a href="q3datatable.html#refresh">refresh</a>(), <a href="q3table.html#readOnly-prop">setReadOnly</a>(), <a href="q3datatable.html#setAutoDelete">setAutoDelete</a>(), and <a href="qsqldriver-qt3.html#nullText" class="compat">QSqlDriver::nullText</a>().</p>
 <!-- @@@setSqlCursor -->
 <!-- $$$showColumn[overload1]$$$showColumnint -->
 <h3 class="fn"><a name="showColumn"></a>void Q3DataTable::showColumn ( int <i>col</i> )<tt> [virtual]</tt></h3>

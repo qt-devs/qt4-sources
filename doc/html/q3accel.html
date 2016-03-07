@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -175,7 +183,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#insertItem">insertItem</a></b> ( const QKeySequence &amp; <i>key</i>, int <i>id</i> = -1 )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#isEnabled">isEnabled</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#isItemEnabled">isItemEnabled</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QKeySequence </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#keyx">key</a></b> ( int <i>id</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QKeySequence </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#key">key</a></b> ( int <i>id</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#removeItem">removeItem</a></b> ( int <i>id</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#setEnabled">setEnabled</a></b> ( bool <i>enable</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3accel.html#setItemEnabled">setItemEnabled</a></b> ( int <i>id</i>, bool <i>enable</i> )</td></tr>
@@ -219,7 +227,7 @@
  Q3PopupMenu *fileMenu = new fileMenu(parent);
  fileMenu-&gt;insertItem(&quot;Undo&quot;, parent, SLOT(undo()),
                       Qt::CTRL + Qt::Key_Z);</pre>
-<p>A Q3Accel contains a list of accelerator items that can be manipulated using <a href="q3accel.html#insertItem">insertItem</a>(), <a href="q3accel.html#removeItem">removeItem</a>(), <a href="q3accel.html#clear">clear</a>(), <a href="q3accel.html#keyx">key</a>() and <a href="q3accel.html#findKey">findKey</a>().</p>
+<p>A Q3Accel contains a list of accelerator items that can be manipulated using <a href="q3accel.html#insertItem">insertItem</a>(), <a href="q3accel.html#removeItem">removeItem</a>(), <a href="q3accel.html#clear">clear</a>(), <a href="q3accel.html#key">key</a>() and <a href="q3accel.html#findKey">findKey</a>().</p>
 <p>Each accelerator item consists of an identifier and a <a href="qkeysequence.html">QKeySequence</a>. A single key sequence consists of a keyboard code combined with modifiers (<a href="qt.html#Modifier-enum">Qt::SHIFT</a>, <a href="qt.html#Modifier-enum">Qt::CTRL</a>, <a href="qt.html#Modifier-enum">Qt::ALT</a>, or <a href="qt.html#Modifier-enum">Qt::UNICODE_ACCEL</a>). For example, <a href="qt.html#Modifier-enum">Qt::CTRL</a> + <a href="qt.html#Key-enum">Qt::Key_P</a> could be a shortcut for printing a document. As an alternative, use <a href="qt.html#Modifier-enum">Qt::UNICODE_ACCEL</a> with the unicode code point of the character. For example, <a href="qt.html#Modifier-enum">Qt::UNICODE_ACCEL</a> + 'A' gives the same accelerator as <a href="qt.html#Key-enum">Qt::Key_A</a>.</p>
 <p>When an accelerator key is pressed, the accelerator sends out the signal <a href="q3accel.html#activated">activated</a>() with a number that identifies this particular accelerator item. Accelerator items can also be individually connected, so that two different keys will activate two different slots (see <a href="q3accel.html#connectItem">connectItem</a>() and <a href="q3accel.html#disconnectItem">disconnectItem</a>()).</p>
 <p>The <a href="q3accel.html#activated">activated</a>() signal is <i>not</i> emitted when two or more accelerators match the same key. Instead, the first matching accelerator sends out the <a href="q3accel.html#activatedAmbiguously">activatedAmbiguously</a>() signal. By pressing the key multiple times, users can navigate between all matching accelerators. Some standard controls like <a href="qpushbutton.html">QPushButton</a> and <a href="qcheckbox.html">QCheckBox</a> connect the <a href="q3accel.html#activatedAmbiguously">activatedAmbiguously</a>() signal to the harmless setFocus() slot, whereas <a href="q3accel.html#activated">activated</a>() is connected to a slot invoking the button's action. Most controls, like <a href="qlabel.html">QLabel</a> and <a href="qtabbar.html">QTabBar</a>, treat <a href="q3accel.html#activated">activated</a>() and <a href="q3accel.html#activatedAmbiguously">activatedAmbiguously</a>() as equivalent.</p>
@@ -233,7 +241,7 @@
 <pre class="highlightedCode brush: cpp"> Q3Accel *a = new Q3Accel(myWindow);
  a-&gt;connectItem(a-&gt;insertItem(Qt::CTRL + Qt::Key_P),
                 myWindow, SLOT(printDoc()));</pre>
-<p><a href="qabstractbutton.html#setAccel">QAbstractButton::setAccel</a>() <a href="qlabel.html#setBuddy">QLabel::setBuddy</a>() <a href="qkeysequence.html">QKeySequence</a></p>
+<p><a href="qabstractbutton-qt3.html#setAccel">QAbstractButton::setAccel</a>() <a href="qlabel.html#setBuddy">QLabel::setBuddy</a>() <a href="qkeysequence.html">QKeySequence</a></p>
 </div>
 <p>See also <a href="qkeyevent.html">QKeyEvent</a> and <a href="qwidget.html#keyPressEvent">QWidget::keyPressEvent</a>().</p>
 <!-- @@@Q3Accel -->
@@ -310,7 +318,7 @@
 <p>See also <a href="q3accel.html#setItemEnabled">setItemEnabled</a>() and <a href="q3accel.html#isEnabled">isEnabled</a>().</p>
 <!-- @@@isItemEnabled -->
 <!-- $$$key[overload1]$$$keyint -->
-<h3 class="fn"><a name="keyx"></a><a href="qkeysequence.html">QKeySequence</a> Q3Accel::key ( int <i>id</i> )</h3>
+<h3 class="fn"><a name="key"></a><a href="qkeysequence.html">QKeySequence</a> Q3Accel::key ( int <i>id</i> )</h3>
 <p>Returns the key sequence of the accelerator item with identifier <i>id</i>, or an invalid key sequence (0) if the id cannot be found.</p>
 <!-- @@@key -->
 <!-- $$$removeItem[overload1]$$$removeItemint -->

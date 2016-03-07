@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -342,7 +350,7 @@
 <p>There are two signals emitted if the current item of a combobox changes, <a href="qcombobox.html#currentIndexChanged">currentIndexChanged</a>() and <a href="qcombobox.html#activated">activated</a>(). <a href="qcombobox.html#currentIndexChanged">currentIndexChanged</a>() is always emitted regardless if the change was done programmatically or by user interaction, while <a href="qcombobox.html#activated">activated</a>() is only emitted when the change is caused by user interaction. The <a href="qcombobox.html#highlighted">highlighted</a>() signal is emitted when the user highlights an item in the combobox popup list. All three signals exist in two versions, one with a <a href="qstring.html">QString</a> argument and one with an <tt>int</tt> argument. If the user selects or highlights a pixmap, only the <tt>int</tt> signals are emitted. Whenever the text of an editable combobox is changed the <a href="qcombobox.html#editTextChanged">editTextChanged</a>() signal is emitted.</p>
 <p>When the user enters a new string in an editable combobox, the widget may or may not insert it, and it can insert it in several locations. The default policy is is <a href="qcombobox.html#InsertPolicy-enum">AtBottom</a> but you can change this using <a href="qcombobox.html#insertPolicy-prop">setInsertPolicy</a>().</p>
 <p>It is possible to constrain the input to an editable combobox using <a href="qvalidator.html">QValidator</a>; see <a href="qcombobox.html#setValidator">setValidator</a>(). By default, any input is accepted.</p>
-<p>A combobox can be populated using the insert functions, <a href="qcombobox.html#insertItem">insertItem</a>() and <a href="qcombobox.html#insertItems">insertItems</a>() for example. Items can be changed with <a href="qcombobox.html#setItemText">setItemText</a>(). An item can be removed with <a href="qcombobox.html#removeItem">removeItem</a>() and all items can be removed with <a href="qcombobox.html#clear">clear</a>(). The text of the current item is returned by <a href="qcombobox.html#currentText-prop">currentText</a>(), and the text of a numbered item is returned with <a href="qcombobox.html#text" class="compat">text</a>(). The current item can be set with <a href="qcombobox.html#currentIndex-prop">setCurrentIndex</a>(). The number of items in the combobox is returned by <a href="qcombobox.html#count-prop">count</a>(); the maximum number of items can be set with <a href="qcombobox.html#maxCount-prop">setMaxCount</a>(). You can allow editing using <a href="qcombobox.html#editable-prop">setEditable</a>(). For editable comboboxes you can set auto-completion using <a href="qcombobox.html#setCompleter">setCompleter</a>() and whether or not the user can add duplicates is set with <a href="qcombobox.html#duplicatesEnabled-prop">setDuplicatesEnabled</a>().</p>
+<p>A combobox can be populated using the insert functions, <a href="qcombobox.html#insertItem">insertItem</a>() and <a href="qcombobox.html#insertItems">insertItems</a>() for example. Items can be changed with <a href="qcombobox.html#setItemText">setItemText</a>(). An item can be removed with <a href="qcombobox.html#removeItem">removeItem</a>() and all items can be removed with <a href="qcombobox.html#clear">clear</a>(). The text of the current item is returned by <a href="qcombobox.html#currentText-prop">currentText</a>(), and the text of a numbered item is returned with <a href="qcombobox-qt3.html#text" class="compat">text</a>(). The current item can be set with <a href="qcombobox.html#currentIndex-prop">setCurrentIndex</a>(). The number of items in the combobox is returned by <a href="qcombobox.html#count-prop">count</a>(); the maximum number of items can be set with <a href="qcombobox.html#maxCount-prop">setMaxCount</a>(). You can allow editing using <a href="qcombobox.html#editable-prop">setEditable</a>(). For editable comboboxes you can set auto-completion using <a href="qcombobox.html#setCompleter">setCompleter</a>() and whether or not the user can add duplicates is set with <a href="qcombobox.html#duplicatesEnabled-prop">setDuplicatesEnabled</a>().</p>
 <p>QComboBox uses the <a href="model-view-programming.html">model/view framework</a> for its popup list and to store its items. By default a <a href="qstandarditemmodel.html">QStandardItemModel</a> stores the items and a <a href="qlistview.html">QListView</a> subclass displays the popuplist. You can access the model and view directly (with <a href="qcombobox.html#model">model</a>() and <a href="qcombobox.html#view">view</a>()), but QComboBox also provides functions to set and get item data (e.g&#x2e;, <a href="qcombobox.html#setItemData">setItemData</a>() and <a href="qcombobox.html#itemText">itemText</a>()). You can also set a new model and view (with <a href="qcombobox.html#setModel">setModel</a>() and <a href="qcombobox.html#setView">setView</a>()). For the text and icon in the combobox label, the data in the model that has the <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> and <a href="qt.html#ItemDataRole-enum">Qt::DecorationRole</a> is used.</p>
 <p class="centerAlign"><img src="images/qstyle-comboboxes.png" alt="Comboboxes in the different built-in styles." /></p></div>
 <p>See also <a href="qlineedit.html">QLineEdit</a>, <a href="qspinbox.html">QSpinBox</a>, <a href="qradiobutton.html">QRadioButton</a>, <a href="qbuttongroup.html">QButtonGroup</a>, and <a href="guibooks.html#fowler">GUI Design Handbook: Combo Box, Drop-Down List Box</a>.</p>
@@ -352,7 +360,7 @@
 <!-- $$$InsertPolicy$$$NoInsert$$$InsertAtTop$$$InsertAtCurrent$$$InsertAtBottom$$$InsertAfterCurrent$$$InsertBeforeCurrent$$$InsertAlphabetically$$$NoInsertion$$$AtTop$$$AtCurrent$$$AtBottom$$$AfterCurrent$$$BeforeCurrent -->
 <h3 class="fn"><a name="InsertPolicy-enum"></a>enum QComboBox::InsertPolicy</h3>
 <p>This enum specifies what the <a href="qcombobox.html">QComboBox</a> should do when a new string is entered by the user.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QComboBox::NoInsert</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The string will not be inserted into the combobox.</td></tr>
 <tr><td  class="topAlign"><tt>QComboBox::InsertAtTop</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The string will be inserted as the first item in the combobox.</td></tr>
 <tr><td  class="topAlign"><tt>QComboBox::InsertAtCurrent</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The current item will be <i>replaced</i> by the string.</td></tr>
@@ -365,7 +373,7 @@
 <!-- $$$SizeAdjustPolicy$$$AdjustToContents$$$AdjustToContentsOnFirstShow$$$AdjustToMinimumContentsLength$$$AdjustToMinimumContentsLengthWithIcon -->
 <h3 class="fn"><a name="SizeAdjustPolicy-enum"></a>enum QComboBox::SizeAdjustPolicy</h3>
 <p>This enum specifies how the size hint of the <a href="qcombobox.html">QComboBox</a> should adjust when new content is added or content changes.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QComboBox::AdjustToContents</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The combobox will always adjust to the contents</td></tr>
 <tr><td  class="topAlign"><tt>QComboBox::AdjustToContentsOnFirstShow</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The combobox will adjust to its contents the first time it is shown.</td></tr>
 <tr><td  class="topAlign"><tt>QComboBox::AdjustToMinimumContentsLength</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Use AdjustToContents or AdjustToContentsOnFirstShow instead.</td></tr>

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -1197,7 +1197,7 @@ void QAbstractItemModelPrivate::columnsRemoved(const QModelIndex &parent,
     \l{QAbstractItemModel::}{endInsertRows()} must be called.
 
     \sa {Model Classes}, {Model Subclassing Reference}, QModelIndex,
-        QAbstractItemView, {Using drag & drop with item views},
+        QAbstractItemView, {Using drag and drop with item views},
         {Simple DOM Model Example}, {Simple Tree Model Example},
         {Editable Tree Model Example}, {Fetch More Example}
 */
@@ -1336,13 +1336,12 @@ void QAbstractItemModelPrivate::columnsRemoved(const QModelIndex &parent,
     layoutChanged(). In other words, when the structure changes:
 
     \list
-        \o  Call beginLayoutChanged()
+        \o  emit layoutAboutToBeChanged
         \o  Remember the QModelIndex that will change
         \o  Update your internal data
         \o  Call changePersistentIndex()
-        \o  Call endLayoutChanged()
+        \o  emit layoutChanged
     \endlist
-
 
     \sa layoutAboutToBeChanged(), dataChanged(), headerDataChanged(), modelReset(),
         changePersistentIndex()
@@ -1761,7 +1760,7 @@ QMimeData *QAbstractItemModel::mimeData(const QModelIndexList &indexes) const
     where to place the data. This can occur in a tree when data is dropped on
     a parent. Models will usually append the data to the parent in this case.
 
-    \sa supportedDropActions(), {Using drag & drop with item views}
+    \sa supportedDropActions(), {Using drag and drop with item views}
 */
 bool QAbstractItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
                                       int row, int column, const QModelIndex &parent)
@@ -1798,7 +1797,7 @@ bool QAbstractItemModel::dropMimeData(const QMimeData *data, Qt::DropAction acti
     reimplement the dropMimeData() function to handle the additional
     operations.
 
-    \sa dropMimeData(), Qt::DropActions, {Using drag & drop with item
+    \sa dropMimeData(), Qt::DropActions, {Using drag and drop with item
     views}
 */
 Qt::DropActions QAbstractItemModel::supportedDropActions() const
@@ -1815,7 +1814,7 @@ Qt::DropActions QAbstractItemModel::supportedDropActions() const
     supportedDragActions() is used by QAbstractItemView::startDrag() as the
     default values when a drag occurs.
 
-    \sa Qt::DropActions, {Using drag & drop with item views}
+    \sa Qt::DropActions, {Using drag and drop with item views}
 */
 Qt::DropActions QAbstractItemModel::supportedDragActions() const
 {
@@ -1831,7 +1830,7 @@ Qt::DropActions QAbstractItemModel::supportedDragActions() const
 
     Sets the supported drag \a actions for the items in the model.
 
-    \sa supportedDragActions(), {Using drag & drop with item views}
+    \sa supportedDragActions(), {Using drag and drop with item views}
 */
 void QAbstractItemModel::setSupportedDragActions(Qt::DropActions actions)
 {

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -218,7 +226,7 @@
 <h2>Detailed Description</h2>
 <p>The QWebSettings class provides an object to store the settings used by <a href="qwebpage.html">QWebPage</a> and <a href="qwebframe.html">QWebFrame</a>.</p>
 <p>Each <a href="qwebpage.html">QWebPage</a> object has its own QWebSettings object, which configures the settings for that page. If a setting is not configured, then it is looked up in the global settings object, which can be accessed using <a href="qwebsettings.html#globalSettings">globalSettings</a>().</p>
-<p>QWebSettings allows configuration of browser properties, such as font sizes and families, the location of a custom style sheet, and generic attributes like <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> and plugins. Individual attributes are set using the <a href="qwebsettings.html#setAttribute">setAttribute</a>() function. The <a href="qwebsettings.html#WebAttribute-enum">WebAttribute</a> enum further describes each attribute.</p>
+<p>QWebSettings allows configuration of browser properties, such as font sizes and families, the location of a custom style sheet, and generic attributes like JavaScript and plugins. Individual attributes are set using the <a href="qwebsettings.html#setAttribute">setAttribute</a>() function. The <a href="qwebsettings.html#WebAttribute-enum">WebAttribute</a> enum further describes each attribute.</p>
 <p>QWebSettings also configures global properties such as the web page memory cache, icon database, local database storage and offline applications storage.</p>
 <a name="enabling-plugins"></a>
 <h3>Enabling Plugins</h3>
@@ -247,7 +255,7 @@
 <!-- $$$FontSize$$$MinimumFontSize$$$MinimumLogicalFontSize$$$DefaultFontSize$$$DefaultFixedFontSize -->
 <h3 class="fn"><a name="FontSize-enum"></a>enum QWebSettings::FontSize</h3>
 <p>This enum describes the font sizes configurable through <a href="qwebsettings.html">QWebSettings</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::MinimumFontSize</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The hard minimum font size.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::MinimumLogicalFontSize</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The minimum logical font size that is applied when zooming out with <a href="qwebframe.html#setTextSizeMultiplier">QWebFrame::setTextSizeMultiplier</a>().</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::DefaultFontSize</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The default font size for regular text.</td></tr>
@@ -257,15 +265,15 @@
 <!-- $$$WebAttribute$$$AutoLoadImages$$$JavascriptEnabled$$$JavaEnabled$$$PluginsEnabled$$$PrivateBrowsingEnabled$$$JavascriptCanOpenWindows$$$JavascriptCanAccessClipboard$$$DeveloperExtrasEnabled$$$LinksIncludedInFocusChain$$$ZoomTextOnly$$$PrintElementBackgrounds$$$OfflineStorageDatabaseEnabled$$$OfflineWebApplicationCacheEnabled$$$LocalStorageEnabled$$$LocalStorageDatabaseEnabled$$$LocalContentCanAccessRemoteUrls$$$DnsPrefetchEnabled$$$XSSAuditingEnabled$$$AcceleratedCompositingEnabled$$$SpatialNavigationEnabled$$$LocalContentCanAccessFileUrls$$$TiledBackingStoreEnabled$$$FrameFlatteningEnabled$$$SiteSpecificQuirksEnabled -->
 <h3 class="fn"><a name="WebAttribute-enum"></a>enum QWebSettings::WebAttribute</h3>
 <p>This enum describes various attributes that are configurable through <a href="qwebsettings.html">QWebSettings</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::AutoLoadImages</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Specifies whether images are automatically loaded in web pages. This is enabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::DnsPrefetchEnabled</tt></td><td class=" topAlign">?</td><td  class="topAlign">Specifies whether <a href="demos.html#qtwebkit">QtWebkit</a> will try to pre-fetch DNS entries to speed up browsing. This only works as a global attribute. Only for Qt 4.6 and later. This is disabled by default.</td></tr>
-<tr><td  class="topAlign"><tt>QWebSettings::JavascriptEnabled</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Enables or disables the running of <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> programs. This is enabled by default</td></tr>
+<tr><td  class="topAlign"><tt>QWebSettings::JavascriptEnabled</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Enables or disables the running of JavaScript programs. This is enabled by default</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::JavaEnabled</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Enables or disables Java applets. Currently Java applets are not supported.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::PluginsEnabled</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">Enables or disables plugins in Web pages (e.g&#x2e; using NPAPI). Qt plugins with a mimetype such as &quot;application/x-qt-plugin&quot; are not affected by this setting. This is disabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::PrivateBrowsingEnabled</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">Private browsing prevents WebKit from recording visited pages in the history and storing web page icons. This is disabled by default.</td></tr>
-<tr><td  class="topAlign"><tt>QWebSettings::JavascriptCanOpenWindows</tt></td><td class=" topAlign"><tt>5</tt></td><td  class="topAlign">Specifies whether <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> programs can open new windows. This is disabled by default.</td></tr>
-<tr><td  class="topAlign"><tt>QWebSettings::JavascriptCanAccessClipboard</tt></td><td class=" topAlign"><tt>6</tt></td><td  class="topAlign">Specifies whether <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> programs can read or write to the clipboard. This is disabled by default.</td></tr>
+<tr><td  class="topAlign"><tt>QWebSettings::JavascriptCanOpenWindows</tt></td><td class=" topAlign"><tt>5</tt></td><td  class="topAlign">Specifies whether JavaScript programs can open new windows. This is disabled by default.</td></tr>
+<tr><td  class="topAlign"><tt>QWebSettings::JavascriptCanAccessClipboard</tt></td><td class=" topAlign"><tt>6</tt></td><td  class="topAlign">Specifies whether JavaScript programs can read or write to the clipboard. This is disabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::DeveloperExtrasEnabled</tt></td><td class=" topAlign"><tt>7</tt></td><td  class="topAlign">Enables extra tools for Web developers. Currently this enables the &quot;Inspect&quot; element in the context menu as well as the use of <a href="qwebinspector.html">QWebInspector</a> which controls the web inspector for web site debugging. This is disabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::SpatialNavigationEnabled</tt></td><td class=" topAlign">?</td><td  class="topAlign">Enables or disables the Spatial Navigation feature, which consists in the ability to navigate between focusable elements in a Web page, such as hyperlinks and form controls, by using Left, Right, Up and Down arrow keys. For example, if a user presses the Right key, heuristics determine whether there is an element he might be trying to reach towards the right and which element he probably wants. This is disabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::LinksIncludedInFocusChain</tt></td><td class=" topAlign"><tt>8</tt></td><td  class="topAlign">Specifies whether hyperlinks should be included in the keyboard focus chain. This is enabled by default.</td></tr>
@@ -277,7 +285,7 @@
 <tr><td  class="topAlign"><tt>QWebSettings::LocalStorageDatabaseEnabled</tt></td><td class=" topAlign"><tt>LocalStorageEnabled</tt></td><td  class="topAlign"><i>This enum value is deprecated.</i> Use QWebSettings::LocalStorageEnabled instead.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::LocalContentCanAccessRemoteUrls</tt></td><td class=" topAlign">?</td><td  class="topAlign">Specifies whether locally loaded documents are allowed to access remote urls. This is disabled by default. For more information about security origins and local vs. remote content see <a href="qwebsecurityorigin.html">QWebSecurityOrigin</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::LocalContentCanAccessFileUrls</tt></td><td class=" topAlign">?</td><td  class="topAlign">Specifies whether locally loaded documents are allowed to access other local urls. This is enabled by default. For more information about security origins and local vs. remote content see <a href="qwebsecurityorigin.html">QWebSecurityOrigin</a>.</td></tr>
-<tr><td  class="topAlign"><tt>QWebSettings::XSSAuditingEnabled</tt></td><td class=" topAlign">?</td><td  class="topAlign">Specifies whether load requests should be monitored for cross-site scripting attempts. Suspicious scripts will be blocked and reported in the inspector's <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> console. Enabling this feature might have an impact on performance and it is disabled by default.</td></tr>
+<tr><td  class="topAlign"><tt>QWebSettings::XSSAuditingEnabled</tt></td><td class=" topAlign">?</td><td  class="topAlign">Specifies whether load requests should be monitored for cross-site scripting attempts. Suspicious scripts will be blocked and reported in the inspector's JavaScript console. Enabling this feature might have an impact on performance and it is disabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::AcceleratedCompositingEnabled</tt></td><td class=" topAlign">?</td><td  class="topAlign">This feature, when used in conjunction with <a href="qgraphicswebview.html">QGraphicsWebView</a>, accelerates animations of web content. CSS animations of the transform and opacity properties will be rendered by composing the cached content of the animated elements. This is enabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::TiledBackingStoreEnabled</tt></td><td class=" topAlign">?</td><td  class="topAlign">This setting enables the tiled backing store feature for a <a href="qgraphicswebview.html">QGraphicsWebView</a>. With the tiled backing store enabled, the web page contents in and around the current visible area is speculatively cached to bitmap tiles. The tiles are automatically kept in sync with the web page as it changes. Enabling tiling can significantly speed up painting heavy operations like scrolling. Enabling the feature increases memory consumption. It does not work well with contents using CSS fixed positioning (see also <a href="qgraphicswebview.html#resizesToContents-prop">resizesToContents</a> property). <a href="qgraphicswebview.html#tiledBackingStoreFrozen-prop">tiledBackingStoreFrozen</a> property allows application to temporarily freeze the contents of the backing store. This is disabled by default.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::FrameFlatteningEnabled</tt></td><td class=" topAlign">?</td><td  class="topAlign">With this setting each subframe is expanded to its contents. On touch devices, it is desired to not have any scrollable sub parts of the page as it results in a confusing user experience, with scrolling sometimes scrolling sub parts and at other times scrolling the page itself. For this reason iframes and framesets are barely usable on touch devices. This will flatten all the frames to become one scrollable page. This is disabled by default.</td></tr>
@@ -287,7 +295,7 @@
 <!-- $$$WebGraphic$$$MissingImageGraphic$$$MissingPluginGraphic$$$DefaultFrameIconGraphic$$$TextAreaSizeGripCornerGraphic$$$DeleteButtonGraphic -->
 <h3 class="fn"><a name="WebGraphic-enum"></a>enum QWebSettings::WebGraphic</h3>
 <p>This enums describes the standard graphical elements used in webpages.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::MissingImageGraphic</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The replacement graphic shown when an image could not be loaded.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::MissingPluginGraphic</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The replacement graphic shown when a plugin could not be loaded.</td></tr>
 <tr><td  class="topAlign"><tt>QWebSettings::DefaultFrameIconGraphic</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The default icon for <a href="qwebframe.html#icon-prop">QWebFrame::icon</a>().</td></tr>
@@ -467,7 +475,7 @@
 <!-- $$$setOfflineWebApplicationCachePath[overload1]$$$setOfflineWebApplicationCachePathconstQString& -->
 <h3 class="fn"><a name="setOfflineWebApplicationCachePath"></a>void QWebSettings::setOfflineWebApplicationCachePath ( const <a href="qstring.html">QString</a> &amp; <i>path</i> )<tt> [static]</tt></h3>
 <p>Sets the path for HTML5 offline web application cache storage to <i>path</i>.</p>
-<p>An application cache acts like an HTTP cache in some sense. For documents that use the application cache via <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>, the loader engine will first ask the application cache for the contents, before hitting the network.</p>
+<p>An application cache acts like an HTTP cache in some sense. For documents that use the application cache via JavaScript, the loader engine will first ask the application cache for the contents, before hitting the network.</p>
 <p>The feature is described in details at: http://dev.w3.org/html5/spec/Overview.html#appcache</p>
 <p><i>path</i> must point to an existing directory.</p>
 <p>Setting an empty path disables the feature.</p>

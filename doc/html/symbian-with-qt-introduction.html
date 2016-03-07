@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -161,8 +169,8 @@
 <p>See <a href="requirements-symbian.html">Qt for the Symbian platform Requirements</a> to see what tools are required to use Qt for the Symbian platform.</p>
 <a name="installing-qt-and-running-demos"></a>
 <h2>Installing Qt and Running Demos</h2>
-<p>Follow the instructions found in <a href="install-symbian-installer.html">Installing Qt on the Symbian platform from a Binary Package</a> to learn how to install Qt using a binary package and how to build and run Qt demos.</p>
-<p>Follow the instructions found in <a href="install-symbian.html">Installing Qt on the Symbian platform</a> to learn how to install Qt using using source package and how to build and run the Qt demos.</p>
+<p>Follow the instructions found in <a href="install-symbian-installer.html">Installing Qt for the Symbian platform from a Binary Package</a> to learn how to install Qt using a binary package and how to build and run Qt demos.</p>
+<p>Follow the instructions found in <a href="install-symbian.html">Installing Qt for the Symbian platform</a> to learn how to install Qt using using source package and how to build and run the Qt demos.</p>
 <a name="building-your-own-applications"></a>
 <h2>Building Your Own Applications</h2>
 <p>If you are new to Qt development, have a look at <a href="how-to-learn-qt.html">How to Learn Qt</a>. In general, the difference between developing a Qt application on the Symbian platform compared to any of the other platforms supported by Qt is not that big.</p>
@@ -184,9 +192,10 @@
 <tr class="even topAlign"><td ><p><tt>deploy</tt></p></td><td ><p>Deploys the project into a device.</p></td></tr>
 <tr class="odd topAlign"><td ><p><tt>sis</tt></p></td><td ><p>Create signed <tt>.sis</tt> file for project.</p></td></tr>
 <tr class="even topAlign"><td ><p><tt>unsigned_sis</tt></p></td><td ><p>Create unsigned <tt>.sis</tt> file for project.</p></td></tr>
-<tr class="odd topAlign"><td ><p><tt>installer_sis</tt></p></td><td ><p>Create signed <a href="http://get.qt.nokia.com/nokiasmartinstaller/">smart installer</a> <tt>.sis</tt> file for project. Smart installer will attempt to download missing dependencies in addition to just installing the application.</p></td></tr>
-<tr class="even topAlign"><td ><p><tt>unsigned_installer_sis</tt></p></td><td ><p>Create unsigned <a href="http://get.qt.nokia.com/nokiasmartinstaller/">smart installer</a> <tt>.sis</tt> file for project.</p></td></tr>
-<tr class="odd topAlign"><td ><p><tt>stub_sis</tt></p></td><td ><p>Create a stub sis to allow upgradability of projects that are deployed in ROM</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>installer_sis</tt></p></td><td ><p>Create signed <a href="http://get.qt.nokia.com/nokiasmartinstaller/">smart installer</a> <tt>.sis</tt> file for project. Smart installer will attempt to download missing dependencies in addition to just installing the application. Note: The application <tt>.sis</tt> contained in smart installer <tt>.sis</tt> will be recreated and signed with same certificates as smart installer <tt>.sis</tt>.</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>ok_installer_sis</tt></p></td><td ><p>Otherwise similar to <tt>installer_sis</tt> target, except the application sis will not be recreated. This is useful when application <tt>.sis</tt> needs to be separately signed before including it into smart installer <tt>.sis</tt>.</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>unsigned_installer_sis</tt></p></td><td ><p>Create unsigned <a href="http://get.qt.nokia.com/nokiasmartinstaller/">smart installer</a> <tt>.sis</tt> file for project. Note: The application <tt>.sis</tt> contained in smart installer <tt>.sis</tt> will also be unsigned.</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>stub_sis</tt></p></td><td ><p>Create a stub sis to allow upgradability of projects that are deployed in ROM</p></td></tr>
 </table>
 <p>The following lines perform a debug build for the emulator and deploy all the needed files:</p>
 <pre class="highlightedCode brush: cpp">     make debug-winscw</pre>
@@ -224,6 +233,7 @@
 <tr class="even topAlign"><td ><p>-s</p></td><td ><p>Generates stub sis for ROM.</p></td></tr>
 <tr class="odd topAlign"><td ><p>-n &lt;name&gt;</p></td><td ><p>Specifies the final sis name.</p></td></tr>
 <tr class="even topAlign"><td ><p>-g</p></td><td ><p>Treat gcce platform as armv5.</p></td></tr>
+<tr class="odd topAlign"><td ><p>-d</p></td><td ><p>Skip automatic patching of the package when default certificate is used.</p></td></tr>
 </table>
 <p>Execute the <tt>createpackage.pl</tt> script without any parameters for detailed information about options. By default no options are given.</p>
 <p>For example:</p>

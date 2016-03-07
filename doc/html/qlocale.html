@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -287,7 +295,6 @@
 <li>If the language is found but the country is not, or if the country is <tt>AnyCountry</tt>, the language is used with the most appropriate available country (for example, Germany for German),</li>
 <li>If neither the language nor the country are found, QLocale defaults to the default locale (see <a href="qlocale.html#setDefault">setDefault</a>()).</li>
 </ul>
-<p>The &quot;C&quot; locale is identical in behavior to <a href="qlocale.html#Language-enum">English</a>/<a href="qlocale.html#Country-enum">UnitedStates</a>.</p>
 <p>Use <a href="qlocale.html#language">language</a>() and <a href="qlocale.html#country">country</a>() to determine the actual language and country values used.</p>
 <p>An alternative method for constructing a QLocale object is by specifying the locale name.</p>
 <pre class="highlightedCode brush: cpp"> QLocale korean(&quot;ko&quot;);
@@ -562,7 +569,7 @@
 <!-- $$$FormatType$$$LongFormat$$$ShortFormat$$$NarrowFormat -->
 <h3 class="fn"><a name="FormatType-enum"></a>enum QLocale::FormatType</h3>
 <p>This enum describes the types of format that can be used when converting <a href="qdate.html">QDate</a> and <a href="qtime.html">QTime</a> objects to strings.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QLocale::LongFormat</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The long version of day and month names; for example, returning &quot;January&quot; as a month name.</td></tr>
 <tr><td  class="topAlign"><tt>QLocale::ShortFormat</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The short version of day and month names; for example, returning &quot;Jan&quot; as a month name.</td></tr>
 <tr><td  class="topAlign"><tt>QLocale::NarrowFormat</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">A special version of day and month names for use when space is limited; for example, returning &quot;J&quot; as a month name. Note that the narrow format might contain the same text for different months and days or it can even be an empty string if the locale doesn't support narrow names, so you should avoid using it for date formatting. Also, for the system locale this format is the same as ShortFormat.</td></tr>
@@ -571,7 +578,7 @@
 <!-- $$$Language$$$C$$$Abkhazian$$$Afan$$$Afar$$$Afrikaans$$$Albanian$$$Amharic$$$Arabic$$$Armenian$$$Assamese$$$Aymara$$$Azerbaijani$$$Bashkir$$$Basque$$$Bengali$$$Bhutani$$$Bihari$$$Bislama$$$Breton$$$Bulgarian$$$Burmese$$$Byelorussian$$$Cambodian$$$Catalan$$$Chinese$$$Corsican$$$Croatian$$$Czech$$$Danish$$$Dutch$$$English$$$Esperanto$$$Estonian$$$Faroese$$$FijiLanguage$$$Finnish$$$French$$$Frisian$$$Gaelic$$$Galician$$$Georgian$$$German$$$Greek$$$Greenlandic$$$Guarani$$$Gujarati$$$Hausa$$$Hebrew$$$Hindi$$$Hungarian$$$Icelandic$$$Indonesian$$$Interlingua$$$Interlingue$$$Inuktitut$$$Inupiak$$$Irish$$$Italian$$$Japanese$$$Javanese$$$Kannada$$$Kashmiri$$$Kazakh$$$Kinyarwanda$$$Kirghiz$$$Korean$$$Kurdish$$$Kurundi$$$Laothian$$$Latin$$$Latvian$$$Lingala$$$Lithuanian$$$Macedonian$$$Malagasy$$$Malay$$$Malayalam$$$Maltese$$$Maori$$$Marathi$$$Moldavian$$$Mongolian$$$NauruLanguage$$$Nepali$$$Norwegian$$$NorwegianBokmal$$$Occitan$$$Oriya$$$Pashto$$$Persian$$$Polish$$$Portuguese$$$Punjabi$$$Quechua$$$RhaetoRomance$$$Romanian$$$Russian$$$Samoan$$$Sangho$$$Sanskrit$$$Serbian$$$SerboCroatian$$$Sesotho$$$Setswana$$$Shona$$$Sindhi$$$Singhalese$$$Siswati$$$Slovak$$$Slovenian$$$Somali$$$Spanish$$$Sundanese$$$Swahili$$$Swedish$$$Tagalog$$$Tajik$$$Tamil$$$Tatar$$$Telugu$$$Thai$$$Tibetan$$$Tigrinya$$$TongaLanguage$$$Tsonga$$$Turkish$$$Turkmen$$$Twi$$$Uigur$$$Ukrainian$$$Urdu$$$Uzbek$$$Vietnamese$$$Volapuk$$$Welsh$$$Wolof$$$Xhosa$$$Yiddish$$$Yoruba$$$Zhuang$$$Zulu$$$NorwegianNynorsk$$$Nynorsk$$$Bosnian$$$Divehi$$$Manx$$$Cornish$$$Akan$$$Konkani$$$Ga$$$Igbo$$$Kamba$$$Syriac$$$Blin$$$Geez$$$Koro$$$Sidamo$$$Atsam$$$Tigre$$$Jju$$$Friulian$$$Venda$$$Ewe$$$Walamo$$$Hawaiian$$$Tyap$$$Chewa$$$Filipino$$$SwissGerman$$$SichuanYi$$$Kpelle$$$LowGerman$$$SouthNdebele$$$NorthernSotho$$$NorthernSami$$$Taroko$$$Gusii$$$Taita$$$Fulah$$$Kikuyu$$$Samburu$$$Sena$$$NorthNdebele$$$Rombo$$$Tachelhit$$$Kabyle$$$Nyankole$$$Bena$$$Vunjo$$$Bambara$$$Embu$$$Cherokee$$$Morisyen$$$Makonde$$$Langi$$$Ganda$$$Bemba$$$Kabuverdianu$$$Meru$$$Kalenjin$$$Nama$$$Machame$$$Colognian$$$Masai$$$Soga$$$Luyia$$$Asu$$$Teso$$$Saho$$$KoyraChiini$$$Rwa$$$Luo$$$Chiga$$$CentralMoroccoTamazight$$$KoyraboroSenni$$$Shambala$$$LastLanguage -->
 <h3 class="fn"><a name="Language-enum"></a>enum QLocale::Language</h3>
 <p>This enumerated type is used to specify a language.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QLocale::C</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The &quot;C&quot; locale is identical in behavior to English/<a href="qlocale.html#Country-enum">UnitedStates</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QLocale::Abkhazian</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>QLocale::Afan</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">&nbsp;</td></tr>
@@ -798,7 +805,7 @@
 <!-- $$$MeasurementSystem$$$MetricSystem$$$ImperialSystem -->
 <h3 class="fn"><a name="MeasurementSystem-enum"></a>enum QLocale::MeasurementSystem</h3>
 <p>This enum defines which units are used for measurement.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QLocale::MetricSystem</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">This value indicates metric units, such as meters, centimeters and millimeters.</td></tr>
 <tr><td  class="topAlign"><tt>QLocale::ImperialSystem</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">This value indicates imperial units, such as inches and miles. There are several distinct imperial systems in the world; this value stands for the official United States imperial units.</td></tr>
 </table>
@@ -807,7 +814,7 @@
 <!-- $$$NumberOption$$$OmitGroupSeparator$$$RejectGroupSeparator -->
 <h3 class="flags"><a name="NumberOption-enum"></a>enum QLocale::NumberOption<br/>flags QLocale::NumberOptions</h3>
 <p>This enum defines a set of options for number-to-string and string-to-number conversions. They can be retrieved with <a href="qlocale.html#numberOptions">numberOptions</a>() and set with <a href="qlocale.html#setNumberOptions">setNumberOptions</a>().</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QLocale::OmitGroupSeparator</tt></td><td class=" topAlign"><tt>0x01</tt></td><td  class="topAlign">If this option is set, the number-to-string functions will not insert group separators in their return values. The default is to insert group separators.</td></tr>
 <tr><td  class="topAlign"><tt>QLocale::RejectGroupSeparator</tt></td><td class=" topAlign"><tt>0x02</tt></td><td  class="topAlign">If this option is set, the string-to-number functions will fail if they encounter group separators in their input. The default is to accept numbers containing correctly placed group separators.</td></tr>
 </table>

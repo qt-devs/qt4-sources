@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -482,8 +482,10 @@ int QThread::exec()
     Q_D(QThread);
     QMutexLocker locker(&d->mutex);
     d->data->quitNow = false;
-    if (d->exited)
+    if (d->exited) {
+        d->exited = false;
         return d->returnCode;
+    }
     locker.unlock();
 
     QEventLoop eventLoop;
@@ -667,9 +669,9 @@ QThread::Priority QThread::priority() const
     to finish will be woken up.
 
     \warning This function is dangerous and its use is discouraged.
-    The thread can be terminate at any point in its code path.
+    The thread can be terminated at any point in its code path.
     Threads can be terminated while modifying data. There is no
-    chance for the thread to cleanup after itself, unlock any held
+    chance for the thread to clean up after itself, unlock any held
     mutexes, etc. In short, use this function only if absolutely
     necessary.
 

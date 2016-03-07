@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -291,7 +299,7 @@
 <a name="the-event-loop-and-event-handling"></a>
 <h3>The Event Loop and Event Handling</h3>
 <p>The event loop is started with a call to <a href="qcoreapplication.html#exec">exec</a>(). Long running operations can call <a href="qcoreapplication.html#processEvents">processEvents</a>() to keep the application responsive.</p>
-<p>Some Qt classes, such as <a href="qstring.html">QString</a>, can be used without a QCoreApplication object. However, in general, we recommend that you create a QCoreApplication or a <a href="qapplication.html">QApplication</a> object in your <tt>main()</tt> function as early as possible. <a href="qcoreapplication.html#exit">exit</a>() will not return until the event loop exits; e.g&#x2e;, when <a href="qcoreapplication.html#quit">quit</a>() is called.</p>
+<p>In general, we recommend that you create a QCoreApplication or a <a href="qapplication.html">QApplication</a> object in your <tt>main()</tt> function as early as possible. <a href="qcoreapplication.html#exit">exit</a>() will not return until the event loop exits; e.g&#x2e;, when <a href="qcoreapplication.html#quit">quit</a>() is called.</p>
 <p>Several static convenience functions are also provided. The QCoreApplication object is available from <a href="qcoreapplication.html#instance">instance</a>(). Events can be sent or posted using <a href="qcoreapplication.html#sendEvent">sendEvent</a>(), <a href="qcoreapplication.html#postEvent">postEvent</a>(), and <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents</a>(). Pending events can be removed with <a href="qcoreapplication.html#removePostedEvents">removePostedEvents</a>() or flushed with <a href="qcoreapplication.html#flush">flush</a>().</p>
 <p>The class provides a <a href="qcoreapplication.html#quit">quit</a>() slot and an <a href="qcoreapplication.html#aboutToQuit">aboutToQuit</a>() signal.</p>
 <a name="application-and-library-paths"></a>
@@ -303,7 +311,7 @@
 <a name="accessing-command-line-arguments"></a>
 <h3>Accessing Command Line Arguments</h3>
 <p>The command line arguments which are passed to QCoreApplication's constructor should be accessed using the <a href="qcoreapplication.html#arguments">arguments</a>() function. Note that some arguments supplied by the user may have been processed and removed by QCoreApplication.</p>
-<p>In cases where command line arguments need to be obtained using the <a href="qcoreapplication.html#argv" class="compat">argv</a>() function, you must convert them from the local string encoding using <a href="qstring.html#fromLocal8Bit">QString::fromLocal8Bit</a>().</p>
+<p>In cases where command line arguments need to be obtained using the <a href="qcoreapplication-qt3.html#argv" class="compat">argv</a>() function, you must convert them from the local string encoding using <a href="qstring.html#fromLocal8Bit">QString::fromLocal8Bit</a>().</p>
 <a name="locale-settings"></a>
 <h3>Locale Settings</h3>
 <p>On Unix/Linux Qt is configured to use the system locale settings by default. This can cause a conflict when using POSIX functions, for instance, when converting between data types such as floats and strings, since the notation may differ between locales. To get around this problem, call the POSIX function <tt>setlocale(LC_NUMERIC,&quot;C&quot;)</tt> right after initializing <a href="qapplication.html">QApplication</a> or QCoreApplication to reset the locale that is used for number formatting to &quot;C&quot;-locale.</p>
@@ -315,7 +323,7 @@
 <!-- $$$Encoding$$$CodecForTr$$$UnicodeUTF8$$$DefaultCodec -->
 <h3 class="fn"><a name="Encoding-enum"></a>enum QCoreApplication::Encoding</h3>
 <p>This enum type defines the 8-bit encoding of character string arguments to <a href="qcoreapplication.html#translate">translate</a>():</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QCoreApplication::CodecForTr</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The encoding specified by <a href="qtextcodec.html#codecForTr">QTextCodec::codecForTr</a>() (Latin-1 if none has been set).</td></tr>
 <tr><td  class="topAlign"><tt>QCoreApplication::UnicodeUTF8</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">UTF-8.</td></tr>
 <tr><td  class="topAlign"><tt>QCoreApplication::DefaultCodec</tt></td><td class=" topAlign"><tt>CodecForTr</tt></td><td  class="topAlign">(Obsolete) Use CodecForTr instead.</td></tr>

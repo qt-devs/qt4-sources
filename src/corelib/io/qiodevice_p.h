@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -68,7 +68,7 @@ QT_BEGIN_NAMESPACE
 #define QIODEVICE_BUFFERSIZE Q_INT64_C(16384)
 #endif
 
-// This is QIODevice's read buffer, optimised for read(), isEmpty() and getChar()
+// This is QIODevice's read buffer, optimized for read(), isEmpty() and getChar()
 class QIODevicePrivateLinearBuffer
 {
 public:

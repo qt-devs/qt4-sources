@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,21 +149,21 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QCheckBox</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qcheckbox.html">QCheckBox class reference</a></li></ul></p>
 <h2>Public Types</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox.html#ToggleState-enum">ToggleState</a></b> { Off, NoChange, On }</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox-qt3.html#ToggleState-enum">ToggleState</a></b> { Off, NoChange, On }</td></tr>
 </table>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox.html#QCheckBox-3">QCheckBox</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox.html#QCheckBox-4">QCheckBox</a></b> ( const QString &amp; <i>text</i>, QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox.html#setNoChange">setNoChange</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox.html#setState">setState</a></b> ( ToggleState <i>state</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> ToggleState </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox.html#state">state</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox-qt3.html#QCheckBox-3">QCheckBox</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox-qt3.html#QCheckBox-4">QCheckBox</a></b> ( const QString &amp; <i>text</i>, QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox-qt3.html#setNoChange">setNoChange</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox-qt3.html#setState">setState</a></b> ( ToggleState <i>state</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> ToggleState </td><td class="memItemRight bottomAlign"><b><a href="qcheckbox-qt3.html#state">state</a></b> () const</td></tr>
 </table>
 <ul>
 <li class="fn">9 public functions inherited from <a href="qabstractbutton.html#public-functions">QAbstractButton</a></li>
@@ -166,7 +174,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$ToggleState$$$Off$$$NoChange$$$On -->
 <h3 class="fn"><a name="ToggleState-enum"></a>enum QCheckBox::ToggleState</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QCheckBox::Off</tt></td><td class=" topAlign"><tt>Qt::Unchecked</tt></td><td  class="topAlign">Use <a href="qt.html#CheckState-enum">Qt::Unchecked</a> instead.</td></tr>
 <tr><td  class="topAlign"><tt>QCheckBox::NoChange</tt></td><td class=" topAlign"><tt>Qt::PartiallyChecked</tt></td><td  class="topAlign">Use <a href="qt.html#CheckState-enum">Qt::PartiallyChecked</a> instead.</td></tr>
 <tr><td  class="topAlign"><tt>QCheckBox::On</tt></td><td class=" topAlign"><tt>Qt::Checked</tt></td><td  class="topAlign">Use <a href="qt.html#CheckState-enum">Qt::Checked</a> instead.</td></tr>
@@ -186,14 +194,14 @@
 <p>Use <a href="qcheckbox.html#setCheckState">setCheckState</a>() instead.</p>
 <!-- @@@setNoChange -->
 <!-- $$$setState[overload1]$$$setStateToggleState -->
-<h3 class="fn"><a name="setState"></a>void QCheckBox::setState ( <a href="qcheckbox.html#ToggleState-enum">ToggleState</a> <i>state</i> )</h3>
+<h3 class="fn"><a name="setState"></a>void QCheckBox::setState ( <a href="qcheckbox-qt3.html#ToggleState-enum">ToggleState</a> <i>state</i> )</h3>
 <p>Use <a href="qcheckbox.html#setCheckState">setCheckState</a>() instead.</p>
-<p>See also <a href="qcheckbox.html#state">state</a>().</p>
+<p>See also <a href="qcheckbox-qt3.html#state">state</a>().</p>
 <!-- @@@setState -->
 <!-- $$$state[overload1]$$$state -->
-<h3 class="fn"><a name="state"></a><a href="qcheckbox.html#ToggleState-enum">ToggleState</a> QCheckBox::state () const</h3>
+<h3 class="fn"><a name="state"></a><a href="qcheckbox-qt3.html#ToggleState-enum">ToggleState</a> QCheckBox::state () const</h3>
 <p>Use <a href="qcheckbox.html#checkState">checkState</a>() instead.</p>
-<p>See also <a href="qcheckbox.html#setState">setState</a>().</p>
+<p>See also <a href="qcheckbox-qt3.html#setState">setState</a>().</p>
 <!-- @@@state -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

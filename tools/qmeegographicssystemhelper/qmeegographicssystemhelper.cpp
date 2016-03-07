@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -45,7 +45,9 @@
 #include <private/qapplication_p.h>
 #include <private/qgraphicssystem_runtime_p.h>
 #include <private/qpixmap_raster_p.h>
+#include <private/qwindowsurface_gl_p.h>
 #include "qmeegoruntime.h"
+#include "qmeegoswitchevent.h"
 
 QString QMeeGoGraphicsSystemHelper::runningGraphicsSystemName()
 {
@@ -68,6 +70,11 @@ bool QMeeGoGraphicsSystemHelper::isRunningMeeGo()
     return (runningGraphicsSystemName() == QLatin1String("meego"));
 }
 
+bool QMeeGoGraphicsSystemHelper::isRunningRuntime()
+{
+    return (QApplicationPrivate::instance()->graphics_system_name == QLatin1String("runtime"));
+}
+
 void QMeeGoGraphicsSystemHelper::switchToMeeGo()
 {
     if (isRunningMeeGo())
@@ -76,8 +83,16 @@ void QMeeGoGraphicsSystemHelper::switchToMeeGo()
     if (QApplicationPrivate::instance()->graphics_system_name != QLatin1String("runtime"))
         qWarning("Can't switch to meego - switching only supported with 'runtime' graphics system.");
     else {
+        QMeeGoSwitchEvent willSwitchEvent(QLatin1String("meego"), QMeeGoSwitchEvent::WillSwitch);
+        foreach (QWidget *widget, QApplication::topLevelWidgets())
+            QCoreApplication::sendEvent(widget, &willSwitchEvent);
+
         QApplication *app = static_cast<QApplication *>(QCoreApplication::instance());
         app->setGraphicsSystem(QLatin1String("meego"));
+
+        QMeeGoSwitchEvent didSwitchEvent(QLatin1String("meego"), QMeeGoSwitchEvent::DidSwitch);
+        foreach (QWidget *widget, QApplication::topLevelWidgets())
+            QCoreApplication::sendEvent(widget, &didSwitchEvent);
     }
 }
 
@@ -89,8 +104,16 @@ void QMeeGoGraphicsSystemHelper::switchToRaster()
     if (QApplicationPrivate::instance()->graphics_system_name != QLatin1String("runtime"))
         qWarning("Can't switch to raster - switching only supported with 'runtime' graphics system.");
     else {
+        QMeeGoSwitchEvent willSwitchEvent(QLatin1String("raster"), QMeeGoSwitchEvent::WillSwitch);
+        foreach (QWidget *widget, QApplication::topLevelWidgets())
+            QCoreApplication::sendEvent(widget, &willSwitchEvent);
+
         QApplication *app = static_cast<QApplication *>(QCoreApplication::instance());
         app->setGraphicsSystem(QLatin1String("raster"));
+
+        QMeeGoSwitchEvent didSwitchEvent(QLatin1String("raster"), QMeeGoSwitchEvent::DidSwitch);
+        foreach (QWidget *widget, QApplication::topLevelWidgets())
+            QCoreApplication::sendEvent(widget, &didSwitchEvent);
     }
 }
 
@@ -105,13 +128,13 @@ QPixmap QMeeGoGraphicsSystemHelper::pixmapFromEGLSharedImage(Qt::HANDLE handle, 
     // This function is supported when not running meego too. A raster-backed
     // pixmap will be created... but when you switch back to 'meego', it'll 
     // be replaced with a EGL shared image backing.
-    return QMeeGoRuntime::pixmapFromEGLSharedImage(handle, softImage);
+    return QPixmap(QMeeGoRuntime::pixmapDataFromEGLSharedImage(handle, softImage));
 }
 
 QPixmap QMeeGoGraphicsSystemHelper::pixmapWithGLTexture(int w, int h)
 {
     ENSURE_RUNNING_MEEGO;
-    return QMeeGoRuntime::pixmapWithGLTexture(w, h);
+    return QPixmap(QMeeGoRuntime::pixmapDataWithGLTexture(w, h));
 }
 
 bool QMeeGoGraphicsSystemHelper::destroyEGLSharedImage(Qt::HANDLE handle)
@@ -130,4 +153,18 @@ void QMeeGoGraphicsSystemHelper::setTranslucent(bool translucent)
 {
     ENSURE_RUNNING_MEEGO;
     QMeeGoRuntime::setTranslucent(translucent);
+}
+
+void QMeeGoGraphicsSystemHelper::setSwapBehavior(SwapMode mode)
+{
+    ENSURE_RUNNING_MEEGO;
+
+    if (mode == AutomaticSwap)
+        QGLWindowSurface::swapBehavior = QGLWindowSurface::AutomaticSwap;
+    else if (mode == AlwaysFullSwap)
+        QGLWindowSurface::swapBehavior = QGLWindowSurface::AlwaysFullSwap;
+    else if (mode == AlwaysPartialSwap)
+        QGLWindowSurface::swapBehavior = QGLWindowSurface::AlwaysPartialSwap;
+    else if (mode == KillSwap)
+        QGLWindowSurface::swapBehavior = QGLWindowSurface::KillSwap;
 }

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -55,16 +55,13 @@
 #include <QtGui/private/qfontengine_p.h>
 #include <QtGui/private/qpainterpath_p.h>
 #include <QtGui/private/qstatictext_p.h>
+#include <QtGui/QApplication>
+#include <QtGui/QDesktopWidget>
 #include <QtCore/qmath.h>
 #include <QDebug>
 #include <QSet>
 
 QT_BEGIN_NAMESPACE
-
-// vgDrawGlyphs() only exists in OpenVG 1.1 and higher.
-#if !defined(OPENVG_VERSION_1_1) && !defined(QVG_NO_DRAW_GLYPHS)
-#define QVG_NO_DRAW_GLYPHS 1
-#endif
 
 // vgRenderToMask() only exists in OpenVG 1.1 and higher.
 // Also, disable masking completely if we are using the scissor to clip.
@@ -75,10 +72,10 @@ QT_BEGIN_NAMESPACE
 #define QVG_NO_RENDER_TO_MASK 1
 #endif
 
-#if !defined(QVG_NO_DRAW_GLYPHS)
-
 // use the same rounding as in qrasterizer.cpp (6 bit fixed point)
 static const qreal aliasedCoordinateDelta = 0.5 - 0.015625;
+
+#if !defined(QVG_NO_DRAW_GLYPHS)
 
 Q_DECL_IMPORT extern int qt_defaultDpiX();
 Q_DECL_IMPORT extern int qt_defaultDpiY();
@@ -1505,7 +1502,10 @@ void QVGPaintEnginePrivate::fill(VGPath path, const QBrush& brush, VGint rule)
         return;
     ensureBrush(brush);
     setFillRule(rule);
+    QPen savedPen = currentPen;
+    currentPen = Qt::NoPen;
     ensurePathTransform();
+    currentPen = savedPen;
     vgDrawPath(path, VG_FILL_PATH);
 }
 
@@ -2201,6 +2201,12 @@ void QVGPaintEngine::updateScissor()
 #if defined(QVG_SCISSOR_CLIP)
     // Using the scissor to do clipping, so combine the systemClip
     // with the current painting clipRegion.
+
+    if (d->maskValid) {
+        vgSeti(VG_MASKING, VG_FALSE);
+        d->maskValid = false;
+    }
+
     QVGPainterState *s = state();
     if (s->clipEnabled) {
         if (region.isEmpty())
@@ -2250,8 +2256,33 @@ void QVGPaintEngine::updateScissor()
 
     QVector<QRect> rects = region.rects();
     int count = rects.count();
-    if (count > d->maxScissorRects)
-        count = d->maxScissorRects;
+    if (count > d->maxScissorRects) {
+#if !defined(QVG_SCISSOR_CLIP)
+         count = d->maxScissorRects;
+#else
+        // Use masking
+        int width = paintDevice()->width();
+        int height = paintDevice()->height();
+        vgMask(VG_INVALID_HANDLE, VG_CLEAR_MASK,
+                   0, 0, width, height);
+        for (int i = 0; i < rects.size(); ++i) {
+            vgMask(VG_INVALID_HANDLE, VG_FILL_MASK,
+                   rects[i].x(), height - rects[i].y() - rects[i].height(),
+                   rects[i].width(), rects[i].height());
+        }
+
+        vgSeti(VG_SCISSORING, VG_FALSE);
+        vgSeti(VG_MASKING, VG_TRUE);
+        d->maskValid = true;
+        d->maskIsSet = false;
+        d->scissorMask = false;
+        d->scissorActive = false;
+        d->scissorDirty = false;
+        d->scissorRegion = region;
+        return;
+#endif
+    }
+
     QVarLengthArray<VGint> params(count * 4);
     int height = paintDevice()->height();
     for (int i = 0; i < count; ++i) {
@@ -3065,6 +3096,21 @@ void qt_vg_drawVGImageStencil
     vgDrawImage(vgImg);
 }
 
+bool QVGPaintEngine::canVgWritePixels(const QImage &image) const
+{
+    Q_D(const QVGPaintEngine);
+    // vgWritePixels ignores masking, blending and xforms so we can only use it if
+    // ALL of the following conditions are true:
+    // - It is a simple translate, or a scale of -1 on the y-axis (inverted)
+    // - The opacity is totally opaque
+    // - The composition mode is "source" OR "source over" provided the image is opaque
+    return ( d->imageTransform.type() <= QTransform::TxScale
+            && d->imageTransform.m11() == 1.0 && qAbs(d->imageTransform.m22()) == 1.0)
+            && d->opacity == 1.0f
+            && (d->blendMode == VG_BLEND_SRC || (d->blendMode == VG_BLEND_SRC_OVER &&
+                                                !image.hasAlphaChannel()));
+}
+
 void QVGPaintEngine::drawPixmap(const QRectF &r, const QPixmap &pm, const QRectF &sr)
 {
     QPixmapData *pd = pm.pixmapData();
@@ -3079,9 +3125,18 @@ void QVGPaintEngine::drawPixmap(const QRectF &r, const QPixmap &pm, const QRectF
             drawVGImage(d, r, vgpd->toVGImage(), vgpd->size(), sr);
         else
             drawVGImage(d, r, vgpd->toVGImage(d->opacity), vgpd->size(), sr);
-    } else {
-        drawImage(r, *(pd->buffer()), sr, Qt::AutoColor);
+
+        if(!vgpd->failedToAlloc)
+            return;
+
+        // try to reallocate next time if reasonable small pixmap
+        QSize screenSize = QApplication::desktop()->screenGeometry().size();
+        if (pm.size().width() <= screenSize.width()
+            && pm.size().height() <= screenSize.height())
+            vgpd->failedToAlloc = false;
     }
+
+    drawImage(r, *(pd->buffer()), sr, Qt::AutoColor);
 }
 
 void QVGPaintEngine::drawPixmap(const QPointF &pos, const QPixmap &pm)
@@ -3098,9 +3153,18 @@ void QVGPaintEngine::drawPixmap(const QPointF &pos, const QPixmap &pm)
             drawVGImage(d, pos, vgpd->toVGImage());
         else
             drawVGImage(d, pos, vgpd->toVGImage(d->opacity));
-    } else {
-        drawImage(pos, *(pd->buffer()));
+
+        if (!vgpd->failedToAlloc)
+            return;
+
+        // try to reallocate next time if reasonable small pixmap
+        QSize screenSize = QApplication::desktop()->screenGeometry().size();
+        if (pm.size().width() <= screenSize.width()
+            && pm.size().height() <= screenSize.height())
+            vgpd->failedToAlloc = false;
     }
+
+    drawImage(pos, *(pd->buffer()));
 }
 
 void QVGPaintEngine::drawImage
@@ -3121,9 +3185,31 @@ void QVGPaintEngine::drawImage
                         QRectF(QPointF(0, 0), sr.size()));
         }
     } else {
-        // Monochrome images need to use the vgChildImage() path.
-        vgImg = toVGImage(image, flags);
-        drawVGImage(d, r, vgImg, image.size(), sr);
+        if (canVgWritePixels(image) && (r.size() == sr.size()) && !flags) {
+            // Optimization for straight blits, no blending
+            int x = sr.x();
+            int y = sr.y();
+            int bpp = image.depth() >> 3; // bytes
+            int offset = 0;
+            int bpl = image.bytesPerLine();
+            if (d->imageTransform.m22() < 0) {
+                // inverted
+                offset = ((y + sr.height()) * bpl) - ((image.width() - x) * bpp);
+                bpl = -bpl;
+            } else {
+                offset = (y * bpl) + (x * bpp);
+            }
+            const uchar *bits = image.constBits() + offset;
+
+            QPointF mapped = d->imageTransform.map(r.topLeft());
+            vgWritePixels(bits, bpl, qt_vg_image_to_vg_format(image.format()),
+                        mapped.x(), mapped.y() - sr.height(), r.width(), r.height());
+            return;
+        } else {
+            // Monochrome images need to use the vgChildImage() path.
+            vgImg = toVGImage(image, flags);
+            drawVGImage(d, r, vgImg, image.size(), sr);
+        }
     }
     vgDestroyImage(vgImg);
 }
@@ -3132,10 +3218,21 @@ void QVGPaintEngine::drawImage(const QPointF &pos, const QImage &image)
 {
     Q_D(QVGPaintEngine);
     VGImage vgImg;
-    if (d->simpleTransform || d->opacity == 1.0f)
+    if (canVgWritePixels(image)) {
+        // Optimization for straight blits, no blending
+        bool inverted = (d->imageTransform.m22() < 0);
+        const uchar *bits = inverted ? image.constBits() + image.byteCount() : image.constBits();
+        int bpl = inverted ? -image.bytesPerLine() : image.bytesPerLine();
+
+        QPointF mapped = d->imageTransform.map(pos);
+        vgWritePixels(bits, bpl, qt_vg_image_to_vg_format(image.format()),
+                             mapped.x(), mapped.y() - image.height(), image.width(), image.height());
+        return;
+    } else if (d->simpleTransform || d->opacity == 1.0f) {
         vgImg = toVGImage(image);
-    else
+    } else {
         vgImg = toVGImageWithOpacity(image, d->opacity);
+    }
     drawVGImage(d, pos, vgImg);
     vgDestroyImage(vgImg);
 }
@@ -3144,8 +3241,7 @@ void QVGPaintEngine::drawTiledPixmap
         (const QRectF &r, const QPixmap &pixmap, const QPointF &s)
 {
     QBrush brush(state()->pen.color(), pixmap);
-    QTransform xform;
-    xform.translate(-s.x(), -s.y());
+    QTransform xform = QTransform::fromTranslate(r.x() - s.x(), r.y() - s.y());
     brush.setTransform(xform);
     fillRect(r, brush);
 }
@@ -3412,7 +3508,7 @@ void QVGPaintEngine::drawTextItem(const QPointF &p, const QTextItem &textItem)
 
 void QVGPaintEngine::drawStaticTextItem(QStaticTextItem *textItem)
 {
-    drawCachedGlyphs(textItem->numGlyphs, textItem->glyphs, textItem->font, textItem->fontEngine,
+    drawCachedGlyphs(textItem->numGlyphs, textItem->glyphs, textItem->font, textItem->fontEngine(),
                      QPointF(0, 0), textItem->glyphPositions);
 }
 
@@ -3474,14 +3570,14 @@ void QVGPaintEngine::drawStaticTextItem(QStaticTextItem *textItem)
     QVarLengthArray<VGfloat> adjustments_x(numGlyphs);
     QVarLengthArray<VGfloat> adjustments_y(numGlyphs);
     for (int i = 1; i < numGlyphs; ++i) {
-        adjustments_x[i-1] = (positions[i].x - positions[i-1].x).toReal();
-        adjustments_y[i-1] = (positions[i].y - positions[i-1].y).toReal();
+        adjustments_x[i-1] = (positions[i].x - positions[i-1].x).round().toReal();
+        adjustments_y[i-1] = (positions[i].y - positions[i-1].y).round().toReal();
     }
 
     // Set the glyph drawing origin.
     VGfloat origin[2];
-    origin[0] = positions[0].x.toReal();
-    origin[1] = positions[0].y.toReal();
+    origin[0] = positions[0].x.round().toReal();
+    origin[1] = positions[0].y.round().toReal();
     vgSetfv(VG_GLYPH_ORIGIN, 2, origin);
 
     // Fast anti-aliasing for paths, better for images.
@@ -3615,6 +3711,7 @@ void QVGPaintEngine::restoreState(QPaintEngine::DirtyFlags dirty)
         d->maskIsSet = false;
         d->scissorMask = false;
         d->maskRect = QRect();
+        d->scissorDirty = true;
         clipEnabledChanged();
     }
 

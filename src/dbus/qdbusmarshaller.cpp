@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -507,7 +507,7 @@ bool QDBusMarshaller::appendCrossMarshalling(QDBusDemarshaller *demarshaller)
     if (code == DBUS_TYPE_ARRAY) {
         int element = q_dbus_message_iter_get_element_type(&demarshaller->iterator);
         if (q_dbus_type_is_fixed(element)) {
-            // another optimisation: fixed size arrays
+            // another optimization: fixed size arrays
             // code is exactly like QDBusDemarshaller::toByteArray
             DBusMessageIter sub;
             q_dbus_message_iter_recurse(&demarshaller->iterator, &sub);

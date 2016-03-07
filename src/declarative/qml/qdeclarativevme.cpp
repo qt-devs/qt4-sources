@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -154,7 +154,8 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
     QDeclarativeEnginePrivate *ep = QDeclarativeEnginePrivate::get(ctxt->engine);
 
     int status = -1;    //for dbus
-    QDeclarativePropertyPrivate::WriteFlags flags = QDeclarativePropertyPrivate::BypassInterceptor;
+    QDeclarativePropertyPrivate::WriteFlags flags = QDeclarativePropertyPrivate::BypassInterceptor |
+                                                    QDeclarativePropertyPrivate::RemoveBindingOnAliasWrite;
 
     for (int ii = start; !isError() && ii < (start + count); ++ii) {
         const QDeclarativeInstruction &instr = comp->bytecode.at(ii);
@@ -185,12 +186,9 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
                     bindings = bindings.united(bindingSkipList);
 
                 QObject *o = 
-                    types.at(instr.create.type).createInstance(ctxt, bindings);
+                    types.at(instr.create.type).createInstance(ctxt, bindings, &vmeErrors);
 
                 if (!o) {
-                    if(types.at(instr.create.type).component)
-                        vmeErrors << types.at(instr.create.type).component->errors();
-
                     VME_EXCEPTION(QCoreApplication::translate("QDeclarativeVME","Unable to create object of type %1").arg(QString::fromLatin1(types.at(instr.create.type).className)));
                 }
 
@@ -608,7 +606,7 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
                     if (!QMetaObject::checkConnectArgs(prop.method().signature(), method.signature()))
                         VME_EXCEPTION(QCoreApplication::translate("QDeclarativeVME","Cannot connect mismatched signal/slot %1 %vs. %2").arg(QString::fromLatin1(method.signature())).arg(QString::fromLatin1(prop.method().signature())));
 
-                    QMetaObject::connect(target, prop.index(), assign, method.methodIndex());
+                    QDeclarativePropertyPrivate::connect(target, prop.index(), assign, method.methodIndex());
 
                 } else {
                     VME_EXCEPTION(QCoreApplication::translate("QDeclarativeVME","Cannot assign an object to signal property %1").arg(QString::fromUtf8(pr)));
@@ -667,6 +665,7 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
             break;
 
         case QDeclarativeInstruction::StoreBinding:
+        case QDeclarativeInstruction::StoreBindingOnAlias:
             {
                 QObject *target = 
                     stack.at(stack.count() - 1 - instr.assignBinding.owner);
@@ -678,14 +677,20 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
 
                 int coreIndex = mp.index();
 
-                if (stack.count() == 1 && bindingSkipList.testBit(coreIndex))  
+                if ((stack.count() - instr.assignBinding.owner) == 1 && bindingSkipList.testBit(coreIndex)) 
                     break;
 
                 QDeclarativeBinding *bind = new QDeclarativeBinding((void *)datas.at(instr.assignBinding.value).constData(), comp, context, ctxt, comp->name, instr.line, 0);
                 bindValues.append(bind);
                 bind->m_mePtr = &bindValues.values[bindValues.count - 1];
                 bind->setTarget(mp);
-                bind->addToObject(target);
+
+                if (instr.type == QDeclarativeInstruction::StoreBindingOnAlias) {
+                    QDeclarativeAbstractBinding *old = QDeclarativePropertyPrivate::setBindingNoEnable(target, coreIndex, QDeclarativePropertyPrivate::valueTypeCoreIndex(mp), bind);
+                    if (old) { old->destroy(); }
+                } else {
+                    bind->addToObject(target, QDeclarativePropertyPrivate::bindingIndex(mp));
+                }
             }
             break;
 
@@ -704,7 +709,7 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
                     ctxt->optimizedBindings->configBinding(instr.assignBinding.value, target, scope, property);
                 bindValues.append(binding);
                 binding->m_mePtr = &bindValues.values[bindValues.count - 1];
-                binding->addToObject(target);
+                binding->addToObject(target, property);
             }
             break;
 
@@ -877,8 +882,26 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
         case QDeclarativeInstruction::FetchValueType:
             {
                 QObject *target = stack.top();
-                QDeclarativeValueType *valueHandler = 
-                    ep->valueTypes[instr.fetchValue.type];
+
+                if (instr.fetchValue.bindingSkipList != 0) {
+                    // Possibly need to clear bindings
+                    QDeclarativeData *targetData = QDeclarativeData::get(target);
+                    if (targetData) {
+                        QDeclarativeAbstractBinding *binding = 
+                            QDeclarativePropertyPrivate::binding(target, instr.fetchValue.property, -1);
+
+                        if (binding && binding->bindingType() != QDeclarativeAbstractBinding::ValueTypeProxy) {
+                            QDeclarativePropertyPrivate::setBinding(target, instr.fetchValue.property, -1, 0);
+                            binding->destroy();
+                        } else if (binding) {
+                            QDeclarativeValueTypeProxyBinding *proxy = 
+                                static_cast<QDeclarativeValueTypeProxyBinding *>(binding);
+                            proxy->removeBindings(instr.fetchValue.bindingSkipList);
+                        }
+                    }
+                }
+
+                QDeclarativeValueType *valueHandler = ep->valueTypes[instr.fetchValue.type];
                 valueHandler->read(target, instr.fetchValue.property);
                 stack.push(valueHandler);
             }
@@ -915,8 +938,13 @@ QObject *QDeclarativeVME::run(QDeclarativeVMEStack<QObject *> &stack,
 
     if (bindValues.count)
         ep->bindValues << bindValues;
+    else if (bindValues.values)
+        bindValues.clear();
+
     if (parserStatus.count)
         ep->parserStatus << parserStatus;
+    else if (parserStatus.values)
+        parserStatus.clear();
 
     Q_ASSERT(stack.count() == 1);
     return stack.top();
@@ -933,8 +961,9 @@ QList<QDeclarativeError> QDeclarativeVME::errors() const
 }
 
 QObject *
-QDeclarativeCompiledData::TypeReference::createInstance(QDeclarativeContextData *ctxt, 
-                                                        const QBitField &bindings) const
+QDeclarativeCompiledData::TypeReference::createInstance(QDeclarativeContextData *ctxt,
+                                                        const QBitField &bindings,
+                                                        QList<QDeclarativeError> *errors) const
 {
     if (type) {
         QObject *rv = 0;
@@ -948,7 +977,7 @@ QDeclarativeCompiledData::TypeReference::createInstance(QDeclarativeContextData 
         return rv;
     } else {
         Q_ASSERT(component);
-        return QDeclarativeComponentPrivate::get(component)->create(ctxt, bindings);
+        return QDeclarativeComponentPrivate::begin(ctxt, 0, component, -1, -1, 0, errors, bindings);
     } 
 }
 

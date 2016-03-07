@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -251,12 +251,6 @@ bool QDirectFBPixmapData::fromDataBufferDescription(const DFBDataBufferDescripti
     }
     QDirectFBPointer<IDirectFBImageProvider> provider(providerPtr);
 
-    DFBSurfaceDescription surfaceDescription;
-    if ((result = provider->GetSurfaceDescription(provider.data(), &surfaceDescription)) != DFB_OK) {
-        DirectFBError("QDirectFBPixmapData::fromDataBufferDescription(): Can't get surface description", result);
-        return false;
-    }
-
     DFBImageDescription imageDescription;
     result = provider->GetImageDescription(provider.data(), &imageDescription);
     if (result != DFB_OK) {
@@ -264,7 +258,17 @@ bool QDirectFBPixmapData::fromDataBufferDescription(const DFBDataBufferDescripti
         return false;
     }
 
-    alpha = imageDescription.caps & (DICAPS_ALPHACHANNEL|DICAPS_COLORKEY);
+    if (imageDescription.caps & DICAPS_COLORKEY) {
+        return false;
+    }
+
+    DFBSurfaceDescription surfaceDescription;
+    if ((result = provider->GetSurfaceDescription(provider.data(), &surfaceDescription)) != DFB_OK) {
+        DirectFBError("QDirectFBPixmapData::fromDataBufferDescription(): Can't get surface description", result);
+        return false;
+    }
+
+    alpha = imageDescription.caps & DICAPS_ALPHACHANNEL;
     imageFormat = alpha ? screen->alphaPixmapFormat() : screen->pixelFormat();
 
     dfbSurface = screen->createDFBSurface(QSize(surfaceDescription.width, surfaceDescription.height),

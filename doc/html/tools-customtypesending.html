@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,12 +147,12 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#overview">Overview</a></li>
-<li class="level1"><a href="#the-window-class-definition">The Window Class Definition</a></li>
+<li class="level1"><a href="#the-window-and-message-class-definitions">The Window and Message Class Definitions</a></li>
 <li class="level1"><a href="#the-window-class-implementation">The Window Class Implementation</a></li>
 <li class="level1"><a href="#making-the-connection">Making the Connection</a></li>
 <li class="level1"><a href="#further-reading">Further Reading</a></li>
@@ -164,13 +172,12 @@
 <li><a href="tools-customtypesending-customtypesending-pro.html">tools/customtypesending/customtypesending.pro</a></li>
 </ul>
 <p>The Custom Type Sending example shows how to use a custom type with signals and slots.</p>
-<p class="centerAlign"><img src="images/customtypesending-example.png" /></p><p>Contents:</p>
-<a name="overview"></a>
+<p class="centerAlign"><img src="images/customtypesending-example.png" /></p><a name="overview"></a>
 <h2>Overview</h2>
 <p>In the <a href="tools-customtype.html">Custom Type Example</a>, we showed how to integrate custom types with the meta-object system, enabling them to be stored in <a href="qvariant.html">QVariant</a> objects, written out in debugging information and used in signal-slot communication.</p>
 <p>In this example, we demonstrate that the preparations made to the <tt>Message</tt> class and its declaration with <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() enable it to be used with direct signal-slot connections. We do this by creating a <tt>Window</tt> class containing signals and slots whose signatures include <tt>Message</tt> arguments.</p>
-<a name="the-window-class-definition"></a>
-<h2>The Window Class Definition</h2>
+<a name="the-window-and-message-class-definitions"></a>
+<h2>The Window and Message Class Definitions</h2>
 <p>We define a simple <tt>Window</tt> class with a signal and public slot that allow a <tt>Message</tt> object to be sent via a signal-slot connection:</p>
 <pre class="highlightedCode brush: cpp"> class Window : public QWidget
  {
@@ -193,6 +200,26 @@
      QTextEdit *editor;
  };</pre>
 <p>The window will contain a text editor to show the contents of a message and a push button that the user can click to send a message. To facilitate this, we also define the <tt>sendMessage()</tt> slot. We also keep a <tt>Message</tt> instance in the <tt>thisMessage</tt> private variable which holds the actual message to be sent.</p>
+<p>The <tt>Message</tt> class is defined in the following way:</p>
+<pre class="highlightedCode brush: cpp"> class Message
+ {
+ public:
+     Message();
+     Message(const Message &amp;other);
+     ~Message();
+
+     Message(const QString &amp;body, const QStringList &amp;headers);
+
+     QString body() const;
+     QStringList headers() const;
+
+ private:
+     QString m_body;
+     QStringList m_headers;
+ };</pre>
+<p>The type is declared to the meta-type system with the <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() macro:</p>
+<pre class="highlightedCode brush: cpp"> Q_DECLARE_METATYPE(Message);</pre>
+<p>This will make the type available for use in direct signal-slot connections.</p>
 <a name="the-window-class-implementation"></a>
 <h2>The Window Class Implementation</h2>
 <p>The <tt>Window</tt> constructor sets up a user interface containing a text editor and a push button.</p>

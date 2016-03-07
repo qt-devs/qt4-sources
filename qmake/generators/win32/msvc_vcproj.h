@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -130,7 +130,6 @@ protected:
     QList<VcprojGenerator*> mergedProjects;
 
 private:
-    QString fixCommandLine(DotNET version, const QString &input) const;
     QUuid increaseUUID(const QUuid &id);
     friend class VCFilter;
 };

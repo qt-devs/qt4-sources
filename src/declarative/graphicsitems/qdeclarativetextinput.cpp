@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -213,24 +213,33 @@ void QDeclarativeTextInput::setText(const QString &s)
 QFont QDeclarativeTextInput::font() const
 {
     Q_D(const QDeclarativeTextInput);
-    return d->font;
+    return d->sourceFont;
 }
 
 void QDeclarativeTextInput::setFont(const QFont &font)
 {
     Q_D(QDeclarativeTextInput);
-    if (d->font == font)
+    if (d->sourceFont == font)
         return;
 
+    d->sourceFont = font;
+    QFont oldFont = d->font;
     d->font = font;
-
-    d->control->setFont(d->font);
-    if(d->cursorItem){
-        d->cursorItem->setHeight(QFontMetrics(d->font).height());
-        moveCursor();
+    if (d->font.pointSizeF() != -1) {
+        // 0.5pt resolution
+        qreal size = qRound(d->font.pointSizeF()*2.0);
+        d->font.setPointSizeF(size/2.0);
     }
-    updateSize();
-    emit fontChanged(d->font);
+
+    if (oldFont != d->font) {
+        d->control->setFont(d->font);
+        if(d->cursorItem){
+            d->cursorItem->setHeight(QFontMetrics(d->font).height());
+            moveCursor();
+        }
+        updateSize();
+    }
+    emit fontChanged(d->sourceFont);
 }
 
 /*!
@@ -417,7 +426,11 @@ void QDeclarativeTextInput::setCursorVisible(bool on)
         return;
     d->cursorVisible = on;
     d->control->setCursorBlinkPeriod(on?QApplication::cursorFlashTime():0);
-    //d->control should emit the cursor update regions
+    QRect r = d->control->cursorRect();
+    if (d->control->inputMask().isEmpty())
+        updateRect(r);
+    else
+        updateRect();
     emit cursorVisibleChanged(d->cursorVisible);
 }
 
@@ -433,6 +446,8 @@ int QDeclarativeTextInput::cursorPosition() const
 void QDeclarativeTextInput::setCursorPosition(int cp)
 {
     Q_D(QDeclarativeTextInput);
+    if (cp < 0 || cp > d->control->text().length())
+        return;
     d->control->moveCursor(cp);
 }
 
@@ -456,10 +471,9 @@ QRect QDeclarativeTextInput::cursorRectangle() const
     text edit.
 
     Note that if selectionStart == selectionEnd then there is no current
-    selection. If you attempt to set selectionStart to a value outside of
-    the current text, selectionStart will not be changed.
+    selection.
 
-    \sa selectionEnd, cursorPosition, selectedText
+    \sa selectionEnd, cursorPosition, selectedText, select()
 */
 int QDeclarativeTextInput::selectionStart() const
 {
@@ -475,10 +489,9 @@ int QDeclarativeTextInput::selectionStart() const
     text edit.
 
     Note that if selectionStart == selectionEnd then there is no current
-    selection. If you attempt to set selectionEnd to a value outside of
-    the current text, selectionEnd will not be changed.
+    selection.
 
-    \sa selectionStart, cursorPosition, selectedText
+    \sa selectionStart, cursorPosition, selectedText, select()
 */
 int QDeclarativeTextInput::selectionEnd() const
 {
@@ -486,6 +499,19 @@ int QDeclarativeTextInput::selectionEnd() const
     return d->lastSelectionEnd;
 }
 
+/*!
+    \qmlmethod void TextInput::select(int start, int end)
+
+    Causes the text from \a start to \a end to be selected.
+
+    If either start or end is out of range, the selection is not changed.
+
+    After calling this, selectionStart will become the lesser
+    and selectionEnd will become the greater (regardless of the order passed
+    to this method).
+
+    \sa selectionStart, selectionEnd
+*/
 void QDeclarativeTextInput::select(int start, int end)
 {
     Q_D(QDeclarativeTextInput);
@@ -756,7 +782,7 @@ void QDeclarativeTextInput::setEchoMode(QDeclarativeTextInput::EchoMode echo)
         imHints &= ~(Qt::ImhNoAutoUppercase | Qt::ImhNoPredictiveText);
     setInputMethodHints(imHints);
     d->control->setEchoMode((uint)echo);
-    update();
+    q_textChanged();
     emit echoModeChanged(echoMode());
 }
 
@@ -788,7 +814,7 @@ void QDeclarativeTextInput::setCursorDelegate(QDeclarativeComponent* c)
     d->cursorComponent = c;
     if(!c){
         //note that the components are owned by something else
-        disconnect(d->control, SIGNAL(cursorPositionChanged(int, int)),
+        disconnect(d->control, SIGNAL(cursorPositionChanged(int,int)),
                 this, SLOT(moveCursor()));
         delete d->cursorItem;
     }else{
@@ -801,7 +827,7 @@ void QDeclarativeTextInput::setCursorDelegate(QDeclarativeComponent* c)
 void QDeclarativeTextInputPrivate::startCreatingCursor()
 {
     Q_Q(QDeclarativeTextInput);
-    q->connect(control, SIGNAL(cursorPositionChanged(int, int)),
+    q->connect(control, SIGNAL(cursorPositionChanged(int,int)),
             q, SLOT(moveCursor()));
     if(cursorComponent->isReady()){
         q->createCursor();
@@ -1442,7 +1468,7 @@ void QDeclarativeTextInputPrivate::init()
                q, SLOT(cursorPosChanged()));
     q->connect(control, SIGNAL(selectionChanged()),
                q, SLOT(selectionChanged()));
-    q->connect(control, SIGNAL(textChanged(const QString &)),
+    q->connect(control, SIGNAL(textChanged(QString)),
                q, SLOT(q_textChanged()));
     q->connect(control, SIGNAL(accepted()),
                q, SIGNAL(accepted()));
@@ -1460,9 +1486,11 @@ void QDeclarativeTextInputPrivate::init()
 void QDeclarativeTextInput::cursorPosChanged()
 {
     Q_D(QDeclarativeTextInput);
+    d->updateHorizontalScroll();
     updateRect();//TODO: Only update rect between pos's
     updateMicroFocus();
     emit cursorPositionChanged();
+    d->control->resetCursorBlinkTimer();
 
     if(!d->control->hasSelectedText()){
         if(d->lastSelectionStart != d->control->cursor()){

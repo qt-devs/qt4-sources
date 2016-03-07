@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -204,8 +212,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qkeysequence.html#operator-lt-lt-25">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QKeySequence &amp; <i>sequence</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qkeysequence.html#operator-gt-gt-18">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QKeySequence &amp; <i>sequence</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qkeysequence.html#operator-lt-lt-120">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QKeySequence &amp; <i>sequence</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qkeysequence.html#operator-gt-gt-63">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QKeySequence &amp; <i>sequence</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QKeySequence-description -->
@@ -323,14 +331,14 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$SequenceFormat$$$NativeText$$$PortableText -->
 <h3 class="fn"><a name="SequenceFormat-enum"></a>enum QKeySequence::SequenceFormat</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::NativeText</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The key sequence as a platform specific string. This means that it will be shown translated and on the Mac it will resemble a key sequence from the menu bar. This enum is best used when you want to display the string to the user.</td></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::PortableText</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The key sequence is given in a &quot;portable&quot; format, suitable for reading and writing to a file. In many cases, it will look similar to the native text on Windows and X11.</td></tr>
 </table>
 <!-- @@@SequenceFormat -->
 <!-- $$$SequenceMatch$$$NoMatch$$$PartialMatch$$$ExactMatch$$$Identical -->
 <h3 class="fn"><a name="SequenceMatch-enum"></a>enum QKeySequence::SequenceMatch</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::NoMatch</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The key sequences are different; not even partially matching.</td></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::PartialMatch</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The key sequences match partially, but are not the same.</td></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::ExactMatch</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The key sequences are the same.</td></tr>
@@ -340,7 +348,7 @@
 <h3 class="fn"><a name="StandardKey-enum"></a>enum QKeySequence::StandardKey</h3>
 <p>This enum represent standard key bindings. They can be used to assign platform dependent keyboard shortcuts to a <a href="qaction.html">QAction</a>.</p>
 <p>Note that the key bindings are platform dependent. The currently bound shortcuts can be queried using <a href="qkeysequence.html#keyBindings">keyBindings</a>().</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::AddTab</tt></td><td class=" topAlign"><tt>19</tt></td><td  class="topAlign">Add new tab.</td></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::Back</tt></td><td class=" topAlign"><tt>13</tt></td><td  class="topAlign">Navigate back.</td></tr>
 <tr><td  class="topAlign"><tt>QKeySequence::Bold</tt></td><td class=" topAlign"><tt>27</tt></td><td  class="topAlign">Bold text.</td></tr>
@@ -536,12 +544,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQKeySequence& -->
-<h3 class="fn"><a name="operator-lt-lt-25"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QKeySequence &amp; <i>sequence</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-120"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QKeySequence &amp; <i>sequence</i> )</h3>
 <p>Writes the key <i>sequence</i> to the <i>stream</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QKeySequence& -->
-<h3 class="fn"><a name="operator-gt-gt-18"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QKeySequence &amp; <i>sequence</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-63"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QKeySequence &amp; <i>sequence</i> )</h3>
 <p>Reads a key sequence from the <i>stream</i> into the key <i>sequence</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->

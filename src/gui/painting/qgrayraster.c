@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -233,7 +233,7 @@
   /* new algorithms                                                       */
 
   typedef int   TCoord;   /* integer scanline/pixel coordinate */
-  typedef long  TPos;     /* sub-pixel coordinate              */
+  typedef int   TPos;     /* sub-pixel coordinate              */
 
   /* determine the type used to store cell areas.  This normally takes at */
   /* least PIXEL_BITS*2 + 1 bits.  On 16-bit systems, we need to use      */
@@ -317,6 +317,7 @@
     PCell*     ycells;
     int        ycount;
 
+    int        skip_spans;
   } TWorker, *PWorker;
 
 
@@ -324,13 +325,19 @@
   {
     void*    buffer;
     long     buffer_size;
+    long     buffer_allocated_size;
     int      band_size;
     void*    memory;
     PWorker  worker;
 
   } TRaster, *PRaster;
 
-
+  int q_gray_rendered_spans(TRaster *raster)
+  {
+    if ( raster && raster->worker )
+      return raster->worker->skip_spans > 0 ? 0 : -raster->worker->skip_spans;
+    return 0;
+  }
 
   /*************************************************************************/
   /*                                                                       */
@@ -538,7 +545,7 @@
                                  TCoord  y2 )
   {
     TCoord  ex1, ex2, fx1, fx2, delta;
-    long    p, first, dx;
+    int     p, first, dx;
     int     incr, lift, mod, rem;
 
 
@@ -643,7 +650,7 @@
   {
     TCoord  ey1, ey2, fy1, fy2;
     TPos    dx, dy, x, x2;
-    long    p, first;
+    int     p, first;
     int     delta, rem, mod, lift, incr;
 
 
@@ -956,49 +963,53 @@
                               const QT_FT_Vector*  control2,
                               const QT_FT_Vector*  to )
   {
+    TPos        dx, dy, da, db;
     int         top, level;
     int*        levels;
     QT_FT_Vector*  arc;
-    int         mid_x = ( DOWNSCALE( ras.x ) + to->x +
-                          3 * (control1->x + control2->x ) ) / 8;
-    int         mid_y = ( DOWNSCALE( ras.y ) + to->y +
-                          3 * (control1->y + control2->y ) ) / 8;
-    TPos        dx = DOWNSCALE( ras.x ) + to->x - ( mid_x << 1 );
-    TPos        dy = DOWNSCALE( ras.y ) + to->y - ( mid_y << 1 );
 
 
+    dx = DOWNSCALE( ras.x ) + to->x - ( control1->x << 1 );
     if ( dx < 0 )
       dx = -dx;
+    dy = DOWNSCALE( ras.y ) + to->y - ( control1->y << 1 );
     if ( dy < 0 )
       dy = -dy;
     if ( dx < dy )
       dx = dy;
+    da = dx;
+
+    dx = DOWNSCALE( ras.x ) + to->x - 3 * ( control1->x + control2->x );
+    if ( dx < 0 )
+      dx = -dx;
+    dy = DOWNSCALE( ras.y ) + to->y - 3 * ( control1->y + control2->y );
+    if ( dy < 0 )
+      dy = -dy;
+    if ( dx < dy )
+      dx = dy;
+    db = dx;
 
     level = 1;
-    dx /= ras.cubic_level;
-    while ( dx > 0 )
+    da    = da / ras.cubic_level;
+    db    = db / ras.conic_level;
+    while ( da > 0 || db > 0 )
     {
-      dx >>= 2;
+      da >>= 2;
+      db >>= 3;
       level++;
     }
 
     if ( level <= 1 )
     {
-      TPos   to_x, to_y;
+      TPos   to_x, to_y, mid_x, mid_y;
 
 
       to_x  = UPSCALE( to->x );
       to_y  = UPSCALE( to->y );
-
-      /* Recalculation of midpoint is needed only if */
-      /* UPSCALE and DOWNSCALE have any effect.      */
-
-#if ( PIXEL_BITS != 6 )
       mid_x = ( ras.x + to_x +
                 3 * UPSCALE( control1->x + control2->x ) ) / 8;
       mid_y = ( ras.y + to_y +
                 3 * UPSCALE( control1->y + control2->y ) ) / 8;
-#endif
 
       gray_render_line( RAS_VAR_ mid_x, mid_y );
       gray_render_line( RAS_VAR_ to_x, to_y );
@@ -1178,6 +1189,7 @@
   {
     QT_FT_Span*  span;
     int       coverage;
+    int       skip;
 
 
     /* compute the coverage line's coverage, depending on the    */
@@ -1228,9 +1240,16 @@
 
       if ( ras.num_gray_spans >= QT_FT_MAX_GRAY_SPANS )
       {
-        if ( ras.render_span )
-          ras.render_span( ras.num_gray_spans, ras.gray_spans,
+        if ( ras.render_span && ras.num_gray_spans > ras.skip_spans )
+        {
+          skip = ras.skip_spans > 0 ? ras.skip_spans : 0;
+          ras.render_span( ras.num_gray_spans - skip,
+                           ras.gray_spans + skip,
                            ras.render_span_data );
+        }
+
+        ras.skip_spans -= ras.num_gray_spans;
+
         /* ras.render_span( span->y, ras.gray_spans, count ); */
 
 #ifdef DEBUG_GRAYS
@@ -1600,7 +1619,8 @@
     TBand* volatile  band;
     int volatile     n, num_bands;
     TPos volatile    min, max, max_y;
-    QT_FT_BBox*         clip;
+    QT_FT_BBox*      clip;
+    int              skip;
 
     ras.num_gray_spans = 0;
 
@@ -1670,7 +1690,7 @@
         {
           PCell  cells_max;
           int    yindex;
-          long   cell_start, cell_end, cell_mod;
+          int    cell_start, cell_end, cell_mod;
 
 
           ras.ycells = (PCell*)ras.buffer;
@@ -1741,9 +1761,15 @@
       }
     }
 
-    if ( ras.render_span && ras.num_gray_spans > 0 )
-        ras.render_span( ras.num_gray_spans,
-                         ras.gray_spans, ras.render_span_data );
+    if ( ras.render_span && ras.num_gray_spans > ras.skip_spans )
+    {
+        skip = ras.skip_spans > 0 ? ras.skip_spans : 0;
+        ras.render_span( ras.num_gray_spans - skip,
+                         ras.gray_spans + skip,
+                         ras.render_span_data );
+    }
+
+    ras.skip_spans -= ras.num_gray_spans;
 
     if ( ras.band_shoot > 8 && ras.band_size > 16 )
       ras.band_size = ras.band_size / 2;
@@ -1764,10 +1790,13 @@
     if ( !raster || !raster->buffer || !raster->buffer_size )
       return ErrRaster_Invalid_Argument;
 
+    if ( raster->worker )
+      raster->worker->skip_spans = params->skip_spans;
+
     // If raster object and raster buffer are allocated, but
     // raster size isn't of the minimum size, indicate out of
     // memory.
-    if (raster && raster->buffer && raster->buffer_size < MINIMUM_POOL_SIZE )
+    if (raster->buffer_allocated_size < MINIMUM_POOL_SIZE )
       return ErrRaster_OutOfMemory;
 
     /* return immediately if the outline is empty */
@@ -1906,6 +1935,7 @@
         rast->buffer_size = 0;
         rast->worker      = NULL;
       }
+      rast->buffer_allocated_size = pool_size;
     }
   }
 

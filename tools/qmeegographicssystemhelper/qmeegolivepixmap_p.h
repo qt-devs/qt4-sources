@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -49,18 +49,9 @@ class QMeeGoLivePixmapPrivate
 public:
     Q_DECLARE_PUBLIC(QMeeGoLivePixmap);
     QMeeGoLivePixmapPrivate();
-    void copyBackFrom(const void *raw);
     virtual ~QMeeGoLivePixmapPrivate();
-    
-    QSharedMemory *shm;
-    int shmSerial;
-    bool owns;
-    QMeeGoLiveImage *parentImage;
-    
+
     QMeeGoLivePixmap *q_ptr;
-    
-    friend class QMeeGoLiveImage;
-    friend class QMeeGoLiveImagePrivate;
 };
 
 #endif

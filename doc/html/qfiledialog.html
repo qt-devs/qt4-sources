@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -361,14 +369,14 @@
 <!-- $$$FileMode$$$AnyFile$$$ExistingFile$$$Directory$$$ExistingFiles$$$DirectoryOnly -->
 <h3 class="fn"><a name="FileMode-enum"></a>enum QFileDialog::FileMode</h3>
 <p>This enum is used to indicate what the user may select in the file dialog; i.e&#x2e; what the dialog will return if the user clicks OK.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::AnyFile</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The name of a file, whether it exists or not.</td></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::ExistingFile</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The name of a single existing file.</td></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::Directory</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The name of a directory. Both files and directories are displayed.</td></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::ExistingFiles</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">The names of zero or more existing files.</td></tr>
 </table>
 <p>This value is obsolete since Qt 4.5:</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::DirectoryOnly</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">Use <tt>Directory</tt> and setOption(<a href="qfiledialog.html#Option-enum">ShowDirsOnly</a>, true) instead.</td></tr>
 </table>
 <p>See also <a href="qfiledialog.html#fileMode-prop">setFileMode</a>().</p>
@@ -379,7 +387,7 @@
 <!-- @@@Mode -->
 <!-- $$$Option$$$ShowDirsOnly$$$DontResolveSymlinks$$$DontConfirmOverwrite$$$DontUseSheet$$$DontUseNativeDialog$$$ReadOnly$$$HideNameFilterDetails -->
 <h3 class="flags"><a name="Option-enum"></a>enum QFileDialog::Option<br/>flags QFileDialog::Options</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::ShowDirsOnly</tt></td><td class=" topAlign"><tt>0x00000001</tt></td><td  class="topAlign">Only show directories in the file dialog. By default both files and directories are shown. (Valid only in the <a href="qfiledialog.html#FileMode-enum">Directory</a> file mode.)</td></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::DontResolveSymlinks</tt></td><td class=" topAlign"><tt>0x00000002</tt></td><td  class="topAlign">Don't resolve symlinks in the file dialog. By default symlinks are resolved.</td></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::DontConfirmOverwrite</tt></td><td class=" topAlign"><tt>0x00000004</tt></td><td  class="topAlign">Don't ask for confirmation if an existing file is selected. By default confirmation is requested.</td></tr>
@@ -393,7 +401,7 @@
 <!-- $$$ViewMode$$$Detail$$$List -->
 <h3 class="fn"><a name="ViewMode-enum"></a>enum QFileDialog::ViewMode</h3>
 <p>This enum describes the view mode of the file dialog; i.e&#x2e; what information about each file will be displayed.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::Detail</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Displays an icon, a name, and details for each item in the directory.</td></tr>
 <tr><td  class="topAlign"><tt>QFileDialog::List</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Displays only an icon and a name for each item in the directory.</td></tr>
 </table>
@@ -534,9 +542,10 @@
 <p>This function creates a modal file dialog with the given <i>parent</i> widget. If <i>parent</i> is not 0, the dialog will be shown centered over the parent widget.</p>
 <p>The dialog's working directory is set to <i>dir</i>, and the caption is set to <i>caption</i>. Either of these may be an empty string in which case the current directory and a default caption will be used respectively.</p>
 <p>The <i>options</i> argument holds various options about how to run the dialog, see the <a href="qfiledialog.html#Option-enum">QFileDialog::Option</a> enum for more information on the flags you can pass. To ensure a native file dialog, <a href="qfiledialog.html#Option-enum">ShowDirsOnly</a> must be set.</p>
-<p>On Windows and Mac OS X, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>. On Windows CE, if the device has no native file dialog, a <a href="qfiledialog.html">QFileDialog</a> will be used.</p>
+<p>On Windows, Mac OS X and Symbian^3, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>. On Windows CE, if the device has no native file dialog, a <a href="qfiledialog.html">QFileDialog</a> will be used.</p>
 <p>On Unix/X11, the normal behavior of the file dialog is to resolve and follow symlinks. For example, if <tt>/usr/tmp</tt> is a symlink to <tt>/var/tmp</tt>, the file dialog will change to <tt>/var/tmp</tt> after entering <tt>/usr/tmp</tt>. If <i>options</i> includes <a href="qfiledialog.html#Option-enum">DontResolveSymlinks</a>, the file dialog will treat symlinks as regular directories.</p>
 <p>On Windows the dialog will spin a blocking modal event loop that will not dispatch any QTimers, and if <i>parent</i> is not 0 then it will position the dialog just below the parent's title bar.</p>
+<p>On Symbian^3 the <i>options</i> parameter is only used to define if the native file dialog is used.</p>
 <p><b>Warning:</b> Do not delete <i>parent</i> during the execution of the dialog. If you want to do this, you should create the dialog yourself using one of the <a href="qfiledialog.html">QFileDialog</a> constructors.</p>
 <p>See also <a href="qfiledialog.html#getOpenFileName">getOpenFileName</a>(), <a href="qfiledialog.html#getOpenFileNames">getOpenFileNames</a>(), and <a href="qfiledialog.html#getSaveFileName">getSaveFileName</a>().</p>
 <!-- @@@getExistingDirectory -->
@@ -551,9 +560,10 @@
 <pre class="highlightedCode brush: cpp"> &quot;Images (*.png *.xpm *.jpg);;Text files (*.txt);;XML files (*.xml)&quot;</pre>
 <p>The <i>options</i> argument holds various options about how to run the dialog, see the <a href="qfiledialog.html#Option-enum">QFileDialog::Option</a> enum for more information on the flags you can pass.</p>
 <p>The dialog's caption is set to <i>caption</i>. If <i>caption</i> is not specified then a default caption will be used.</p>
-<p>On Windows and Mac OS X, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>.</p>
+<p>On Windows, Mac OS X and Symbian^3, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>.</p>
 <p>On Windows the dialog will spin a blocking modal event loop that will not dispatch any QTimers, and if <i>parent</i> is not 0 then it will position the dialog just below the parent's title bar.</p>
 <p>On Unix/X11, the normal behavior of the file dialog is to resolve and follow symlinks. For example, if <tt>/usr/tmp</tt> is a symlink to <tt>/var/tmp</tt>, the file dialog will change to <tt>/var/tmp</tt> after entering <tt>/usr/tmp</tt>. If <i>options</i> includes <a href="qfiledialog.html#Option-enum">DontResolveSymlinks</a>, the file dialog will treat symlinks as regular directories.</p>
+<p>On Symbian^3 the parameter <i>selectedFilter</i> has no meaning and the <i>options</i> parameter is only used to define if the native file dialog is used.</p>
 <p><b>Warning:</b> Do not delete <i>parent</i> during the execution of the dialog. If you want to do this, you should create the dialog yourself using one of the <a href="qfiledialog.html">QFileDialog</a> constructors.</p>
 <p>See also <a href="qfiledialog.html#getOpenFileNames">getOpenFileNames</a>(), <a href="qfiledialog.html#getSaveFileName">getSaveFileName</a>(), and <a href="qfiledialog.html#getExistingDirectory">getExistingDirectory</a>().</p>
 <!-- @@@getOpenFileName -->
@@ -569,7 +579,7 @@
 <p>The file dialog's working directory will be set to <i>dir</i>. If <i>dir</i> includes a file name, the file will be selected. The filter is set to <i>filter</i> so that only those files which match the filter are shown. The filter selected is set to <i>selectedFilter</i>. The parameters <i>dir</i>, <i>selectedFilter</i> and <i>filter</i> may be empty strings. If you need multiple filters, separate them with ';;', for instance:</p>
 <pre class="highlightedCode brush: cpp"> &quot;Images (*.png *.xpm *.jpg);;Text files (*.txt);;XML files (*.xml)&quot;</pre>
 <p>The dialog's caption is set to <i>caption</i>. If <i>caption</i> is not specified then a default caption will be used.</p>
-<p>On Windows and Mac OS X, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>.</p>
+<p>On Windows, Mac OS X and Symbian^3, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>.</p>
 <p>On Windows the dialog will spin a blocking modal event loop that will not dispatch any QTimers, and if <i>parent</i> is not 0 then it will position the dialog just below the parent's title bar.</p>
 <p>On Unix/X11, the normal behavior of the file dialog is to resolve and follow symlinks. For example, if <tt>/usr/tmp</tt> is a symlink to <tt>/var/tmp</tt>, the file dialog will change to <tt>/var/tmp</tt> after entering <tt>/usr/tmp</tt>. The <i>options</i> argument holds various options about how to run the dialog, see the <a href="qfiledialog.html#Option-enum">QFileDialog::Option</a> enum for more information on the flags you can pass.</p>
 <p><b>Note:</b> If you want to iterate over the list of files, you should iterate over a copy. For example:</p>
@@ -579,6 +589,7 @@
      myProcessing(*it);
      ++it;
  }</pre>
+<p>On Symbian^3 the parameter <i>selectedFilter</i> has no meaning and the <i>options</i> parameter is only used to define if the native file dialog is used. On Symbian^3, this function can only return a single filename.</p>
 <p><b>Warning:</b> Do not delete <i>parent</i> during the execution of the dialog. If you want to do this, you should create the dialog yourself using one of the <a href="qfiledialog.html">QFileDialog</a> constructors.</p>
 <p>See also <a href="qfiledialog.html#getOpenFileName">getOpenFileName</a>(), <a href="qfiledialog.html#getSaveFileName">getSaveFileName</a>(), and <a href="qfiledialog.html#getExistingDirectory">getExistingDirectory</a>().</p>
 <!-- @@@getOpenFileNames -->
@@ -594,9 +605,10 @@
 <p>The <i>options</i> argument holds various options about how to run the dialog, see the <a href="qfiledialog.html#Option-enum">QFileDialog::Option</a> enum for more information on the flags you can pass.</p>
 <p>The default filter can be chosen by setting <i>selectedFilter</i> to the desired value.</p>
 <p>The dialog's caption is set to <i>caption</i>. If <i>caption</i> is not specified, a default caption will be used.</p>
-<p>On Windows and Mac OS X, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>.</p>
+<p>On Windows, Mac OS X and Symbian^3, this static function will use the native file dialog and not a <a href="qfiledialog.html">QFileDialog</a>.</p>
 <p>On Windows the dialog will spin a blocking modal event loop that will not dispatch any QTimers, and if <i>parent</i> is not 0 then it will position the dialog just below the parent's title bar. On Mac OS X, with its native file dialog, the filter argument is ignored.</p>
 <p>On Unix/X11, the normal behavior of the file dialog is to resolve and follow symlinks. For example, if <tt>/usr/tmp</tt> is a symlink to <tt>/var/tmp</tt>, the file dialog will change to <tt>/var/tmp</tt> after entering <tt>/usr/tmp</tt>. If <i>options</i> includes <a href="qfiledialog.html#Option-enum">DontResolveSymlinks</a> the file dialog will treat symlinks as regular directories.</p>
+<p>On Symbian^3 the parameters <i>filter</i> and <i>selectedFilter</i> have no meaning. The <i>options</i> parameter is only used to define if the native file dialog is used.</p>
 <p><b>Warning:</b> Do not delete <i>parent</i> during the execution of the dialog. If you want to do this, you should create the dialog yourself using one of the <a href="qfiledialog.html">QFileDialog</a> constructors.</p>
 <p>See also <a href="qfiledialog.html#getOpenFileName">getOpenFileName</a>(), <a href="qfiledialog.html#getOpenFileNames">getOpenFileNames</a>(), and <a href="qfiledialog.html#getExistingDirectory">getExistingDirectory</a>().</p>
 <!-- @@@getSaveFileName -->

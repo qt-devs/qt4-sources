@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,29 +149,29 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QLineEdit</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qlineedit.html">QLineEdit class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#QLineEdit-3">QLineEdit</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#QLineEdit-4">QLineEdit</a></b> ( const QString &amp; <i>contents</i>, QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#QLineEdit-5">QLineEdit</a></b> ( const QString &amp; <i>contents</i>, const QString &amp; <i>inputMask</i>, QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#characterAt">characterAt</a></b> ( int <i>xpos</i>, QChar * <i>chr</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#clearModified">clearModified</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#clearValidator">clearValidator</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#cursorLeft">cursorLeft</a></b> ( bool <i>mark</i>, int <i>steps</i> = 1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#cursorRight">cursorRight</a></b> ( bool <i>mark</i>, int <i>steps</i> = 1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#edited">edited</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#frame">frame</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#getSelection">getSelection</a></b> ( int * <i>start</i>, int * <i>end</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#hasMarkedText">hasMarkedText</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#margin">margin</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#markedText">markedText</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#setEdited">setEdited</a></b> ( bool <i>on</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#setMargin">setMargin</a></b> ( int <i>margin</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#validateAndSet">validateAndSet</a></b> ( const QString &amp; <i>newText</i>, int <i>newPos</i>, int <i>newMarkAnchor</i>, int <i>newMarkDrag</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#QLineEdit-3">QLineEdit</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#QLineEdit-4">QLineEdit</a></b> ( const QString &amp; <i>contents</i>, QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#QLineEdit-5">QLineEdit</a></b> ( const QString &amp; <i>contents</i>, const QString &amp; <i>inputMask</i>, QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#characterAt">characterAt</a></b> ( int <i>xpos</i>, QChar * <i>chr</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#clearModified">clearModified</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#clearValidator">clearValidator</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#cursorLeft">cursorLeft</a></b> ( bool <i>mark</i>, int <i>steps</i> = 1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#cursorRight">cursorRight</a></b> ( bool <i>mark</i>, int <i>steps</i> = 1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#edited">edited</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#frame">frame</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#getSelection">getSelection</a></b> ( int * <i>start</i>, int * <i>end</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#hasMarkedText">hasMarkedText</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#margin">margin</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#markedText">markedText</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#setEdited">setEdited</a></b> ( bool <i>on</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#setMargin">setMargin</a></b> ( int <i>margin</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#validateAndSet">validateAndSet</a></b> ( const QString &amp; <i>newText</i>, int <i>newPos</i>, int <i>newMarkAnchor</i>, int <i>newMarkDrag</i> )</td></tr>
 </table>
 <ul>
 <li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
@@ -172,11 +180,11 @@
 </ul>
 <h2>Signals</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#lostFocus">lostFocus</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#lostFocus">lostFocus</a></b> ()</td></tr>
 </table>
 <h2>Protected Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit.html#repaintArea">repaintArea</a></b> ( int <i>a</i>, int <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlineedit-qt3.html#repaintArea">repaintArea</a></b> ( int <i>a</i>, int <i>b</i> )</td></tr>
 </table>
 <ul>
 <li class="fn">1 protected function inherited from <a href="qobject.html#protected-functions">QObject</a></li>
@@ -227,7 +235,7 @@
 <!-- $$$edited[overload1]$$$edited -->
 <h3 class="fn"><a name="edited"></a>bool QLineEdit::edited () const</h3>
 <p>Use <a href="qlineedit.html#modified-prop">isModified</a>() instead.</p>
-<p>See also <a href="qlineedit.html#setEdited">setEdited</a>().</p>
+<p>See also <a href="qlineedit-qt3.html#setEdited">setEdited</a>().</p>
 <!-- @@@edited -->
 <!-- $$$frame[overload1]$$$frame -->
 <h3 class="fn"><a name="frame"></a>bool QLineEdit::frame () const</h3>
@@ -252,7 +260,7 @@
 <h3 class="fn"><a name="margin"></a>int QLineEdit::margin () const</h3>
 <p>Returns the width of the margin around the contents of the widget.</p>
 <p>Use <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>() instead.</p>
-<p>See also <a href="qlineedit.html#setMargin">setMargin</a>() and <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>().</p>
+<p>See also <a href="qlineedit-qt3.html#setMargin">setMargin</a>() and <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>().</p>
 <!-- @@@margin -->
 <!-- $$$markedText[overload1]$$$markedText -->
 <h3 class="fn"><a name="markedText"></a><a href="qstring.html">QString</a> QLineEdit::markedText () const</h3>
@@ -265,13 +273,13 @@
 <!-- $$$setEdited[overload1]$$$setEditedbool -->
 <h3 class="fn"><a name="setEdited"></a>void QLineEdit::setEdited ( bool <i>on</i> )</h3>
 <p>Use <a href="qlineedit.html#modified-prop">setModified</a>() or <a href="qlineedit.html#text-prop">setText</a>().</p>
-<p>See also <a href="qlineedit.html#edited">edited</a>().</p>
+<p>See also <a href="qlineedit-qt3.html#edited">edited</a>().</p>
 <!-- @@@setEdited -->
 <!-- $$$setMargin[overload1]$$$setMarginint -->
 <h3 class="fn"><a name="setMargin"></a>void QLineEdit::setMargin ( int <i>margin</i> )</h3>
 <p>Sets the width of the margin around the contents of the widget to <i>margin</i>.</p>
 <p>Use <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>() instead.</p>
-<p>See also <a href="qlineedit.html#margin">margin</a>() and <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>().</p>
+<p>See also <a href="qlineedit-qt3.html#margin">margin</a>() and <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>().</p>
 <!-- @@@setMargin -->
 <!-- $$$validateAndSet[overload1]$$$validateAndSetconstQString&intintint -->
 <h3 class="fn"><a name="validateAndSet"></a>bool QLineEdit::validateAndSet ( const <a href="qstring.html">QString</a> &amp; <i>newText</i>, int <i>newPos</i>, int <i>newMarkAnchor</i>, int <i>newMarkDrag</i> )</h3>

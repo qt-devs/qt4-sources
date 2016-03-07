@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -46,6 +46,7 @@
 #include "Error.h"
 #include "Interpreter.h"
 
+#include "ExceptionHelpers.h"
 #include "PrototypeFunction.h"
 #include "InitializeThreading.h"
 #include "ObjectPrototype.h"
@@ -857,7 +858,8 @@ JSC::JSValue JSC_HOST_CALL functionQsTr(JSC::ExecState *exec, JSC::JSObject*, JS
     {
         JSC::ExecState *frame = exec->callerFrame()->removeHostCallFrameFlag();
         while (frame) {
-            if (frame->codeBlock() && frame->codeBlock()->source()
+            if (frame->codeBlock() && QScriptEnginePrivate::hasValidCodeBlockRegister(frame)
+                && frame->codeBlock()->source()
                 && !frame->codeBlock()->source()->url().isEmpty()) {
                 context = engine->translationContextFromUrl(frame->codeBlock()->source()->url());
                 break;
@@ -1021,6 +1023,7 @@ QScriptEnginePrivate::~QScriptEnginePrivate()
     while (!ownedAgents.isEmpty())
         delete ownedAgents.takeFirst();
 
+    detachAllRegisteredScriptPrograms();
     detachAllRegisteredScriptValues();
     detachAllRegisteredScriptStrings();
     qDeleteAll(m_qobjectData);
@@ -1574,6 +1577,14 @@ bool QScriptEnginePrivate::scriptDisconnect(JSC::JSValue signal, JSC::JSValue re
 }
 
 #endif
+
+void QScriptEnginePrivate::detachAllRegisteredScriptPrograms()
+{
+    QSet<QScriptProgramPrivate*>::const_iterator it;
+    for (it = registeredScriptPrograms.constBegin(); it != registeredScriptPrograms.constEnd(); ++it)
+        (*it)->detachFromEngine();
+    registeredScriptPrograms.clear();
+}
 
 void QScriptEnginePrivate::detachAllRegisteredScriptValues()
 {
@@ -2751,9 +2762,7 @@ JSC::CallFrame *QScriptEnginePrivate::pushContext(JSC::CallFrame *exec, JSC::JSV
         if (!clearScopeChain) {
             newCallFrame->init(0, /*vPC=*/0, exec->scopeChain(), exec, flags | ShouldRestoreCallFrame, argc, callee);
         } else {
-            JSC::JSObject *jscObject = originalGlobalObject();
-            JSC::ScopeChainNode *scn = new JSC::ScopeChainNode(0, jscObject, &exec->globalData(), exec->lexicalGlobalObject(), jscObject);
-            newCallFrame->init(0, /*vPC=*/0, scn, exec, flags | ShouldRestoreCallFrame, argc, callee);
+            newCallFrame->init(0, /*vPC=*/0, globalExec()->scopeChain(), exec, flags | ShouldRestoreCallFrame, argc, callee);
         }
     } else {
         setContextFlags(newCallFrame, flags);
@@ -4116,9 +4125,11 @@ bool QScriptEngine::isEvaluating() const
 void QScriptEngine::abortEvaluation(const QScriptValue &result)
 {
     Q_D(QScriptEngine);
-
-    d->timeoutChecker()->setShouldAbort(true);
+    if (!isEvaluating())
+        return;
     d->abortResult = result;
+    d->timeoutChecker()->setShouldAbort(true);
+    JSC::throwError(d->currentFrame, JSC::createInterruptedExecutionException(&d->currentFrame->globalData()).toObject(d->currentFrame));
 }
 
 #ifndef QT_NO_QOBJECT

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -40,6 +40,7 @@
 ****************************************************************************/
 
 #include "private/qdeclarativenotifier_p.h"
+#include "private/qdeclarativeproperty_p.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -64,6 +65,21 @@ void QDeclarativeNotifier::emitNotify(QDeclarativeNotifierEndpoint *endpoint)
     } 
 
     if (oldDisconnected) *oldDisconnected = endpoint;
+}
+
+void QDeclarativeNotifierEndpoint::connect(QObject *source, int sourceSignal)
+{
+    Signal *s = toSignal();
+    
+    if (s->source == source && s->sourceSignal == sourceSignal)
+        return;
+
+    disconnect();
+
+    QDeclarativePropertyPrivate::connect(source, sourceSignal, target, targetMethod);
+
+    s->source = source;
+    s->sourceSignal = sourceSignal;
 }
 
 void QDeclarativeNotifierEndpoint::copyAndClear(QDeclarativeNotifierEndpoint &other)

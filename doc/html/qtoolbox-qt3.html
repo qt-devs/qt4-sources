@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,23 +149,23 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QToolBox</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qtoolbox.html">QToolBox class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#QToolBox-2">QToolBox</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i>, Qt::WindowFlags <i>f</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#currentItem">currentItem</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#item">item</a></b> ( int <i>index</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QIcon </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#itemIconSet">itemIconSet</a></b> ( int <i>index</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#itemLabel">itemLabel</a></b> ( int <i>index</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#margin">margin</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#removeItem-2">removeItem</a></b> ( QWidget * <i>widget</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#setCurrentItem">setCurrentItem</a></b> ( QWidget * <i>widget</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#setItemIconSet">setItemIconSet</a></b> ( int <i>index</i>, const QIcon &amp; <i>icon</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#setItemLabel">setItemLabel</a></b> ( int <i>index</i>, const QString &amp; <i>text</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox.html#setMargin">setMargin</a></b> ( int <i>margin</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#QToolBox-2">QToolBox</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i>, Qt::WindowFlags <i>f</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#currentItem">currentItem</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#item">item</a></b> ( int <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QIcon </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#itemIconSet">itemIconSet</a></b> ( int <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#itemLabel">itemLabel</a></b> ( int <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#margin">margin</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#removeItem-2">removeItem</a></b> ( QWidget * <i>widget</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#setCurrentItem">setCurrentItem</a></b> ( QWidget * <i>widget</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#setItemIconSet">setItemIconSet</a></b> ( int <i>index</i>, const QIcon &amp; <i>icon</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#setItemLabel">setItemLabel</a></b> ( int <i>index</i>, const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtoolbox-qt3.html#setMargin">setMargin</a></b> ( int <i>margin</i> )</td></tr>
 </table>
 <ul>
 <li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
@@ -172,7 +180,7 @@
 <!-- $$$currentItem[overload1]$$$currentItem -->
 <h3 class="fn"><a name="currentItem"></a><a href="qwidget.html">QWidget</a> * QToolBox::currentItem () const</h3>
 <p>Use widget(<a href="qtoolbox.html#currentIndex-prop">currentIndex</a>()) instead.</p>
-<p>See also <a href="qtoolbox.html#setCurrentItem">setCurrentItem</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#setCurrentItem">setCurrentItem</a>().</p>
 <!-- @@@currentItem -->
 <!-- $$$item[overload1]$$$itemint -->
 <h3 class="fn"><a name="item"></a><a href="qwidget.html">QWidget</a> * QToolBox::item ( int <i>index</i> ) const</h3>
@@ -181,18 +189,18 @@
 <!-- $$$itemIconSet[overload1]$$$itemIconSetint -->
 <h3 class="fn"><a name="itemIconSet"></a><a href="qicon.html">QIcon</a> QToolBox::itemIconSet ( int <i>index</i> ) const</h3>
 <p>Use <a href="qtoolbox.html#itemIcon">itemIcon</a>() instead.</p>
-<p>See also <a href="qtoolbox.html#setItemIconSet">setItemIconSet</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#setItemIconSet">setItemIconSet</a>().</p>
 <!-- @@@itemIconSet -->
 <!-- $$$itemLabel[overload1]$$$itemLabelint -->
 <h3 class="fn"><a name="itemLabel"></a><a href="qstring.html">QString</a> QToolBox::itemLabel ( int <i>index</i> ) const</h3>
 <p>Use <a href="qtoolbox.html#itemText">itemText</a>() instead.</p>
-<p>See also <a href="qtoolbox.html#setItemLabel">setItemLabel</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#setItemLabel">setItemLabel</a>().</p>
 <!-- @@@itemLabel -->
 <!-- $$$margin[overload1]$$$margin -->
 <h3 class="fn"><a name="margin"></a>int QToolBox::margin () const</h3>
 <p>Returns the width of the margin around the contents of the widget.</p>
 <p>Use <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>() instead.</p>
-<p>See also <a href="qtoolbox.html#setMargin">setMargin</a>() and <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#setMargin">setMargin</a>() and <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>().</p>
 <!-- @@@margin -->
 <!-- $$$removeItem$$$removeItemQWidget* -->
 <h3 class="fn"><a name="removeItem-2"></a>int QToolBox::removeItem ( <a href="qwidget.html">QWidget</a> * <i>widget</i> )</h3>
@@ -201,23 +209,23 @@
 <!-- $$$setCurrentItem[overload1]$$$setCurrentItemQWidget* -->
 <h3 class="fn"><a name="setCurrentItem"></a>void QToolBox::setCurrentItem ( <a href="qwidget.html">QWidget</a> * <i>widget</i> )</h3>
 <p>Use setCurrentIndex(indexOf(widget)) instead.</p>
-<p>See also <a href="qtoolbox.html#currentItem">currentItem</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#currentItem">currentItem</a>().</p>
 <!-- @@@setCurrentItem -->
 <!-- $$$setItemIconSet[overload1]$$$setItemIconSetintconstQIcon& -->
 <h3 class="fn"><a name="setItemIconSet"></a>void QToolBox::setItemIconSet ( int <i>index</i>, const <a href="qicon.html">QIcon</a> &amp; <i>icon</i> )</h3>
 <p>Use <a href="qtoolbox.html#setItemIcon">setItemIcon</a>() instead.</p>
-<p>See also <a href="qtoolbox.html#itemIconSet">itemIconSet</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#itemIconSet">itemIconSet</a>().</p>
 <!-- @@@setItemIconSet -->
 <!-- $$$setItemLabel[overload1]$$$setItemLabelintconstQString& -->
 <h3 class="fn"><a name="setItemLabel"></a>void QToolBox::setItemLabel ( int <i>index</i>, const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
 <p>Use <a href="qtoolbox.html#setItemText">setItemText</a>() instead.</p>
-<p>See also <a href="qtoolbox.html#itemLabel">itemLabel</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#itemLabel">itemLabel</a>().</p>
 <!-- @@@setItemLabel -->
 <!-- $$$setMargin[overload1]$$$setMarginint -->
 <h3 class="fn"><a name="setMargin"></a>void QToolBox::setMargin ( int <i>margin</i> )</h3>
 <p>Sets the width of the margin around the contents of the widget to <i>margin</i>.</p>
 <p>Use <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>() instead.</p>
-<p>See also <a href="qtoolbox.html#margin">margin</a>() and <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>().</p>
+<p>See also <a href="qtoolbox-qt3.html#margin">margin</a>() and <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>().</p>
 <!-- @@@setMargin -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -219,8 +227,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QTextStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3dockarea.html#operator-lt-lt-152">operator&lt;&lt;</a></b> ( QTextStream &amp; <i>ts</i>, const Q3DockArea &amp; <i>dockArea</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QTextStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3dockarea.html#operator-gt-gt-81">operator&gt;&gt;</a></b> ( QTextStream &amp; <i>ts</i>, Q3DockArea &amp; <i>dockArea</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTextStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3dockarea.html#operator-lt-lt-98">operator&lt;&lt;</a></b> ( QTextStream &amp; <i>ts</i>, const Q3DockArea &amp; <i>dockArea</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTextStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3dockarea.html#operator-gt-gt-47">operator&gt;&gt;</a></b> ( QTextStream &amp; <i>ts</i>, Q3DockArea &amp; <i>dockArea</i> )</td></tr>
 </table>
 <h3>Additional Inherited Members</h3>
 <ul>
@@ -242,8 +250,8 @@
 <p><a href="qmainwindow.html">QMainWindow</a> contains four Q3DockAreas which you can use for your Q3ToolBars and Q3DockWindows, so in most situations you do not need to use the Q3DockArea class directly. Although <a href="qmainwindow.html">QMainWindow</a> contains support for its own dock areas, you can't add new ones. You also can't add a Q3DockArea to your own subclass of <a href="qwidget.html">QWidget</a>. It won't be shown.</p>
 <p class="centerAlign"><img src="images/qmainwindow-qdockareas.png" alt="QMainWindow's Q3DockAreas" /></p><a name="lines"></a><a name="lines"></a>
 <h3>Lines.</h3>
-<p>Q3DockArea uses the concept of lines. A line is a horizontal region which may contain dock windows side-by-side. A dock area may have room for more than one line. When dock windows are docked into a dock area they are usually added at the right hand side of the top-most line that has room (unless manually placed by the user). When users move dock windows they may leave empty lines or gaps in non-empty lines. <a href="qt.html#Dock-enum">Qt::Dock</a> windows can be lined up to minimize wasted space using the <a href="q3dockarea.html#lineUp">lineUp</a>() function.</p>
-<p>The Q3DockArea class maintains a position list of all its child dock windows. <a href="qt.html#Dock-enum">Qt::Dock</a> windows are added to a dock area from position 0 onwards. <a href="qt.html#Dock-enum">Qt::Dock</a> windows are laid out sequentially in position order from left to right, and in the case of multiple lines of dock windows, from top to bottom. If a dock window is floated it still retains its position since this is where the window will return if the user double clicks its caption. A dock window's position can be determined with <a href="q3dockarea.html#hasDockWindow">hasDockWindow</a>(). The position can be changed with <a href="q3dockarea.html#moveDockWindow">moveDockWindow</a>().</p>
+<p>Q3DockArea uses the concept of lines. A line is a horizontal region which may contain dock windows side-by-side. A dock area may have room for more than one line. When dock windows are docked into a dock area they are usually added at the right hand side of the top-most line that has room (unless manually placed by the user). When users move dock windows they may leave empty lines or gaps in non-empty lines. <a href="qt-qt3.html#Dock-enum">Qt::Dock</a> windows can be lined up to minimize wasted space using the <a href="q3dockarea.html#lineUp">lineUp</a>() function.</p>
+<p>The Q3DockArea class maintains a position list of all its child dock windows. <a href="qt-qt3.html#Dock-enum">Qt::Dock</a> windows are added to a dock area from position 0 onwards. <a href="qt-qt3.html#Dock-enum">Qt::Dock</a> windows are laid out sequentially in position order from left to right, and in the case of multiple lines of dock windows, from top to bottom. If a dock window is floated it still retains its position since this is where the window will return if the user double clicks its caption. A dock window's position can be determined with <a href="q3dockarea.html#hasDockWindow">hasDockWindow</a>(). The position can be changed with <a href="q3dockarea.html#moveDockWindow">moveDockWindow</a>().</p>
 <p>To dock or undock a dock window use <a href="q3dockwindow.html#dock">Q3DockWindow::dock</a>() and <a href="q3dockwindow.html#undock">Q3DockWindow::undock</a>() respectively. If you want to control which dock windows can dock in a dock area use <a href="q3dockarea.html#setAcceptDockWindow">setAcceptDockWindow</a>(). To see if a dock area contains a particular dock window use <a href="q3dockarea.html#hasDockWindow">hasDockWindow</a>(); to see how many dock windows a dock area contains use <a href="q3dockarea.html#count-prop">count</a>().</p>
 <p>The streaming operators can write the positions of the dock windows in the dock area to a <a href="qtextstream.html">QTextStream</a>. The positions can be read back later to restore the saved positions.</p>
 <p>Save the positions to a <a href="qtextstream.html">QTextStream</a>:</p>
@@ -258,7 +266,7 @@
 <h3 class="fn"><a name="HandlePosition-enum"></a>enum Q3DockArea::HandlePosition</h3>
 <p>A dock window has two kinds of handles, the dock window handle used for dragging the dock window, and the splitter handle used to resize the dock window in relation to other dock windows using a splitter. (The splitter handle is only visible for docked windows.)</p>
 <p>This enum specifies where the dock window splitter handle is placed in the dock area.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3DockArea::Normal</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The splitter handles of dock windows are placed at the right or bottom.</td></tr>
 <tr><td  class="topAlign"><tt>Q3DockArea::Reverse</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The splitter handles of dock windows are placed at the left or top.</td></tr>
 </table>
@@ -357,11 +365,11 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QTextStream&constQ3DockArea& -->
-<h3 class="fn"><a name="operator-lt-lt-152"></a><a href="qtextstream.html">QTextStream</a> &amp; operator&lt;&lt; ( <a href="qtextstream.html">QTextStream</a> &amp; <i>ts</i>, const Q3DockArea &amp; <i>dockArea</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-98"></a><a href="qtextstream.html">QTextStream</a> &amp; operator&lt;&lt; ( <a href="qtextstream.html">QTextStream</a> &amp; <i>ts</i>, const Q3DockArea &amp; <i>dockArea</i> )</h3>
 <p>Writes the layout of the dock windows in dock area <i>dockArea</i> to the text stream <i>ts</i>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QTextStream&Q3DockArea& -->
-<h3 class="fn"><a name="operator-gt-gt-81"></a><a href="qtextstream.html">QTextStream</a> &amp; operator&gt;&gt; ( <a href="qtextstream.html">QTextStream</a> &amp; <i>ts</i>, Q3DockArea &amp; <i>dockArea</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-47"></a><a href="qtextstream.html">QTextStream</a> &amp; operator&gt;&gt; ( <a href="qtextstream.html">QTextStream</a> &amp; <i>ts</i>, Q3DockArea &amp; <i>dockArea</i> )</h3>
 <p>Reads the layout description of the dock windows in dock area <i>dockArea</i> from the text stream <i>ts</i> and restores it. The layout description must have been previously written by the operator&lt;&lt;() function.</p>
 <!-- @@@operator>> -->
 </div>

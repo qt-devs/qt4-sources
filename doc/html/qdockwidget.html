@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -262,7 +270,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$DockWidgetFeature$$$DockWidgetClosable$$$DockWidgetMovable$$$DockWidgetFloatable$$$DockWidgetVerticalTitleBar$$$DockWidgetFeatureMask$$$AllDockWidgetFeatures$$$NoDockWidgetFeatures$$$Reserved -->
 <h3 class="flags"><a name="DockWidgetFeature-enum"></a>enum QDockWidget::DockWidgetFeature<br/>flags QDockWidget::DockWidgetFeatures</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QDockWidget::DockWidgetClosable</tt></td><td class=" topAlign"><tt>0x01</tt></td><td  class="topAlign">The dock widget can be closed. On some systems the dock widget always has a close button when it's floating (for example on MacOS 10.5).</td></tr>
 <tr><td  class="topAlign"><tt>QDockWidget::DockWidgetMovable</tt></td><td class=" topAlign"><tt>0x02</tt></td><td  class="topAlign">The dock widget can be moved between docks by the user.</td></tr>
 <tr><td  class="topAlign"><tt>QDockWidget::DockWidgetFloatable</tt></td><td class=" topAlign"><tt>0x04</tt></td><td  class="topAlign">The dock widget can be detached from the main window, and floated as an independent window.</td></tr>
@@ -384,7 +392,7 @@
 <!-- @@@paintEvent -->
 <!-- $$$setTitleBarWidget[overload1]$$$setTitleBarWidgetQWidget* -->
 <h3 class="fn"><a name="setTitleBarWidget"></a>void QDockWidget::setTitleBarWidget ( <a href="qwidget.html">QWidget</a> * <i>widget</i> )</h3>
-<p>Sets an arbitrary <i>widget</i> as the dock widget's title bar. If <i>widget</i> is 0, the title bar widget is removed, but not deleted.</p>
+<p>Sets an arbitrary <i>widget</i> as the dock widget's title bar. If <i>widget</i> is 0, any custom title bar widget previously set on the dock widget is removed, but not deleted, and the default title bar will be used instead.</p>
 <p>If a title bar widget is set, <a href="qdockwidget.html">QDockWidget</a> will not use native window decorations when it is floated.</p>
 <p>Here are some tips for implementing custom title bars:</p>
 <ul>
@@ -397,8 +405,9 @@
  }</pre>
 </li>
 <li>The title bar widget must have a valid <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() and <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>(). These functions should take into account the current orientation of the title bar.</li>
+<li>It is not possible to remove a title bar from a dock widget. However, a similar effect can be achieved by setting a default constructed <a href="qwidget.html">QWidget</a> as the title bar widget.</li>
 </ul>
-<p>Using qobject_cast as shown above, the title bar widget has full access to its parent <a href="qdockwidget.html">QDockWidget</a>. Hence it can perform such operations as docking and hiding in response to user actions.</p>
+<p>Using <a href="qobject.html#qobject_cast">qobject_cast</a>() as shown above, the title bar widget has full access to its parent <a href="qdockwidget.html">QDockWidget</a>. Hence it can perform such operations as docking and hiding in response to user actions.</p>
 <p>This function was introduced in Qt 4.3.</p>
 <p>See also <a href="qdockwidget.html#titleBarWidget">titleBarWidget</a>() and <a href="qdockwidget.html#DockWidgetFeature-enum">DockWidgetVerticalTitleBar</a>.</p>
 <!-- @@@setTitleBarWidget -->

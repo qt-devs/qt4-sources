@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,31 +149,31 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QPrinter</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qprinter.html">QPrinter class reference</a></li></ul></p>
 <h2>Public Types</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#PrinterOption-enum">PrinterOption</a></b> { PrintToFile, PrintSelection, PrintPageRange }</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#PrinterOption-enum">PrinterOption</a></b> { PrintToFile, PrintSelection, PrintPageRange }</td></tr>
 </table>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#aborted">aborted</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#collateCopiesEnabled">collateCopiesEnabled</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#isOptionEnabled">isOptionEnabled</a></b> ( PrinterOption <i>option</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#margins">margins</a></b> ( uint * <i>top</i>, uint * <i>left</i>, uint * <i>bottom</i>, uint * <i>right</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QSize </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#margins-2">margins</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#maxPage">maxPage</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#minPage">minPage</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#outputToFile">outputToFile</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#pageSetup">pageSetup</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#printSetup">printSetup</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#setCollateCopiesEnabled">setCollateCopiesEnabled</a></b> ( bool <i>enable</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#setMinMax">setMinMax</a></b> ( int <i>minPage</i>, int <i>maxPage</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#setOptionEnabled">setOptionEnabled</a></b> ( PrinterOption <i>option</i>, bool <i>enable</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#setOutputToFile">setOutputToFile</a></b> ( bool <i>enable</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter.html#setup">setup</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#aborted">aborted</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#collateCopiesEnabled">collateCopiesEnabled</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#isOptionEnabled">isOptionEnabled</a></b> ( PrinterOption <i>option</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#margins">margins</a></b> ( uint * <i>top</i>, uint * <i>left</i>, uint * <i>bottom</i>, uint * <i>right</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QSize </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#margins-2">margins</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#maxPage">maxPage</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#minPage">minPage</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#outputToFile">outputToFile</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#pageSetup">pageSetup</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#printSetup">printSetup</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#setCollateCopiesEnabled">setCollateCopiesEnabled</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#setMinMax">setMinMax</a></b> ( int <i>minPage</i>, int <i>maxPage</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#setOptionEnabled">setOptionEnabled</a></b> ( PrinterOption <i>option</i>, bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#setOutputToFile">setOutputToFile</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qprinter-qt3.html#setup">setup</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
 </table>
 <ul>
 <li class="fn">8 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
@@ -189,10 +197,10 @@
 <h3 class="fn"><a name="collateCopiesEnabled"></a>bool QPrinter::collateCopiesEnabled () const</h3>
 <p>Returns true if the printer is set up to collate copies of printed documents; otherwise returns false.</p>
 <p>Use QPrintDialog::isOptionEnabled(<a href="qabstractprintdialog.html#PrintDialogOption-enum">QPrintDialog::PrintCollateCopies</a>) instead.</p>
-<p>See also <a href="qprinter.html#setCollateCopiesEnabled">setCollateCopiesEnabled</a>() and <a href="qprinter.html#collateCopies">collateCopies</a>().</p>
+<p>See also <a href="qprinter-qt3.html#setCollateCopiesEnabled">setCollateCopiesEnabled</a>() and <a href="qprinter.html#collateCopies">collateCopies</a>().</p>
 <!-- @@@collateCopiesEnabled -->
 <!-- $$$isOptionEnabled[overload1]$$$isOptionEnabledPrinterOption -->
-<h3 class="fn"><a name="isOptionEnabled"></a>bool QPrinter::isOptionEnabled ( <a href="qprinter.html#PrinterOption-enum">PrinterOption</a> <i>option</i> ) const</h3>
+<h3 class="fn"><a name="isOptionEnabled"></a>bool QPrinter::isOptionEnabled ( <a href="qprinter-qt3.html#PrinterOption-enum">PrinterOption</a> <i>option</i> ) const</h3>
 <p>Use <a href="qprintdialog.html">QPrintDialog</a> instead.</p>
 <!-- @@@isOptionEnabled -->
 <!-- $$$margins[overload1]$$$marginsuint*uint*uint*uint* -->
@@ -231,7 +239,7 @@
 <!-- $$$outputToFile[overload1]$$$outputToFile -->
 <h3 class="fn"><a name="outputToFile"></a>bool QPrinter::outputToFile () const</h3>
 <p>Returns true if the output should be written to a file, or false if the output should be sent directly to the printer. The default setting is false.</p>
-<p>See also <a href="qprinter.html#setOutputToFile">setOutputToFile</a>() and <a href="qprinter.html#setOutputFileName">setOutputFileName</a>().</p>
+<p>See also <a href="qprinter-qt3.html#setOutputToFile">setOutputToFile</a>() and <a href="qprinter.html#setOutputFileName">setOutputFileName</a>().</p>
 <!-- @@@outputToFile -->
 <!-- $$$pageSetup[overload1]$$$pageSetupQWidget* -->
 <h3 class="fn"><a name="pageSetup"></a>bool QPrinter::pageSetup ( <a href="qwidget.html">QWidget</a> * <i>parent</i> = 0 )</h3>
@@ -244,22 +252,22 @@
 <!-- $$$setCollateCopiesEnabled[overload1]$$$setCollateCopiesEnabledbool -->
 <h3 class="fn"><a name="setCollateCopiesEnabled"></a>void QPrinter::setCollateCopiesEnabled ( bool <i>enable</i> )</h3>
 <p>Use QPrintDialog::setOption(<a href="qabstractprintdialog.html#PrintDialogOption-enum">QPrintDialog::PrintCollateCopies</a>) or QPrintDialog::setOptions(<a href="qprintdialog.html#options-prop">QPrintDialog::options</a>() &amp; ~<a href="qabstractprintdialog.html#PrintDialogOption-enum">QPrintDialog::PrintCollateCopies</a>) instead, depending on <i>enable</i>.</p>
-<p>See also <a href="qprinter.html#collateCopiesEnabled">collateCopiesEnabled</a>().</p>
+<p>See also <a href="qprinter-qt3.html#collateCopiesEnabled">collateCopiesEnabled</a>().</p>
 <!-- @@@setCollateCopiesEnabled -->
 <!-- $$$setMinMax[overload1]$$$setMinMaxintint -->
 <h3 class="fn"><a name="setMinMax"></a>void QPrinter::setMinMax ( int <i>minPage</i>, int <i>maxPage</i> )</h3>
 <p>Use <a href="qabstractprintdialog.html#setMinMax">QPrintDialog::setMinMax</a>() instead.</p>
 <!-- @@@setMinMax -->
 <!-- $$$setOptionEnabled[overload1]$$$setOptionEnabledPrinterOptionbool -->
-<h3 class="fn"><a name="setOptionEnabled"></a>void QPrinter::setOptionEnabled ( <a href="qprinter.html#PrinterOption-enum">PrinterOption</a> <i>option</i>, bool <i>enable</i> )</h3>
+<h3 class="fn"><a name="setOptionEnabled"></a>void QPrinter::setOptionEnabled ( <a href="qprinter-qt3.html#PrinterOption-enum">PrinterOption</a> <i>option</i>, bool <i>enable</i> )</h3>
 <p>Use <a href="qprintdialog.html">QPrintDialog</a> instead.</p>
-<p>See also <a href="qprinter.html#isOptionEnabled">isOptionEnabled</a>().</p>
+<p>See also <a href="qprinter-qt3.html#isOptionEnabled">isOptionEnabled</a>().</p>
 <!-- @@@setOptionEnabled -->
 <!-- $$$setOutputToFile[overload1]$$$setOutputToFilebool -->
 <h3 class="fn"><a name="setOutputToFile"></a>void QPrinter::setOutputToFile ( bool <i>enable</i> )</h3>
 <p>Specifies whether the output should be written to a file or sent directly to the printer.</p>
 <p>Will output to a file if <i>enable</i> is true, or will output directly to the printer if <i>enable</i> is false.</p>
-<p>See also <a href="qprinter.html#outputToFile">outputToFile</a>() and <a href="qprinter.html#setOutputFileName">setOutputFileName</a>().</p>
+<p>See also <a href="qprinter-qt3.html#outputToFile">outputToFile</a>() and <a href="qprinter.html#setOutputFileName">setOutputFileName</a>().</p>
 <!-- @@@setOutputToFile -->
 <!-- $$$setup[overload1]$$$setupQWidget* -->
 <h3 class="fn"><a name="setup"></a>bool QPrinter::setup ( <a href="qwidget.html">QWidget</a> * <i>parent</i> = 0 )</h3>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,9 +147,13 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="qt4-mainwindow.html" />
   <link rel="next" href="qt4-accessibility.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qt4-mainwindow.html">The Qt 4 Main Window Classes</a>]
+[Next: <a href="qt4-accessibility.html">Cross-Platform Accessibility Support in Qt 4</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -156,8 +168,7 @@
 <span class="subtitle"></span>
 <!-- $$$qt4-designer.html-description -->
 <div class="descr"> <a name="details"></a>
-<p><i>Qt Designer</i> has been completely re-written based on our experience with the previous versions of the product for Qt 3. One of the main new ideas behind this new version is to release the application as a collection of interchangeable components that include the property editor, the widget box, and other useful tools for creating graphical user interfaces with Qt. These components can either be used together in the <i>Qt Designer</i> application, or independently integrated into other systems. As a result, certain features such as the project editor and code editor have been removed from the version included with this release.</p>
-<p>The current version of <i>Qt Designer</i> is near feature complete and can be used for many tasks. However, it is still under continuous development. This document will explain what is already in place.</p>
+<p><i>Qt Designer</i> has been completely re-written based on our experience with the previous versions of the product for Qt 3. One of the main new ideas is to release the application as a collection of interchangeable components that include the property editor, the widget box, and other useful tools for creating graphical user interfaces with Qt. These components can either be used together in the <i>Qt Designer</i> application, or independently integrated into other systems. As a result, certain features such as the project editor and code editor have been removed from the version included with release 4.</p>
 <p>See also the <a href="designer-manual.html">Qt Designer Manual</a>.</p>
 <a name="the-current-state-of-qt-designer"></a>
 <h2>The Current State of Qt Designer</h2>
@@ -185,7 +196,7 @@
 </p></td></tr>
 </table>
 <table class="generic">
-<tr class="odd topAlign"><td ><p><b>Widget Editing Mode</b><p>The new <i>Qt Designer</i> allows widgets to be dropped into existing layouts on the form. Previously, it was necessary to break layouts in order to add new widgets to them.</p>
+<tr class="odd topAlign"><td ><p><b>Widget Editing Mode</b><p><i>Qt Designer</i> now allows widgets to be dropped into existing layouts on the form. Previously, it was necessary to break layouts in order to add new widgets to them.</p>
 <p><i>Qt Designer</i> now supports more direct manipulation of widgets: You can clone a widget by dragging it with the <b>CTRL</b> key held down, and it is even possible to drag widgets between forms.</p>
 <p>In-place widget editors provide specialized editing facilities for the most-used widget properties.</p>
 </p></td><td ><p><img src="images/designer-editing-mode.png" /></p></td></tr>
@@ -206,13 +217,13 @@
 </p></td></tr>
 </table>
 <table class="generic">
-<tr class="odd topAlign"><td ><p><b>The Resource Editor</b><p>The new <i>Qt Designer</i> fully supports The Qt Resource System, and provide the Resource Editor to help designers and developers manage the resources that are needed by their applications.</p>
+<tr class="odd topAlign"><td ><p><b>The Resource Editor</b><p><i>Qt Designer</i> now fully supports The Qt Resource System, and provides the Resource Editor to help designers and developers manage the resources that are needed by their applications.</p>
 <p>Using the Resource Editor, resources can be associated with a given form, and also modified and extended throught the editor's file browser style interface.</p>
 <p>The Resource Editor uses files that are processed by various components of the <a href="resources.html">Qt Resource System</a> to ensure that all required resources are embedded in the application.</p>
 </p></td><td ><p><img src="images/designer-resources-editing.png" /></p></td></tr>
 </table>
 <table class="generic">
-<tr class="odd topAlign"><td ><p><img src="images/designer-action-editor.png" /></p></td><td ><p><b>The Action Editor</b><p>With the release of Qt 4.1, <i>Qt Designer</i> introduces the Action Editor simplifying the management of actions when creating main window applications.</p>
+<tr class="odd topAlign"><td ><p><img src="images/designer-action-editor.png" /></p></td><td ><p><b>The Action Editor</b><p>With the release of Qt 4.1, <i>Qt Designer</i> the Action Editor was introduced to simplify the management of actions when creating main window applications.</p>
 <p>When creating a main window, you can add a menu bar and toolbars using <i>Qt Designer</i>'s context menu. Once you have the menu bar or a toolbar in place, you can create and add actions using the Action Editor.</p>
 </p></td></tr>
 </table>
@@ -232,7 +243,7 @@
 </table>
 <a name="run-time-support-for-forms"></a>
 <h2>Run-Time Support for Forms</h2>
-<p>With the Qt 4.1 release, the new <a href="qtuitools.html">QtUiTools</a> module is introduced to provide classes handling forms created with <i>Qt Designer</i>.</p>
+<p>With the Qt 4.1 release, the new <a href="qtuitools.html">QtUiTools</a> module was introduced to provide classes handling forms created with <i>Qt Designer</i>.</p>
 <p>Currently the module only contains the <a href="quiloader.html">QUiLoader</a> class.</p>
 <p><a href="quiloader.html">QUiLoader</a> can be used by standalone applications to dynamically create form-based user interfaces at run-time. This library can be statically linked with applications and redistributed under the same terms as Qt.</p>
 <table class="generic">
@@ -241,7 +252,7 @@
 </table>
 </div>
 <!-- @@@qt4-designer.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="qt4-mainwindow.html">The Qt 4 Main Window Classes</a>]
 [Next: <a href="qt4-accessibility.html">Cross-Platform Accessibility Support in Qt 4</a>]
 </p>

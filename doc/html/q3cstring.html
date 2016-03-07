@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -206,27 +214,27 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-not-eq-60">operator!=</a></b> ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-not-eq-51">operator!=</a></b> ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-not-eq-64">operator!=</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-not-eq-65">operator!=</a></b> ( const char * <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const Q3CString </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-2b-37">operator+</a></b> ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const Q3CString </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-2b-44">operator+</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const Q3CString </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-2b-45">operator+</a></b> ( const char * <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const Q3CString </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-2b-46">operator+</a></b> ( const Q3CString &amp; <i>s</i>, char <i>c</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const Q3CString </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-2b-47">operator+</a></b> ( char <i>c</i>, const Q3CString &amp; <i>s</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-17">operator&lt;</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const Q3CString </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-2b-30">operator+</a></b> ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-12">operator&lt;</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-21">operator&lt;</a></b> ( const char * <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-lt-202">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>s</i>, const Q3CString &amp; <i>str</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-eq-12">operator&lt;=</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-lt-151">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>s</i>, const Q3CString &amp; <i>str</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-eq-9">operator&lt;=</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-lt-eq-16">operator&lt;=</a></b> ( const char * <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-eq-eq-87">operator==</a></b> ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-eq-eq-75">operator==</a></b> ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-eq-eq-92">operator==</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-eq-eq-93">operator==</a></b> ( const char * <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-12">operator&gt;</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-9">operator&gt;</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-16">operator&gt;</a></b> ( const char * <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-eq-12">operator&gt;=</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-eq-9">operator&gt;=</a></b> ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-eq-16">operator&gt;=</a></b> ( const char * <i>s1</i>, const Q3CString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-gt-111">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>s</i>, Q3CString &amp; <i>str</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="q3cstring.html#operator-gt-gt-78">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>s</i>, Q3CString &amp; <i>str</i> )</td></tr>
 </table>
 <h3>Additional Inherited Members</h3>
 <ul>
@@ -242,13 +250,13 @@
 <p>A default constructed Q3CString is <i>null</i>, i.e&#x2e; both the length and the data pointer are 0 and <a href="qbytearray.html#isNull">isNull</a>() returns true.</p>
 <p><b>Note:</b> However, if you ask for the data pointer of a null Q3CString by calling <a href="qbytearray.html#data">data</a>(), then because the internal representation of the null Q3CString is shared, it will be detached and replaced with a non-shared, empty representation, a non-null data pointer will be returned, and subsequent calls to <a href="qbytearray.html#isNull">isNull</a>() will return false. But if you ask for the data pointer of a null Q3CString by calling <a href="qbytearray.html#constData">constData</a>(), the shared internal representation is not detached, a null data pointer is returned, and subsequent calls to <a href="qbytearray.html#isNull">isNull</a>() will continue to return true.</p>
 <p>A Q3CString that references the empty string (&quot;&quot;, a single '\0' char) is <i>empty</i>, i.e&#x2e; <a href="qbytearray.html#isEmpty">isEmpty</a>() returns true. Both null and empty Q3CStrings are legal parameters to the methods. Assigning <tt>const char *</tt> 0 to Q3CString produces a null Q3CString.</p>
-<p>The <a href="qbytearray.html#length">length</a>() function returns the length of the string; <a href="qbytearray.html#resize">resize</a>() resizes the string and <a href="qbytearray.html#truncate">truncate</a>() truncates the string. A string can be filled with a character using <a href="qbytearray.html#fill">fill</a>(). Strings can be left or right padded with characters using <a href="q3cstring.html#leftJustify">leftJustify</a>() and <a href="q3cstring.html#rightJustify">rightJustify</a>(). Characters, strings and regular expressions can be searched for using <a href="qbytearray.html#find">find</a>() and <a href="qbytearray.html#findRev">findRev</a>(), and counted using <a href="qbytearray.html#contains">contains</a>().</p>
+<p>The <a href="qbytearray.html#length">length</a>() function returns the length of the string; <a href="qbytearray.html#resize">resize</a>() resizes the string and <a href="qbytearray.html#truncate">truncate</a>() truncates the string. A string can be filled with a character using <a href="qbytearray.html#fill">fill</a>(). Strings can be left or right padded with characters using <a href="q3cstring.html#leftJustify">leftJustify</a>() and <a href="q3cstring.html#rightJustify">rightJustify</a>(). Characters, strings and regular expressions can be searched for using <a href="qbytearray-qt3.html#find">find</a>() and <a href="qbytearray-qt3.html#findRev">findRev</a>(), and counted using <a href="qbytearray.html#contains">contains</a>().</p>
 <p>Strings and characters can be inserted with insert() and appended with <a href="q3cstring.html#append">append</a>(). A string can be prepended with prepend(). Characters can be removed from the string with remove() and replaced with replace().</p>
 <p>Portions of a string can be extracted using left(), right() and mid(). Whitespace can be removed using <a href="q3cstring.html#stripWhiteSpace">stripWhiteSpace</a>() and <a href="q3cstring.html#simplifyWhiteSpace">simplifyWhiteSpace</a>(). Strings can be converted to uppercase or lowercase with <a href="q3cstring.html#upper">upper</a>() and <a href="q3cstring.html#lower">lower</a>() respectively.</p>
 <p>Strings that contain numbers can be converted to numbers with <a href="q3cstring.html#toShort">toShort</a>(), <a href="q3cstring.html#toInt">toInt</a>(), <a href="q3cstring.html#toLong">toLong</a>(), <a href="q3cstring.html#toULong">toULong</a>(), <a href="q3cstring.html#toFloat">toFloat</a>() and <a href="q3cstring.html#toDouble">toDouble</a>(). Numbers can be converted to strings with <a href="q3cstring.html#setNum">setNum</a>().</p>
 <p>Many operators are overloaded to work with Q3CStrings. Q3CString also supports some more obscure functions, e.g&#x2e; <a href="q3cstring.html#sprintf">sprintf</a>(), <a href="q3cstring.html#setStr">setStr</a>() and <a href="q3cstring.html#setExpand">setExpand</a>().</p>
 <p>Note on Character Comparisons</p>
-<p>In Q3CString the notion of uppercase and lowercase and of which character is greater than or less than another character is locale dependent. This affects functions which support a case insensitive option or which compare or lowercase or uppercase their arguments. Case insensitive operations and comparisons will be accurate if both strings contain only ASCII characters. (If <tt>$LC_CTYPE</tt> is set, most Unix systems do &quot;the right thing&quot;.) Functions that this affects include <a href="qbytearray.html#contains">contains</a>(), <a href="qbytearray.html#find">find</a>(), <a href="qbytearray.html#findRev">findRev</a>(), <a href="qbytearray.html#operator-lt">operator&lt;</a>(), <a href="qbytearray.html#operator-lt-eq">operator&lt;=</a>(), <a href="qbytearray.html#operator-gt">operator&gt;</a>(), <a href="qbytearray.html#operator-gt-eq">operator&gt;=</a>(), <a href="q3cstring.html#lower">lower</a>() and <a href="q3cstring.html#upper">upper</a>().</p>
+<p>In Q3CString the notion of uppercase and lowercase and of which character is greater than or less than another character is locale dependent. This affects functions which support a case insensitive option or which compare or lowercase or uppercase their arguments. Case insensitive operations and comparisons will be accurate if both strings contain only ASCII characters. (If <tt>$LC_CTYPE</tt> is set, most Unix systems do &quot;the right thing&quot;.) Functions that this affects include <a href="qbytearray.html#contains">contains</a>(), <a href="qbytearray-qt3.html#find">find</a>(), <a href="qbytearray-qt3.html#findRev">findRev</a>(), <a href="qbytearray.html#operator-lt">operator&lt;</a>(), <a href="qbytearray.html#operator-lt-eq">operator&lt;=</a>(), <a href="qbytearray.html#operator-gt">operator&gt;</a>(), <a href="qbytearray.html#operator-gt-eq">operator&gt;=</a>(), <a href="q3cstring.html#lower">lower</a>() and <a href="q3cstring.html#upper">upper</a>().</p>
 <p>This issue does not apply to <a href="qstring.html">QString</a>s since they represent characters using Unicode.</p>
 <p>Performance note: The Q3CString methods for <a href="qregexp.html">QRegExp</a> searching are implemented by converting the Q3CString to a <a href="qstring.html">QString</a> and performing the search on that. This implies a deep copy of the Q3CString data. If you are going to perform many <a href="qregexp.html">QRegExp</a> searches on a large Q3CString, you will get better performance by converting the Q3CString to a <a href="qstring.html">QString</a> yourself, and then searching in the <a href="qstring.html">QString</a>.</p>
 </div>
@@ -451,7 +459,7 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator!=$$$operator!=constQ3CString&constQ3CString& -->
-<h3 class="fn"><a name="operator-not-eq-60"></a>bool operator!= ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-51"></a>bool operator!= ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> and <i>s2</i> are different; otherwise returns false.</p>
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) != 0.</p>
 <!-- @@@operator!= -->
@@ -467,10 +475,6 @@
 <p>Returns true if <i>s1</i> and <i>s2</i> are different; otherwise returns false.</p>
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) != 0.</p>
 <!-- @@@operator!= -->
-<!-- $$$operator+$$$operator+constQ3CString&constQ3CString& -->
-<h3 class="fn"><a name="operator-2b-37"></a>const Q3CString operator+ ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</h3>
-<p>Returns a string which consists of the concatenation of <i>s1</i> and <i>s2</i>.</p>
-<!-- @@@operator+ -->
 <!-- $$$operator+$$$operator+constQ3CString&constchar* -->
 <h3 class="fn"><a name="operator-2b-44"></a>const Q3CString operator+ ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
 <p>This is an overloaded function.</p>
@@ -491,8 +495,12 @@
 <p>This is an overloaded function.</p>
 <p>Returns a string which consists of the concatenation of <i>c</i> and <i>s</i>.</p>
 <!-- @@@operator+ -->
+<!-- $$$operator+$$$operator+constQ3CString&constQ3CString& -->
+<h3 class="fn"><a name="operator-2b-30"></a>const Q3CString operator+ ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</h3>
+<p>Returns a string which consists of the concatenation of <i>s1</i> and <i>s2</i>.</p>
+<!-- @@@operator+ -->
 <!-- $$$operator<$$$operator<constQ3CString&constchar* -->
-<h3 class="fn"><a name="operator-lt-17"></a>bool operator&lt; ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-lt-12"></a>bool operator&lt; ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is less than <i>s2</i>; otherwise returns false.</p>
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &lt; 0.</p>
 <!-- @@@operator< -->
@@ -503,12 +511,12 @@
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &lt; 0.</p>
 <!-- @@@operator< -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQ3CString& -->
-<h3 class="fn"><a name="operator-lt-lt-202"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, const Q3CString &amp; <i>str</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-151"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, const Q3CString &amp; <i>str</i> )</h3>
 <p>Writes string <i>str</i> to the stream <i>s</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<=$$$operator<=constQ3CString&constchar* -->
-<h3 class="fn"><a name="operator-lt-eq-12"></a>bool operator&lt;= ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-lt-eq-9"></a>bool operator&lt;= ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is less than or equal to <i>s2</i>; otherwise returns false.</p>
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &lt;= 0.</p>
 <!-- @@@operator<= -->
@@ -519,7 +527,7 @@
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &lt;= 0.</p>
 <!-- @@@operator<= -->
 <!-- $$$operator==$$$operator==constQ3CString&constQ3CString& -->
-<h3 class="fn"><a name="operator-eq-eq-87"></a>bool operator== ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-75"></a>bool operator== ( const Q3CString &amp; <i>s1</i>, const Q3CString &amp; <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> and <i>s2</i> are equal; otherwise returns false.</p>
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) == 0.</p>
 <!-- @@@operator== -->
@@ -536,7 +544,7 @@
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) == 0.</p>
 <!-- @@@operator== -->
 <!-- $$$operator>$$$operator>constQ3CString&constchar* -->
-<h3 class="fn"><a name="operator-gt-12"></a>bool operator&gt; ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-gt-9"></a>bool operator&gt; ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is greater than <i>s2</i>; otherwise returns false.</p>
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &gt; 0.</p>
 <!-- @@@operator> -->
@@ -547,7 +555,7 @@
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &gt; 0.</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=$$$operator>=constQ3CString&constchar* -->
-<h3 class="fn"><a name="operator-gt-eq-12"></a>bool operator&gt;= ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-gt-eq-9"></a>bool operator&gt;= ( const Q3CString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is greater than or equal to <i>s2</i>; otherwise returns false.</p>
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &gt;= 0.</p>
 <!-- @@@operator>= -->
@@ -558,7 +566,7 @@
 <p>Equivalent to qstrcmp(<i>s1</i>, <i>s2</i>) &gt;= 0.</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>>$$$operator>>QDataStream&Q3CString& -->
-<h3 class="fn"><a name="operator-gt-gt-111"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, Q3CString &amp; <i>str</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-78"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, Q3CString &amp; <i>str</i> )</h3>
 <p>Reads a string into <i>str</i> from the stream <i>s</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->

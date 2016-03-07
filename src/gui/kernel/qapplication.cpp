@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -477,11 +477,14 @@ bool Q_GUI_EXPORT qt_tab_all_widgets = true;
 bool qt_in_tab_key_event = false;
 int qt_antialiasing_threshold = -1;
 static int drag_time = 500;
+#ifndef QT_GUI_DRAG_DISTANCE
+#define QT_GUI_DRAG_DISTANCE 4
+#endif
 #ifdef Q_OS_SYMBIAN
 // The screens are a bit too small to for your thumb when using only 4 pixels drag distance.
-static int drag_distance = 12;
+static int drag_distance = 12; //XXX move to qplatformdefs.h
 #else
-static int drag_distance = 4;
+static int drag_distance = QT_GUI_DRAG_DISTANCE;
 #endif
 static Qt::LayoutDirection layout_direction = Qt::LeftToRight;
 QSize QApplicationPrivate::app_strut = QSize(0,0); // no default application strut
@@ -710,6 +713,12 @@ void QApplicationPrivate::process_cmdline()
             floating over the widget and is not inserted until the editing is
             done.
     \endlist
+
+    \section1 X11 Notes
+
+    If QApplication fails to open the X11 display, it will terminate
+    the process. This behavior is consistent with most X11
+    applications.
 
     \sa arguments()
 */
@@ -1092,6 +1101,9 @@ QApplication::~QApplication()
     QApplicationPrivate::is_app_closing = true;
     QApplicationPrivate::is_app_running = false;
 
+    delete QWidgetPrivate::mapper;
+    QWidgetPrivate::mapper = 0;
+
     // delete all widgets
     if (QWidgetPrivate::allWidgets) {
         QWidgetSet *mySet = QWidgetPrivate::allWidgets;
@@ -1120,9 +1132,6 @@ QApplication::~QApplication()
 #if defined(Q_WS_WIN)
     delete d->ignore_cursor; d->ignore_cursor = 0;
 #endif
-
-    delete QWidgetPrivate::mapper;
-    QWidgetPrivate::mapper = 0;
 
     delete QApplicationPrivate::app_pal;
     QApplicationPrivate::app_pal = 0;
@@ -1421,10 +1430,18 @@ QStyle *QApplication::style()
         // Compile-time search for default style
         //
         QString style;
-        if (!QApplicationPrivate::styleOverride.isEmpty())
+#ifdef QT_BUILD_INTERNAL
+        QString envStyle = QString::fromLocal8Bit(qgetenv("QT_STYLE_OVERRIDE"));
+#else
+        QString envStyle;
+#endif
+        if (!QApplicationPrivate::styleOverride.isEmpty()) {
             style = QApplicationPrivate::styleOverride;
-        else
+        } else if (!envStyle.isEmpty()) {
+            style = envStyle;
+        } else {
             style = QApplicationPrivate::desktopStyleKey();
+        }
 
         QStyle *&app_style = QApplicationPrivate::app_style;
         app_style = QStyleFactory::create(style);

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -764,10 +764,17 @@ void expblur(QImage &img, qreal radius, bool improvedQuality = false, int transp
     }
 
     if (transposed == 0) {
-        qt_memrotate90(reinterpret_cast<const quint32*>(temp.bits()),
-                       temp.width(), temp.height(), temp.bytesPerLine(),
-                       reinterpret_cast<quint32*>(img.bits()),
-                       img.bytesPerLine());
+        if (img.depth() == 8) {
+            qt_memrotate90(reinterpret_cast<const quint8*>(temp.bits()),
+                           temp.width(), temp.height(), temp.bytesPerLine(),
+                           reinterpret_cast<quint8*>(img.bits()),
+                           img.bytesPerLine());
+        } else {
+            qt_memrotate90(reinterpret_cast<const quint32*>(temp.bits()),
+                           temp.width(), temp.height(), temp.bytesPerLine(),
+                           reinterpret_cast<quint32*>(img.bits()),
+                           img.bytesPerLine());
+        }
     } else {
         img = temp;
     }

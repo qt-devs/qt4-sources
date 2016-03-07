@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -196,8 +196,9 @@ bool QAudioDeviceInfoInternal::testSettings(const QAudioFormat& format) const
                 break;
             }
         }
+        if (!match)
+            failed = true;
     }
-    if (!match) failed = true;
 
     // check frequency
     match = false;
@@ -208,6 +209,8 @@ bool QAudioDeviceInfoInternal::testSettings(const QAudioFormat& format) const
                 break;
             }
         }
+        if (!match)
+            failed = true;
     }
 
     // check sample size
@@ -219,6 +222,8 @@ bool QAudioDeviceInfoInternal::testSettings(const QAudioFormat& format) const
                 break;
             }
         }
+        if (!match)
+            failed = true;
     }
 
     // check byte order
@@ -230,6 +235,8 @@ bool QAudioDeviceInfoInternal::testSettings(const QAudioFormat& format) const
                 break;
             }
         }
+        if (!match)
+            failed = true;
     }
 
     // check sample type
@@ -241,6 +248,8 @@ bool QAudioDeviceInfoInternal::testSettings(const QAudioFormat& format) const
                 break;
             }
         }
+        if (!match)
+            failed = true;
     }
 
     if(!failed) {

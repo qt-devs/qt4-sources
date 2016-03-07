@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -265,7 +265,7 @@ bool QSoftKeyManagerPrivateS60::setSoftkeyImage(CEikButtonGroupContainer *cba,
             CFbsBitmap* nMask = softkeyAlpha.toSymbianCFbsBitmap();
 
             CEikImage* myimage = new (ELeave) CEikImage;
-            myimage->SetPicture( nBitmap, nMask ); // nBitmap and nMask ownership transfered
+            myimage->SetPicture( nBitmap, nMask ); // nBitmap and nMask ownership transferred
 
             EikSoftkeyImage::SetImage(cba, *myimage, left); // Takes myimage ownership
             cbaHasImage[position] = true;

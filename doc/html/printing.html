@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,8 +147,11 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="paintsystem-styling.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="paintsystem-styling.html">Styling</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -149,6 +160,7 @@
 <li class="level2"><a href="#creating-a-qprinter">Creating a QPrinter</a></li>
 <li class="level2"><a href="#painting-onto-a-page">Painting onto a Page</a></li>
 <li class="level2"><a href="#coordinate-systems">Coordinate Systems</a></li>
+<li class="level1"><a href="#printing-widgets">Printing Widgets</a></li>
 <li class="level1"><a href="#printing-from-complex-widgets">Printing from Complex Widgets</a></li>
 </ul>
 </div>
@@ -214,6 +226,21 @@
 </p></td><td ><p><img src="images/printer-rects.png" /></p></td></tr>
 </table>
 <p>The paint system automatically uses the correct device metrics when painting text but, if you need to position text using information obtained from font metrics, you need to ensure that the print device is specified when you construct <a href="qfontmetrics.html">QFontMetrics</a> and <a href="qfontmetricsf.html">QFontMetricsF</a> objects, or ensure that each <a href="qfont.html">QFont</a> used is constructed using the form of the constructor that accepts a <a href="qpaintdevice.html">QPaintDevice</a> argument.</p>
+<a name="printing-widgets"></a>
+<h2>Printing Widgets</h2>
+<p>To print a widget, you can use the <a href="qwidget.html#render">QWidget::render</a>() function. As mentioned, the printer's resolution is usually higher than the screen resolution, so you will have to scale the painter. You may also want to position the widget on the page. The following code sample shows how this may look.</p>
+<pre class="highlightedCode brush: cpp">         QPainter painter;
+         painter.begin(&amp;printer);
+         double xscale = printer.pageRect().width()/double(myWidget-&gt;width());
+         double yscale = printer.pageRect().height()/double(myWidget-&gt;height());
+         double scale = qMin(xscale, yscale);
+         painter.translate(printer.paperRect().x() + printer.pageRect().width()/2,
+                            printer.paperRect().y() + printer.pageRect().height()/2);
+         painter.scale(scale, scale);
+         painter.translate(-width()/2, -height()/2);
+
+         myWidget-&gt;render(&amp;painter);</pre>
+<p>This will center the widget on the page and scale it so that it fits the page.</p>
 <a name="printing-from-complex-widgets"></a>
 <h2>Printing from Complex Widgets</h2>
 <p>Certain widgets, such as <a href="qtextedit.html">QTextEdit</a> and <a href="qgraphicsview.html">QGraphicsView</a>, display rich content that is typically managed by instances of other classes, such as <a href="qtextdocument.html">QTextDocument</a> and <a href="qgraphicsscene.html">QGraphicsScene</a>. As a result, it is these content handling classes that usually provide printing functionality, either via a function that can be used to perform the complete task, or via a function that accepts an existing <a href="qpainter.html">QPainter</a> object. Some widgets provide convenience functions to expose underlying printing features, avoiding the need to obtain the content handler just to call a single function.</p>
@@ -229,7 +256,7 @@
 <p><a href="qtextedit.html">QTextEdit</a> requires a <a href="qprinter.html">QPrinter</a> rather than a <a href="qpainter.html">QPainter</a> because it uses information about the configured page dimensions in order to insert page breaks at the most appropriate places in printed documents.</p>
 </div>
 <!-- @@@printing.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="paintsystem-styling.html">Styling</a>]
 </p>
         <div class="feedback t_button">

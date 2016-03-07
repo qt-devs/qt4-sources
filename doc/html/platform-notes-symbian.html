@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- platform-notes.qdoc -->
-  <title>Qt 4.7: Platform Notes - Symbian</title>
+  <title>Qt 4.7: Platform and Compiler Notes - Symbian</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
   <script src="scripts/jquery.js" type="text/javascript"></script>
   <script src="scripts/functions.js" type="text/javascript"></script>
@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -127,7 +135,7 @@
             <ul>
               <li class="first"><a href="index.html">Home</a></li>
               <!--  Bread crumbs goes here -->
-              <li>Platform Notes - Symbian</li>            </ul>
+              <li>Platform and Compiler Notes - Symbian</li>            </ul>
           </div>
           <div class="toolbuttons toolblock">
             <ul>
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -147,13 +157,15 @@
 <li class="level1"><a href="#binary-compatibility">Binary Compatibility</a></li>
 <li class="level1"><a href="#supported-devices">Supported Devices</a></li>
 <li class="level1"><a href="#supported-functionality">Supported Functionality</a></li>
+<li class="level1"><a href="#compiler-notes">Compiler Notes</a></li>
+<li class="level2"><a href="#gcce-symbian">GCCE (Symbian)</a></li>
 <li class="level1"><a href="#known-issues">Known Issues</a></li>
 <li class="level1"><a href="#required-capabilities">Required Capabilities</a></li>
 <li class="level1"><a href="#multimedia-and-phonon-support">Multimedia and Phonon Support</a></li>
 <li class="level1"><a href="#ui-performance-in-devices-prior-to-symbian-3">UI Performance in devices prior to Symbian^3</a></li>
 </ul>
 </div>
-<h1 class="title">Platform Notes - Symbian</h1>
+<h1 class="title">Platform and Compiler Notes - Symbian</h1>
 <span class="subtitle"></span>
 <!-- $$$platform-notes-symbian.html-description -->
 <div class="descr"> <a name="details"></a>
@@ -201,6 +213,11 @@
 <tr class="odd topAlign"><td ><p><a href="qtsql.html">QtSql</a></p></td><td ><p>The only driver supported is SQLite.</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qtmultimedia.html">QtMultimedia</a></p></td><td ><p>Although the module itself is supported, no backend for Symbian is currently available. However, there is a backend available for Phonon.</p></td></tr>
 </table>
+<a name="compiler-notes"></a>
+<h2>Compiler Notes</h2>
+<a name="gcce-symbian"></a>
+<h3>GCCE (Symbian)</h3>
+<p>GCCE cannot be used to compile Qt libaries for the Symbian platform, but GCCE is supported when compiling Qt applications for the Symbian platform.</p>
 <a name="known-issues"></a>
 <h2>Known Issues</h2>
 <p>Known issues can be found by visiting the <a href="http://qt.gitorious.org/qt/pages/QtKnownIssues">wiki page</a> with an up-to-date list of known issues, and the list of bugs can be found by <a href="http://bugreports.qt.nokia.com/browse/QTBUG/component/19171">browsing</a> the S60 component in Qt's public task tracker, located at <a href="http://bugreports.qt.nokia.com/">http://bugreports.qt.nokia.com/</a>.</p>
@@ -212,10 +229,13 @@
 <thead><tr class="qt-style topAlign"><th >Module</th><th >Required Symbian Capability</th></tr></thead>
 <tr class="odd topAlign"><td ><p><a href="qtcore.html">QtCore</a></p></td><td ><p><tt>PowerMgmt</tt> if QProcess::kill(..&#x2e;) or QProcess::terminate(..&#x2e;) is called.</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qtcore.html">QtCore</a></p></td><td ><p><tt>AllFiles</tt> when <a href="http://developer.symbian.org/wiki/index.php/Capabilities_%28Symbian_Signed%29/AllFiles_Capability">accessing specific areas.</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qtnetwork.html">QtNetwork</a></p></td><td ><p><tt>NetworkServices</tt> is basically always required for this module.</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qtdeclarative.html">QtDeclarative</a></p></td><td ><p><tt>NetworkServices</tt> is automatically added for this module.</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qtnetwork.html">QtNetwork</a></p></td><td ><p><tt>NetworkServices</tt> is automatically added for this module.</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qtnetwork.html">QtNetwork</a></p></td><td ><p><tt>ReadUserData</tt> is required to include all the phone's SSL certificates in the system's default CA certificate list (for example those added by the user or stored in the SIM card), without this capability only the CA certs built into the phone are used.</p></td></tr>
 <tr class="even topAlign"><td ><p>QtMultiMedia</p></td><td ><p><tt>UserEnvironment</tt> if <a href="qaudioinput.html">QAudioInput</a> is used.</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="demos.html#qtwebkit">QtWebkit</a></p></td><td ><p><tt>NetworkServices</tt> is automatically added for this module.</p></td></tr>
 </table>
-<p>Note that some modules rely on other modules. If your application uses <a href="qtxmlpatterns.html">QtXmlPatterns</a>, <a href="demos.html#qtwebkit">QtWebkit</a> or <a href="qtscript.html">QtScript</a> it may still require <tt>NetworkServices</tt> as these modules rely on <a href="qtnetwork.html">QtNetwork</a> to go online.</p>
+<p><b>Note:</b> Some modules rely on other modules. E.g&#x2e; <a href="demos.html#qtwebkit">QtWebkit</a> and <a href="qtdeclarative.html">QtDeclarative</a> depend on <a href="qtnetwork.html">QtNetwork</a> and therefore any application that depends on these modules is also likely to need <tt>NetworkServices</tt> capability.</p>
 <p>For more information see the documentation of the individual Qt classes. If a class does not mention Symbian capabilities, it requires none.</p>
 <a name="multimedia-and-phonon-support"></a>
 <h2>Multimedia and Phonon Support</h2>
@@ -245,7 +265,7 @@
 <p>When compared to a native Symbian application, Qt does an additional blit to the offscreen buffer before drawing to the framebuffer. That is the performance penalty which needs to be paid to get all functionality provided by <a href="qpainter.html">QPainter</a> in non-ScreenPlay architecture.</p>
 </div>
 <!-- @@@platform-notes-symbian.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

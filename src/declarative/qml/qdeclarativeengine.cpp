@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -68,6 +68,7 @@
 #include "private/qdeclarativelist_p.h"
 #include "private/qdeclarativetypenamecache_p.h"
 #include "private/qdeclarativeinclude_p.h"
+#include "private/qdeclarativenotifier_p.h"
 
 #include <QtCore/qmetaobject.h>
 #include <QScriptClass>
@@ -104,6 +105,7 @@
 #ifdef Q_OS_WIN // for %APPDATA%
 #include <qt_windows.h>
 #include <qlibrary.h>
+#include <windows.h>
 
 #define CSIDL_APPDATA		0x001a	// <username>\Application Data
 #endif
@@ -208,7 +210,7 @@ For example:
 import QtQuick 1.0
 
 Text {
-    color: Qt.rgba(255, 0, 0, 1)
+    color: Qt.rgba(1, 0, 0, 1)
     text: Qt.md5("hello, world")
 }
 \endqml
@@ -259,6 +261,33 @@ of their use.
 \endlist
 */
 
+/*!
+\qmlmethod object Qt::include(string url, jsobject callback)
+
+Includes another JavaScript file. This method can only be used from within JavaScript files,
+and not regular QML files.
+
+This imports all functions from \a url into the current script's namespace.
+
+Qt.include() returns an object that describes the status of the operation.  The object has
+a single property, \c {status}, that is set to one of the following values:
+
+\table
+\header \o Symbol \o Value \o Description
+\row \o result.OK \o 0 \o The include completed successfully.
+\row \o result.LOADING \o 1 \o Data is being loaded from the network.
+\row \o result.NETWORK_ERROR \o 2 \o A network error occurred while fetching the url.
+\row \o result.EXCEPTION \o 3 \o A JavaScript exception occurred while executing the included code.
+An additional \c exception property will be set in this case.
+\endtable
+
+The \c status property will be updated as the operation progresses.
+
+If provided, \a callback is invoked when the operation completes.  The callback is passed
+the same object as is returned from the Qt.include() call.
+*/
+// Qt.include() is implemented in qdeclarativeinclude.cpp
+
 
 QDeclarativeEnginePrivate::QDeclarativeEnginePrivate(QDeclarativeEngine *e)
 : captureProperties(false), rootContext(0), isDebugging(false),
@@ -285,9 +314,11 @@ QDeclarativeEnginePrivate::QDeclarativeEnginePrivate(QDeclarativeEngine *e)
 QUrl QDeclarativeScriptEngine::resolvedUrl(QScriptContext *context, const QUrl& url)
 {
     if (p) {
-        QDeclarativeContextData *ctxt = QDeclarativeEnginePrivate::get(this)->getContext(context);
-        Q_ASSERT(ctxt);
-        return ctxt->resolvedUrl(url);
+        QDeclarativeContextData *ctxt = p->getContext(context);
+        if (ctxt)
+            return ctxt->resolvedUrl(url);
+        else
+            return p->getUrl(context).resolved(url);
     }
     return baseUrl.resolved(url);
 }
@@ -467,6 +498,11 @@ void QDeclarativeData::parentChanged(QAbstractDeclarativeData *d, QObject *o, QO
     static_cast<QDeclarativeData *>(d)->parentChanged(o, p);
 }
 
+void QDeclarativeData::objectNameChanged(QAbstractDeclarativeData *d, QObject *o)
+{
+    static_cast<QDeclarativeData *>(d)->objectNameChanged(o);
+}
+
 void QDeclarativeEnginePrivate::init()
 {
     Q_Q(QDeclarativeEngine);
@@ -600,7 +636,7 @@ QDeclarativeContext *QDeclarativeEngine::rootContext() const
   QNetworkAccessManager with specialized caching, proxy and cookie
   support.
 
-  The factory must be set before exceuting the engine.
+  The factory must be set before executing the engine.
 */
 void QDeclarativeEngine::setNetworkAccessManagerFactory(QDeclarativeNetworkAccessManagerFactory *factory)
 {
@@ -669,6 +705,9 @@ QNetworkAccessManager *QDeclarativeEngine::networkAccessManager() const
   requests. See the QDeclarativeImageProvider documentation for details on
   implementing and using image providers.
 
+  All required image providers should be added to the engine before any
+  QML sources files are loaded.
+
   Note that images loaded from a QDeclarativeImageProvider are cached
   by QPixmapCache, similar to any image loaded by QML.
 
@@ -721,8 +760,10 @@ QImage QDeclarativeEnginePrivate::getImageFromProvider(const QUrl &url, QSize *s
     QImage image;
     QSharedPointer<QDeclarativeImageProvider> provider = imageProviders.value(url.host());
     locker.unlock();
-    if (provider)
-        image = provider->requestImage(url.path().mid(1), size, req_size);
+    if (provider) {
+        QString imageId = url.toString(QUrl::RemoveScheme | QUrl::RemoveAuthority).mid(1);
+        image = provider->requestImage(imageId, size, req_size);
+    }
     return image;
 }
 
@@ -732,8 +773,10 @@ QPixmap QDeclarativeEnginePrivate::getPixmapFromProvider(const QUrl &url, QSize 
     QPixmap pixmap;
     QSharedPointer<QDeclarativeImageProvider> provider = imageProviders.value(url.host());
     locker.unlock();
-    if (provider)
-        pixmap = provider->requestPixmap(url.path().mid(1), size, req_size);
+    if (provider) {
+        QString imageId = url.toString(QUrl::RemoveScheme | QUrl::RemoveAuthority).mid(1);
+        pixmap = provider->requestPixmap(imageId, size, req_size);
+    }
     return pixmap;
 }
 
@@ -870,7 +913,7 @@ void QDeclarativeEngine::setContextForObject(QObject *object, QDeclarativeContex
   created by calling QDeclarativeCompnent::create() or
   QDeclarativeComponent::beginCreate() which have CppOwnership by
   default.  The ownership of these root-level objects is considered to
-  have been transfered to the C++ caller.
+  have been transferred to the C++ caller.
 
   Objects not-created by QML have CppOwnership by default.  The
   exception to this is objects returned from a C++ method call.  The
@@ -888,9 +931,7 @@ void QDeclarativeEngine::setObjectOwnership(QObject *object, ObjectOwnership own
     if (!object)
         return;
 
-    // No need to do anything if CppOwnership and there is no QDeclarativeData as
-    // the current ownership must be CppOwnership
-    QDeclarativeData *ddata = QDeclarativeData::get(object, ownership == JavaScriptOwnership);
+    QDeclarativeData *ddata = QDeclarativeData::get(object, true);
     if (!ddata)
         return;
 
@@ -948,7 +989,7 @@ QObject *qmlAttachedPropertiesObjectById(int id, const QObject *object, bool cre
     if (!data)
         return 0; // Attached properties are only on objects created by QML
 
-    QObject *rv = data->attachedProperties?data->attachedProperties->value(id):0;
+    QObject *rv = data->hasExtendedData()?data->attachedProperties()->value(id):0;
     if (rv || !create)
         return rv;
 
@@ -958,11 +999,8 @@ QObject *qmlAttachedPropertiesObjectById(int id, const QObject *object, bool cre
 
     rv = pf(const_cast<QObject *>(object));
 
-    if (rv) {
-        if (!data->attachedProperties)
-            data->attachedProperties = new QHash<int, QObject *>();
-        data->attachedProperties->insert(id, rv);
-    }
+    if (rv) 
+        data->attachedProperties()->insert(id, rv);
 
     return rv;
 }
@@ -979,12 +1017,39 @@ QObject *qmlAttachedPropertiesObject(int *idCache, const QObject *object,
     return qmlAttachedPropertiesObjectById(*idCache, object, create);
 }
 
+class QDeclarativeDataExtended {
+public:
+    QDeclarativeDataExtended();
+    ~QDeclarativeDataExtended();
+
+    QHash<int, QObject *> attachedProperties;
+    QDeclarativeNotifier objectNameNotifier;
+};
+
+QDeclarativeDataExtended::QDeclarativeDataExtended()
+{
+}
+
+QDeclarativeDataExtended::~QDeclarativeDataExtended()
+{
+}
+
+QDeclarativeNotifier *QDeclarativeData::objectNameNotifier() const
+{
+    if (!extendedData) extendedData = new QDeclarativeDataExtended;
+    return &extendedData->objectNameNotifier;
+}
+
+QHash<int, QObject *> *QDeclarativeData::attachedProperties() const
+{
+    if (!extendedData) extendedData = new QDeclarativeDataExtended;
+    return &extendedData->attachedProperties;
+}
+
 void QDeclarativeData::destroyed(QObject *object)
 {
     if (deferredComponent)
         deferredComponent->release();
-    if (attachedProperties)
-        delete attachedProperties;
 
     if (nextContextObject)
         nextContextObject->prevContextObject = prevContextObject;
@@ -1018,6 +1083,9 @@ void QDeclarativeData::destroyed(QObject *object)
     if (scriptValue)
         delete scriptValue;
 
+    if (extendedData)
+        delete extendedData;
+
     if (ownMemory)
         delete this;
 }
@@ -1025,6 +1093,11 @@ void QDeclarativeData::destroyed(QObject *object)
 void QDeclarativeData::parentChanged(QObject *, QObject *parent)
 {
     if (!parent && scriptValue) { delete scriptValue; scriptValue = 0; }
+}
+
+void QDeclarativeData::objectNameChanged(QObject *)
+{
+    if (extendedData) objectNameNotifier()->notify();
 }
 
 bool QDeclarativeData::hasBindingBit(int bit) const
@@ -1147,12 +1220,8 @@ QScriptValue QDeclarativeEnginePrivate::createComponent(QScriptContext *ctxt, QS
         QString arg = ctxt->argument(0).toString();
         if (arg.isEmpty())
             return engine->nullValue();
-        QUrl url;
+        QUrl url = QDeclarativeScriptEngine::get(engine)->resolvedUrl(ctxt, QUrl(arg));
         QDeclarativeContextData* context = activeEnginePriv->getContext(ctxt);
-        if (context)
-            url = QUrl(context->resolvedUrl(QUrl(arg)));
-        else
-            url = activeEnginePriv->getUrl(ctxt).resolved(QUrl(arg));
         QDeclarativeComponent *c = new QDeclarativeComponent(activeEngine, url, activeEngine);
         QDeclarativeComponentPrivate::get(c)->creationContext = context;
         QDeclarativeData::get(c, true)->setImplicitDestructible();
@@ -1636,7 +1705,7 @@ QScriptValue QDeclarativeEnginePrivate::desktopOpenUrl(QScriptContext *ctxt, QSc
         return QScriptValue(e, false);
     bool ret = false;
 #ifndef QT_NO_DESKTOPSERVICES
-    ret = QDesktopServices::openUrl(QUrl(ctxt->argument(0).toString()));
+    ret = QDesktopServices::openUrl(QDeclarativeScriptEngine::get(e)->resolvedUrl(ctxt, QUrl(ctxt->argument(0).toString())));
 #endif
     return QScriptValue(e, ret);
 }
@@ -1790,7 +1859,9 @@ void QDeclarativeEnginePrivate::warning(QDeclarativeEnginePrivate *engine, const
 /*!
 \qmlmethod Qt::quit()
 This function causes the QDeclarativeEngine::quit() signal to be emitted.
-Within the \l {QML Viewer}, this causes the launcher application to exit.
+Within the \l {QML Viewer}, this causes the launcher application to exit;
+to quit a C++ application when this method is called, connect the
+QDeclarativeEngine::quit() signal to the QCoreApplication::quit() slot.
 */
 
 QScriptValue QDeclarativeEnginePrivate::quit(QScriptContext * /*ctxt*/, QScriptEngine *e)
@@ -1923,10 +1994,11 @@ QVariant QDeclarativeEnginePrivate::scriptValueToVariant(const QScriptValue &val
 /*!
   Adds \a path as a directory where the engine searches for
   installed modules in a URL-based directory structure.
+  The \a path may be a local filesystem directory or a URL.
 
   The newly added \a path will be first in the importPathList().
 
-  \sa setImportPathList()
+  \sa setImportPathList(), \l {QML Modules}
 */
 void QDeclarativeEngine::addImportPath(const QString& path)
 {
@@ -2158,6 +2230,45 @@ const QMetaObject *QDeclarativeEnginePrivate::metaObjectForType(int t) const
         QDeclarativeType *type = QDeclarativeMetaType::qmlType(t);
         return type?type->metaObject():0;
     }
+}
+
+bool QDeclarative_isFileCaseCorrect(const QString &fileName)
+{
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
+    QFileInfo info(fileName);
+
+    QString absolute = info.absoluteFilePath();
+
+#if defined(Q_OS_MAC)
+    QString canonical = info.canonicalFilePath();
+#elif defined(Q_OS_WIN32)
+    wchar_t buffer[1024];
+
+    DWORD rv = ::GetShortPathName((wchar_t*)absolute.utf16(), buffer, 1024);
+    if (rv == 0 || rv >= 1024) return true;
+    rv = ::GetLongPathName(buffer, buffer, 1024);
+    if (rv == 0 || rv >= 1024) return true;
+
+    QString canonical((QChar *)buffer);
+#endif
+
+    int absoluteLength = absolute.length();
+    int canonicalLength = canonical.length();
+
+    int length = qMin(absoluteLength, canonicalLength);
+    for (int ii = 0; ii < length; ++ii) {
+        const QChar &a = absolute.at(absoluteLength - 1 - ii);
+        const QChar &c = canonical.at(canonicalLength - 1 - ii);
+
+        if (a.toLower() != c.toLower())
+            return true;
+        if (a != c)
+            return false;
+    }
+#else
+    Q_UNUSED(fileName)
+#endif
+    return true;
 }
 
 QT_END_NAMESPACE

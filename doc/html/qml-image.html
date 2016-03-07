@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -162,6 +172,8 @@
 <ul>
 <li class="fn"><b><b><a href="qml-image.html#asynchronous-prop">asynchronous</a></b></b> : bool</li>
 <li class="fn"><b><b><a href="qml-image.html#fillMode-prop">fillMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-image.html#paintedHeight-prop">paintedHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-image.html#paintedWidth-prop">paintedWidth</a></b></b> : real</li>
 <li class="fn"><b><b><a href="qml-image.html#progress-prop">progress</a></b></b> : real</li>
 <li class="fn"><b><b><a href="qml-image.html#smooth-prop">smooth</a></b></b> : bool</li>
 <li class="fn"><b><b><a href="qml-image.html#source-prop">source</a></b></b> : url</li>
@@ -192,12 +204,12 @@
 <!-- @@@Image -->
 <h2>Property Documentation</h2>
 <!-- $$$asynchronous -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="asynchronous-prop"></a>asynchronous : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Specifies that images on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the image is loaded. Setting <i>asynchronous</i> to true is useful where maintaining a responsive user interface is more desirable than having images immediately visible.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="asynchronous-prop"></a>asynchronous : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>Specifies that images on the local filesystem should be loaded asynchronously in a separate thread. The default value is false, causing the user interface thread to block while the image is loaded. Setting <i>asynchronous</i> to true is useful where maintaining a responsive user interface is more desirable than having images immediately visible.</p>
 <p>Note that this property is only valid for images read from the local filesystem. Images loaded via a network resource (e.g&#x2e; HTTP) are always loaded asynchonously.</p>
 </div></div><!-- @@@asynchronous -->
 <br/>
 <!-- $$$fillMode -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="fillMode-prop"></a>fillMode : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>Set this property to define what happens when the image set for the item is smaller than the size of the item.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="fillMode-prop"></a>fillMode : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>Set this property to define what happens when the image set for the item is smaller than the size of the item.</p>
 <ul>
 <li>Image.Stretch - the image is scaled to fit</li>
 <li>Image.PreserveAspectFit - the image is scaled uniformly to fit without cropping</li>
@@ -252,24 +264,28 @@
 <p>See also <a href="declarative-imageelements-image.html">Image example</a>.</p>
 </div></div><!-- @@@fillMode -->
 <br/>
+<!-- $$$paintedWidth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="paintedWidth-prop"></a><span class="qmlreadonly">read-only</span>paintedWidth : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="paintedHeight-prop"></a><span class="qmlreadonly">read-only</span>paintedHeight : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>These properties hold the size of the image that is actually painted. In most cases it is the same as <tt>width</tt> and <tt>height</tt>, but when using a <tt>fillMode</tt> <tt>PreserveAspectFit</tt> or <tt>fillMode</tt> <tt>PreserveAspectCrop</tt> <tt>paintedWidth</tt> or <tt>paintedHeight</tt> can be smaller or larger than <tt>width</tt> and <tt>height</tt> of the Image element.</p>
+</div></div><!-- @@@paintedWidth -->
+<br/>
 <!-- $$$progress -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="progress-prop"></a><span class="qmlreadonly">read-only</span>progress : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the progress of image loading, from 0.0 (nothing loaded) to 1.0 (finished).</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="progress-prop"></a><span class="qmlreadonly">read-only</span>progress : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the progress of image loading, from 0.0 (nothing loaded) to 1.0 (finished).</p>
 <p>See also <a href="qml-image.html#status-prop">status</a>.</p>
 </div></div><!-- @@@progress -->
 <br/>
 <!-- $$$smooth -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="smooth-prop"></a>smooth : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Set this property if you want the image to be smoothly filtered when scaled or transformed. Smooth filtering gives better visual quality, but is slower. If the image is displayed at its natural size, this property has no visual or performance effect.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="smooth-prop"></a>smooth : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>Set this property if you want the image to be smoothly filtered when scaled or transformed. Smooth filtering gives better visual quality, but is slower. If the image is displayed at its natural size, this property has no visual or performance effect.</p>
 <p><b>Note:</b> Generally scaling artifacts are only visible if the image is stationary on the screen. A common pattern when animating an image is to disable smooth filtering at the beginning of the animation and reenable it at the conclusion.</p>
 </div></div><!-- @@@smooth -->
 <br/>
 <!-- $$$source -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="source-prop"></a>source : <a href="qml-url.html">url</a></td></tr></table></div><div class="qmldoc"><p>Image can handle any image format supported by Qt, loaded from any URL scheme supported by Qt.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="source-prop"></a>source : <a href="qml-url.html">url</a></p></td></tr></table></div><div class="qmldoc"><p>Image can handle any image format supported by Qt, loaded from any URL scheme supported by Qt.</p>
 <p>The URL may be absolute, or relative to the URL of the component.</p>
 <p>See also <a href="qdeclarativeimageprovider.html">QDeclarativeImageProvider</a>.</p>
 </div></div><!-- @@@source -->
 <br/>
 <!-- $$$sourceSize -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="sourceSize-prop"></a>sourceSize : <a href="qsize.html">QSize</a></td></tr></table></div><div class="qmldoc"><p>This property holds the actual width and height of the loaded image.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="sourceSize-prop"></a>sourceSize : <a href="qsize.html">QSize</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the actual width and height of the loaded image.</p>
 <p>Unlike the <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> properties, which scale the painting of the image, this property sets the actual number of pixels stored for the loaded image so that large images do not use more memory than necessary. For example, this ensures the image in memory is no larger than 1024x1024 pixels, regardless of the Image's <a href="qml-item.html#width-prop">width</a> and <a href="qml-item.html#height-prop">height</a> values:</p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
      width: ...
@@ -289,7 +305,7 @@
 </div></div><!-- @@@sourceSize -->
 <br/>
 <!-- $$$status -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="status-prop"></a><span class="qmlreadonly">read-only</span>status : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>This property holds the status of image loading. It can be one of:</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="status-prop"></a><span class="qmlreadonly">read-only</span>status : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the status of image loading. It can be one of:</p>
 <ul>
 <li>Image.Null - no image has been set</li>
 <li>Image.Ready - the image has been loaded</li>
@@ -297,19 +313,21 @@
 <li>Image.Error - an error occurred while loading the image</li>
 </ul>
 <p>Use this status to provide an update or respond to the status change in some way. For example, you could:</p>
-<p><i>Trigger a state change:</i></p>
-<pre class="highlightedCode brush: cpp"> State { name: 'loaded'; when: image.status = Image.Ready }</pre>
-<p><i>Implement an <tt>onStatusChanged</tt> signal handler:</i></p>
-<pre class="highlightedCode brush: cpp"> Image {
+<ul>
+<li>Trigger a state change:<pre class="highlightedCode brush: cpp"> State { name: 'loaded'; when: image.status == Image.Ready }</pre>
+</li>
+<li>Implement an <tt>onStatusChanged</tt> signal handler:<pre class="highlightedCode brush: cpp"> Image {
      id: image
      onStatusChanged: if (image.status == Image.Ready) console.log('Loaded')
  }</pre>
-<p><i>Bind to the status value:</i></p>
-<pre class="highlightedCode brush: cpp"> Text { text: image.status != Image.Ready ? 'Not Loaded' : 'Loaded' }</pre>
+</li>
+<li>Bind to the status value:<pre class="highlightedCode brush: cpp"> Text { text: image.status == Image.Ready ? 'Loaded' : 'Not loaded' }</pre>
+</li>
+</ul>
 <p>See also <a href="qml-image.html#progress-prop">progress</a>.</p>
 </div></div><!-- @@@status -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

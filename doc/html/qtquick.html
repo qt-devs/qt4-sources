@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,12 +147,12 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#introduction">Introduction</a></li>
-<li class="level2"><a href="#qml-elements-and-the-qtdeclarative-module">QML, Elements and the QtDeclarative Module</a></li>
+<li class="level2"><a href="#qml-elements-and-the-qt-declarative-module">QML, Elements and the Qt Declarative Module</a></li>
 <li class="level1"><a href="#getting-started">Getting Started</a></li>
 <li class="level1"><a href="#qml-concepts">QML Concepts</a></li>
 <li class="level1"><a href="#user-interaction">User Interaction</a></li>
@@ -163,12 +171,12 @@
 <h2>Introduction</h2>
 <p>Qt Quick is a collection of technologies that are designed to help developers create the kind of intuitive, modern-looking, fluid user interfaces that are increasingly used on mobile phones, media players, set-top boxes and other portable devices.</p>
 <p>Qt Quick consists of a rich set of user interface elements, a declarative language for describing user interfaces and a language runtime. A collection of C++ APIs is used to integrate these high level features with classic Qt applications.</p>
-<a name="qml-elements-and-the-qtdeclarative-module"></a>
-<h3>QML, Elements and the QtDeclarative Module</h3>
+<a name="qml-elements-and-the-qt-declarative-module"></a>
+<h3>QML, Elements and the Qt Declarative Module</h3>
 <p>User interfaces and their behavior are described using QML, an extension to <a href="https://developer.mozilla.org/en/JavaScript/About_JavaScript">JavaScript</a> that lets developers and designers use a declarative syntax to specify each user interface in terms of <a href="qdeclarativeelements.html">QML elements</a>. These elements are a sophisticated set of graphical and behavioral building blocks that can be combined together in <a href="qdeclarativedocuments.html">QML documents</a> to build components ranging in complexity from simple buttons and sliders, to complete Internet-enabled applications.</p>
-<p>QML improves the integration between <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> and Qt's existing <a href="qobject.html">QObject</a>-based type system, adds support for automatic <a href="propertybinding.html">property bindings</a> and provides <a href="qdeclarativenetwork.html">network transparency</a> at the language level.</p>
-<p>The <a href="qtdeclarative.html">QtDeclarative</a> module implements the interface between the QML language and the elements available to it. It also provides a C++ API that can be used to load and interact with QML files from within Qt applications.</p>
-<p>Qt Quick builds on <a href="qtprogrammers.html">Qt's existing strengths</a>. QML can be be used to incrementally extend an existing application or to build completely new applications. QML is fully <a href="qml-extending.html">extensible from C++</a> through the <a href="qtdeclarative.html">QtDeclarative</a> Module.</p>
+<p>QML improves the integration between JavaScript and Qt's existing <a href="qobject.html">QObject</a>-based type system, adds support for automatic <a href="propertybinding.html">property bindings</a> and provides <a href="qdeclarativenetwork.html">network transparency</a> at the language level.</p>
+<p>The Qt Declarative module implements the interface between the QML language and the elements available to it. It also provides a C++ API that can be used to load and interact with QML files from within Qt applications.</p>
+<p>Qt Quick builds on <a href="qtprogrammers.html">Qt's existing strengths</a>. QML can be be used to incrementally extend an existing application or to build completely new applications. QML is fully <a href="qml-extending.html">extensible from C++</a> through the Qt Declarative Module.</p>
 <a name="getting-started"></a>
 <h2>Getting Started</h2>
 <ul>
@@ -176,7 +184,7 @@
 <li><a href="qdeclarativeintroduction.html">Introduction to the QML language</a></li>
 <li><a href="qtprogrammers.html">QML for Qt Programmers</a></li>
 <li><a href="gettingstartedqml.html">Getting Started Programming with QML</a></li>
-<li><a href="qml-intro.html">Beginning Qt Quick</a></li>
+<li><a href="qml-intro.html">Intro to Qt Quick</a></li>
 </ul>
 <ul>
 <li><a href="qml-tutorial.html">Tutorial: &quot;Hello World&quot;</a></li>
@@ -188,9 +196,10 @@
 <ul>
 <li><a href="qdeclarativedocuments.html">QML Documents</a></li>
 <li><a href="propertybinding.html">Property Binding</a></li>
+<li><a href="qml-anchor-layout.html">Anchor-based Layout in QML</a></li>
+<li><a href="qml-extending-types.html">Writing QML Components: Properties, Methods and Signals</a></li>
 <li><a href="qdeclarativescope.html">QML Scope</a></li>
 <li><a href="qdeclarativemodules.html#qml-modules">QML Modules</a></li>
-<li><a href="qml-anchor-layout.html">Anchor-based Layout in QML</a></li>
 </ul>
 <a name="user-interaction"></a>
 <h2>User Interaction</h2>
@@ -202,6 +211,7 @@
 <a name="handling-data"></a>
 <h2>Handling Data</h2>
 <ul>
+<li><a href="qdeclarativebasictypes.html">QML Basic Data Types</a></li>
 <li><a href="qml-positioners.html">Using QML Positioner and Repeater Items</a></li>
 <li><a href="qdeclarativemodels.html">QML Data Models</a></li>
 <li><a href="qml-presenting-data.html">Presenting Data with QML</a></li>
@@ -212,7 +222,6 @@
 <ul>
 <li><a href="qmlruntime.html">Qt Declarative UI Runtime</a></li>
 <li><a href="qdeclarativejavascript.html">Integrating JavaScript</a></li>
-<li><a href="qml-extending-types.html">Extending types from QML</a></li>
 <li><a href="qdeclarativedynamicobjects.html">Dynamic Object Management in QML</a></li>
 </ul>
 <a name="using-qml-with-c"></a>
@@ -228,10 +237,11 @@
 <h2>Reference</h2>
 <ul>
 <li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li><a href="qdeclarativebasictypes.html">QML Basic Types</a></li>
 <li><a href="qdeclarativeglobalobject.html">QML Global Object</a></li>
 <li><a href="qdeclarativei18n.html">QML Internationalization</a></li>
 <li><a href="qdeclarativesecurity.html">QML Security</a></li>
-<li><a href="qtdeclarative.html">QtDeclarative Module</a></li>
+<li><a href="qtdeclarative.html">Qt Declarative Module</a></li>
 <li><a href="qdeclarativedebugging.html">Debugging QML</a></li>
 <li><a href="qmlviewer.html">QML Viewer</a></li>
 <li><a href="qdeclarativeperformance.html">QML Performance</a></li>

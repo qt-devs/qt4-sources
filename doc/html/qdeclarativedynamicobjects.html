@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -155,11 +163,11 @@
 <!-- $$$qdeclarativedynamicobjects.html-description -->
 <div class="descr"> <a name="details"></a>
 <p>QML provides a number of ways to dynamically create and manage QML objects. The <a href="qml-loader.html">Loader</a>, <a href="qml-repeater.html">Repeater</a>, <a href="qml-listview.html">ListView</a>, <a href="qml-gridview.html">GridView</a> and <a href="qml-pathview.html">PathView</a> elements all support dynamic object management. Objects can also be created and managed from C++, and this is the preferred method for hybrid QML/C++ applications (see <a href="qtbinding.html">Using QML in C++ Applications</a>).</p>
-<p>QML also supports the dynamic creation of objects from within <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> code. This is useful if the existing QML elements do not fit the needs of your application, and there are no C++ components involved.</p>
+<p>QML also supports the dynamic creation of objects from within JavaScript code. This is useful if the existing QML elements do not fit the needs of your application, and there are no C++ components involved.</p>
 <p>See the <a href="declarative-toys-dynamicscene.html">Dynamic Scene example</a> for a demonstration of the concepts discussed on this page.</p>
 <a name="creating-objects-dynamically"></a>
 <h2>Creating Objects Dynamically</h2>
-<p>There are two ways to create objects dynamically from <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>. You can either call <a href="qml-qt.html#createComponent-method">Qt.createComponent()</a> to dynamically create a <a href="qml-component.html">Component</a> object, or use <a href="qml-qt.html#createQmlObject-method">Qt.createQmlObject()</a> to create an item from a string of QML. Creating a component is better if you have an existing component defined in a <tt>.qml</tt> file, and you want to dynamically create instances of that component. Otherwise, creating an item from a string of QML is useful when the item QML itself is generated at runtime.</p>
+<p>There are two ways to create objects dynamically from JavaScript. You can either call <a href="qml-qt.html#createComponent-method">Qt.createComponent()</a> to dynamically create a <a href="qml-component.html">Component</a> object, or use <a href="qml-qt.html#createQmlObject-method">Qt.createQmlObject()</a> to create an item from a string of QML. Creating a component is better if you have an existing component defined in a <tt>.qml</tt> file, and you want to dynamically create instances of that component. Otherwise, creating an item from a string of QML is useful when the item QML itself is generated at runtime.</p>
 <a name="creating-a-component-dynamically"></a>
 <h3>Creating a Component dynamically</h3>
 <p>To dynamically load a component defined in a QML file, call the <a href="qml-qt.html#createComponent-method">Qt.createComponent()</a> function on the <a href="qdeclarativeglobalobject.html">QML Global Object</a>. This function takes the URL of the QML file as its only argument and creates a <a href="qml-component.html">Component</a> object from this URL.</p>
@@ -168,7 +176,7 @@
 <pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Rectangle { width: 80; height: 50; color: &quot;red&quot; }</pre>
-<p>Our main application file, <tt>main.qml</tt>, imports a <tt>componentCreation.js</tt> <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> file that will create <tt>Sprite</tt> objects:</p>
+<p>Our main application file, <tt>main.qml</tt>, imports a <tt>componentCreation.js</tt> JavaScript file that will create <tt>Sprite</tt> objects:</p>
 <pre class="highlightedCode brush: cpp"> import QtQuick 1.0
  import &quot;componentCreation.js&quot; as MyScript
 
@@ -221,6 +229,7 @@
  }</pre>
 <p>Notice in both instances, <a href="qml-component.html#createObject-method">createObject()</a> is called with <tt>appWindow</tt> passed as an argument so that the created object will become a child of the <tt>appWindow</tt> item in <tt>main.qml</tt>. Otherwise, the new item will not appear in the scene.</p>
 <p>When using files with relative paths, the path should be relative to the file where <a href="qml-qt.html#createComponent-method">Qt.createComponent()</a> is executed.</p>
+<p>To connect signals to (or receive signals from) dynamically created objects, use the signal <tt>connect()</tt> method. See <a href="qml-extending-types.html#connecting-signals-to-methods-and-other-signals">Connecting signals to methods and other signals</a> for more information.</p>
 <a name="creating-an-object-from-a-string-of-qml"></a>
 <h3>Creating an object from a string of QML</h3>
 <p>If the QML is not defined until runtime, you can create a QML item from a string of QML using the <a href="qml-qt.html#createQmlObject-method">Qt.createQmlObject()</a> function, as in the following example:</p>
@@ -282,7 +291,8 @@
 </p></td></tr>
 </table>
 <p>Alternatively, the <tt>application.qml</tt> could have destroyed the created object by calling <tt>object.destroy()</tt>.</p>
-<p>Notice that if a <tt>SelfDestroyingRect</tt> instance was created statically like this:</p>
+<p>Note that it is safe to call destroy() on an object within that object. Objects are not destroyed the instant destroy() is called, but are cleaned up sometime between the end of that script block and the next frame (unless you specified a non-zero delay).</p>
+<p>Note also that if a <tt>SelfDestroyingRect</tt> instance was created statically like this:</p>
 <pre class="highlightedCode brush: cpp"> Item {
      SelfDestroyingRect { ... }
  }</pre>

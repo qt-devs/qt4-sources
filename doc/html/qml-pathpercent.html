@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,10 +147,11 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
+<li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
 </ul>
 </div>
@@ -151,31 +160,63 @@
 <!-- $$$PathPercent-brief -->
 <p>The PathPercent manipulates the way a path is interpreted. <a href="#details">More...</a></p>
 <!-- @@@PathPercent -->
+<li><a href="qml-pathpercent-members.html">List of all members, including inherited members</a></li>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-pathpercent.html#value-prop">value</a></b></b> : real</li>
+</ul>
 <!-- $$$PathPercent-description -->
 <a name="details"></a>
 <h2>Detailed Description</h2>
+<p>PathPercent allows you to manipulate the spacing between items on a <a href="qml-pathview.html">PathView</a>'s path. You can use it to bunch together items on part of the path, and spread them out on other parts of the path.</p>
 <p>The examples below show the normal distrubution of items along a path compared to a distribution which places 50% of the items along the <a href="qml-pathline.html">PathLine</a> section of the path.</p>
 <table class="generic">
-<tr class="odd topAlign"><td ><p><p class="centerAlign"><img src="images/declarative-nopercent.png" /></p></p></td><td ><p><pre class="highlightedCode brush: cpp"> Path {
-     startX: 20; startY: 0
-     PathQuad { x: 50; y: 80; controlX: 0; controlY: 80 }
-     PathLine { x: 150; y: 80 }
-     PathQuad { x: 180; y: 0; controlX: 200; controlY: 80 }
+<tr class="odd topAlign"><td ><p><p class="centerAlign"><img src="images/declarative-nopercent.png" /></p></p></td><td ><p><pre class="highlightedCode brush: cpp"> PathView {
+     ...
+     Path {
+         startX: 20; startY: 0
+         PathQuad { x: 50; y: 80; controlX: 0; controlY: 80 }
+         PathLine { x: 150; y: 80 }
+         PathQuad { x: 180; y: 0; controlX: 200; controlY: 80 }
+     }
  }</pre>
 </p></td></tr>
-<tr class="even topAlign"><td ><p><p class="centerAlign"><img src="images/declarative-percent.png" /></p></p></td><td ><p><pre class="highlightedCode brush: cpp"> Path {
-     startX: 20; startY: 0
-     PathQuad { x: 50; y: 80; controlX: 0; controlY: 80 }
-     PathPercent { value: 0.25 }
-     PathLine { x: 150; y: 80 }
-     PathPercent { value: 0.75 }
-     PathQuad { x: 180; y: 0; controlX: 200; controlY: 80 }
-     PathPercent { value: 1 }
+<tr class="even topAlign"><td ><p><p class="centerAlign"><img src="images/declarative-percent.png" /></p></p></td><td ><p><pre class="highlightedCode brush: cpp"> PathView {
+     ...
+     Path {
+         startX: 20; startY: 0
+         PathQuad { x: 50; y: 80; controlX: 0; controlY: 80 }
+         PathPercent { value: 0.25 }
+         PathLine { x: 150; y: 80 }
+         PathPercent { value: 0.75 }
+         PathQuad { x: 180; y: 0; controlX: 200; controlY: 80 }
+         PathPercent { value: 1 }
+     }
  }</pre>
 </p></td></tr>
 </table>
 <p>See also <a href="qml-path.html">Path</a>.</p>
 <!-- @@@PathPercent -->
+<h2>Property Documentation</h2>
+<!-- $$$value -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="value-prop"></a>value : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>The proporation of items that should be laid out up to this point.</p>
+<p>This value should always be higher than the last value specified by a <a href="qml-pathpercent.html">PathPercent</a> at a previous position in the Path.</p>
+<p>In the following example we have a Path made up of three PathLines. Normally, the items of the <a href="qml-pathview.html">PathView</a> would be laid out equally along this path, with an equal number of items per line segment. <a href="qml-pathpercent.html">PathPercent</a> allows us to specify that the first and third lines should each hold 10% of the laid out items, while the second line should hold the remaining 80%.</p>
+<pre class="highlightedCode brush: cpp"> PathView {
+     ...
+     Path {
+         startX: 0; startY: 0
+         PathLine { x:100; y: 0; }
+         PathPercent { value: 0.1 }
+         PathLine { x: 100; y: 100 }
+         PathPercent { value: 0.9 }
+         PathLine { x: 100; y: 0 }
+         PathPercent { value: 1 }
+     }
+ }</pre>
+</div></div><!-- @@@value -->
+<br/>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>
       </div>

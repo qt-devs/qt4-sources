@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -40,13 +40,13 @@
 
 //! [0]
 cd /tmp
-gunzip qt-everywhere-opensource-src-4.7.1.tar.gz        # uncompress the archive
-tar xvf qt-everywhere-opensource-src-4.7.1.tar          # unpack it
+gunzip qt-everywhere-opensource-src-4.7.2.tar.gz        # uncompress the archive
+tar xvf qt-everywhere-opensource-src-4.7.2.tar          # unpack it
 //! [0]
 
 
 //! [1]
-cd /tmp/qt-everywhere-opensource-src-4.7.1
+cd /tmp/qt-everywhere-opensource-src-4.7.2
 ./configure
 //! [1]
 
@@ -67,13 +67,13 @@ PATH               - to locate qmake, moc and other Qt tools
 
 
 //! [5]
-PATH=/usr/local/Trolltech/Qt-4.7.1/bin:$PATH
+PATH=/usr/local/Trolltech/Qt-4.7.2/bin:$PATH
 export PATH
 //! [5]
 
 
 //! [6]
-setenv PATH /usr/local/Trolltech/Qt-4.7.1/bin:$PATH
+setenv PATH /usr/local/Trolltech/Qt-4.7.2/bin:$PATH
 //! [6]
 
 
@@ -84,7 +84,7 @@ PATH               - to locate qmake, moc and other Qt tools
 
 //! [8]
 C:
-cd /D C:\Qt\4.7.1
+cd /D C:\Qt\4.7.2
 configure
 //! [8]
 
@@ -101,13 +101,13 @@ nmake
 
 //! [11]
 cd /tmp
-gunzip qt-everywhere-opensource-src-4.7.1.tar.gz        # uncompress the archive
-tar xvf qt-everywhere-opensource-src-4.7.1.tar          # unpack it
+gunzip qt-everywhere-opensource-src-4.7.2.tar.gz        # uncompress the archive
+tar xvf qt-everywhere-opensource-src-4.7.2.tar          # unpack it
 //! [11]
 
 
 //! [12]
-cd /tmp/qt-everywhere-opensource-src-4.7.1
+cd /tmp/qt-everywhere-opensource-src-4.7.2
 ./configure
 //! [12]
 
@@ -128,13 +128,13 @@ PATH               - to locate qmake, moc and other Qt tools
 
 
 //! [16]
-PATH=/usr/local/Trolltech/Qt-4.7.1/bin:$PATH
+PATH=/usr/local/Trolltech/Qt-4.7.2/bin:$PATH
 export PATH
 //! [16]
 
 
 //! [17]
-setenv PATH /usr/local/Trolltech/Qt-4.7.1/bin:$PATH
+setenv PATH /usr/local/Trolltech/Qt-4.7.2/bin:$PATH
 //! [17]
 
 
@@ -145,7 +145,7 @@ PATH               - to locate qmake, moc and other Qt tools
 
 //! [19]
 C:
-cd \Qt\4.7.1
+cd \Qt\4.7.2
 configure -platform win32-msvc2005 -xplatform wincewm50pocket-msvc2005
 //! [19]
 
@@ -168,7 +168,7 @@ nmake
 
 
 //! [23]
-cd \Qt\4.7.1
+cd \Qt\4.7.2
 configure -platform win32-g++ -xplatform symbian-abld
 //! [23]
 
@@ -207,7 +207,7 @@ make sis QT_SIS_OPTIONS=-i
 //! [30]
 
 //! [31]
-cd \Qt\4.7.1
+cd \Qt\4.7.2
 configure -platform win32-g++ -xplatform symbian-sbsv2
 //! [31]
 
@@ -244,17 +244,17 @@ export EPOCROOT
 //! [36]
 
 //! [37]
-PATH=/home/user/qt/4.7.1/bin:$EPOCROOT/epoc32/tools:$PATH
+PATH=/home/user/qt/4.7.2/bin:$EPOCROOT/epoc32/tools:$PATH
 export PATH
 //! [37]
 
 //! [38]
-cd /home/user/qt/4.7.1
+cd /home/user/qt/4.7.2
 ./configure -platform linux-g++ -xplatform symbian/linux-armcc
 //! [38]
 
 //! [39]
-cd /home/user/qt/4.7.1
+cd /home/user/qt/4.7.2
 ./configure -platform linux-g++ -xplatform symbian/linux-gcce -no-webkit
 //! [39]
 
@@ -301,10 +301,23 @@ make
 runonphone -s lib/Qt.sis
 //! [47]
 
+//! [runonphone with device file path]
+runonphone -s lib/Qt.sis -p /dev/ttyUSB1
+//! [runonphone with device file path]
+
 //! [48]
 cd demos/embedded/fluidlauncher
 runonphone -s fluidlauncher.sis fluidlauncher.exe
 //! [48]
+
+//! [make runonphone with options]
+make runonphone "QT_RUN_ON_PHONE_OPTIONS=-p /dev/ttyUSB1"
+//! [make runonphone with options]
+
+//! [make runonphone with preset environment variable]
+export QT_RUN_ON_PHONE_OPTIONS="-p /dev/ttyUSB1"
+make runonphone
+//! [make runonphone with preset environment variable]
 
 //! [49]
 cd myapp
@@ -315,9 +328,10 @@ runonphone -s myapp.sis myapp.exe
 //! [49]
 
 //! [50]
-nokia_plugin/openc/s60opencsis/openc_ssl_s60_1_6_ss.sis
-nokia_plugin/openc/s60opencsis/pips_s60_1_6_ss.sis
-nokia_plugin/opencpp/s60opencppsis/stdcpp_s60_1_6_ss.sis
+src/s60installs/sqlite3.sis
+$EPOCROOT/nokia_plugin/openc/s60opencsis/openc_ssl_s60_1_6_ss.sis
+$EPOCROOT/nokia_plugin/openc/s60opencsis/pips_s60_1_6_ss.sis
+$EPOCROOT/nokia_plugin/opencpp/s60opencppsis/stdcpp_s60_1_6_ss.sis
 //! [50]
 
 

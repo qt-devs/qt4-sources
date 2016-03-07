@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -502,7 +502,7 @@ void QCopChannel::answer(QWSClient *cl, const QString& ch,
             bool known = qcopServerMap && qcopServerMap->contains(c)
                         && !((*qcopServerMap)[c]).isEmpty();
             // Yes, it's a typo, it's not user-visible, and we choose not to fix it for compatibility
-            QLatin1String ans = QLatin1String(known ? "known" : "unkown");
+            QLatin1String ans = QLatin1String(known ? "known" : "unknown");
             QWSServerPrivate::sendQCopEvent(cl, QLatin1String(""),
                                             ans, data, true);
             return;

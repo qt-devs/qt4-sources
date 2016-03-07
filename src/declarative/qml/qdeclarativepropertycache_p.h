@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -83,6 +83,7 @@ public:
                     IsConstant        = 0x00000001,
                     IsWritable        = 0x00000002,
                     IsResettable      = 0x00000004,
+                    IsAlias           = 0x00000008,
 
                     // These are mutualy exclusive
                     IsFunction        = 0x00000010,
@@ -94,8 +95,9 @@ public:
 
                     // Apply only to IsFunctions
                     IsVMEFunction     = 0x00000400,
-                    HasArguments      = 0x00000800
-
+                    HasArguments      = 0x00000800,
+                    IsSignal          = 0x00001000,
+                    IsVMESignal       = 0x00002000
         };
         Q_DECLARE_FLAGS(Flags, Flag)
 
@@ -104,7 +106,10 @@ public:
         Flags flags;
         int propType;
         int coreIndex;
-        int notifyIndex;
+        union {
+            int notifyIndex; // When !IsFunction
+            int relatedIndex; // When IsFunction
+        };
 
         static Flags flagsForProperty(const QMetaProperty &, QDeclarativeEngine *engine = 0);
         void load(const QMetaProperty &, QDeclarativeEngine *engine = 0);
@@ -125,7 +130,7 @@ public:
 
     QDeclarativePropertyCache *copy() const;
     void append(QDeclarativeEngine *, const QMetaObject *, Data::Flag propertyFlags = Data::NoFlags,
-                Data::Flag methodFlags = Data::NoFlags);
+                Data::Flag methodFlags = Data::NoFlags, Data::Flag signalFlags = Data::NoFlags);
 
     static QDeclarativePropertyCache *create(QDeclarativeEngine *, const QMetaObject *);
     static Data create(const QMetaObject *, const QString &);
@@ -133,6 +138,7 @@ public:
     inline Data *property(const QScriptDeclarativeClass::Identifier &id) const;
     Data *property(const QString &) const;
     Data *property(int) const;
+    Data *method(int) const;
     QStringList propertyNames() const;
 
     inline QDeclarativeEngine *qmlEngine() const;
@@ -150,8 +156,11 @@ private:
     typedef QHash<QString, RData *> StringCache;
     typedef QHash<QScriptDeclarativeClass::Identifier, RData *> IdentifierCache;
 
+    void updateRecur(QDeclarativeEngine *, const QMetaObject *);
+
     QDeclarativeEngine *engine;
     IndexCache indexCache;
+    IndexCache methodIndexCache;
     StringCache stringCache;
     IdentifierCache identifierCache;
 };

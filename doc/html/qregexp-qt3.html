@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,21 +149,21 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QRegExp</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qregexp.html">QRegExp class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#QRegExp-4">QRegExp</a></b> ( const QString &amp; <i>pattern</i>, bool <i>cs</i>, bool <i>wildcard</i> = false )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#caseSensitive">caseSensitive</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#minimal">minimal</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#numCaptures">numCaptures</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#search">search</a></b> ( const QString &amp; <i>str</i>, int <i>from</i> = 0, CaretMode <i>caretMode</i> = CaretAtZero ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#searchRev">searchRev</a></b> ( const QString &amp; <i>str</i>, int <i>from</i> = -1, CaretMode <i>caretMode</i> = CaretAtZero ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#setCaseSensitive">setCaseSensitive</a></b> ( bool <i>sensitive</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#setWildcard">setWildcard</a></b> ( bool <i>wildcard</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#wildcard">wildcard</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#QRegExp-4">QRegExp</a></b> ( const QString &amp; <i>pattern</i>, bool <i>cs</i>, bool <i>wildcard</i> = false )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#caseSensitive">caseSensitive</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#minimal">minimal</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#numCaptures">numCaptures</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#search">search</a></b> ( const QString &amp; <i>str</i>, int <i>from</i> = 0, CaretMode <i>caretMode</i> = CaretAtZero ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#searchRev">searchRev</a></b> ( const QString &amp; <i>str</i>, int <i>from</i> = -1, CaretMode <i>caretMode</i> = CaretAtZero ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#setCaseSensitive">setCaseSensitive</a></b> ( bool <i>sensitive</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#setWildcard">setWildcard</a></b> ( bool <i>wildcard</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qregexp-qt3.html#wildcard">wildcard</a></b> () const</td></tr>
 </table>
 <h2>Member Function Documentation</h2>
 <!-- $$$QRegExp$$$QRegExpconstQString&boolbool -->
@@ -169,7 +177,7 @@
 <!-- $$$caseSensitive[overload1]$$$caseSensitive -->
 <h3 class="fn"><a name="caseSensitive"></a>bool QRegExp::caseSensitive () const</h3>
 <p>Use <a href="qregexp.html#caseSensitivity">caseSensitivity</a>() instead.</p>
-<p>See also <a href="qregexp.html#setCaseSensitive">setCaseSensitive</a>().</p>
+<p>See also <a href="qregexp-qt3.html#setCaseSensitive">setCaseSensitive</a>().</p>
 <!-- @@@caseSensitive -->
 <!-- $$$minimal[overload1]$$$minimal -->
 <h3 class="fn"><a name="minimal"></a>bool QRegExp::minimal () const</h3>
@@ -192,7 +200,7 @@
 <!-- $$$setCaseSensitive[overload1]$$$setCaseSensitivebool -->
 <h3 class="fn"><a name="setCaseSensitive"></a>void QRegExp::setCaseSensitive ( bool <i>sensitive</i> )</h3>
 <p>Use <a href="qregexp.html#setCaseSensitivity">setCaseSensitivity</a>() instead.</p>
-<p>See also <a href="qregexp.html#caseSensitive">caseSensitive</a>().</p>
+<p>See also <a href="qregexp-qt3.html#caseSensitive">caseSensitive</a>().</p>
 <!-- @@@setCaseSensitive -->
 <!-- $$$setWildcard[overload1]$$$setWildcardbool -->
 <h3 class="fn"><a name="setWildcard"></a>void QRegExp::setWildcard ( bool <i>wildcard</i> )</h3>
@@ -201,7 +209,7 @@
 <pre class="highlightedCode brush: cpp"> rx.setWildcard(wc);</pre>
 <p>you can rewrite it as</p>
 <pre class="highlightedCode brush: cpp"> rx.setPatternSyntax(wc ? QRegExp::Wildcard : QRegExp::RegExp);</pre>
-<p>See also <a href="qregexp.html#wildcard">wildcard</a>().</p>
+<p>See also <a href="qregexp-qt3.html#wildcard">wildcard</a>().</p>
 <!-- @@@setWildcard -->
 <!-- $$$wildcard[overload1]$$$wildcard -->
 <h3 class="fn"><a name="wildcard"></a>bool QRegExp::wildcard () const</h3>
@@ -210,7 +218,7 @@
 <pre class="highlightedCode brush: cpp"> bool wc = rx.wildcard();</pre>
 <p>you can rewrite it as</p>
 <pre class="highlightedCode brush: cpp"> bool wc = (rx.patternSyntax() == QRegExp::Wildcard);</pre>
-<p>See also <a href="qregexp.html#setWildcard">setWildcard</a>().</p>
+<p>See also <a href="qregexp-qt3.html#setWildcard">setWildcard</a>().</p>
 <!-- @@@wildcard -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

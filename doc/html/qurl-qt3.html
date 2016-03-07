@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,42 +149,42 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QUrl</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qurl.html">QUrl class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#addPath">addPath</a></b> ( const QString &amp; <i>p</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#cdUp">cdUp</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#dirPath">dirPath</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#fileName">fileName</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#hasHost">hasHost</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#hasPassword">hasPassword</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#hasPath">hasPath</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#hasPort">hasPort</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#hasRef">hasRef</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#hasUser">hasUser</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#protocol">protocol</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#query">query</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#ref">ref</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#setFileName">setFileName</a></b> ( const QString &amp; <i>txt</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#setProtocol">setProtocol</a></b> ( const QString &amp; <i>s</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#setQuery">setQuery</a></b> ( const QString &amp; <i>txt</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#setRef">setRef</a></b> ( const QString &amp; <i>txt</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#setUser">setUser</a></b> ( const QString &amp; <i>s</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#user">user</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-QString">operator QString</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#addPath">addPath</a></b> ( const QString &amp; <i>p</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#cdUp">cdUp</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#dirPath">dirPath</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#fileName">fileName</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#hasHost">hasHost</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#hasPassword">hasPassword</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#hasPath">hasPath</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#hasPort">hasPort</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#hasRef">hasRef</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#hasUser">hasUser</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#protocol">protocol</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#query">query</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#ref">ref</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#setFileName">setFileName</a></b> ( const QString &amp; <i>txt</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#setProtocol">setProtocol</a></b> ( const QString &amp; <i>s</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#setQuery">setQuery</a></b> ( const QString &amp; <i>txt</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#setRef">setRef</a></b> ( const QString &amp; <i>txt</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#setUser">setUser</a></b> ( const QString &amp; <i>s</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#user">user</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#operator-QString">operator QString</a></b> () const</td></tr>
 </table>
 <h2>Static Public Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#decode">decode</a></b> ( QString &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#encode">encode</a></b> ( QString &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#isRelativeUrl">isRelativeUrl</a></b> ( const QString &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#decode">decode</a></b> ( QString &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#encode">encode</a></b> ( QString &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#isRelativeUrl">isRelativeUrl</a></b> ( const QString &amp; <i>url</i> )</td></tr>
 </table>
 <h2>Protected Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#reset">reset</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qurl-qt3.html#reset">reset</a></b> ()</td></tr>
 </table>
 <h2>Member Function Documentation</h2>
 <!-- $$$addPath[overload1]$$$addPathconstQString& -->
@@ -208,7 +216,7 @@
 <!-- $$$fileName[overload1]$$$fileName -->
 <h3 class="fn"><a name="fileName"></a><a href="qstring.html">QString</a> QUrl::fileName () const</h3>
 <p>Use <a href="qfileinfo.html">QFileInfo</a>(<a href="qurl.html#pathx">path</a>()).fileName() instead.</p>
-<p>See also <a href="qurl.html#setFileName">setFileName</a>().</p>
+<p>See also <a href="qurl-qt3.html#setFileName">setFileName</a>().</p>
 <!-- @@@fileName -->
 <!-- $$$hasHost[overload1]$$$hasHost -->
 <h3 class="fn"><a name="hasHost"></a>bool QUrl::hasHost () const</h3>
@@ -241,17 +249,17 @@
 <!-- $$$protocol[overload1]$$$protocol -->
 <h3 class="fn"><a name="protocol"></a><a href="qstring.html">QString</a> QUrl::protocol () const</h3>
 <p>Use <a href="qurl.html#scheme">scheme</a>() instead.</p>
-<p>See also <a href="qurl.html#setProtocol">setProtocol</a>().</p>
+<p>See also <a href="qurl-qt3.html#setProtocol">setProtocol</a>().</p>
 <!-- @@@protocol -->
 <!-- $$$query[overload1]$$$query -->
 <h3 class="fn"><a name="query"></a><a href="qstring.html">QString</a> QUrl::query () const</h3>
 <p>Use <a href="qurl.html#encodedQuery">encodedQuery</a>() instead.</p>
-<p>See also <a href="qurl.html#setQuery">setQuery</a>().</p>
+<p>See also <a href="qurl-qt3.html#setQuery">setQuery</a>().</p>
 <!-- @@@query -->
 <!-- $$$ref[overload1]$$$ref -->
 <h3 class="fn"><a name="ref"></a><a href="qstring.html">QString</a> QUrl::ref () const</h3>
 <p>Use <a href="qurl.html#fragment">fragment</a>() instead.</p>
-<p>See also <a href="qurl.html#setRef">setRef</a>().</p>
+<p>See also <a href="qurl-qt3.html#setRef">setRef</a>().</p>
 <!-- @@@ref -->
 <!-- $$$reset[overload1]$$$reset -->
 <h3 class="fn"><a name="reset"></a>void QUrl::reset ()<tt> [protected]</tt></h3>
@@ -260,32 +268,32 @@
 <!-- $$$setFileName[overload1]$$$setFileNameconstQString& -->
 <h3 class="fn"><a name="setFileName"></a>void QUrl::setFileName ( const <a href="qstring.html">QString</a> &amp; <i>txt</i> )</h3>
 <p>Use <a href="qurl.html#setPath">setPath</a>() instead.</p>
-<p>See also <a href="qurl.html#fileName">fileName</a>().</p>
+<p>See also <a href="qurl-qt3.html#fileName">fileName</a>().</p>
 <!-- @@@setFileName -->
 <!-- $$$setProtocol[overload1]$$$setProtocolconstQString& -->
 <h3 class="fn"><a name="setProtocol"></a>void QUrl::setProtocol ( const <a href="qstring.html">QString</a> &amp; <i>s</i> )</h3>
 <p>Use <a href="qurl.html#setScheme">setScheme</a>() instead.</p>
-<p>See also <a href="qurl.html#protocol">protocol</a>().</p>
+<p>See also <a href="qurl-qt3.html#protocol">protocol</a>().</p>
 <!-- @@@setProtocol -->
 <!-- $$$setQuery[overload1]$$$setQueryconstQString& -->
 <h3 class="fn"><a name="setQuery"></a>void QUrl::setQuery ( const <a href="qstring.html">QString</a> &amp; <i>txt</i> )</h3>
 <p>Use <a href="qurl.html#setEncodedQuery">setEncodedQuery</a>() instead.</p>
-<p>See also <a href="qurl.html#query">query</a>().</p>
+<p>See also <a href="qurl-qt3.html#query">query</a>().</p>
 <!-- @@@setQuery -->
 <!-- $$$setRef[overload1]$$$setRefconstQString& -->
 <h3 class="fn"><a name="setRef"></a>void QUrl::setRef ( const <a href="qstring.html">QString</a> &amp; <i>txt</i> )</h3>
 <p>Use <a href="qurl.html#setFragment">setFragment</a>() instead.</p>
-<p>See also <a href="qurl.html#ref">ref</a>().</p>
+<p>See also <a href="qurl-qt3.html#ref">ref</a>().</p>
 <!-- @@@setRef -->
 <!-- $$$setUser[overload1]$$$setUserconstQString& -->
 <h3 class="fn"><a name="setUser"></a>void QUrl::setUser ( const <a href="qstring.html">QString</a> &amp; <i>s</i> )</h3>
 <p>Use <a href="qurl.html#setUserName">setUserName</a>() instead.</p>
-<p>See also <a href="qurl.html#user">user</a>().</p>
+<p>See also <a href="qurl-qt3.html#user">user</a>().</p>
 <!-- @@@setUser -->
 <!-- $$$user[overload1]$$$user -->
 <h3 class="fn"><a name="user"></a><a href="qstring.html">QString</a> QUrl::user () const</h3>
 <p>Use <a href="qurl.html#userName">userName</a>() instead.</p>
-<p>See also <a href="qurl.html#setUser">setUser</a>().</p>
+<p>See also <a href="qurl-qt3.html#setUser">setUser</a>().</p>
 <!-- @@@user -->
 <!-- $$$operator QString[overload1]$$$operator QString -->
 <h3 class="fn"><a name="operator-QString"></a>QUrl::operator QString () const</h3>

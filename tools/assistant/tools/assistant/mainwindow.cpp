@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -161,7 +161,7 @@ MainWindow::MainWindow(CmdLineParser *cmdLine, QWidget *parent)
     setupActions();
     statusBar()->show();
 
-    if (initHelpDB()) {
+    if (initHelpDB(!cmdLine->collectionFileGiven())) {
         setupFilterToolbar();
         setupAddressToolbar();
 
@@ -281,13 +281,18 @@ void MainWindow::closeEvent(QCloseEvent *e)
     QMainWindow::closeEvent(e);
 }
 
-bool MainWindow::initHelpDB()
+bool MainWindow::initHelpDB(bool registerInternalDoc)
 {
     TRACE_OBJ
     HelpEngineWrapper &helpEngineWrapper = HelpEngineWrapper::instance();
     if (!helpEngineWrapper.setupData())
         return false;
 
+    if (!registerInternalDoc) {
+        if (helpEngineWrapper.defaultHomePage() == QLatin1String("help"))
+            helpEngineWrapper.setDefaultHomePage(QLatin1String("about:blank"));
+        return true;
+    }
     bool assistantInternalDocRegistered = false;
     QString intern(QLatin1String("com.trolltech.com.assistantinternal-"));
     foreach (const QString &ns, helpEngineWrapper.registeredDocumentations()) {
@@ -834,7 +839,7 @@ void MainWindow::showAboutDialog()
         aboutDia.setText(tr("<center>"
             "<h3>%1</h3>"
             "<p>Version %2</p></center>"
-            "<p>Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).</p>")
+            "<p>Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).</p>")
             .arg(tr("Qt Assistant")).arg(QLatin1String(QT_VERSION_STR)),
             resources);
         QLatin1String path(":/trolltech/assistant/images/assistant-128.png");

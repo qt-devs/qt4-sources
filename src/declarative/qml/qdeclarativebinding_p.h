@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -64,7 +64,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Q_DECLARATIVE_EXPORT QDeclarativeAbstractBinding
+class Q_DECLARATIVE_PRIVATE_EXPORT QDeclarativeAbstractBinding
 {
 public:
     typedef QWeakPointer<QDeclarativeAbstractBinding> Pointer;
@@ -78,14 +78,16 @@ public:
     enum Type { PropertyBinding, ValueTypeProxy };
     virtual Type bindingType() const { return PropertyBinding; }
 
+    QObject *object() const;
+    int propertyIndex() const;
+
     void setEnabled(bool e) { setEnabled(e, QDeclarativePropertyPrivate::DontRemoveBinding); }
     virtual void setEnabled(bool, QDeclarativePropertyPrivate::WriteFlags) = 0;
-    virtual int propertyIndex() = 0;
 
     void update() { update(QDeclarativePropertyPrivate::DontRemoveBinding); }
     virtual void update(QDeclarativePropertyPrivate::WriteFlags) = 0;
 
-    void addToObject(QObject *);
+    void addToObject(QObject *, int);
     void removeFromObject();
 
     static Pointer getPointer(QDeclarativeAbstractBinding *p) { return p ? p->weakPointer() : Pointer(); }
@@ -98,12 +100,14 @@ private:
     Pointer weakPointer();
 
     friend class QDeclarativeData;
+    friend class QDeclarativeComponentPrivate;
     friend class QDeclarativeValueTypeProxyBinding;
     friend class QDeclarativePropertyPrivate;
     friend class QDeclarativeVME;
     friend class QtSharedPointer::ExternalRefCount<QDeclarativeAbstractBinding>;
 
     QObject *m_object;
+    int m_propertyIndex;
     QDeclarativeAbstractBinding **m_mePtr;
     QDeclarativeAbstractBinding **m_prevBinding;
     QDeclarativeAbstractBinding  *m_nextBinding;
@@ -118,10 +122,11 @@ public:
     virtual Type bindingType() const { return ValueTypeProxy; }
 
     virtual void setEnabled(bool, QDeclarativePropertyPrivate::WriteFlags);
-    virtual int propertyIndex();
     virtual void update(QDeclarativePropertyPrivate::WriteFlags);
 
     QDeclarativeAbstractBinding *binding(int propertyIndex);
+
+    void removeBindings(quint32 mask);
 
 protected:
     ~QDeclarativeValueTypeProxyBinding();
@@ -138,7 +143,7 @@ private:
 
 class QDeclarativeContext;
 class QDeclarativeBindingPrivate;
-class Q_DECLARATIVE_EXPORT QDeclarativeBinding : public QDeclarativeExpression, public QDeclarativeAbstractBinding
+class Q_DECLARATIVE_PRIVATE_EXPORT QDeclarativeBinding : public QDeclarativeExpression, public QDeclarativeAbstractBinding
 {
 Q_OBJECT
 public:
@@ -154,7 +159,6 @@ public:
 
     // Inherited from  QDeclarativeAbstractBinding
     virtual void setEnabled(bool, QDeclarativePropertyPrivate::WriteFlags flags);
-    virtual int propertyIndex();
     virtual void update(QDeclarativePropertyPrivate::WriteFlags flags);
     virtual QString expression() const;
 

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -44,8 +44,8 @@
 LE: strings | grep 0123ABCD0123ABCD
 BE: strings | grep DCBA3210DCBA3210
 
-LE arm-swaped-dword-order: strings | grep ABCD0123ABCD0123
-BE arm-swaped-dword-order: strings | grep 3210DCBA3210DCBA (untested)
+LE arm-swapped-dword-order: strings | grep ABCD0123ABCD0123
+BE arm-swapped-dword-order: strings | grep 3210DCBA3210DCBA (untested)
 
 tested on x86, arm-le (gp), aix
 

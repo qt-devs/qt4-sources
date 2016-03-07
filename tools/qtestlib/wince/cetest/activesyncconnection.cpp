@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -247,7 +247,7 @@ bool ActiveSyncConnection::copyFileFromDevice(const QString &deviceSource, const
     wprintf(L"\n");
 
     if (!readUntilEnd) {
-        debugOutput(QString::fromLatin1("  an error occured during copy"), 2);
+        debugOutput(QString::fromLatin1("  an error occurred during copy"), 2);
         return false;
     }
 

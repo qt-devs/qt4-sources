@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -166,7 +174,7 @@
 <p>The QString class provides a Unicode character string. <a href="#details">More...</a></p>
 <!-- @@@QString -->
 <pre class="highlightedCode brush: cpp"> #include &lt;QString&gt;</pre><p>Inherited by <a href="qconststring.html" class="compat">QConstString</a>, <a href="qdbusobjectpath.html">QDBusObjectPath</a>, and <a href="qdbussignature.html">QDBusSignature</a>.</p>
-<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>, except for <a href="qstring.html#ascii" class="compat">ascii</a>(), <a href="qstring.html#latin1" class="compat">latin1</a>(), <a href="qstring.html#utf8" class="compat">utf8</a>(), and <a href="qstring.html#local8Bit" class="compat">local8Bit</a>(), which are nonreentrant.</p>
+<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>, except for <a href="qstring-qt3.html#ascii" class="compat">ascii</a>(), <a href="qstring-qt3.html#latin1" class="compat">latin1</a>(), <a href="qstring-qt3.html#utf8" class="compat">utf8</a>(), and <a href="qstring-qt3.html#local8Bit" class="compat">local8Bit</a>(), which are nonreentrant.</p>
 <ul>
 <li><a href="qstring-members.html">List of all members, including inherited members</a></li>
 <li><a href="qstring-qt3.html">Qt 3 support members</a></li>
@@ -435,19 +443,19 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-not-eq-37">operator!=</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-22">operator+</a></b> ( const QString &amp; <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-25">operator+</a></b> ( const QString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-26">operator+</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-27">operator+</a></b> ( char <i>ch</i>, const QString &amp; <i>s</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-28">operator+</a></b> ( const QString &amp; <i>s</i>, char <i>ch</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-lt-6">operator&lt;</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-lt-lt-137">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QString &amp; <i>string</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-lt-eq-4">operator&lt;=</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-not-eq-8">operator!=</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-3">operator+</a></b> ( const QString &amp; <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-6">operator+</a></b> ( const QString &amp; <i>s1</i>, const char * <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-7">operator+</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-8">operator+</a></b> ( char <i>ch</i>, const QString &amp; <i>s</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QString </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-2b-9">operator+</a></b> ( const QString &amp; <i>s</i>, char <i>ch</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-lt-3">operator&lt;</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-lt-lt-28">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QString &amp; <i>string</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-lt-eq-3">operator&lt;=</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-eq-eq-91">operator==</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-gt-4">operator&gt;</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-gt-eq-4">operator&gt;=</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-gt-gt-79">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QString &amp; <i>string</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-gt-3">operator&gt;</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-gt-eq-3">operator&gt;=</a></b> ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qstring.html#operator-gt-gt-23">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QString &amp; <i>string</i> )</td></tr>
 </table>
 <a name="macros"></a>
 <h2>Macros</h2>
@@ -520,7 +528,7 @@
      }</pre>
 <p>QString provides many functions for converting numbers into strings and strings into numbers. See the <a href="qstring.html#arg">arg</a>() functions, the <a href="qstring.html#setNum">setNum</a>() functions, the <a href="qstring.html#number">number</a>() static functions, and the <a href="qstring.html#toInt">toInt</a>(), <a href="qstring.html#toDouble">toDouble</a>(), and similar functions.</p>
 <p>To get an upper- or lowercase version of a string use <a href="qstring.html#toUpper">toUpper</a>() or <a href="qstring.html#toLower">toLower</a>().</p>
-<p>Lists of strings are handled by the <a href="qstringlist.html">QStringList</a> class. You can split a string into a list of strings using the <a href="qstring.html#split">split</a>() function, and join a list of strings into a single string with an optional separator using <a href="qstringlist.html#join">QStringList::join</a>(). You can obtain a list of strings from a string list that contain a particular substring or that match a particular <a href="qregexp.html">QRegExp</a> using the <a href="qlist.html#find" class="compat">QStringList::find</a>() function. :</p>
+<p>Lists of strings are handled by the <a href="qstringlist.html">QStringList</a> class. You can split a string into a list of strings using the <a href="qstring.html#split">split</a>() function, and join a list of strings into a single string with an optional separator using <a href="qstringlist.html#join">QStringList::join</a>(). You can obtain a list of strings from a string list that contain a particular substring or that match a particular <a href="qregexp.html">QRegExp</a> using the <a href="qstringlist.html#filter">QStringList::filter</a>() function.</p>
 <a name="querying-string-data"></a>
 <h3>Querying String Data</h3>
 <p>If you want to see if a QString starts or ends with a particular substring use <a href="qstring.html#startsWith">startsWith</a>() or <a href="qstring.html#endsWith">endsWith</a>(). If you simply want to check whether a QString contains a particular character or substring, use the <a href="qstring.html#contains">contains</a>() function. If you want to find out how many times a particular character or substring occurs in the string, use <a href="qstring.html#count">count</a>().</p>
@@ -633,7 +641,7 @@
 <!-- $$$NormalizationForm$$$NormalizationForm_D$$$NormalizationForm_C$$$NormalizationForm_KD$$$NormalizationForm_KC -->
 <h3 class="fn"><a name="NormalizationForm-enum"></a>enum QString::NormalizationForm</h3>
 <p>This enum describes the various normalized forms of Unicode text.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QString::NormalizationForm_D</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Canonical Decomposition</td></tr>
 <tr><td  class="topAlign"><tt>QString::NormalizationForm_C</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Canonical Decomposition followed by Canonical Composition</td></tr>
 <tr><td  class="topAlign"><tt>QString::NormalizationForm_KD</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Compatibility Decomposition</td></tr>
@@ -644,7 +652,7 @@
 <!-- $$$SectionFlag$$$SectionDefault$$$SectionSkipEmpty$$$SectionIncludeLeadingSep$$$SectionIncludeTrailingSep$$$SectionCaseInsensitiveSeps -->
 <h3 class="flags"><a name="SectionFlag-enum"></a>enum QString::SectionFlag<br/>flags QString::SectionFlags</h3>
 <p>This enum specifies flags that can be used to affect various aspects of the <a href="qstring.html#section">section</a>() function's behavior with respect to separators and empty fields.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QString::SectionDefault</tt></td><td class=" topAlign"><tt>0x00</tt></td><td  class="topAlign">Empty fields are counted, leading and trailing separators are not included, and the separator is compared case sensitively.</td></tr>
 <tr><td  class="topAlign"><tt>QString::SectionSkipEmpty</tt></td><td class=" topAlign"><tt>0x01</tt></td><td  class="topAlign">Treat empty fields as if they don't exist, i.e&#x2e; they are not considered as far as <i>start</i> and <i>end</i> are concerned.</td></tr>
 <tr><td  class="topAlign"><tt>QString::SectionIncludeLeadingSep</tt></td><td class=" topAlign"><tt>0x02</tt></td><td  class="topAlign">Include the leading separator (if any) in the result string.</td></tr>
@@ -657,7 +665,7 @@
 <!-- $$$SplitBehavior$$$KeepEmptyParts$$$SkipEmptyParts -->
 <h3 class="fn"><a name="SplitBehavior-enum"></a>enum QString::SplitBehavior</h3>
 <p>This enum specifies how the <a href="qstring.html#split">split</a>() function should behave with respect to empty strings.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QString::KeepEmptyParts</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">If a field is empty, keep it in the result.</td></tr>
 <tr><td  class="topAlign"><tt>QString::SkipEmptyParts</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">If a field is empty, don't include it in the result.</td></tr>
 </table>
@@ -1145,7 +1153,7 @@
 <!-- @@@fill -->
 <!-- $$$fromAscii[overload1]$$$fromAsciiconstchar*int -->
 <h3 class="fn"><a name="fromAscii"></a>QString QString::fromAscii ( const char * <i>str</i>, int <i>size</i> = -1 )<tt> [static]</tt></h3>
-<p>Returns a <a href="qstring.html">QString</a> initialized with the first <i>size</i> characters of the 8-bit string <i>str</i>.</p>
+<p>Returns a <a href="qstring.html">QString</a> initialized with the first <i>size</i> characters from the string <i>str</i>.</p>
 <p>If <i>size</i> is -1 (default), it is taken to be qstrlen(<i>str</i>).</p>
 <p>Note that, despite the name, this function actually uses the codec defined by <a href="qtextcodec.html#setCodecForCStrings">QTextCodec::setCodecForCStrings</a>() to convert <i>str</i> to Unicode. Depending on the codec, it may not accept valid US-ASCII (ANSI X3.4-1986) input. If no codec has been set, this function does the same as <a href="qstring.html#fromLatin1">fromLatin1</a>().</p>
 <p>See also <a href="qstring.html#toAscii">toAscii</a>(), <a href="qstring.html#fromLatin1">fromLatin1</a>(), <a href="qstring.html#fromUtf8">fromUtf8</a>(), and <a href="qstring.html#fromLocal8Bit">fromLocal8Bit</a>().</p>
@@ -1406,14 +1414,14 @@
 <!-- $$$length[overload1]$$$length -->
 <h3 class="fn"><a name="length"></a>int QString::length () const</h3>
 <p>Returns the number of characters in this string. Equivalent to <a href="qstring.html#size">size</a>().</p>
-<p>See also <a href="qstring.html#setLength" class="compat">setLength</a>().</p>
+<p>See also <a href="qstring-qt3.html#setLength" class="compat">setLength</a>() and <a href="qstring.html#resize">resize</a>().</p>
 <!-- @@@length -->
 <!-- $$$localeAwareCompare[overload1]$$$localeAwareCompareconstQString&constQString& -->
 <h3 class="fn"><a name="localeAwareCompare"></a>int QString::localeAwareCompare ( const QString &amp; <i>s1</i>, const QString &amp; <i>s2</i> )<tt> [static]</tt></h3>
 <p>Compares <i>s1</i> with <i>s2</i> and returns an integer less than, equal to, or greater than zero if <i>s1</i> is less than, equal to, or greater than <i>s2</i>.</p>
 <p>The comparison is performed in a locale- and also platform-dependent manner. Use this function to present sorted lists of strings to the user.</p>
 <p>On Mac OS X since Qt 4.3, this function compares according the &quot;Order for sorted lists&quot; setting in the International prefereces panel.</p>
-<p>See also <a href="qstring.html#compare">compare</a>() and <a href="qtextcodec.html#locale" class="compat">QTextCodec::locale</a>().</p>
+<p>See also <a href="qstring.html#compare">compare</a>() and <a href="qtextcodec-qt3.html#locale" class="compat">QTextCodec::locale</a>().</p>
 <!-- @@@localeAwareCompare -->
 <!-- $$$localeAwareCompare$$$localeAwareCompareconstQStringRef& -->
 <h3 class="fn"><a name="localeAwareCompare-2"></a>int QString::localeAwareCompare ( const <a href="qstringref.html">QStringRef</a> &amp; <i>other</i> ) const</h3>
@@ -2464,46 +2472,46 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator!=$$$operator!=constchar*constQString& -->
-<h3 class="fn"><a name="operator-not-eq-37"></a>bool operator!= ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-8"></a>bool operator!= ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is not equal to <i>s2</i>; otherwise returns false.</p>
 <p>For <i>s1</i> != 0, this is equivalent to <tt>compare(</tt> <i>s1</i>, <i>s2</i> <tt>) != 0</tt>. Note that no string is equal to <i>s1</i> being 0.</p>
 <p>See also <a href="qstring.html#compare">QString::compare</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator+$$$operator+constQString&constQString& -->
-<h3 class="fn"><a name="operator-2b-22"></a>const QString operator+ ( const QString &amp; <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-2b-3"></a>const QString operator+ ( const QString &amp; <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
 <p>Returns a string which is the result of concatenating <i>s1</i> and <i>s2</i>.</p>
 <!-- @@@operator+ -->
 <!-- $$$operator+$$$operator+constQString&constchar* -->
-<h3 class="fn"><a name="operator-2b-25"></a>const QString operator+ ( const QString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-2b-6"></a>const QString operator+ ( const QString &amp; <i>s1</i>, const char * <i>s2</i> )</h3>
 <p>Returns a string which is the result of concatenating <i>s1</i> and <i>s2</i> (<i>s2</i> is converted to Unicode using the <a href="qstring.html#fromAscii">QString::fromAscii</a>() function).</p>
 <p>See also <a href="qstring.html#fromAscii">QString::fromAscii</a>().</p>
 <!-- @@@operator+ -->
 <!-- $$$operator+$$$operator+constchar*constQString& -->
-<h3 class="fn"><a name="operator-2b-26"></a>const QString operator+ ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-2b-7"></a>const QString operator+ ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
 <p>Returns a string which is the result of concatenating <i>s1</i> and <i>s2</i> (<i>s1</i> is converted to Unicode using the <a href="qstring.html#fromAscii">QString::fromAscii</a>() function).</p>
 <p>See also <a href="qstring.html#fromAscii">QString::fromAscii</a>().</p>
 <!-- @@@operator+ -->
 <!-- $$$operator+$$$operator+charconstQString& -->
-<h3 class="fn"><a name="operator-2b-27"></a>const QString operator+ ( char <i>ch</i>, const QString &amp; <i>s</i> )</h3>
+<h3 class="fn"><a name="operator-2b-8"></a>const QString operator+ ( char <i>ch</i>, const QString &amp; <i>s</i> )</h3>
 <p>Returns a string which is the result of concatenating the character <i>ch</i> and the string <i>s</i>.</p>
 <!-- @@@operator+ -->
 <!-- $$$operator+$$$operator+constQString&char -->
-<h3 class="fn"><a name="operator-2b-28"></a>const QString operator+ ( const QString &amp; <i>s</i>, char <i>ch</i> )</h3>
+<h3 class="fn"><a name="operator-2b-9"></a>const QString operator+ ( const QString &amp; <i>s</i>, char <i>ch</i> )</h3>
 <p>Returns a string which is the result of concatenating the string <i>s</i> and the character <i>ch</i>.</p>
 <!-- @@@operator+ -->
 <!-- $$$operator<$$$operator<constchar*constQString& -->
-<h3 class="fn"><a name="operator-lt-6"></a>bool operator&lt; ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-lt-3"></a>bool operator&lt; ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is lexically less than <i>s2</i>; otherwise returns false. For <i>s1</i> != 0, this is equivalent to <tt>compare(s1, s2) &lt; 0</tt>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings using the <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>() function.</p>
 <p>See also <a href="qstring.html#compare">QString::compare</a>().</p>
 <!-- @@@operator< -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQString& -->
-<h3 class="fn"><a name="operator-lt-lt-137"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QString &amp; <i>string</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-28"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QString &amp; <i>string</i> )</h3>
 <p>Writes the given <i>string</i> to the specified <i>stream</i>.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<=$$$operator<=constchar*constQString& -->
-<h3 class="fn"><a name="operator-lt-eq-4"></a>bool operator&lt;= ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-lt-eq-3"></a>bool operator&lt;= ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is lexically less than or equal to <i>s2</i>; otherwise returns false. For <i>s1</i> != 0, this is equivalent to <tt>compare(s1, s2) &lt;= 0</tt>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings with <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>().</p>
 <p>See also <a href="qstring.html#compare">QString::compare</a>().</p>
@@ -2516,18 +2524,18 @@
 <p>See also <a href="qstring.html#compare">QString::compare</a>().</p>
 <!-- @@@operator== -->
 <!-- $$$operator>$$$operator>constchar*constQString& -->
-<h3 class="fn"><a name="operator-gt-4"></a>bool operator&gt; ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-gt-3"></a>bool operator&gt; ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is lexically greater than <i>s2</i>; otherwise returns false. Equivalent to <tt>compare(s1, s2) &gt; 0</tt>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings using the <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>() function.</p>
 <p>See also <a href="qstring.html#compare">QString::compare</a>().</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=$$$operator>=constchar*constQString& -->
-<h3 class="fn"><a name="operator-gt-eq-4"></a>bool operator&gt;= ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
+<h3 class="fn"><a name="operator-gt-eq-3"></a>bool operator&gt;= ( const char * <i>s1</i>, const QString &amp; <i>s2</i> )</h3>
 <p>Returns true if <i>s1</i> is lexically greater than or equal to <i>s2</i>; otherwise returns false. For <i>s1</i> != 0, this is equivalent to <tt>compare(s1, s2) &gt;= 0</tt>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings using the <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>() function.</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>>$$$operator>>QDataStream&QString& -->
-<h3 class="fn"><a name="operator-gt-gt-79"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QString &amp; <i>string</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-23"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QString &amp; <i>string</i> )</h3>
 <p>Reads a string from the specified <i>stream</i> into the given <i>string</i>.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->

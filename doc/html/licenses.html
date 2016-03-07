@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Other Licenses Used in Qt</h1>
 <span class="subtitle"></span>
 <!-- $$$licenses.html-description -->
@@ -248,11 +256,11 @@
 <p>Copyright (C) 2003-2004 immodule for Qt Project. All rights reserved.</p>
 <p>This file is written to contribute to Nokia Corporation and/or its subsidiary(-ies) under their own license. You may use this file under your Qt license. Following description is copied from their original file headers. Contact immodule-qt@freedesktop.org if any conditions of this licensing are not clear to you.</p>
 <ul>
+<li><a href="qinputcontext.html">QInputContext</a></li>
 <li><a href="qinputcontextplugin.html">QInputContextPlugin</a></li>
 <li><a href="qinputcontextfactory.html">QInputContextFactory</a></li>
-<li><a href="qinputcontext.html">QInputContext</a></li>
 </ul>
-<p>Copyright (C) 2003-2006 Ben van Klinken and the CLucene Team <br /> Changes are Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).</p>
+<p>Copyright (C) 2003-2006 Ben van Klinken and the CLucene Team <br /> Changes are Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).</p>
 <p>This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</p>
 <p>This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.</p>
 <p>You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA</p>
@@ -278,7 +286,7 @@
 <ul>
 <li><a href="qt-mac-cocoa-licensing.html">Contributions to the Following QtGui Files: qapplication_cocoa_p.h, qapplication_mac.mm, qdesktopwidget_mac.mm qeventdispatcher_mac.mm qeventdispatcher_mac_p.h qmacincludes_mac.h qt_cocoa_helpers.mm qt_cocoa_helpers_p.h qwidget_mac.mm qsystemtrayicon_mac.mm</a></li>
 </ul>
-<p>Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).<br /> All rights reserved.</p>
+<p>Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).<br /> All rights reserved.</p>
 <p>Contact: Nokia Corporation (qt-info@nokia.com)<br /></p>
 <p>You may use this file under the terms of the BSD license as follows:<br /></p>
 <p>&quot;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
@@ -288,7 +296,7 @@
 <li><a href="qaxserver.html">QAxServer Module</a></li>
 <li><a href="qaxcontainer.html">QAxContainer Module</a></li>
 </ul>
-<p>Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).<br /> All rights reserved.</p>
+<p>Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).<br /> All rights reserved.</p>
 <p>Contact: Nokia Corporation (qt-info@nokia.com)</p>
 <p>You may use this file under the terms of the BSD license as follows:</p>
 <p>&quot;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
@@ -297,12 +305,12 @@
 <ul>
 <li><a href="qtmain.html">The qtmain Library</a></li>
 </ul>
-<p>Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies). <br /> Copyright (C) 2005 Bjoern Bergstroem</p>
+<p>Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). <br /> Copyright (C) 2005 Bjoern Bergstroem</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, modify, market, reproduce, grant sublicenses and distribute subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. These files are provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.</p>
 <ul>
 <li><a href="designer-recursive-shadow-casting.html">Implementation of the Recursive Shadow Casting Algorithm in Qt Designer</a></li>
 </ul>
-<p>Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies). <br /> Copyright (C) 2005 Roberto Raggi</p>
+<p>Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). <br /> Copyright (C) 2005 Roberto Raggi</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, modify, market, reproduce, grant sublicenses and distribute subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. These files are provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.</p>
 <ul>
 <li><a href="qt3to4-treewalker.html">Contributions to the Following qt3to4 Files: treewalker.h, treedump.cpp, treedump.h, treewalker.cpp</a></li>
@@ -363,7 +371,7 @@
 <li><a href="qtsvg.html">QtSvg Module</a></li>
 </ul>
 <p>This file is part of the KDE project</p>
-<p>Copyright (C) 2004-2009 Matthias Kretz &lt;kretz@kde.org&gt; <br /> Copyright (C) 2008 Ian Monroe &lt;ian@monroe.nu&gt; <br /> Copyright (C) 2007-2008 Trolltech ASA <br /> Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies). <br /> Contact: Nokia Corporation (qt-info@nokia.com)</p>
+<p>Copyright (C) 2004-2009 Matthias Kretz &lt;kretz@kde.org&gt; <br /> Copyright (C) 2008 Ian Monroe &lt;ian@monroe.nu&gt; <br /> Copyright (C) 2007-2008 Trolltech ASA <br /> Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). <br /> Contact: Nokia Corporation (qt-info@nokia.com)</p>
 <p>This library is free software; you can redistribute it and/or modify it under the terms of the GNU Library General Public License version 2 as published by the Free Software Foundation.</p>
 <p>This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Library General Public License for more details.</p>
 <p>You should have received a copy of the GNU Library General Public License along with this library; see the file COPYING.LIB. If not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.</p>
@@ -436,7 +444,7 @@
 <ul>
 <li>Parts of the internal QImageSmoothScaler::scale() function use code based on pnmscale.c by Jef Poskanzer.</li>
 </ul>
-<hr /><p>jQuery <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> Library v1.3&#x2e;2 http://jquery.com/</p>
+<hr /><p>jQuery JavaScript Library v1.3&#x2e;2 http://jquery.com/</p>
 <p>Copyright (c) 2009 John Resig Dual licensed under the MIT and GPL licenses. http://docs.jquery.com/License</p>
 <p>Sizzle CSS Selector Engine - v0.9&#x2e;3 Copyright 2009, The Dojo Foundation Released under the MIT, BSD, and GPL Licenses. More information: http://sizzlejs.com/</p>
 <ul>

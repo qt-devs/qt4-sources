@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- installation.qdoc -->
-  <title>Qt 4.7: Installing Qt on Mac OS X</title>
+  <title>Qt 4.7: Installing Qt for Mac OS X</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
   <script src="scripts/jquery.js" type="text/javascript"></script>
   <script src="scripts/functions.js" type="text/javascript"></script>
@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -127,7 +135,7 @@
             <ul>
               <li class="first"><a href="index.html">Home</a></li>
               <!--  Bread crumbs goes here -->
-              <li>Installing Qt on Mac OS X</li>            </ul>
+              <li>Installing Qt for Mac OS X</li>            </ul>
           </div>
           <div class="toolbuttons toolblock">
             <ul>
@@ -139,8 +147,11 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="installation.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="installation.html">Installation</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -150,7 +161,7 @@
 <li class="level1"><a href="#qt-demos-and-examples">Qt Demos and Examples</a></li>
 </ul>
 </div>
-<h1 class="title">Installing Qt on Mac OS X</h1>
+<h1 class="title">Installing Qt for Mac OS X</h1>
 <span class="subtitle"></span>
 <!-- $$$install-mac.html-description -->
 <div class="descr"> <a name="details"></a>
@@ -162,16 +173,16 @@
 <h2>Step 1: Install the License File (commercial editions only)</h2>
 <p>If you have the commercial edition of Qt, install your license file as <tt>$HOME/.qt-license</tt>.</p>
 <p>For the open source version you do not need a license file.</p>
-<p>Unpack the archive if you have not done so already. For example, if you have the <tt>qt-everywhere-opensource-src-4.7.1.tar.gz</tt> package, type the following commands at a command line prompt:</p>
+<p>Unpack the archive if you have not done so already. For example, if you have the <tt>qt-everywhere-opensource-src-4.7.2.tar.gz</tt> package, type the following commands at a command line prompt:</p>
 <pre class="highlightedCode brush: cpp"> cd /tmp
- gunzip qt-everywhere-opensource-src-4.7.1.tar.gz        # uncompress the archive
- tar xvf qt-everywhere-opensource-src-4.7.1.tar          # unpack it</pre>
-<p>This creates the directory <tt>/tmp/qt-everywhere-opensource-src-4.7.1</tt> containing the files from the archive.</p>
+ gunzip qt-everywhere-opensource-src-4.7.2.tar.gz        # uncompress the archive
+ tar xvf qt-everywhere-opensource-src-4.7.2.tar          # unpack it</pre>
+<p>This creates the directory <tt>/tmp/qt-everywhere-opensource-src-4.7.2</tt> containing the files from the archive.</p>
 <a name="step-2-build-the-qt-library"></a>
 <h2>Step 2: Build the Qt Library</h2>
 <p>To configure the Qt library for your machine type, run the <tt>./configure</tt> script in the package directory.</p>
-<p>By default, Qt is configured for installation in the <tt>/usr/local/Trolltech/Qt-4.7.1</tt> directory, but this can be changed by using the <tt>-prefix</tt> option.</p>
-<pre class="highlightedCode brush: cpp"> cd /tmp/qt-everywhere-opensource-src-4.7.1
+<p>By default, Qt is configured for installation in the <tt>/usr/local/Trolltech/Qt-4.7.2</tt> directory, but this can be changed by using the <tt>-prefix</tt> option.</p>
+<pre class="highlightedCode brush: cpp"> cd /tmp/qt-everywhere-opensource-src-4.7.2
  ./configure</pre>
 <p>Type <tt>./configure -help</tt> to get a list of all available options.</p>
 <p>Note that you will need to specify <tt>-universal</tt> if you want to build universal binaries, and also supply a path to the <tt>-sdk</tt> option if your development machine has a PowerPC CPU. By default, Qt is built as a framework, but you can built it as a set of dynamic libraries (dylibs) by specifying the <tt>-no-framework</tt> option.</p>
@@ -189,10 +200,10 @@
 <pre class="highlightedCode brush: cpp"> PATH               - to locate qmake, moc and other Qt tools</pre>
 <p>This is done like this:</p>
 <p>In <tt>.profile</tt> (if your shell is bash), add the following lines:</p>
-<pre class="highlightedCode brush: cpp"> PATH=/usr/local/Trolltech/Qt-4.7.1/bin:$PATH
+<pre class="highlightedCode brush: cpp"> PATH=/usr/local/Trolltech/Qt-4.7.2/bin:$PATH
  export PATH</pre>
 <p>In <tt>.login</tt> (in case your shell is csh or tcsh), add the following line:</p>
-<pre class="highlightedCode brush: cpp"> setenv PATH /usr/local/Trolltech/Qt-4.7.1/bin:$PATH</pre>
+<pre class="highlightedCode brush: cpp"> setenv PATH /usr/local/Trolltech/Qt-4.7.2/bin:$PATH</pre>
 <p>If you use a different shell, please modify your environment variables accordingly.</p>
 <p><b>That's all. Qt is now installed.</b></p>
 <a name="qt-demos-and-examples"></a>
@@ -208,7 +219,7 @@
 <p>We hope you will enjoy using Qt. Good luck!</p>
 </div>
 <!-- @@@install-mac.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="installation.html">Installation</a>]
 </p>
         <div class="feedback t_button">

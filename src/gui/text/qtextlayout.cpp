@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -1615,7 +1615,7 @@ void QTextLine::setLineWidth(qreal width)
     if (line.length
         && line.textWidth <= line.width
         && line.from + line.length == eng->layoutData->string.length())
-        // no need to do anything if the line is already layouted and the last one. This optimisation helps
+        // no need to do anything if the line is already layouted and the last one. This optimization helps
         // when using things in a single line layout.
         return;
     line.length = 0;

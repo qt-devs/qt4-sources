@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -564,7 +572,7 @@
 <!-- $$$WizardButton$$$BackButton$$$NextButton$$$CommitButton$$$FinishButton$$$CancelButton$$$HelpButton$$$CustomButton1$$$CustomButton2$$$CustomButton3$$$Stretch$$$NoButton$$$NStandardButtons$$$NButtons -->
 <h3 class="fn"><a name="WizardButton-enum"></a>enum QWizard::WizardButton</h3>
 <p>This enum specifies the buttons in a wizard.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWizard::BackButton</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The <b>Back</b> button (<b>Go Back</b> on Mac OS X)</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::NextButton</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The <b>Next</b> button (<b>Continue</b> on Mac OS X)</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::CommitButton</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The <b>Commit</b> button</td></tr>
@@ -576,7 +584,7 @@
 <tr><td  class="topAlign"><tt>QWizard::CustomButton3</tt></td><td class=" topAlign"><tt>8</tt></td><td  class="topAlign">The third user-defined button (see also <a href="qwizard.html#WizardOption-enum">HaveCustomButton3</a>)</td></tr>
 </table>
 <p>The following value is only useful when calling <a href="qwizard.html#setButtonLayout">setButtonLayout</a>():</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWizard::Stretch</tt></td><td class=" topAlign"><tt>9</tt></td><td  class="topAlign">A horizontal stretch in the button layout</td></tr>
 </table>
 <p>See also <a href="qwizard.html#setButton">setButton</a>(), <a href="qwizard.html#setButtonText">setButtonText</a>(), <a href="qwizard.html#setButtonLayout">setButtonLayout</a>(), and <a href="qwizard.html#customButtonClicked">customButtonClicked</a>().</p>
@@ -584,7 +592,7 @@
 <!-- $$$WizardOption$$$IndependentPages$$$IgnoreSubTitles$$$ExtendedWatermarkPixmap$$$NoDefaultButton$$$NoBackButtonOnStartPage$$$NoBackButtonOnLastPage$$$DisabledBackButtonOnLastPage$$$HaveNextButtonOnLastPage$$$HaveFinishButtonOnEarlyPages$$$NoCancelButton$$$CancelButtonOnLeft$$$HaveHelpButton$$$HelpButtonOnRight$$$HaveCustomButton1$$$HaveCustomButton2$$$HaveCustomButton3 -->
 <h3 class="flags"><a name="WizardOption-enum"></a>enum QWizard::WizardOption<br/>flags QWizard::WizardOptions</h3>
 <p>This enum specifies various options that affect the look and feel of a wizard.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWizard::IndependentPages</tt></td><td class=" topAlign"><tt>0x00000001</tt></td><td  class="topAlign">The pages are independent of each other (i.e&#x2e;, they don't derive values from each other).</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::IgnoreSubTitles</tt></td><td class=" topAlign"><tt>0x00000002</tt></td><td  class="topAlign">Don't show any subtitles, even if they are set.</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::ExtendedWatermarkPixmap</tt></td><td class=" topAlign"><tt>0x00000004</tt></td><td  class="topAlign">Extend any <a href="qwizard.html#WizardPixmap-enum">WatermarkPixmap</a> all the way down to the window's edge.</td></tr>
@@ -608,7 +616,7 @@
 <!-- $$$WizardPixmap$$$WatermarkPixmap$$$LogoPixmap$$$BannerPixmap$$$BackgroundPixmap$$$NPixmaps -->
 <h3 class="fn"><a name="WizardPixmap-enum"></a>enum QWizard::WizardPixmap</h3>
 <p>This enum specifies the pixmaps that can be associated with a page.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWizard::WatermarkPixmap</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The tall pixmap on the left side of a <a href="qwizard.html#WizardStyle-enum">ClassicStyle</a> or <a href="qwizard.html#WizardStyle-enum">ModernStyle</a> page</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::LogoPixmap</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The small pixmap on the right side of a <a href="qwizard.html#WizardStyle-enum">ClassicStyle</a> or <a href="qwizard.html#WizardStyle-enum">ModernStyle</a> page header</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::BannerPixmap</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The pixmap that occupies the background of a <a href="qwizard.html#WizardStyle-enum">ModernStyle</a> page header</td></tr>
@@ -619,7 +627,7 @@
 <!-- $$$WizardStyle$$$ClassicStyle$$$ModernStyle$$$MacStyle$$$AeroStyle$$$NStyles -->
 <h3 class="fn"><a name="WizardStyle-enum"></a>enum QWizard::WizardStyle</h3>
 <p>This enum specifies the different looks supported by <a href="qwizard.html">QWizard</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWizard::ClassicStyle</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Classic Windows look</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::ModernStyle</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Modern Windows look</td></tr>
 <tr><td  class="topAlign"><tt>QWizard::MacStyle</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Mac OS X look</td></tr>

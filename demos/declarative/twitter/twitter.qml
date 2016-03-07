@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -78,7 +78,7 @@ Item {
             id: views
             x: 2; width: parent.width - 4
             y:60 //Below the title bars
-            height: 380
+            height: parent.height - 100
 
             Text {
                 id:title

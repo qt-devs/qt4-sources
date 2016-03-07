@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -185,6 +185,13 @@ void QSplashScreen::repaint()
 /*!
     Draws the \a message text onto the splash screen with color \a
     color and aligns the text according to the flags in \a alignment.
+
+    To make sure the splash screen is repainted immediately, you can
+    call \l{QCoreApplication}'s
+    \l{QCoreApplication::}{processEvents()} after the call to
+    showMessage(). You usually want this to make sure that the message
+    is kept up to date with what your application is doing (e.g.,
+    loading files).
 
     \sa Qt::Alignment, clearMessage()
 */

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -64,7 +64,7 @@
 #include <stdlib.h>
 
 // Included from tools/shared
-#include <symbian/epocroot.h>
+#include <symbian/epocroot_p.h>
 
 #ifdef Q_OS_WIN32
 #define QT_POPEN _popen
@@ -76,7 +76,7 @@
 
 QT_BEGIN_NAMESPACE
 
-//expand fucntions
+//expand functions
 enum ExpandFunc { E_MEMBER=1, E_FIRST, E_LAST, E_CAT, E_FROMFILE, E_EVAL, E_LIST,
                   E_SPRINTF, E_JOIN, E_SPLIT, E_BASENAME, E_DIRNAME, E_SECTION,
                   E_FIND, E_SYSTEM, E_UNIQUE, E_QUOTE, E_ESCAPE_EXPAND,
@@ -677,7 +677,23 @@ QMakeProject::reset()
 bool
 QMakeProject::parse(const QString &t, QMap<QString, QStringList> &place, int numLines)
 {
-    QString s = t.simplified();
+    // To preserve the integrity of any UTF-8 characters in .pro file, temporarily replace the
+    // non-breaking space (0xA0) characters with another non-space character, so that
+    // QString::simplified() call will not replace it with space.
+    // Note: There won't be any two byte characters in .pro files, so 0x10A0 should be a safe
+    // replacement character.
+    static QChar nbsp(0xA0);
+    static QChar nbspFix(0x01A0);
+    QString s;
+    if (t.indexOf(nbsp) != -1) {
+        s = t;
+        s.replace(nbsp, nbspFix);
+        s = s.simplified();
+        s.replace(nbspFix, nbsp);
+    } else {
+        s = t.simplified();
+    }
+
     int hash_mark = s.indexOf("#");
     if(hash_mark != -1) //good bye comments
         s = s.left(hash_mark);
@@ -1063,7 +1079,7 @@ QMakeProject::parse(const QString &t, QMap<QString, QStringList> &place, int num
 #undef SKIP_WS
 
     doVariableReplace(var, place);
-    var = varMap(var); //backwards compatability
+    var = varMap(var); //backwards compatibility
     if(!var.isEmpty() && Option::mkfile::do_preprocess) {
         static QString last_file("*none*");
         if(parser.file != last_file) {
@@ -1797,11 +1813,10 @@ QMakeProject::doProjectExpand(QString func, QList<QStringList> args_list,
     for(int i = 0; i < args_list.size(); ++i)
         args += args_list[i].join(QString(Option::field_sep));
 
-    QString lfunc = func.toLower();
-    if (!lfunc.isSharedWith(func))
+    ExpandFunc func_t = qmake_expandFunctions().value(func);
+    if (!func_t && (func_t = qmake_expandFunctions().value(func.toLower())))
         warn_msg(WarnDeprecated, "%s:%d: Using uppercased builtin functions is deprecated.",
                  parser.file.toLatin1().constData(), parser.line_no);
-    ExpandFunc func_t = qmake_expandFunctions().value(lfunc);
     debug_msg(1, "Running project expand: %s(%s) [%d]",
               func.toLatin1().constData(), args.join("::").toLatin1().constData(), func_t);
 
@@ -2158,7 +2173,7 @@ QMakeProject::doProjectExpand(QString func, QList<QStringList> args_list,
             const QRegExp regex(r, Qt::CaseSensitive, QRegExp::Wildcard);
             for(int d = 0; d < dirs.count(); d++) {
                 QString dir = dirs[d];
-                if(!dir.isEmpty() && !dir.endsWith(Option::dir_sep))
+                if(!dir.isEmpty() && !dir.endsWith(QDir::separator()))
                     dir += "/";
 
                 QDir qdir(dir);
@@ -2374,7 +2389,7 @@ QMakeProject::doProjectTest(QString func, QList<QStringList> args_list, QMap<QSt
             return true;
         //regular expression I guess
         QString dirstr = qmake_getpwd();
-        int slsh = file.lastIndexOf(Option::dir_sep);
+        int slsh = file.lastIndexOf(QDir::separator());
         if(slsh != -1) {
             dirstr = file.left(slsh+1);
             file = file.right(file.length() - slsh - 1);
@@ -3102,7 +3117,7 @@ QStringList &QMakeProject::values(const QString &_var, QMap<QString, QStringList
                 false));
     } else if (var == QLatin1String("EPOCROOT")) {
         if (place[var].isEmpty())
-            place[var] = QStringList(epocRoot());
+            place[var] = QStringList(qt_epocRoot());
     }
 #if defined(Q_OS_WIN32) && defined(Q_CC_MSVC)
       else if(var.startsWith(QLatin1String("QMAKE_TARGET."))) {

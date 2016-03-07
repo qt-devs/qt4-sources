@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,29 +147,31 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">QML Basic Types</h1>
 <span class="subtitle"></span>
 <!-- $$$qdeclarativebasictypes.html-description -->
 <div class="descr"> <a name="details"></a>
 <p>QML has a set of primitive types, as listed below, that are used throughout the <a href="qdeclarativeelements.html">QML Elements</a>.</p>
-<p>Some of these types can also be used for defining <tt>property</tt> values in QML. See <a href="qml-extending-types.html">Extending types from QML</a> for the list of types that can be used for <tt>property</tt> values.</p>
+<p>Some of these types can also be used for defining <tt>property</tt> values in QML. See <a href="qml-extending-types.html">Writing QML Components: Properties, Methods and Signals</a> for the list of types that can be used for <tt>property</tt> values.</p>
 <table class="annotated">
 <tr class="odd topAlign"><td class="tblName"><p><a href="qml-action.html">action</a></p></td><td class="tblDescr"><p>The action type has all the properties of QAction.</p></td></tr>
 <tr class="even topAlign"><td class="tblName"><p><a href="qml-bool.html">bool</a></p></td><td class="tblDescr"><p>A boolean is a binary true/false value.</p></td></tr>
 <tr class="odd topAlign"><td class="tblName"><p><a href="qml-color.html">color</a></p></td><td class="tblDescr"><p>A color is a standard color name in quotes.</p></td></tr>
 <tr class="even topAlign"><td class="tblName"><p><a href="qml-date.html">date</a></p></td><td class="tblDescr"><p>A date is specified as &quot;YYYY-MM-DD&quot;.</p></td></tr>
-<tr class="odd topAlign"><td class="tblName"><p><a href="qml-enumeration.html">enumeration</a></p></td><td class="tblDescr"><p>An enumeration type consists of a set of named values.</p></td></tr>
-<tr class="even topAlign"><td class="tblName"><p><a href="qml-font.html">font</a></p></td><td class="tblDescr"><p>A font type has the properties of a QFont.</p></td></tr>
-<tr class="odd topAlign"><td class="tblName"><p><a href="qml-int.html">int</a></p></td><td class="tblDescr"><p>An integer is a whole number, e.g&#x2e; 0, 10, or -20.</p></td></tr>
-<tr class="even topAlign"><td class="tblName"><p><a href="qml-list.html">list</a></p></td><td class="tblDescr"><p>A list of objects.</p></td></tr>
-<tr class="odd topAlign"><td class="tblName"><p><a href="qml-point.html">point</a></p></td><td class="tblDescr"><p>A point type has x and y attributes.</p></td></tr>
-<tr class="even topAlign"><td class="tblName"><p><a href="qml-real.html">real</a></p></td><td class="tblDescr"><p>A real number has a decimal point, e.g&#x2e; 1.2 or -29.8&#x2e;</p></td></tr>
-<tr class="odd topAlign"><td class="tblName"><p><a href="qml-rect.html">rect</a></p></td><td class="tblDescr"><p>A rect type has x, y, width and height attributes.</p></td></tr>
-<tr class="even topAlign"><td class="tblName"><p><a href="qml-size.html">size</a></p></td><td class="tblDescr"><p>A size type has width and height attributes</p></td></tr>
-<tr class="odd topAlign"><td class="tblName"><p><a href="qml-string.html">string</a></p></td><td class="tblDescr"><p>A string is a free form text in quotes, e.g&#x2e; &quot;Hello world!&quot;.</p></td></tr>
-<tr class="even topAlign"><td class="tblName"><p><a href="qml-time.html">time</a></p></td><td class="tblDescr"><p>A time is specified as &quot;hh:mm:ss&quot;.</p></td></tr>
-<tr class="odd topAlign"><td class="tblName"><p><a href="qml-url.html">url</a></p></td><td class="tblDescr"><p>A URL is a resource locator, like a file name.</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-double.html">double</a></p></td><td class="tblDescr"><p>A double number has a decimal point and is stored in double precision.</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-enumeration.html">enumeration</a></p></td><td class="tblDescr"><p>An enumeration type consists of a set of named values.</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-font.html">font</a></p></td><td class="tblDescr"><p>A font type has the properties of a QFont.</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-int.html">int</a></p></td><td class="tblDescr"><p>An integer is a whole number, e.g&#x2e; 0, 10, or -20.</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-list.html">list</a></p></td><td class="tblDescr"><p>A list of objects.</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-point.html">point</a></p></td><td class="tblDescr"><p>A point type has x and y attributes.</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-real.html">real</a></p></td><td class="tblDescr"><p>A real number has a decimal point, e.g&#x2e; 1.2 or -29.8&#x2e;</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-rect.html">rect</a></p></td><td class="tblDescr"><p>A rect type has x, y, width and height attributes.</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-size.html">size</a></p></td><td class="tblDescr"><p>A size type has width and height attributes</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-string.html">string</a></p></td><td class="tblDescr"><p>A string is a free form text in quotes, e.g&#x2e; &quot;Hello world!&quot;.</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-time.html">time</a></p></td><td class="tblDescr"><p>A time is specified as &quot;hh:mm:ss&quot;.</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-url.html">url</a></p></td><td class="tblDescr"><p>A URL is a resource locator, like a file name.</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-variant.html">variant</a></p></td><td class="tblDescr"><p>A variant type is a generic property type.</p></td></tr>
 <tr class="even topAlign"><td class="tblName"><p><a href="qml-vector3d.html">vector3d</a></p></td><td class="tblDescr"><p>A vector3d type has x, y, and z attributes.</p></td></tr>
 </table>
 </div>

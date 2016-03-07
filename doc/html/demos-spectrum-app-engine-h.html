@@ -14,6 +14,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -30,37 +31,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -71,10 +72,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -98,7 +106,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -138,14 +146,14 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">engine.h Example File</h1>
 <span class="small-subtitle">demos/spectrum/app/engine.h</span>
 <!-- $$$demos/spectrum/app/engine.h-description -->
 <div class="descr"> <a name="details"></a>
 <pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
  **
- ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -236,12 +244,6 @@
      QAudio::State state() const     { return m_state; }
 
      <span class="comment">/**
-      * \return Reference to internal audio buffer
-      * \note This reference is valid for the lifetime of the Engine
-      */</span>
-     const QByteArray&amp; buffer() const    { return m_buffer; }
-
-     <span class="comment">/**
       * \return Current audio format
       * \note May be QAudioFormat() if engine is not initialized
       */</span>
@@ -274,7 +276,7 @@
 
      <span class="comment">/**
       * Position of the audio input device.
-      * \return Position in microseconds.
+      * \return Position in bytes.
       */</span>
      qint64 recordPosition() const   { return m_recordPosition; }
 
@@ -292,27 +294,21 @@
 
      <span class="comment">/**
       * Position of the audio output device.
-      * \return Position in microseconds.
+      * \return Position in bytes.
       */</span>
      qint64 playPosition() const     { return m_playPosition; }
 
      <span class="comment">/**
       * Length of the internal engine buffer.
-      * \return Buffer length in microseconds.
+      * \return Buffer length in bytes.
       */</span>
-     qint64 bufferDuration() const;
+     qint64 bufferLength() const;
 
      <span class="comment">/**
       * Amount of data held in the buffer.
-      * \return Data duration in microseconds.
+      * \return Data length in bytes.
       */</span>
-     qint64 dataDuration() const;
-
-     <span class="comment">/**
-      * Returns the size of the underlying audio buffer in bytes.
-      * This should be an approximation of the capture latency.
-      */</span>
-     qint64 audioBufferLength() const;
+     qint64 dataLength() const       { return m_dataLength; }
 
      <span class="comment">/**
       * Set window function applied to audio data before spectral analysis.
@@ -348,23 +344,23 @@
       * Length of buffer has changed.
       * \param duration Duration in microseconds
       */</span>
-     void bufferDurationChanged(qint64 duration);
+     void bufferLengthChanged(qint64 duration);
 
      <span class="comment">/**
       * Amount of data in buffer has changed.
-      * \param duration Duration of data in microseconds
+      * \param Length of data in bytes
       */</span>
-     void dataDurationChanged(qint64 duration);
+     void dataLengthChanged(qint64 duration);
 
      <span class="comment">/**
       * Position of the audio input device has changed.
-      * \param position Position in microseconds
+      * \param position Position in bytes
       */</span>
      void recordPositionChanged(qint64 position);
 
      <span class="comment">/**
       * Position of the audio output device has changed.
-      * \param position Position in microseconds
+      * \param position Position in bytes
       */</span>
      void playPositionChanged(qint64 position);
 
@@ -372,17 +368,24 @@
       * Level changed
       * \param rmsLevel RMS level in range 0.0 - 1.0
       * \param peakLevel Peak level in range 0.0 - 1.0
-      * \param numSamples Number of audio samples analysed
+      * \param numSamples Number of audio samples analyzed
       */</span>
      void levelChanged(qreal rmsLevel, qreal peakLevel, int numSamples);
 
      <span class="comment">/**
       * Spectrum has changed.
-      * \param position Position of start of window in microseconds
-      * \param length   Length of window in microseconds
+      * \param position Position of start of window in bytes
+      * \param length   Length of window in bytes
       * \param spectrum Resulting frequency spectrum
       */</span>
      void spectrumChanged(qint64 position, qint64 length, const FrequencySpectrum &amp;spectrum);
+
+     <span class="comment">/**
+      * Buffer containing audio data has changed.
+      * \param position Position of start of buffer in bytes
+      * \param buffer   Buffer
+      */</span>
+     void bufferChanged(qint64 position, qint64 length, const QByteArray &amp;buffer);
 
  private slots:
      void audioNotify();
@@ -391,6 +394,7 @@
      void spectrumChanged(const FrequencySpectrum &amp;spectrum);
 
  private:
+     void resetAudioDevices();
      bool initialize();
      bool selectFormat();
      void stopRecording();
@@ -420,8 +424,10 @@
      bool                m_generateTone;
      SweptTone           m_tone;
 
-     QFile*              m_file;
-     WavFile             m_wavFile;
+     WavFile*            m_file;
+     <span class="comment">// We need a second file handle via which to read data into m_buffer</span>
+     <span class="comment">// for analysis</span>
+     WavFile*            m_analysisFile;
 
      QAudioFormat        m_format;
 
@@ -438,12 +444,15 @@
      QBuffer             m_audioOutputIODevice;
 
      QByteArray          m_buffer;
+     qint64              m_bufferPosition;
+     qint64              m_bufferLength;
      qint64              m_dataLength;
 
+     int                 m_levelBufferLength;
      qreal               m_rmsLevel;
      qreal               m_peakLevel;
 
-     int                 m_spectrumLengthBytes;
+     int                 m_spectrumBufferLength;
      QByteArray          m_spectrumBuffer;
      SpectrumAnalyser    m_spectrumAnalyser;
      qint64              m_spectrumPosition;

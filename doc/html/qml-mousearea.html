@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -234,7 +244,7 @@
 <!-- @@@MouseArea -->
 <h2>Property Documentation</h2>
 <!-- $$$acceptedButtons -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="acceptedButtons-prop"></a>acceptedButtons : <a href="qt.html#MouseButton-enum">Qt::MouseButtons</a></td></tr></table></div><div class="qmldoc"><p>This property holds the mouse buttons that the mouse area reacts to.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="acceptedButtons-prop"></a>acceptedButtons : <a href="qt.html#MouseButton-enum">Qt::MouseButtons</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the mouse buttons that the mouse area reacts to.</p>
 <p>The available buttons are:</p>
 <ul>
 <li>Qt.LeftButton</li>
@@ -247,12 +257,12 @@
 </div></div><!-- @@@acceptedButtons -->
 <br/>
 <!-- $$$containsMouse -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="containsMouse-prop"></a><span class="qmlreadonly">read-only</span>containsMouse : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property holds whether the mouse is currently inside the mouse area.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="containsMouse-prop"></a><span class="qmlreadonly">read-only</span>containsMouse : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the mouse is currently inside the mouse area.</p>
 <p><b>Warning:</b> This property is not updated if the area moves under the mouse: <i>containsMouse</i> will not change. In addition, if <a href="qml-mousearea.html#hoverEnabled-prop">hoverEnabled</a> is false, containsMouse will only be valid when the mouse is pressed.</p>
 </div></div><!-- @@@containsMouse -->
 <br/>
 <!-- $$$drag.target -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.target-prop"></a>drag.target : <a href="qml-item.html">Item</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.active-prop"></a><span class="qmlreadonly">read-only</span>drag.active : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.axis-prop"></a>drag.axis : <a href="qml-enumeration.html">enumeration</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.minimumX-prop"></a>drag.minimumX : <a href="qml-real.html">real</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.maximumX-prop"></a>drag.maximumX : <a href="qml-real.html">real</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.minimumY-prop"></a>drag.minimumY : <a href="qml-real.html">real</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.maximumY-prop"></a>drag.maximumY : <a href="qml-real.html">real</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.filterChildren-prop"></a>drag.filterChildren : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p><tt>drag</tt> provides a convenient way to make an item draggable.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.target-prop"></a>drag.target : <a href="qml-item.html">Item</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.active-prop"></a><span class="qmlreadonly">read-only</span>drag.active : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.axis-prop"></a>drag.axis : <a href="qml-enumeration.html">enumeration</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.minimumX-prop"></a>drag.minimumX : <a href="qml-real.html">real</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.maximumX-prop"></a>drag.maximumX : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.minimumY-prop"></a>drag.minimumY : <a href="qml-real.html">real</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="drag.maximumY-prop"></a>drag.maximumY : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="drag.filterChildren-prop"></a>drag.filterChildren : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p><tt>drag</tt> provides a convenient way to make an item draggable.</p>
 <ul>
 <li><tt>drag.target</tt> specifies the id of the item to drag.</li>
 <li><tt>drag.active</tt> specifies if the target item is currently being dragged.</li>
@@ -314,18 +324,18 @@
 </div></div><!-- @@@drag.target -->
 <br/>
 <!-- $$$enabled -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="enabled-prop"></a>enabled : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property holds whether the item accepts mouse events.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="enabled-prop"></a>enabled : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the item accepts mouse events.</p>
 <p>By default, this property is true.</p>
 </div></div><!-- @@@enabled -->
 <br/>
 <!-- $$$hoverEnabled -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="hoverEnabled-prop"></a>hoverEnabled : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property holds whether hover events are handled.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="hoverEnabled-prop"></a>hoverEnabled : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether hover events are handled.</p>
 <p>By default, mouse events are only handled in response to a button event, or when a button is pressed. Hover enables handling of all mouse events even when no mouse button is pressed.</p>
 <p>This property affects the <a href="qml-mousearea.html#containsMouse-prop">containsMouse</a> property and the <a href="qml-mousearea.html#onEntered-signal">onEntered</a>, <a href="qml-mousearea.html#onExited-signal">onExited</a> and <a href="qml-mousearea.html#onPositionChanged-signal">onPositionChanged</a> signals.</p>
 </div></div><!-- @@@hoverEnabled -->
 <br/>
 <!-- $$$mouseX -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="mouseX-prop"></a><span class="qmlreadonly">read-only</span>mouseX : <a href="qml-real.html">real</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="mouseY-prop"></a><span class="qmlreadonly">read-only</span>mouseY : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>These properties hold the coordinates of the mouse cursor.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="mouseX-prop"></a><span class="qmlreadonly">read-only</span>mouseX : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="mouseY-prop"></a><span class="qmlreadonly">read-only</span>mouseY : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>These properties hold the coordinates of the mouse cursor.</p>
 <p>If the <a href="qml-mousearea.html#hoverEnabled-prop">hoverEnabled</a> property is false then these properties will only be valid while a button is pressed, and will remain valid as long as the button is held down even if the mouse is moved outside the area.</p>
 <p>By default, this property is false.</p>
 <p>If <a href="qml-mousearea.html#hoverEnabled-prop">hoverEnabled</a> is true then these properties will be valid when:</p>
@@ -337,11 +347,11 @@
 </div></div><!-- @@@mouseX -->
 <br/>
 <!-- $$$pressed -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="pressed-prop"></a><span class="qmlreadonly">read-only</span>pressed : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property holds whether the mouse area is currently pressed.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="pressed-prop"></a><span class="qmlreadonly">read-only</span>pressed : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the mouse area is currently pressed.</p>
 </div></div><!-- @@@pressed -->
 <br/>
 <!-- $$$pressedButtons -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="pressedButtons-prop"></a><span class="qmlreadonly">read-only</span>pressedButtons : MouseButtons</td></tr></table></div><div class="qmldoc"><p>This property holds the mouse buttons currently pressed.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="pressedButtons-prop"></a><span class="qmlreadonly">read-only</span>pressedButtons : MouseButtons</p></td></tr></table></div><div class="qmldoc"><p>This property holds the mouse buttons currently pressed.</p>
 <p>It contains a bitwise combination of:</p>
 <ul>
 <li>Qt.LeftButton</li>
@@ -377,7 +387,7 @@
 <br/>
 <!-- $$$onDoubleClicked -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onDoubleClicked-signal"></a>MouseArea::onDoubleClicked ( <a href="qml-mouseevent.html">MouseEvent</a> <i>mouse</i> )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when there is a double-click (a press followed by a release followed by a press). The <a href="qml-mouseevent.html">mouse</a> parameter provides information about the click, including the x and y position of the release of the click, and whether the click was held.</p>
-<p>If the <i>accepted</i> property of the <a href="qml-mouseevent.html">mouse</a> parameter is set to false in the handler, the <a href="qml-mousearea.html#onPressed-signal">onPressed</a>/<a href="qml-mousearea.html#onReleased-signal">onReleased</a>/<a href="qml-mousearea.html#onClicked-signal">onClicked</a> handlers will be called for the second click; otherwise they are supressed. The accepted property defaults to true.</p>
+<p>If the <i>accepted</i> property of the <a href="qml-mouseevent.html">mouse</a> parameter is set to false in the handler, the <a href="qml-mousearea.html#onPressed-signal">onPressed</a>/<a href="qml-mousearea.html#onReleased-signal">onReleased</a>/<a href="qml-mousearea.html#onClicked-signal">onClicked</a> handlers will be called for the second click; otherwise they are suppressed. The accepted property defaults to true.</p>
 </div></div><!-- @@@onDoubleClicked -->
 <br/>
 <!-- $$$onEntered -->
@@ -414,7 +424,7 @@
 <p>The <i>accepted</i> property of the <a href="qml-mouseevent.html">MouseEvent</a> parameter is ignored in this handler.</p>
 </div></div><!-- @@@onReleased -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

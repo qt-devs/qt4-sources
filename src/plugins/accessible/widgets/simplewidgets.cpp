@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -602,7 +602,7 @@ int QAccessibleDisplay::navigate(RelationFlag rel, int entry, QAccessibleInterfa
     return QAccessibleWidgetEx::navigate(rel, entry, target);
 }
 
-/*! \reimp */
+/*! \internal */
 QString QAccessibleDisplay::imageDescription()
 {
 #ifndef QT_NO_TOOLTIP
@@ -612,7 +612,7 @@ QString QAccessibleDisplay::imageDescription()
 #endif
 }
 
-/*! \reimp */
+/*! \internal */
 QSize QAccessibleDisplay::imageSize()
 {
     QLabel *label = qobject_cast<QLabel *>(widget());
@@ -624,7 +624,7 @@ QSize QAccessibleDisplay::imageSize()
     return pixmap->size();
 }
 
-/*! \reimp */
+/*! \internal */
 QRect QAccessibleDisplay::imagePosition(QAccessible2::CoordinateType coordType)
 {
     QLabel *label = qobject_cast<QLabel *>(widget());

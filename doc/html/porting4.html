@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,9 +147,13 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="porting.html" />
   <link rel="next" href="porting4-virtual-functions.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="porting.html">Porting Guides</a>]
+[Next: <a href="porting4-virtual-functions.html">Porting to Qt 4 - Virtual Functions</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -352,7 +364,7 @@
 </ol>
 <p>The <a href="qt3to4.html#qt3to4">qt3to4</a> porting tool replaces occurrences of Qt 3 classes that don't exist anymore in Qt 4 with the corresponding Qt 3 support class; for example, <tt>QListBox</tt> is turned into <tt>Q3ListBox</tt>.</p>
 <p>At some point, you might want to stop linking against the Qt 3 support library (<a href="qt3support.html">Qt3Support</a>) and take advantage of Qt 4's new features. The instructions below explain how to do that for each compatibility class.</p>
-<p>In addition to the <a href="qt3support.html">Qt3Support</a> classes (such as <tt>Q3Action</tt>, <tt>Q3ListBox</tt>, and <tt>Q3ValueList</tt>), Qt 4 provides compatibility functions when it's possible for an old API to cohabit with the new one. For example, <a href="qstring.html">QString</a> provides a <a href="qstring.html#simplifyWhiteSpace" class="compat">QString::simplifyWhiteSpace</a>() compatibility function that's implemented inline and that simply calls <a href="qstring.html#simplified">QString::simplified</a>(). <b>The compatibility functions are not documented here; instead, they are documented for each class.</b></p>
+<p>In addition to the <a href="qt3support.html">Qt3Support</a> classes (such as <tt>Q3Action</tt>, <tt>Q3ListBox</tt>, and <tt>Q3ValueList</tt>), Qt 4 provides compatibility functions when it's possible for an old API to cohabit with the new one. For example, <a href="qstring.html">QString</a> provides a <a href="qstring-qt3.html#simplifyWhiteSpace" class="compat">QString::simplifyWhiteSpace</a>() compatibility function that's implemented inline and that simply calls <a href="qstring.html#simplified">QString::simplified</a>(). <b>The compatibility functions are not documented here; instead, they are documented for each class.</b></p>
 <p>If you have the line <tt>QT += qt3support</tt> in your <tt>.pro</tt> file, <tt>qmake</tt> will automatically define the <tt>QT3_SUPPORT</tt> symbol, turning on compatibility function support. You can also define the symbol manually (e.g&#x2e;, if you don't want to link against the <tt>Qt3Support</tt> library), or you can define <tt>QT3_SUPPORT_WARNINGS</tt> instead, telling the compiler to emit a warning when a compatibility function is called. (This works only with GCC 3.2+ and MSVC 7.)</p>
 <p>If you get stuck, ask on the <a href="http://qt.nokia.com/lists/qt-interest/">qt-interest</a> mailing list. If you are a licensed customer, you can also contact Qt's technical support team.</p>
 <p>Table of contents:</p>
@@ -382,17 +394,17 @@
 <p>Whenever you see an occurrence of the name on the left, you can safely replace it with the Qt 4 equivalent in your program. The <a href="qt3to4.html#qt3to4">qt3to4</a> tool performs the conversion automatically.</p>
 <table class="generic">
 <thead><tr class="qt-style topAlign"><th >Qt 3 type name</th><th >Qt 4 type name</th></tr></thead>
-<tr class="odd topAlign"><td ><p><a href="qapplication.html#ColorMode-typedef" class="compat">QApplication::ColorMode</a></p></td><td ><p><a href="qapplication.html#ColorSpec-enum">QApplication::ColorSpec</a></p></td></tr>
-<tr class="even topAlign"><td ><p>QButton::ToggleState</p></td><td ><p><a href="qcheckbox.html#ToggleState-enum" class="compat">QCheckBox::ToggleState</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qapplication-qt3.html#ColorMode-typedef" class="compat">QApplication::ColorMode</a></p></td><td ><p><a href="qapplication.html#ColorSpec-enum">QApplication::ColorSpec</a></p></td></tr>
+<tr class="even topAlign"><td ><p>QButton::ToggleState</p></td><td ><p><a href="qcheckbox-qt3.html#ToggleState-enum" class="compat">QCheckBox::ToggleState</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>QCursorShape</p></td><td ><p><a href="qt.html#CursorShape-enum">Qt::CursorShape</a></p></td></tr>
 <tr class="even topAlign"><td ><p>QFile::FilterSpec</p></td><td ><p>QFile::Filters</p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qfile.html#PermissionSpec-typedef">QFile::PermissionSpec</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::Permission</a></p></td></tr>
 <tr class="even topAlign"><td ><p>QFile::SortSpec</p></td><td ><p>QFile::SortFlags</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qiodevice.html#Status-typedef" class="compat">QFile::Status</a></p></td><td ><p>QFile::Error</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qiodevice-qt3.html#Status-typedef" class="compat">QFile::Status</a></p></td><td ><p>QFile::Error</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qfileinfo.html#Permission-enum">QFileInfo::PermissionSpec</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::Permission</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>QGrid::Direction</p></td><td ><p><a href="qt.html#Orientation-enum">Qt::Orientation</a></p></td></tr>
 <tr class="even topAlign"><td ><p>QGridWidget::Direction</p></td><td ><p><a href="qt.html#Orientation-enum">Qt::Orientation</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qiodevice.html#Offset-typedef" class="compat">QIODevice::Offset</a></p></td><td ><p>qlonglong</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qiodevice-qt3.html#Offset-typedef" class="compat">QIODevice::Offset</a></p></td><td ><p>qlonglong</p></td></tr>
 <tr class="even topAlign"><td ><p>QImage::ScaleMode</p></td><td ><p><a href="qt.html#AspectRatioMode-enum">Qt::AspectRatioMode</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>QSize::ScaleMode</p></td><td ><p><a href="qt.html#AspectRatioMode-enum">Qt::AspectRatioMode</a></p></td></tr>
 <tr class="even topAlign"><td ><p>QSocket::Error</p></td><td ><p><a href="q3socket.html#Error-enum">Q3Socket::Error</a></p></td></tr>
@@ -402,12 +414,12 @@
 <tr class="even topAlign"><td ><p>QTS</p></td><td ><p><a href="qtextstream.html">QTextStream</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>QUrlDrag</p></td><td ><p><a href="#quridrag">QUriDrag</a></p></td></tr>
 <tr class="even topAlign"><td ><p>QWidget::FocusPolicy</p></td><td ><p><a href="qt.html#FocusPolicy-enum">Qt::FocusPolicy</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qtglobal.html#Q_LLONG-typedef" class="compat">Q_LLONG</a></p></td><td ><p>qlonglong</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qtglobal.html#Q_ULLONG-typedef" class="compat">Q_ULLONG</a></p></td><td ><p>qulonglong</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::Dock</a></p></td><td ><p><a href="qt.html#ToolBarDock-typedef" class="compat">Qt::ToolBarDock</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MacintoshVersion</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MacVersion</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#TextFlags-typedef" class="compat">Qt::TextFlags</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextFlag</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WindowsVersion</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WinVersion</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qtglobal-qt3.html#Q_LLONG-typedef" class="compat">Q_LLONG</a></p></td><td ><p>qlonglong</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qtglobal-qt3.html#Q_ULLONG-typedef" class="compat">Q_ULLONG</a></p></td><td ><p>qulonglong</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::Dock</a></p></td><td ><p><a href="qt-qt3.html#ToolBarDock-typedef" class="compat">Qt::ToolBarDock</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MacintoshVersion</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MacVersion</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#TextFlags-typedef" class="compat">Qt::TextFlags</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextFlag</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WindowsVersion</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WinVersion</a></p></td></tr>
 </table>
 <a name="enum-values"></a>
 <h2>Enum Values</h2>
@@ -423,11 +435,11 @@
 <tr class="even topAlign"><td ><p>IO_WriteOnly</p></td><td ><p><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::WriteOnly</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>IO_Raw</p></td><td ><p><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Unbuffered</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qaccessible.html#StateFlag-enum">QAccessible::Moveable</a></p></td><td ><p><a href="qaccessible.html#StateFlag-enum">QAccessible::Movable</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qapplication.html#CustomColors-var" class="compat">QApplication::CustomColors</a></p></td><td ><p><a href="qapplication.html#ColorSpec-enum">QApplication::CustomColor</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qapplication.html#NormalColors-var" class="compat">QApplication::NormalColors</a></p></td><td ><p><a href="qapplication.html#ColorSpec-enum">QApplication::NormalColor</a></p></td></tr>
-<tr class="odd topAlign"><td ><p>QButton::NoChange</p></td><td ><p><a href="qcheckbox.html#ToggleState-enum" class="compat">QCheckBox::NoChange</a></p></td></tr>
-<tr class="even topAlign"><td ><p>QButton::Off</p></td><td ><p><a href="qcheckbox.html#ToggleState-enum" class="compat">QCheckBox::Off</a></p></td></tr>
-<tr class="odd topAlign"><td ><p>QButton::On</p></td><td ><p><a href="qcheckbox.html#ToggleState-enum" class="compat">QCheckBox::On</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qapplication-qt3.html#CustomColors-var" class="compat">QApplication::CustomColors</a></p></td><td ><p><a href="qapplication.html#ColorSpec-enum">QApplication::CustomColor</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qapplication-qt3.html#NormalColors-var" class="compat">QApplication::NormalColors</a></p></td><td ><p><a href="qapplication.html#ColorSpec-enum">QApplication::NormalColor</a></p></td></tr>
+<tr class="odd topAlign"><td ><p>QButton::NoChange</p></td><td ><p><a href="qcheckbox-qt3.html#ToggleState-enum" class="compat">QCheckBox::NoChange</a></p></td></tr>
+<tr class="even topAlign"><td ><p>QButton::Off</p></td><td ><p><a href="qcheckbox-qt3.html#ToggleState-enum" class="compat">QCheckBox::Off</a></p></td></tr>
+<tr class="odd topAlign"><td ><p>QButton::On</p></td><td ><p><a href="qcheckbox-qt3.html#ToggleState-enum" class="compat">QCheckBox::On</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qchar.html#Decomposition-enum">QChar::Single</a></p></td><td ><p><a href="qchar.html#Decomposition-enum">QChar::NoDecomposition</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qchar.html#SpecialCharacter-enum">QChar::byteOrderMark</a></p></td><td ><p><a href="qchar.html#SpecialCharacter-enum">QChar::ByteOrderMark</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qchar.html#SpecialCharacter-enum">QChar::byteOrderSwapped</a></p></td><td ><p><a href="qchar.html#SpecialCharacter-enum">QChar::ByteOrderSwapped</a></p></td></tr>
@@ -452,18 +464,18 @@
 <tr class="odd topAlign"><td ><p><a href="qevent.html#Type-enum">QEvent::IconChange</a></p></td><td ><p><a href="qevent.html#Type-enum">QEvent::WindowIconChange</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qevent.html#Type-enum">QEvent::LayoutHint</a></p></td><td ><p><a href="qevent.html#Type-enum">QEvent::LayoutRequest</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qevent.html#Type-enum">QEvent::Reparent</a></p></td><td ><p><a href="qevent.html#Type-enum">QEvent::ParentChange</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ExeGroup</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeGroup</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ExeOther</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeOther</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ExeOwner</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeOwner</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ExeUser</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeUser</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ReadGroup</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadGroup</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ReadOther</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadOther</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ReadOwner</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadOwner</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::ReadUser</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadUser</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::WriteGroup</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteGroup</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::WriteOther</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteOther</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::WriteOwner</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteOwner</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qfileinfo.html#Permission-enum" class="compat">QFileInfo::WriteUser</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteUser</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ExeGroup</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeGroup</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ExeOther</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeOther</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ExeOwner</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeOwner</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ExeUser</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ExeUser</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ReadGroup</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadGroup</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ReadOther</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadOther</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ReadOwner</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadOwner</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::ReadUser</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::ReadUser</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::WriteGroup</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteGroup</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::WriteOther</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteOther</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::WriteOwner</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteOwner</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qfileinfo-qt3.html#Permission-enum" class="compat">QFileInfo::WriteUser</a></p></td><td ><p><a href="qfile.html#Permission-enum">QFile::WriteUser</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qframe.html#Shape-enum">QFrame::GroupBoxPanel</a></p></td><td ><p><a href="qframe.html#Shape-enum">QFrame::StyledPanel</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qframe.html#Shape-enum">QFrame::LineEditPanel</a></p></td><td ><p><a href="qframe.html#Shape-enum">QFrame::StyledPanel</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qframe.html#Shape-enum">QFrame::MenuBarPanel</a></p></td><td ><p><a href="qframe.html#Shape-enum">QFrame::StyledPanel</a></p></td></tr>
@@ -486,8 +498,8 @@
 <tr class="odd topAlign"><td ><p>QSize::ScaleFree</p></td><td ><p><a href="qt.html#AspectRatioMode-enum">Qt::IgnoreAspectRatio</a></p></td></tr>
 <tr class="even topAlign"><td ><p>QSize::ScaleMax</p></td><td ><p><a href="qt.html#AspectRatioMode-enum">Qt::KeepAspectRatioByExpanding</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>QSize::ScaleMin</p></td><td ><p><a href="qt.html#AspectRatioMode-enum">Qt::KeepAspectRatio</a></p></td></tr>
-<tr class="even topAlign"><td ><p>QSizePolicy::Horizontal</p></td><td ><p><a href="qsizepolicy.html#ExpandData-enum" class="compat">QSizePolicy::Horizontally</a></p></td></tr>
-<tr class="odd topAlign"><td ><p>QSizePolicy::Vertical</p></td><td ><p><a href="qsizepolicy.html#ExpandData-enum" class="compat">QSizePolicy::Vertically</a></p></td></tr>
+<tr class="even topAlign"><td ><p>QSizePolicy::Horizontal</p></td><td ><p><a href="qsizepolicy-qt3.html#ExpandData-enum" class="compat">QSizePolicy::Horizontally</a></p></td></tr>
+<tr class="odd topAlign"><td ><p>QSizePolicy::Vertical</p></td><td ><p><a href="qsizepolicy-qt3.html#ExpandData-enum" class="compat">QSizePolicy::Vertically</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qslider.html#TickPosition-enum">QSlider::Above</a></p></td><td ><p><a href="qslider.html#TickPosition-enum">QSlider::TicksAbove</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qslider.html#TickPosition-enum">QSlider::Below</a></p></td><td ><p><a href="qslider.html#TickPosition-enum">QSlider::TicksBelow</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qslider.html#TickPosition-enum">QSlider::Both</a></p></td><td ><p><a href="qslider.html#TickPosition-enum">QSlider::TicksBothSides</a></p></td></tr>
@@ -539,10 +551,10 @@
 <tr class="even topAlign"><td ><p><a href="qtabbar.html#Shape-enum">QTabBar::RoundedBelow</a></p></td><td ><p><a href="#qtabbar">QTabBar::</a> RoundedSouth</p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qtabbar.html#Shape-enum">QTabBar::TriangularAbove</a></p></td><td ><p><a href="#qtabbar">QTabBar::</a> TriangularNorth</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qtabbar.html#Shape-enum">QTabBar::TriangularBelow</a></p></td><td ><p><a href="#qtabbar">QTabBar::</a> TriangularSouth</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qtextedit.html#CursorAction-enum" class="compat">QTextEdit::MovePgDown</a></p></td><td ><p><a href="qtextedit.html#CursorAction-enum" class="compat">QTextEdit::MovePageDown</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qtextedit.html#CursorAction-enum" class="compat">QTextEdit::MovePgUp</a></p></td><td ><p><a href="qtextedit.html#CursorAction-enum" class="compat">QTextEdit::MovePageUp</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qtoolbutton.html#TextPosition-enum" class="compat">QToolButton::Right</a></p></td><td ><p><a href="qtoolbutton.html#TextPosition-enum" class="compat">QToolButton::BesideIcon</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qtoolbutton.html#TextPosition-enum" class="compat">QToolButton::Under</a></p></td><td ><p><a href="qtoolbutton.html#TextPosition-enum" class="compat">QToolButton::BelowIcon</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qtextedit-qt3.html#CursorAction-enum" class="compat">QTextEdit::MovePgDown</a></p></td><td ><p><a href="qtextedit-qt3.html#CursorAction-enum" class="compat">QTextEdit::MovePageDown</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qtextedit-qt3.html#CursorAction-enum" class="compat">QTextEdit::MovePgUp</a></p></td><td ><p><a href="qtextedit-qt3.html#CursorAction-enum" class="compat">QTextEdit::MovePageUp</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qtoolbutton-qt3.html#TextPosition-enum" class="compat">QToolButton::Right</a></p></td><td ><p><a href="qtoolbutton-qt3.html#TextPosition-enum" class="compat">QToolButton::BesideIcon</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qtoolbutton-qt3.html#TextPosition-enum" class="compat">QToolButton::Under</a></p></td><td ><p><a href="qtoolbutton-qt3.html#TextPosition-enum" class="compat">QToolButton::BelowIcon</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qvalidator.html#State-enum">QValidator::Valid</a></p></td><td ><p><a href="qvalidator.html#State-enum">QValidator::Intermediate</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qvariant.html#Type-enum">QVariant::IconSet</a></p></td><td ><p>QCoreVariant::Icon</p></td></tr>
 <tr class="odd topAlign"><td ><p>QWidget::ClickFocus</p></td><td ><p><a href="qt.html#FocusPolicy-enum">Qt::ClickFocus</a></p></td></tr>
@@ -551,20 +563,20 @@
 <tr class="even topAlign"><td ><p>QWidget::TabFocus</p></td><td ><p><a href="qt.html#FocusPolicy-enum">Qt::TabFocus</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>QWidget::WheelFocus</p></td><td ><p><a href="qt.html#FocusPolicy-enum">Qt::WheelFocus</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#AlignmentFlag-enum">Qt::AlignAuto</a></p></td><td ><p><a href="qt.html#AlignmentFlag-enum">Qt::AlignLeft</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#ButtonState_enum-enum" class="compat">Qt::AltButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::AltModifier</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#ButtonState_enum-enum" class="compat">Qt::AltButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::AltModifier</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#SortOrder-enum">Qt::Ascending</a></p></td><td ><p><a href="qt.html#SortOrder-enum">Qt::AscendingOrder</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::Bottom</a></p></td><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::DockBottom</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::Bottom</a></p></td><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::DockBottom</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#Corner-enum">Qt::BottomLeft</a></p></td><td ><p><a href="qt.html#Corner-enum">Qt::BottomLeftCorner</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#Corner-enum">Qt::BottomRight</a></p></td><td ><p><a href="qt.html#Corner-enum">Qt::BottomRightCorner</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::BreakAnywhere</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextWrapAnywhere</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#ButtonState_enum-enum" class="compat">Qt::ControlButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::ControlModifier</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#ButtonState_enum-enum" class="compat">Qt::ControlButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::ControlModifier</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#BrushStyle-enum">Qt::CustomPattern</a></p></td><td ><p><a href="qt.html#BrushStyle-enum">Qt::TexturePattern</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#SortOrder-enum">Qt::Descending</a></p></td><td ><p><a href="qt.html#SortOrder-enum">Qt::DescendingOrder</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::DontClip</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextDontClip</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::DontPrint</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextDontPrint</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::ExpandTabs</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextExpandTabs</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::IncludeTrailingSpaces</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextIncludeTrailingSpaces</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#ButtonState_enum-enum" class="compat">Qt::KeyButtonMask</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifierMask</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#ButtonState_enum-enum" class="compat">Qt::KeyButtonMask</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifierMask</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#Key-enum">Qt::Key_BackSpace</a></p></td><td ><p><a href="qt.html#Key-enum">Qt::Key_Backspace</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#Key-enum">Qt::Key_BackTab</a></p></td><td ><p><a href="qt.html#Key-enum">Qt::Key_Backtab</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#Key-enum">Qt::Key_MediaPrev</a></p></td><td ><p><a href="qt.html#Key-enum">Qt::Key_MediaPrevious</a></p></td></tr>
@@ -600,53 +612,53 @@
 <tr class="odd topAlign"><td ><p><a href="qt.html#Key-enum">Qt::Key_udiaeresis</a></p></td><td ><p><a href="qt.html#Key-enum">Qt::Key_Udiaeresis</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#Key-enum">Qt::Key_ugrave</a></p></td><td ><p><a href="qt.html#Key-enum">Qt::Key_Ugrave</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#Key-enum">Qt::Key_yacute</a></p></td><td ><p><a href="qt.html#Key-enum">Qt::Key_Yacute</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#ButtonState_enum-enum" class="compat">Qt::Keypad</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::KeypadModifier</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::Left</a></p></td><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::DockLeft</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_0</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_0</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_1</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_1</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_2</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_2</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_3</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_3</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_4</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_4</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_9</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_9</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_CHEETAH</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_0</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_JAGUAR</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_2</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_PANTHER</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_3</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_PUMA</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_1</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_TIGER</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_4</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#MacintoshVersion-enum" class="compat">Qt::MV_Unknown</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_Unknown</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#ButtonState_enum-enum" class="compat">Qt::MetaButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::MetaModifier</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::Minimized</a></p></td><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::DockMinimized</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#ButtonState_enum-enum" class="compat">Qt::Keypad</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::KeypadModifier</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::Left</a></p></td><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::DockLeft</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_0</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_0</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_1</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_1</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_2</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_2</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_3</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_3</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_10_DOT_4</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_4</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_9</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_9</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_CHEETAH</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_0</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_JAGUAR</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_2</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_PANTHER</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_3</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_PUMA</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_1</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_TIGER</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_10_4</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#MacintoshVersion-enum" class="compat">Qt::MV_Unknown</a></p></td><td ><p><a href="qsysinfo.html#MacVersion-enum">QSysInfo::MV_Unknown</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#ButtonState_enum-enum" class="compat">Qt::MetaButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::MetaModifier</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::Minimized</a></p></td><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::DockMinimized</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::NoAccel</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextHideMnemonic</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>Qt::Overline</p></td><td ><p>Qt::TextOverline</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::Right</a></p></td><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::DockRight</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#ButtonState_enum-enum" class="compat">Qt::ShiftButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::ShiftModifier</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::Right</a></p></td><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::DockRight</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#ButtonState_enum-enum" class="compat">Qt::ShiftButton</a></p></td><td ><p><a href="qt.html#KeyboardModifier-enum">Qt::ShiftModifier</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::ShowPrefix</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextShowMnemonic</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::SingleLine</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextSingleLine</a></p></td></tr>
 <tr class="even topAlign"><td ><p>Qt::StrikeOut</p></td><td ><p>Qt::TextStrikeOut</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::Top</a></p></td><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::DockTop</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::Top</a></p></td><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::DockTop</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#Corner-enum">Qt::TopLeft</a></p></td><td ><p><a href="qt.html#Corner-enum">Qt::TopLeftCorner</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#Corner-enum">Qt::TopRight</a></p></td><td ><p><a href="qt.html#Corner-enum">Qt::TopRightCorner</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::TornOff</a></p></td><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::DockTornOff</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::TornOff</a></p></td><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::DockTornOff</a></p></td></tr>
 <tr class="odd topAlign"><td ><p>Qt::Underline</p></td><td ><p>Qt::TextUnderline</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::Unmanaged</a></p></td><td ><p><a href="qt.html#Dock-enum" class="compat">Qt::DockUnmanaged</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::Unmanaged</a></p></td><td ><p><a href="qt-qt3.html#Dock-enum" class="compat">Qt::DockUnmanaged</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#WindowType-enum">Qt::WNorthWestGravity</a></p></td><td ><p><a href="qt.html#WindowType-enum">Qt::WStaticContents</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#WindowType-enum">Qt::WRepaintNoErase</a></p></td><td ><p><a href="qt.html#WindowType-enum">Qt::WNoAutoErase</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#WindowType-enum">Qt::WStyle_Dialog</a></p></td><td ><p><a href="qt.html#WindowType-enum">Qt::WType_Dialog</a></p></td></tr>
 <tr class="even topAlign"><td ><p><a href="qt.html#WindowType-enum">Qt::WStyle_NoBorderEx</a></p></td><td ><p><a href="qt.html#WindowType-enum">Qt::WStyle_NoBorder</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#WindowType-enum">Qt::WType_Modal</a></p></td><td ><p>(<a href="qt.html#WindowType-enum">Qt::WType_Dialog</a> | <a href="qt.html#WindowType-enum">Qt::WShowModal</a>)</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_2000</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_2000</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_2003</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_2003</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_32s</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_32s</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_95</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_95</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_98</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_98</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_CE</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_CE</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_CENET</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_CENET</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_CE_based</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_CE_based</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_DOS_based</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_DOS_based</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_Me</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_Me</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_NT</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_NT</a></p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_NT_based</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_NT_based</a></p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qt.html#WindowsVersion-enum" class="compat">Qt::WV_XP</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_XP</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_2000</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_2000</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_2003</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_2003</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_32s</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_32s</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_95</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_95</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_98</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_98</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_CE</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_CE</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_CENET</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_CENET</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_CE_based</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_CE_based</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_DOS_based</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_DOS_based</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_Me</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_Me</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_NT</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_NT</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_NT_based</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_NT_based</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt-qt3.html#WindowsVersion-enum" class="compat">Qt::WV_XP</a></p></td><td ><p><a href="qsysinfo.html#WinVersion-enum">QSysInfo::WV_XP</a></p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qt.html#TextFlag-enum">Qt::WordBreak</a></p></td><td ><p><a href="qt.html#TextFlag-enum">Qt::TextWordWrap</a></p></td></tr>
 <tr class="even topAlign"><td ><p>Qt::IbeamCursor</p></td><td ><p><a href="qt.html#CursorShape-enum">Qt::IBeamCursor</a></p></td></tr>
 </table>
@@ -722,22 +734,22 @@
 <p>The table below lists these properties with the read and write functions that you can use instead. The documentation for the individual functions explains how to replace them with non-compatibility Qt 4 functions.</p>
 <table class="generic">
 <thead><tr class="qt-style topAlign"><th >Qt 3 property</th><th >Qt 4 read function (<tt>QT3_SUPPORT</tt>)</th><th >Qt 4 write function (<tt>QT3_SUPPORT</tt>)</th></tr></thead>
-<tr class="odd topAlign"><td ><p>QMenuBar::separator</p></td><td ><p><a href="qmenubar.html#separator" class="compat">QMenuBar::separator</a>()</p></td><td ><p><a href="qmenubar.html#setSeparator" class="compat">QMenuBar::setSeparator</a>()</p></td></tr>
-<tr class="even topAlign"><td ><p>QPushButton::menuButton</p></td><td ><p><a href="qpushbutton.html#isMenuButton" class="compat">QPushButton::isMenuButton</a>()</p></td><td ><p>N/A</p></td></tr>
-<tr class="odd topAlign"><td ><p>QTabWidget::margin</p></td><td ><p><a href="qtabwidget.html#margin" class="compat">QTabWidget::margin</a>()</p></td><td ><p><a href="qtabwidget.html#setMargin" class="compat">QTabWidget::setMargin</a>()</p></td></tr>
-<tr class="even topAlign"><td ><p>QTextEdit::textFormat</p></td><td ><p><a href="qtextedit.html#textFormat" class="compat">QTextEdit::textFormat</a>()</p></td><td ><p><a href="qtextedit.html#setTextFormat" class="compat">QTextEdit::setTextFormat</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p>QMenuBar::separator</p></td><td ><p><a href="qmenubar-qt3.html#separator" class="compat">QMenuBar::separator</a>()</p></td><td ><p><a href="qmenubar-qt3.html#setSeparator" class="compat">QMenuBar::setSeparator</a>()</p></td></tr>
+<tr class="even topAlign"><td ><p>QPushButton::menuButton</p></td><td ><p><a href="qpushbutton-qt3.html#isMenuButton" class="compat">QPushButton::isMenuButton</a>()</p></td><td ><p>N/A</p></td></tr>
+<tr class="odd topAlign"><td ><p>QTabWidget::margin</p></td><td ><p><a href="qtabwidget-qt3.html#margin" class="compat">QTabWidget::margin</a>()</p></td><td ><p><a href="qtabwidget-qt3.html#setMargin" class="compat">QTabWidget::setMargin</a>()</p></td></tr>
+<tr class="even topAlign"><td ><p>QTextEdit::textFormat</p></td><td ><p><a href="qtextedit-qt3.html#textFormat" class="compat">QTextEdit::textFormat</a>()</p></td><td ><p><a href="qtextedit-qt3.html#setTextFormat" class="compat">QTextEdit::setTextFormat</a>()</p></td></tr>
 <tr class="odd topAlign"><td ><p>QWidget::backgroundBrush</p></td><td ><p>QWidget::backgroundBrush()</p></td><td ><p>N/A</p></td></tr>
-<tr class="even topAlign"><td ><p>QWidget::backgroundMode</p></td><td ><p><a href="qwidget.html#backgroundMode" class="compat">QWidget::backgroundMode</a>()</p></td><td ><p><a href="qwidget.html#setBackgroundMode" class="compat">QWidget::setBackgroundMode</a>()</p></td></tr>
-<tr class="odd topAlign"><td ><p>QWidget::backgroundOrigin</p></td><td ><p><a href="qwidget.html#backgroundOrigin" class="compat">QWidget::backgroundOrigin</a>()</p></td><td ><p><a href="qwidget.html#setBackgroundOrigin" class="compat">QWidget::setBackgroundOrigin</a>()</p></td></tr>
-<tr class="even topAlign"><td ><p>QWidget::colorGroup</p></td><td ><p><a href="qwidget.html#colorGroup" class="compat">QWidget::colorGroup</a>()</p></td><td ><p>QWidget::setColorGroup()</p></td></tr>
+<tr class="even topAlign"><td ><p>QWidget::backgroundMode</p></td><td ><p><a href="qwidget-qt3.html#backgroundMode" class="compat">QWidget::backgroundMode</a>()</p></td><td ><p><a href="qwidget-qt3.html#setBackgroundMode" class="compat">QWidget::setBackgroundMode</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p>QWidget::backgroundOrigin</p></td><td ><p><a href="qwidget-qt3.html#backgroundOrigin" class="compat">QWidget::backgroundOrigin</a>()</p></td><td ><p><a href="qwidget-qt3.html#setBackgroundOrigin" class="compat">QWidget::setBackgroundOrigin</a>()</p></td></tr>
+<tr class="even topAlign"><td ><p>QWidget::colorGroup</p></td><td ><p><a href="qwidget-qt3.html#colorGroup" class="compat">QWidget::colorGroup</a>()</p></td><td ><p>QWidget::setColorGroup()</p></td></tr>
 <tr class="odd topAlign"><td ><p>QWidget::customWhatsThis</p></td><td ><p>QWidget::customWhatsThis()</p></td><td ><p>QWidget::setCustomWhatsThis()</p></td></tr>
-<tr class="even topAlign"><td ><p>QWidget::inputMethodEnabled</p></td><td ><p>QWidget::inputMethodEnabled()</p></td><td ><p><a href="qwidget.html#setInputMethodEnabled" class="compat">QWidget::setInputMethodEnabled</a>()</p></td></tr>
-<tr class="odd topAlign"><td ><p>QWidget::ownCursor</p></td><td ><p><a href="qwidget.html#ownCursor" class="compat">QWidget::ownCursor</a>()</p></td><td ><p>N/A</p></td></tr>
-<tr class="even topAlign"><td ><p>QWidget::ownFont</p></td><td ><p><a href="qwidget.html#ownFont" class="compat">QWidget::ownFont</a>()</p></td><td ><p>N/A</p></td></tr>
-<tr class="odd topAlign"><td ><p>QWidget::ownPalette</p></td><td ><p><a href="qwidget.html#ownPalette" class="compat">QWidget::ownPalette</a>()</p></td><td ><p>N/A</p></td></tr>
-<tr class="even topAlign"><td ><p>QWidget::paletteBackgroundColor</p></td><td ><p>QWidget::paletteBackgroundColor()</p></td><td ><p><a href="qwidget.html#setPaletteBackgroundColor" class="compat">QWidget::setPaletteBackgroundColor</a>()</p></td></tr>
-<tr class="odd topAlign"><td ><p>QWidget::paletteBackgroundPixmap</p></td><td ><p>QWidget::paletteBackgroundPixmap()</p></td><td ><p><a href="qwidget.html#setPaletteBackgroundPixmap" class="compat">QWidget::setPaletteBackgroundPixmap</a>()</p></td></tr>
-<tr class="even topAlign"><td ><p>QWidget::paletteForegroundColor</p></td><td ><p>QWidget::paletteForegroundColor()</p></td><td ><p><a href="qwidget.html#setPaletteForegroundColor" class="compat">QWidget::setPaletteForegroundColor</a>()</p></td></tr>
+<tr class="even topAlign"><td ><p>QWidget::inputMethodEnabled</p></td><td ><p>QWidget::inputMethodEnabled()</p></td><td ><p><a href="qwidget-qt3.html#setInputMethodEnabled" class="compat">QWidget::setInputMethodEnabled</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p>QWidget::ownCursor</p></td><td ><p><a href="qwidget-qt3.html#ownCursor" class="compat">QWidget::ownCursor</a>()</p></td><td ><p>N/A</p></td></tr>
+<tr class="even topAlign"><td ><p>QWidget::ownFont</p></td><td ><p><a href="qwidget-qt3.html#ownFont" class="compat">QWidget::ownFont</a>()</p></td><td ><p>N/A</p></td></tr>
+<tr class="odd topAlign"><td ><p>QWidget::ownPalette</p></td><td ><p><a href="qwidget-qt3.html#ownPalette" class="compat">QWidget::ownPalette</a>()</p></td><td ><p>N/A</p></td></tr>
+<tr class="even topAlign"><td ><p>QWidget::paletteBackgroundColor</p></td><td ><p>QWidget::paletteBackgroundColor()</p></td><td ><p><a href="qwidget-qt3.html#setPaletteBackgroundColor" class="compat">QWidget::setPaletteBackgroundColor</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p>QWidget::paletteBackgroundPixmap</p></td><td ><p>QWidget::paletteBackgroundPixmap()</p></td><td ><p><a href="qwidget-qt3.html#setPaletteBackgroundPixmap" class="compat">QWidget::setPaletteBackgroundPixmap</a>()</p></td></tr>
+<tr class="even topAlign"><td ><p>QWidget::paletteForegroundColor</p></td><td ><p>QWidget::paletteForegroundColor()</p></td><td ><p><a href="qwidget-qt3.html#setPaletteForegroundColor" class="compat">QWidget::setPaletteForegroundColor</a>()</p></td></tr>
 <tr class="odd topAlign"><td ><p>QWidget::underMouse</p></td><td ><p><a href="qwidget.html#underMouse">QWidget::underMouse</a>()</p></td><td ><p>N/A</p></td></tr>
 </table>
 <p>The following Qt 3 properties and their access functions are no longer available in Qt 4. In most cases, Qt 4 provides similar functionality.</p>
@@ -747,7 +759,7 @@
 <tr class="even topAlign"><td ><p>QButton::autoResize</p></td><td ><p>Call <a href="qwidget.html">QWidget</a>:setFixedSize(<a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>()) whenever you change the contents.</p></td></tr>
 <tr class="odd topAlign"><td ><p>QButton::exclusiveToggle</p></td><td ><p>See <a href="qabstractbutton.html#autoExclusive-prop">QAbstractButton::autoExclusive</a>.</p></td></tr>
 <tr class="even topAlign"><td ><p>QButton::pixmap</p></td><td ><p>Use <a href="qabstractbutton.html#icon-prop">QAbstractButton::icon</a> instead.</p></td></tr>
-<tr class="odd topAlign"><td ><p>QButton::toggleState</p></td><td ><p>Use <a href="qcheckbox.html#setState" class="compat">QCheckBox::setState</a>() and <a href="qcheckbox.html#state" class="compat">QCheckBox::state</a>() instead.</p></td></tr>
+<tr class="odd topAlign"><td ><p>QButton::toggleState</p></td><td ><p>Use <a href="qcheckbox-qt3.html#setState" class="compat">QCheckBox::setState</a>() and <a href="qcheckbox-qt3.html#state" class="compat">QCheckBox::state</a>() instead.</p></td></tr>
 <tr class="even topAlign"><td ><p>QButton::toggleType</p></td><td ><p>Use <a href="qcheckbox.html#tristate-prop">QCheckBox::setTristate</a>() instead.</p></td></tr>
 <tr class="odd topAlign"><td ><p>QComboBox::autoResize</p></td><td ><p>Call <a href="qwidget.html">QWidget</a>:setFixedSize(<a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>()) whenever you change the contents.</p></td></tr>
 <tr class="even topAlign"><td ><p>QFrame::contentsRect</p></td><td ><p>Use <a href="q3frame.html#contentsRect-prop">Q3Frame::contentsRect</a>() instead.</p></td></tr>
@@ -847,7 +859,7 @@
              mainWin-&gt;updateRecentFileItems();
      }</pre>
 </li>
-<li><a href="qapplication.html#setMainWidget" class="compat">QApplication::setMainWidget</a>() is no longer used. When all an application's windows are closed, the application will exit normally.</li>
+<li><a href="qapplication-qt3.html#setMainWidget" class="compat">QApplication::setMainWidget</a>() is no longer used. When all an application's windows are closed, the application will exit normally.</li>
 </ol>
 <a name="qaquastyle"></a>
 <h2>QAquaStyle</h2>
@@ -893,7 +905,7 @@
 <thead><tr class="qt-style topAlign"><th ><a href="q3button.html" class="compat">Q3Button</a> function</th><th ><a href="qabstractbutton.html">QAbstractButton</a> equivalent</th></tr></thead>
 <tr class="odd topAlign"><td ><p>Q3Button::autoResize()</p></td><td ><p>Call <a href="qwidget.html">QWidget</a>:setFixedSize(<a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>()) whenever you change the contents.</p></td></tr>
 <tr class="even topAlign"><td ><p>Q3Button::isExclusiveToggle()</p></td><td ><p>Use <a href="qabstractbutton.html#group">QAbstractButton::group</a>() or <a href="qabstractbutton.html#autoExclusive-prop">QAbstractButton::autoExclusive</a>() instead.</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qabstractbutton.html#pixmap" class="compat">Q3Button::pixmap</a>() const</p></td><td ><p><a href="qabstractbutton.html#icon-prop">QAbstractButton::icon</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qabstractbutton-qt3.html#pixmap" class="compat">Q3Button::pixmap</a>() const</p></td><td ><p><a href="qabstractbutton.html#icon-prop">QAbstractButton::icon</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p>Q3Button::setAutoResize()</p></td><td ><p>N/A</p></td></tr>
 <tr class="odd topAlign"><td ><p>Q3Button::setPixmap(const <a href="qpixmap.html">QPixmap</a> &amp;)</p></td><td ><p>QAbstractButton::setIcon(const <a href="qicon.html">QIcon</a> &amp;)</p></td></tr>
 <tr class="even topAlign"><td ><p>Q3Button::setState(ToggleState)</p></td><td ><p>See remark below</p></td></tr>
@@ -1226,7 +1238,7 @@
 <thead><tr class="qt-style topAlign"><th ><a href="q3dictiterator.html" class="compat">Q3DictIterator</a> functions</th><th >Qt 4 equivalent</th></tr></thead>
 <tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#count">Q3DictIterator::count</a>()</p></td><td ><p><a href="qhash.html#count">QHash::count</a>() or <a href="qhash.html#size">QHash::size</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="q3dictiterator.html#current">Q3DictIterator::current</a>()</p></td><td ><p><a href="qhashiterator.html#value">QHashIterator::value</a>()</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#currentKey">Q3DictIterator::currentKey</a>()</p></td><td ><p><a href="qhashiterator.html#keyx">QHashIterator::key</a>()</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#currentKey">Q3DictIterator::currentKey</a>()</p></td><td ><p><a href="qhashiterator.html#key">QHashIterator::key</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p><a href="q3dictiterator.html#isEmpty">Q3DictIterator::isEmpty</a>()</p></td><td ><p><a href="qhash.html#isEmpty">QHash::isEmpty</a>()</p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="q3dictiterator.html#toFirst">Q3DictIterator::toFirst</a>()</p></td><td ><p><a href="qhashiterator.html#toFront">QHashIterator::toFront</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p>Q3DictIterator::operator()()</p></td><td ><p><a href="qhashiterator.html#value">QHashIterator::value</a>()</p></td></tr>
@@ -1251,7 +1263,7 @@
 <p>The following functions used to have a boolean <tt>acceptAbsPath</tt> parameter that defaulted to true:</p>
 <ul>
 <li><a href="qdir.html#filePath">QDir::filePath</a>()</li>
-<li><a href="qdir.html#absFilePath" class="compat">QDir::absFilePath</a>()</li>
+<li><a href="qdir-qt3.html#absFilePath" class="compat">QDir::absFilePath</a>()</li>
 <li><a href="qdir.html#cd">QDir::cd</a>()</li>
 <li><a href="qdir.html#mkdir">QDir::mkdir</a>()</li>
 <li><a href="qdir.html#rmdir">QDir::rmdir</a>()</li>
@@ -1282,7 +1294,7 @@
 <p>fileInfoList(), entryInfoList(), and drives() now return a <a href="qlist.html">QList</a>&lt;<a href="qfileinfo.html">QFileInfo</a>&gt; and not a QPtrList&lt;<a href="qfileinfo.html">QFileInfo</a>&gt; *. Code using these methods will not work with the <a href="qt3support.html">Qt3Support</a> library and must be adapted instead.</p>
 <p>See <a href="porting4-virtual-functions.html">Virtual Functions</a> for a list of <a href="qdir.html">QDir</a> virtual member functions in Qt 3 that are no longer virtual in Qt 4.</p>
 <p><a href="qdir.html#match">QDir::match</a>() now always matches case insensitively.</p>
-<p><a href="qdir.html#homeDirPath" class="compat">QDir::homeDirPath</a>() has been removed. Use <a href="qdir.html#home">QDir::home</a>() instead, and extract the path separately.</p>
+<p><a href="qdir-qt3.html#homeDirPath" class="compat">QDir::homeDirPath</a>() has been removed. Use <a href="qdir.html#home">QDir::home</a>() instead, and extract the path separately.</p>
 <a name="qdns"></a>
 <h2>QDns</h2>
 <p>Qt 3 used its own implementation of the DNS protocol and provided a low-level <tt>QDns</tt> class. Qt 4's <a href="qhostinfo.html">QHostInfo</a> class uses the system's <tt>gethostbyname()</tt> function from a thread instead.</p>
@@ -1334,7 +1346,7 @@
 <h2>QEventLoop</h2>
 <p>In Qt 3, <tt>QEventLoop</tt> combined the Qt event loop and the event dispatching. In Qt 4, these tasks are now assigned to two distinct classes: <a href="qeventloop.html">QEventLoop</a> and <a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a>.</p>
 <p>If you subclassed <a href="qeventloop.html">QEventLoop</a> to integrate with another library's event loop, you must subclass <a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a> instead. See the class documentation for details.</p>
-<p>Developers using <tt>QEventLoop::loopLevel()</tt> in Qt 3 should use <a href="qcoreapplication.html#loopLevel" class="compat">QCoreApplication::loopLevel</a>() instead. Note that this function is marked as obsolete, but it is expected to be available for the lifetime of Qt 4.</p>
+<p>Developers using <tt>QEventLoop::loopLevel()</tt> in Qt 3 should use <a href="qcoreapplication-qt3.html#loopLevel" class="compat">QCoreApplication::loopLevel</a>() instead. Note that this function is marked as obsolete, but it is expected to be available for the lifetime of Qt 4.</p>
 <a name="qfiledialog"></a>
 <h2>QFileDialog</h2>
 <p>The <a href="qfiledialog.html">QFileDialog</a> class in Qt 4 has been totally rewritten. It provides most of the functionality of the old <tt>QFileDialog</tt> class, but with a different API. Some functionality, such as the ability to preview files, is expected to be added in a later Qt 4 release.</p>
@@ -1379,7 +1391,7 @@
 </table>
 <p>Remarks:</p>
 <ol class="1">
-<li>The Q3FileDialog::addFilter(const <a href="qstring.html">QString</a> &amp;) function has no direct equivalent in the new <a href="qfiledialog.html">QFileDialog</a>. Use <a href="qfiledialog.html#setFilters" class="compat">QFileDialog::setFilters</a>() instead.<p>For example, if you have code like</p>
+<li>The Q3FileDialog::addFilter(const <a href="qstring.html">QString</a> &amp;) function has no direct equivalent in the new <a href="qfiledialog.html">QFileDialog</a>. Use <a href="qfiledialog-qt3.html#setFilters" class="compat">QFileDialog::setFilters</a>() instead.<p>For example, if you have code like</p>
 <pre class="highlightedCode brush: cpp">     fileDialog-&gt;addFilter(tr(&quot;JPEG files (*.jpg *.jpeg)&quot;));</pre>
 <p>you can rewrite it as</p>
 <pre class="highlightedCode brush: cpp">     QStringList filters = fileDialog-&gt;filters();
@@ -1555,19 +1567,19 @@
 <p>The following virtual functions have changed name or signature:</p>
 <table class="generic">
 <thead><tr class="qt-style topAlign"><th >Qt 3 function</th><th >Comment</th></tr></thead>
-<tr class="odd topAlign"><td ><p><a href="qiodevice.html#at" class="compat">QIODevice::at</a>() const</p></td><td ><p>Renamed <a href="qiodevice.html#pos">QIODevice::pos</a>().</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qiodevice-qt3.html#at" class="compat">QIODevice::at</a>() const</p></td><td ><p>Renamed <a href="qiodevice.html#pos">QIODevice::pos</a>().</p></td></tr>
 <tr class="even topAlign"><td ><p>QIODevice::at(Offset)</p></td><td ><p>Renamed <a href="qiodevice.html#seek">QIODevice::seek</a>().</p></td></tr>
 <tr class="odd topAlign"><td ><p>QIODevice::open(int)</p></td><td ><p>The parameter is now of type <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a>.</p></td></tr>
-<tr class="even topAlign"><td ><p>QIODevice::readBlock(char *, <a href="qtglobal.html#Q_ULONG-typedef" class="compat">Q_ULONG</a>)</p></td><td ><p>QIODevice::read(char *, qint64)</p></td></tr>
-<tr class="odd topAlign"><td ><p>QIODevice::writeBlock(const char *, <a href="qtglobal.html#Q_ULONG-typedef" class="compat">Q_ULONG</a>)</p></td><td ><p>QIODevice::write(const char *, qint64)</p></td></tr>
+<tr class="even topAlign"><td ><p>QIODevice::readBlock(char *, <a href="qtglobal-qt3.html#Q_ULONG-typedef" class="compat">Q_ULONG</a>)</p></td><td ><p>QIODevice::read(char *, qint64)</p></td></tr>
+<tr class="odd topAlign"><td ><p>QIODevice::writeBlock(const char *, <a href="qtglobal-qt3.html#Q_ULONG-typedef" class="compat">Q_ULONG</a>)</p></td><td ><p>QIODevice::write(const char *, qint64)</p></td></tr>
 </table>
 <p><b>Note:</b> QIODevice::open(<a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a>) is no longer pure virtual.</p>
 <p>The following functions are no longer virtual or don't exist anymore:</p>
 <table class="generic">
-<tr class="odd topAlign"><td ><p><a href="qiodevice.html#getch" class="compat">QIODevice::getch</a>()</p></td><td ><p>Renamed <a href="qiodevice.html#getChar">QIODevice::getChar</a>() and implemented in terms of <a href="qiodevice.html#readData">QIODevice::readData</a>().</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qiodevice-qt3.html#getch" class="compat">QIODevice::getch</a>()</p></td><td ><p>Renamed <a href="qiodevice.html#getChar">QIODevice::getChar</a>() and implemented in terms of <a href="qiodevice.html#readData">QIODevice::readData</a>().</p></td></tr>
 <tr class="even topAlign"><td ><p>QIODevice::putch(int)</p></td><td ><p>Renamed <a href="qiodevice.html#putChar">QIODevice::putChar</a>() and implemented in terms of <a href="qiodevice.html#writeData">QIODevice::writeData</a>().</p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qiodevice.html#readAll">QIODevice::readAll</a>()</p></td><td ><p>Implemented in terms of <a href="qiodevice.html#readData">QIODevice::readData</a>().</p></td></tr>
-<tr class="even topAlign"><td ><p>QIODevice::readLine(char *, <a href="qtglobal.html#Q_ULONG-typedef" class="compat">Q_ULONG</a>)</p></td><td ><p>Implemented in terms of <a href="qiodevice.html#readData">QIODevice::readData</a>()</p></td></tr>
+<tr class="even topAlign"><td ><p>QIODevice::readLine(char *, <a href="qtglobal-qt3.html#Q_ULONG-typedef" class="compat">Q_ULONG</a>)</p></td><td ><p>Implemented in terms of <a href="qiodevice.html#readData">QIODevice::readData</a>()</p></td></tr>
 <tr class="odd topAlign"><td ><p>QIODevice::ungetch(int)</p></td><td ><p>Renamed <a href="qiodevice.html#ungetChar">QIODevice::ungetChar</a>() and simulated using an internal unget buffer.</p></td></tr>
 </table>
 <p>The <tt>IO_xxx</tt> flags have been revised, and the protected setFlags() function removed. Most of the flags have been eliminated because errors are best handled by implementing certain functions in <a href="qiodevice.html">QIODevice</a> subclasses rather than through the base classes. The file access flags, such as <tt>IO_ReadOnly</tt> and <tt>IO_WriteOnly</tt>, have been moved to the <a href="qiodevice.html">QIODevice</a> class to avoid polluting the global namespace. The table below shows the correspondence between the Qt 3 <tt>IO_xxx</tt> flags and the Qt 4 API:</p>
@@ -1712,21 +1724,21 @@
 <tr class="odd topAlign"><td ><p>QMovie::disconnectStatus()</p></td><td ><p>Disconnect from <a href="qmovie.html#stateChanged">QMovie::stateChanged</a>()</p></td></tr>
 <tr class="even topAlign"><td ><p>QMovie::disconnectUpdate()</p></td><td ><p>Disconnect from <a href="qmovie.html#updated">QMovie::updated</a>()</p></td></tr>
 <tr class="odd topAlign"><td ><p><a href="qmovie.html#finished">QMovie::finished</a>()</p></td><td ><p>Use <a href="qmovie.html#state">QMovie::state</a>() instead</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qmovie.html#frameImage" class="compat">QMovie::frameImage</a>()</p></td><td ><p>Use <a href="qmovie.html#currentImage">QMovie::currentImage</a>() instead</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qmovie.html#frameNumber" class="compat">QMovie::frameNumber</a>()</p></td><td ><p>Use <a href="qmovie.html#currentFrameNumber">QMovie::currentFrameNumber</a>() instead</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qmovie.html#framePixmap" class="compat">QMovie::framePixmap</a>()</p></td><td ><p>Use <a href="qmovie.html#currentPixmap">QMovie::currentPixmap</a>() instead</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmovie-qt3.html#frameImage" class="compat">QMovie::frameImage</a>()</p></td><td ><p>Use <a href="qmovie.html#currentImage">QMovie::currentImage</a>() instead</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qmovie-qt3.html#frameNumber" class="compat">QMovie::frameNumber</a>()</p></td><td ><p>Use <a href="qmovie.html#currentFrameNumber">QMovie::currentFrameNumber</a>() instead</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmovie-qt3.html#framePixmap" class="compat">QMovie::framePixmap</a>()</p></td><td ><p>Use <a href="qmovie.html#currentPixmap">QMovie::currentPixmap</a>() instead</p></td></tr>
 <tr class="odd topAlign"><td ><p>QMovie::getValidRect()</p></td><td ><p>Use frameRect() instead</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qmovie.html#isNull" class="compat">QMovie::isNull</a>()</p></td><td ><p>Use <a href="qmovie.html#isValid">QMovie::isValid</a>() instead</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qmovie.html#pause" class="compat">QMovie::pause</a>()</p></td><td ><p>Use QMovie::setPaused(true) instead</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qmovie.html#paused" class="compat">QMovie::paused</a>()</p></td><td ><p>Use <a href="qmovie.html#state">QMovie::state</a>() instead</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmovie-qt3.html#isNull" class="compat">QMovie::isNull</a>()</p></td><td ><p>Use <a href="qmovie.html#isValid">QMovie::isValid</a>() instead</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qmovie-qt3.html#pause" class="compat">QMovie::pause</a>()</p></td><td ><p>Use QMovie::setPaused(true) instead</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmovie-qt3.html#paused" class="compat">QMovie::paused</a>()</p></td><td ><p>Use <a href="qmovie.html#state">QMovie::state</a>() instead</p></td></tr>
 <tr class="odd topAlign"><td ><p>QMovie::pushData()</p></td><td ><p>N/A</p></td></tr>
 <tr class="even topAlign"><td ><p>QMovie::pushSpace()</p></td><td ><p>N/A</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qmovie.html#restart" class="compat">QMovie::restart</a>()</p></td><td ><p>Use QMovie::jumpToFrame(0) instead</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qmovie.html#running" class="compat">QMovie::running</a>()</p></td><td ><p>Use <a href="qmovie.html#state">QMovie::state</a>() instead</p></td></tr>
-<tr class="odd topAlign"><td ><p><a href="qmovie.html#step" class="compat">QMovie::step</a>()</p></td><td ><p>Use <a href="qmovie.html#jumpToFrame">QMovie::jumpToFrame</a>() and <a href="qmovie.html#setPaused">QMovie::setPaused</a>() instead</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qmovie.html#step" class="compat">QMovie::step</a>()</p></td><td ><p>Use <a href="qmovie.html#jumpToNextFrame">QMovie::jumpToNextFrame</a>() instead</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qmovie-qt3.html#restart" class="compat">QMovie::restart</a>()</p></td><td ><p>Use QMovie::jumpToFrame(0) instead</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmovie-qt3.html#running" class="compat">QMovie::running</a>()</p></td><td ><p>Use <a href="qmovie.html#state">QMovie::state</a>() instead</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qmovie-qt3.html#step" class="compat">QMovie::step</a>()</p></td><td ><p>Use <a href="qmovie.html#jumpToFrame">QMovie::jumpToFrame</a>() and <a href="qmovie.html#setPaused">QMovie::setPaused</a>() instead</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmovie-qt3.html#step" class="compat">QMovie::step</a>()</p></td><td ><p>Use <a href="qmovie.html#jumpToNextFrame">QMovie::jumpToNextFrame</a>() instead</p></td></tr>
 <tr class="odd topAlign"><td ><p>QMovie::steps()</p></td><td ><p>Use <a href="qmovie.html#currentFrameNumber">QMovie::currentFrameNumber</a>() and <a href="qmovie.html#frameCount">QMovie::frameCount</a>() instead</p></td></tr>
-<tr class="even topAlign"><td ><p><a href="qmovie.html#unpause" class="compat">QMovie::unpause</a>()</p></td><td ><p>Use QMovie::setPaused(false) instead</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmovie-qt3.html#unpause" class="compat">QMovie::unpause</a>()</p></td><td ><p>Use QMovie::setPaused(false) instead</p></td></tr>
 </table>
 <a name="qmultilineedit"></a>
 <h2>QMultiLineEdit</h2>
@@ -1752,7 +1764,7 @@
 <a name="qpaintdevice"></a>
 <h2>QPaintDevice</h2>
 <p>To reimplement painter backends one previously needed to reimplement the virtual function QPaintDevice::cmd(). This function is taken out and should is replaced with the function <a href="qpaintdevice.html#paintEngine">QPaintDevice::paintEngine</a>() and the abstract class <a href="qpaintengine.html">QPaintEngine</a>. <a href="qpaintengine.html">QPaintEngine</a> provides virtual functions for all drawing operations that can be performed on a painter backend.</p>
-<p><a href="qimage.html#bitBlt" class="compat">bitBlt</a>() and copyBlt() are now only compatibility functions. Use <a href="qpainter.html#drawPixmap">QPainter::drawPixmap</a>() instead.</p>
+<p>bitBlt() and copyBlt() are now only compatibility functions. Use <a href="qpainter.html#drawPixmap">QPainter::drawPixmap</a>() instead.</p>
 <a name="qpaintdevicemetrics"></a>
 <h2>QPaintDeviceMetrics</h2>
 <p>All functions that used to be provided by the <tt>QPaintDeviceMetrics</tt> class have now been moved to <a href="qpaintdevice.html">QPaintDevice</a>.</p>
@@ -2277,7 +2289,7 @@
 <p>See <a href="qtsql.html">QtSql Module</a> for an overview of the new SQL classes.</p>
 <a name="qsqlquery"></a>
 <h2>QSqlQuery</h2>
-<p><a href="qsqlquery.html#prev" class="compat">QSqlQuery::prev</a>() was renamed to <a href="qsqlquery.html#previous">QSqlQuery::previous</a>(). <a href="qsqlquery.html#prev" class="compat">QSqlQuery::prev</a>() remains, but it just calls previous(). <a href="qsqlquery.html">QSqlQuery</a> no longer has any virtual methods, i.e&#x2e;, exec(), value(), seek(), next(), prev(), first(), last(), and the destructor are no longer virtual.</p>
+<p><a href="qsqlquery-qt3.html#prev" class="compat">QSqlQuery::prev</a>() was renamed to <a href="qsqlquery.html#previous">QSqlQuery::previous</a>(). <a href="qsqlquery-qt3.html#prev" class="compat">QSqlQuery::prev</a>() remains, but it just calls previous(). <a href="qsqlquery.html">QSqlQuery</a> no longer has any virtual methods, i.e&#x2e;, exec(), value(), seek(), next(), prev(), first(), last(), and the destructor are no longer virtual.</p>
 <a name="qsqlrecord"></a>
 <h2>QSqlRecord</h2>
 <p><a href="qsqlrecord.html">QSqlRecord</a> behaves like a vector now, <a href="qsqlrecord.html#insert">QSqlRecord::insert</a>() will actually insert a new field instead of replacing the existing one.</p>
@@ -2315,7 +2327,7 @@
              do_something(QString());</pre>
 <p>In new code, we recommend that you don't rely on the distinction between a null string and a (non-null) empty string. See <a href="qstring.html#distinction-between-null-and-empty-strings">Distinction Between Null and Empty Strings</a> for details.</p>
 </li>
-<li><a href="qstring.html#latin1" class="compat">QString::latin1</a>() and <a href="qstring.html#ascii" class="compat">QString::ascii</a>() have been replaced with <a href="qstring.html#toLatin1">QString::toLatin1</a>() and <a href="qstring.html#toAscii">QString::toAscii</a>(), which return a <a href="qbytearray.html">QByteArray</a> instead of a (non-reentrant) <tt>const char *</tt>. For consistency, <a href="qstring.html#utf8" class="compat">QString::utf8</a>() and <a href="qstring.html#local8Bit" class="compat">QString::local8Bit</a>(), which already returned a <a href="qbytearray.html">QByteArray</a> (actually a <tt>QCString</tt>), have been renamed <a href="qstring.html#toUtf8">QString::toUtf8</a>() and <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>().<p>To obtain a <tt>const char *</tt> pointer to ASCII or Latin-1 data, use <a href="qstring.html#toAscii">QString::toAscii</a>() or <a href="qstring.html#toLatin1">QString::toLatin1</a>() to obtain a <a href="qbytearray.html">QByteArray</a> containing the data, then call <a href="qbytearray.html#constData">QByteArray::constData</a>() to access the character data directly. Note that the pointer returned by this function is only valid for the lifetime of the byte array; you should avoid taking a pointer to the data contained in temporary objects.</p>
+<li><a href="qstring-qt3.html#latin1" class="compat">QString::latin1</a>() and <a href="qstring-qt3.html#ascii" class="compat">QString::ascii</a>() have been replaced with <a href="qstring.html#toLatin1">QString::toLatin1</a>() and <a href="qstring.html#toAscii">QString::toAscii</a>(), which return a <a href="qbytearray.html">QByteArray</a> instead of a (non-reentrant) <tt>const char *</tt>. For consistency, <a href="qstring-qt3.html#utf8" class="compat">QString::utf8</a>() and <a href="qstring-qt3.html#local8Bit" class="compat">QString::local8Bit</a>(), which already returned a <a href="qbytearray.html">QByteArray</a> (actually a <tt>QCString</tt>), have been renamed <a href="qstring.html#toUtf8">QString::toUtf8</a>() and <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>().<p>To obtain a <tt>const char *</tt> pointer to ASCII or Latin-1 data, use <a href="qstring.html#toAscii">QString::toAscii</a>() or <a href="qstring.html#toLatin1">QString::toLatin1</a>() to obtain a <a href="qbytearray.html">QByteArray</a> containing the data, then call <a href="qbytearray.html#constData">QByteArray::constData</a>() to access the character data directly. Note that the pointer returned by this function is only valid for the lifetime of the byte array; you should avoid taking a pointer to the data contained in temporary objects.</p>
 <pre class="highlightedCode brush: cpp"> QString greeting = &quot;Hello&quot;;
  const char *badData = greeting.toAscii().constData(); // data is invalid
  QByteArray asciiData = greeting.toAscii();
@@ -2340,7 +2352,7 @@
 <pre class="highlightedCode brush: cpp">         str[32] = '$';</pre>
 </li>
 <li>The <tt>QT_NO_ASCII_CAST</tt> and <tt>QT_NO_CAST_ASCII</tt> macros have been renamed <tt>QT_NO_CAST_TO_ASCII</tt> and <tt>QT_NO_CAST_FROM_ASCII</tt>, respectively.</li>
-<li>The <a href="qstring.html#data">QString::data</a>() used to return the same as <a href="qstring.html#ascii" class="compat">QString::ascii</a>(). It now returns a pointer to the Unicode data stored in the <a href="qstring.html">QString</a> object. Call <a href="qstring.html#ascii" class="compat">QString::ascii</a>() if you want the old behavior.</li>
+<li>The <a href="qstring.html#data">QString::data</a>() used to return the same as <a href="qstring-qt3.html#ascii" class="compat">QString::ascii</a>(). It now returns a pointer to the Unicode data stored in the <a href="qstring.html">QString</a> object. Call <a href="qstring-qt3.html#ascii" class="compat">QString::ascii</a>() if you want the old behavior.</li>
 <li><a href="qstring.html#arg">QString::arg</a>() now converts two-digit place markers, allowing up to 99 place markers to be used in any given string.</li>
 <li>Comparisons between QStrings and <tt>NULL</tt> in order to determine whether strings are empty are no longer allowed. Use <a href="qstring.html#isEmpty">isEmpty()</a> instead.</li>
 </ol>
@@ -2348,7 +2360,7 @@
 <h2>QStringList</h2>
 <p><a href="qstringlist.html">QStringList</a> now inherits from <a href="qlist.html">QList</a>&lt;<a href="qstring.html">QString</a>&gt; and can no longer be converted to a QValueList&lt;<a href="qstring.html">QString</a>&gt;. Since QValueList inherits <a href="qlist.html">QList</a> a cast will work as expected.</p>
 <p>This change implies some API incompatibilities for <a href="qstringlist.html">QStringList</a>. For example, at() returns the string, not an iterator. See the <a href="#qvaluelist-section">section on QValueList</a> for details.</p>
-<p>The static <a href="qstringlist.html#split" class="compat">QStringList::split</a>() function for splitting strings into lists of smaller strings has been replaced by <a href="qstring.html#split">QString::split</a>(), which returns a <a href="qstringlist.html">QStringList</a>.</p>
+<p>The static <a href="qstringlist-qt3.html#split" class="compat">QStringList::split</a>() function for splitting strings into lists of smaller strings has been replaced by <a href="qstring.html#split">QString::split</a>(), which returns a <a href="qstringlist.html">QStringList</a>.</p>
 <a name="qstyle"></a>
 <h2>QStyle</h2>
 <p>The <a href="qstyle.html">QStyle</a> API has been overhauled and improved. Most of the information on why this change was done is described in <a href="qt4-styles.html">the QStyle overview</a>.</p>
@@ -2504,7 +2516,7 @@
 <li>Q3Url::Q3Url(const <a href="q3url.html" class="compat">Q3Url</a> &amp;, const <a href="qstring.html">QString</a> &amp;, bool) can be simulated by combining the URLs manually (using QString::operator+(), for example).</li>
 <li>Q3Url::setEncodedPathAndQuery(const <a href="qstring.html">QString</a> &amp;) is replaced by <a href="qurl.html#setPath">QUrl::setPath</a>() and <a href="qurl.html#setEncodedQuery">QUrl::setEncodedQuery</a>().</li>
 <li><a href="q3url.html#encodedPathAndQuery">Q3Url::encodedPathAndQuery</a>() is replaced by <a href="qurl.html#pathx">QUrl::path</a>() and <a href="qurl.html#encodedQuery">QUrl::encodedQuery</a>().</li>
-<li><a href="q3url.html#isLocalFile">Q3Url::isLocalFile</a>() can be simulated by checking that <a href="qurl.html#protocol" class="compat">QUrl::protocol</a>() is &quot;file&quot;.</li>
+<li><a href="q3url.html#isLocalFile">Q3Url::isLocalFile</a>() can be simulated by checking that <a href="qurl-qt3.html#protocol" class="compat">QUrl::protocol</a>() is &quot;file&quot;.</li>
 <li>Q3Url::toString(bool, bool) is replaced by QUrl::toString(int), where the <tt>int</tt> parameter specifies a combination of <a href="qurl.html#FormattingOption-enum">formatting options</a>.</li>
 </ul>
 <a name="qurloperator"></a>
@@ -2621,11 +2633,11 @@
 <li>QWidget::setPaletteBackgroundColor(const <a href="qcolor.html">QColor</a> &amp;c)</li>
 <li>QWidget::paletteBackgroundPixmap() const</li>
 <li>QWidget::setPaletteBackgroundPixmap(const <a href="qpixmap.html">QPixmap</a> &amp;p)</li>
-<li><a href="qwidget.html#erase" class="compat">QWidget::erase</a>()</li>
+<li><a href="qwidget-qt3.html#erase" class="compat">QWidget::erase</a>()</li>
 <li>QWidget::erase(const <a href="qrect.html">QRect</a> &amp;r)</li>
 <li>QWidget::setBackgroundOrigin( BackgroundOrigin )</li>
-<li><a href="qwidget.html#BackgroundOrigin-enum" class="compat">QWidget::BackgroundOrigin</a> backgroundOrigin() const</li>
-<li><a href="qwidget.html#backgroundOffset" class="compat">QWidget::backgroundOffset</a>()</li>
+<li><a href="qwidget-qt3.html#BackgroundOrigin-enum" class="compat">QWidget::BackgroundOrigin</a> backgroundOrigin() const</li>
+<li><a href="qwidget-qt3.html#backgroundOffset" class="compat">QWidget::backgroundOffset</a>()</li>
 </ul>
 <p>Sample code on how to do obtain similar behavior from Qt 4, previously handled by some of the above functions can be found in the <a href="http://doc.qt.nokia.com/qwidget-qt3.html">Qt 3 Support Members for QWidget</a> page.</p>
 <p>A widget now receives change events in its <a href="qwidget.html#changeEvent">QWidget::changeEvent</a>() handler. This makes the following virtual change handlers obsolete:</p>
@@ -2668,7 +2680,7 @@
 <li>QWidget::reparent(<a href="qwidget.html">QWidget</a> *parent, WFlags, const <a href="qpoint.html">QPoint</a> &amp;, bool)</li>
 <li>QWidget::resize(int w, int h)</li>
 <li>QWidget::setAcceptDrops(bool on)</li>
-<li><a href="qwidget.html#setActiveWindow" class="compat">QWidget::setActiveWindow</a>()</li>
+<li><a href="qwidget-qt3.html#setActiveWindow" class="compat">QWidget::setActiveWindow</a>()</li>
 <li>QWidget::setAutoMask(bool)</li>
 <li>QWidget::setBackgroundColor(const <a href="qcolor.html">QColor</a> &amp;)</li>
 <li>QWidget::setBackgroundMode(BackgroundMode)</li>
@@ -2737,7 +2749,7 @@
 <p>The <tt>QWorkspace</tt> in Qt 4 class requires explicit adding of MDI windows with <a href="qworkspace.html#addWindow">QWorkspace::addWindow</a>().</p>
 </div>
 <!-- @@@porting4.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="porting.html">Porting Guides</a>]
 [Next: <a href="porting4-virtual-functions.html">Porting to Qt 4 - Virtual Functions</a>]
 </p>

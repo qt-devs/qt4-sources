@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -444,7 +452,7 @@
 <!-- $$$Arrangement$$$LeftToRight$$$TopToBottom -->
 <h3 class="fn"><a name="Arrangement-enum"></a>enum Q3IconView::Arrangement</h3>
 <p>This enum type determines in which direction the items flow when the view runs out of space.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::LeftToRight</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Items which don't fit into the view go further down (you get a vertical scroll bar)</td></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::TopToBottom</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Items which don't fit into the view go further right (you get a horizontal scroll bar)</td></tr>
 </table>
@@ -457,7 +465,7 @@
 <!-- $$$ItemTextPos$$$Bottom$$$Right -->
 <h3 class="fn"><a name="ItemTextPos-enum"></a>enum Q3IconView::ItemTextPos</h3>
 <p>This enum type specifies the position of the item text in relation to the icon.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::Bottom</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The text is drawn below the icon.</td></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::Right</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The text is drawn to the right of the icon.</td></tr>
 </table>
@@ -465,7 +473,7 @@
 <!-- $$$ResizeMode$$$Fixed$$$Adjust -->
 <h3 class="fn"><a name="ResizeMode-enum"></a>enum Q3IconView::ResizeMode</h3>
 <p>This enum type is used to tell <a href="q3iconview.html" class="compat">Q3IconView</a> how it should treat the positions of its icons when the widget is resized. The modes are:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::Fixed</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The icons' positions are not changed.</td></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::Adjust</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The icons' positions are adjusted to be within the new geometry, if possible.</td></tr>
 </table>
@@ -473,7 +481,7 @@
 <!-- $$$SelectionMode$$$Single$$$Multi$$$Extended$$$NoSelection -->
 <h3 class="fn"><a name="SelectionMode-enum"></a>enum Q3IconView::SelectionMode</h3>
 <p>This enumerated type is used by <a href="q3iconview.html" class="compat">Q3IconView</a> to indicate how it reacts to selection by the user. It has four values:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::Single</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">When the user selects an item, any already-selected item becomes unselected and the user cannot unselect the selected item. This means that the user can never clear the selection. (The application programmer can, using <a href="q3iconview.html#clearSelection">Q3IconView::clearSelection</a>().)</td></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::Multi</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">When the user selects an item, e.g&#x2e; by navigating to it with the keyboard arrow keys or by clicking it, the selection status of that item is toggled and the other items are left alone.</td></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::Extended</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">When the user selects an item the selection is cleared and the new item selected. However, if the user presses the Ctrl key when clicking on an item, the clicked item gets toggled and all other items are left untouched. If the user presses the Shift key while clicking on an item, all items between the current item and the clicked item get selected or unselected, depending on the state of the clicked item. Also, multiple items can be selected by dragging the mouse while the left mouse button stays pressed.</td></tr>
@@ -484,7 +492,7 @@
 <!-- $$$StringComparisonMode$$$CaseSensitive$$$BeginsWith$$$EndsWith$$$Contains$$$ExactMatch -->
 <h3 class="fn"><a name="StringComparisonMode-enum"></a>enum Q3IconView::StringComparisonMode</h3>
 <p>This enum type is used to set the string comparison mode when searching for an item. We'll refer to the string being searched as the 'target' string.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::CaseSensitive</tt></td><td class=" topAlign"><tt>0x00001</tt></td><td  class="topAlign">The strings must match case sensitively.</td></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::ExactMatch</tt></td><td class=" topAlign"><tt>0x00010</tt></td><td  class="topAlign">The target and search strings must match exactly.</td></tr>
 <tr><td  class="topAlign"><tt>Q3IconView::BeginsWith</tt></td><td class=" topAlign"><tt>0x00002</tt></td><td  class="topAlign">The target string begins with the search string.</td></tr>
@@ -1036,7 +1044,7 @@
 <p>Sorts and rearranges all the items in the icon view. If <i>ascending</i> is true, the items are sorted in increasing order, otherwise they are sorted in decreasing order.</p>
 <p><a href="q3iconviewitem.html#compare">Q3IconViewItem::compare</a>() is used to compare pairs of items. The sorting is based on the items' keys; these default to the items' text unless specifically set to something else.</p>
 <p>Note that this function sets the sort order to <i>ascending</i>.</p>
-<p>See also <a href="q3iconviewitem.html#keyx">Q3IconViewItem::key</a>(), <a href="q3iconviewitem.html#setKey">Q3IconViewItem::setKey</a>(), <a href="q3iconviewitem.html#compare">Q3IconViewItem::compare</a>(), <a href="q3iconview.html#setSorting">Q3IconView::setSorting</a>(), and <a href="q3iconview.html#sortDirection-prop">Q3IconView::sortDirection</a>().</p>
+<p>See also <a href="q3iconviewitem.html#key">Q3IconViewItem::key</a>(), <a href="q3iconviewitem.html#setKey">Q3IconViewItem::setKey</a>(), <a href="q3iconviewitem.html#compare">Q3IconViewItem::compare</a>(), <a href="q3iconview.html#setSorting">Q3IconView::setSorting</a>(), and <a href="q3iconview.html#sortDirection-prop">Q3IconView::sortDirection</a>().</p>
 <!-- @@@sort -->
 <!-- $$$startDrag[overload1]$$$startDrag -->
 <h3 class="fn"><a name="startDrag"></a>void Q3IconView::startDrag ()<tt> [virtual protected]</tt></h3>

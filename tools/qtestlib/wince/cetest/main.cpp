@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -283,7 +283,7 @@ int main(int argc, char **argv)
         cout << "Error: Can only test executables!" << endl;
         return -1;
     }
-    // Check wether the project is still in debug/release mode after reading
+    // Check whether the project is still in debug/release mode after reading
     // If .pro specifies to be one mode only, we need to accept this
     if (project.isActiveConfig("debug") && !project.isActiveConfig("release")) {
         TestConfiguration::testDebug = true;

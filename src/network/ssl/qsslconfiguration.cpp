@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -485,9 +485,10 @@ void QSslConfiguration::setCiphers(const QList<QSslCipher> &ciphers)
 /*!
   Returns this connection's CA certificate database. The CA certificate
   database is used by the socket during the handshake phase to
-  validate the peer's certificate. It can be moodified prior to the
-  handshake with addCaCertificate(), addCaCertificates(), and
-  setCaCertificates().
+  validate the peer's certificate. It can be modified prior to the
+  handshake with setCaCertificates(), or with \l{QSslSocket}'s
+  \l{QSslSocket::}{addCaCertificate()} and
+  \l{QSslSocket::}{addCaCertificates()}.
 
   \sa setCaCertificates()
 */

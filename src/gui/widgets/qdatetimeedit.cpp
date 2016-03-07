@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -832,11 +832,11 @@ QString QDateTimeEdit::sectionText(Section section) const
   This format is the same as the one used described in QDateTime::toString()
   and QDateTime::fromString()
 
-  Example format strings(assuming that the date is 2nd of July 1969):
+  Example format strings (assuming that the date is 2nd of July 1969):
 
   \table
   \header \i Format \i Result
-  \row \i dd.MM.yyyy    \i 02.07.1969
+  \row \i dd.MM.yyyy \i 02.07.1969
   \row \i MMM d yy \i Jul 2 69
   \row \i MMMM d yy \i July 2 69
   \endtable
@@ -902,7 +902,7 @@ void QDateTimeEdit::setDisplayFormat(const QString &format)
 
 /*!
     \property QDateTimeEdit::calendarPopup
-    \brief the current calender pop-up showing mode.
+    \brief the current calendar pop-up showing mode.
     \since 4.2
 
     The calendar pop-up will be shown upon clicking the arrow button.

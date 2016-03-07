@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -184,7 +192,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> uchar * </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#base">base</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#blank">blank</a></b> ( bool <i>on</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#blit">blit</a></b> ( const QImage &amp; <i>image</i>, const QPoint &amp; <i>topLeft</i>, const QRegion &amp; <i>region</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> ClassId </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#classId">classId</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> ClassId </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#classIdx">classId</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QRgb * </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#clut">clut</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#colorCount">colorCount</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#connect">connect</a></b> ( const QString &amp; <i>displaySpec</i> ) = 0</td></tr>
@@ -199,7 +207,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#initDevice">initDevice</a></b> () = 0</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#isInterlaced">isInterlaced</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#isTransformed">isTransformed</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#linestep">linestep</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#linestepx">linestep</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual QSize </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#mapFromDevice">mapFromDevice</a></b> ( const QSize &amp; <i>size</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual QPoint </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#mapFromDevice-2">mapFromDevice</a></b> ( const QPoint &amp; <i>point</i>, const QSize &amp; <i>screenSize</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual QRect </td><td class="memItemRight bottomAlign"><b><a href="qscreen.html#mapFromDevice-3">mapFromDevice</a></b> ( const QRect &amp; <i>rectangle</i>, const QSize &amp; <i>screenSize</i> ) const</td></tr>
@@ -306,7 +314,7 @@
 <tr class="odd topAlign"><td ><p>Pixmap Alignment</p></td><td ><p>Use the <a href="qscreen.html#pixmapOffsetAlignment">pixmapOffsetAlignment</a>() function to retrieve the value to which the start address of pixmaps held in the graphics card's memory, should be aligned.<p>Use the <a href="qscreen.html#pixmapLinestepAlignment">pixmapLinestepAlignment</a>() to retrieve the value to which the <i>individual scanlines</i> of pixmaps should be aligned.</p>
 </p></td></tr>
 <tr class="even topAlign"><td ><p>Image Display</p></td><td ><p>The <a href="qscreen.html#isInterlaced">isInterlaced</a>() function tells whether the screen is displaying images progressively, and the <a href="qscreen.html#isTransformed">isTransformed</a>() function whether it is rotated. The <a href="qscreen.html#transformOrientation">transformOrientation</a>() function can be reimplemented to return the current rotation.</p></td></tr>
-<tr class="odd topAlign"><td ><p>Scanlines</p></td><td ><p>Use the <a href="qscreen.html#linestep">linestep</a>() function to retrieve the length of each scanline of the framebuffer.</p></td></tr>
+<tr class="odd topAlign"><td ><p>Scanlines</p></td><td ><p>Use the <a href="qscreen.html#linestepx">linestep</a>() function to retrieve the length of each scanline of the framebuffer.</p></td></tr>
 <tr class="even topAlign"><td ><p>Pixel Type</p></td><td ><p>The <a href="qscreen.html#pixelType">pixelType</a>() function returns the screen's pixel storage format as described by the <a href="qscreen.html#PixelType-enum">PixelType</a> enum.</p></td></tr>
 </table>
 <a name="subclassing-and-initial-values"></a>
@@ -334,7 +342,7 @@
 <!-- $$$ClassId$$$LinuxFBClass$$$TransformedClass$$$VNCClass$$$MultiClass$$$VFbClass$$$DirectFBClass$$$SvgalibClass$$$ProxyClass$$$GLClass$$$CustomClass -->
 <h3 class="fn"><a name="ClassId-enum"></a>enum QScreen::ClassId</h3>
 <p>This enum defines the class identifiers for the known screen subclasses.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QScreen::LinuxFBClass</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">QLinuxFBScreen</td></tr>
 <tr><td  class="topAlign"><tt>QScreen::TransformedClass</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">QTransformedScreen</td></tr>
 <tr><td  class="topAlign"><tt>QScreen::VNCClass</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">QVNCScreen</td></tr>
@@ -346,12 +354,12 @@
 <tr><td  class="topAlign"><tt>QScreen::GLClass</tt></td><td class=" topAlign"><tt>8</tt></td><td  class="topAlign">QGLScreen</td></tr>
 <tr><td  class="topAlign"><tt>QScreen::CustomClass</tt></td><td class=" topAlign"><tt>1024</tt></td><td  class="topAlign">Unknown <a href="qscreen.html">QScreen</a> subclass</td></tr>
 </table>
-<p>See also <a href="qscreen.html#classId">classId</a>().</p>
+<p>See also <a href="qscreen.html#classIdx">classId</a>().</p>
 <!-- @@@ClassId -->
 <!-- $$$PixelType$$$NormalPixel$$$BGRPixel -->
 <h3 class="fn"><a name="PixelType-enum"></a>enum QScreen::PixelType</h3>
 <p>This enum describes the pixel storage format of the screen, i.e&#x2e; the order of the red (R), green (G) and blue (B) components of a pixel.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QScreen::NormalPixel</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Red-green-blue (RGB)</td></tr>
 <tr><td  class="topAlign"><tt>QScreen::BGRPixel</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Blue-green-red (BGR)</td></tr>
 </table>
@@ -401,7 +409,7 @@
 <p>See also <a href="qscreen.html#exposeRegion">exposeRegion</a>(), <a href="qscreen.html#solidFill">solidFill</a>(), and <a href="qscreen.html#blank">blank</a>().</p>
 <!-- @@@blit -->
 <!-- $$$classId[overload1]$$$classId -->
-<h3 class="fn"><a name="classId"></a><a href="qscreen.html#ClassId-enum">ClassId</a> QScreen::classId () const</h3>
+<h3 class="fn"><a name="classIdx"></a><a href="qscreen.html#ClassId-enum">ClassId</a> QScreen::classId () const</h3>
 <p>Returns the class identifier for the screen object.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <!-- @@@classId -->
@@ -493,7 +501,7 @@
 <h3 class="fn"><a name="isInterlaced"></a>bool QScreen::isInterlaced () const<tt> [virtual]</tt></h3>
 <p>Returns true if the display is interlaced (i.e&#x2e; is displaying images progressively like a television screen); otherwise returns false.</p>
 <p>If the display is interlaced, the drawing is altered to look better.</p>
-<p>See also <a href="qscreen.html#isTransformed">isTransformed</a>() and <a href="qscreen.html#linestep">linestep</a>().</p>
+<p>See also <a href="qscreen.html#isTransformed">isTransformed</a>() and <a href="qscreen.html#linestepx">linestep</a>().</p>
 <!-- @@@isInterlaced -->
 <!-- $$$isTransformed[overload1]$$$isTransformed -->
 <h3 class="fn"><a name="isTransformed"></a>bool QScreen::isTransformed () const<tt> [virtual]</tt></h3>
@@ -501,7 +509,7 @@
 <p>See also <a href="qscreen.html#transformOrientation">transformOrientation</a>() and <a href="qscreen.html#isInterlaced">isInterlaced</a>().</p>
 <!-- @@@isTransformed -->
 <!-- $$$linestep[overload1]$$$linestep -->
-<h3 class="fn"><a name="linestep"></a>int QScreen::linestep () const</h3>
+<h3 class="fn"><a name="linestepx"></a>int QScreen::linestep () const</h3>
 <p>Returns the length of each scanline of the framebuffer in bytes.</p>
 <p>See also <a href="qscreen.html#isInterlaced">isInterlaced</a>().</p>
 <!-- @@@linestep -->

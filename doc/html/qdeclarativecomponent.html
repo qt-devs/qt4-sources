@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -150,6 +158,7 @@
 <li class="level1"><a href="#public-functions">Public Functions</a></li>
 <li class="level1"><a href="#signals">Signals</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#network-components">Network Components</a></li>
 </ul>
 </div>
 <h1 class="title">QDeclarativeComponent Class Reference</h1>
@@ -236,6 +245,29 @@
  QObject *myObject = component.create();
  QDeclarativeItem *item = qobject_cast&lt;QDeclarativeItem*&gt;(myObject);
  int width = item-&gt;width();  <span class="comment">// width = 200</span></pre>
+<a name="network-components"></a>
+<h3>Network Components</h3>
+<p>If the URL passed to QDeclarativeComponent is a network resource, or if the QML document references a network resource, the QDeclarativeComponent has to fetch the network data before it is able to create objects. In this case, the QDeclarativeComponent will have a <a href="qdeclarativecomponent.html#Status-enum">Loading</a> <a href="qdeclarativecomponent.html#status-prop">status</a>. An application will have to wait until the component is <a href="qdeclarativecomponent.html#Status-enum">Ready</a> before calling <a href="qdeclarativecomponent.html#create">QDeclarativeComponent::create</a>().</p>
+<p>The following example shows how to load a QML file from a network resource. After creating the QDeclarativeComponent, it tests whether the component is loading. If it is, it connects to the <a href="qdeclarativecomponent.html#statusChanged">QDeclarativeComponent::statusChanged</a>() signal and otherwise calls the <tt>continueLoading()</tt> method directly. Note that <a href="qdeclarativecomponent.html#isLoading">QDeclarativeComponent::isLoading</a>() may be false for a network component if the component has been cached and is ready immediately.</p>
+<pre class="highlightedCode brush: cpp"> MyApplication::MyApplication()
+ {
+     <span class="comment">// ...</span>
+     component = new QDeclarativeComponent(engine, QUrl(&quot;http://www.example.com/main.qml&quot;));
+     if (component-&gt;isLoading())
+         QObject::connect(component, SIGNAL(statusChanged(QDeclarativeComponent::Status)),
+                          this, SLOT(continueLoading()));
+     else
+         continueLoading();
+ }
+
+ void MyApplication::continueLoading()
+ {
+     if (component-&gt;isError()) {
+         qWarning() &lt;&lt; component-&gt;errors();
+     } else {
+         QObject *myObject = component-&gt;create();
+     }
+ }</pre>
 </div>
 <p>See also <a href="qtbinding.html">Using QML in C++ Applications</a> and <a href="qml-integration.html">Integrating QML with existing Qt UI code</a>.</p>
 <!-- @@@QDeclarativeComponent -->
@@ -244,7 +276,7 @@
 <!-- $$$Status$$$Null$$$Ready$$$Loading$$$Error -->
 <h3 class="fn"><a name="Status-enum"></a>enum QDeclarativeComponent::Status</h3>
 <p>Specifies the loading status of the <a href="qdeclarativecomponent.html">QDeclarativeComponent</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QDeclarativeComponent::Null</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">This <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> has no data. Call <a href="qdeclarativecomponent.html#loadUrl">loadUrl</a>() or <a href="qdeclarativecomponent.html#setData">setData</a>() to add QML content.</td></tr>
 <tr><td  class="topAlign"><tt>QDeclarativeComponent::Ready</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">This <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> is ready and <a href="qdeclarativecomponent.html#create">create</a>() may be called.</td></tr>
 <tr><td  class="topAlign"><tt>QDeclarativeComponent::Loading</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">This <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> is loading network data.</td></tr>

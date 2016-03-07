@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -304,7 +304,7 @@ QImageScaleInfo* QImageScale::qimageCalcScaleInfo(const QImage &img,
     return(isi);
 }
 
-/* FIXME: NEED to optimise ScaleAARGBA - currently its "ok" but needs work*/
+/* FIXME: NEED to optimize ScaleAARGBA - currently its "ok" but needs work*/
 
 /* scale by area sampling */
 static void qt_qimageScaleAARGBA(QImageScaleInfo *isi, unsigned int *dest,

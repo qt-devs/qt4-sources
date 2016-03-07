@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -374,7 +382,7 @@
 <li>It provides some magical objects like the <a href="qapplication.html#desktop">desktop</a>() and the <a href="qapplication.html#clipboard">clipboard</a>().</li>
 <li>It knows about the application's windows. You can ask which widget is at a certain position using <a href="qapplication.html#widgetAt">widgetAt</a>(), get a list of <a href="qapplication.html#topLevelWidgets">topLevelWidgets</a>() and <a href="qapplication.html#closeAllWindows">closeAllWindows</a>(), etc.</li>
 <li>It manages the application's mouse cursor handling, see <a href="qapplication.html#setOverrideCursor">setOverrideCursor</a>()</li>
-<li>On the X window system, it provides functions to flush and sync the communication stream, see <a href="qapplication.html#flushX" class="compat">flushX</a>() and <a href="qapplication.html#syncX">syncX</a>().</li>
+<li>On the X window system, it provides functions to flush and sync the communication stream, see <a href="qapplication-qt3.html#flushX" class="compat">flushX</a>() and <a href="qapplication.html#syncX">syncX</a>().</li>
 <li>It provides support for sophisticated <a href="session.html">session management</a>. This makes it possible for applications to terminate gracefully when the user logs out, to cancel a shutdown process if termination isn't possible and even to preserve the entire application's state for a future session. See <a href="qapplication.html#isSessionRestored">isSessionRestored</a>(), <a href="qapplication.html#sessionId">sessionId</a>() and <a href="qapplication.html#commitData">commitData</a>() and <a href="qapplication.html#saveState">saveState</a>() for details.</li>
 </ul>
 <p>Since the QApplication object does so much initialization, it <i>must</i> be created before any other objects related to the user interface are created. QApplication also deals with common command line arguments. Hence, it is usually a good idea to create it <i>before</i> any interpretation or modification of <tt>argv</tt> is done in the application itself.</p>
@@ -387,7 +395,7 @@
 <tr class="odd topAlign"><td ><p>Text handling</p></td><td ><p><a href="qcoreapplication.html#installTranslator">installTranslator</a>(), <a href="qcoreapplication.html#removeTranslator">removeTranslator</a>() <a href="qcoreapplication.html#translate">translate</a>().</p></td></tr>
 <tr class="even topAlign"><td ><p>Widgets</p></td><td ><p><a href="qapplication.html#allWidgets">allWidgets</a>(), <a href="qapplication.html#topLevelWidgets">topLevelWidgets</a>(), <a href="qapplication.html#desktop">desktop</a>(), <a href="qapplication.html#activePopupWidget">activePopupWidget</a>(), <a href="qapplication.html#activeModalWidget">activeModalWidget</a>(), <a href="qapplication.html#clipboard">clipboard</a>(), <a href="qapplication.html#focusWidget">focusWidget</a>(), <a href="qapplication.html#activeWindow">activeWindow</a>(), <a href="qapplication.html#widgetAt">widgetAt</a>().</p></td></tr>
 <tr class="odd topAlign"><td ><p>Advanced cursor handling</p></td><td ><p><a href="qapplication.html#overrideCursor">overrideCursor</a>(), <a href="qapplication.html#setOverrideCursor">setOverrideCursor</a>(), <a href="qapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>().</p></td></tr>
-<tr class="even topAlign"><td ><p>X Window System synchronization</p></td><td ><p><a href="qapplication.html#flushX" class="compat">flushX</a>(), <a href="qapplication.html#syncX">syncX</a>().</p></td></tr>
+<tr class="even topAlign"><td ><p>X Window System synchronization</p></td><td ><p><a href="qapplication-qt3.html#flushX" class="compat">flushX</a>(), <a href="qapplication.html#syncX">syncX</a>().</p></td></tr>
 <tr class="odd topAlign"><td ><p>Session management</p></td><td ><p><a href="qapplication.html#isSessionRestored">isSessionRestored</a>(), <a href="qapplication.html#sessionId">sessionId</a>(), <a href="qapplication.html#commitData">commitData</a>(), <a href="qapplication.html#saveState">saveState</a>().</p></td></tr>
 <tr class="even topAlign"><td ><p>Miscellaneous</p></td><td ><p><a href="qapplication.html#closeAllWindows">closeAllWindows</a>(), <a href="qcoreapplication.html#startingUp">startingUp</a>(), <a href="qcoreapplication.html#closingDown">closingDown</a>(), <a href="qapplication.html#type">type</a>().</p></td></tr>
 </table>
@@ -398,7 +406,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$ColorSpec$$$NormalColor$$$CustomColor$$$ManyColor -->
 <h3 class="fn"><a name="ColorSpec-enum"></a>enum QApplication::ColorSpec</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QApplication::NormalColor</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">the default color allocation policy</td></tr>
 <tr><td  class="topAlign"><tt>QApplication::CustomColor</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">the same as NormalColor for X11; allocates colors to a palette on demand under Windows</td></tr>
 <tr><td  class="topAlign"><tt>QApplication::ManyColor</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">the right choice for applications that use thousands of colors</td></tr>
@@ -414,7 +422,7 @@
 <!-- @@@QS60MainApplicationFactory -->
 <!-- $$$Type$$$Tty$$$GuiClient$$$GuiServer -->
 <h3 class="fn"><a name="Type-enum"></a>enum QApplication::Type</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QApplication::Tty</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">a console application</td></tr>
 <tr><td  class="topAlign"><tt>QApplication::GuiClient</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">a GUI client application</td></tr>
 <tr><td  class="topAlign"><tt>QApplication::GuiServer</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">a GUI server application (for Qt for Embedded Linux)</td></tr>
@@ -631,6 +639,9 @@
 <li>-im, sets the input method server (equivalent to setting the XMODIFIERS environment variable)</li>
 <li>-inputstyle, defines how the input is inserted into the given widget, e.g&#x2e;, <tt>onTheSpot</tt> makes the input appear directly in the widget, while <tt>overTheSpot</tt> makes the input appear in a box floating over the widget and is not inserted until the editing is done.</li>
 </ul>
+<a name="x11-notes"></a>
+<h4>X11 Notes</h4>
+<p>If <a href="qapplication.html">QApplication</a> fails to open the X11 display, it will terminate the process. This behavior is consistent with most X11 applications.</p>
 <p>See also <a href="qcoreapplication.html#arguments">arguments</a>().</p>
 <!-- @@@QApplication -->
 <!-- $$$QApplication$$$QApplicationint&char**bool -->

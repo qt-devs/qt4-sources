@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -197,40 +207,40 @@
 <!-- @@@SpringAnimation -->
 <h2>Property Documentation</h2>
 <!-- $$$damping -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="damping-prop"></a>damping : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the spring damping value.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="damping-prop"></a>damping : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the spring damping value.</p>
 <p>This value describes how quickly the spring-like motion comes to rest. The default value is 0.</p>
 <p>The useful value range is 0 - 1.0&#x2e; The lower the value, the faster it comes to rest.</p>
 </div></div><!-- @@@damping -->
 <br/>
 <!-- $$$epsilon -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="epsilon-prop"></a>epsilon : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the spring epsilon.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="epsilon-prop"></a>epsilon : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the spring epsilon.</p>
 <p>The epsilon is the rate and amount of change in the value which is close enough to 0 to be considered equal to zero. This will depend on the usage of the value. For pixel positions, 0.25 would suffice. For scale, 0.005 will suffice.</p>
 <p>The default is 0.01. Tuning this value can provide small performance improvements.</p>
 </div></div><!-- @@@epsilon -->
 <br/>
 <!-- $$$mass -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="mass-prop"></a>mass : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the &quot;mass&quot; of the property being moved.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="mass-prop"></a>mass : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the &quot;mass&quot; of the property being moved.</p>
 <p>The value is 1.0 by default.</p>
 <p>A greater mass causes slower movement and a greater spring-like motion when an item comes to rest.</p>
 </div></div><!-- @@@mass -->
 <br/>
 <!-- $$$modulus -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="modulus-prop"></a>modulus : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the modulus value. The default value is 0.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="modulus-prop"></a>modulus : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the modulus value. The default value is 0.</p>
 <p>Setting a <i>modulus</i> forces the target value to &quot;wrap around&quot; at the modulus. For example, setting the modulus to 360 will cause a value of 370 to wrap around to 10.</p>
 </div></div><!-- @@@modulus -->
 <br/>
 <!-- $$$spring -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="spring-prop"></a>spring : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property describes how strongly the target is pulled towards the source. The default value is 0 (that is, the spring-like motion is disabled).</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="spring-prop"></a>spring : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property describes how strongly the target is pulled towards the source. The default value is 0 (that is, the spring-like motion is disabled).</p>
 <p>The useful value range is 0 - 5.0&#x2e;</p>
 <p>When this property is set and the <a href="qml-springanimation.html#velocity-prop">velocity</a> value is greater than 0, the <a href="qml-springanimation.html#velocity-prop">velocity</a> limits the maximum speed.</p>
 </div></div><!-- @@@spring -->
 <br/>
 <!-- $$$velocity -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="velocity-prop"></a>velocity : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the maximum velocity allowed when tracking the source.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="velocity-prop"></a>velocity : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the maximum velocity allowed when tracking the source.</p>
 <p>The default value is 0 (no maximum velocity).</p>
 </div></div><!-- @@@velocity -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

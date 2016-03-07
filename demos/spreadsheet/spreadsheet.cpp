@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -511,7 +511,7 @@ void SpreadSheet::setupContents()
     // column 2
     table->setItem(0, 2, new SpreadSheetItem("Price"));
     table->item(0, 2)->setBackgroundColor(titleBackground);
-    table->item(0, 2)->setToolTip("This collumn shows the price of the purchase");
+    table->item(0, 2)->setToolTip("This column shows the price of the purchase");
     table->item(0, 2)->setFont(titleFont);
 
     table->setItem(1, 2, new SpreadSheetItem("150"));

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -49,7 +49,7 @@ QT_BEGIN_NAMESPACE
 QPixmapData *QWSGraphicsSystem::createPixmapData(QPixmapData::PixelType type) const
 {
     if (screen->pixmapDataFactory())
-        return screen->pixmapDataFactory()->create(type); //### For 4.4 compatability
+        return screen->pixmapDataFactory()->create(type); //### For 4.4 compatibility
     else
         return new QRasterPixmapData(type);
 }

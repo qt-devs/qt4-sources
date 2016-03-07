@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -108,7 +108,7 @@ template <typename T>
 {
     typedef HexString<T> type;
     enum { ExactSize = true };
-    static int size(const HexString<T> &str) { return sizeof(str.val) * 2; }
+    static int size(const HexString<T> &) { return sizeof(T) * 2; }
     static inline void appendTo(const HexString<T> &str, QChar *&out) { str.write(out); }
 };
 

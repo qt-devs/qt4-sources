@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -140,9 +140,9 @@ void QDBusConnectionManager::setConnection(const QString &name, QDBusConnectionP
     \fn QDBusConnection &QDBusConnection::sessionBus()
     \relates QDBusConnection
 
-    Returns a QDBusConnection object opened with the session bus. The object reference returned
-    by this function is valid until the QCoreApplication's destructor is run, when the
-    connection will be closed and the object, deleted.
+    Returns a QDBusConnection object opened with the session bus. The object
+    reference returned by this function is valid until the application terminates,
+    at which point the connection will be closed and the object deleted.
 */
 /*!
     \fn QDBusConnection &QDBusConnection::systemBus()

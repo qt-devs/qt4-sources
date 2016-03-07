@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Chapter 4: Using Custom Property Types</h1>
 <span class="subtitle"></span>
 <!-- $$$declarative/tutorials/extending/chapter4-customPropertyTypes-description -->
@@ -154,43 +162,33 @@
 <li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-main-cpp.html">declarative/tutorials/extending/chapter4-customPropertyTypes/main.cpp</a></li>
 <li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-chapter4-custompropertytypes-pro.html">declarative/tutorials/extending/chapter4-customPropertyTypes/chapter4-customPropertyTypes.pro</a></li>
 </ul>
-<p>The <tt>PieChart</tt> type currently has a string-type property and a color-type property. It could have many other types of properties. For example, it could have an enum-type property to store a display mode for each chart:</p>
+<p>The <tt>PieChart</tt> type currently has a string-type property and a color-type property. It could have many other types of properties. For example, it could have an int-type property to store an identifier for each chart:</p>
 <pre class="highlightedCode brush: cpp"> // C++
  class PieChart : public QDeclarativeItem
  {
-     Q_ENUMS(DisplayMode)
-     Q_PROPERTY(DisplayMode displayMode READ displayMode WRITE setDisplayMode)
+     Q_PROPERTY(int chartId READ chartId WRITE setChartId NOTIFY chartIdChanged)
      ...
 
  public:
-     enum DisplayMode {
-         MultiLevel,
-         Exploded,
-         ThreeDimensional
-     };
-
-     void setDisplayMode(DisplayMode mode);
-     DisplayMode displayMode() const;
+     void setChartId(int chartId);
+     int chartId() const;
      ...
+
+ signals:
+     void chartIdChanged();
  };
 
 <span class="comment"> // QML</span>
  PieChart {
      ...
-     displayMode: PieChart.Exploded
+     chartId: 100
  }</pre>
-<p>We can also use various other property types. QML has built-in support for the following types:</p>
+<p>We can also use various other property types. QML has built-in support for the types listed in the <a href="qml-extending-types.html#adding-properties">Adding Properties</a> documentation, which includes the following:</p>
 <ul>
-<li>bool</li>
-<li>unsigned int, int</li>
-<li>float, double, qreal</li>
-<li><a href="qstring.html">QString</a></li>
-<li><a href="qurl.html">QUrl</a></li>
-<li><a href="qcolor.html">QColor</a></li>
+<li>bool, unsigned int, int, float, double, qreal</li>
+<li><a href="qstring.html">QString</a>, <a href="qurl.html">QUrl</a>, <a href="qcolor.html">QColor</a></li>
 <li><a href="qdate.html">QDate</a>, <a href="qtime.html">QTime</a>, <a href="qdatetime.html">QDateTime</a></li>
-<li><a href="qpoint.html">QPoint</a>, <a href="qpointf.html">QPointF</a></li>
-<li><a href="qsize.html">QSize</a>, <a href="qsizef.html">QSizeF</a></li>
-<li><a href="qrect.html">QRect</a>, <a href="qrectf.html">QRectF</a></li>
+<li><a href="qpoint.html">QPoint</a>, <a href="qpointf.html">QPointF</a>, <a href="qsize.html">QSize</a>, <a href="qsizef.html">QSizeF</a>, <a href="qrect.html">QRect</a>, <a href="qrectf.html">QRectF</a></li>
 <li><a href="qvariant.html">QVariant</a></li>
 </ul>
 <p>If we want to create a property whose type is not supported by QML by default, we need to register the type with QML.</p>

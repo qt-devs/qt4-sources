@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -56,7 +56,6 @@
 
 #include <QDebug>
 #include <QPen>
-#include <QFile>
 #include <QEvent>
 #include <QGraphicsSceneMouseEvent>
 #include <QtCore/qnumeric.h>
@@ -422,58 +421,28 @@ void QDeclarativeItemKeyFilter::componentComplete()
     \since 4.7
     \brief The KeyNavigation attached property supports key navigation by arrow keys.
 
-    It is common in key-based UIs to use arrow keys to navigate
-    between focused items.  The KeyNavigation property provides a
-    convenient way of specifying which item will gain focus
-    when an arrow key is pressed.  The following example provides
-    key navigation for a 2x2 grid of items.
+    Key-based user interfaces commonly allow the use of arrow keys to navigate between
+    focusable items.  The KeyNavigation attached property enables this behavior by providing a
+    convenient way to specify the item that should gain focus when an arrow or tab key is pressed.
 
-    \code
-    Grid {
-        columns: 2
-        width: 100; height: 100
-        Rectangle {
-            id: item1
-            focus: true
-            width: 50; height: 50
-            color: focus ? "red" : "lightgray"
-            KeyNavigation.right: item2
-            KeyNavigation.down: item3
-        }
-        Rectangle {
-            id: item2
-            width: 50; height: 50
-            color: focus ? "red" : "lightgray"
-            KeyNavigation.left: item1
-            KeyNavigation.down: item4
-        }
-        Rectangle {
-            id: item3
-            width: 50; height: 50
-            color: focus ? "red" : "lightgray"
-            KeyNavigation.right: item4
-            KeyNavigation.up: item1
-        }
-        Rectangle {
-            id: item4
-            width: 50; height: 50
-            color: focus ? "red" : "lightgray"
-            KeyNavigation.left: item3
-            KeyNavigation.up: item2
-        }
-    }
-    \endcode
+    The following example provides key navigation for a 2x2 grid of items:
 
-    By default KeyNavigation receives key events after the item it is attached to.
-    If the item accepts an arrow key event, the KeyNavigation
-    attached property will not receive an event for that key.  Setting the
-    \l priority property to KeyNavigation.BeforeItem allows handling
-    of the key events before normal item processing.
+    \snippet doc/src/snippets/declarative/keynavigation.qml 0
 
-    If an item has been set for a direction and the KeyNavigation
-    attached property receives the corresponding
-    key press and release events, the events will be accepted by
-    KeyNavigation and will not propagate any further.
+    The top-left item initially receives focus by setting \l {Item::}{focus} to
+    \c true. When an arrow key is pressed, the focus will move to the
+    appropriate item, as defined by the value that has been set for
+    the KeyNavigation \l left, \l right, \l up or \l down properties.
+
+    Note that if a KeyNavigation attached property receives the key press and release
+    events for a requested arrow or tab key, the event is accepted and does not
+    propagate any further.
+
+    By default, KeyNavigation receives key events after the item to which it is attached.
+    If the item accepts the key event, the KeyNavigation attached property will not
+    receive an event for that key.  Setting the \l priority property to
+    \c KeyNavigation.BeforeItem allows the event to be used for key navigation
+    before the item, rather than after.
 
     \sa {Keys}{Keys attached property}
 */
@@ -485,8 +454,16 @@ void QDeclarativeItemKeyFilter::componentComplete()
     \qmlproperty Item KeyNavigation::down
 
     These properties hold the item to assign focus to
-    when Key_Left, Key_Right, Key_Up or Key_Down are
+    when the left, right, up or down cursor keys are
     pressed.
+*/
+
+/*!
+    \qmlproperty Item KeyNavigation::tab
+    \qmlproperty Item KeyNavigation::backtab
+
+    These properties hold the item to assign focus to
+    when the Tab key or Shift+Tab key combination (Backtab) are pressed.
 */
 
 QDeclarativeKeyNavigationAttached::QDeclarativeKeyNavigationAttached(QObject *parent)
@@ -600,7 +577,7 @@ void QDeclarativeKeyNavigationAttached::setBacktab(QDeclarativeItem *i)
 
     \list
     \o KeyNavigation.BeforeItem - process the key events before normal
-    item key processing.  If the event is accepted it will not
+    item key processing.  If the event is used for key navigation, it will be accepted and will not
     be passed on to the item.
     \o KeyNavigation.AfterItem (default) - process the key events after normal item key
     handling.  If the item accepts the key event it will not be
@@ -729,41 +706,39 @@ void QDeclarativeKeyNavigationAttached::keyReleased(QKeyEvent *event, bool post)
     \since 4.7
     \brief The Keys attached property provides key handling to Items.
 
-    All visual primitives support key handling via the \e Keys
-    attached property.  Keys can be handled via the \e onPressed
-    and \e onReleased signal properties.
+    All visual primitives support key handling via the Keys
+    attached property.  Keys can be handled via the onPressed
+    and onReleased signal properties.
 
     The signal properties have a \l KeyEvent parameter, named
     \e event which contains details of the event.  If a key is
     handled \e event.accepted should be set to true to prevent the
     event from propagating up the item hierarchy.
 
-    \code
-    Item {
-        focus: true
-        Keys.onPressed: {
-            if (event.key == Qt.Key_Left) {
-                console.log("move left");
-                event.accepted = true;
-            }
-        }
-    }
-    \endcode
+    \section1 Example Usage
+
+    The following example shows how the general onPressed handler can
+    be used to test for a certain key; in this case, the left cursor
+    key:
+
+    \snippet doc/src/snippets/declarative/keys/keys-pressed.qml key item
 
     Some keys may alternatively be handled via specific signal properties,
     for example \e onSelectPressed.  These handlers automatically set
     \e event.accepted to true.
 
-    \code
-    Item {
-        focus: true
-        Keys.onLeftPressed: console.log("move left")
-    }
-    \endcode
+    \snippet doc/src/snippets/declarative/keys/keys-handler.qml key item
 
-    See \l {Qt::Key}{Qt.Key} for the list of keyboard codes.
+    See \l{Qt::Key}{Qt.Key} for the list of keyboard codes.
 
-    If priority is Keys.BeforeItem (default) the order of key event processing is:
+    \section1 Key Handling Priorities
+
+    The Keys attached property can be configured to handle key events
+    before or after the item it is attached to. This makes it possible
+    to intercept events in order to override an item's default behavior,
+    or act as a fallback for keys not handled by the item.
+
+    If \l priority is Keys.BeforeItem (default) the order of key event processing is:
 
     \list 1
     \o Items specified in \c forwardTo
@@ -774,6 +749,7 @@ void QDeclarativeKeyNavigationAttached::keyReleased(QKeyEvent *event, bool post)
     \endlist
 
     If priority is Keys.AfterItem the order of key event processing is:
+
     \list 1
     \o Item specific key handling, e.g. TextInput key handling
     \o Items specified in \c forwardTo
@@ -940,6 +916,20 @@ void QDeclarativeKeyNavigationAttached::keyReleased(QKeyEvent *event, bool post)
 
     This handler is called when the Down arrow has been pressed. The \a event
     parameter provides information about the event.
+*/
+
+/*!
+    \qmlsignal Keys::onTabPressed(KeyEvent event)
+
+    This handler is called when the Tab key has been pressed. The \a event
+    parameter provides information about the event.
+*/
+
+/*!
+    \qmlsignal Keys::onBacktabPressed(KeyEvent event)
+
+    This handler is called when the Shift+Tab key combination (Backtab) has
+    been pressed. The \a event parameter provides information about the event.
 */
 
 /*!
@@ -1181,7 +1171,7 @@ void QDeclarativeKeysAttached::keyPressed(QKeyEvent *event, bool post)
         d->inPress = true;
         for (int ii = 0; ii < d->targets.count(); ++ii) {
             QGraphicsItem *i = d->finalFocusProxy(d->targets.at(ii));
-            if (i) {
+            if (i && i->isVisible()) {
                 d->item->scene()->sendEvent(i, event);
                 if (event->isAccepted()) {
                     d->inPress = false;
@@ -1223,7 +1213,7 @@ void QDeclarativeKeysAttached::keyReleased(QKeyEvent *event, bool post)
         d->inRelease = true;
         for (int ii = 0; ii < d->targets.count(); ++ii) {
             QGraphicsItem *i = d->finalFocusProxy(d->targets.at(ii));
-            if (i) {
+            if (i && i->isVisible()) {
                 d->item->scene()->sendEvent(i, event);
                 if (event->isAccepted()) {
                     d->inRelease = false;
@@ -1248,7 +1238,7 @@ void QDeclarativeKeysAttached::inputMethodEvent(QInputMethodEvent *event, bool p
         d->inIM = true;
         for (int ii = 0; ii < d->targets.count(); ++ii) {
             QGraphicsItem *i = d->finalFocusProxy(d->targets.at(ii));
-            if (i && (i->flags() & QGraphicsItem::ItemAcceptsInputMethod)) {
+            if (i && i->isVisible() && (i->flags() & QGraphicsItem::ItemAcceptsInputMethod)) {
                 d->item->scene()->sendEvent(i, event);
                 if (event->isAccepted()) {
                     d->imeItem = i;
@@ -1276,7 +1266,7 @@ QVariant QDeclarativeKeysAttached::inputMethodQuery(Qt::InputMethodQuery query) 
     if (d->item) {
         for (int ii = 0; ii < d->targets.count(); ++ii) {
                 QGraphicsItem *i = d->finalFocusProxy(d->targets.at(ii));
-            if (i && (i->flags() & QGraphicsItem::ItemAcceptsInputMethod) && i == d->imeItem) { //### how robust is i == d->imeItem check?
+            if (i && i->isVisible() && (i->flags() & QGraphicsItem::ItemAcceptsInputMethod) && i == d->imeItem) { //### how robust is i == d->imeItem check?
                 QVariant v = static_cast<QDeclarativeItemAccessor *>(i)->doInputMethodQuery(query);
                 if (v.userType() == QVariant::RectF)
                     v = d->item->mapRectFromItem(i, v.toRectF());  //### cost?
@@ -1343,23 +1333,6 @@ QDeclarativeKeysAttached *QDeclarativeKeysAttached::qmlAttachedProperties(QObjec
     }
     \endqml
 
-    \section1 Identity
-
-    Each item has an "id" - the identifier of the Item.
-
-    The identifier can be used in bindings and other expressions to
-    refer to the item. For example:
-
-    \qml
-    Text { id: myText; ... }
-    Text { text: myText.text }
-    \endqml
-
-    The identifier is available throughout to the \l {components}{component}
-    where it is declared.  The identifier must be unique in the component.
-
-    The id should not be thought of as a "property" - it makes no sense
-    to write \c myText.id, for example.
 
     \section1 Key Handling
 
@@ -1386,17 +1359,6 @@ QDeclarativeKeysAttached *QDeclarativeKeysAttached::qmlAttachedProperties(QObjec
     \endqml
 
     See the \l {Keys}{Keys} attached property for detailed documentation.
-
-    \section1 Property Change Signals
-
-    Most properties on Item and Item derivatives have a signal
-    emitted when they change. By convention, the signals are
-    named <propertyName>Changed, e.g. xChanged will be emitted when an item's
-    x property changes. Note that these also have signal handers e.g.
-    the onXChanged signal handler will be called when an item's x property
-    changes. For many properties in Item or Item derivatives this can be used
-    to add a touch of imperative logic to your application (when absolutely
-    necessary).
 */
 
 /*!
@@ -1756,8 +1718,8 @@ void QDeclarativeItemPrivate::parentProperty(QObject *o, void *rv, QDeclarativeN
     \qmlproperty list<Object> Item::data
     \default
 
-    The data property is allows you to freely mix visual children and resources
-    of an item.  If you assign a visual item to the data list it becomes
+    The data property allows you to freely mix visual children and resources
+    in an item.  If you assign a visual item to the data list it becomes
     a child and if you assign any other object type, it is added as a resource.
 
     So you can write:
@@ -1841,9 +1803,9 @@ void QDeclarativeItem::setClip(bool c)
 /*!
   \qmlproperty real Item::z
 
-  Sets the stacking order of the item.  By default the stacking order is 0.
+  Sets the stacking order of sibling items.  By default the stacking order is 0.
 
-  Items with a higher stacking value are drawn on top of items with a
+  Items with a higher stacking value are drawn on top of siblings with a
   lower stacking order.  Items with the same stacking value are drawn
   bottom up in the order they appear.  Items with a negative stacking
   value are drawn under their parent's content.
@@ -1957,12 +1919,8 @@ void QDeclarativeItem::geometryChanged(const QRectF &newGeometry,
             change.listener->itemGeometryChanged(this, newGeometry, oldGeometry);
     }
 
-    if (newGeometry.x() != oldGeometry.x())
-        emit xChanged();
     if (newGeometry.width() != oldGeometry.width())
         emit widthChanged();
-    if (newGeometry.y() != oldGeometry.y())
-        emit yChanged();
     if (newGeometry.height() != oldGeometry.height())
         emit heightChanged();
 }
@@ -2148,6 +2106,8 @@ QDeclarativeAnchorLine QDeclarativeItemPrivate::baseline() const
 
   Margins apply to top, bottom, left, right, and fill anchors.
   The \c anchors.margins property can be used to set all of the various margins at once, to the same value.
+  Note that margins are anchor-specific and are not applied if an item does not
+  use anchors.
 
   Offsets apply for horizontal center, vertical center, and baseline anchors.
 

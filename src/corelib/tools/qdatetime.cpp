@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -1630,6 +1630,7 @@ QString QTime::toString(Qt::DateFormat format) const
     \endtable
 
     If the datetime is invalid, an empty string will be returned.
+    If \a format is empty, the default format "hh:mm:ss" is used.
 
     \sa QDate::toString() QDateTime::toString()
 */

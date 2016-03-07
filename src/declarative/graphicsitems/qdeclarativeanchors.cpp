@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -272,7 +272,7 @@ void QDeclarativeAnchorsPrivate::addDepend(QGraphicsObject *item)
     } else if(itemPrivate->isWidget) {
         Q_Q(QDeclarativeAnchors);
         QGraphicsWidget *widget = static_cast<QGraphicsWidget *>(item);
-        QObject::connect(widget, SIGNAL(destroyed(QObject *)), q, SLOT(_q_widgetDestroyed(QObject *)));
+        QObject::connect(widget, SIGNAL(destroyed(QObject*)), q, SLOT(_q_widgetDestroyed(QObject*)));
         QObject::connect(widget, SIGNAL(geometryChanged()), q, SLOT(_q_widgetGeometryChanged()));
     }
 }
@@ -289,7 +289,7 @@ void QDeclarativeAnchorsPrivate::remDepend(QGraphicsObject *item)
     } else if(itemPrivate->isWidget) {
         Q_Q(QDeclarativeAnchors);
         QGraphicsWidget *widget = static_cast<QGraphicsWidget *>(item);
-        QObject::disconnect(widget, SIGNAL(destroyed(QObject *)), q, SLOT(_q_widgetDestroyed(QObject *)));
+        QObject::disconnect(widget, SIGNAL(destroyed(QObject*)), q, SLOT(_q_widgetDestroyed(QObject*)));
         QObject::disconnect(widget, SIGNAL(geometryChanged()), q, SLOT(_q_widgetGeometryChanged()));
     }
 }

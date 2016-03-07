@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -178,15 +186,15 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-not-eq-58">operator!=</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-50">operator*</a></b> ( const QPoint &amp; <i>point</i>, qreal <i>factor</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-not-eq-55">operator!=</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-44">operator*</a></b> ( const QPoint &amp; <i>point</i>, qreal <i>factor</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-52">operator*</a></b> ( qreal <i>factor</i>, const QPoint &amp; <i>point</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2b-35">operator+</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator--15">operator-</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator--19">operator-</a></b> ( const QPoint &amp; <i>point</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2f-9">operator/</a></b> ( const QPoint &amp; <i>point</i>, qreal <i>divisor</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-lt-lt-168">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QPoint &amp; <i>point</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-eq-eq-78">operator==</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2b-34">operator+</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator--11">operator-</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator--18">operator-</a></b> ( const QPoint &amp; <i>point</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2f-8">operator/</a></b> ( const QPoint &amp; <i>point</i>, qreal <i>divisor</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-lt-lt-167">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QPoint &amp; <i>point</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-eq-eq-81">operator==</a></b> ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-gt-gt-87">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QPoint &amp; <i>point</i> )</td></tr>
 </table>
 <a name="details"></a>
@@ -310,11 +318,11 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator!=$$$operator!=constQPoint&constQPoint& -->
-<h3 class="fn"><a name="operator-not-eq-58"></a>bool operator!= ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-55"></a>bool operator!= ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
 <p>Returns true if <i>p1</i> and <i>p2</i> are not equal; otherwise returns false.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator*$$$operator*constQPoint&qreal -->
-<h3 class="fn"><a name="operator-2a-50"></a>const QPoint operator* ( const QPoint &amp; <i>point</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>factor</i> )</h3>
+<h3 class="fn"><a name="operator-2a-44"></a>const QPoint operator* ( const QPoint &amp; <i>point</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>factor</i> )</h3>
 <p>Returns a copy of the given <i>point</i> multiplied by the given <i>factor</i>.</p>
 <p>Note that the result is rounded to the nearest integer as points are held as integers. Use <a href="qpointf.html">QPointF</a> for floating point accuracy.</p>
 <p>See also <a href="qpoint.html#operator-2a-eq">QPoint::operator*=</a>().</p>
@@ -325,34 +333,34 @@
 <p>Returns a copy of the given <i>point</i> multiplied by the given <i>factor</i>.</p>
 <!-- @@@operator* -->
 <!-- $$$operator+$$$operator+constQPoint&constQPoint& -->
-<h3 class="fn"><a name="operator-2b-35"></a>const QPoint operator+ ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
+<h3 class="fn"><a name="operator-2b-34"></a>const QPoint operator+ ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
 <p>Returns a <a href="qpoint.html">QPoint</a> object that is the sum of the given points, <i>p1</i> and <i>p2</i>; each component is added separately.</p>
 <p>See also <a href="qpoint.html#operator-2b-eq">QPoint::operator+=</a>().</p>
 <!-- @@@operator+ -->
 <!-- $$$operator-$$$operator-constQPoint&constQPoint& -->
-<h3 class="fn"><a name="operator--15"></a>const QPoint operator- ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
+<h3 class="fn"><a name="operator--11"></a>const QPoint operator- ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
 <p>Returns a <a href="qpoint.html">QPoint</a> object that is formed by subtracting <i>p2</i> from <i>p1</i>; each component is subtracted separately.</p>
 <p>See also <a href="qpoint.html#operator--eq">QPoint::operator-=</a>().</p>
 <!-- @@@operator- -->
 <!-- $$$operator-$$$operator-constQPoint& -->
-<h3 class="fn"><a name="operator--19"></a>const QPoint operator- ( const QPoint &amp; <i>point</i> )</h3>
+<h3 class="fn"><a name="operator--18"></a>const QPoint operator- ( const QPoint &amp; <i>point</i> )</h3>
 <p>This is an overloaded function.</p>
 <p>Returns a <a href="qpoint.html">QPoint</a> object that is formed by changing the sign of both components of the given <i>point</i>.</p>
 <p>Equivalent to <tt>QPoint(0,0) - point</tt>.</p>
 <!-- @@@operator- -->
 <!-- $$$operator/$$$operator/constQPoint&qreal -->
-<h3 class="fn"><a name="operator-2f-9"></a>const QPoint operator/ ( const QPoint &amp; <i>point</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>divisor</i> )</h3>
+<h3 class="fn"><a name="operator-2f-8"></a>const QPoint operator/ ( const QPoint &amp; <i>point</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>divisor</i> )</h3>
 <p>Returns the <a href="qpoint.html">QPoint</a> formed by dividing both components of the given <i>point</i> by the given <i>divisor</i>.</p>
 <p>Note that the result is rounded to the nearest integer as points are held as integers. Use <a href="qpointf.html">QPointF</a> for floating point accuracy.</p>
 <p>See also <a href="qpoint.html#operator-2f-eq">QPoint::operator/=</a>().</p>
 <!-- @@@operator/ -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQPoint& -->
-<h3 class="fn"><a name="operator-lt-lt-168"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QPoint &amp; <i>point</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-167"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QPoint &amp; <i>point</i> )</h3>
 <p>Writes the given <i>point</i> to the given <i>stream</i> and returns a reference to the stream.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator==$$$operator==constQPoint&constQPoint& -->
-<h3 class="fn"><a name="operator-eq-eq-78"></a>bool operator== ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-81"></a>bool operator== ( const QPoint &amp; <i>p1</i>, const QPoint &amp; <i>p2</i> )</h3>
 <p>Returns true if <i>p1</i> and <i>p2</i> are equal; otherwise returns false.</p>
 <!-- @@@operator== -->
 <!-- $$$operator>>$$$operator>>QDataStream&QPoint& -->

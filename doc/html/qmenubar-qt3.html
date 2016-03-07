@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,62 +149,62 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QMenuBar</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qmenubar.html">QMenuBar class reference</a></li></ul></p>
 <h2>Public Types</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#Separator-enum">Separator</a></b> { Never, InWindowsStyle }</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#Separator-enum">Separator</a></b> { Never, InWindowsStyle }</td></tr>
 </table>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#QMenuBar-2">QMenuBar</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QKeySequence </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#accel">accel</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#activateItemAt">activateItemAt</a></b> ( int <i>index</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#autoGeometry">autoGeometry</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#changeItem">changeItem</a></b> ( int <i>id</i>, const QString &amp; <i>text</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#changeItem-2">changeItem</a></b> ( int <i>id</i>, const QPixmap &amp; <i>pixmap</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#changeItem-3">changeItem</a></b> ( int <i>id</i>, const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#connectItem">connectItem</a></b> ( int <i>id</i>, const QObject * <i>receiver</i>, const char * <i>member</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#count">count</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#disconnectItem">disconnectItem</a></b> ( int <i>id</i>, const QObject * <i>receiver</i>, const char * <i>member</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QMenuItem * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#findItem">findItem</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#frameWidth">frameWidth</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QIcon </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#iconSet">iconSet</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#idAt">idAt</a></b> ( int <i>index</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#indexOf">indexOf</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem">insertItem</a></b> ( const QString &amp; <i>text</i>, const QObject * <i>receiver</i>, const char * <i>member</i>, const QKeySequence &amp; <i>shortcut</i> = 0, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-2">insertItem</a></b> ( const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i>, const QObject * <i>receiver</i>, const char * <i>member</i>, const QKeySequence &amp; <i>shortcut</i> = 0, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-3">insertItem</a></b> ( const QPixmap &amp; <i>pixmap</i>, const QObject * <i>receiver</i>, const char * <i>member</i>, const QKeySequence &amp; <i>shortcut</i> = 0, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-4">insertItem</a></b> ( const QString &amp; <i>text</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-5">insertItem</a></b> ( const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-6">insertItem</a></b> ( const QString &amp; <i>text</i>, QMenu * <i>popup</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-7">insertItem</a></b> ( const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i>, QMenu * <i>popup</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-8">insertItem</a></b> ( const QPixmap &amp; <i>pixmap</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertItem-9">insertItem</a></b> ( const QPixmap &amp; <i>pixmap</i>, QMenu * <i>popup</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#insertSeparator-2">insertSeparator</a></b> ( int <i>index</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#isItemActive">isItemActive</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#isItemChecked">isItemChecked</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#isItemEnabled">isItemEnabled</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#isItemVisible">isItemVisible</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#itemParameter">itemParameter</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#margin">margin</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPixmap </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#pixmap">pixmap</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#removeItem">removeItem</a></b> ( int <i>id</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#removeItemAt">removeItemAt</a></b> ( int <i>index</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> Separator </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#separator">separator</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setAccel">setAccel</a></b> ( const QKeySequence &amp; <i>key</i>, int <i>id</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setAutoGeometry">setAutoGeometry</a></b> ( bool <i>b</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setItemChecked">setItemChecked</a></b> ( int <i>id</i>, bool <i>check</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setItemEnabled">setItemEnabled</a></b> ( int <i>id</i>, bool <i>enable</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setItemParameter">setItemParameter</a></b> ( int <i>id</i>, int <i>param</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setItemVisible">setItemVisible</a></b> ( int <i>id</i>, bool <i>visible</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setMargin">setMargin</a></b> ( int <i>margin</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setSeparator">setSeparator</a></b> ( Separator <i>sep</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#setWhatsThis">setWhatsThis</a></b> ( int <i>id</i>, const QString &amp; <i>w</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#text">text</a></b> ( int <i>id</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#whatsThis">whatsThis</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#QMenuBar-2">QMenuBar</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QKeySequence </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#accel">accel</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#activateItemAt">activateItemAt</a></b> ( int <i>index</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#autoGeometry">autoGeometry</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#changeItem">changeItem</a></b> ( int <i>id</i>, const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#changeItem-2">changeItem</a></b> ( int <i>id</i>, const QPixmap &amp; <i>pixmap</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#changeItem-3">changeItem</a></b> ( int <i>id</i>, const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#connectItem">connectItem</a></b> ( int <i>id</i>, const QObject * <i>receiver</i>, const char * <i>member</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#count">count</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#disconnectItem">disconnectItem</a></b> ( int <i>id</i>, const QObject * <i>receiver</i>, const char * <i>member</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QMenuItem * </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#findItem">findItem</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#frameWidth">frameWidth</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QIcon </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#iconSet">iconSet</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#idAt">idAt</a></b> ( int <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#indexOf">indexOf</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem">insertItem</a></b> ( const QString &amp; <i>text</i>, const QObject * <i>receiver</i>, const char * <i>member</i>, const QKeySequence &amp; <i>shortcut</i> = 0, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-2">insertItem</a></b> ( const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i>, const QObject * <i>receiver</i>, const char * <i>member</i>, const QKeySequence &amp; <i>shortcut</i> = 0, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-3">insertItem</a></b> ( const QPixmap &amp; <i>pixmap</i>, const QObject * <i>receiver</i>, const char * <i>member</i>, const QKeySequence &amp; <i>shortcut</i> = 0, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-4">insertItem</a></b> ( const QString &amp; <i>text</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-5">insertItem</a></b> ( const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-6">insertItem</a></b> ( const QString &amp; <i>text</i>, QMenu * <i>popup</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-7">insertItem</a></b> ( const QIcon &amp; <i>icon</i>, const QString &amp; <i>text</i>, QMenu * <i>popup</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-8">insertItem</a></b> ( const QPixmap &amp; <i>pixmap</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertItem-9">insertItem</a></b> ( const QPixmap &amp; <i>pixmap</i>, QMenu * <i>popup</i>, int <i>id</i> = -1, int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#insertSeparator-2">insertSeparator</a></b> ( int <i>index</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#isItemActive">isItemActive</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#isItemChecked">isItemChecked</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#isItemEnabled">isItemEnabled</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#isItemVisible">isItemVisible</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#itemParameter">itemParameter</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#margin">margin</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPixmap </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#pixmap">pixmap</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#removeItem">removeItem</a></b> ( int <i>id</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#removeItemAt">removeItemAt</a></b> ( int <i>index</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> Separator </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#separator">separator</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setAccel">setAccel</a></b> ( const QKeySequence &amp; <i>key</i>, int <i>id</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setAutoGeometry">setAutoGeometry</a></b> ( bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setItemChecked">setItemChecked</a></b> ( int <i>id</i>, bool <i>check</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setItemEnabled">setItemEnabled</a></b> ( int <i>id</i>, bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setItemParameter">setItemParameter</a></b> ( int <i>id</i>, int <i>param</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setItemVisible">setItemVisible</a></b> ( int <i>id</i>, bool <i>visible</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setMargin">setMargin</a></b> ( int <i>margin</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setSeparator">setSeparator</a></b> ( Separator <i>sep</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#setWhatsThis">setWhatsThis</a></b> ( int <i>id</i>, const QString &amp; <i>w</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#text">text</a></b> ( int <i>id</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#whatsThis">whatsThis</a></b> ( int <i>id</i> ) const</td></tr>
 </table>
 <ul>
 <li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
@@ -205,13 +213,13 @@
 </ul>
 <h2>Signals</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#activated">activated</a></b> ( int <i>itemId</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#highlighted">highlighted</a></b> ( int <i>itemId</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#activated">activated</a></b> ( int <i>itemId</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#highlighted">highlighted</a></b> ( int <i>itemId</i> )</td></tr>
 </table>
 <h2>Protected Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#itemAtPos">itemAtPos</a></b> ( const QPoint &amp; <i>p</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qmenubar.html#itemRect">itemRect</a></b> ( int <i>index</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#itemAtPos">itemAtPos</a></b> ( const QPoint &amp; <i>p</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qmenubar-qt3.html#itemRect">itemRect</a></b> ( int <i>index</i> )</td></tr>
 </table>
 <ul>
 <li class="fn">1 protected function inherited from <a href="qobject.html#protected-functions">QObject</a></li>
@@ -232,7 +240,7 @@
 <!-- $$$accel[overload1]$$$accelint -->
 <h3 class="fn"><a name="accel"></a><a href="qkeysequence.html">QKeySequence</a> QMenuBar::accel ( int <i>id</i> ) const</h3>
 <p>Use shortcut() on the relevant <a href="qaction.html">QAction</a> instead.</p>
-<p>See also <a href="qmenubar.html#setAccel">setAccel</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#setAccel">setAccel</a>().</p>
 <!-- @@@accel -->
 <!-- $$$activateItemAt[overload1]$$$activateItemAtint -->
 <h3 class="fn"><a name="activateItemAt"></a>void QMenuBar::activateItemAt ( int <i>index</i> )</h3>
@@ -246,7 +254,7 @@
 <h3 class="fn"><a name="autoGeometry"></a>bool QMenuBar::autoGeometry () const</h3>
 <p>Returns true if the menu bar automatically resizes itself when its parent widget is resized; otherwise returns false.</p>
 <p>This feature is provided to help porting to Qt 4. We recommend against using it in new code.</p>
-<p>See also <a href="qmenubar.html#setAutoGeometry">setAutoGeometry</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#setAutoGeometry">setAutoGeometry</a>().</p>
 <!-- @@@autoGeometry -->
 <!-- $$$changeItem[overload1]$$$changeItemintconstQString& -->
 <h3 class="fn"><a name="changeItem"></a>void QMenuBar::changeItem ( int <i>id</i>, const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
@@ -258,7 +266,7 @@
 <!-- @@@changeItem -->
 <!-- $$$changeItem$$$changeItemintconstQIcon&constQString& -->
 <h3 class="fn"><a name="changeItem-3"></a>void QMenuBar::changeItem ( int <i>id</i>, const <a href="qicon.html">QIcon</a> &amp; <i>icon</i>, const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
-<p>Use <a href="qwidget.html#setIcon">setIcon</a>() and setText() on the relevant <a href="qaction.html">QAction</a> instead.</p>
+<p>Use <a href="qwidget-qt3.html#setIcon">setIcon</a>() and setText() on the relevant <a href="qaction.html">QAction</a> instead.</p>
 <!-- @@@changeItem -->
 <!-- $$$connectItem[overload1]$$$connectItemintconstQObject*constchar* -->
 <h3 class="fn"><a name="connectItem"></a>bool QMenuBar::connectItem ( int <i>id</i>, const <a href="qobject.html">QObject</a> * <i>receiver</i>, const char * <i>member</i> )</h3>
@@ -286,7 +294,7 @@
 <!-- @@@highlighted -->
 <!-- $$$iconSet[overload1]$$$iconSetint -->
 <h3 class="fn"><a name="iconSet"></a><a href="qicon.html">QIcon</a> QMenuBar::iconSet ( int <i>id</i> ) const</h3>
-<p>Use <a href="qwidget.html#icon">icon</a>() on the relevant <a href="qaction.html">QAction</a> instead.</p>
+<p>Use <a href="qwidget-qt3.html#icon">icon</a>() on the relevant <a href="qaction.html">QAction</a> instead.</p>
 <!-- @@@iconSet -->
 <!-- $$$idAt[overload1]$$$idAtint -->
 <h3 class="fn"><a name="idAt"></a>int QMenuBar::idAt ( int <i>index</i> ) const</h3>
@@ -364,21 +372,21 @@
 <!-- $$$itemParameter[overload1]$$$itemParameterint -->
 <h3 class="fn"><a name="itemParameter"></a>int QMenuBar::itemParameter ( int <i>id</i> ) const</h3>
 <p>Use <a href="qaction.html#data">QAction::data</a>() instead.</p>
-<p>See also <a href="qmenubar.html#setItemParameter">setItemParameter</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#setItemParameter">setItemParameter</a>().</p>
 <!-- @@@itemParameter -->
 <!-- $$$itemRect[overload1]$$$itemRectint -->
 <h3 class="fn"><a name="itemRect"></a><a href="qrect.html">QRect</a> QMenuBar::itemRect ( int <i>index</i> )<tt> [protected]</tt></h3>
-<p>Use actionGeometry() on the relevant <a href="qaction.html">QAction</a> instead.</p>
+<p>Use <a href="qmenubar.html#actionGeometry">actionGeometry</a>() on the relevant <a href="qaction.html">QAction</a> instead.</p>
 <!-- @@@itemRect -->
 <!-- $$$margin[overload1]$$$margin -->
 <h3 class="fn"><a name="margin"></a>int QMenuBar::margin () const</h3>
 <p>Returns the width of the margin around the contents of the widget.</p>
 <p>Use <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>() instead.</p>
-<p>See also <a href="qmenubar.html#setMargin">setMargin</a>() and <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#setMargin">setMargin</a>() and <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>().</p>
 <!-- @@@margin -->
 <!-- $$$pixmap[overload1]$$$pixmapint -->
 <h3 class="fn"><a name="pixmap"></a><a href="qpixmap.html">QPixmap</a> QMenuBar::pixmap ( int <i>id</i> ) const</h3>
-<p>Use <a href="qpixmap.html">QPixmap</a>(<a href="qwidget.html#icon">icon</a>()) on the relevant <a href="qaction.html">QAction</a> instead.</p>
+<p>Use <a href="qpixmap.html">QPixmap</a>(<a href="qwidget-qt3.html#icon">icon</a>()) on the relevant <a href="qaction.html">QAction</a> instead.</p>
 <!-- @@@pixmap -->
 <!-- $$$removeItem[overload1]$$$removeItemint -->
 <h3 class="fn"><a name="removeItem"></a>void QMenuBar::removeItem ( int <i>id</i> )</h3>
@@ -389,56 +397,56 @@
 <p>Use <a href="qwidget.html#removeAction">removeAction</a>() instead.</p>
 <!-- @@@removeItemAt -->
 <!-- $$$separator[overload1]$$$separator -->
-<h3 class="fn"><a name="separator"></a><a href="qmenubar.html#Separator-enum">Separator</a> QMenuBar::separator () const</h3>
+<h3 class="fn"><a name="separator"></a><a href="qmenubar-qt3.html#Separator-enum">Separator</a> QMenuBar::separator () const</h3>
 <p>This function is provided only to make old code compile.</p>
-<p>See also <a href="qmenubar.html#setSeparator">setSeparator</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#setSeparator">setSeparator</a>().</p>
 <!-- @@@separator -->
 <!-- $$$setAccel[overload1]$$$setAccelconstQKeySequence&int -->
 <h3 class="fn"><a name="setAccel"></a>void QMenuBar::setAccel ( const <a href="qkeysequence.html">QKeySequence</a> &amp; <i>key</i>, int <i>id</i> )</h3>
 <p>Use setShortcut() on the relevant <a href="qaction.html">QAction</a> instead.</p>
-<p>See also <a href="qmenubar.html#accel">accel</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#accel">accel</a>().</p>
 <!-- @@@setAccel -->
 <!-- $$$setAutoGeometry[overload1]$$$setAutoGeometrybool -->
 <h3 class="fn"><a name="setAutoGeometry"></a>void QMenuBar::setAutoGeometry ( bool <i>b</i> )</h3>
 <p>Sets whether the menu bar should automatically resize itself when its parent widget is resized.</p>
 <p>This feature is provided to help porting to Qt 4. We recommend against using it in new code.</p>
-<p>See also <a href="qmenubar.html#autoGeometry">autoGeometry</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#autoGeometry">autoGeometry</a>().</p>
 <!-- @@@setAutoGeometry -->
 <!-- $$$setItemChecked[overload1]$$$setItemCheckedintbool -->
 <h3 class="fn"><a name="setItemChecked"></a>void QMenuBar::setItemChecked ( int <i>id</i>, bool <i>check</i> )</h3>
 <p>Use setChecked() on the relevant <a href="qaction.html">QAction</a> instead.</p>
-<p>See also <a href="qmenubar.html#isItemChecked">isItemChecked</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#isItemChecked">isItemChecked</a>().</p>
 <!-- @@@setItemChecked -->
 <!-- $$$setItemEnabled[overload1]$$$setItemEnabledintbool -->
 <h3 class="fn"><a name="setItemEnabled"></a>void QMenuBar::setItemEnabled ( int <i>id</i>, bool <i>enable</i> )</h3>
 <p>Use <a href="qwidget.html#enabled-prop">setEnabled</a>() on the relevant <a href="qaction.html">QAction</a> instead.</p>
-<p>See also <a href="qmenubar.html#isItemEnabled">isItemEnabled</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#isItemEnabled">isItemEnabled</a>().</p>
 <!-- @@@setItemEnabled -->
 <!-- $$$setItemParameter[overload1]$$$setItemParameterintint -->
 <h3 class="fn"><a name="setItemParameter"></a>bool QMenuBar::setItemParameter ( int <i>id</i>, int <i>param</i> )</h3>
 <p>Use <a href="qaction.html#setData">QAction::setData</a>() instead.</p>
-<p>See also <a href="qmenubar.html#itemParameter">itemParameter</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#itemParameter">itemParameter</a>().</p>
 <!-- @@@setItemParameter -->
 <!-- $$$setItemVisible[overload1]$$$setItemVisibleintbool -->
 <h3 class="fn"><a name="setItemVisible"></a>void QMenuBar::setItemVisible ( int <i>id</i>, bool <i>visible</i> )</h3>
 <p>Use <a href="qmenubar.html#setVisible">setVisible</a>() on the relevant <a href="qaction.html">QAction</a> instead.</p>
-<p>See also <a href="qmenubar.html#isItemVisible">isItemVisible</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#isItemVisible">isItemVisible</a>().</p>
 <!-- @@@setItemVisible -->
 <!-- $$$setMargin[overload1]$$$setMarginint -->
 <h3 class="fn"><a name="setMargin"></a>void QMenuBar::setMargin ( int <i>margin</i> )</h3>
 <p>Sets the width of the margin around the contents of the widget to <i>margin</i>.</p>
 <p>Use <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>() instead.</p>
-<p>See also <a href="qmenubar.html#margin">margin</a>() and <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#margin">margin</a>() and <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>().</p>
 <!-- @@@setMargin -->
 <!-- $$$setSeparator[overload1]$$$setSeparatorSeparator -->
-<h3 class="fn"><a name="setSeparator"></a>void QMenuBar::setSeparator ( <a href="qmenubar.html#Separator-enum">Separator</a> <i>sep</i> )</h3>
+<h3 class="fn"><a name="setSeparator"></a>void QMenuBar::setSeparator ( <a href="qmenubar-qt3.html#Separator-enum">Separator</a> <i>sep</i> )</h3>
 <p>This function is provided only to make old code compile.</p>
-<p>See also <a href="qmenubar.html#separator">separator</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#separator">separator</a>().</p>
 <!-- @@@setSeparator -->
 <!-- $$$setWhatsThis[overload1]$$$setWhatsThisintconstQString& -->
 <h3 class="fn"><a name="setWhatsThis"></a>void QMenuBar::setWhatsThis ( int <i>id</i>, const <a href="qstring.html">QString</a> &amp; <i>w</i> )</h3>
 <p>Use setWhatsThis() on the relevant <a href="qaction.html">QAction</a> instead.</p>
-<p>See also <a href="qmenubar.html#whatsThis">whatsThis</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#whatsThis">whatsThis</a>().</p>
 <!-- @@@setWhatsThis -->
 <!-- $$$text[overload1]$$$textint -->
 <h3 class="fn"><a name="text"></a><a href="qstring.html">QString</a> QMenuBar::text ( int <i>id</i> ) const</h3>
@@ -447,7 +455,7 @@
 <!-- $$$whatsThis[overload1]$$$whatsThisint -->
 <h3 class="fn"><a name="whatsThis"></a><a href="qstring.html">QString</a> QMenuBar::whatsThis ( int <i>id</i> ) const</h3>
 <p>Use whatsThis() on the relevant <a href="qaction.html">QAction</a> instead.</p>
-<p>See also <a href="qmenubar.html#setWhatsThis">setWhatsThis</a>().</p>
+<p>See also <a href="qmenubar-qt3.html#setWhatsThis">setWhatsThis</a>().</p>
 <!-- @@@whatsThis -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -568,7 +576,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$AutoFormattingFlag$$$AutoNone$$$AutoBulletList$$$AutoAll -->
 <h3 class="flags"><a name="AutoFormattingFlag-enum"></a>enum Q3TextEdit::AutoFormattingFlag<br/>flags Q3TextEdit::AutoFormatting</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AutoNone</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Do not perform any automatic formatting</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AutoBulletList</tt></td><td class=" topAlign"><tt>0x00000001</tt></td><td  class="topAlign">Only automatically format bulletted lists</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AutoAll</tt></td><td class=" topAlign"><tt>0xffffffff</tt></td><td  class="topAlign">Apply all available autoformatting</td></tr>
@@ -578,7 +586,7 @@
 <!-- $$$CursorAction$$$MoveBackward$$$MoveForward$$$MoveWordBackward$$$MoveWordForward$$$MoveUp$$$MoveDown$$$MoveLineStart$$$MoveLineEnd$$$MoveHome$$$MoveEnd$$$MovePgUp$$$MovePgDown -->
 <h3 class="fn"><a name="CursorAction-enum"></a>enum Q3TextEdit::CursorAction</h3>
 <p>This enum is used by <a href="q3textedit.html#moveCursor">moveCursor</a>() to specify in which direction the cursor should be moved:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::MoveBackward</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Moves the cursor one character backward</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::MoveWordBackward</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Moves the cursor one word backward</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::MoveForward</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Moves the cursor one character forward</td></tr>
@@ -596,7 +604,7 @@
 <!-- $$$KeyboardAction$$$ActionBackspace$$$ActionDelete$$$ActionReturn$$$ActionKill$$$ActionWordBackspace$$$ActionWordDelete -->
 <h3 class="fn"><a name="KeyboardAction-enum"></a>enum Q3TextEdit::KeyboardAction</h3>
 <p>This enum is used by <a href="q3textedit.html#doKeyboardAction">doKeyboardAction</a>() to specify which action should be executed:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::ActionBackspace</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Delete the character to the left of the cursor.</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::ActionDelete</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Delete the character to the right of the cursor.</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::ActionReturn</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Split the paragraph at the cursor position.</td></tr>
@@ -608,7 +616,7 @@
 <!-- $$$VerticalAlignment$$$AlignNormal$$$AlignSuperScript$$$AlignSubScript -->
 <h3 class="fn"><a name="VerticalAlignment-enum"></a>enum Q3TextEdit::VerticalAlignment</h3>
 <p>This enum is used to set the vertical alignment of the text.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AlignNormal</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Normal alignment</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AlignSuperScript</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Superscript</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AlignSubScript</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Subscript</td></tr>
@@ -617,7 +625,7 @@
 <!-- $$$WordWrap$$$NoWrap$$$WidgetWidth$$$FixedPixelWidth$$$FixedColumnWidth -->
 <h3 class="fn"><a name="WordWrap-enum"></a>enum Q3TextEdit::WordWrap</h3>
 <p>This enum defines the <a href="q3textedit.html" class="compat">Q3TextEdit</a>'s word wrap modes.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::NoWrap</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Do not wrap the text.</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::WidgetWidth</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Wrap the text at the current width of the widget (this is the default). Wrapping is at whitespace by default; this can be changed with <a href="q3textedit.html#wrapPolicy-prop">setWrapPolicy</a>().</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::FixedPixelWidth</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Wrap the text at a fixed number of pixels from the widget's left side. The number of pixels is set with <a href="q3textedit.html#wrapColumnOrWidth-prop">wrapColumnOrWidth</a>().</td></tr>
@@ -628,7 +636,7 @@
 <!-- $$$WrapPolicy$$$AtWordBoundary$$$AtWhiteSpace$$$Anywhere$$$AtWordOrDocumentBoundary -->
 <h3 class="fn"><a name="WrapPolicy-enum"></a>enum Q3TextEdit::WrapPolicy</h3>
 <p>This enum defines where text can be wrapped in word wrap mode.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AtWhiteSpace</tt></td><td class=" topAlign"><tt>AtWordBoundary</tt></td><td  class="topAlign">Don't use this deprecated value (it is a synonym for <tt>AtWordBoundary</tt> which you should use instead).</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::Anywhere</tt></td><td class=" topAlign">?</td><td  class="topAlign">Break anywhere, including within words.</td></tr>
 <tr><td  class="topAlign"><tt>Q3TextEdit::AtWordBoundary</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Break lines at word boundaries, e.g&#x2e; spaces or newlines</td></tr>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -230,7 +240,7 @@
 <p class="centerAlign"><img src="images/particles.gif" /></p><!-- @@@Particles -->
 <h2>Property Documentation</h2>
 <!-- $$$angle -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="angle-prop"></a>angle : <a href="qml-real.html">real</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="angleDeviation-prop"></a>angleDeviation : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>These properties control particle direction.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="angle-prop"></a>angle : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="angleDeviation-prop"></a>angleDeviation : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>These properties control particle direction.</p>
 <p><a href="qml-particles.html#angleDeviation-prop">angleDeviation</a> randomly varies the direction up to the specified variation. For example, the following creates particles whose initial direction will vary from 15 degrees to 105 degrees:</p>
 <pre class="highlightedCode brush: cpp"> Particles {
      source: &quot;star.png&quot;
@@ -240,7 +250,7 @@
 </div></div><!-- @@@angle -->
 <br/>
 <!-- $$$count -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a>count : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the maximum number of particles</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a>count : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the maximum number of particles</p>
 <p>The particles element emits particles until it has count active particles. When this number is reached, new particles are not emitted until some of the current particles reach the end of their lifespan.</p>
 <p>If count is -1 then there is no maximum number of active particles, and particles will be constantly emitted at the rate specified by <a href="qml-particles.html#emissionRate-prop">emissionRate</a>.</p>
 <p>The default value for count is 1.</p>
@@ -248,7 +258,7 @@
 </div></div><!-- @@@count -->
 <br/>
 <!-- $$$emissionRate -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="emissionRate-prop"></a>emissionRate : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the target number of particles to emit every second.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="emissionRate-prop"></a>emissionRate : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the target number of particles to emit every second.</p>
 <p>The particles element will emit up to emissionRate particles every second. Fewer particles may be emitted per second if the maximum number of particles has been reached.</p>
 <p>If emissionRate is set to -1 there is no limit to the number of particles emitted per second, and particles will be instantly emitted to reach the maximum number of particles specified by count.</p>
 <p>The default value for emissionRate is -1.</p>
@@ -256,7 +266,7 @@
 </div></div><!-- @@@emissionRate -->
 <br/>
 <!-- $$$emissionVariance -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="emissionVariance-prop"></a>emissionVariance : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds how inconsistent the rate of particle emissions are. It is a number between 0 (no variance) and 1 (some variance).</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="emissionVariance-prop"></a>emissionVariance : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds how inconsistent the rate of particle emissions are. It is a number between 0 (no variance) and 1 (some variance).</p>
 <p>The expected number of particles emitted per second is <a href="qml-particles.html#emissionRate-prop">emissionRate</a>. If emissionVariance is 0 then particles will be emitted consistently throughout each second to reach that number. If emissionVariance is greater than 0 the rate of particle emission will vary randomly throughout the second, with the consequence that the actual number of particles emitted in one second will vary randomly as well.</p>
 <p>emissionVariance is the maximum deviation from emitting <a href="qml-particles.html#emissionRate-prop">emissionRate</a> particles per second. An emissionVariance of 0 means you should get exactly <a href="qml-particles.html#emissionRate-prop">emissionRate</a> particles emitted per second, and an emissionVariance of 1 means you will get between zero and two times <a href="qml-particles.html#emissionRate-prop">emissionRate</a> particles per second, but you should get <a href="qml-particles.html#emissionRate-prop">emissionRate</a> particles per second on average.</p>
 <p>Note that even with an emissionVariance of 0 there may be some variance due to performance and hardware constraints.</p>
@@ -264,12 +274,12 @@
 </div></div><!-- @@@emissionVariance -->
 <br/>
 <!-- $$$fadeInDuration -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="fadeInDuration-prop"></a>fadeInDuration : <a href="qml-int.html">int</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="fadeOutDuration-prop"></a>fadeOutDuration : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>These properties hold the time taken to fade the particles in and out.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="fadeInDuration-prop"></a>fadeInDuration : <a href="qml-int.html">int</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="fadeOutDuration-prop"></a>fadeOutDuration : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>These properties hold the time taken to fade the particles in and out.</p>
 <p>By default fade in is 200ms and fade out is 300ms.</p>
 </div></div><!-- @@@fadeInDuration -->
 <br/>
 <!-- $$$lifeSpan -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="lifeSpan-prop"></a>lifeSpan : <a href="qml-int.html">int</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="lifeSpanDeviation-prop"></a>lifeSpanDeviation : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>These properties describe the life span of each particle.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="lifeSpan-prop"></a>lifeSpan : <a href="qml-int.html">int</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="lifeSpanDeviation-prop"></a>lifeSpanDeviation : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>These properties describe the life span of each particle.</p>
 <p>The default lifespan for a particle is 1000ms.</p>
 <p><a href="qml-particles.html#lifeSpanDeviation-prop">lifeSpanDeviation</a> randomly varies the lifeSpan up to the specified variation. For example, the following creates particles whose lifeSpan will vary from 150ms to 250ms:</p>
 <pre class="highlightedCode brush: cpp"> Particles {
@@ -280,17 +290,17 @@
 </div></div><!-- @@@lifeSpan -->
 <br/>
 <!-- $$$motion -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="motion-prop"></a>motion : ParticleMotion</td></tr></table></div><div class="qmldoc"><p>This property sets the type of motion to apply to the particles.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="motion-prop"></a>motion : ParticleMotion</p></td></tr></table></div><div class="qmldoc"><p>This property sets the type of motion to apply to the particles.</p>
 <p>When a particle is created it will have an initial direction and velocity. The motion of the particle during its <a href="qml-particles.html#lifeSpan-prop">lifeSpan</a> is then influenced by the motion property.</p>
 <p>Default motion is <a href="qml-particlemotionlinear.html">ParticleMotionLinear</a>.</p>
 </div></div><!-- @@@motion -->
 <br/>
 <!-- $$$source -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="source-prop"></a>source : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>This property holds the URL of the particle image.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="source-prop"></a>source : <a href="qml-string.html">string</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the URL of the particle image.</p>
 </div></div><!-- @@@source -->
 <br/>
 <!-- $$$velocity -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="velocity-prop"></a>velocity : <a href="qml-real.html">real</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="velocityDeviation-prop"></a>velocityDeviation : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>These properties control the velocity of the particles.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="velocity-prop"></a>velocity : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="velocityDeviation-prop"></a>velocityDeviation : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>These properties control the velocity of the particles.</p>
 <p><a href="qml-particles.html#velocityDeviation-prop">velocityDeviation</a> randomly varies the velocity up to the specified variation. For example, the following creates particles whose initial velocity will vary from 40 to 60.</p>
 <pre class="highlightedCode brush: cpp"> Particles {
      source: &quot;star.png&quot;
@@ -306,7 +316,7 @@
 <p>The normal emission of particles will continue during the burst, however the particles created by the burst count towards the maximum number used by normal emission. To avoid this behavior, use two Particles elements.</p>
 </div></div><!-- @@@burst -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

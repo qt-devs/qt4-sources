@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -183,17 +191,17 @@
 <a name="Functionsx"></a>
 <h2>Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qAbs">qAbs</a></b> ( const T &amp; <i>value</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qAbsx">qAbs</a></b> ( const T &amp; <i>value</i> )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> const T &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qBound">qBound</a></b> ( const T &amp; <i>min</i>, const T &amp; <i>value</i>, const T &amp; <i>max</i> )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qCritical">qCritical</a></b> ( const char * <i>msg</i>, ... )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qDebug">qDebug</a></b> ( const char * <i>msg</i>, ... )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qFatal">qFatal</a></b> ( const char * <i>msg</i>, ... )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qFuzzyCompare">qFuzzyCompare</a></b> ( double <i>p1</i>, double <i>p2</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qFuzzyCompare-2">qFuzzyCompare</a></b> ( float <i>p1</i>, float <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qFuzzyCompare-7">qFuzzyCompare</a></b> ( double <i>p1</i>, double <i>p2</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qFuzzyCompare-8">qFuzzyCompare</a></b> ( float <i>p1</i>, float <i>p2</i> )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> QtMsgHandler </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qInstallMsgHandler">qInstallMsgHandler</a></b> ( QtMsgHandler <i>handler</i> )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qMacVersion">qMacVersion</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> const T &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qMax">qMax</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> const T &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qMin">qMin</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const T &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qMaxx">qMax</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const T &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qMinx">qMin</a></b> ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> qint64 </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qRound64">qRound64</a></b> ( qreal <i>value</i> )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qRound">qRound</a></b> ( qreal <i>value</i> )</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> const char * </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#qVersion">qVersion</a></b> ()</td></tr>
@@ -309,7 +317,7 @@
 <p>Finally, the <a href="qtglobal.html#QtMsgType-enum">QtMsgType</a> definition identifies the various messages that can be generated and sent to a Qt message handler; <a href="qtglobal.html#QtMsgHandler-typedef">QtMsgHandler</a> is a type definition for a pointer to a function with the signature <tt>void myMsgHandler(QtMsgType, const char *)</tt>.</p>
 <a name="functions"></a>
 <h2>Functions</h2>
-<p>The &lt;QtGlobal&gt; header file contains several functions comparing and adjusting an object's value. These functions take a template type as argument: You can retrieve the absolute value of an object using the <a href="qtglobal.html#qAbs">qAbs</a>() function, and you can bound a given object's value by given minimum and maximum values using the <a href="qtglobal.html#qBound">qBound</a>() function. You can retrieve the minimum and maximum of two given objects using <a href="qtglobal.html#qMin">qMin</a>() and <a href="qtglobal.html#qMax">qMax</a>() respectively. All these functions return a corresponding template type; the template types can be replaced by any other type.</p>
+<p>The &lt;QtGlobal&gt; header file contains several functions comparing and adjusting an object's value. These functions take a template type as argument: You can retrieve the absolute value of an object using the <a href="qtglobal.html#qAbsx">qAbs</a>() function, and you can bound a given object's value by given minimum and maximum values using the <a href="qtglobal.html#qBound">qBound</a>() function. You can retrieve the minimum and maximum of two given objects using <a href="qtglobal.html#qMinx">qMin</a>() and <a href="qtglobal.html#qMaxx">qMax</a>() respectively. All these functions return a corresponding template type; the template types can be replaced by any other type.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> int myValue = 10;
  int minValue = 2;
@@ -344,7 +352,7 @@
 <!-- $$$QtMsgType$$$QtDebugMsg$$$QtWarningMsg$$$QtCriticalMsg$$$QtFatalMsg$$$QtSystemMsg -->
 <h3 class="fn"><a name="QtMsgType-enum"></a>enum QtMsgType</h3>
 <p>This enum describes the messages that can be sent to a message handler (<a href="qtglobal.html#QtMsgHandler-typedef">QtMsgHandler</a>). You can use the enum to identify and associate the various message types with the appropriate actions.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QtDebugMsg</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">A message generated by the <a href="qtglobal.html#qDebug">qDebug</a>() function.</td></tr>
 <tr><td  class="topAlign"><tt>QtWarningMsg</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">A message generated by the <a href="qtglobal.html#qWarning">qWarning</a>() function.</td></tr>
 <tr><td  class="topAlign"><tt>QtCriticalMsg</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">A message generated by the <a href="qtglobal.html#qCritical">qCritical</a>() function.</td></tr>
@@ -437,7 +445,7 @@
 <!-- @@@ushort -->
 <h2>Function Documentation</h2>
 <!-- $$$qAbs[overload1]$$$qAbsconstT& -->
-<h3 class="fn"><a name="qAbs"></a>T qAbs ( const T &amp; <i>value</i> )</h3>
+<h3 class="fn"><a name="qAbsx"></a>T qAbs ( const T &amp; <i>value</i> )</h3>
 <p>Compares <i>value</i> to the 0 of type T and returns the absolute value. Thus if T is <i>double</i>, then <i>value</i> is compared to <i>(double) 0</i>.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> int absoluteValue;
@@ -456,7 +464,7 @@
 
  int boundedValue = qBound(minValue, myValue, maxValue);
 <span class="comment"> // boundedValue == 6</span></pre>
-<p>See also <a href="qtglobal.html#qMin">qMin</a>() and <a href="qtglobal.html#qMax">qMax</a>().</p>
+<p>See also <a href="qtglobal.html#qMinx">qMin</a>() and <a href="qtglobal.html#qMaxx">qMax</a>().</p>
 <!-- @@@qBound -->
 <!-- $$$qCritical[overload1]$$$qCriticalconstchar*... -->
 <h3 class="fn"><a name="qCritical"></a>void qCritical ( const char * <i>msg</i>, ... )</h3>
@@ -503,8 +511,8 @@
 <p>To suppress the output at runtime, install your own message handler with <a href="qtglobal.html#qInstallMsgHandler">qInstallMsgHandler</a>().</p>
 <p>See also <a href="qtglobal.html#qDebug">qDebug</a>(), <a href="qtglobal.html#qCritical">qCritical</a>(), <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qInstallMsgHandler">qInstallMsgHandler</a>(), and <a href="debug.html">Debugging Techniques</a>.</p>
 <!-- @@@qFatal -->
-<!-- $$$qFuzzyCompare[overload1]$$$qFuzzyComparedoubledouble -->
-<h3 class="fn"><a name="qFuzzyCompare"></a>bool qFuzzyCompare ( double <i>p1</i>, double <i>p2</i> )<tt> [static]</tt></h3>
+<!-- $$$qFuzzyCompare$$$qFuzzyComparedoubledouble -->
+<h3 class="fn"><a name="qFuzzyCompare-7"></a>bool qFuzzyCompare ( double <i>p1</i>, double <i>p2</i> )<tt> [static]</tt></h3>
 <p>Compares the floating point value <i>p1</i> and <i>p2</i> and returns <tt>true</tt> if they are considered equal, otherwise <tt>false</tt>.</p>
 <p>Note that comparing values where either <i>p1</i> or <i>p2</i> is 0.0 will not work. The solution to this is to compare against values greater than or equal to 1.0&#x2e;</p>
 <pre class="highlightedCode brush: cpp">         <span class="comment">// Instead of comparing with 0.0</span>
@@ -516,7 +524,7 @@
 <p>This function was introduced in Qt 4.4.</p>
 <!-- @@@qFuzzyCompare -->
 <!-- $$$qFuzzyCompare$$$qFuzzyComparefloatfloat -->
-<h3 class="fn"><a name="qFuzzyCompare-2"></a>bool qFuzzyCompare ( float <i>p1</i>, float <i>p2</i> )<tt> [static]</tt></h3>
+<h3 class="fn"><a name="qFuzzyCompare-8"></a>bool qFuzzyCompare ( float <i>p1</i>, float <i>p2</i> )<tt> [static]</tt></h3>
 <p>Compares the floating point value <i>p1</i> and <i>p2</i> and returns <tt>true</tt> if they are considered equal, otherwise <tt>false</tt>.</p>
 <p>The two numbers are compared in a relative way, where the exactness is stronger the smaller the numbers are.</p>
 <p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
@@ -567,7 +575,7 @@
 <p>See also <a href="qsysinfo.html">QSysInfo</a>.</p>
 <!-- @@@qMacVersion -->
 <!-- $$$qMax[overload1]$$$qMaxconstT&constT& -->
-<h3 class="fn"><a name="qMax"></a>const T &amp; qMax ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
+<h3 class="fn"><a name="qMaxx"></a>const T &amp; qMax ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
 <p>Returns the maximum of <i>value1</i> and <i>value2</i>.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> int myValue = 6;
@@ -575,10 +583,10 @@
 
  int maxValue = qMax(myValue, yourValue);
 <span class="comment"> // maxValue == myValue</span></pre>
-<p>See also <a href="qtglobal.html#qMin">qMin</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
+<p>See also <a href="qtglobal.html#qMinx">qMin</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
 <!-- @@@qMax -->
 <!-- $$$qMin[overload1]$$$qMinconstT&constT& -->
-<h3 class="fn"><a name="qMin"></a>const T &amp; qMin ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
+<h3 class="fn"><a name="qMinx"></a>const T &amp; qMin ( const T &amp; <i>value1</i>, const T &amp; <i>value2</i> )</h3>
 <p>Returns the minimum of <i>value1</i> and <i>value2</i>.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> int myValue = 6;
@@ -586,7 +594,7 @@
 
  int minValue = qMin(myValue, yourValue);
 <span class="comment"> // minValue == yourValue</span></pre>
-<p>See also <a href="qtglobal.html#qMax">qMax</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
+<p>See also <a href="qtglobal.html#qMaxx">qMax</a>() and <a href="qtglobal.html#qBound">qBound</a>().</p>
 <!-- @@@qMin -->
 <!-- $$$qRound64[overload1]$$$qRound64qreal -->
 <h3 class="fn"><a name="qRound64"></a><a href="qtglobal.html#qint64-typedef">qint64</a> qRound64 ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>value</i> )</h3>
@@ -997,7 +1005,7 @@
 <!-- @@@Q_CC_KAI -->
 <!-- $$$Q_CC_MIPS[overload1]$$$Q_CC_MIPS -->
 <h3 class="fn"><a name="Q_CC_MIPS"></a>Q_CC_MIPS</h3>
-<p>Defined if the application is compiled using MIPSpro C++.</p>
+<p>Defined if the application is compiled using <a href="platform-notes-x11.html#mipspro">MIPSpro</a> C++.</p>
 <!-- @@@Q_CC_MIPS -->
 <!-- $$$Q_CC_MSVC[overload1]$$$Q_CC_MSVC -->
 <h3 class="fn"><a name="Q_CC_MSVC"></a>Q_CC_MSVC</h3>

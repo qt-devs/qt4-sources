@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -916,24 +916,6 @@ const char *QPdf::paperSizeToString(QPrinter::PaperSize paperSize)
 }
 
 
-QByteArray QPdf::stripSpecialCharacters(const QByteArray &string)
-{
-    QByteArray s = string;
-    s.replace(' ', "");
-    s.replace('(', "");
-    s.replace(')', "");
-    s.replace('<', "");
-    s.replace('>', "");
-    s.replace('[', "");
-    s.replace(']', "");
-    s.replace('{', "");
-    s.replace('}', "");
-    s.replace('/', "");
-    s.replace('%', "");
-    return s;
-}
-
-
 // -------------------------- base engine, shared code between PS and PDF -----------------------
 
 QPdfBaseEngine::QPdfBaseEngine(QPdfBaseEnginePrivate &dd, PaintEngineFeatures f)
@@ -1408,7 +1390,7 @@ int QPdfBaseEngine::metric(QPaintDevice::PaintDeviceMetric metricType) const
 void QPdfBaseEngine::setProperty(PrintEnginePropertyKey key, const QVariant &value)
 {
     Q_D(QPdfBaseEngine);
-    switch (key) {
+    switch (int(key)) {
     case PPK_CollateCopies:
         d->collate = value.toBool();
         break;
@@ -1498,7 +1480,7 @@ QVariant QPdfBaseEngine::property(PrintEnginePropertyKey key) const
     Q_D(const QPdfBaseEngine);
 
     QVariant ret;
-    switch (key) {
+    switch (int(key)) {
     case PPK_CollateCopies:
         ret = d->collate;
         break;

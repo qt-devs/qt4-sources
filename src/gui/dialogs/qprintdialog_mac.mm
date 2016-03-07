@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -140,11 +140,6 @@ QT_USE_NAMESPACE
 
     QPrintDialogPrivate *d = static_cast<QPrintDialogPrivate *>(contextInfo);
     QPrintDialog *dialog = d->printDialog();
-    // temporary hack to work around bug in deleteLater() in Qt/Mac Cocoa
-#if 1
-    bool deleteDialog = dialog->testAttribute(Qt::WA_DeleteOnClose);
-    dialog->setAttribute(Qt::WA_DeleteOnClose, false);
-#endif
 
     if (returnCode == NSOKButton) {
         UInt32 frompage, topage;
@@ -192,10 +187,6 @@ QT_USE_NAMESPACE
     }
 
     dialog->done((returnCode == NSOKButton) ? QDialog::Accepted : QDialog::Rejected);
-#if 1
-    if (deleteDialog)
-        delete dialog;
-#endif
 }
 @end
 

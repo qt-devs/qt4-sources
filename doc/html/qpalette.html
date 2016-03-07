@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -220,8 +228,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#operator-lt-lt-119">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>s</i>, const QPalette &amp; <i>p</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#operator-gt-gt-69">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>s</i>, QPalette &amp; <i>p</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#operator-lt-lt-102">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>s</i>, const QPalette &amp; <i>p</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpalette.html#operator-gt-gt-50">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>s</i>, QPalette &amp; <i>p</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QPalette-description -->
@@ -252,7 +260,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$ColorGroup$$$Active$$$Disabled$$$Inactive$$$NColorGroups$$$Current$$$All$$$Normal -->
 <h3 class="fn"><a name="ColorGroup-enum"></a>enum QPalette::ColorGroup</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPalette::Disabled</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::Active</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">&nbsp;</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::Inactive</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">&nbsp;</td></tr>
@@ -263,7 +271,7 @@
 <h3 class="fn"><a name="ColorRole-enum"></a>enum QPalette::ColorRole</h3>
 <p class="centerAlign"><img src="images/palette.png" alt="Color Roles" /></p><p>The ColorRole enum defines the different symbolic color roles used in current GUIs.</p>
 <p>The central roles are:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPalette::Window</tt></td><td class=" topAlign"><tt>10</tt></td><td  class="topAlign">A general background color.</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::Background</tt></td><td class=" topAlign"><tt>Window</tt></td><td  class="topAlign">This value is obsolete. Use Window instead.</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::WindowText</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">A general foreground color.</td></tr>
@@ -278,7 +286,7 @@
 <tr><td  class="topAlign"><tt>QPalette::BrightText</tt></td><td class=" topAlign"><tt>7</tt></td><td  class="topAlign">A text color that is very different from <tt>WindowText</tt>, and contrasts well with e.g&#x2e; <tt>Dark</tt>. Typically used for text that needs to be drawn where <tt>Text</tt> or <tt>WindowText</tt> would give poor contrast, such as on pressed push buttons. Note that text colors can be used for things other than just words; text colors are <i>usually</i> used for text, but it's quite common to use the text color roles for lines, icons, etc.</td></tr>
 </table>
 <p>There are some color roles used mostly for 3D bevel and shadow effects. All of these are normally derived from <tt>Window</tt>, and used in ways that depend on that relationship. For example, buttons depend on it to make the bevels look attractive, and Motif scroll bars depend on <tt>Mid</tt> to be slightly different from <tt>Window</tt>.</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPalette::Light</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Lighter than <tt>Button</tt> color.</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::Midlight</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">Between <tt>Button</tt> and <tt>Light</tt>.</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::Dark</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">Darker than <tt>Button</tt>.</td></tr>
@@ -286,12 +294,12 @@
 <tr><td  class="topAlign"><tt>QPalette::Shadow</tt></td><td class=" topAlign"><tt>11</tt></td><td  class="topAlign">A very dark color. By default, the shadow color is <a href="qt.html#GlobalColor-enum">Qt::black</a>.</td></tr>
 </table>
 <p>Selected (marked) items have two roles:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPalette::Highlight</tt></td><td class=" topAlign"><tt>12</tt></td><td  class="topAlign">A color to indicate a selected item or the current item. By default, the highlight color is <a href="qt.html#GlobalColor-enum">Qt::darkBlue</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::HighlightedText</tt></td><td class=" topAlign"><tt>13</tt></td><td  class="topAlign">A text color that contrasts with <tt>Highlight</tt>. By default, the highlighted text color is <a href="qt.html#GlobalColor-enum">Qt::white</a>.</td></tr>
 </table>
 <p>There are two color roles related to hyperlinks:</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPalette::Link</tt></td><td class=" topAlign"><tt>14</tt></td><td  class="topAlign">A text color used for unvisited hyperlinks. By default, the link color is <a href="qt.html#GlobalColor-enum">Qt::blue</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QPalette::LinkVisited</tt></td><td class=" topAlign"><tt>15</tt></td><td  class="topAlign">A text color used for already visited hyperlinks. By default, the linkvisited color is <a href="qt.html#GlobalColor-enum">Qt::magenta</a>.</td></tr>
 </table>
@@ -300,7 +308,7 @@
      QColor linkColor(Qt::red);
      QString sheet = QString::fromLatin1(&quot;a { text-decoration: underline; color: %1 }&quot;).arg(linkColor.name());
      browser.document()-&gt;setDefaultStyleSheet(sheet);</pre>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QPalette::NoRole</tt></td><td class=" topAlign"><tt>17</tt></td><td  class="topAlign">No role; this special role is often used to indicate that a role has not been assigned.</td></tr>
 </table>
 <!-- @@@ColorRole -->
@@ -545,12 +553,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQPalette& -->
-<h3 class="fn"><a name="operator-lt-lt-119"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, const QPalette &amp; <i>p</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-102"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, const QPalette &amp; <i>p</i> )</h3>
 <p>Writes the palette, <i>p</i> to the stream <i>s</i> and returns a reference to the stream.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QPalette& -->
-<h3 class="fn"><a name="operator-gt-gt-69"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, QPalette &amp; <i>p</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-50"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, QPalette &amp; <i>p</i> )</h3>
 <p>Reads a palette from the stream, <i>s</i> into the palette <i>p</i>, and returns a reference to the stream.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->

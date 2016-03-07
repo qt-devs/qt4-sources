@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -161,18 +169,12 @@
 </ul>
 <a name="properties"></a>
 <h2>Properties</h2>
-<table class="propsummary">
-<tr><td  class="topAlign"><ul>
+<ul>
 <li class="fn"><b><a href="qpangesture.html#acceleration-prop">acceleration</a></b> : qreal</li>
 <li class="fn"><b><a href="qpangesture.html#delta-prop">delta</a></b> : const QPointF</li>
-<li class="fn"><b><a href="qpangesture.html#horizontalVelocity-prop">horizontalVelocity</a></b> : const qreal</li>
-</ul></td><td  class="topAlign"><ul>
 <li class="fn"><b><a href="qpangesture.html#lastOffset-prop">lastOffset</a></b> : QPointF</li>
 <li class="fn"><b><a href="qpangesture.html#offset-prop">offset</a></b> : QPointF</li>
-<li class="fn"><b><a href="qpangesture.html#verticalVelocity-prop">verticalVelocity</a></b> : const qreal</li>
 </ul>
-</td></tr>
-</table>
 <ul>
 <li class="fn">5 properties inherited from <a href="qgesture.html#properties">QGesture</a></li>
 <li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
@@ -212,6 +214,7 @@
 <h2>Property Documentation</h2>
 <!-- $$$acceleration-prop$$$acceleration$$$setAccelerationqreal -->
 <h3 class="fn"><a name="acceleration-prop"></a>acceleration : <a href="qtglobal.html#qreal-typedef">qreal</a></h3>
+<p>This property holds the acceleration in the motion of the touch point for this gesture.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b>acceleration</b> () const</td></tr>
@@ -227,9 +230,6 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QPointF </td><td class="memItemRight bottomAlign"><b>delta</b> () const</td></tr>
 </table>
 <!-- @@@delta -->
-<!-- $$$horizontalVelocity-prop -->
-<h3 class="fn"><a name="horizontalVelocity-prop"></a>horizontalVelocity : const <a href="qtglobal.html#qreal-typedef">qreal</a></h3>
-<!-- @@@horizontalVelocity -->
 <!-- $$$lastOffset-prop$$$lastOffset$$$setLastOffsetconstQPointF& -->
 <h3 class="fn"><a name="lastOffset-prop"></a>lastOffset : <a href="qpointf.html">QPointF</a></h3>
 <p>This property holds the last offset recorded for this gesture.</p>
@@ -251,9 +251,6 @@
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setOffset</b> ( const QPointF &amp; <i>value</i> )</td></tr>
 </table>
 <!-- @@@offset -->
-<!-- $$$verticalVelocity-prop -->
-<h3 class="fn"><a name="verticalVelocity-prop"></a>verticalVelocity : const <a href="qtglobal.html#qreal-typedef">qreal</a></h3>
-<!-- @@@verticalVelocity -->
 </div>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

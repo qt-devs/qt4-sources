@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -117,10 +117,10 @@ private:
     QList<QDeclarativeEngine *> m_engines;
     QDeclarativeWatcher *m_watch;
 };
-Q_DECLARATIVE_EXPORT QDataStream &operator<<(QDataStream &, const QDeclarativeEngineDebugServer::QDeclarativeObjectData &);
-Q_DECLARATIVE_EXPORT QDataStream &operator>>(QDataStream &, QDeclarativeEngineDebugServer::QDeclarativeObjectData &);
-Q_DECLARATIVE_EXPORT QDataStream &operator<<(QDataStream &, const QDeclarativeEngineDebugServer::QDeclarativeObjectProperty &);
-Q_DECLARATIVE_EXPORT QDataStream &operator>>(QDataStream &, QDeclarativeEngineDebugServer::QDeclarativeObjectProperty &);
+Q_DECLARATIVE_PRIVATE_EXPORT QDataStream &operator<<(QDataStream &, const QDeclarativeEngineDebugServer::QDeclarativeObjectData &);
+Q_DECLARATIVE_PRIVATE_EXPORT QDataStream &operator>>(QDataStream &, QDeclarativeEngineDebugServer::QDeclarativeObjectData &);
+Q_DECLARATIVE_PRIVATE_EXPORT QDataStream &operator<<(QDataStream &, const QDeclarativeEngineDebugServer::QDeclarativeObjectProperty &);
+Q_DECLARATIVE_PRIVATE_EXPORT QDataStream &operator>>(QDataStream &, QDeclarativeEngineDebugServer::QDeclarativeObjectProperty &);
 
 QT_END_NAMESPACE
 

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -195,7 +203,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$Endian$$$BigEndian$$$LittleEndian$$$ByteOrder$$$ByteOrder -->
 <h3 class="fn"><a name="Endian-enum"></a>enum QSysInfo::Endian</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::BigEndian</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Big-endian byte order (also called Network byte order)</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::LittleEndian</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Little-endian byte order</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::ByteOrder</tt></td><td class=" topAlign"><tt>&lt;platform-dependent&gt;</tt></td><td  class="topAlign">Equals BigEndian or LittleEndian, depending on the platform's byte order.</td></tr>
@@ -204,7 +212,7 @@
 <!-- $$$MacVersion$$$MV_Unknown$$$MV_9$$$MV_10_0$$$MV_10_1$$$MV_10_2$$$MV_10_3$$$MV_10_4$$$MV_10_5$$$MV_10_6$$$MV_CHEETAH$$$MV_PUMA$$$MV_JAGUAR$$$MV_PANTHER$$$MV_TIGER$$$MV_LEOPARD$$$MV_SNOWLEOPARD -->
 <h3 class="fn"><a name="MacVersion-enum"></a>enum QSysInfo::MacVersion</h3>
 <p>This enum provides symbolic names for the various versions of the Macintosh operating system. On Mac, the <a href="qsysinfo.html#MacintoshVersion-var">QSysInfo::MacintoshVersion</a> variable gives the version of the system on which the application is run.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::MV_9</tt></td><td class=" topAlign"><tt>0x0001</tt></td><td  class="topAlign">Mac OS 9 (unsupported)</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::MV_10_0</tt></td><td class=" topAlign"><tt>0x0002</tt></td><td  class="topAlign">Mac OS X 10.0 (unsupported)</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::MV_10_1</tt></td><td class=" topAlign"><tt>0x0003</tt></td><td  class="topAlign">Mac OS X 10.1 (unsupported)</td></tr>
@@ -227,7 +235,7 @@
 <!-- $$$S60Version$$$SV_S60_None$$$SV_S60_Unknown$$$SV_S60_3_1$$$SV_S60_3_2$$$SV_S60_5_0$$$SV_S60_5_1$$$SV_S60_5_2 -->
 <h3 class="fn"><a name="S60Version-enum"></a>enum QSysInfo::S60Version</h3>
 <p>This enum provides symbolic names for the various versions of the S60 SDK. On S60, the <a href="qsysinfo.html#s60Version">QSysInfo::s60Version</a>() function gives the version of the SDK on which the application is run.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::SV_S60_3_1</tt></td><td class=" topAlign"><tt>SV_9_2</tt></td><td  class="topAlign">S60 3rd Edition Feature Pack 1</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::SV_S60_3_2</tt></td><td class=" topAlign"><tt>SV_9_3</tt></td><td  class="topAlign">S60 3rd Edition Feature Pack 2</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::SV_S60_5_0</tt></td><td class=" topAlign"><tt>SV_9_4</tt></td><td  class="topAlign">S60 5th Edition</td></tr>
@@ -240,14 +248,14 @@
 <!-- $$$Sizes$$$WordSize -->
 <h3 class="fn"><a name="Sizes-enum"></a>enum QSysInfo::Sizes</h3>
 <p>This enum provides platform-specific information about the sizes of data structures used by the underlying architecture.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WordSize</tt></td><td class=" topAlign"><tt>( sizeof( void * ) &lt;&lt;3 )</tt></td><td  class="topAlign">The size in bits of a pointer for the platform on which the application is compiled (32 or 64).</td></tr>
 </table>
 <!-- @@@Sizes -->
 <!-- $$$SymbianVersion$$$SV_Unknown$$$SV_9_2$$$SV_9_3$$$SV_9_4$$$SV_SF_1$$$SV_SF_2$$$SV_SF_3$$$SV_SF_4 -->
 <h3 class="fn"><a name="SymbianVersion-enum"></a>enum QSysInfo::SymbianVersion</h3>
 <p>This enum provides symbolic names for the various versions of the Symbian operating system. On Symbian, the <a href="qsysinfo.html#symbianVersion">QSysInfo::symbianVersion</a>() function gives the version of the system on which the application is run.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::SV_9_2</tt></td><td class=" topAlign"><tt>10</tt></td><td  class="topAlign">Symbian OS v9.2</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::SV_9_3</tt></td><td class=" topAlign"><tt>20</tt></td><td  class="topAlign">Symbian OS v9.3</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::SV_9_4</tt></td><td class=" topAlign"><tt>30</tt></td><td  class="topAlign">Symbian OS v9.4</td></tr>
@@ -263,14 +271,14 @@
 <h3 class="fn"><a name="WinVersion-enum"></a>enum QSysInfo::WinVersion</h3>
 <p>This enum provides symbolic names for the various versions of the Windows operating system. On Windows, the <a href="qsysinfo.html#WindowsVersion-var">QSysInfo::WindowsVersion</a> variable gives the version of the system on which the application is run.</p>
 <p>MS-DOS-based versions:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_32s</tt></td><td class=" topAlign"><tt>0x0001</tt></td><td  class="topAlign">Windows 3.1 with Win 32s</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_95</tt></td><td class=" topAlign"><tt>0x0002</tt></td><td  class="topAlign">Windows 95</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_98</tt></td><td class=" topAlign"><tt>0x0003</tt></td><td  class="topAlign">Windows 98</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_Me</tt></td><td class=" topAlign"><tt>0x0004</tt></td><td  class="topAlign">Windows Me</td></tr>
 </table>
 <p>NT-based versions (note that each operating system version is only represented once rather than each Windows edition):</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_NT</tt></td><td class=" topAlign"><tt>0x0010</tt></td><td  class="topAlign">Windows NT (operating system version 4.0)</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_2000</tt></td><td class=" topAlign"><tt>0x0020</tt></td><td  class="topAlign">Windows 2000 (operating system version 5.0)</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_XP</tt></td><td class=" topAlign"><tt>0x0030</tt></td><td  class="topAlign">Windows XP (operating system version 5.1)</td></tr>
@@ -279,7 +287,7 @@
 <tr><td  class="topAlign"><tt>QSysInfo::WV_WINDOWS7</tt></td><td class=" topAlign"><tt>0x0090</tt></td><td  class="topAlign">Windows 7, Windows Server 2008 R2 (operating system version 6.1)</td></tr>
 </table>
 <p>Alternatively, you may use the following macros which correspond directly to the Windows operating system version number:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_4_0</tt></td><td class=" topAlign"><tt>WV_NT</tt></td><td  class="topAlign">Operating system version 4.0, corresponds to Windows NT</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_5_0</tt></td><td class=" topAlign"><tt>WV_2000</tt></td><td  class="topAlign">Operating system version 5.0, corresponds to Windows 2000</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_5_1</tt></td><td class=" topAlign"><tt>WV_XP</tt></td><td  class="topAlign">Operating system version 5.1, corresponds to Windows XP</td></tr>
@@ -288,14 +296,14 @@
 <tr><td  class="topAlign"><tt>QSysInfo::WV_6_1</tt></td><td class=" topAlign"><tt>WV_WINDOWS7</tt></td><td  class="topAlign">Operating system version 6.1, corresponds to Windows 7 and Windows Server 2008 R2</td></tr>
 </table>
 <p>CE-based versions:</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_CE</tt></td><td class=" topAlign"><tt>0x0100</tt></td><td  class="topAlign">Windows CE</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_CENET</tt></td><td class=" topAlign"><tt>0x0200</tt></td><td  class="topAlign">Windows CE .NET</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_CE_5</tt></td><td class=" topAlign"><tt>0x0300</tt></td><td  class="topAlign">Windows CE 5.x</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_CE_6</tt></td><td class=" topAlign"><tt>0x0400</tt></td><td  class="topAlign">Windows CE 6.x</td></tr>
 </table>
 <p>The following masks can be used for testing whether a Windows version is MS-DOS-based, NT-based, or CE-based:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_DOS_based</tt></td><td class=" topAlign"><tt>0x000f</tt></td><td  class="topAlign">MS-DOS-based version of Windows</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_NT_based</tt></td><td class=" topAlign"><tt>0x00f0</tt></td><td  class="topAlign">NT-based version of Windows</td></tr>
 <tr><td  class="topAlign"><tt>QSysInfo::WV_CE_based</tt></td><td class=" topAlign"><tt>0x0f00</tt></td><td  class="topAlign">CE-based version of Windows</td></tr>

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -91,6 +91,8 @@ public:
 
     IcdPrivate(unsigned int timeout, IcdDbusInterfaceVer ver, Icd *myfriend)
     {
+        Q_UNUSED(ver);
+
         /* Note that the old Icd interface is currently disabled and
 	 * the new one is always used.
 	 */
@@ -274,6 +276,8 @@ QStringList IcdPrivate::scan(icd_scan_request_flags flags,
 			     QList<IcdScanResult>& scan_results,
 			     QString& error)
 {
+    Q_UNUSED(network_types);
+
     QStringList scanned_types;
     QTimer timer;
     QVariant reply;
@@ -504,6 +508,7 @@ uint IcdPrivate::state(QList<IcdStateResult>& state_results)
         mInterface.clear();
 	while ((time(0)<=(started+timeout_secs)) && mInterface.isEmpty()) {
 	    mDBus->synchronousDispatch(1000);
+        QCoreApplication::sendPostedEvents(icd, QEvent::MetaCall);
 	}
 
         if (time(0)>(started+timeout_secs)) {
@@ -681,6 +686,7 @@ uint IcdPrivate::addrinfo(QList<IcdAddressInfoResult>& addr_results)
         mInterface.clear();
 	while ((time(0)<=(started+timeout_secs)) && mInterface.isEmpty()) {
 	    mDBus->synchronousDispatch(1000);
+        QCoreApplication::sendPostedEvents(icd, QEvent::MetaCall);
 	}
 
         if (time(0)>(started+timeout_secs)) {

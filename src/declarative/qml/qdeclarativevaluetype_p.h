@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -70,7 +70,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Q_DECLARATIVE_EXPORT QDeclarativeValueType : public QObject
+class Q_DECLARATIVE_PRIVATE_EXPORT QDeclarativeValueType : public QObject
 {
     Q_OBJECT
 public:
@@ -81,7 +81,7 @@ public:
     virtual void setValue(QVariant) = 0;
 };
 
-class Q_DECLARATIVE_EXPORT QDeclarativeValueTypeFactory
+class Q_DECLARATIVE_PRIVATE_EXPORT QDeclarativeValueTypeFactory
 {
 public:
     QDeclarativeValueTypeFactory();

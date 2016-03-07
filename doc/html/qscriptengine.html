@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -395,7 +403,7 @@
 <!-- $$$QObjectWrapOption$$$ExcludeChildObjects$$$ExcludeSuperClassMethods$$$ExcludeSuperClassProperties$$$ExcludeSuperClassContents$$$SkipMethodsInEnumeration$$$ExcludeDeleteLater$$$ExcludeSlots$$$AutoCreateDynamicProperties$$$PreferExistingWrapperObject -->
 <h3 class="flags"><a name="QObjectWrapOption-enum"></a>enum QScriptEngine::QObjectWrapOption<br/>flags QScriptEngine::QObjectWrapOptions</h3>
 <p>These flags specify options when wrapping a <a href="qobject.html">QObject</a> pointer with <a href="qscriptengine.html#newQObject">newQObject</a>().</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QScriptEngine::ExcludeChildObjects</tt></td><td class=" topAlign"><tt>0x0001</tt></td><td  class="topAlign">The script object will not expose child objects as properties.</td></tr>
 <tr><td  class="topAlign"><tt>QScriptEngine::ExcludeSuperClassMethods</tt></td><td class=" topAlign"><tt>0x0002</tt></td><td  class="topAlign">The script object will not expose signals and slots inherited from the superclass.</td></tr>
 <tr><td  class="topAlign"><tt>QScriptEngine::ExcludeSuperClassProperties</tt></td><td class=" topAlign"><tt>0x0004</tt></td><td  class="topAlign">The script object will not expose properties inherited from the superclass.</td></tr>
@@ -411,7 +419,7 @@
 <!-- $$$ValueOwnership$$$QtOwnership$$$ScriptOwnership$$$AutoOwnership -->
 <h3 class="fn"><a name="ValueOwnership-enum"></a>enum QScriptEngine::ValueOwnership</h3>
 <p>This enum specifies the ownership when wrapping a C++ value, e.g&#x2e; by using <a href="qscriptengine.html#newQObject">newQObject</a>().</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QScriptEngine::QtOwnership</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The standard Qt ownership rules apply, i.e&#x2e; the associated object will never be explicitly deleted by the script engine. This is the default. (<a href="qobject.html">QObject</a> ownership is explained in <a href="objecttrees.html">Object Trees &amp; Ownership</a>.)</td></tr>
 <tr><td  class="topAlign"><tt>QScriptEngine::ScriptOwnership</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The value is owned by the script environment. The associated data will be deleted when appropriate (i.e&#x2e; after the garbage collector has discovered that there are no more live references to the value).</td></tr>
 <tr><td  class="topAlign"><tt>QScriptEngine::AutoOwnership</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">If the associated object has a parent, the Qt ownership rules apply (QtOwnership); otherwise, the object is owned by the script environment (ScriptOwnership).</td></tr>
@@ -489,7 +497,7 @@
 <p>The evaluation of <i>program</i> can cause an exception in the engine; in this case the return value will be the exception that was thrown (typically an <tt>Error</tt> object). You can call <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>() to determine if an exception occurred in the last call to evaluate().</p>
 <p><i>lineNumber</i> is used to specify a starting line number for <i>program</i>; line number information reported by the engine that pertain to this evaluation (e.g&#x2e; <a href="qscriptengine.html#uncaughtExceptionLineNumber">uncaughtExceptionLineNumber</a>()) will be based on this argument. For example, if <i>program</i> consists of two lines of code, and the statement on the second line causes a script exception, <a href="qscriptengine.html#uncaughtExceptionLineNumber">uncaughtExceptionLineNumber</a>() would return the given <i>lineNumber</i> plus one. When no starting line number is specified, line numbers will be 1-based.</p>
 <p><i>fileName</i> is used for error reporting. For example in error objects the file name is accessible through the &quot;fileName&quot; property if it's provided with this function.</p>
-<p>See also <a href="qscriptengine.html#canEvaluate" class="obsolete">canEvaluate</a>(), <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>(), <a href="qscriptengine.html#isEvaluating">isEvaluating</a>(), and <a href="qscriptengine.html#abortEvaluation">abortEvaluation</a>().</p>
+<p>See also <a href="qscriptengine-obsolete.html#canEvaluate" class="obsolete">canEvaluate</a>(), <a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a>(), <a href="qscriptengine.html#isEvaluating">isEvaluating</a>(), and <a href="qscriptengine.html#abortEvaluation">abortEvaluation</a>().</p>
 <!-- @@@evaluate -->
 <!-- $$$evaluate$$$evaluateconstQScriptProgram& -->
 <h3 class="fn"><a name="evaluate-2"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptEngine::evaluate ( const <a href="qscriptprogram.html">QScriptProgram</a> &amp; <i>program</i> )</h3>

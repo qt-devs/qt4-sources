@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -198,7 +206,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#insert">insert</a></b> ( const Key &amp; <i>key</i>, const T &amp; <i>value</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#insertMulti">insertMulti</a></b> ( const Key &amp; <i>key</i>, const T &amp; <i>value</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#isEmpty">isEmpty</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const Key </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#keyx">key</a></b> ( const T &amp; <i>value</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const Key </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#key">key</a></b> ( const T &amp; <i>value</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const Key </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#key-2">key</a></b> ( const T &amp; <i>value</i>, const Key &amp; <i>defaultKey</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QList&lt;Key&gt; </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#keys">keys</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QList&lt;Key&gt; </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#keys-2">keys</a></b> ( const T &amp; <i>value</i> ) const</td></tr>
@@ -225,8 +233,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#operator-lt-lt-42">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QMap&lt;Key, T&gt; &amp; <i>map</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#operator-gt-gt-30">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QMap&lt;Key, T&gt; &amp; <i>map</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#operator-lt-lt-194">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QMap&lt;Key, T&gt; &amp; <i>map</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qmap.html#operator-gt-gt-107">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QMap&lt;Key, T&gt; &amp; <i>map</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QMap-description -->
@@ -480,7 +488,7 @@
 <p>See also <a href="qmap.html#size">size</a>().</p>
 <!-- @@@isEmpty -->
 <!-- $$$key[overload1]$$$keyconstT& -->
-<h3 class="fn"><a name="keyx"></a>const Key QMap::key ( const T &amp; <i>value</i> ) const</h3>
+<h3 class="fn"><a name="key"></a>const Key QMap::key ( const T &amp; <i>value</i> ) const</h3>
 <p>Returns the first key with value <i>value</i>.</p>
 <p>If the map contains no item with value <i>value</i>, the function returns a <a href="containers.html#default-constructed-values">default-constructed key</a>.</p>
 <p>This function can be slow (<a href="containers.html#linear-time">linear time</a>), because <a href="qmap.html">QMap</a>'s internal data structure is optimized for fast lookup by key, not by value.</p>
@@ -498,7 +506,7 @@
 <p>Returns a list containing all the keys in the map in ascending order. Keys that occur multiple times in the map (because items were inserted with <a href="qmap.html#insertMulti">insertMulti</a>(), or <a href="qmap.html#unite">unite</a>() was used) also occur multiple times in the list.</p>
 <p>To obtain a list of unique keys, where each key from the map only occurs once, use <a href="qmap.html#uniqueKeys">uniqueKeys</a>().</p>
 <p>The order is guaranteed to be the same as that used by <a href="qmap.html#values">values</a>().</p>
-<p>See also <a href="qmap.html#uniqueKeys">uniqueKeys</a>(), <a href="qmap.html#values">values</a>(), and <a href="qmap.html#keyx">key</a>().</p>
+<p>See also <a href="qmap.html#uniqueKeys">uniqueKeys</a>(), <a href="qmap.html#values">values</a>(), and <a href="qmap.html#key">key</a>().</p>
 <!-- @@@keys -->
 <!-- $$$keys$$$keysconstT& -->
 <h3 class="fn"><a name="keys-2"></a><a href="qlist.html">QList</a>&lt;Key&gt; QMap::keys ( const T &amp; <i>value</i> ) const</h3>
@@ -592,7 +600,7 @@
 <h3 class="fn"><a name="value"></a>const T QMap::value ( const Key &amp; <i>key</i> ) const</h3>
 <p>Returns the value associated with the key <i>key</i>.</p>
 <p>If the map contains no item with key <i>key</i>, the function returns a <a href="containers.html#default-constructed-values">default-constructed value</a>. If there are multiple items for <i>key</i> in the map, the value of the most recently inserted one is returned.</p>
-<p>See also <a href="qmap.html#keyx">key</a>(), <a href="qmap.html#values">values</a>(), <a href="qmap.html#contains">contains</a>(), and <a href="qmap.html#operator-5b-5d">operator[]</a>().</p>
+<p>See also <a href="qmap.html#key">key</a>(), <a href="qmap.html#values">values</a>(), <a href="qmap.html#contains">contains</a>(), and <a href="qmap.html#operator-5b-5d">operator[]</a>().</p>
 <!-- @@@value -->
 <!-- $$$value$$$valueconstKey&constT& -->
 <h3 class="fn"><a name="value-2"></a>const T QMap::value ( const Key &amp; <i>key</i>, const T &amp; <i>defaultValue</i> ) const</h3>
@@ -643,13 +651,13 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQMap<Key,T>& -->
-<h3 class="fn"><a name="operator-lt-lt-42"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QMap&lt;Key, T&gt; &amp; <i>map</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-194"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QMap&lt;Key, T&gt; &amp; <i>map</i> )</h3>
 <p>Writes the map <i>map</i> to stream <i>out</i>.</p>
 <p>This function requires the key and value types to implement <tt>operator&lt;&lt;()</tt>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QMap<Key,T>& -->
-<h3 class="fn"><a name="operator-gt-gt-30"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QMap&lt;Key, T&gt; &amp; <i>map</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-107"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QMap&lt;Key, T&gt; &amp; <i>map</i> )</h3>
 <p>Reads a map from stream <i>in</i> into <i>map</i>.</p>
 <p>This function requires the key and value types to implement <tt>operator&gt;&gt;()</tt>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>

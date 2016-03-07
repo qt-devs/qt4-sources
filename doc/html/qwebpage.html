@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -334,7 +342,7 @@
 <p>The QWebPage class provides an object to view and edit web documents.</p>
 <p>QWebPage holds a main frame responsible for web content, settings, the history of navigated links and actions. This class can be used, together with <a href="qwebframe.html">QWebFrame</a>, to provide functionality like <a href="qwebview.html">QWebView</a> in a widget-less environment.</p>
 <p>QWebPage's API is very similar to <a href="qwebview.html">QWebView</a>, as you are still provided with common functions like <a href="qwebpage.html#action">action</a>() (known as <a href="qwebview.html#pageAction">pageAction</a>() in <a href="qwebview.html">QWebView</a>), <a href="qwebpage.html#triggerAction">triggerAction</a>(), <a href="qwebpage.html#findText">findText</a>() and <a href="qwebpage.html#settings">settings</a>(). More <a href="qwebview.html">QWebView</a>-like functions can be found in the main frame of QWebPage, obtained via the <a href="qwebpage.html#mainFrame">mainFrame</a>() function. For example, the <a href="qwebframe.html#load">load</a>(), <a href="qwebframe.html#url-prop">setUrl</a>() and <a href="qwebframe.html#setHtml">setHtml</a>() functions for QWebPage can be accessed using <a href="qwebframe.html">QWebFrame</a>.</p>
-<p>The <a href="qwebpage.html#loadStarted">loadStarted</a>() signal is emitted when the page begins to load.The <a href="qwebpage.html#loadProgress">loadProgress</a>() signal, on the other hand, is emitted whenever an element of the web page completes loading, such as an embedded image, a script, etc. Finally, the <a href="qwebpage.html#loadFinished">loadFinished</a>() signal is emitted when the page has loaded completely. Its argument, either true or false, indicates whether or not the load operation succeeded.</p>
+<p>The <a href="qwebpage.html#loadStarted">loadStarted</a>() signal is emitted when the page begins to load.The <a href="qwebpage.html#loadProgress">loadProgress</a>() signal, on the other hand, is emitted whenever an element of the web page completes loading, such as an embedded image, a script, etc. Finally, the <a href="qwebpage.html#loadFinished">loadFinished</a>() signal is emitted when the page contents are loaded completely, independent of script execution or page rendering. Its argument, either true or false, indicates whether or not the load operation succeeded.</p>
 <a name="using-qwebpage-in-a-widget-less-environment"></a>
 <h3>Using QWebPage in a Widget-less Environment</h3>
 <p>Before you begin painting a QWebPage object, you need to set the size of the viewport by calling <a href="qwebpage.html#viewportSize-prop">setViewportSize</a>(). Then, you invoke the main frame's render function (<a href="qwebframe.html#render">QWebFrame::render</a>()). An example of this is shown in the code snippet below.</p>
@@ -387,7 +395,7 @@
 <!-- $$$ErrorDomain$$$QtNetwork$$$Http$$$WebKit -->
 <h3 class="fn"><a name="ErrorDomain-enum"></a>enum QWebPage::ErrorDomain</h3>
 <p>This enum describes the domain of an <a href="qwebpage-errorpageextensionoption.html">ErrorPageExtensionOption</a> object (i.e&#x2e; the layer in which the error occurred).</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebPage::QtNetwork</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The error occurred in the QtNetwork layer; the error code is of type <a href="qnetworkreply.html#NetworkError-enum">QNetworkReply::NetworkError</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::Http</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The error occurred in the HTTP layer; the error code is a HTTP status code (see <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::HttpStatusCodeAttribute</a>).</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::WebKit</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The error is an internal WebKit error.</td></tr>
@@ -397,7 +405,7 @@
 <!-- $$$Extension$$$ChooseMultipleFilesExtension$$$ErrorPageExtension -->
 <h3 class="fn"><a name="Extension-enum"></a>enum QWebPage::Extension</h3>
 <p>This enum describes the types of extensions that the page can support. Before using these extensions, you should verify that the extension is supported by calling <a href="qwebpage.html#supportsExtension">supportsExtension</a>().</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebPage::ChooseMultipleFilesExtension</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Whether the web page supports multiple file selection. This extension is invoked when the web content requests one or more file names, for example as a result of the user clicking on a &quot;file upload&quot; button in a HTML form where multiple file selection is allowed.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::ErrorPageExtension</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Whether the web page can provide an error page when loading fails. (introduced in Qt 4.6)</td></tr>
 </table>
@@ -406,7 +414,7 @@
 <!-- $$$FindFlag$$$FindBackward$$$FindCaseSensitively$$$FindWrapsAroundDocument$$$HighlightAllOccurrences -->
 <h3 class="flags"><a name="FindFlag-enum"></a>enum QWebPage::FindFlag<br/>flags QWebPage::FindFlags</h3>
 <p>This enum describes the options available to the <a href="qwebpage.html#findText">findText</a>() function. The options can be OR-ed together from the following list:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebPage::FindBackward</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Searches backwards instead of forwards.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::FindCaseSensitively</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">By default <a href="qwebpage.html#findText">findText</a>() works case insensitive. Specifying this option changes the behaviour to a case sensitive find operation.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::FindWrapsAroundDocument</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">Makes <a href="qwebpage.html#findText">findText</a>() restart from the beginning of the document if the end was reached and the text was not found.</td></tr>
@@ -417,7 +425,7 @@
 <!-- $$$LinkDelegationPolicy$$$DontDelegateLinks$$$DelegateExternalLinks$$$DelegateAllLinks -->
 <h3 class="fn"><a name="LinkDelegationPolicy-enum"></a>enum QWebPage::LinkDelegationPolicy</h3>
 <p>This enum defines the delegation policies a webpage can have when activating links and emitting the <a href="qwebpage.html#linkClicked">linkClicked</a>() signal.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebPage::DontDelegateLinks</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">No links are delegated. Instead, <a href="qwebpage.html">QWebPage</a> tries to handle them all.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::DelegateExternalLinks</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">When activating links that point to documents not stored on the local filesystem or an equivalent - such as the Qt resource system - then <a href="qwebpage.html#linkClicked">linkClicked</a>() is emitted.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::DelegateAllLinks</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Whenever a link is activated the <a href="qwebpage.html#linkClicked">linkClicked</a>() signal is emitted.</td></tr>
@@ -427,7 +435,7 @@
 <!-- $$$NavigationType$$$NavigationTypeLinkClicked$$$NavigationTypeFormSubmitted$$$NavigationTypeBackOrForward$$$NavigationTypeReload$$$NavigationTypeFormResubmitted$$$NavigationTypeOther -->
 <h3 class="fn"><a name="NavigationType-enum"></a>enum QWebPage::NavigationType</h3>
 <p>This enum describes the types of navigation available when browsing through hyperlinked documents.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebPage::NavigationTypeLinkClicked</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The user clicked on a link or pressed return on a focused link.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::NavigationTypeFormSubmitted</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The user activated a submit button for an HTML form.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::NavigationTypeBackOrForward</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Navigation to a previously shown document in the back or forward history is requested.</td></tr>
@@ -442,7 +450,7 @@
 <p>This enum describes the types of action which can be performed on the web page.</p>
 <p>Actions only have an effect when they are applicable. The availability of actions can be be determined by checking <a href="qaction.html#enabled-prop">isEnabled()</a> on the action returned by <a href="qwebpage.html#action">action</a>().</p>
 <p>One method of enabling the text editing, cursor movement, and text selection actions is by setting <a href="qwebpage.html#contentEditable-prop">contentEditable</a> to true.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebPage::NoWebAction</tt></td><td class=" topAlign"><tt>-1</tt></td><td  class="topAlign">No action is triggered.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::OpenLink</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Open the current link.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::OpenLinkInNewWindow</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Open the current link in a new window.</td></tr>
@@ -517,7 +525,7 @@
 <!-- $$$WebWindowType$$$WebBrowserWindow$$$WebModalDialog -->
 <h3 class="fn"><a name="WebWindowType-enum"></a>enum QWebPage::WebWindowType</h3>
 <p>This enum describes the types of window that can be created by the <a href="qwebpage.html#createWindow">createWindow</a>() function.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QWebPage::WebBrowserWindow</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The window is a regular web browser window.</td></tr>
 <tr><td  class="topAlign"><tt>QWebPage::WebModalDialog</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The window acts as modal dialog.</td></tr>
 </table>
@@ -667,7 +675,7 @@
 <!-- @@@createStandardContextMenu -->
 <!-- $$$createWindow[overload1]$$$createWindowWebWindowType -->
 <h3 class="fn"><a name="createWindow"></a>QWebPage * QWebPage::createWindow ( <a href="qwebpage.html#WebWindowType-enum">WebWindowType</a> <i>type</i> )<tt> [virtual protected]</tt></h3>
-<p>This function is called whenever <a href="qwebpage.html#ErrorDomain-enum">WebKit</a> wants to create a new window of the given <i>type</i>, for example when a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> program requests to open a document in a new window.</p>
+<p>This function is called whenever <a href="qwebpage.html#ErrorDomain-enum">WebKit</a> wants to create a new window of the given <i>type</i>, for example when a JavaScript program requests to open a document in a new window.</p>
 <p>If the new window can be created, the new window's <a href="qwebpage.html">QWebPage</a> is returned; otherwise a null pointer is returned.</p>
 <p>If the view associated with the web page is a <a href="qwebview.html">QWebView</a> object, then the default implementation forwards the request to <a href="qwebview.html">QWebView</a>'s createWindow() function; otherwise it returns a null pointer.</p>
 <p>If <i>type</i> is <a href="qwebpage.html#WebWindowType-enum">WebModalDialog</a>, the application must call setWindowModality(<a href="qt.html#WindowModality-enum">Qt::ApplicationModal</a>) on the new window.</p>
@@ -727,7 +735,7 @@
 <!-- @@@frameCreated -->
 <!-- $$$geometryChangeRequested[overload1]$$$geometryChangeRequestedconstQRect& -->
 <h3 class="fn"><a name="geometryChangeRequested"></a>void QWebPage::geometryChangeRequested ( const <a href="qrect.html">QRect</a> &amp; <i>geom</i> )<tt> [signal]</tt></h3>
-<p>This signal is emitted whenever the document wants to change the position and size of the page to <i>geom</i>. This can happen for example through <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>.</p>
+<p>This signal is emitted whenever the document wants to change the position and size of the page to <i>geom</i>. This can happen for example through JavaScript.</p>
 <!-- @@@geometryChangeRequested -->
 <!-- $$$history[overload1]$$$history -->
 <h3 class="fn"><a name="history"></a><a href="qwebhistory.html">QWebHistory</a> * QWebPage::history () const</h3>
@@ -741,23 +749,23 @@
 <!-- @@@inputMethodQuery -->
 <!-- $$$javaScriptAlert[overload1]$$$javaScriptAlertQWebFrame*constQString& -->
 <h3 class="fn"><a name="javaScriptAlert"></a>void QWebPage::javaScriptAlert ( <a href="qwebframe.html">QWebFrame</a> * <i>frame</i>, const <a href="qstring.html">QString</a> &amp; <i>msg</i> )<tt> [virtual protected]</tt></h3>
-<p>This function is called whenever a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> program running inside <i>frame</i> calls the alert() function with the message <i>msg</i>.</p>
+<p>This function is called whenever a JavaScript program running inside <i>frame</i> calls the alert() function with the message <i>msg</i>.</p>
 <p>The default implementation shows the message, <i>msg</i>, with QMessageBox::information.</p>
 <!-- @@@javaScriptAlert -->
 <!-- $$$javaScriptConfirm[overload1]$$$javaScriptConfirmQWebFrame*constQString& -->
 <h3 class="fn"><a name="javaScriptConfirm"></a>bool QWebPage::javaScriptConfirm ( <a href="qwebframe.html">QWebFrame</a> * <i>frame</i>, const <a href="qstring.html">QString</a> &amp; <i>msg</i> )<tt> [virtual protected]</tt></h3>
-<p>This function is called whenever a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> program running inside <i>frame</i> calls the confirm() function with the message, <i>msg</i>. Returns true if the user confirms the message; otherwise returns false.</p>
+<p>This function is called whenever a JavaScript program running inside <i>frame</i> calls the confirm() function with the message, <i>msg</i>. Returns true if the user confirms the message; otherwise returns false.</p>
 <p>The default implementation executes the query using QMessageBox::information with <a href="qmessagebox.html#StandardButton-enum">QMessageBox::Yes</a> and <a href="qmessagebox.html#StandardButton-enum">QMessageBox::No</a> buttons.</p>
 <!-- @@@javaScriptConfirm -->
 <!-- $$$javaScriptConsoleMessage[overload1]$$$javaScriptConsoleMessageconstQString&intconstQString& -->
 <h3 class="fn"><a name="javaScriptConsoleMessage"></a>void QWebPage::javaScriptConsoleMessage ( const <a href="qstring.html">QString</a> &amp; <i>message</i>, int <i>lineNumber</i>, const <a href="qstring.html">QString</a> &amp; <i>sourceID</i> )<tt> [virtual protected]</tt></h3>
-<p>This function is called whenever a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> program tries to print a <i>message</i> to the web browser's console.</p>
+<p>This function is called whenever a JavaScript program tries to print a <i>message</i> to the web browser's console.</p>
 <p>For example in case of evaluation errors the source URL may be provided in <i>sourceID</i> as well as the <i>lineNumber</i>.</p>
 <p>The default implementation prints nothing.</p>
 <!-- @@@javaScriptConsoleMessage -->
 <!-- $$$javaScriptPrompt[overload1]$$$javaScriptPromptQWebFrame*constQString&constQString&QString* -->
 <h3 class="fn"><a name="javaScriptPrompt"></a>bool QWebPage::javaScriptPrompt ( <a href="qwebframe.html">QWebFrame</a> * <i>frame</i>, const <a href="qstring.html">QString</a> &amp; <i>msg</i>, const <a href="qstring.html">QString</a> &amp; <i>defaultValue</i>, <a href="qstring.html">QString</a> * <i>result</i> )<tt> [virtual protected]</tt></h3>
-<p>This function is called whenever a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> program running inside <i>frame</i> tries to prompt the user for input. The program may provide an optional message, <i>msg</i>, as well as a default value for the input in <i>defaultValue</i>.</p>
+<p>This function is called whenever a JavaScript program running inside <i>frame</i> tries to prompt the user for input. The program may provide an optional message, <i>msg</i>, as well as a default value for the input in <i>defaultValue</i>.</p>
 <p>If the prompt was cancelled by the user the implementation should return false; otherwise the result should be written to <i>result</i> and true should be returned. If the prompt was not cancelled by the user, the implementation should return true and the result string must not be null.</p>
 <p>The default implementation uses <a href="qinputdialog.html#getText">QInputDialog::getText</a>().</p>
 <!-- @@@javaScriptPrompt -->
@@ -776,7 +784,7 @@
 <!-- @@@linkHovered -->
 <!-- $$$loadFinished[overload1]$$$loadFinishedbool -->
 <h3 class="fn"><a name="loadFinished"></a>void QWebPage::loadFinished ( bool <i>ok</i> )<tt> [signal]</tt></h3>
-<p>This signal is emitted when a load of the page is finished. <i>ok</i> will indicate whether the load was successful or any error occurred.</p>
+<p>This signal is emitted when the page finishes loading content. This signal is independant of script execution or page rendering. <i>ok</i> will indicate whether the load was successful or any error occurred.</p>
 <p>See also <a href="qwebpage.html#loadStarted">loadStarted</a>() and <a href="qwebpage.html#Extension-enum">ErrorPageExtension</a>.</p>
 <!-- @@@loadFinished -->
 <!-- $$$loadProgress[overload1]$$$loadProgressint -->
@@ -786,7 +794,7 @@
 <!-- @@@loadProgress -->
 <!-- $$$loadStarted[overload1]$$$loadStarted -->
 <h3 class="fn"><a name="loadStarted"></a>void QWebPage::loadStarted ()<tt> [signal]</tt></h3>
-<p>This signal is emitted when a new load of the page is started.</p>
+<p>This signal is emitted when a page starts loading content.</p>
 <p>See also <a href="qwebpage.html#loadFinished">loadFinished</a>().</p>
 <!-- @@@loadStarted -->
 <!-- $$$mainFrame[overload1]$$$mainFrame -->
@@ -815,7 +823,7 @@
 <!-- @@@pluginFactory -->
 <!-- $$$printRequested[overload1]$$$printRequestedQWebFrame* -->
 <h3 class="fn"><a name="printRequested"></a>void QWebPage::printRequested ( <a href="qwebframe.html">QWebFrame</a> * <i>frame</i> )<tt> [signal]</tt></h3>
-<p>This signal is emitted whenever the page requests the web browser to print <i>frame</i>, for example through the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> <tt>window.print()</tt> call.</p>
+<p>This signal is emitted whenever the page requests the web browser to print <i>frame</i>, for example through the JavaScript <tt>window.print()</tt> call.</p>
 <p>See also <a href="qwebframe.html#print">QWebFrame::print</a>() and <a href="qprintpreviewdialog.html">QPrintPreviewDialog</a>.</p>
 <!-- @@@printRequested -->
 <!-- $$$repaintRequested[overload1]$$$repaintRequestedconstQRect& -->
@@ -869,8 +877,8 @@
 <!-- @@@settings -->
 <!-- $$$shouldInterruptJavaScript[overload1]$$$shouldInterruptJavaScript -->
 <h3 class="fn"><a name="shouldInterruptJavaScript"></a>bool QWebPage::shouldInterruptJavaScript ()<tt> [slot]</tt></h3>
-<p>This function is called when a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> program is running for a long period of time.</p>
-<p>If the user wanted to stop the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> the implementation should return true; otherwise false.</p>
+<p>This function is called when a JavaScript program is running for a long period of time.</p>
+<p>If the user wanted to stop the JavaScript the implementation should return true; otherwise false.</p>
 <p>The default implementation executes the query using QMessageBox::information with <a href="qmessagebox.html#StandardButton-enum">QMessageBox::Yes</a> and <a href="qmessagebox.html#StandardButton-enum">QMessageBox::No</a> buttons.</p>
 <p><b>Warning:</b> Because of binary compatibility constraints, this function is not virtual. If you want to provide your own implementation in a <a href="qwebpage.html">QWebPage</a> subclass, reimplement the shouldInterruptJavaScript() slot in your subclass instead. <a href="qtwebkit.html">QtWebKit</a> will dynamically detect the slot and call it.</p>
 <p>This function was introduced in Qt 4.6.</p>
@@ -891,7 +899,7 @@
 <!-- $$$swallowContextMenuEvent[overload1]$$$swallowContextMenuEventQContextMenuEvent* -->
 <h3 class="fn"><a name="swallowContextMenuEvent"></a>bool QWebPage::swallowContextMenuEvent ( <a href="qcontextmenuevent.html">QContextMenuEvent</a> * <i>event</i> )</h3>
 <p>Filters the context menu event, <i>event</i>, through handlers for scrollbars and custom event handlers in the web page. Returns true if the event was handled; otherwise false.</p>
-<p>A web page may swallow a context menu event through a custom event handler, allowing for context menus to be implemented in HTML/<a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>. This is used by <a href="http://maps.google.com/">Google Maps</a>, for example.</p>
+<p>A web page may swallow a context menu event through a custom event handler, allowing for context menus to be implemented in HTML/JavaScript. This is used by <a href="http://maps.google.com/">Google Maps</a>, for example.</p>
 <!-- @@@swallowContextMenuEvent -->
 <!-- $$$toolBarVisibilityChangeRequested[overload1]$$$toolBarVisibilityChangeRequestedbool -->
 <h3 class="fn"><a name="toolBarVisibilityChangeRequested"></a>void QWebPage::toolBarVisibilityChangeRequested ( bool <i>visible</i> )<tt> [signal]</tt></h3>
@@ -946,7 +954,7 @@
 <!-- @@@view -->
 <!-- $$$windowCloseRequested[overload1]$$$windowCloseRequested -->
 <h3 class="fn"><a name="windowCloseRequested"></a>void QWebPage::windowCloseRequested ()<tt> [signal]</tt></h3>
-<p>This signal is emitted whenever the page requests the web browser window to be closed, for example through the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> <tt>window.close()</tt> call.</p>
+<p>This signal is emitted whenever the page requests the web browser window to be closed, for example through the JavaScript <tt>window.close()</tt> call.</p>
 <!-- @@@windowCloseRequested -->
 </div>
 <div class="relnonmem">
@@ -966,7 +974,7 @@
 <!-- $$$qWebKitVersion[overload1]$$$qWebKitVersion -->
 <h3 class="fn"><a name="qWebKitVersion"></a><a href="qstring.html">QString</a> qWebKitVersion ()</h3>
 <p>Returns the version number of WebKit at run-time as a string (for example, &quot;531.3&quot;).</p>
-<p>This version is commonly used in WebKit based browsers as part of the user agent string. Web servers and <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> might use it to identify the presence of certain WebKit engine features and behaviour.</p>
+<p>This version is commonly used in WebKit based browsers as part of the user agent string. Web servers and JavaScript might use it to identify the presence of certain WebKit engine features and behaviour.</p>
 <p>The evolution of this version is bound to the releases of Apple's Safari browser. For a version specific to the <a href="qtwebkit.html">QtWebKit</a> library, see <a href="qwebpage.html#QTWEBKIT_VERSION">QTWEBKIT_VERSION</a></p>
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qwebpage.html#userAgentForUrl">QWebPage::userAgentForUrl</a>().</p>

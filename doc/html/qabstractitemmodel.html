@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -311,7 +319,7 @@
 <p>The <i>private</i> signals that these functions emit give attached components the chance to take action before any data becomes unavailable. The encapsulation of the insert and remove operations with these begin and end functions also enables the model to manage <a href="qpersistentmodelindex.html">persistent model indexes</a> correctly. <b>If you want selections to be handled properly, you must ensure that you call these functions.</b> If you insert or remove an item with children, you do not need to call these functions for the child items. In other words, the parent item will take care of its child items.</p>
 <p>To create models that populate incrementally, you can reimplement <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() and <a href="qabstractitemmodel.html#canFetchMore">canFetchMore</a>(). If the reimplementation of <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() adds rows to the model, <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a> and <a href="qabstractitemmodel.html#endInsertRows">endInsertRows()</a> must be called.</p>
 </div>
-<p>See also <a href="model-view-programming.html#model-classes">Model Classes</a>, <a href="model-view-programming.html#model-subclassing-reference">Model Subclassing Reference</a>, <a href="qmodelindex.html">QModelIndex</a>, <a href="qabstractitemview.html">QAbstractItemView</a>, <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>, <a href="itemviews-simpledommodel.html">Simple DOM Model Example</a>, <a href="itemviews-simpletreemodel.html">Simple Tree Model Example</a>, <a href="itemviews-editabletreemodel.html">Editable Tree Model Example</a>, and <a href="itemviews-fetchmore.html">Fetch More Example</a>.</p>
+<p>See also <a href="model-view-programming.html#model-classes">Model Classes</a>, <a href="model-view-programming.html#model-subclassing-reference">Model Subclassing Reference</a>, <a href="qmodelindex.html">QModelIndex</a>, <a href="qabstractitemview.html">QAbstractItemView</a>, <a href="model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>, <a href="itemviews-simpledommodel.html">Simple DOM Model Example</a>, <a href="itemviews-simpletreemodel.html">Simple Tree Model Example</a>, <a href="itemviews-editabletreemodel.html">Editable Tree Model Example</a>, and <a href="itemviews-fetchmore.html">Fetch More Example</a>.</p>
 <!-- @@@QAbstractItemModel -->
 <div class="func">
 <h2>Member Function Documentation</h2>
@@ -541,7 +549,7 @@
 <p>Although the specified <i>row</i>, <i>column</i> and <i>parent</i> indicate the location of an item in the model where the operation ended, it is the responsibility of the view to provide a suitable location for where the data should be inserted.</p>
 <p>For instance, a drop action on an item in a <a href="qtreeview.html">QTreeView</a> can result in new items either being inserted as children of the item specified by <i>row</i>, <i>column</i>, and <i>parent</i>, or as siblings of the item.</p>
 <p>When row and column are -1 it means that it is up to the model to decide where to place the data. This can occur in a tree when data is dropped on a parent. Models will usually append the data to the parent in this case.</p>
-<p>See also <a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions</a>() and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
+<p>See also <a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions</a>() and <a href="model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@dropMimeData -->
 <!-- $$$endInsertColumns[overload1]$$$endInsertColumns -->
 <h3 class="fn"><a name="endInsertColumns"></a>void QAbstractItemModel::endInsertColumns ()<tt> [protected]</tt></h3>
@@ -686,11 +694,11 @@
 <p>When subclassing <a href="qabstractitemmodel.html">QAbstractItemModel</a> or <a href="qabstractproxymodel.html">QAbstractProxyModel</a>, ensure that you emit <a href="qabstractitemmodel.html#layoutAboutToBeChanged">layoutAboutToBeChanged</a>() before changing the order of items or altering the structure of the data you expose to views, and emit layoutChanged() after changing the layout.</p>
 <p>Subclasses should update any persistent model indexes before emitting layoutChanged(). In other words, when the structure changes:</p>
 <ul>
-<li>Call beginLayoutChanged()</li>
+<li>emit layoutAboutToBeChanged</li>
 <li>Remember the <a href="qmodelindex.html">QModelIndex</a> that will change</li>
 <li>Update your internal data</li>
 <li>Call <a href="qabstractitemmodel.html#changePersistentIndex">changePersistentIndex</a>()</li>
-<li>Call endLayoutChanged()</li>
+<li>emit layoutChanged</li>
 </ul>
 <p>See also <a href="qabstractitemmodel.html#layoutAboutToBeChanged">layoutAboutToBeChanged</a>(), <a href="qabstractitemmodel.html#dataChanged">dataChanged</a>(), <a href="qabstractitemmodel.html#headerDataChanged">headerDataChanged</a>(), <a href="qabstractitemmodel.html#modelReset">modelReset</a>(), and <a href="qabstractitemmodel.html#changePersistentIndex">changePersistentIndex</a>().</p>
 <!-- @@@layoutChanged -->
@@ -858,7 +866,7 @@
 <h3 class="fn"><a name="setSupportedDragActions"></a>void QAbstractItemModel::setSupportedDragActions ( <a href="qt.html#DropAction-enum">Qt::DropActions</a> <i>actions</i> )</h3>
 <p>Sets the supported drag <i>actions</i> for the items in the model.</p>
 <p>This function was introduced in Qt 4.2.</p>
-<p>See also <a href="qabstractitemmodel.html#supportedDragActions">supportedDragActions</a>() and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
+<p>See also <a href="qabstractitemmodel.html#supportedDragActions">supportedDragActions</a>() and <a href="model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@setSupportedDragActions -->
 <!-- $$$sibling[overload1]$$$siblingintintconstQModelIndex& -->
 <h3 class="fn"><a name="sibling"></a><a href="qmodelindex.html">QModelIndex</a> QAbstractItemModel::sibling ( int <i>row</i>, int <i>column</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const</h3>
@@ -887,14 +895,14 @@
 <p>Returns the actions supported by the data in this model.</p>
 <p>The default implementation returns <a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions</a>() unless specific values have been set with <a href="qabstractitemmodel.html#setSupportedDragActions">setSupportedDragActions</a>().</p>
 <p>supportedDragActions() is used by <a href="qabstractitemview.html#startDrag">QAbstractItemView::startDrag</a>() as the default values when a drag occurs.</p>
-<p>See also <a href="qabstractitemmodel.html#setSupportedDragActions">setSupportedDragActions</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
+<p>See also <a href="qabstractitemmodel.html#setSupportedDragActions">setSupportedDragActions</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@supportedDragActions -->
 <!-- $$$supportedDropActions[overload1]$$$supportedDropActions -->
 <h3 class="fn"><a name="supportedDropActions"></a><a href="qt.html#DropAction-enum">Qt::DropActions</a> QAbstractItemModel::supportedDropActions () const<tt> [virtual]</tt></h3>
 <p>Returns the drop actions supported by this model.</p>
 <p>The default implementation returns <a href="qt.html#DropAction-enum">Qt::CopyAction</a>. Reimplement this function if you wish to support additional actions. You must also reimplement the <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>() function to handle the additional operations.</p>
 <p>This function was introduced in Qt 4.2.</p>
-<p>See also <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
+<p>See also <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@supportedDropActions -->
 </div>
         <div class="feedback t_button">

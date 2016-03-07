@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,9 +147,13 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="qmake-reference.html" />
   <link rel="next" href="qmake-function-reference.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qmake-reference.html">qmake Reference</a>]
+[Next: <a href="qmake-function-reference.html">qmake Function Reference</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -456,6 +468,7 @@
 <tr class="odd topAlign"><td ><p>stdbinary</p></td><td ><p>Builds an Open C binary (i.e&#x2e; STDDLL, STDEXE, or STDLIB, depending on the target binary type.)</p></td></tr>
 <tr class="even topAlign"><td ><p>no_icon</p></td><td ><p>Doesn't generate resources needed for displaying an icon for executable in application menu (app only).</p></td></tr>
 <tr class="odd topAlign"><td ><p>symbian_test</p></td><td ><p>Places mmp files and extension makefiles under test sections in generated bld.inf instead of their regular sections. Note that this only affects automatically generated bld.inf content; the content added via <tt>BLD_INF_RULES</tt> variable is not affected.</p></td></tr>
+<tr class="even topAlign"><td ><p>localize_deployment</p></td><td ><p>Makes <tt>lupdate</tt> tool add fields for application captions and package file names into generated <tt>.ts</tt> files. Qmake generates properly localized <tt>.loc</tt> and <tt>.pkg</tt> files based on available translations. Translation file name bodies must end with underscore and the language code for deployment localization to work. E.g&#x2e; <tt>myapp_en.ts</tt>. <b>Note:</b> All languages supported by Qt are not supported by Symbian, so some <tt>.ts</tt> files may be ignored by qmake.</p></td></tr>
 </table>
 <p>These options have an effect on Linux/Unix platforms:</p>
 <table class="generic">
@@ -511,7 +524,7 @@
  globalplugin.sources = someglobalimageplugin.dll
  globalplugin.path = \resource\qt\plugins\imageformats
  DEPLOYMENT += customplugin dynamiclibrary globalplugin</pre>
-<p>On the Symbian platform, generic PKG file content can also be specified with this variable. You can use either <tt>pkg_prerules</tt> or <tt>pkg_postrules</tt> to pass raw data to PKG file. The strings in <tt>pkg_prerules</tt> are added before package-body and <tt>pkg_postrules</tt> after. The strings defined in <tt>pkg_postrules</tt> or <tt>pkg_prerules</tt> are not parsed by qmake, so they should be in a format understood by Symbian package generation tools. Please consult the Symbian platform documentation for correct syntax.</p>
+<p>On the Symbian platform, generic PKG file content can also be specified with this variable. You can use either <tt>pkg_prerules</tt> or <tt>pkg_postrules</tt> to pass raw data to PKG file. The strings in <tt>pkg_prerules</tt> are added before package-body and <tt>pkg_postrules</tt> after. <tt>pkg_prerules</tt> is used for defining vendor information, dependencies, custom package headers, and the like, while <tt>pkg_postrules</tt> is used for custom file deployment and embedded sis directives. The strings defined in <tt>pkg_postrules</tt> or <tt>pkg_prerules</tt> are not parsed by qmake, so they should be in a format understood by Symbian package generation tools. Please consult the Symbian platform documentation for correct syntax.</p>
 <p>For example, to deploy DLL and add a new dependency:</p>
 <pre class="highlightedCode brush: cpp"> somelib.sources = somelib.dll
  somelib.path = \sys\bin
@@ -526,6 +539,15 @@
 <li>localized and unique vendor, for example <br /> %{&quot;Vendor-EN&quot;, ..&#x2e;, &quot;Vendor-FR&quot;} :&quot;Unique vendor name&quot;</li>
 </ul>
 <p>If you decide to override any of these statements, you need to pay attention that also other statements stay valid. For example if you override languages statement, you must override also package-header statement and all other statements which are language specific.</p>
+<p>On the Symbian platform, three separate PKG files are generated:</p>
+<ul>
+<li>&lt;app&gt;<a href="#template">_template</a>.pkg - For application SIS file. Rules suffix: <tt>.main</tt></li>
+<li>&lt;app&gt;_installer.pkg - For smart installer SIS file. Rules suffix: <tt>.installer</tt></li>
+<li>&lt;app&gt;_stub.pkg - For ROM stubs. Rules suffix: <tt>.stub</tt></li>
+</ul>
+<p><tt>pkg_prerules</tt> and <tt>pkg_postrules</tt> given without rules suffix will intelligently apply to each of these files, but rules can also be targeted to only one of above files by appending listed rules suffix to the variable name:</p>
+<pre class="highlightedCode brush: cpp"> my_note.pkg_postrules.installer = &quot;\&quot;myinstallnote.txt\&quot; - \&quot;\&quot;, FILETEXT, TEXTCONTINUE&quot;
+ DEPLOYMENT += my_note</pre>
 <p>On the Symbian platform, the <tt>default_deployment</tt> item specifies default platform and package dependencies. Those dependencies can be selectively disabled if alternative dependencies need to be defined - e.g&#x2e; if a specific device is required to run the application or more languages need to be supported by the package file. The supported <tt>default_deployment</tt> rules that can be disabled are:</p>
 <ul>
 <li>pkg_depends_qt</li>
@@ -536,6 +558,25 @@
 <pre class="highlightedCode brush: cpp"> default_deployment.pkg_prerules -= pkg_platform_dependencies
  my_deployment.pkg_prerules = &quot;[0x11223344],0,0,0,{\&quot;SomeSpecificDeviceID\&quot;}&quot;
  DEPLOYMENT += my_deployment</pre>
+<p>On the Symbian platform, a default deployment is generated for all application projects. You can modify the autogenerated default deployment via following <tt>DEPLOYMENT</tt> variable values:</p>
+<ul>
+<li>default_bin_deployment - Application executable</li>
+<li>default_resource_deployment - Application resources, including icon</li>
+<li>default_reg_deployment - Application registration file</li>
+</ul>
+<p>For example:</p>
+<pre class="highlightedCode brush: cpp"> DEPLOYMENT -= default_bin_deployment default_resource_deployment default_reg_deployment</pre>
+<p>This will entirely remove the default application deployment.</p>
+<p>On the Symbian platform, you can specify file specific install options with <tt>.flags</tt> modifier. Please consult the Symbian platform documentation for supported options.</p>
+<p>For example:</p>
+<pre class="highlightedCode brush: cpp"> default_bin_deployment.flags += FILERUN RUNINSTALL
+ dep_note.sources = install_note.txt
+ dep_note.flags = FILETEXT TEXTEXIT
+ DEPLOYMENT += dep_note</pre>
+<p>This will show a message box that gives user an option to cancel the installation and then automatically runs the application after installation is complete.</p>
+<p><b>Note:</b> Automatically running the applications after install may require signing the package with better than self-signed certificate, depending on the phone model. Additionally, some tools such as Runonphone may not work properly with sis packages that automatically run the application upon install.</p>
+<p>On the Symbian platform, the default package name and the default name that appears in application menu is derived from the <tt>TARGET</tt> variable. Often the default is not optimal for displaying to end user. To set a better display name for these purposes, use <tt>DEPLOYMENT.display_name</tt> variable:</p>
+<pre class="highlightedCode brush: cpp"> DEPLOYMENT.display_name = My Qt App</pre>
 <p>On the Symbian platform, you can use <tt>DEPLOYMENT.installer_header</tt> variable to generate smart installer wrapper for your application. If you specify just UID of the installer package as the value, then installer package name and version will be autogenerated:</p>
 <pre class="highlightedCode brush: cpp"> DEPLOYMENT.installer_header = 0x12345678</pre>
 <p>If autogenerated values are not suitable, you can also specify the sis header yourself using this variable:</p>
@@ -613,6 +654,7 @@
 <p>For example, the following <tt>target.path</tt> definition describes where the build target will be installed, and the <tt>INSTALLS</tt> assignment adds the build target to the list of existing resources to be installed:</p>
 <pre class="highlightedCode brush: cpp"> target.path += $$[QT_INSTALL_PLUGINS]/imageformats
  INSTALLS += target</pre>
+<p>Note that <tt>qmake</tt> will skip files that are executable. If you need to install executable files, you can unset the files' executable flags.</p>
 <a name="leximpls"></a><a name="leximpls"></a>
 <h2>LEXIMPLS</h2>
 <p>This variable contains a list of lex implementation files. The value of this variable is typically handled by <tt>qmake</tt> or <a href="#qmakespec">qmake.conf</a> and rarely needs to be modified.</p>
@@ -1422,7 +1464,7 @@
 <pre class="highlightedCode brush: cpp"> message($$_PRO_FILE_PWD_)</pre>
 </div>
 <!-- @@@qmake-variable-reference.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="qmake-reference.html">qmake Reference</a>]
 [Next: <a href="qmake-function-reference.html">qmake Function Reference</a>]
 </p>

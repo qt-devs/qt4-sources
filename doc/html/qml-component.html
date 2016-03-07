@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -179,8 +187,8 @@
 <a name="details"></a>
 <h2>Detailed Description</h2>
 <p>Components are reusable, encapsulated QML elements with well-defined interfaces.</p>
-<p>Components are often defined by <a href="qdeclarativedocuments.html">component files</a> - that is, <tt>.qml</tt> files. The <i>Component</i> element allows components to be defined within QML items rather than in a separate file. This may be useful for reusing a small component within a QML file, or for defining a component that logically belongs with other QML components within a file.</p>
-<p>For example, here is a component that is used by multiple <a href="qml-loader.html">Loader</a> objects. It contains a top level <a href="qml-rectangle.html">Rectangle</a> item:</p>
+<p>Components are often defined by <a href="qdeclarativedocuments.html">component files</a> - that is, <tt>.qml</tt> files. The <i>Component</i> element essentially allows QML components to be defined inline, within a <a href="qdeclarativedocuments.html">QML document</a>, rather than as a separate QML file. This may be useful for reusing a small component within a QML file, or for defining a component that logically belongs with other QML components within a file.</p>
+<p>For example, here is a component that is used by multiple <a href="qml-loader.html">Loader</a> objects. It contains a single item, a <a href="qml-rectangle.html">Rectangle</a>:</p>
 <pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Item {
@@ -199,18 +207,18 @@
      Loader { sourceComponent: redSquare }
      Loader { sourceComponent: redSquare; x: 20 }
  }</pre>
-<p>Notice that while a <a href="qml-rectangle.html">Rectangle</a> by itself would be automatically rendered and displayed, this is not the case for the above rectangle because it is defined inside a <tt>Component</tt>. The component encapsulates the QML elements within, as if they were defined in a separate <tt>.qml</tt> file, and is not loaded until requested (in this case, by the two <a href="qml-loader.html">Loader</a> objects).</p>
-<p>A Component cannot contain anything other than an <tt>id</tt> and a single top level item. While the <tt>id</tt> is optional, the top level item is not; you cannot define an empty component.</p>
-<p>The Component element is commonly used to provide graphical components for views. For example, the <a href="qml-listview.html#delegate-prop">ListView::delegate</a> property requires a Component to specify how each list item is to be displayed.</p>
-<p>Component objects can also be dynamically created using <a href="qml-qt.html#createComponent-method">Qt.createComponent()</a>.</p>
+<p>Notice that while a <a href="qml-rectangle.html">Rectangle</a> by itself would be automatically rendered and displayed, this is not the case for the above rectangle because it is defined inside a <tt>Component</tt>. The component encapsulates the QML elements within, as if they were defined in a separate QML file, and is not loaded until requested (in this case, by the two <a href="qml-loader.html">Loader</a> objects).</p>
+<p>Defining a <tt>Component</tt> is similar to defining a <a href="qdeclarativedocuments.html">QML document</a>. A QML document has a single top-level item that defines the behaviors and properties of that component, and cannot define properties or behaviors outside of that top-level item. In the same way, a <tt>Component</tt> definition contains a single top level item (which in the above example is a <a href="qml-rectangle.html">Rectangle</a>) and cannot define any data outside of this item, with the exception of an <i>id</i> (which in the above example is <i>redSquare</i>).</p>
+<p>The <tt>Component</tt> element is commonly used to provide graphical components for views. For example, the <a href="qml-listview.html#delegate-prop">ListView::delegate</a> property requires a <tt>Component</tt> to specify how each list item is to be displayed.</p>
+<p><tt>Component</tt> objects can also be created dynamically using <a href="qml-qt.html#createComponent-method">Qt.createComponent()</a>.</p>
 <!-- @@@Component -->
 <h2>Property Documentation</h2>
 <!-- $$$progress -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="progress-prop"></a><span class="qmlreadonly">read-only</span>progress : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>The progress of loading the component, from 0.0 (nothing loaded) to 1.0 (finished).</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="progress-prop"></a><span class="qmlreadonly">read-only</span>progress : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>The progress of loading the component, from 0.0 (nothing loaded) to 1.0 (finished).</p>
 </div></div><!-- @@@progress -->
 <br/>
 <!-- $$$status -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="status-prop"></a><span class="qmlreadonly">read-only</span>status : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>This property holds the status of component loading. It can be one of:</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="status-prop"></a><span class="qmlreadonly">read-only</span>status : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the status of component loading. It can be one of:</p>
 <ul>
 <li>Component.Null - no data is available for the component</li>
 <li>Component.Ready - the component has been loaded, and can be used to create instances.</li>
@@ -220,7 +228,7 @@
 </div></div><!-- @@@status -->
 <br/>
 <!-- $$$url -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="url-prop"></a><span class="qmlreadonly">read-only</span>url : <a href="qml-url.html">url</a></td></tr></table></div><div class="qmldoc"><p>The component URL. This is the URL that was used to construct the component.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="url-prop"></a><span class="qmlreadonly">read-only</span>url : <a href="qml-url.html">url</a></p></td></tr></table></div><div class="qmldoc"><p>The component URL. This is the URL that was used to construct the component.</p>
 </div></div><!-- @@@url -->
 <br/>
 <h2>Attached Signal Documentation</h2>

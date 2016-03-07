@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -127,6 +127,7 @@ extern "C" Q_CORE_EXPORT void qt_removeObject(QObject *)
 
 void (*QAbstractDeclarativeData::destroyed)(QAbstractDeclarativeData *, QObject *) = 0;
 void (*QAbstractDeclarativeData::parentChanged)(QAbstractDeclarativeData *, QObject *, QObject *) = 0;
+void (*QAbstractDeclarativeData::objectNameChanged)(QAbstractDeclarativeData *, QObject *) = 0;
 
 QObjectData::~QObjectData() {}
 
@@ -1094,7 +1095,12 @@ QString QObject::objectName() const
 void QObject::setObjectName(const QString &name)
 {
     Q_D(QObject);
+    bool objectNameChanged = d->declarativeData && d->objectName != name;
+
     d->objectName = name;
+
+    if (objectNameChanged) 
+        d->declarativeData->objectNameChanged(d->declarativeData, this);
 }
 
 

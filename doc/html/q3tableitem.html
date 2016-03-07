@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -178,7 +186,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> EditType </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#editType">editType</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#isEnabled">isEnabled</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#isReplaceable">isReplaceable</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#keyx">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#key">key</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#paint">paint</a></b> ( QPainter * <i>p</i>, const QColorGroup &amp; <i>cg</i>, const QRect &amp; <i>cr</i>, bool <i>selected</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual QPixmap </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#pixmap">pixmap</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3tableitem.html#row">row</a></b> () const</td></tr>
@@ -206,7 +214,7 @@
 <p>For many applications Q3TableItems are ideal for presenting and editing the contents of <a href="q3table.html">Q3Table</a> cells. In situations where you need to create very large tables you may prefer an alternative approach to using Q3TableItems: see the notes on large tables.</p>
 <p>A Q3TableItem contains a cell's data, by default, a string and a pixmap. The table item also holds the cell's display size and how the data should be aligned. The table item specifies the cell's <a href="q3tableitem.html#EditType-enum">EditType</a> and the editor used for in-place editing (by default a <a href="qlineedit.html">QLineEdit</a>). If you want checkboxes use <a href="q3checktableitem.html">Q3CheckTableItem</a>, and if you want comboboxes use <a href="q3combotableitem.html">Q3ComboTableItem</a>. The <a href="q3tableitem.html#EditType-enum">EditType</a> (set in the constructor) determines whether the cell's contents may be edited.</p>
 <p>If a pixmap is specified it is displayed to the left of any text. You can change the text or pixmap with <a href="q3tableitem.html#setText">setText</a>() and <a href="q3tableitem.html#setPixmap">setPixmap</a>() respectively. For text you can use <a href="q3tableitem.html#setWordWrap">setWordWrap</a>().</p>
-<p>When sorting table items the <a href="q3tableitem.html#keyx">key</a>() function is used; by default this returns the table item's <a href="q3tableitem.html#text">text</a>(). Reimplement <a href="q3tableitem.html#keyx">key</a>() to customize how your table items will sort.</p>
+<p>When sorting table items the <a href="q3tableitem.html#key">key</a>() function is used; by default this returns the table item's <a href="q3tableitem.html#text">text</a>(). Reimplement <a href="q3tableitem.html#key">key</a>() to customize how your table items will sort.</p>
 <p>Table items are inserted into a table using <a href="q3table.html#setItem">Q3Table::setItem</a>(). If you insert an item into a cell that already contains a table item the original item will be deleted.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> for (int row = 0; row &lt; table-&gt;numRows(); row++) {
@@ -236,17 +244,17 @@
 <!-- $$$EditType$$$Never$$$OnTyping$$$WhenCurrent$$$Always -->
 <h3 class="fn"><a name="EditType-enum"></a>enum Q3TableItem::EditType</h3>
 <a name="wheneditable"></a><p>This enum is used to define whether a cell is editable or read-only (in conjunction with other settings), and how the cell should be displayed.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TableItem::Always</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">The cell always <i>looks</i> editable.</td></tr>
 </table>
 <p>Using this EditType ensures that the editor created with <a href="q3tableitem.html#createEditor">createEditor</a>() (by default a <a href="qlineedit.html">QLineEdit</a>) is always visible. This has implications for the alignment of the content: the default editor aligns everything (even numbers) to the left whilst numerical values in the cell are by default aligned to the right.</p>
 <p>If a cell with the edit type <tt>Always</tt> looks misaligned you could reimplement <a href="q3tableitem.html#createEditor">createEditor</a>() for these items.</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TableItem::WhenCurrent</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The cell <i>looks</i> editable only when it has keyboard focus (see <a href="q3table.html#setCurrentCell">Q3Table::setCurrentCell</a>()).</td></tr>
 <tr><td  class="topAlign"><tt>Q3TableItem::OnTyping</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The cell <i>looks</i> editable only when the user types in it or double-clicks it. It resembles the <tt>WhenCurrent</tt> functionality but is, perhaps, nicer.</td></tr>
 </table>
 <p>The <tt>OnTyping</tt> edit type is the default when <a href="q3tableitem.html" class="compat">Q3TableItem</a> objects are created by the convenience functions <a href="q3table.html#setText">Q3Table::setText</a>() and <a href="q3table.html#setPixmap">Q3Table::setPixmap</a>().</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3TableItem::Never</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The cell is not editable.</td></tr>
 </table>
 <p>The cell is actually editable only if <a href="q3table.html#isRowReadOnly">Q3Table::isRowReadOnly</a>() is false for its row, <a href="q3table.html#isColumnReadOnly">Q3Table::isColumnReadOnly</a>() is false for its column, and <a href="q3table.html#readOnly-prop">Q3Table::isReadOnly</a>() is false.</p>
@@ -319,7 +327,7 @@
 <p>See also <a href="q3tableitem.html#setReplaceable">setReplaceable</a>() and <a href="q3tableitem.html#EditType-enum">EditType</a>.</p>
 <!-- @@@isReplaceable -->
 <!-- $$$key[overload1]$$$key -->
-<h3 class="fn"><a name="keyx"></a><a href="qstring.html">QString</a> Q3TableItem::key () const<tt> [virtual]</tt></h3>
+<h3 class="fn"><a name="key"></a><a href="qstring.html">QString</a> Q3TableItem::key () const<tt> [virtual]</tt></h3>
 <p>This virtual function returns the key that should be used for sorting. The default implementation returns the <a href="q3tableitem.html#text">text</a>() of the relevant item.</p>
 <p>See also <a href="q3table.html#sorting-prop">Q3Table::setSorting</a>().</p>
 <!-- @@@key -->

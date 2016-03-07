@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -191,7 +199,7 @@
 <pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
  Text {
-     color: Qt.rgba(255, 0, 0, 1)
+     color: Qt.rgba(1, 0, 0, 1)
      text: Qt.md5(&quot;hello, world&quot;)
  }</pre>
 <a name="enums"></a>
@@ -282,11 +290,11 @@
 </div></div><!-- @@@fontFamilies -->
 <br/>
 <!-- $$$formatDate -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="formatDate-method"></a><a href="qml-string.html">string</a> Qt::formatDate ( datetime <i>date</i>, variant <i>format</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the string representation of <tt>date</tt>, formatted according to <tt>format</tt>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="formatDate-method"></a><a href="qml-string.html">string</a> Qt::formatDate ( datetime <i>date</i>, <a href="qml-variant.html">variant</a> <i>format</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the string representation of <tt>date</tt>, formatted according to <tt>format</tt>.</p>
 </div></div><!-- @@@formatDate -->
 <br/>
 <!-- $$$formatDateTime -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="formatDateTime-method"></a><a href="qml-string.html">string</a> Qt::formatDateTime ( datetime <i>dateTime</i>, variant <i>format</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the string representation of <tt>dateTime</tt>, formatted according to <tt>format</tt>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="formatDateTime-method"></a><a href="qml-string.html">string</a> Qt::formatDateTime ( datetime <i>dateTime</i>, <a href="qml-variant.html">variant</a> <i>format</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the string representation of <tt>dateTime</tt>, formatted according to <tt>format</tt>.</p>
 <p><tt>format</tt> for the date/time formatting functions is be specified as follows.</p>
 <p>These expressions may be used for the date:</p>
 <table class="generic">
@@ -329,7 +337,7 @@
 </div></div><!-- @@@formatDateTime -->
 <br/>
 <!-- $$$formatTime -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="formatTime-method"></a><a href="qml-string.html">string</a> Qt::formatTime ( datetime <i>time</i>, variant <i>format</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the string representation of <tt>time</tt>, formatted according to <tt>format</tt>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="formatTime-method"></a><a href="qml-string.html">string</a> Qt::formatTime ( datetime <i>time</i>, <a href="qml-variant.html">variant</a> <i>format</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the string representation of <tt>time</tt>, formatted according to <tt>format</tt>.</p>
 <p>See Qt::formatDateTime for how to define <tt>format</tt>.</p>
 </div></div><!-- @@@formatTime -->
 <br/>
@@ -338,16 +346,17 @@
 </div></div><!-- @@@hsla -->
 <br/>
 <!-- $$$include -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="include-method"></a>object Qt::include ( <a href="qml-string.html">string</a> <i>url</i>, jsobject <i>callback</i> )</p></td></tr></table></div><div class="qmldoc"><p>Include another <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> file. This method can only be used from within <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> files, and not regular QML files.</p>
-<p>Qt.include() returns an object that describes the status of the operation. The object has a single property, <tt>status</tt> that is set to one of the following values:</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="include-method"></a>object Qt::include ( <a href="qml-string.html">string</a> <i>url</i>, jsobject <i>callback</i> )</p></td></tr></table></div><div class="qmldoc"><p>Includes another JavaScript file. This method can only be used from within JavaScript files, and not regular QML files.</p>
+<p>This imports all functions from <i>url</i> into the current script's namespace.</p>
+<p>Qt.include() returns an object that describes the status of the operation. The object has a single property, <tt>status</tt>, that is set to one of the following values:</p>
 <table class="generic">
 <thead><tr class="qt-style topAlign"><th >Symbol</th><th >Value</th><th >Description</th></tr></thead>
 <tr class="odd topAlign"><td ><p>result.OK</p></td><td ><p>0</p></td><td ><p>The include completed successfully.</p></td></tr>
 <tr class="even topAlign"><td ><p>result.LOADING</p></td><td ><p>1</p></td><td ><p>Data is being loaded from the network.</p></td></tr>
 <tr class="odd topAlign"><td ><p>result.NETWORK_ERROR</p></td><td ><p>2</p></td><td ><p>A network error occurred while fetching the url.</p></td></tr>
-<tr class="even topAlign"><td ><p>result.EXCEPTION</p></td><td ><p>3</p></td><td ><p>A <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> exception occurred while executing the included code. An additional <tt>exception</tt> property will be set in this case.</p></td></tr>
+<tr class="even topAlign"><td ><p>result.EXCEPTION</p></td><td ><p>3</p></td><td ><p>A JavaScript exception occurred while executing the included code. An additional <tt>exception</tt> property will be set in this case.</p></td></tr>
 </table>
-<p>The return object's properties will be updated as the operation progresses.</p>
+<p>The <tt>status</tt> property will be updated as the operation progresses.</p>
 <p>If provided, <i>callback</i> is invoked when the operation completes. The callback is passed the same object as is returned from the Qt.include() call.</p>
 </div></div><!-- @@@include -->
 <br/>
@@ -375,7 +384,7 @@
 </div></div><!-- @@@point -->
 <br/>
 <!-- $$$quit -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="quit-method"></a>Qt::quit ()</p></td></tr></table></div><div class="qmldoc"><p>This function causes the <a href="qdeclarativeengine.html#quit">QDeclarativeEngine::quit</a>() signal to be emitted. Within the <a href="qmlviewer.html">QML Viewer</a>, this causes the launcher application to exit.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="quit-method"></a>Qt::quit ()</p></td></tr></table></div><div class="qmldoc"><p>This function causes the <a href="qdeclarativeengine.html#quit">QDeclarativeEngine::quit</a>() signal to be emitted. Within the <a href="qmlviewer.html">QML Viewer</a>, this causes the launcher application to exit; to quit a C++ application when this method is called, connect the <a href="qdeclarativeengine.html#quit">QDeclarativeEngine::quit</a>() signal to the <a href="qcoreapplication.html#quit">QCoreApplication::quit</a>() slot.</p>
 </div></div><!-- @@@quit -->
 <br/>
 <!-- $$$rect -->

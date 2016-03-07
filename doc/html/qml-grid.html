@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -200,18 +210,18 @@
 <!-- @@@Grid -->
 <h2>Property Documentation</h2>
 <!-- $$$add -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="add-prop"></a>add : <a href="qml-transition.html">Transition</a></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when adding an item to the positioner. The transition will only be applied to the added item(s). Positioner transitions will only affect the position (x, y) of items.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="add-prop"></a>add : <a href="qml-transition.html">Transition</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when adding an item to the positioner. The transition will only be applied to the added item(s). Positioner transitions will only affect the position (x, y) of items.</p>
 <p>For a positioner, adding an item can mean that either the object has been created or reparented, and thus is now a child or the positioner, or that the object has had its opacity increased from zero, and thus is now visible.</p>
 <p>See also <a href="qml-grid.html#move-prop">move</a>.</p>
 </div></div><!-- @@@add -->
 <br/>
 <!-- $$$columns -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="columns-prop"></a>columns : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the number of columns in the grid. The default number of columns is 4.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="columns-prop"></a>columns : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the number of columns in the grid. The default number of columns is 4.</p>
 <p>If the grid does not have enough items to fill the specified number of columns, some columns will be of zero width.</p>
 </div></div><!-- @@@columns -->
 <br/>
 <!-- $$$flow -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="flow-prop"></a>flow : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>This property holds the flow of the layout.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="flow-prop"></a>flow : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the flow of the layout.</p>
 <p>Possible values are:</p>
 <ul>
 <li>Grid.LeftToRight (default) - Items are positioned next to to each other from left to right, then wrapped to the next line.</li>
@@ -220,7 +230,7 @@
 </div></div><!-- @@@flow -->
 <br/>
 <!-- $$$move -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="move-prop"></a>move : <a href="qml-transition.html">Transition</a></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when moving an item within the positioner. Positioner transitions will only affect the position (x, y) of items.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="move-prop"></a>move : <a href="qml-transition.html">Transition</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when moving an item within the positioner. Positioner transitions will only affect the position (x, y) of items.</p>
 <p>This transition can be performed when other items are added or removed from the positioner, or when items resize themselves.</p>
 <pre class="highlightedCode brush: cpp"> Grid {
      move: Transition {
@@ -234,18 +244,18 @@
 </div></div><!-- @@@move -->
 <br/>
 <!-- $$$rows -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="rows-prop"></a>rows : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the number of rows in the grid.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="rows-prop"></a>rows : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the number of rows in the grid.</p>
 <p>If the grid does not have enough items to fill the specified number of rows, some rows will be of zero width.</p>
 </div></div><!-- @@@rows -->
 <br/>
 <!-- $$$spacing -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="spacing-prop"></a>spacing : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>The spacing is the amount in pixels left empty between adjacent items. The default spacing is 0.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="spacing-prop"></a>spacing : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>The spacing is the amount in pixels left empty between adjacent items. The default spacing is 0.</p>
 <p>The below example places a Grid containing a red, a blue and a green rectangle on a gray background. The area the grid positioner occupies is colored white. The positioner on the left has the no spacing (the default), and the positioner on the right has a spacing of 6.</p>
 <p><img src="images/qml-grid-no-spacing.png" /> <img src="images/qml-grid-spacing.png" /></p>
 <p>See also <a href="qml-grid.html#rows-prop">rows</a> and <a href="qml-grid.html#columns-prop">columns</a>.</p>
 </div></div><!-- @@@spacing -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

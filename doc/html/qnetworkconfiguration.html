@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -212,7 +220,7 @@
 <!-- $$$BearerType$$$BearerUnknown$$$BearerEthernet$$$BearerWLAN$$$Bearer2G$$$BearerCDMA2000$$$BearerWCDMA$$$BearerHSPA$$$BearerBluetooth$$$BearerWiMAX -->
 <h3 class="fn"><a name="BearerType-enum"></a>enum QNetworkConfiguration::BearerType</h3>
 <p>Specifies the type of bearer used by a configuration.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::BearerUnknown</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The type of bearer is unknown or unspecified. The <a href="qnetworkconfiguration.html#bearerTypeName">bearerTypeName</a>() function may return additional information.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::BearerEthernet</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The configuration is for an Ethernet interfaces.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::BearerWLAN</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The configuration is for a Wireless LAN interface.</td></tr>
@@ -227,7 +235,7 @@
 <!-- $$$Purpose$$$UnknownPurpose$$$PublicPurpose$$$PrivatePurpose$$$ServiceSpecificPurpose -->
 <h3 class="fn"><a name="Purpose-enum"></a>enum QNetworkConfiguration::Purpose</h3>
 <p>Specifies the purpose of the configuration.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::UnknownPurpose</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The configuration doesn't specify any purpose. This is the default value.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::PublicPurpose</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The configuration can be used for general purpose internet access.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::PrivatePurpose</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The configuration is suitable to access a private network such as an office Intranet.</td></tr>
@@ -237,7 +245,7 @@
 <!-- $$$StateFlag$$$Undefined$$$Defined$$$Discovered$$$Active -->
 <h3 class="flags"><a name="StateFlag-enum"></a>enum QNetworkConfiguration::StateFlag<br/>flags QNetworkConfiguration::StateFlags</h3>
 <p>Specifies the configuration states.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::Undefined</tt></td><td class=" topAlign"><tt>0x0000001</tt></td><td  class="topAlign">This state is used for transient configurations such as newly discovered WLANs for which the user has not actually created a configuration yet.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::Defined</tt></td><td class=" topAlign"><tt>0x0000002</tt></td><td  class="topAlign">Defined configurations are known to the system but are not immediately usable (e.g&#x2e; a configured WLAN is not within range or the Ethernet cable is currently not plugged into the machine).</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::Discovered</tt></td><td class=" topAlign"><tt>0x0000006</tt></td><td  class="topAlign">A discovered configuration can be immediately used to create a new <a href="qnetworksession.html">QNetworkSession</a>. An example of a discovered configuration could be a WLAN which is within in range. If the device moves out of range the discovered flag is dropped. A second example is a GPRS configuration which generally remains discovered for as long as the device has network coverage. A configuration that has this state is also in state QNetworkConfiguration::Defined. If the configuration is a service network this flag is set if at least one of the underlying access points configurations has the Discovered state.</td></tr>
@@ -248,7 +256,7 @@
 <!-- $$$Type$$$InternetAccessPoint$$$ServiceNetwork$$$UserChoice$$$Invalid -->
 <h3 class="fn"><a name="Type-enum"></a>enum QNetworkConfiguration::Type</h3>
 <p>This enum describes the type of configuration.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::InternetAccessPoint</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The configuration specifies the details for a single access point. Note that configurations of type InternetAccessPoint may be part of other QNetworkConfigurations of type ServiceNetwork.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::ServiceNetwork</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The configuration is based on a group of QNetworkConfigurations of type InternetAccessPoint. All group members can reach the same target network. This type of configuration is a mandatory requirement for roaming enabled network sessions. On some platforms this form of configuration may also be called Service Network Access Point (SNAP).</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkConfiguration::UserChoice</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The configuration is a placeholder which will be resolved to an actual configuration by the platform when a session is opened. Depending on the platform the selection may generate a popup dialog asking the user for his preferred choice.</td></tr>

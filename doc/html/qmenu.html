@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -315,11 +323,12 @@
 <p>A menu consists of a list of action items. Actions are added with the <a href="qmenu.html#addAction">addAction</a>(), <a href="qwidget.html#addActions">addActions</a>() and <a href="qwidget.html#insertAction">insertAction</a>() functions. An action is represented vertically and rendered by <a href="qstyle.html">QStyle</a>. In addition, actions can have a text label, an optional icon drawn on the very left side, and shortcut key sequence such as &quot;Ctrl+X&quot;.</p>
 <p>The existing actions held by a menu can be found with <a href="qwidget.html#actions">actions</a>().</p>
 <p>There are four kinds of action items: separators, actions that show a submenu, widgets, and actions that perform an action. Separators are inserted with <a href="qmenu.html#addSeparator">addSeparator</a>(), submenus with <a href="qmenu.html#addMenu">addMenu</a>(), and all other items are considered action items.</p>
-<p>When inserting action items you usually specify a receiver and a slot. The receiver will be notifed whenever the item is <a href="qaction.html#triggered">triggered()</a>. In addition, QMenu provides two signals, <a href="qmenu.html#activated" class="compat">activated</a>() and <a href="qmenu.html#highlighted" class="compat">highlighted</a>(), which signal the <a href="qaction.html">QAction</a> that was triggered from the menu.</p>
+<p>When inserting action items you usually specify a receiver and a slot. The receiver will be notifed whenever the item is <a href="qaction.html#triggered">triggered()</a>. In addition, QMenu provides two signals, <a href="qmenu-qt3.html#activated" class="compat">activated</a>() and <a href="qmenu-qt3.html#highlighted" class="compat">highlighted</a>(), which signal the <a href="qaction.html">QAction</a> that was triggered from the menu.</p>
 <p>You clear a menu with <a href="qmenu.html#clear">clear</a>() and remove individual action items with <a href="qwidget.html#removeAction">removeAction</a>().</p>
 <p>A QMenu can also provide a tear-off menu. A tear-off menu is a top-level window that contains a copy of the menu. This makes it possible for the user to &quot;tear off&quot; frequently used menus and position them in a convenient place on the screen. If you want this functionality for a particular menu, insert a tear-off handle with <a href="qmenu.html#tearOffEnabled-prop">setTearOffEnabled</a>(). When using tear-off menus, bear in mind that the concept isn't typically used on Microsoft Windows so some users may not be familiar with it. Consider using a <a href="qtoolbar.html">QToolBar</a> instead.</p>
 <p>Widgets can be inserted into menus with the <a href="qwidgetaction.html">QWidgetAction</a> class. Instances of this class are used to hold widgets, and are inserted into menus with the <a href="qmenu.html#addAction">addAction</a>() overload that takes a <a href="qaction.html">QAction</a>.</p>
 <p>Conversely, actions can be added to widgets with the <a href="qmenu.html#addAction">addAction</a>(), <a href="qwidget.html#addActions">addActions</a>() and <a href="qwidget.html#insertAction">insertAction</a>() functions.</p>
+<p><b>Warning:</b> To make QMenu visible on the screen, <a href="qmenu.html#exec">exec</a>() or <a href="qmenu.html#popup">popup</a>() should be used instead of <a href="qwidget.html#show">show</a>().</p>
 <a name="qmenu-on-qt-for-windows-ce"></a>
 <h3>QMenu on Qt for Windows CE</h3>
 <p>If a menu is integrated into the native menubar on Windows Mobile we do not support the signals: aboutToHide (), aboutToShow () and hovered (). It is not possible to display an icon in a native menu on Windows Mobile.</p>

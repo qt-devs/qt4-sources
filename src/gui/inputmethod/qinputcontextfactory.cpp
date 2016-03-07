@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -205,7 +205,7 @@ QStringList QInputContextFactory::keys()
 
     This function contains pure Symbian exception handling code for
     getting S60 language list.
-    Returned object ownership is transfered to caller.
+    Returned object ownership is transferred to caller.
 */
 static CAknInputLanguageList* s60LangListL()
 {
@@ -224,7 +224,7 @@ static CAknInputLanguageList* s60LangListL()
     \internal
 
     This function utility function return S60 language list.
-    Returned object ownership is transfered to caller.
+    Returned object ownership is transferred to caller.
 */
 static CAknInputLanguageList* s60LangList()
 {

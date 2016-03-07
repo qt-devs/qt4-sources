@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -282,7 +290,7 @@
 <!-- $$$KeyAction$$$Press$$$Release$$$Click -->
 <h3 class="fn"><a name="KeyAction-enum"></a>enum QTest::KeyAction</h3>
 <p>This enum describes possible actions for key handling.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTest::Press</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The key is pressed.</td></tr>
 <tr><td  class="topAlign"><tt>QTest::Release</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The key is released.</td></tr>
 <tr><td  class="topAlign"><tt>QTest::Click</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The key is clicked (pressed and released).</td></tr>
@@ -306,7 +314,7 @@
 <!-- $$$MouseAction$$$MousePress$$$MouseRelease$$$MouseClick$$$MouseDClick$$$MouseMove -->
 <h3 class="fn"><a name="MouseAction-enum"></a>enum QTest::MouseAction</h3>
 <p>This enum describes possible actions for mouse handling.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTest::MousePress</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">A mouse button is pressed.</td></tr>
 <tr><td  class="topAlign"><tt>QTest::MouseRelease</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">A mouse button is released.</td></tr>
 <tr><td  class="topAlign"><tt>QTest::MouseClick</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">A mouse button is clicked (pressed and released).</td></tr>
@@ -317,7 +325,7 @@
 <!-- $$$QBenchmarkMetric$$$FramesPerSecond$$$BitsPerSecond$$$BytesPerSecond$$$WalltimeMilliseconds$$$CPUTicks$$$InstructionReads$$$Events -->
 <h3 class="fn"><a name="QBenchmarkMetric-enum"></a>enum QTest::QBenchmarkMetric</h3>
 <p>This enum lists all the things that can be benchmarked.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTest::FramesPerSecond</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Frames per second</td></tr>
 <tr><td  class="topAlign"><tt>QTest::BitsPerSecond</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Bits per second</td></tr>
 <tr><td  class="topAlign"><tt>QTest::BytesPerSecond</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Bytes per second</td></tr>
@@ -332,7 +340,7 @@
 <!-- $$$SkipMode$$$SkipSingle$$$SkipAll -->
 <h3 class="fn"><a name="SkipMode-enum"></a>enum QTest::SkipMode</h3>
 <p>This enum describes the modes for skipping tests during execution of the test data.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTest::SkipSingle</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Skips the current entry in the test table; continues execution of all the other entries in the table.</td></tr>
 <tr><td  class="topAlign"><tt>QTest::SkipAll</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Skips all the entries in the test table; the test won't be executed further.</td></tr>
 </table>
@@ -341,7 +349,7 @@
 <!-- $$$TestFailMode$$$Abort$$$Continue -->
 <h3 class="fn"><a name="TestFailMode-enum"></a>enum QTest::TestFailMode</h3>
 <p>This enum describes the modes for handling an expected failure of the <a href="qtest.html#QVERIFY">QVERIFY</a>() or <a href="qtest.html#QCOMPARE">QCOMPARE</a>() macros.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTest::Abort</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Aborts the execution of the test. Use this mode when it doesn't make sense to execute the test any further after the expected failure.</td></tr>
 <tr><td  class="topAlign"><tt>QTest::Continue</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Continues execution of the test after the expected failure.</td></tr>
 </table>
@@ -702,7 +710,7 @@
 <!-- $$$QCOMPARE[overload1]$$$QCOMPARE -->
 <h3 class="fn"><a name="QCOMPARE"></a>QCOMPARE (  <i>actual</i>,  <i>expected</i> )</h3>
 <p>The QCOMPARE macro compares an <i>actual</i> value to an <i>expected</i> value using the equals operator. If <i>actual</i> and <i>expected</i> are identical, execution continues. If not, a failure is recorded in the test log and the test won't be executed further.</p>
-<p>In the case of comparing floats and doubles, <a href="qtglobal.html#qFuzzyCompare">qFuzzyCompare</a>() is used for comparing. This means that comparing to 0 will likely fail. One solution to this is to compare to 1, and add 1 to the produced output.</p>
+<p>In the case of comparing floats and doubles, <a href="qmatrix.html#qFuzzyCompare">qFuzzyCompare</a>() is used for comparing. This means that comparing to 0 will likely fail. One solution to this is to compare to 1, and add 1 to the produced output.</p>
 <p>QCOMPARE tries to output the contents of the values if the comparison fails, so it is visible from the test log why the comparison failed.</p>
 <p>QCOMPARE is very strict on the data types. Both <i>actual</i> and <i>expected</i> have to be of the same type, otherwise the test won't compile. This prohibits unspecified behavior from being introduced; that is behavior that usually occurs when the compiler implicitly casts the argument.</p>
 <p>If you use QCOMPARE() to compare two <a href="qstringlist.html">QStringList</a> objects, it will start comparing the objects from the end of the lists.</p>
@@ -791,7 +799,8 @@
 <!-- @@@QTEST_APPLESS_MAIN -->
 <!-- $$$QTEST_MAIN[overload1]$$$QTEST_MAIN -->
 <h3 class="fn"><a name="QTEST_MAIN"></a>QTEST_MAIN (  <i>TestClass</i> )</h3>
-<p>Implements a main() function that instantiates a <a href="qapplication.html">QApplication</a> object and the <i>TestClass</i>, and executes all tests in the order they were defined. Use this macro to build stand-alone executables.</p>
+<p>Implements a main() function that instantiates an application object and the <i>TestClass</i>, and executes all tests in the order they were defined. Use this macro to build stand-alone executables.</p>
+<p>If <tt>QT_GUI_LIB</tt> is defined, the application object will be a <a href="qapplication.html">QApplication</a>, otherwise it will be a <a href="qcoreapplication.html">QCoreApplication</a>. If qmake is used and the configuration includes <tt>QT += gui</tt>, then <tt>QT_GUI_LIB</tt> will be defined automatically.</p>
 <p><b>Note:</b> On platforms that have keypad navigation enabled by default (eg: Symbian), this macro will forcfully disable it to simplify the usage of key events when writing autotests. If you wish to write a test case that uses keypad navigation, you should enable it either in the <tt>initTestCase()</tt> or <tt>init()</tt> functions of your test case.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> class TestQString: public QObject { ... };
@@ -813,7 +822,7 @@
 <h3 class="fn"><a name="QVERIFY2"></a>QVERIFY2 (  <i>condition</i>,  <i>message</i> )</h3>
 <p>The QVERIFY2() macro behaves exactly like <a href="qtest.html#QVERIFY">QVERIFY</a>(), except that it outputs a verbose <i>message</i> when <i>condition</i> is false. The <i>message</i> is a plain C string.</p>
 <p>Example:</p>
-<pre class="highlightedCode brush: cpp"> QVERIFY2(1 + 1 == 2, &quot;A breach in basic arithmetic occured.&quot;);</pre>
+<pre class="highlightedCode brush: cpp"> QVERIFY2(1 + 1 == 2, &quot;A breach in basic arithmetic occurred.&quot;);</pre>
 <p>See also <a href="qtest.html#QVERIFY">QVERIFY</a>() and <a href="qtest.html#QCOMPARE">QCOMPARE</a>().</p>
 <!-- @@@QVERIFY2 -->
 <!-- $$$QVERIFY[overload1]$$$QVERIFY -->

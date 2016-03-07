@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -167,7 +175,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#addLine">addLine</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#addPage">addPage</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#bound">bound</a></b> ( int <i>v</i> ) const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#lineStepx">lineStep</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#lineStep">lineStep</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#maxValue">maxValue</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#minValue">minValue</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#pageStep">pageStep</a></b> () const</td></tr>
@@ -201,10 +209,10 @@
 <li><i>Current value</i> The bounded integer that Q3RangeControl maintains. <a href="q3rangecontrol.html#value">value</a>() returns it, and several functions, including <a href="q3rangecontrol.html#setValue">setValue</a>(), set it.</li>
 <li><i>Minimum</i> The lowest value that <a href="q3rangecontrol.html#value">value</a>() can ever return. Returned by <a href="q3rangecontrol.html#minValue">minValue</a>() and set by <a href="q3rangecontrol.html#setRange">setRange</a>() or one of the constructors.</li>
 <li><i>Maximum</i> The highest value that <a href="q3rangecontrol.html#value">value</a>() can ever return. Returned by <a href="q3rangecontrol.html#maxValue">maxValue</a>() and set by <a href="q3rangecontrol.html#setRange">setRange</a>() or one of the constructors.</li>
-<li><i>Line step</i> The smaller of two natural steps that Q3RangeControl provides and typically corresponds to the user pressing an arrow key. The line step is returned by <a href="q3rangecontrol.html#lineStepx">lineStep</a>() and set using <a href="q3rangecontrol.html#setSteps">setSteps</a>(). The functions <a href="q3rangecontrol.html#addLine">addLine</a>() and <a href="q3rangecontrol.html#subtractLine">subtractLine</a>() respectively increment and decrement the current value by <a href="q3rangecontrol.html#lineStepx">lineStep</a>().</li>
+<li><i>Line step</i> The smaller of two natural steps that Q3RangeControl provides and typically corresponds to the user pressing an arrow key. The line step is returned by <a href="q3rangecontrol.html#lineStep">lineStep</a>() and set using <a href="q3rangecontrol.html#setSteps">setSteps</a>(). The functions <a href="q3rangecontrol.html#addLine">addLine</a>() and <a href="q3rangecontrol.html#subtractLine">subtractLine</a>() respectively increment and decrement the current value by <a href="q3rangecontrol.html#lineStep">lineStep</a>().</li>
 <li><i>Page step</i> The larger of two natural steps that Q3RangeControl provides and typically corresponds to the user pressing PageUp or PageDown. The page step is returned by <a href="q3rangecontrol.html#pageStep">pageStep</a>() and set using <a href="q3rangecontrol.html#setSteps">setSteps</a>(). The functions <a href="q3rangecontrol.html#addPage">addPage</a>() and substractPage() respectively increment and decrement the current value by <a href="q3rangecontrol.html#pageStep">pageStep</a>().</li>
 </ol>
-<p>Unity (1) may be viewed as a third step size. <a href="q3rangecontrol.html#setValue">setValue</a>() lets you set the current value to any integer in the allowed range, not just <a href="q3rangecontrol.html#minValue">minValue</a>() + <i>n</i> * <a href="q3rangecontrol.html#lineStepx">lineStep</a>() for integer values of <i>n</i>. Some widgets may allow the user to set any value at all; others may just provide multiples of <a href="q3rangecontrol.html#lineStepx">lineStep</a>() or <a href="q3rangecontrol.html#pageStep">pageStep</a>().</p>
+<p>Unity (1) may be viewed as a third step size. <a href="q3rangecontrol.html#setValue">setValue</a>() lets you set the current value to any integer in the allowed range, not just <a href="q3rangecontrol.html#minValue">minValue</a>() + <i>n</i> * <a href="q3rangecontrol.html#lineStep">lineStep</a>() for integer values of <i>n</i>. Some widgets may allow the user to set any value at all; others may just provide multiples of <a href="q3rangecontrol.html#lineStep">lineStep</a>() or <a href="q3rangecontrol.html#pageStep">pageStep</a>().</p>
 <p>Q3RangeControl provides three virtual functions that are well suited for updating the on-screen representation of range controls and emitting signals: <a href="q3rangecontrol.html#valueChange">valueChange</a>(), <a href="q3rangecontrol.html#rangeChange">rangeChange</a>() and <a href="q3rangecontrol.html#stepChange">stepChange</a>().</p>
 <p>Q3RangeControl also provides a function called <a href="q3rangecontrol.html#bound">bound</a>() which lets you force arbitrary integers to be within the allowed range of the range control.</p>
 <p>We recommend that all widgets that inherit Q3RangeControl provide at least a signal called valueChanged(); many widgets will want to provide addStep(), <a href="q3rangecontrol.html#addPage">addPage</a>(), substractStep() and substractPage() as slots.</p>
@@ -251,7 +259,7 @@
 <p>See also <a href="q3rangecontrol.html#setValue">setValue</a>().</p>
 <!-- @@@directSetValue -->
 <!-- $$$lineStep[overload1]$$$lineStep -->
-<h3 class="fn"><a name="lineStepx"></a>int Q3RangeControl::lineStep () const</h3>
+<h3 class="fn"><a name="lineStep"></a>int Q3RangeControl::lineStep () const</h3>
 <p>Returns the line step.</p>
 <p>See also <a href="q3rangecontrol.html#setSteps">setSteps</a>() and <a href="q3rangecontrol.html#pageStep">pageStep</a>().</p>
 <!-- @@@lineStep -->
@@ -268,7 +276,7 @@
 <!-- $$$pageStep[overload1]$$$pageStep -->
 <h3 class="fn"><a name="pageStep"></a>int Q3RangeControl::pageStep () const</h3>
 <p>Returns the page step.</p>
-<p>See also <a href="q3rangecontrol.html#setSteps">setSteps</a>() and <a href="q3rangecontrol.html#lineStepx">lineStep</a>().</p>
+<p>See also <a href="q3rangecontrol.html#setSteps">setSteps</a>() and <a href="q3rangecontrol.html#lineStep">lineStep</a>().</p>
 <!-- @@@pageStep -->
 <!-- $$$positionFromValue[overload1]$$$positionFromValueintint -->
 <h3 class="fn"><a name="positionFromValue"></a>int Q3RangeControl::positionFromValue ( int <i>logical_val</i>, int <i>span</i> ) const<tt> [protected]</tt></h3>
@@ -312,7 +320,7 @@
 <h3 class="fn"><a name="setSteps"></a>void Q3RangeControl::setSteps ( int <i>lineStep</i>, int <i>pageStep</i> )</h3>
 <p>Sets the range's line step to <i>lineStep</i> and page step to <i>pageStep</i>.</p>
 <p>Calls the virtual <a href="q3rangecontrol.html#stepChange">stepChange</a>() function if the new line step or page step are different from the previous settings.</p>
-<p>See also <a href="q3rangecontrol.html#lineStepx">lineStep</a>(), <a href="q3rangecontrol.html#pageStep">pageStep</a>(), and <a href="q3rangecontrol.html#setRange">setRange</a>().</p>
+<p>See also <a href="q3rangecontrol.html#lineStep">lineStep</a>(), <a href="q3rangecontrol.html#pageStep">pageStep</a>(), and <a href="q3rangecontrol.html#setRange">setRange</a>().</p>
 <!-- @@@setSteps -->
 <!-- $$$setValue[overload1]$$$setValueint -->
 <h3 class="fn"><a name="setValue"></a>void Q3RangeControl::setValue ( int <i>value</i> )</h3>

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -133,7 +133,7 @@ QT_BEGIN_NAMESPACE
     Uses the \a device as the QIODevice to transfer data. If \a device is null then the class
     creates an internal QIODevice. Returns a pointer to the QIODevice being used to handle
     the data transfer. This QIODevice can be used to write() audio data directly. Passing a
-    QIODevice allows the data to be transfered without any extra code.
+    QIODevice allows the data to be transferred without any extra code.
 */
 
 /*!
@@ -247,7 +247,7 @@ QT_BEGIN_NAMESPACE
     Uses the \a device as the QIODevice to transfer data. If \a device is null
     then the class creates an internal QIODevice. Returns a pointer to the
     QIODevice being used to handle the data transfer. This QIODevice can be used to
-    read() audio data directly. Passing a QIODevice allows the data to be transfered
+    read() audio data directly. Passing a QIODevice allows the data to be transferred
     without any extra code.
 */
 

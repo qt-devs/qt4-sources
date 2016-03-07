@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -358,7 +366,7 @@
 <!-- $$$ExitStatus$$$NormalExit$$$CrashExit -->
 <h3 class="fn"><a name="ExitStatus-enum"></a>enum QProcess::ExitStatus</h3>
 <p>This enum describes the different exit statuses of <a href="qprocess.html">QProcess</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QProcess::NormalExit</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The process exited normally.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::CrashExit</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The process crashed.</td></tr>
 </table>
@@ -367,7 +375,7 @@
 <!-- $$$ProcessChannel$$$StandardOutput$$$StandardError -->
 <h3 class="fn"><a name="ProcessChannel-enum"></a>enum QProcess::ProcessChannel</h3>
 <p>This enum describes the process channels used by the running process. Pass one of these values to <a href="qprocess.html#setReadChannel">setReadChannel</a>() to set the current read channel of <a href="qprocess.html">QProcess</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QProcess::StandardOutput</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The standard output (stdout) of the running process.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::StandardError</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The standard error (stderr) of the running process.</td></tr>
 </table>
@@ -376,7 +384,7 @@
 <!-- $$$ProcessChannelMode$$$SeparateChannels$$$MergedChannels$$$ForwardedChannels -->
 <h3 class="fn"><a name="ProcessChannelMode-enum"></a>enum QProcess::ProcessChannelMode</h3>
 <p>This enum describes the process channel modes of <a href="qprocess.html">QProcess</a>. Pass one of these values to <a href="qprocess.html#setProcessChannelMode">setProcessChannelMode</a>() to set the current read channel mode.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QProcess::SeparateChannels</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign"><a href="qprocess.html">QProcess</a> manages the output of the running process, keeping standard output and standard error data in separate internal buffers. You can select the <a href="qprocess.html">QProcess</a>'s current read channel by calling <a href="qprocess.html#setReadChannel">setReadChannel</a>(). This is the default channel mode of <a href="qprocess.html">QProcess</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::MergedChannels</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign"><a href="qprocess.html">QProcess</a> merges the output of the running process into the standard output channel (<tt>stdout</tt>). The standard error channel (<tt>stderr</tt>) will not receive any data. The standard output and standard error data of the running process are interleaved.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::ForwardedChannels</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign"><a href="qprocess.html">QProcess</a> forwards the output of the running process onto the main process. Anything the child process writes to its standard output and standard error will be written to the standard output and standard error of the main process.</td></tr>
@@ -386,7 +394,7 @@
 <!-- $$$ProcessError$$$FailedToStart$$$Crashed$$$Timedout$$$ReadError$$$WriteError$$$UnknownError -->
 <h3 class="fn"><a name="ProcessError-enum"></a>enum QProcess::ProcessError</h3>
 <p>This enum describes the different types of errors that are reported by <a href="qprocess.html">QProcess</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QProcess::FailedToStart</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The process failed to start. Either the invoked program is missing, or you may have insufficient permissions to invoke the program.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::Crashed</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The process crashed some time after starting successfully.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::Timedout</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The last waitFor...() function timed out. The state of <a href="qprocess.html">QProcess</a> is unchanged, and you can try calling waitFor...() again.</td></tr>
@@ -399,7 +407,7 @@
 <!-- $$$ProcessState$$$NotRunning$$$Starting$$$Running -->
 <h3 class="fn"><a name="ProcessState-enum"></a>enum QProcess::ProcessState</h3>
 <p>This enum describes the different states of <a href="qprocess.html">QProcess</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QProcess::NotRunning</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The process is not running.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::Starting</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The process is starting, but the program has not yet been invoked.</td></tr>
 <tr><td  class="topAlign"><tt>QProcess::Running</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The process is running and is ready for reading and writing.</td></tr>

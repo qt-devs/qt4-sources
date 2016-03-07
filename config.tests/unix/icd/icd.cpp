@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -39,9 +39,15 @@
 **
 ****************************************************************************/
 
-#include <libicd-network-wlan-dev.h>
 #include <wlancond.h>
+
 #include <icd/dbus_api.h>
+#include <icd/network_api_defines.h>
+
+#include <icd/osso-ic.h>
+#include <icd/osso-ic-dbus.h>
+
+#include <conn_settings.h>
 
 int main(int, char **)
 {

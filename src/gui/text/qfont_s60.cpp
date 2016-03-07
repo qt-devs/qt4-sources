@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -56,6 +56,16 @@ Q_GLOBAL_STATIC_WITH_INITIALIZER(QStringList, fontFamiliesOnFontServer, {
     x->append(qt_symbian_fontFamiliesOnFontServer());
 });
 #endif // QT_NO_FREETYPE
+
+QString QFont::lastResortFont() const
+{
+    // Symbian's font Api does not distinguish between font and family.
+    // Therefore we try to get a "Family" first, then fall back to "Sans".
+    static QString font = lastResortFamily();
+    if (font.isEmpty())
+        font = QLatin1String("Sans");
+    return font;
+}
 
 QString QFont::lastResortFamily() const
 {

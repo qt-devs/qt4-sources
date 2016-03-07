@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,16 +147,23 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="designer-stylesheet.html" />
   <link rel="next" href="designer-using-custom-widgets.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="designer-stylesheet.html">Using Stylesheets with Qt Designer</a>]
+[Next: <a href="designer-using-custom-widgets.html">Using Custom Widgets with Qt Designer</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#compile-time-form-processing">Compile Time Form Processing</a></li>
 <li class="level2"><a href="#the-direct-approach">The Direct Approach</a></li>
 <li class="level2"><a href="#the-single-inheritance-approach">The Single Inheritance Approach</a></li>
+<li class="level3"><a href="#using-a-member-variable">Using a Member Variable</a></li>
+<li class="level3"><a href="#using-a-pointer-member-variable">Using a Pointer Member Variable</a></li>
 <li class="level2"><a href="#the-multiple-inheritance-approach">The Multiple Inheritance Approach</a></li>
+<li class="level2"><a href="#reacting-to-language-changes">Reacting to Language Changes</a></li>
 <li class="level1"><a href="#run-time-form-processing">Run Time Form Processing</a></li>
 <li class="level2"><a href="#the-uitools-approach">The UiTools Approach</a></li>
 <li class="level1"><a href="#automatic-connections">Automatic Connections</a></li>
@@ -160,27 +175,39 @@
 <span class="subtitle"></span>
 <!-- $$$designer-using-a-ui-file.html-description -->
 <div class="descr"> <a name="details"></a>
-<p>With Qt's integrated build tools, <a href="qmake-manual.html">qmake</a> and <a href="uic.html#uic">uic</a>, the code for user interface components created with <i>Qt Designer</i> is automatically generated when the rest of your application is built. Forms can be included and used directly from your application. Alternatively, you can use them to extend subclasses of standard widgets. These forms can be processed at compile time or at run time, depending on the approach used.</p>
+<p>Qt Designer UI files represent the widget tree of the form in XML format. The forms can be processed:</p>
+<ul>
+<li><a href="#compile-time-form-processing">At compile time</a>, which means that forms are converted to C++ code that can be compiled.</li>
+<li><a href="#run-time-form-processing">At runtime</a>, which means that forms are processed by the <a href="quiloader.html">QUiLoader</a> class that dynamically constructs the widget tree while parsing the XML file.</li>
+</ul>
 <a name="compile-time-form-processing"></a>
 <h2>Compile Time Form Processing</h2>
+<p>You create user interface components with <i>Qt Designer</i> and use Qt's integrated build tools, <a href="qmake-manual.html">qmake</a> and <a href="uic.html">uic</a>, to generate code for them when the application is built. The generated code contains the form's user interface object. It is a C++ struct that contains:</p>
+<ul>
+<li>Pointers to the form's widgets, layouts, layout items, button groups, and actions.</li>
+<li>A member function called <tt>setupUi()</tt> to build the widget tree on the parent widget.</li>
+<li>A member function called <tt>retranslateUi()</tt> that handles the translation of the string properties of the form. For more information, see <a href="#reacting-to-language-changes">Reacting to Language Changes</a>.</li>
+</ul>
+<p>The generated code can be included in your application and used directly from it. Alternatively, you can use it to extend subclasses of standard widgets.</p>
 <p>A compile time processed form can be used in your application with one of the following approaches:</p>
 <ul>
-<li>The Direct Approach: you construct a widget to use as a placeholder for the component, and set up the user interface inside it.</li>
-<li>The Single Inheritance Approach: you subclass the form's base class (<a href="qwidget.html">QWidget</a> or <a href="qdialog.html">QDialog</a>, for example), and include a private instance of the form's user interface object.</li>
-<li>The MultipleInheritance Approach: you subclass both the form's base class and the form's user interface object. This allows the widgets defined in the form to be used directly from within the scope of the subclass.</li>
+<li><a href="#the-direct-approach">The Direct Approach</a>: you construct a widget to use as a placeholder for the component, and set up the user interface inside it.</li>
+<li><a href="#the-single-inheritance-approach">The Single Inheritance Approach</a>: you subclass the form's base class (<a href="qwidget.html">QWidget</a> or <a href="qdialog.html">QDialog</a>, for example), and include a private instance of the form's user interface object.</li>
+<li><a href="#the-multiple-inheritance-approach">The Multiple Inheritance Approach</a>: you subclass both the form's base class and the form's user interface object. This allows the widgets defined in the form to be used directly from within the scope of the subclass.</li>
 </ul>
-<a name="the-direct-approach"></a>
-<h3>The Direct Approach</h3>
-<p>To demonstrate how to use user interface (UI) files straight from <i>Qt Designer</i>, we create a simple Calculator Form application. This is based on the original <a href="designer-calculatorform.html">Calculator Form</a> example.</p>
+<p>To demonstrate, we create a simple Calculator Form application. It is based on the original <a href="designer-calculatorform.html">Calculator Form</a> example.</p>
 <p>The application consists of one source file, <tt>main.cpp</tt> and a UI file.</p>
 <p>The <tt>calculatorform.ui</tt> file designed with <i>Qt Designer</i> is shown below:</p>
 <p class="centerAlign"><img src="images/directapproach-calculatorform.png" /></p><p>We will use <tt>qmake</tt> to build the executable, so we need to write a <tt>.pro</tt> file:</p>
 <pre class="highlightedCode brush: cpp"> TEMPLATE    = app
  FORMS       = calculatorform.ui
  SOURCES     = main.cpp</pre>
-<p>The special feature of this file is the <tt>FORMS</tt> declaration that tells <tt>qmake</tt> which files to process with <tt>uic</tt>. In this case, the <tt>calculatorform.ui</tt> file is used to create a <tt>ui_calculatorform.h</tt> file that can be used by any file listed in the <tt>SOURCES</tt> declaration. To ensure that <tt>qmake</tt> generates the <tt>ui_calculatorform.h</tt> file, we need to include it in a file listed in <tt>SOURCES</tt>. Since we only have <tt>main.cpp</tt>, we include it there:</p>
+<p>The special feature of this file is the <tt>FORMS</tt> declaration that tells <tt>qmake</tt> which files to process with <tt>uic</tt>. In this case, the <tt>calculatorform.ui</tt> file is used to create a <tt>ui_calculatorform.h</tt> file that can be used by any file listed in the <tt>SOURCES</tt> declaration.</p>
+<p><b>Note:</b> You can use Qt Creator to create the Calculator Form project. It automatically generates the main.cpp, UI, and .pro files, which you can then modify.</p>
+<a name="the-direct-approach"></a>
+<h3>The Direct Approach</h3>
+<p>To use the direct approach, we include the <tt>ui_calculatorform.h</tt> file directly in <tt>main.cpp</tt>:</p>
 <pre class="highlightedCode brush: cpp"> #include &quot;ui_calculatorform.h&quot;</pre>
-<p>This include is an additional check to ensure that we do not generate code for UI files that are not used.</p>
 <p>The <tt>main</tt> function creates the calculator widget by constructing a standard <a href="qwidget.html">QWidget</a> that we use to host the user interface described by the <tt>calculatorform.ui</tt> file.</p>
 <pre class="highlightedCode brush: cpp"> int main(int argc, char *argv[])
  {
@@ -193,10 +220,17 @@
      return app.exec();
  }</pre>
 <p>In this case, the <tt>Ui::CalculatorForm</tt> is an interface description object from the <tt>ui_calculatorform.h</tt> file that sets up all the dialog's widgets and the connections between its signals and slots.</p>
-<p>This approach provides a quick and easy way to use simple, self-contained components in your applications, but many componens created with <i>Qt Designer</i> will require close integration with the rest of the application code. For instance, the <tt>CalculatorForm</tt> code provided above will compile and run, but the <a href="qspinbox.html">QSpinBox</a> objects will not interact with the <a href="qlabel.html">QLabel</a> as we need a custom slot to carry out the add operation and display the result in the <a href="qlabel.html">QLabel</a>. To achieve this, we need to subclass a standard Qt widget (known as the single inheritance approach).</p>
+<p>The direct approach provides a quick and easy way to use simple, self-contained components in your applications. However, componens created with <i>Qt Designer</i> often require close integration with the rest of the application code. For instance, the <tt>CalculatorForm</tt> code provided above will compile and run, but the <a href="qspinbox.html">QSpinBox</a> objects will not interact with the <a href="qlabel.html">QLabel</a> as we need a custom slot to carry out the add operation and display the result in the <a href="qlabel.html">QLabel</a>. To achieve this, we need to use the single inheritance approach.</p>
 <a name="the-single-inheritance-approach"></a>
 <h3>The Single Inheritance Approach</h3>
-<p>In this approach, we subclass a Qt widget and set up the user interface from within the constructor. Components used in this way expose the widgets and layouts used in the form to the Qt widget subclass, and provide a standard system for making signal and slot connections between the user interface and other objects in your application.</p>
+<p>To use the single inheritance approach, we subclass a standard Qt widget and include a private instance of the form's user interface object. This can take the form of:</p>
+<ul>
+<li>A member variable</li>
+<li>A pointer member variable</li>
+</ul>
+<a name="using-a-member-variable"></a>
+<h4>Using a Member Variable</h4>
+<p>In this approach, we subclass a Qt widget and set up the user interface from within the constructor. Components used in this way expose the widgets and layouts used in the form to the Qt widget subclass, and provide a standard system for making signal and slot connections between the user interface and other objects in your application. The generated <tt>Ui::CalculatorForm</tt> structure is a member of the class.</p>
 <p>This approach is used in the <a href="designer-calculatorform.html">Calculator Form</a> example.</p>
 <p>To ensure that we can use the user interface, we need to include the header file that <tt>uic</tt> generates before referring to <tt>Ui::CalculatorForm</tt>:</p>
 <pre class="highlightedCode brush: cpp"> #include &quot;ui_calculatorform.h&quot;</pre>
@@ -226,13 +260,42 @@
  }</pre>
 <p>We can connect signals and slots in user interface widgets in the usual way, taking care to prefix the <tt>ui</tt> object to each widget used.</p>
 <p>The advantages of this approach are its simple use of inheritance to provide a <a href="qwidget.html">QWidget</a>-based interface, and its encapsulation of the user interface widget variables within the <tt>ui</tt> data member. We can use this method to define a number of user interfaces within the same widget, each of which is contained within its own namespace, and overlay (or compose) them. This approach can be used to create individual tabs from existing forms, for example.</p>
+<a name="using-a-pointer-member-variable"></a>
+<h4>Using a Pointer Member Variable</h4>
+<p>Alternatively, the <tt>Ui::CalculatorForm</tt> structure can be made a pointer member of the class. The header then looks as follows:</p>
+<pre class="highlightedCode brush: cpp"> namespace Ui {
+     class CalculatorForm;
+ }
+
+ class CalculatorForm : public QWidget
+ ...
+ virtual ~CalculatorForm();
+ ...
+ private:
+     Ui::CalculatorForm *ui;
+ ...</pre>
+<p>The corresponding source file looks as follows:</p>
+<pre class="highlightedCode brush: cpp"> #include &quot;ui_calculatorform.h&quot;
+
+ CalculatorForm::CalculatorForm(QWidget *parent) :
+     QWidget(parent), ui(new Ui::CalculatorForm)
+ {
+     ui-&gt;setupUi(this);
+ }
+
+ CalculatorForm::~CalculatorForm()
+ {
+     delete ui;
+ }</pre>
+<p>The advantage of this approach is that the user interface object can be forward-declared, which means that we do not have to include the generated <tt>ui_calculatorform.h</tt> file in the header. The form can then be changed without recompiling the dependent source files. This is particularly important if the class is subject to binary compatibility restrictions.</p>
+<p>We generally recommend this approach for libraries and large applications. For more information, see <a href="sharedlibrary.html">Creating Shared Libraries</a>.</p>
 <a name="the-multiple-inheritance-approach"></a>
 <h3>The Multiple Inheritance Approach</h3>
 <p>Forms created with <i>Qt Designer</i> can be subclassed together with a standard <a href="qwidget.html">QWidget</a>-based class. This approach makes all the user interface components defined in the form directly accessible within the scope of the subclass, and enables signal and slot connections to be made in the usual way with the <a href="qobject.html#connect">connect()</a> function.</p>
 <p>This approach is used in the <a href="uitools-multipleinheritance.html">Multiple Inheritance</a> example.</p>
-<p>We need to include the header file that <tt>uic</tt> generates from the <tt>calculatorform.ui</tt> file:</p>
+<p>We need to include the header file that <tt>uic</tt> generates from the <tt>calculatorform.ui</tt> file, as follows:</p>
 <pre class="highlightedCode brush: cpp"> #include &quot;ui_calculatorform.h&quot;</pre>
-<p>The class is defined in a similar way to the one used in the <a href="#the-single-inheritance-approach">single inheritance approach</a>, except that this time we inherit from <i>both</i> <a href="qwidget.html">QWidget</a> and <tt>Ui::CalculatorForm</tt>:</p>
+<p>The class is defined in a similar way to the one used in the <a href="#the-single-inheritance-approach">single inheritance approach</a>, except that this time we inherit from <i>both</i> <a href="qwidget.html">QWidget</a> and <tt>Ui::CalculatorForm</tt>, as follows:</p>
 <pre class="highlightedCode brush: cpp"> class CalculatorForm : public QWidget, private Ui::CalculatorForm
  {
      Q_OBJECT
@@ -252,7 +315,20 @@
      setupUi(this);
  }</pre>
 <p>In this case, the widgets used in the user interface can be accessed in the same say as a widget created in code by hand. We no longer require the <tt>ui</tt> prefix to access them.</p>
-<p>Subclassing using multiple inheritance gives us more direct access to the contents of the form, is slightly cleaner than the single inheritance approach, but does not conveniently support composition of multiple user interfaces.</p>
+<a name="reacting-to-language-changes"></a>
+<h3>Reacting to Language Changes</h3>
+<p>Qt notifies applications if the user interface language changes by sending an event of the type <a href="qevent.html#Type-enum">QEvent::LanguageChange</a>. To call the member function <tt>retranslateUi()</tt> of the user interface object, we reimplement <tt>QWidget::changeEvent()</tt> in the form class, as follows:</p>
+<pre class="highlightedCode brush: cpp"> void CalculatorForm::changeEvent(QEvent *e)
+ {
+     QWidget::changeEvent(e);
+     switch (e-&gt;type()) {
+     case QEvent::LanguageChange:
+         ui-&gt;retranslateUi(this);
+         break;
+     default:
+         break;
+    }
+ }</pre>
 <a name="run-time-form-processing"></a>
 <h2>Run Time Form Processing</h2>
 <p>Alternatively, forms can be processed at run time, producing dynamically- generated user interfaces. This can be done using the <a href="qtuitools.html">QtUiTools</a> module that provides the <a href="quiloader.html">QUiLoader</a> class to handle forms created with <i>Qt Designer</i>.</p>
@@ -370,7 +446,7 @@
 <p>Automatic connection of signals and slots provides both a standard naming convention and an explicit interface for widget designers to work to. By providing source code that implements a given interface, user interface designers can check that their designs actually work without having to write code themselves.</p>
 </div>
 <!-- @@@designer-using-a-ui-file.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="designer-stylesheet.html">Using Stylesheets with Qt Designer</a>]
 [Next: <a href="designer-using-custom-widgets.html">Using Custom Widgets with Qt Designer</a>]
 </p>

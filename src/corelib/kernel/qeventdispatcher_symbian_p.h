@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -82,7 +82,7 @@ public:
     QActiveObject(TInt priority, QEventDispatcherSymbian *dispatcher);
     ~QActiveObject();
 
-    bool okToRun();
+    bool maybeQueueForLater();
 
     void reactivateAndComplete();
 
@@ -95,7 +95,7 @@ private:
     int m_iterationCount;
 };
 
-class QWakeUpActiveObject : public CActive
+class QWakeUpActiveObject : public QActiveObject
 {
 public:
     QWakeUpActiveObject(QEventDispatcherSymbian *dispatcher);
@@ -106,9 +106,6 @@ public:
 protected:
     void DoCancel();
     void RunL();
-
-private:
-    QEventDispatcherSymbian *m_dispatcher;
 };
 
 struct SymbianTimerInfo : public QSharedData
@@ -250,7 +247,9 @@ public:
 
     void addDeferredActiveObject(QActiveObject *object);
     void removeDeferredActiveObject(QActiveObject *object);
-    void reactivateDeferredActiveObjects();
+    void queueDeferredActiveObjectsCompletion();
+    // Can be overridden to activate local active objects too, but do call baseclass!
+    virtual void reactivateDeferredActiveObjects();
 
     inline int iterationCount() const { return m_iterationCount; }
 
@@ -277,6 +276,7 @@ private:
     QAtomicInt m_wakeUpDone;
 
     unsigned char m_iterationCount;
+    bool m_insideTimerEvent;
     bool m_noSocketEvents;
     QList<QSocketActiveObject *> m_deferredSocketEvents;
 

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -103,7 +103,7 @@ QDeclarativeBoundSignal::QDeclarativeBoundSignal(QObject *scope, const QMetaMeth
     if (evaluateIdx == -1) evaluateIdx = metaObject()->methodCount();
 
     QDeclarative_setParent_noEvent(this, parent);
-    QMetaObject::connect(scope, m_signal.methodIndex(), this, evaluateIdx);
+    QDeclarativePropertyPrivate::connect(scope, m_signal.methodIndex(), this, evaluateIdx);
 }
 
 QDeclarativeBoundSignal::QDeclarativeBoundSignal(QDeclarativeContext *ctxt, const QString &val, 
@@ -117,7 +117,7 @@ QDeclarativeBoundSignal::QDeclarativeBoundSignal(QDeclarativeContext *ctxt, cons
     if (evaluateIdx == -1) evaluateIdx = metaObject()->methodCount();
 
     QDeclarative_setParent_noEvent(this, parent);
-    QMetaObject::connect(scope, m_signal.methodIndex(), this, evaluateIdx);
+    QDeclarativePropertyPrivate::connect(scope, m_signal.methodIndex(), this, evaluateIdx);
 
     m_expression = new QDeclarativeExpression(ctxt, scope, val);
 }

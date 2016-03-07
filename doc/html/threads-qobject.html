@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,9 +147,13 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="threads-reentrancy.html" />
   <link rel="next" href="threads-qtconcurrent.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="threads-reentrancy.html">Reentrancy and Thread-Safety</a>]
+[Next: <a href="threads-qtconcurrent.html">Concurrent Programming</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -157,7 +169,6 @@
 <div class="descr"> <a name="details"></a>
 <p><a href="qthread.html">QThread</a> inherits <a href="qobject.html">QObject</a>. It emits signals to indicate that the thread started or finished executing, and provides a few slots as well.</p>
 <p>More interesting is that <a href="qobject.html">QObject</a>s can be used in multiple threads, emit signals that invoke slots in other threads, and post events to objects that &quot;live&quot; in other threads. This is possible because each thread is allowed to have its own event loop.</p>
-<p>Topics:</p>
 <a name="qobject-reentrancy"></a>
 <h2>QObject Reentrancy</h2>
 <p><a href="qobject.html">QObject</a> is reentrant. Most of its non-GUI subclasses, such as <a href="qtimer.html">QTimer</a>, <a href="qtcpsocket.html">QTcpSocket</a>, <a href="qudpsocket.html">QUdpSocket</a>, <a href="qftp.html">QFtp</a>, and <a href="qprocess.html">QProcess</a>, are also reentrant, making it possible to use these classes from multiple threads simultaneously. Note that these classes are designed to be created and used from within a single thread; creating an object in one thread and calling its functions from another thread is not guaranteed to work. There are three constraints to be aware of:</p>
@@ -188,7 +199,7 @@
 <h2>Signals and Slots Across Threads</h2>
 <p>Qt supports these signal-slot connection types:</p>
 <ul>
-<li><a href="qt.html#ConnectionType-enum">Auto Connection</a> (default) The behavior is the same as the Direct Connection, if the emitter and receiver are in the same thread. The behavior is the same as the Queued Connection, if the emitter and receiver are in different threads.</li>
+<li><a href="qt.html#ConnectionType-enum">Auto Connection</a> (default) If the signal is emitted in the thread which the receiving object has affinity then the behavior is the same as the Direct Connection. Otherwise, the behavior is the same as the Queued Connection.&quot;</li>
 <li><a href="qt.html#ConnectionType-enum">Direct Connection</a> The slot is invoked immediately, when the signal is emitted. The slot is executed in the emitter's thread, which is not necessarily the receiver's thread.</li>
 <li><a href="qt.html#ConnectionType-enum">Queued Connection</a> The slot is invoked when control returns to the event loop of the receiver's thread. The slot is executed in the receiver's thread.</li>
 <li><a href="qt.html#ConnectionType-enum">Blocking Queued Connection</a> The slot is invoked as for the Queued Connection, except the current thread blocks until the slot returns. <b>Note:</b> Using this type to connect objects in the same thread will cause deadlock.</li>
@@ -200,7 +211,7 @@
 <p>Similarly, the <a href="network-blockingfortuneclient.html">Blocking Fortune Client</a> example uses a separate thread for communicating with a TCP server asynchronously.</p>
 </div>
 <!-- @@@threads-qobject.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="threads-reentrancy.html">Reentrancy and Thread-Safety</a>]
 [Next: <a href="threads-qtconcurrent.html">Concurrent Programming</a>]
 </p>

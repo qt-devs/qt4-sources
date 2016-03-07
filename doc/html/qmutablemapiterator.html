@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -165,7 +173,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#findPrevious">findPrevious</a></b> ( const T &amp; <i>value</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#hasNext">hasNext</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#hasPrevious">hasPrevious</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const Key &amp; </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#keyx">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const Key &amp; </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#key">key</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Item </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#next">next</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Item </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#peekNext">peekNext</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Item </td><td class="memItemRight bottomAlign"><b><a href="qmutablemapiterator.html#peekPrevious">peekPrevious</a></b> () const</td></tr>
@@ -193,7 +201,7 @@
      i.next();
      qDebug() &lt;&lt; i.key() &lt;&lt; &quot;: &quot; &lt;&lt; i.value();
  }</pre>
-<p>The <a href="qmutablemapiterator.html#next">next</a>() function returns the next item in the map and advances the iterator. The <a href="qmutablemapiterator.html#keyx">key</a>() and <a href="qmutablemapiterator.html#value">value</a>() functions return the key and value of the last item that was jumped over.</p>
+<p>The <a href="qmutablemapiterator.html#next">next</a>() function returns the next item in the map and advances the iterator. The <a href="qmutablemapiterator.html#key">key</a>() and <a href="qmutablemapiterator.html#value">value</a>() functions return the key and value of the last item that was jumped over.</p>
 <p>Unlike STL-style iterators, Java-style iterators point <i>between</i> items rather than directly <i>at</i> items. The first call to <a href="qmutablemapiterator.html#next">next</a>() advances the iterator to the position between the first and second item, and returns the first item; the second call to <a href="qmutablemapiterator.html#next">next</a>() advances the iterator to the position between the second and third item; and so on.</p>
 <p class="centerAlign"><img src="images/javaiterators1.png" /></p><p>Here's how to iterate over the elements in reverse order:</p>
 <pre class="highlightedCode brush: cpp"> QMutableMapIterator&lt;int, QWidget *&gt; i(map);
@@ -256,7 +264,7 @@
 <p>See also <a href="qmutablemapiterator.html#hasNext">hasNext</a>() and <a href="qmutablemapiterator.html#previous">previous</a>().</p>
 <!-- @@@hasPrevious -->
 <!-- $$$key[overload1]$$$key -->
-<h3 class="fn"><a name="keyx"></a>const Key &amp; QMutableMapIterator::key () const</h3>
+<h3 class="fn"><a name="key"></a>const Key &amp; QMutableMapIterator::key () const</h3>
 <p>Returns the key of the last item that was jumped over using one of the traversal functions (<a href="qmutablemapiterator.html#next">next</a>(), <a href="qmutablemapiterator.html#previous">previous</a>(), <a href="qmutablemapiterator.html#findNext">findNext</a>(), <a href="qmutablemapiterator.html#findPrevious">findPrevious</a>()).</p>
 <p>After a call to <a href="qmutablemapiterator.html#next">next</a>() or <a href="qmutablemapiterator.html#findNext">findNext</a>(), key() is equivalent to <a href="qmutablemapiterator.html#peekPrevious">peekPrevious</a>().key(). After a call to <a href="qmutablemapiterator.html#previous">previous</a>() or <a href="qmutablemapiterator.html#findPrevious">findPrevious</a>(), key() is equivalent to <a href="qmutablemapiterator.html#peekNext">peekNext</a>().key().</p>
 <p>See also <a href="qmutablemapiterator.html#value">value</a>().</p>
@@ -264,28 +272,28 @@
 <!-- $$$next[overload1]$$$next -->
 <h3 class="fn"><a name="next"></a>Item QMutableMapIterator::next ()</h3>
 <p>Returns the next item and advances the iterator by one position.</p>
-<p>Call <a href="qmutablemapiterator.html#keyx">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
+<p>Call <a href="qmutablemapiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the back of the container leads to undefined results.</p>
 <p>See also <a href="qmutablemapiterator.html#hasNext">hasNext</a>(), <a href="qmutablemapiterator.html#peekNext">peekNext</a>(), and <a href="qmutablemapiterator.html#previous">previous</a>().</p>
 <!-- @@@next -->
 <!-- $$$peekNext[overload1]$$$peekNext -->
 <h3 class="fn"><a name="peekNext"></a>Item QMutableMapIterator::peekNext () const</h3>
 <p>Returns a reference to the next item without moving the iterator.</p>
-<p>Call <a href="qmutablemapiterator.html#keyx">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
+<p>Call <a href="qmutablemapiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the back of the container leads to undefined results.</p>
 <p>See also <a href="qmutablemapiterator.html#hasNext">hasNext</a>(), <a href="qmutablemapiterator.html#next">next</a>(), and <a href="qmutablemapiterator.html#peekPrevious">peekPrevious</a>().</p>
 <!-- @@@peekNext -->
 <!-- $$$peekPrevious[overload1]$$$peekPrevious -->
 <h3 class="fn"><a name="peekPrevious"></a>Item QMutableMapIterator::peekPrevious () const</h3>
 <p>Returns the previous item without moving the iterator.</p>
-<p>Call <a href="qmutablemapiterator.html#keyx">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
+<p>Call <a href="qmutablemapiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the front of the container leads to undefined results.</p>
 <p>See also <a href="qmutablemapiterator.html#hasPrevious">hasPrevious</a>(), <a href="qmutablemapiterator.html#previous">previous</a>(), and <a href="qmutablemapiterator.html#peekNext">peekNext</a>().</p>
 <!-- @@@peekPrevious -->
 <!-- $$$previous[overload1]$$$previous -->
 <h3 class="fn"><a name="previous"></a>Item QMutableMapIterator::previous ()</h3>
 <p>Returns the previous item and moves the iterator back by one position.</p>
-<p>Call <a href="qmutablemapiterator.html#keyx">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
+<p>Call <a href="qmutablemapiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qmutablemapiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the front of the container leads to undefined results.</p>
 <p>See also <a href="qmutablemapiterator.html#hasPrevious">hasPrevious</a>(), <a href="qmutablemapiterator.html#peekPrevious">peekPrevious</a>(), and <a href="qmutablemapiterator.html#next">next</a>().</p>
 <!-- @@@previous -->
@@ -298,7 +306,7 @@
 <h3 class="fn"><a name="setValue"></a>void QMutableMapIterator::setValue ( const T &amp; <i>value</i> )</h3>
 <p>Replaces the value of the last item that was jumped over using one of the traversal functions with <i>value</i>.</p>
 <p>The traversal functions are <a href="qmutablemapiterator.html#next">next</a>(), <a href="qmutablemapiterator.html#previous">previous</a>(), <a href="qmutablemapiterator.html#findNext">findNext</a>(), and <a href="qmutablemapiterator.html#findPrevious">findPrevious</a>().</p>
-<p>See also <a href="qmutablemapiterator.html#keyx">key</a>(), <a href="qmutablemapiterator.html#value">value</a>(), and <a href="qmutablemapiterator.html#remove">remove</a>().</p>
+<p>See also <a href="qmutablemapiterator.html#key">key</a>(), <a href="qmutablemapiterator.html#value">value</a>(), and <a href="qmutablemapiterator.html#remove">remove</a>().</p>
 <!-- @@@setValue -->
 <!-- $$$toBack[overload1]$$$toBack -->
 <h3 class="fn"><a name="toBack"></a>void QMutableMapIterator::toBack ()</h3>
@@ -314,7 +322,7 @@
 <h3 class="fn"><a name="value"></a>const T &amp; QMutableMapIterator::value () const</h3>
 <p>Returns the value of the last item that was jumped over using one of the traversal functions (<a href="qmutablemapiterator.html#next">next</a>(), <a href="qmutablemapiterator.html#previous">previous</a>(), <a href="qmutablemapiterator.html#findNext">findNext</a>(), <a href="qmutablemapiterator.html#findPrevious">findPrevious</a>()).</p>
 <p>After a call to <a href="qmutablemapiterator.html#next">next</a>() or <a href="qmutablemapiterator.html#findNext">findNext</a>(), value() is equivalent to <a href="qmutablemapiterator.html#peekPrevious">peekPrevious</a>().value(). After a call to <a href="qmutablemapiterator.html#previous">previous</a>() or <a href="qmutablemapiterator.html#findPrevious">findPrevious</a>(), value() is equivalent to <a href="qmutablemapiterator.html#peekNext">peekNext</a>().value().</p>
-<p>See also <a href="qmutablemapiterator.html#keyx">key</a>() and <a href="qmutablemapiterator.html#setValue">setValue</a>().</p>
+<p>See also <a href="qmutablemapiterator.html#key">key</a>() and <a href="qmutablemapiterator.html#setValue">setValue</a>().</p>
 <!-- @@@value -->
 <!-- $$$value$$$value -->
 <h3 class="fn"><a name="value-2"></a>T &amp; QMutableMapIterator::value ()</h3>

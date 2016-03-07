@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -214,8 +222,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-lt-lt-16">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-gt-gt-11">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-lt-lt-132">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexp.html#operator-gt-gt-68">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QRegExp-description -->
@@ -413,7 +421,7 @@
  rx.exactMatch(&quot;default.htm&quot;);               <span class="comment">// returns false</span>
  rx.exactMatch(&quot;readme.txt&quot;);                <span class="comment">// returns false</span></pre>
 <p>Wildcard matching can be convenient because of its simplicity, but any wildcard regexp can be defined using full regexps, e.g&#x2e; <b>.*.html$</b>. Notice that we can't match both <tt>.html</tt> and <tt>.htm</tt> files with a wildcard unless we use <b>*.htm*</b> which will also match 'test.html.bak'. A full regexp gives us the precision we need, <b>.*\.html?$</b>.</p>
-<p>QRegExp can match case insensitively using <a href="qregexp.html#setCaseSensitivity">setCaseSensitivity</a>(), and can use non-greedy matching, see <a href="qregexp.html#setMinimal">setMinimal</a>(). By default QRegExp uses full regexps but this can be changed with <a href="qregexp.html#setWildcard" class="compat">setWildcard</a>(). Searching can be forward with <a href="qregexp.html#indexIn">indexIn</a>() or backward with <a href="qregexp.html#lastIndexIn">lastIndexIn</a>(). Captured text can be accessed using <a href="qregexp.html#capturedTexts">capturedTexts</a>() which returns a string list of all captured strings, or using <a href="qregexp.html#cap">cap</a>() which returns the captured string for the given index. The <a href="qregexp.html#pos">pos</a>() function takes a match index and returns the position in the string where the match was made (or -1 if there was no match).</p>
+<p>QRegExp can match case insensitively using <a href="qregexp.html#setCaseSensitivity">setCaseSensitivity</a>(), and can use non-greedy matching, see <a href="qregexp.html#setMinimal">setMinimal</a>(). By default QRegExp uses full regexps but this can be changed with <a href="qregexp-qt3.html#setWildcard" class="compat">setWildcard</a>(). Searching can be forward with <a href="qregexp.html#indexIn">indexIn</a>() or backward with <a href="qregexp.html#lastIndexIn">lastIndexIn</a>(). Captured text can be accessed using <a href="qregexp.html#capturedTexts">capturedTexts</a>() which returns a string list of all captured strings, or using <a href="qregexp.html#cap">cap</a>() which returns the captured string for the given index. The <a href="qregexp.html#pos">pos</a>() function takes a match index and returns the position in the string where the match was made (or -1 if there was no match).</p>
 </div>
 <p>See also <a href="qstring.html">QString</a>, <a href="qstringlist.html">QStringList</a>, <a href="qregexpvalidator.html">QRegExpValidator</a>, <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>, and <a href="tools-regexp.html">Regular Expression Example</a>.</p>
 <!-- @@@QRegExp -->
@@ -422,7 +430,7 @@
 <!-- $$$CaretMode$$$CaretAtZero$$$CaretAtOffset$$$CaretWontMatch -->
 <h3 class="fn"><a name="CaretMode-enum"></a>enum QRegExp::CaretMode</h3>
 <p>The CaretMode enum defines the different meanings of the caret (<b>^</b>) in a regular expression. The possible values are:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QRegExp::CaretAtZero</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The caret corresponds to index 0 in the searched string.</td></tr>
 <tr><td  class="topAlign"><tt>QRegExp::CaretAtOffset</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The caret corresponds to the start offset of the search.</td></tr>
 <tr><td  class="topAlign"><tt>QRegExp::CaretWontMatch</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The caret never matches.</td></tr>
@@ -431,7 +439,7 @@
 <!-- $$$PatternSyntax$$$RegExp$$$Wildcard$$$FixedString$$$RegExp2$$$WildcardUnix$$$W3CXmlSchema11 -->
 <h3 class="fn"><a name="PatternSyntax-enum"></a>enum QRegExp::PatternSyntax</h3>
 <p>The syntax used to interpret the meaning of the pattern.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QRegExp::RegExp</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">A rich Perl-like pattern matching syntax. This is the default.</td></tr>
 <tr><td  class="topAlign"><tt>QRegExp::RegExp2</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">Like RegExp, but with <a href="qregexp.html#greedy-quantifiers">greedy quantifiers</a>. This will be the default in Qt 5. (Introduced in Qt 4.2&#x2e;)</td></tr>
 <tr><td  class="topAlign"><tt>QRegExp::Wildcard</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">This provides a simple pattern matching syntax similar to that used by shells (command interpreters) for &quot;file globbing&quot;. See <a href="qregexp.html#wildcard-matching">Wildcard Matching</a>.</td></tr>
@@ -619,7 +627,7 @@
 <h3 class="fn"><a name="setMinimal"></a>void QRegExp::setMinimal ( bool <i>minimal</i> )</h3>
 <p>Enables or disables minimal matching. If <i>minimal</i> is false, matching is greedy (maximal) which is the default.</p>
 <p>For example, suppose we have the input string &quot;We must be &lt;b&gt;bold&lt;/b&gt;, very &lt;b&gt;bold&lt;/b&gt;!&quot; and the pattern <b>&lt;b&gt;.*&lt;/b&gt;</b>. With the default greedy (maximal) matching, the match is &quot;We must be <u>&lt;b&gt;bold&lt;/b&gt;, very &lt;b&gt;bold&lt;/b&gt;</u>!&quot;. But with minimal (non-greedy) matching, the first match is: &quot;We must be <u>&lt;b&gt;bold&lt;/b&gt;</u>, very &lt;b&gt;bold&lt;/b&gt;!&quot; and the second match is &quot;We must be &lt;b&gt;bold&lt;/b&gt;, very <u>&lt;b&gt;bold&lt;/b&gt;</u>!&quot;. In practice we might use the pattern <b>&lt;b&gt;[^&lt;]*&lt;/b&gt;</b> instead, although this will still fail for nested tags.</p>
-<p>See also <a href="qregexp.html#minimal" class="compat">minimal</a>() and <a href="qregexp.html#setCaseSensitivity">setCaseSensitivity</a>().</p>
+<p>See also <a href="qregexp-qt3.html#minimal" class="compat">minimal</a>() and <a href="qregexp.html#setCaseSensitivity">setCaseSensitivity</a>().</p>
 <!-- @@@setMinimal -->
 <!-- $$$setPattern[overload1]$$$setPatternconstQString& -->
 <h3 class="fn"><a name="setPattern"></a>void QRegExp::setPattern ( const <a href="qstring.html">QString</a> &amp; <i>pattern</i> )</h3>
@@ -651,12 +659,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQRegExp& -->
-<h3 class="fn"><a name="operator-lt-lt-16"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-132"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QRegExp &amp; <i>regExp</i> )</h3>
 <p>Writes the regular expression <i>regExp</i> to stream <i>out</i>.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QRegExp& -->
-<h3 class="fn"><a name="operator-gt-gt-11"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-68"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QRegExp &amp; <i>regExp</i> )</h3>
 <p>Reads a regular expression from stream <i>in</i> into <i>regExp</i>.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->

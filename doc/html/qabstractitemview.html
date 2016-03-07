@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -432,7 +440,7 @@
 <!-- $$$CursorAction$$$MoveUp$$$MoveDown$$$MoveLeft$$$MoveRight$$$MoveHome$$$MoveEnd$$$MovePageUp$$$MovePageDown$$$MoveNext$$$MovePrevious -->
 <h3 class="fn"><a name="CursorAction-enum"></a>enum QAbstractItemView::CursorAction</h3>
 <p>This enum describes the different ways to navigate between items,</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::MoveUp</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Move to the item above the current item.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::MoveDown</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Move to the item below the current item.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::MoveLeft</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Move to the item left of the current item.</td></tr>
@@ -449,7 +457,7 @@
 <!-- $$$DragDropMode$$$NoDragDrop$$$DragOnly$$$DropOnly$$$DragDrop$$$InternalMove -->
 <h3 class="fn"><a name="DragDropMode-enum"></a>enum QAbstractItemView::DragDropMode</h3>
 <p>Describes the various drag and drop events the view can act upon. By default the view does not support dragging or dropping (<tt>NoDragDrop</tt>).</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::NoDragDrop</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Does not support dragging or dropping.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::DragOnly</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The view supports dragging of its own items</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::DropOnly</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The view accepts drops</td></tr>
@@ -458,12 +466,12 @@
 </table>
 <p>Note that the model used needs to provide support for drag and drop operations.</p>
 <p>This enum was introduced or modified in Qt 4.2.</p>
-<p>See also <a href="qabstractitemview.html#dragDropMode-prop">setDragDropMode</a>() and <a href="model-view-programming.html#using-drag-drop-with-item-views">Using drag &amp; drop with item views</a>.</p>
+<p>See also <a href="qabstractitemview.html#dragDropMode-prop">setDragDropMode</a>() and <a href="model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@DragDropMode -->
 <!-- $$$DropIndicatorPosition$$$OnItem$$$AboveItem$$$BelowItem$$$OnViewport -->
 <h3 class="fn"><a name="DropIndicatorPosition-enum"></a>enum QAbstractItemView::DropIndicatorPosition</h3>
 <p>This enum indicates the position of the drop indicator in relation to the index at the current mouse position:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::OnItem</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The item will be dropped on the index.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::AboveItem</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The item will be dropped above the index.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::BelowItem</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The item will be dropped below the index.</td></tr>
@@ -473,7 +481,7 @@
 <!-- $$$EditTrigger$$$NoEditTriggers$$$CurrentChanged$$$DoubleClicked$$$SelectedClicked$$$EditKeyPressed$$$AnyKeyPressed$$$AllEditTriggers -->
 <h3 class="flags"><a name="EditTrigger-enum"></a>enum QAbstractItemView::EditTrigger<br/>flags QAbstractItemView::EditTriggers</h3>
 <p>This enum describes actions which will initiate item editing.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::NoEditTriggers</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">No editing possible.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::CurrentChanged</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Editing start whenever current item changes.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::DoubleClicked</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Editing starts when an item is double clicked.</td></tr>
@@ -486,7 +494,7 @@
 <!-- @@@EditTrigger -->
 <!-- $$$ScrollHint$$$EnsureVisible$$$PositionAtTop$$$PositionAtBottom$$$PositionAtCenter -->
 <h3 class="fn"><a name="ScrollHint-enum"></a>enum QAbstractItemView::ScrollHint</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::EnsureVisible</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Scroll to ensure that the item is visible.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::PositionAtTop</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Scroll to position the item at the top of the viewport.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::PositionAtBottom</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Scroll to position the item at the bottom of the viewport.</td></tr>
@@ -495,7 +503,7 @@
 <!-- @@@ScrollHint -->
 <!-- $$$ScrollMode$$$ScrollPerItem$$$ScrollPerPixel -->
 <h3 class="fn"><a name="ScrollMode-enum"></a>enum QAbstractItemView::ScrollMode</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::ScrollPerItem</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The view will scroll the contents one item at a time.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::ScrollPerPixel</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The view will scroll the contents one pixel at a time.</td></tr>
 </table>
@@ -503,7 +511,7 @@
 <!-- @@@ScrollMode -->
 <!-- $$$SelectionBehavior$$$SelectItems$$$SelectRows$$$SelectColumns -->
 <h3 class="fn"><a name="SelectionBehavior-enum"></a>enum QAbstractItemView::SelectionBehavior</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::SelectItems</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Selecting single items.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::SelectRows</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Selecting only rows.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::SelectColumns</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Selecting only columns.</td></tr>
@@ -512,7 +520,7 @@
 <!-- $$$SelectionMode$$$NoSelection$$$SingleSelection$$$MultiSelection$$$ExtendedSelection$$$ContiguousSelection -->
 <h3 class="fn"><a name="SelectionMode-enum"></a>enum QAbstractItemView::SelectionMode</h3>
 <p>This enum indicates how the view responds to user selections:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::SingleSelection</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">When the user selects an item, any already-selected item becomes unselected, and the user cannot unselect the selected item by clicking on it.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::ContiguousSelection</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">When the user selects an item in the usual way, the selection is cleared and the new item selected. However, if the user presses the Shift key while clicking on an item, all items between the current item and the clicked item are selected or unselected, depending on the state of the clicked item.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::ExtendedSelection</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">When the user selects an item in the usual way, the selection is cleared and the new item selected. However, if the user presses the Ctrl key when clicking on an item, the clicked item gets toggled and all other items are left untouched. If the user presses the Shift key while clicking on an item, all items between the current item and the clicked item are selected or unselected, depending on the state of the clicked item. Multiple items can be selected by dragging the mouse over them.</td></tr>
@@ -524,7 +532,7 @@
 <!-- $$$State$$$NoState$$$DraggingState$$$DragSelectingState$$$EditingState$$$ExpandingState$$$CollapsingState$$$AnimatingState -->
 <h3 class="fn"><a name="State-enum"></a>enum QAbstractItemView::State</h3>
 <p>Describes the different states the view can be in. This is usually only interesting when reimplementing your own view.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::NoState</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The is the default state.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::DraggingState</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The user is dragging items.</td></tr>
 <tr><td  class="topAlign"><tt>QAbstractItemView::DragSelectingState</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The user is selecting items.</td></tr>
@@ -562,7 +570,7 @@
 <!-- $$$autoScrollMargin-prop$$$autoScrollMargin$$$setAutoScrollMarginint -->
 <h3 class="fn"><a name="autoScrollMargin-prop"></a>autoScrollMargin : int</h3>
 <p>This property holds the size of the area when auto scrolling is triggered.</p>
-<p>This property controlls the size of the area at the edge of the viewport that triggers autoscrolling. The default value is 16 pixels.</p>
+<p>This property controls the size of the area at the edge of the viewport that triggers autoscrolling. The default value is 16 pixels.</p>
 <p>This property was introduced in Qt 4.4.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary">
@@ -630,7 +638,7 @@
 <!-- $$$horizontalScrollMode-prop$$$horizontalScrollMode$$$setHorizontalScrollModeScrollMode -->
 <h3 class="fn"><a name="horizontalScrollMode-prop"></a>horizontalScrollMode : <a href="qabstractitemview.html#ScrollMode-enum">ScrollMode</a></h3>
 <p>This property holds how the view scrolls its contents in the horizontal direction.</p>
-<p>This property controlls how the view scroll its contents horizontally. Scrolling can be done either per pixel or per item.</p>
+<p>This property controls how the view scroll its contents horizontally. Scrolling can be done either per pixel or per item.</p>
 <p>This property was introduced in Qt 4.2.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary">
@@ -702,7 +710,7 @@
 <!-- $$$verticalScrollMode-prop$$$verticalScrollMode$$$setVerticalScrollModeScrollMode -->
 <h3 class="fn"><a name="verticalScrollMode-prop"></a>verticalScrollMode : <a href="qabstractitemview.html#ScrollMode-enum">ScrollMode</a></h3>
 <p>This property holds how the view scrolls its contents in the vertical direction.</p>
-<p>This property controlls how the view scroll its contents vertically. Scrolling can be done either per pixel or per item.</p>
+<p>This property controls how the view scroll its contents vertically. Scrolling can be done either per pixel or per item.</p>
 <p>This property was introduced in Qt 4.2.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary">
@@ -1076,7 +1084,7 @@
 <h3 class="fn"><a name="setItemDelegateForColumn"></a>void QAbstractItemView::setItemDelegateForColumn ( int <i>column</i>, <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a> * <i>delegate</i> )</h3>
 <p>Sets the given item <i>delegate</i> used by this view and model for the given <i>column</i>. All items on <i>column</i> will be drawn and managed by <i>delegate</i> instead of using the default delegate (i.e&#x2e;, <a href="qabstractitemview.html#itemDelegate">itemDelegate</a>()).</p>
 <p>Any existing column delegate for <i>column</i> will be removed, but not deleted. <a href="qabstractitemview.html">QAbstractItemView</a> does not take ownership of <i>delegate</i>.</p>
-<p><b>Note:</b> If a delegate has been assigned to both a row and a column, the row delegate will take presedence and manage the intersecting cell index.</p>
+<p><b>Note:</b> If a delegate has been assigned to both a row and a column, the row delegate will take precedence and manage the intersecting cell index.</p>
 <p><b>Warning:</b> You should not share the same instance of a delegate between views. Doing so can cause incorrect or unintuitive editing behavior since each view connected to a given delegate may receive the <a href="qabstractitemdelegate.html#closeEditor">closeEditor()</a> signal, and attempt to access, modify or close an editor that has already been closed.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qabstractitemview.html#itemDelegateForColumn">itemDelegateForColumn</a>(), <a href="qabstractitemview.html#setItemDelegateForRow">setItemDelegateForRow</a>(), and <a href="qabstractitemview.html#itemDelegate">itemDelegate</a>().</p>
@@ -1085,7 +1093,7 @@
 <h3 class="fn"><a name="setItemDelegateForRow"></a>void QAbstractItemView::setItemDelegateForRow ( int <i>row</i>, <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a> * <i>delegate</i> )</h3>
 <p>Sets the given item <i>delegate</i> used by this view and model for the given <i>row</i>. All items on <i>row</i> will be drawn and managed by <i>delegate</i> instead of using the default delegate (i.e&#x2e;, <a href="qabstractitemview.html#itemDelegate">itemDelegate</a>()).</p>
 <p>Any existing row delegate for <i>row</i> will be removed, but not deleted. <a href="qabstractitemview.html">QAbstractItemView</a> does not take ownership of <i>delegate</i>.</p>
-<p><b>Note:</b> If a delegate has been assigned to both a row and a column, the row delegate (i.e&#x2e;, this delegate) will take presedence and manage the intersecting cell index.</p>
+<p><b>Note:</b> If a delegate has been assigned to both a row and a column, the row delegate (i.e&#x2e;, this delegate) will take precedence and manage the intersecting cell index.</p>
 <p><b>Warning:</b> You should not share the same instance of a delegate between views. Doing so can cause incorrect or unintuitive editing behavior since each view connected to a given delegate may receive the <a href="qabstractitemdelegate.html#closeEditor">closeEditor()</a> signal, and attempt to access, modify or close an editor that has already been closed.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qabstractitemview.html#itemDelegateForRow">itemDelegateForRow</a>(), <a href="qabstractitemview.html#setItemDelegateForColumn">setItemDelegateForColumn</a>(), and <a href="qabstractitemview.html#itemDelegate">itemDelegate</a>().</p>

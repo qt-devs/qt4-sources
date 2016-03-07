@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -48,6 +48,7 @@
 #include "qgraphicslayoutitem.h"
 #include "qgraphicslayoutitem_p.h"
 #include "qwidget.h"
+#include "qgraphicswidget.h"
 
 #include <QtDebug>
 
@@ -127,7 +128,7 @@ QGraphicsLayoutItemPrivate::~QGraphicsLayoutItemPrivate()
 void QGraphicsLayoutItemPrivate::init()
 {
     sizeHintCacheDirty = true;
-    sizePolicy = QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    sizeHintWithConstraintCacheDirty = true;
 }
 
 /*!
@@ -136,19 +137,28 @@ void QGraphicsLayoutItemPrivate::init()
 QSizeF *QGraphicsLayoutItemPrivate::effectiveSizeHints(const QSizeF &constraint) const
 {
     Q_Q(const QGraphicsLayoutItem);
-    if (!sizeHintCacheDirty && cachedConstraint == constraint)
-        return cachedSizeHints;
-
-    for (int i = 0; i < Qt::NSizeHints; ++i) {
-        cachedSizeHints[i] = constraint;
-        if (userSizeHints)
-            combineSize(cachedSizeHints[i], userSizeHints[i]);
+    QSizeF *sizeHintCache;
+    const bool hasConstraint = constraint.width() >= 0 || constraint.height() >= 0;
+    if (hasConstraint) {
+        if (!sizeHintWithConstraintCacheDirty && constraint == cachedConstraint)
+            return cachedSizeHintsWithConstraints;
+        sizeHintCache = cachedSizeHintsWithConstraints;
+    } else {
+        if (!sizeHintCacheDirty)
+            return cachedSizeHints;
+        sizeHintCache = cachedSizeHints;
     }
 
-    QSizeF &minS = cachedSizeHints[Qt::MinimumSize];
-    QSizeF &prefS = cachedSizeHints[Qt::PreferredSize];
-    QSizeF &maxS = cachedSizeHints[Qt::MaximumSize];
-    QSizeF &descentS = cachedSizeHints[Qt::MinimumDescent];
+    for (int i = 0; i < Qt::NSizeHints; ++i) {
+        sizeHintCache[i] = constraint;
+        if (userSizeHints)
+            combineSize(sizeHintCache[i], userSizeHints[i]);
+    }
+
+    QSizeF &minS = sizeHintCache[Qt::MinimumSize];
+    QSizeF &prefS = sizeHintCache[Qt::PreferredSize];
+    QSizeF &maxS = sizeHintCache[Qt::MaximumSize];
+    QSizeF &descentS = sizeHintCache[Qt::MinimumDescent];
 
     normalizeHints(minS.rwidth(), prefS.rwidth(), maxS.rwidth(), descentS.rwidth());
     normalizeHints(minS.rheight(), prefS.rheight(), maxS.rheight(), descentS.rheight());
@@ -174,9 +184,13 @@ QSizeF *QGraphicsLayoutItemPrivate::effectiveSizeHints(const QSizeF &constraint)
     // Not supported yet
     // COMBINE_SIZE(descentS, q->sizeHint(Qt::MinimumDescent, constraint));
 
-    cachedConstraint = constraint;
-    sizeHintCacheDirty = false;
-    return cachedSizeHints;
+    if (hasConstraint) {
+        cachedConstraint = constraint;
+        sizeHintWithConstraintCacheDirty = false;
+    } else {
+        sizeHintCacheDirty = false;
+    }
+    return sizeHintCache;
 }
 
 
@@ -259,6 +273,52 @@ void QGraphicsLayoutItemPrivate::setSizeComponent(
     q->updateGeometry();
 }
 
+
+bool QGraphicsLayoutItemPrivate::hasHeightForWidth() const
+{
+    Q_Q(const QGraphicsLayoutItem);
+    if (isLayout) {
+        const QGraphicsLayout *l = static_cast<const QGraphicsLayout *>(q);
+        for (int i = l->count() - 1; i >= 0; --i) {
+            if (QGraphicsLayoutItemPrivate::get(l->itemAt(i))->hasHeightForWidth())
+                return true;
+        }
+    } else if (QGraphicsItem *item = q->graphicsItem()) {
+        if (item->isWidget()) {
+            QGraphicsWidget *w = static_cast<QGraphicsWidget *>(item);
+            if (w->layout()) {
+                return QGraphicsLayoutItemPrivate::get(w->layout())->hasHeightForWidth();
+            }
+        }
+    }
+    return q->sizePolicy().hasHeightForWidth();
+}
+
+bool QGraphicsLayoutItemPrivate::hasWidthForHeight() const
+{
+    // enable this code when we add QSizePolicy::hasWidthForHeight() (For 4.8)
+#if 1
+    return false;
+#else
+    Q_Q(const QGraphicsLayoutItem);
+    if (isLayout) {
+        const QGraphicsLayout *l = static_cast<const QGraphicsLayout *>(q);
+        for (int i = l->count() - 1; i >= 0; --i) {
+            if (QGraphicsLayoutItemPrivate::get(l->itemAt(i))->hasWidthForHeight())
+                return true;
+        }
+    } else if (QGraphicsItem *item = q->graphicsItem()) {
+        if (item->isWidget()) {
+            QGraphicsWidget *w = static_cast<QGraphicsWidget *>(item);
+            if (w->layout()) {
+                return QGraphicsLayoutItemPrivate::get(w->layout())->hasWidthForHeight();
+            }
+        }
+    }
+    return q->sizePolicy().hasWidthForHeight();
+#endif
+}
+
 /*!
     \class QGraphicsLayoutItem
     \brief The QGraphicsLayoutItem class can be inherited to allow your custom
@@ -339,6 +399,7 @@ QGraphicsLayoutItem::QGraphicsLayoutItem(QGraphicsLayoutItem *parent, bool isLay
 {
     Q_D(QGraphicsLayoutItem);
     d->init();
+    d->sizePolicy = QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     d->q_ptr = this;
 }
 
@@ -349,6 +410,7 @@ QGraphicsLayoutItem::QGraphicsLayoutItem(QGraphicsLayoutItemPrivate &dd)
     : d_ptr(&dd)
 {
     Q_D(QGraphicsLayoutItem);
+    d->init();
     d->q_ptr = this;
 }
 
@@ -768,6 +830,7 @@ void QGraphicsLayoutItem::updateGeometry()
 {
     Q_D(QGraphicsLayoutItem);
     d->sizeHintCacheDirty = true;
+    d->sizeHintWithConstraintCacheDirty = true;
 }
 
 /*!

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -44,19 +44,19 @@
 
 #include <stddef.h>
 
-#define QT_VERSION_STR "4.7.1"
+#define QT_VERSION_STR "4.7.2"
 /*
    QT_VERSION is (major << 16) + (minor << 8) + patch.
 */
-#define QT_VERSION 0x040701
+#define QT_VERSION 0x040702
 /*
    can be used like #if (QT_VERSION >= QT_VERSION_CHECK(4, 4, 0))
 */
 #define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))
 
-#define QT_PACKAGEDATE_STR "2010-11-06"
+#define QT_PACKAGEDATE_STR "2011-02-22"
 
-#define QT_PACKAGE_TAG "1b3f43c997b00d6b0d435ed8be08596c913a0189"
+#define QT_PACKAGE_TAG "0828c69ad805406568f6eef2bffbbd54b04dea41"
 
 #if !defined(QT_BUILD_MOC)
 #include <QtCore/qconfig.h>
@@ -1050,7 +1050,7 @@ redefine to built-in booleans to make autotests work properly */
 
 #if defined(__i386__) || defined(_WIN32) || defined(_WIN32_WCE)
 #  if defined(Q_CC_GNU)
-#if !defined(Q_CC_INTEL) && ((100*(__GNUC__ - 0) + 10*(__GNUC_MINOR__ - 0) + __GNUC_PATCHLEVEL__) >= 332)
+#if ((100*(__GNUC__ - 0) + 10*(__GNUC_MINOR__ - 0) + __GNUC_PATCHLEVEL__) >= 332)
 #    define QT_FASTCALL __attribute__((regparm(3)))
 #else
 #    define QT_FASTCALL
@@ -2450,7 +2450,6 @@ QT3_SUPPORT Q_CORE_EXPORT const char *qInstallPathSysconf();
 #  define Q_SYMBIAN_SEMITRANSPARENT_BG_SURFACE
 #endif
 #endif
-
 
 //Symbian does not support data imports from a DLL
 #define Q_NO_DATA_RELOCATION

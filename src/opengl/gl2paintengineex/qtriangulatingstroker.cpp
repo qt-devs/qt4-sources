@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -509,6 +509,7 @@ void QDashedStrokeProcessor::process(const QVectorPath &path, const QPen &pen, c
 
     m_dash_stroker.setDashPattern(pen.dashPattern());
     m_dash_stroker.setStrokeWidth(cosmetic ? width * m_inv_scale : width);
+    m_dash_stroker.setDashOffset(pen.dashOffset());
     m_dash_stroker.setMiterLimit(pen.miterLimit());
     m_dash_stroker.setClipRect(clip);
 

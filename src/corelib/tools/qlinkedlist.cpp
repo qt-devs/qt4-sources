@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -254,7 +254,7 @@ QLinkedListData QLinkedListData::shared_null = {
     \sa insert()
 */
 
-/*! 
+/*!
     \fn bool QLinkedList::removeOne(const T &value)
     \since 4.4
 
@@ -830,7 +830,7 @@ QLinkedListData QLinkedListData::shared_null = {
 
     QLinkedList\<T\>::const_iterator allows you to iterate over a
     QLinkedList\<T\>. If you want modify the QLinkedList as you iterate
-    over it, you must use QLinkedList::const_iterator instead. It is
+    over it, you must use QLinkedList::iterator instead. It is
     generally good practice to use QLinkedList::const_iterator on a
     non-const QLinkedList as well, unless you need to change the
     QLinkedList through the iterator. Const iterators are slightly

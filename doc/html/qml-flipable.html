@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -169,24 +179,57 @@
 <p>The <a href="qml-flipable.html#front-prop">front</a> and <a href="qml-flipable.html#back-prop">back</a> properties are used to hold the items that are shown respectively on the front and back sides of the flipable item.</p>
 <a name="example-usage"></a>
 <h2>Example Usage</h2>
-<div style="float: right; margin-left: 2em"><p><img src="images/flipable.gif" /> </div></p>
 <p>The following example shows a Flipable item that flips whenever it is clicked, rotating about the y-axis.</p>
-<p>The <a href="qml-rotation.html">Rotation</a> element is used to specify the angle and axis of the flip. When <tt>flipped</tt> is true, the item changes to the &quot;back&quot; state, where the angle is changed to 180 degrees to produce the flipping effect.</p>
-<br style="clear: both" /><pre class="highlightedCode brush: cpp"></pre>
-<p>The <a href="qml-transition.html">Transition</a> creates the animation that changes the angle over the duration of one second. When the item changes between its &quot;back&quot; and default states, the <a href="qml-numberanimation.html">NumberAnimation</a> animates the angle between its old and new values.</p>
-<p>See the <a href="qdeclarativestates.html">QML States</a> and <a href="qdeclarativeanimation.html">QML Animation</a> documentation for more details on state changes and how animations work within transitions.</p>
+<p>This flipable item has a <tt>flipped</tt> boolean property that is toggled whenever the <a href="qml-mousearea.html">MouseArea</a> within the flipable is clicked. When <tt>flipped</tt> is true, the item changes to the &quot;back&quot; state; in this state, the <tt>angle</tt> of the <a href="qml-rotation.html">Rotation</a> item is changed to 180 degrees to produce the flipping effect. When <tt>flipped</tt> is false, the item reverts to the default state, in which the <tt>angle</tt> value is 0.</p>
+<pre class="highlightedCode brush: cpp"> import QtQuick 1.0
+
+ Flipable {
+     id: flipable
+     width: 240
+     height: 240
+
+     property bool flipped: false
+
+     front: Image { source: &quot;front.png&quot;; anchors.centerIn: parent }
+     back: Image { source: &quot;back.png&quot;; anchors.centerIn: parent }
+
+     transform: Rotation {
+         id: rotation
+         origin.x: flipable.width/2
+         origin.y: flipable.height/2
+         axis.x: 0; axis.y: 1; axis.z: 0     // set axis.y to 1 to rotate around y-axis
+         angle: 0    // the default angle
+     }
+
+     states: State {
+         name: &quot;back&quot;
+         PropertyChanges { target: rotation; angle: 180 }
+         when: flipable.flipped
+     }
+
+     transitions: Transition {
+         NumberAnimation { target: rotation; property: &quot;angle&quot;; duration: 4000 }
+     }
+
+     MouseArea {
+         anchors.fill: parent
+         onClicked: flipable.flipped = !flipable.flipped
+     }
+ }</pre>
+<p class="centerAlign"><img src="images/flipable.gif" /></p><p>The <a href="qml-transition.html">Transition</a> creates the animation that changes the angle over four seconds. When the item changes between its &quot;back&quot; and default states, the <a href="qml-numberanimation.html">NumberAnimation</a> animates the angle between its old and new values.</p>
+<p>See <a href="qdeclarativestates.html">QML States</a> for details on state changes and the default state, and <a href="qdeclarativeanimation.html">QML Animation</a> for more information on how animations work within transitions.</p>
 <p>See also <a href="declarative-ui-components-flipable.html">Flipable example</a>.</p>
 <!-- @@@Flipable -->
 <h2>Property Documentation</h2>
 <!-- $$$front -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="front-prop"></a>front : <a href="qml-item.html">Item</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="back-prop"></a>back : <a href="qml-item.html">Item</a></td></tr></table></div><div class="qmldoc"><p>The front and back sides of the flipable.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="front-prop"></a>front : <a href="qml-item.html">Item</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="back-prop"></a>back : <a href="qml-item.html">Item</a></p></td></tr></table></div><div class="qmldoc"><p>The front and back sides of the flipable.</p>
 </div></div><!-- @@@front -->
 <br/>
 <!-- $$$side -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="side-prop"></a><span class="qmlreadonly">read-only</span>side : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>The side of the Flippable currently visible. Possible values are <tt>Flippable.Front</tt> and <tt>Flippable.Back</tt>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="side-prop"></a><span class="qmlreadonly">read-only</span>side : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>The side of the Flippable currently visible. Possible values are <tt>Flippable.Front</tt> and <tt>Flippable.Back</tt>.</p>
 </div></div><!-- @@@side -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

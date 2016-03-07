@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -318,6 +318,11 @@ static void cleanupCocoaApplicationDelegate()
     Q_UNUSED(event);
     Q_UNUSED(replyEvent);
     [NSApp terminate:self];
+}
+
+- (void)qtDispatcherToQAction:(id)sender
+{
+    [[NSApp QT_MANGLE_NAMESPACE(qt_qcocoamenuLoader)] qtDispatcherToQAction:sender];
 }
 
 @end

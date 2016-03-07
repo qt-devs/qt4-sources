@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -339,7 +347,7 @@
 <!-- $$$FindFlag$$$FindBackward$$$FindCaseSensitively$$$FindWholeWords -->
 <h3 class="flags"><a name="FindFlag-enum"></a>enum QTextDocument::FindFlag<br/>flags QTextDocument::FindFlags</h3>
 <p>This enum describes the options available to <a href="qtextdocument.html">QTextDocument</a>'s find function. The options can be OR-ed together from the following list:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::FindBackward</tt></td><td class=" topAlign"><tt>0x00001</tt></td><td  class="topAlign">Search backwards instead of forwards.</td></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::FindCaseSensitively</tt></td><td class=" topAlign"><tt>0x00002</tt></td><td  class="topAlign">By default find works case insensitive. Specifying this option changes the behaviour to a case sensitive find operation.</td></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::FindWholeWords</tt></td><td class=" topAlign"><tt>0x00004</tt></td><td  class="topAlign">Makes find match only complete words.</td></tr>
@@ -349,7 +357,7 @@
 <!-- $$$MetaInformation$$$DocumentTitle$$$DocumentUrl -->
 <h3 class="fn"><a name="MetaInformation-enum"></a>enum QTextDocument::MetaInformation</h3>
 <p>This enum describes the different types of meta information that can be added to a document.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::DocumentTitle</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The title of the document.</td></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::DocumentUrl</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The url of the document. The <a href="qtextdocument.html#loadResource">loadResource</a>() function uses this url as the base when loading relative resources.</td></tr>
 </table>
@@ -358,7 +366,7 @@
 <!-- $$$ResourceType$$$HtmlResource$$$ImageResource$$$StyleSheetResource$$$UserResource -->
 <h3 class="fn"><a name="ResourceType-enum"></a>enum QTextDocument::ResourceType</h3>
 <p>This enum describes the types of resources that can be loaded by <a href="qtextdocument.html">QTextDocument</a>'s <a href="qtextdocument.html#loadResource">loadResource</a>() function.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::HtmlResource</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The resource contains HTML.</td></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::ImageResource</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The resource contains image data. Currently supported data types are <a href="qvariant.html#Type-enum">QVariant::Pixmap</a> and <a href="qvariant.html#Type-enum">QVariant::Image</a>. If the corresponding variant is of type <a href="qvariant.html#Type-enum">QVariant::ByteArray</a> then Qt attempts to load the image using QImage::loadFromData. <a href="qvariant.html#Type-enum">QVariant::Icon</a> is currently not supported. The icon needs to be converted to one of the supported types first, for example using QIcon::pixmap.</td></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::StyleSheetResource</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">The resource contains CSS.</td></tr>
@@ -368,7 +376,7 @@
 <!-- @@@ResourceType -->
 <!-- $$$Stacks$$$UndoStack$$$RedoStack$$$UndoAndRedoStacks -->
 <h3 class="fn"><a name="Stacks-enum"></a>enum QTextDocument::Stacks</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::UndoStack</tt></td><td class=" topAlign"><tt>0x01</tt></td><td  class="topAlign">The undo stack.</td></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::RedoStack</tt></td><td class=" topAlign"><tt>0x02</tt></td><td  class="topAlign">The redo stack.</td></tr>
 <tr><td  class="topAlign"><tt>QTextDocument::UndoAndRedoStacks</tt></td><td class=" topAlign"><tt>UndoStack | RedoStack</tt></td><td  class="topAlign">Both the undo and redo stacks.</td></tr>

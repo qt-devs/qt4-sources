@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -73,10 +73,6 @@ int qFindString(const QChar *haystack, int haystackLen, int from,
 #define RXERR_LIMIT      QT_TRANSLATE_NOOP("QRegExp", "met internal limit")
 #define RXERR_INTERVAL   QT_TRANSLATE_NOOP("QRegExp", "invalid interval")
 #define RXERR_CATEGORY   QT_TRANSLATE_NOOP("QRegExp", "invalid category")
-
-/*
-  WARNING! Be sure to read qregexp.tex before modifying this file.
-*/
 
 /*!
     \class QRegExp

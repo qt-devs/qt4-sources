@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,29 +149,29 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Obsolete Members for QImage</h1>
 <p><b>The following class members are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
 <p><ul><li><a href="qimage.html">QImage class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#alphaChannel">alphaChannel</a></b> () const<tt> (obsolete)</tt></td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#serialNumber">serialNumber</a></b> () const<tt> (obsolete)</tt></td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#setAlphaChannel">setAlphaChannel</a></b> ( const QImage &amp; <i>alphaChannel</i> )<tt> (obsolete)</tt></td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#setText-2">setText</a></b> ( const char * <i>key</i>, const char * <i>language</i>, const QString &amp; <i>text</i> )<tt> (obsolete)</tt></td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#text-2">text</a></b> ( const char * <i>key</i>, const char * <i>language</i> = 0 ) const<tt> (obsolete)</tt></td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#text-3">text</a></b> ( const QImageTextKeyLang &amp; <i>keywordAndLanguage</i> ) const<tt> (obsolete)</tt></td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#textLanguages">textLanguages</a></b> () const<tt> (obsolete)</tt></td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QList&lt;QImageTextKeyLang&gt; </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#textList">textList</a></b> () const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#alphaChannel">alphaChannel</a></b> () const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#serialNumber">serialNumber</a></b> () const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#setAlphaChannel">setAlphaChannel</a></b> ( const QImage &amp; <i>alphaChannel</i> )<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#setText-2">setText</a></b> ( const char * <i>key</i>, const char * <i>language</i>, const QString &amp; <i>text</i> )<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#text-2">text</a></b> ( const char * <i>key</i>, const char * <i>language</i> = 0 ) const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#text-3">text</a></b> ( const QImageTextKeyLang &amp; <i>keywordAndLanguage</i> ) const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#textLanguages">textLanguages</a></b> () const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QList&lt;QImageTextKeyLang&gt; </td><td class="memItemRight bottomAlign"><b><a href="qimage-obsolete.html#textList">textList</a></b> () const<tt> (obsolete)</tt></td></tr>
 </table>
 <h2>Member Function Documentation</h2>
 <!-- $$$alphaChannel[overload1]$$$alphaChannel -->
 <h3 class="fn"><a name="alphaChannel"></a>QImage QImage::alphaChannel () const</h3>
 <p>Returns the alpha channel of the image as a new grayscale <a href="qimage.html">QImage</a> in which each pixel's red, green, and blue values are given the alpha value of the original image. The color depth of the returned image is 8-bit.</p>
-<p>You can see an example of use of this function in <a href="qpixmap.html">QPixmap</a>'s <a href="qpixmap.html#alphaChannel">alphaChannel()</a>, which works in the same way as this function on QPixmaps.</p>
+<p>You can see an example of use of this function in <a href="qpixmap.html">QPixmap</a>'s <a href="qpixmap-obsolete.html#alphaChannel">alphaChannel()</a>, which works in the same way as this function on QPixmaps.</p>
 <p>Most usecases for this function can be replaced with <a href="qpainter.html">QPainter</a> and using composition modes.</p>
 <p><b>Warning:</b> This is an expensive function.</p>
-<p>See also <a href="qimage.html#setAlphaChannel">setAlphaChannel</a>(), <a href="qimage.html#hasAlphaChannel">hasAlphaChannel</a>(), <a href="qpixmap.html#pixmap-information">Pixmap</a>, and <a href="qimage.html#image-transformations">Image Transformations</a>.</p>
+<p>See also <a href="qimage-obsolete.html#setAlphaChannel">setAlphaChannel</a>(), <a href="qimage.html#hasAlphaChannel">hasAlphaChannel</a>(), <a href="qpixmap.html#pixmap-information">Pixmap</a>, and <a href="qimage.html#image-transformations">Image Transformations</a>.</p>
 <!-- @@@alphaChannel -->
 <!-- $$$serialNumber[overload1]$$$serialNumber -->
 <h3 class="fn"><a name="serialNumber"></a>int QImage::serialNumber () const</h3>
@@ -179,7 +187,7 @@
 <p>Note that the image will be converted to the <a href="qimage.html#Format-enum">Format_ARGB32_Premultiplied</a> format if the function succeeds.</p>
 <p>Use one of the composition modes in <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a> instead.</p>
 <p><b>Warning:</b> This function is expensive.</p>
-<p>See also <a href="qimage.html#alphaChannel">alphaChannel</a>(), <a href="qimage.html#image-transformations">Image Transformations</a>, and <a href="qimage.html#image-formats">Image Formats</a>.</p>
+<p>See also <a href="qimage-obsolete.html#alphaChannel">alphaChannel</a>(), <a href="qimage.html#image-transformations">Image Transformations</a>, and <a href="qimage.html#image-formats">Image Formats</a>.</p>
 <!-- @@@setAlphaChannel -->
 <!-- $$$setText$$$setTextconstchar*constchar*constQString& -->
 <h3 class="fn"><a name="setText-2"></a>void QImage::setText ( const char * <i>key</i>, const char * <i>language</i>, const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -169,7 +177,7 @@
 <h2>Specifying a Driver</h2>
 <p>Provided that the &quot;pc&quot; mouse driver is enabled, <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> will try to auto-detect the mouse device if it is one of the supported types on <tt>/dev/psaux</tt> or one of the <tt>/dev/ttyS</tt>? serial lines. If multiple mice are detected, all may be used simultaneously.</p>
 <p>Note that <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> does not support auto-detection of <i>touch panels</i> in which case the driver must be specified explicitly to determine which device to use.</p>
-<p>To manually specify which driver to use, set the <a href="qt-embedded-envvars.html#qws-mouse-proto">QWS_MOUSE_PROTO</a> environment variable. For example (if the current shell is bash, ksh, zsh or sh):</p>
+<p>To manually specify which driver to use, set the <tt>QWS_MOUSE_PROTO</tt> environment variable. For example (if the current shell is bash, ksh, zsh or sh):</p>
 <pre class="highlightedCode brush: cpp"> export QWS_MOUSE_PROTO=&lt;driver&gt;[:&lt;driver specific options&gt;]</pre>
 <p>The valid values for the <tt>&lt;driver&gt;</tt> argument are <tt>MouseMan</tt>, <tt>IntelliMouse</tt>, <tt>Microsoft</tt>, <tt>LinuxTP</tt>, <tt>LinuxInput</tt>, <tt>Tslib</tt> and <a href="qmousedriverplugin.html#keys">keys</a> identifying custom drivers, and the driver specific options are typically a device, e.g&#x2e;, <tt>/dev/mouse</tt> for mouse devices and <tt>/dev/ts</tt> for touch panels.</p>
 <p>Multiple mouse drivers can be specified in one go:</p>
@@ -189,7 +197,7 @@
 <p>The <tt>ts.conf</tt> file will usually contain the following two lines:</p>
 <pre class="highlightedCode brush: cpp"> module_raw input
  module linear</pre>
-<p>To make <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> explicitly choose the tslib mouse handler, set the <a href="qt-embedded-envvars.html#qws-mouse-proto">QWS_MOUSE_PROTO</a> environment variable as explained above.</p>
+<p>To make <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> explicitly choose the tslib mouse handler, set the <tt>QWS_MOUSE_PROTO</tt> environment variable as explained above.</p>
 </p></td></tr>
 </table>
 <a name="troubleshooting"></a>
@@ -208,6 +216,8 @@
 <p>The Qt for Embedded Linux server process needs at least read permission for the device file. Some drivers also require write access to the device file. For instance, if you have specified the mouse driver with</p>
 <pre class="highlightedCode brush: cpp"> QWS_MOUSE_PROTO=IntelliMouse:/dev/input/mouse0</pre>
 <p>then examine the permissions of the device file by entering the following command in a console:</p>
+<pre class="highlightedCode brush: cpp"> ls -l /dev/input/mouse0</pre>
+<p>Change the permissions of the device file, if necessary, in the following way:</p>
 <pre class="highlightedCode brush: cpp"> chmod a+rw /dev/input/mouse0</pre>
 <p>If the device file is actually a symbolic link to another file, you must change the permissions of the actual file instead.</p>
 </div>

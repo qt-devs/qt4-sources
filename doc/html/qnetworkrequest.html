@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -173,7 +181,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#QNetworkRequest">QNetworkRequest</a></b> ( const QUrl &amp; <i>url</i> = QUrl() )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#QNetworkRequest-2">QNetworkRequest</a></b> ( const QNetworkRequest &amp; <i>other</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#dtor.QNetworkRequest">~QNetworkRequest</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#attribute">attribute</a></b> ( Attribute <i>code</i>, const QVariant &amp; <i>defaultValue</i> = QVariant() ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#attributex">attribute</a></b> ( Attribute <i>code</i>, const QVariant &amp; <i>defaultValue</i> = QVariant() ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#hasRawHeader">hasRawHeader</a></b> ( const QByteArray &amp; <i>headerName</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#header">header</a></b> ( KnownHeaders <i>header</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QObject * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#originatingObject">originatingObject</a></b> () const</td></tr>
@@ -209,7 +217,7 @@
 <p>Attribute codes for the <a href="qnetworkrequest.html">QNetworkRequest</a> and <a href="qnetworkreply.html">QNetworkReply</a>.</p>
 <p>Attributes are extra meta-data that are used to control the behavior of the request and to pass further information from the reply back to the application. Attributes are also extensible, allowing custom implementations to pass custom values.</p>
 <p>The following table explains what the default attribute codes are, the <a href="qvariant.html">QVariant</a> types associated, the default value if said attribute is missing and whether it's used in requests or replies.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::HttpStatusCodeAttribute</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Replies only, type: <a href="qvariant.html#Type-enum">QVariant::Int</a> (no default) Indicates the HTTP status code received from the HTTP server (like 200, 304, 404, 401, etc.)&#x2e; If the connection was not HTTP-based, this attribute will not be present.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::HttpReasonPhraseAttribute</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Replies only, type: <a href="qvariant.html#Type-enum">QVariant::ByteArray</a> (no default) Indicates the HTTP reason phrase as received from the HTTP server (like &quot;Ok&quot;, &quot;Found&quot;, &quot;Not Found&quot;, &quot;Access Denied&quot;, etc.) This is the human-readable representation of the status code (see above). If the connection was not HTTP-based, this attribute will not be present.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::RedirectionTargetAttribute</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Replies only, type: <a href="qvariant.html#Type-enum">QVariant::Url</a> (no default) If present, it indicates that the server is redirecting the request to a different URL. The Network Access API does not by default follow redirections: it's up to the application to determine if the requested redirection should be allowed, according to its security policies. The returned URL might be relative. Use <a href="qurl.html#resolved">QUrl::resolved</a>() to create an absolute URL out of it.</td></tr>
@@ -221,24 +229,9 @@
 <tr><td  class="topAlign"><tt>QNetworkRequest::HttpPipeliningAllowedAttribute</tt></td><td class=" topAlign"><tt>8</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::Bool</a> (default: false) Indicates whether the <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> code is allowed to use HTTP pipelining with this request.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::HttpPipeliningWasUsedAttribute</tt></td><td class=" topAlign"><tt>9</tt></td><td  class="topAlign">Replies only, type: <a href="qvariant.html#Type-enum">QVariant::Bool</a> Indicates whether the HTTP pipelining was used for receiving this reply.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::CustomVerbAttribute</tt></td><td class=" topAlign"><tt>10</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::ByteArray</a> Holds the value for the custom HTTP verb to send (destined for usage of other verbs than GET, POST, PUT and DELETE). This verb is set when calling <a href="qnetworkaccessmanager.html#sendCustomRequest">QNetworkAccessManager::sendCustomRequest</a>().</td></tr>
-<tr><td  class="topAlign"><tt>QNetworkRequest::CookieLoadControlAttribute</tt></td><td class=" topAlign"><tt>11</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::Int</a> (default: <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Automatic</a>) Indicates whether to send 'Cookie' headers in the request.</td></tr>
-</table>
-<p>This attribute is set to false by <a href="qtwebkit.html">QtWebKit</a> when creating a cross-origin <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> where withCredentials has not been set explicitly to true by the Javascript that created the request.</p>
-<p>See <a href="http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag">here</a> for more information.</p>
-<p>(This value was introduced in 4.7&#x2e;)</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
-<tr><td  class="topAlign"><tt>QNetworkRequest::CookieSaveControlAttribute</tt></td><td class=" topAlign"><tt>13</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::Int</a> (default: <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Automatic</a>) Indicates whether to save 'Cookie' headers received from the server in reply to the request. This attribute is set to false by <a href="qtwebkit.html">QtWebKit</a> when creating a cross-origin <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> where withCredentials has not been set explicitly to true by the Javascript that created the request.</td></tr>
-</table>
-<p>See <a href="http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag">here</a> for more information.</p>
-<p>(This value was introduced in 4.7&#x2e;)</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
-<tr><td  class="topAlign"><tt>QNetworkRequest::AuthenticationReuseAttribute</tt></td><td class=" topAlign"><tt>12</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::Int</a> (default: <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Automatic</a>) Indicates whether to use cached authorization credentials in the request, if available. If this is set to <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Manual</a> and the authentication mechanism is 'Basic' or 'Digest', Qt will not send an an 'Authorization' HTTP header with any cached credentials it may have for the request's URL. This attribute is set to <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Manual</a> by <a href="qtwebkit.html">QtWebKit</a> when creating a cross-origin <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> where withCredentials has not been set explicitly to true by the Javascript that created the request.</td></tr>
-</table>
-<p>See <a href="http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag">here</a> for more information.</p>
-<p>(This value was introduced in 4.7&#x2e;)</p>
-<p>(This value was introduced in 4.7&#x2e;)</p>
-<p>(This value was introduced in 4.7&#x2e;)</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td  class="topAlign"><tt>QNetworkRequest::CookieLoadControlAttribute</tt></td><td class=" topAlign"><tt>11</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::Int</a> (default: <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Automatic</a>) Indicates whether to send 'Cookie' headers in the request. This attribute is set to false by <a href="qtwebkit.html">QtWebKit</a> when creating a cross-origin <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> where withCredentials has not been set explicitly to true by the Javascript that created the request. See <a href="http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag">here</a> for more information. (This value was introduced in 4.7&#x2e;)</td></tr>
+<tr><td  class="topAlign"><tt>QNetworkRequest::CookieSaveControlAttribute</tt></td><td class=" topAlign"><tt>13</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::Int</a> (default: <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Automatic</a>) Indicates whether to save 'Cookie' headers received from the server in reply to the request. This attribute is set to false by <a href="qtwebkit.html">QtWebKit</a> when creating a cross-origin <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> where withCredentials has not been set explicitly to true by the Javascript that created the request. See <a href="http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag">here</a> for more information. (This value was introduced in 4.7&#x2e;)</td></tr>
+<tr><td  class="topAlign"><tt>QNetworkRequest::AuthenticationReuseAttribute</tt></td><td class=" topAlign"><tt>12</tt></td><td  class="topAlign">Requests only, type: <a href="qvariant.html#Type-enum">QVariant::Int</a> (default: <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Automatic</a>) Indicates whether to use cached authorization credentials in the request, if available. If this is set to <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Manual</a> and the authentication mechanism is 'Basic' or 'Digest', Qt will not send an an 'Authorization' HTTP header with any cached credentials it may have for the request's URL. This attribute is set to <a href="qnetworkrequest.html#LoadControl-enum">QNetworkRequest::Manual</a> by <a href="qtwebkit.html">QtWebKit</a> when creating a cross-origin <a href="qdeclarativeglobalobject.html#xmlhttprequest">XMLHttpRequest</a> where withCredentials has not been set explicitly to true by the Javascript that created the request. See <a href="http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag">here</a> for more information. (This value was introduced in 4.7&#x2e;)</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::User</tt></td><td class=" topAlign"><tt>1000</tt></td><td  class="topAlign">Special type. Additional information can be passed in <a href="qtwebkit-bridge.html#qvariants">QVariants</a> with types ranging from User to UserMax. The default implementation of Network Access will ignore any request attributes in this range and it will not produce any attributes in this range in replies. The range is reserved for extensions of <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::UserMax</tt></td><td class=" topAlign"><tt>32767</tt></td><td  class="topAlign">Special type. See User.</td></tr>
 </table>
@@ -247,7 +240,7 @@
 <!-- $$$CacheLoadControl$$$AlwaysNetwork$$$PreferNetwork$$$PreferCache$$$AlwaysCache -->
 <h3 class="fn"><a name="CacheLoadControl-enum"></a>enum QNetworkRequest::CacheLoadControl</h3>
 <p>Controls the caching mechanism of <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::AlwaysNetwork</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">always load from network and do not check if the cache has a valid entry (similar to the &quot;Reload&quot; feature in browsers)</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::PreferNetwork</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">default value; load from the network if the cached entry is older than the network entry</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::PreferCache</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">load from cache if available, otherwise load from network. Note that this can return possibly stale (but not expired) items from cache.</td></tr>
@@ -257,7 +250,7 @@
 <!-- $$$KnownHeaders$$$ContentTypeHeader$$$ContentLengthHeader$$$LocationHeader$$$LastModifiedHeader$$$CookieHeader$$$SetCookieHeader -->
 <h3 class="fn"><a name="KnownHeaders-enum"></a>enum QNetworkRequest::KnownHeaders</h3>
 <p>List of known header types that <a href="qnetworkrequest.html">QNetworkRequest</a> parses. Each known header is also represented in raw form with its full HTTP name.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::ContentTypeHeader</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">corresponds to the HTTP Content-Type header and contains a string containing the media (MIME) type and any auxiliary data (for instance, charset)</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::ContentLengthHeader</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">corresponds to the HTTP Content-Length header and contains the length in bytes of the data transmitted.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::LocationHeader</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">corresponds to the HTTP Location header and contains a URL representing the actual location of the data, including the destination URL in case of redirections.</td></tr>
@@ -270,7 +263,7 @@
 <!-- $$$LoadControl$$$Automatic$$$Manual -->
 <h3 class="fn"><a name="LoadControl-enum"></a>enum QNetworkRequest::LoadControl</h3>
 <p>Indicates if an aspect of the request's loading mechanism has been manually overridden, e.g&#x2e; by <a href="qtwebkit.html">QtWebKit</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::Automatic</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">default value: indicates default behaviour.</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::Manual</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">indicates behaviour has been manually overridden.</td></tr>
 </table>
@@ -279,7 +272,7 @@
 <!-- $$$Priority$$$HighPriority$$$NormalPriority$$$LowPriority -->
 <h3 class="fn"><a name="Priority-enum"></a>enum QNetworkRequest::Priority</h3>
 <p>This enum lists the possible network request priorities.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::HighPriority</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">High priority</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::NormalPriority</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">Normal priority</td></tr>
 <tr><td  class="topAlign"><tt>QNetworkRequest::LowPriority</tt></td><td class=" topAlign"><tt>5</tt></td><td  class="topAlign">Low priority</td></tr>
@@ -303,7 +296,7 @@
 <p>Disposes of the <a href="qnetworkrequest.html">QNetworkRequest</a> object.</p>
 <!-- @@@~QNetworkRequest -->
 <!-- $$$attribute[overload1]$$$attributeAttributeconstQVariant& -->
-<h3 class="fn"><a name="attribute"></a><a href="qvariant.html">QVariant</a> QNetworkRequest::attribute ( <a href="qnetworkrequest.html#Attribute-enum">Attribute</a> <i>code</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>defaultValue</i> = QVariant() ) const</h3>
+<h3 class="fn"><a name="attributex"></a><a href="qvariant.html">QVariant</a> QNetworkRequest::attribute ( <a href="qnetworkrequest.html#Attribute-enum">Attribute</a> <i>code</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>defaultValue</i> = QVariant() ) const</h3>
 <p>Returns the attribute associated with the code <i>code</i>. If the attribute has not been set, it returns <i>defaultValue</i>.</p>
 <p>Note: this function does not apply the defaults listed in <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a>.</p>
 <p>See also <a href="qnetworkrequest.html#setAttribute">setAttribute</a>() and <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a>.</p>
@@ -344,7 +337,7 @@
 <!-- $$$setAttribute[overload1]$$$setAttributeAttributeconstQVariant& -->
 <h3 class="fn"><a name="setAttribute"></a>void QNetworkRequest::setAttribute ( <a href="qnetworkrequest.html#Attribute-enum">Attribute</a> <i>code</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>value</i> )</h3>
 <p>Sets the attribute associated with code <i>code</i> to be value <i>value</i>. If the attribute is already set, the previous value is discarded. In special, if <i>value</i> is an invalid <a href="qvariant.html">QVariant</a>, the attribute is unset.</p>
-<p>See also <a href="qnetworkrequest.html#attribute">attribute</a>() and <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a>.</p>
+<p>See also <a href="qnetworkrequest.html#attributex">attribute</a>() and <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a>.</p>
 <!-- @@@setAttribute -->
 <!-- $$$setHeader[overload1]$$$setHeaderKnownHeadersconstQVariant& -->
 <h3 class="fn"><a name="setHeader"></a>void QNetworkRequest::setHeader ( <a href="qnetworkrequest.html#KnownHeaders-enum">KnownHeaders</a> <i>header</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>value</i> )</h3>

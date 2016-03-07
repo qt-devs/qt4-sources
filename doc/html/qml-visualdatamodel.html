@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -200,18 +208,18 @@
 <!-- @@@VisualDataModel -->
 <h2>Property Documentation</h2>
 <!-- $$$delegate -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="delegate-prop"></a>delegate : <a href="qml-component.html">Component</a></td></tr></table></div><div class="qmldoc"><p>The delegate provides a template defining each item instantiated by a view. The index is exposed as an accessible <tt>index</tt> property. Properties of the model are also available depending upon the type of <a href="qdeclarativemodels.html#qmlmodels">Data Model</a>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="delegate-prop"></a>delegate : <a href="qml-component.html">Component</a></p></td></tr></table></div><div class="qmldoc"><p>The delegate provides a template defining each item instantiated by a view. The index is exposed as an accessible <tt>index</tt> property. Properties of the model are also available depending upon the type of <a href="qdeclarativemodels.html#qmlmodels">Data Model</a>.</p>
 </div></div><!-- @@@delegate -->
 <br/>
 <!-- $$$model -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="model-prop"></a>model : model</td></tr></table></div><div class="qmldoc"><p>This property holds the model providing data for the <a href="qml-visualdatamodel.html">VisualDataModel</a>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="model-prop"></a>model : model</p></td></tr></table></div><div class="qmldoc"><p>This property holds the model providing data for the <a href="qml-visualdatamodel.html">VisualDataModel</a>.</p>
 <p>The model provides a set of data that is used to create the items for a view. For large or dynamic datasets the model is usually provided by a C++ model object. The C++ model object must be a <a href="qabstractitemmodel.html">QAbstractItemModel</a> subclass or a simple list.</p>
 <p>Models can also be created directly in QML, using a <a href="qml-listmodel.html">ListModel</a> or <a href="qml-xmllistmodel.html">XmlListModel</a>.</p>
 <p>See also <a href="qdeclarativemodels.html#qmlmodels">Data Models</a>.</p>
 </div></div><!-- @@@model -->
 <br/>
 <!-- $$$parts -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="parts-prop"></a><span class="qmlreadonly">read-only</span>parts : object</td></tr></table></div><div class="qmldoc"><p>The <i>parts</i> property selects a <a href="qml-visualdatamodel.html">VisualDataModel</a> which creates delegates from the part named. This is used in conjunction with the <a href="qml-package.html">Package</a> element.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="parts-prop"></a><span class="qmlreadonly">read-only</span>parts : object</p></td></tr></table></div><div class="qmldoc"><p>The <i>parts</i> property selects a <a href="qml-visualdatamodel.html">VisualDataModel</a> which creates delegates from the part named. This is used in conjunction with the <a href="qml-package.html">Package</a> element.</p>
 <p>For example, the code below selects a model which creates delegates named <i>list</i> from a <a href="qml-package.html">Package</a>:</p>
 <pre class="highlightedCode brush: cpp"> VisualDataModel {
      id: visualModel
@@ -229,7 +237,7 @@
 </div></div><!-- @@@parts -->
 <br/>
 <!-- $$$rootIndex -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="rootIndex-prop"></a>rootIndex : <a href="qmodelindex.html">QModelIndex</a></td></tr></table></div><div class="qmldoc"><p><a href="qabstractitemmodel.html">QAbstractItemModel</a> provides a hierarchical tree of data, whereas QML only operates on list data. <tt>rootIndex</tt> allows the children of any node in a <a href="qabstractitemmodel.html">QAbstractItemModel</a> to be provided by this model.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="rootIndex-prop"></a>rootIndex : <a href="qmodelindex.html">QModelIndex</a></p></td></tr></table></div><div class="qmldoc"><p><a href="qabstractitemmodel.html">QAbstractItemModel</a> provides a hierarchical tree of data, whereas QML only operates on list data. <tt>rootIndex</tt> allows the children of any node in a <a href="qabstractitemmodel.html">QAbstractItemModel</a> to be provided by this model.</p>
 <p>This property only affects models of type <a href="qabstractitemmodel.html">QAbstractItemModel</a>.</p>
 <p>For example, here is a simple interactive file system browser. When a directory name is clicked, the view's <tt>rootIndex</tt> is set to the <a href="qmodelindex.html">QModelIndex</a> node of the clicked directory, thus updating the view to show the new directory's contents.</p>
 <p><tt>main.cpp</tt>:</p>

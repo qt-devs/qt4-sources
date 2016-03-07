@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -223,7 +231,7 @@
 <!-- $$$RegisterServiceReply$$$ServiceNotRegistered$$$ServiceRegistered$$$ServiceQueued -->
 <h3 class="fn"><a name="RegisterServiceReply-enum"></a>enum QDBusConnectionInterface::RegisterServiceReply</h3>
 <p>The possible return values from <a href="qdbusconnectioninterface.html#registerService">registerService</a>():</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::ServiceNotRegistered</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The call failed and the service name was not registered.</td></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::ServiceRegistered</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The caller is now the owner of the service name.</td></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::ServiceQueued</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The caller specified the <a href="qdbusconnectioninterface.html#ServiceQueueOptions-enum">QueueService</a> flag and the service was already registered, so we are in queue.</td></tr>
@@ -233,7 +241,7 @@
 <!-- $$$ServiceQueueOptions$$$DontQueueService$$$QueueService$$$ReplaceExistingService -->
 <h3 class="fn"><a name="ServiceQueueOptions-enum"></a>enum QDBusConnectionInterface::ServiceQueueOptions</h3>
 <p>Flags for determining how a service registration should behave, in case the service name is already registered.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::DontQueueService</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">If an application requests a name that is already owned, no queueing will be performed. The registeredService() call will simply fail. This is the default.</td></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::QueueService</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Attempts to register the requested service, but do not try to replace it if another application already has it registered. Instead, simply put this application in queue, until it is given up. The <a href="qdbusconnectioninterface.html#serviceRegistered">serviceRegistered</a>() signal will be emitted when that happens.</td></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::ReplaceExistingService</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">If another application already has the service name registered, attempt to replace it.</td></tr>
@@ -244,7 +252,7 @@
 <h3 class="fn"><a name="ServiceReplacementOptions-enum"></a>enum QDBusConnectionInterface::ServiceReplacementOptions</h3>
 <p>Flags for determining if the D-Bus server should allow another application to replace a name that this application has registered with the <a href="qdbusconnectioninterface.html#ServiceQueueOptions-enum">ReplaceExistingService</a> option.</p>
 <p>The possible values are:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::DontAllowReplacement</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Do not allow another application to replace us. The service must be explicitly unregistered with <a href="qdbusconnectioninterface.html#unregisterService">unregisterService</a>() for another application to acquire it. This is the default.</td></tr>
 <tr><td  class="topAlign"><tt>QDBusConnectionInterface::AllowReplacement</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Allow other applications to replace us with the <a href="qdbusconnectioninterface.html#ServiceQueueOptions-enum">ReplaceExistingService</a> option to <a href="qdbusconnectioninterface.html#registerService">registerService</a>() without intervention. If that happens, the <a href="qdbusconnectioninterface.html#serviceUnregistered">serviceUnregistered</a>() signal will be emitted.</td></tr>
 </table>

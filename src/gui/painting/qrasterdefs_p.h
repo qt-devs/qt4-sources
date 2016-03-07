@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -100,7 +100,7 @@ QT_FT_BEGIN_HEADER
   /*    distances in integer font units, or 16,16, or 26.6 fixed float     */
   /*    pixel coordinates.                                                 */
   /*                                                                       */
-  typedef signed long  QT_FT_Pos;
+  typedef signed int  QT_FT_Pos;
 
 
   /*************************************************************************/
@@ -1088,6 +1088,7 @@ QT_FT_BEGIN_HEADER
     QT_FT_Raster_BitSet_Func   bit_set;      /* doesn't work! */
     void*                   user;
     QT_FT_BBox                 clip_box;
+    int                     skip_spans;
 
   } QT_FT_Raster_Params;
 

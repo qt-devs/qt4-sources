@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -165,7 +173,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#QKeyEvent">QKeyEvent</a></b> ( Type <i>type</i>, int <i>key</i>, Qt::KeyboardModifiers <i>modifiers</i>, const QString &amp; <i>text</i> = QString(), bool <i>autorep</i> = false, ushort <i>count</i> = 1 )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#count">count</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#isAutoRepeat">isAutoRepeat</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#keyx">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#key">key</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#matches">matches</a></b> ( QKeySequence::StandardKey <i>key</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Qt::KeyboardModifiers </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#modifiers">modifiers</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> quint32 </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#nativeModifiers">nativeModifiers</a></b> () const</td></tr>
@@ -180,8 +188,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#operator-eq-eq-82">operator==</a></b> ( QKeyEvent * <i>e</i>, QKeySequence::StandardKey <i>key</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#operator-eq-eq-83">operator==</a></b> ( QKeySequence::StandardKey <i>key</i>, QKeyEvent * <i>e</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#operator-eq-eq-27">operator==</a></b> ( QKeyEvent * <i>e</i>, QKeySequence::StandardKey <i>key</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#operator-eq-eq-28">operator==</a></b> ( QKeySequence::StandardKey <i>key</i>, QKeyEvent * <i>e</i> )</td></tr>
 </table>
 <h3>Additional Inherited Members</h3>
 <ul>
@@ -219,7 +227,7 @@
 <p>Note that if the event is a multiple-key compressed event that is partly due to auto-repeat, this function could return either true or false indeterminately.</p>
 <!-- @@@isAutoRepeat -->
 <!-- $$$key[overload1]$$$key -->
-<h3 class="fn"><a name="keyx"></a>int QKeyEvent::key () const</h3>
+<h3 class="fn"><a name="key"></a>int QKeyEvent::key () const</h3>
 <p>Returns the code of the key that was pressed or released.</p>
 <p>See <a href="qt.html#Key-enum">Qt::Key</a> for the list of keyboard codes. These codes are independent of the underlying window system. Note that this function does not distinguish between capital and non-capital letters, use the <a href="qkeyevent.html#text">text</a>() function (returning the Unicode text the key generated) for this purpose.</p>
 <p>A value of either 0 or <a href="qt.html#Key-enum">Qt::Key_unknown</a> means that the event is not the result of a known key; for example, it may be the result of a compose sequence, a keyboard macro, or due to key event compression.</p>
@@ -257,19 +265,19 @@
 <!-- @@@nativeVirtualKey -->
 <!-- $$$text[overload1]$$$text -->
 <h3 class="fn"><a name="text"></a><a href="qstring.html">QString</a> QKeyEvent::text () const</h3>
-<p>Returns the Unicode text that this key generated. The text returned can be an empty string in cases where modifier keys, such as Shift, Control, Alt, and Meta, are being pressed or released. In such cases <a href="qkeyevent.html#keyx">key</a>() will contain a valid value.</p>
+<p>Returns the Unicode text that this key generated. The text returned can be an empty string in cases where modifier keys, such as Shift, Control, Alt, and Meta, are being pressed or released. In such cases <a href="qkeyevent.html#key">key</a>() will contain a valid value.</p>
 <p>See also <a href="qt.html#WidgetAttribute-enum">Qt::WA_KeyCompression</a>.</p>
 <!-- @@@text -->
 </div>
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator==$$$operator==QKeyEvent*QKeySequence::StandardKey -->
-<h3 class="fn"><a name="operator-eq-eq-82"></a>bool operator== ( QKeyEvent * <i>e</i>, <a href="qkeysequence.html#StandardKey-enum">QKeySequence::StandardKey</a> <i>key</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-27"></a>bool operator== ( QKeyEvent * <i>e</i>, <a href="qkeysequence.html#StandardKey-enum">QKeySequence::StandardKey</a> <i>key</i> )</h3>
 <p>Returns true if <i>key</i> is currently bound to the key combination specified by <i>e</i>.</p>
 <p>Equivalent to <tt>e-&gt;matches(key)</tt>.</p>
 <!-- @@@operator== -->
 <!-- $$$operator==$$$operator==QKeySequence::StandardKeyQKeyEvent* -->
-<h3 class="fn"><a name="operator-eq-eq-83"></a>bool operator== ( <a href="qkeysequence.html#StandardKey-enum">QKeySequence::StandardKey</a> <i>key</i>, QKeyEvent * <i>e</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-28"></a>bool operator== ( <a href="qkeysequence.html#StandardKey-enum">QKeySequence::StandardKey</a> <i>key</i>, QKeyEvent * <i>e</i> )</h3>
 <p>Returns true if <i>key</i> is currently bound to the key combination specified by <i>e</i>.</p>
 <p>Equivalent to <tt>e-&gt;matches(key)</tt>.</p>
 <!-- @@@operator== -->

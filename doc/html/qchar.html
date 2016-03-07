@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -260,14 +268,14 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-not-eq-28">operator!=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-lt-2">operator&lt;</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-lt-lt-112">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-lt-eq-2">operator&lt;=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-eq-eq-41">operator==</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-gt-2">operator&gt;</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-gt-eq-2">operator&gt;=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-gt-gt-65">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QChar &amp; <i>chr</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-not-eq-52">operator!=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-lt-13">operator&lt;</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-lt-lt-153">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-lt-eq-10">operator&lt;=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-eq-eq-76">operator==</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-gt-10">operator&gt;</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-gt-eq-10">operator&gt;=</a></b> ( QChar <i>c1</i>, QChar <i>c2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qchar.html#operator-gt-gt-80">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QChar &amp; <i>chr</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QChar-description -->
@@ -291,7 +299,7 @@
 <h3 class="fn"><a name="Category-enum"></a>enum QChar::Category</h3>
 <p>This enum maps the Unicode character categories.</p>
 <p>The following characters are normative in Unicode:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QChar::Mark_NonSpacing</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Unicode class name Mn</td></tr>
 <tr><td  class="topAlign"><tt>QChar::Mark_SpacingCombining</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Unicode class name Mc</td></tr>
 <tr><td  class="topAlign"><tt>QChar::Mark_Enclosing</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">Unicode class name Me</td></tr>
@@ -308,7 +316,7 @@
 <tr><td  class="topAlign"><tt>QChar::Other_NotAssigned</tt></td><td class=" topAlign"><tt>14</tt></td><td  class="topAlign">Unicode class name Cn</td></tr>
 </table>
 <p>The following categories are informative in Unicode:</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QChar::Letter_Uppercase</tt></td><td class=" topAlign"><tt>15</tt></td><td  class="topAlign">Unicode class name Lu</td></tr>
 <tr><td  class="topAlign"><tt>QChar::Letter_Lowercase</tt></td><td class=" topAlign"><tt>16</tt></td><td  class="topAlign">Unicode class name Ll</td></tr>
 <tr><td  class="topAlign"><tt>QChar::Letter_Titlecase</tt></td><td class=" topAlign"><tt>17</tt></td><td  class="topAlign">Unicode class name Lt</td></tr>
@@ -394,7 +402,7 @@
 <!-- @@@Joining -->
 <!-- $$$SpecialCharacter$$$Null$$$Nbsp$$$ReplacementCharacter$$$ObjectReplacementCharacter$$$ByteOrderMark$$$ByteOrderSwapped$$$null$$$replacement$$$byteOrderMark$$$byteOrderSwapped$$$nbsp$$$ParagraphSeparator$$$LineSeparator -->
 <h3 class="fn"><a name="SpecialCharacter-enum"></a>enum QChar::SpecialCharacter</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QChar::Null</tt></td><td class=" topAlign"><tt>0x0000</tt></td><td  class="topAlign">A <a href="qchar.html">QChar</a> with this value <a href="qchar.html#isNull">isNull</a>().</td></tr>
 <tr><td  class="topAlign"><tt>QChar::Nbsp</tt></td><td class=" topAlign"><tt>0x00a0</tt></td><td  class="topAlign">Non-breaking space.</td></tr>
 <tr><td  class="topAlign"><tt>QChar::ReplacementCharacter</tt></td><td class=" topAlign"><tt>0xfffd</tt></td><td  class="topAlign">The character shown when a font has no glyph for a certain codepoint. A special question mark character is often used. Codecs use this codepoint when input data cannot be represented in Unicode.</td></tr>
@@ -408,7 +416,7 @@
 <!-- $$$UnicodeVersion$$$Unicode_Unassigned$$$Unicode_1_1$$$Unicode_2_0$$$Unicode_2_1_2$$$Unicode_3_0$$$Unicode_3_1$$$Unicode_3_2$$$Unicode_4_0$$$Unicode_4_1$$$Unicode_5_0 -->
 <h3 class="fn"><a name="UnicodeVersion-enum"></a>enum QChar::UnicodeVersion</h3>
 <p>Specifies which version of the <a href="http://www.unicode.org/">Unicode standard</a> introduced a certain character.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QChar::Unicode_1_1</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Version 1.1</td></tr>
 <tr><td  class="topAlign"><tt>QChar::Unicode_2_0</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Version 2.0</td></tr>
 <tr><td  class="topAlign"><tt>QChar::Unicode_2_1_2</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">Version 2.1&#x2e;2</td></tr>
@@ -792,36 +800,36 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator!=$$$operator!=QCharQChar -->
-<h3 class="fn"><a name="operator-not-eq-28"></a>bool operator!= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-52"></a>bool operator!= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if <i>c1</i> and <i>c2</i> are not the same Unicode character; otherwise returns false.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<$$$operator<QCharQChar -->
-<h3 class="fn"><a name="operator-lt-2"></a>bool operator&lt; ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-lt-13"></a>bool operator&lt; ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is less than that of <i>c2</i>; otherwise returns false.</p>
 <!-- @@@operator< -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQChar& -->
-<h3 class="fn"><a name="operator-lt-lt-112"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-153"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>out</i>, const QChar &amp; <i>chr</i> )</h3>
 <p>Writes the char <i>chr</i> to the stream <i>out</i>.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<=$$$operator<=QCharQChar -->
-<h3 class="fn"><a name="operator-lt-eq-2"></a>bool operator&lt;= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-lt-eq-10"></a>bool operator&lt;= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is less than or equal to that of <i>c2</i>; otherwise returns false.</p>
 <!-- @@@operator<= -->
 <!-- $$$operator==$$$operator==QCharQChar -->
-<h3 class="fn"><a name="operator-eq-eq-41"></a>bool operator== ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-76"></a>bool operator== ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if <i>c1</i> and <i>c2</i> are the same Unicode character; otherwise returns false.</p>
 <!-- @@@operator== -->
 <!-- $$$operator>$$$operator>QCharQChar -->
-<h3 class="fn"><a name="operator-gt-2"></a>bool operator&gt; ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-gt-10"></a>bool operator&gt; ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is greater than that of <i>c2</i>; otherwise returns false.</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=$$$operator>=QCharQChar -->
-<h3 class="fn"><a name="operator-gt-eq-2"></a>bool operator&gt;= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
+<h3 class="fn"><a name="operator-gt-eq-10"></a>bool operator&gt;= ( QChar <i>c1</i>, QChar <i>c2</i> )</h3>
 <p>Returns true if the numeric Unicode value of <i>c1</i> is greater than or equal to that of <i>c2</i>; otherwise returns false.</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>>$$$operator>>QDataStream&QChar& -->
-<h3 class="fn"><a name="operator-gt-gt-65"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QChar &amp; <i>chr</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-80"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>in</i>, QChar &amp; <i>chr</i> )</h3>
 <p>Reads a char from the stream <i>in</i> into char <i>chr</i>.</p>
 <p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->

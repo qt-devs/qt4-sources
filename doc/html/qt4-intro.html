@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,9 +147,12 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="next" href="qt4-tulip.html" />
   <link rel="start" href="index.html" />
+<p class="naviNextPrevious headerNavi">
+[Next: <a href="qt4-tulip.html">The Tulip Container Classes</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -176,7 +187,27 @@
 </ul>
 <a name="recent-additions-to-qt-4"></a>
 <h2>Recent Additions to Qt 4</h2>
-<p>The following features have been added to Qt since the first release of Qt 4:</p>
+<p>The following features have been added to Qt since the first release of Qt 4.</p>
+<p>In Qt 4.7:</p>
+<ul>
+<li>Declarative UI Development with <a href="qtquick.html">Qt Quick</a>, technologies for creating fluid, dynamic user interfaces.</li>
+<li>Support for <a href="bearer-management.html">network bearer management</a>, enabling features such as control over network interfaces and support for roaming between networks.</li>
+<li>Feature and performance improvements in <a href="qtwebkit.html">QtWebKit</a>, including a new tiled backing store, control over scroll bars used in frames and framesets, accelerated compositing and <a href="qtwebkit-bridge.html">support for hybrid development</a>.</li>
+<li>General performance improvements, including the use of &quot;alien widgets&quot; on Mac OS X, the <a href="qstatictext.html">QStaticText</a> class for optimized text rendering, a new <a href="qpainter.html#drawPixmapFragments">API for rendering pixmap fragments</a> and an updated version of the <a href="3rdparty.html#javascriptcore">JavaScriptCore</a> engine for the <a href="qtscript.html">QtScript</a> module with improved performance.</li>
+</ul>
+<p>In Qt 4.6:</p>
+<ul>
+<li>Support for <a href="symbian-with-qt-introduction.html">the Symbian Platform</a> as a mainstream Qt platform, with integration into the S60 framework.</li>
+<li>The <a href="animation-overview.html">animation framework</a> allows animations to be created using both widgets and graphics items.</li>
+<li>The <a href="statemachine-api.html">state machine framework</a> provides a robust state chart implementation based on Harel statecharts and SCXML.</li>
+<li>Support for <a href="qtouchevent.html">touch input</a> and <a href="gestures-overview.html">gestures</a> enable developers to create intuitive user interfaces for touch-based devices.</li>
+<li>A <a href="qwebelement.html">DOM access API</a> for <a href="qtwebkit.html">QtWebKit</a> provides a cleaner and safer way to access elements and structures of Web pages without the use of JavaScript.</li>
+<li>A collection of performance improvements, covering <a href="qgraphicsview.html">QGraphicsView</a>, <a href="qpixmapcache.html">QPixmapCache</a>, <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, <a href="qcontiguouscache.html">QContiguousCache</a> class, hardware-accelerated rendering support through <a href="openvg.html">OpenVG</a>, and the removal of Win9x support.</li>
+<li>A collection of <a href="qgraphicseffect.html">graphics effects</a> make it easy to apply and simple effects to graphics items and combine them to produce more complex effects.</li>
+<li>Support for XML schema validation in the <a href="qtxmlpatterns.html">QtXmlPatterns</a> module covering large parts of version 1.0 of the specification.</li>
+<li>Qt3D enablers, including math primitives for <a href="qmatrix4x4.html">matrix multiplication</a>, <a href="qvector3d.html">vectors</a>, <a href="qquaternion.html">quaternions</a> (client-side), and an API for <a href="qglshader.html">vertex and fragment shaders</a>, GLSL/ES.</li>
+<li><a href="qtmultimedia.html">Multimedia services</a> providing low-level access to the system's audio system.</li>
+</ul>
 <p>In Qt 4.5:</p>
 <ul>
 <li>The WebKit browser engine included with Qt has been upgraded to the latest upstream (trunk) version of WebKit, bringing the latest features and improvements to Qt applications.</li>
@@ -369,7 +400,7 @@
 <p>to your <tt>.pro</tt> file, depending on whether you want compatibility function calls to generate compiler warnings or not.</p>
 </div>
 <!-- @@@qt4-intro.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Next: <a href="qt4-tulip.html">The Tulip Container Classes</a>]
 </p>
         <div class="feedback t_button">

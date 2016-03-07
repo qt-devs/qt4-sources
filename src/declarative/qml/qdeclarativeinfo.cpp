@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -55,7 +55,8 @@ QT_BEGIN_NAMESPACE
     \fn QDeclarativeInfo qmlInfo(const QObject *object)
     \relates QDeclarativeEngine
 
-    \brief Prints warnings messages that include the file and line number for QML types.
+    Prints warning messages that include the file and line number for the
+    specified QML \a object.
 
     When QML types display warning messages, it improves traceability
     if they include the QML file and line number on which the

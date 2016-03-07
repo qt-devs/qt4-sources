@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -42,3 +42,4 @@
 #include "../linux-g++/qplatformdefs.h"
 
 #define QT_GUI_DOUBLE_CLICK_RADIUS 20
+#define QT_GUI_DRAG_DISTANCE 16

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -157,13 +165,13 @@
 <h2>Properties</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-pathattribute.html#name-prop">name</a></b></b> : string</li>
-<li class="fn"><b><b><a href="qml-pathattribute.html#value-prop">value</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-pathattribute.html#value-prop">value</a></b></b> : real</li>
 </ul>
 <!-- $$$PathAttribute-description -->
 <a name="details"></a>
 <h2>Detailed Description</h2>
-<p>The PathAttribute object allows attibutes consisting of a name and a value to be specified for the endpoints of path segments. The attributes are exposed to the delegate as <a href="qdeclarativeintroduction.html#attached-properties">Attached Properties</a>. The value of an attribute at any particular point is interpolated from the PathAttributes bounding the point.</p>
-<p>The example below shows a path with the items scaled to 30% with opacity 50% at the top of the path and scaled 100% with opacity 100% at the bottom. Note the use of the <a href="qml-pathview.html">PathView</a>.scale and <a href="qml-pathview.html">PathView</a>.opacity attached properties to set the scale and opacity of the delegate.</p>
+<p>The PathAttribute object allows attributes consisting of a name and a value to be specified for various points along a path. The attributes are exposed to the delegate as <a href="qdeclarativeintroduction.html#attached-properties">Attached Properties</a>. The value of an attribute at any particular point along the path is interpolated from the PathAttributes bounding that point.</p>
+<p>The example below shows a path with the items scaled to 30% with opacity 50% at the top of the path and scaled 100% with opacity 100% at the bottom. Note the use of the <a href="qml-pathview.html">PathView</a>.iconScale and <a href="qml-pathview.html">PathView</a>.iconOpacity attached properties to set the scale and opacity of the delegate.</p>
 <table class="generic">
 <tr class="odd topAlign"><td ><p><p class="centerAlign"><img src="images/declarative-pathattribute.png" /></p></p></td><td ><p><pre class="highlightedCode brush: cpp"> import QtQuick 1.0
 
@@ -177,8 +185,8 @@
              scale: PathView.iconScale
              opacity: PathView.iconOpacity
              Column {
-                 Image { anchors.horizontalCenter: name.horizontalCenter; width: 64; height: 64; source: icon }
-                 Text { text: name; font.pointSize: 16}
+                 Image { anchors.horizontalCenter: nameText.horizontalCenter; width: 64; height: 64; source: icon }
+                 Text { id: nameText; text: name; font.pointSize: 16 }
              }
          }
      }
@@ -198,19 +206,34 @@
          }
      }
  }</pre>
+<p>(see the <a href="qml-pathview.html">PathView</a> documentation for the specification of ContactModel.qml used for ContactModel above.)</p>
 </p></td></tr>
 </table>
 <p>See also <a href="qml-path.html">Path</a>.</p>
 <!-- @@@PathAttribute -->
 <h2>Property Documentation</h2>
 <!-- $$$name -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="name-prop"></a>name : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>the name of the attribute to change.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="name-prop"></a>name : <a href="qml-string.html">string</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the name of the attribute to change.</p>
 <p>This attribute will be available to the delegate as <a href="qml-pathview.html">PathView</a>.&lt;name&gt;</p>
 <p>Note that using an existing Item property name such as &quot;opacity&quot; as an attribute is allowed. This is because path attributes add a new <a href="qdeclarativeintroduction.html#attached-properties">Attached Property</a> which in no way clashes with existing properties.</p>
 </div></div><!-- @@@name -->
 <br/>
 <!-- $$$value -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="value-prop"></a>value : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>the new value of the attribute.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="value-prop"></a>value : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the value for the attribute.</p>
+<p>The value specified can be used to influence the visual appearance of an item along the path. For example, the following Path specifies an attribute named <i>itemRotation</i>, which has the value <i>0</i> at the beginning of the path, and the value 90 at the end of the path.</p>
+<pre class="highlightedCode brush: cpp"> Path {
+     startX: 0
+     startY: 0
+     PathAttribute { name: &quot;itemRotation&quot;; value: 0 }
+     PathLine { x: 100; y: 100 }
+     PathAttribute { name: &quot;itemRotation&quot;; value: 90 }
+ }</pre>
+<p>In our delegate, we can then bind the <i>rotation</i> property to the <a href="qdeclarativeintroduction.html#attached-properties">Attached Property</a> <i>PathView.itemRotation</i> created for this attribute.</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     width: 10; height: 10
+     rotation: PathView.itemRotation
+ }</pre>
+<p>As each item is positioned along the path, it will be rotated accordingly: an item at the beginning of the path with be not be rotated, an item at the end of the path will be rotated 90 degrees, and an item mid-way along the path will be rotated 45 degrees.</p>
 </div></div><!-- @@@value -->
 <br/>
         <div class="feedback t_button">

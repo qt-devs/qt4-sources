@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -192,7 +200,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#isCopyOf">isCopyOf</a></b> ( const QFont &amp; <i>f</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#italic">italic</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#kerning">kerning</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#keyx">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#key">key</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#lastResortFamily">lastResortFamily</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#lastResortFont">lastResortFont</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#letterSpacing">letterSpacing</a></b> () const</td></tr>
@@ -254,8 +262,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#operator-lt-lt-203">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>s</i>, const QFont &amp; <i>font</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#operator-gt-gt-112">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>s</i>, QFont &amp; <i>font</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#operator-lt-lt-24">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>s</i>, const QFont &amp; <i>font</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qfont.html#operator-gt-gt-20">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>s</i>, QFont &amp; <i>font</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QFont-description -->
@@ -268,10 +276,10 @@
 <p>Create QFonts like this:</p>
 <pre class="highlightedCode brush: cpp"> QFont serifFont(&quot;Times&quot;, 10, QFont::Bold);
  QFont sansFont(&quot;Helvetica [Cronyx]&quot;, 12);</pre>
-<p>The attributes set in the constructor can also be set later, e.g&#x2e; <a href="qfont.html#setFamily">setFamily</a>(), <a href="qfont.html#setPointSize">setPointSize</a>(), <a href="qfont.html#setPointSizeFloat" class="compat">setPointSizeFloat</a>(), <a href="qfont.html#setWeight">setWeight</a>() and <a href="qfont.html#setItalic">setItalic</a>(). The remaining attributes must be set after contstruction, e.g&#x2e; <a href="qfont.html#setBold">setBold</a>(), <a href="qfont.html#setUnderline">setUnderline</a>(), <a href="qfont.html#setOverline">setOverline</a>(), <a href="qfont.html#setStrikeOut">setStrikeOut</a>() and <a href="qfont.html#setFixedPitch">setFixedPitch</a>(). <a href="qfontinfo.html">QFontInfo</a> objects should be created <i>after</i> the font's attributes have been set. A <a href="qfontinfo.html">QFontInfo</a> object will not change, even if you change the font's attributes. The corresponding &quot;get&quot; functions, e.g&#x2e; <a href="qfont.html#family">family</a>(), <a href="qfont.html#pointSize">pointSize</a>(), etc., return the values that were set, even though the values used may differ. The actual values are available from a <a href="qfontinfo.html">QFontInfo</a> object.</p>
+<p>The attributes set in the constructor can also be set later, e.g&#x2e; <a href="qfont.html#setFamily">setFamily</a>(), <a href="qfont.html#setPointSize">setPointSize</a>(), <a href="qfont-qt3.html#setPointSizeFloat" class="compat">setPointSizeFloat</a>(), <a href="qfont.html#setWeight">setWeight</a>() and <a href="qfont.html#setItalic">setItalic</a>(). The remaining attributes must be set after contstruction, e.g&#x2e; <a href="qfont.html#setBold">setBold</a>(), <a href="qfont.html#setUnderline">setUnderline</a>(), <a href="qfont.html#setOverline">setOverline</a>(), <a href="qfont.html#setStrikeOut">setStrikeOut</a>() and <a href="qfont.html#setFixedPitch">setFixedPitch</a>(). <a href="qfontinfo.html">QFontInfo</a> objects should be created <i>after</i> the font's attributes have been set. A <a href="qfontinfo.html">QFontInfo</a> object will not change, even if you change the font's attributes. The corresponding &quot;get&quot; functions, e.g&#x2e; <a href="qfont.html#family">family</a>(), <a href="qfont.html#pointSize">pointSize</a>(), etc., return the values that were set, even though the values used may differ. The actual values are available from a <a href="qfontinfo.html">QFontInfo</a> object.</p>
 <p>If the requested font family is unavailable you can influence the <a href="#fontmatching">font matching algorithm</a> by choosing a particular <a href="qfont.html#StyleHint-enum">QFont::StyleHint</a> and <a href="qfont.html#StyleStrategy-enum">QFont::StyleStrategy</a> with <a href="qfont.html#setStyleHint">setStyleHint</a>(). The default family (corresponding to the current style hint) is returned by <a href="qfont.html#defaultFamily">defaultFamily</a>().</p>
 <p>The font-matching algorithm has a <a href="qfont.html#lastResortFamily">lastResortFamily</a>() and <a href="qfont.html#lastResortFont">lastResortFont</a>() in cases where a suitable match cannot be found. You can provide substitutions for font family names using <a href="qfont.html#insertSubstitution">insertSubstitution</a>() and <a href="qfont.html#insertSubstitutions">insertSubstitutions</a>(). Substitutions can be removed with <a href="qfont.html#removeSubstitution">removeSubstitution</a>(). Use <a href="qfont.html#substitute">substitute</a>() to retrieve a family's first substitute, or the family name itself if it has no substitutes. Use <a href="qfont.html#substitutes">substitutes</a>() to retrieve a list of a family's substitutes (which may be empty).</p>
-<p>Every QFont has a <a href="qfont.html#keyx">key</a>() which you can use, for example, as the key in a cache or dictionary. If you want to store a user's font preferences you could use <a href="qsettings.html">QSettings</a>, writing the font information with <a href="qfont.html#toString">toString</a>() and reading it back with <a href="qfont.html#fromString">fromString</a>(). The operator&lt;&lt;() and operator&gt;&gt;() functions are also available, but they work on a data stream.</p>
+<p>Every QFont has a <a href="qfont.html#key">key</a>() which you can use, for example, as the key in a cache or dictionary. If you want to store a user's font preferences you could use <a href="qsettings.html">QSettings</a>, writing the font information with <a href="qfont.html#toString">toString</a>() and reading it back with <a href="qfont.html#fromString">fromString</a>(). The operator&lt;&lt;() and operator&gt;&gt;() functions are also available, but they work on a data stream.</p>
 <p>It is possible to set the height of characters shown on the screen to a specified number of pixels with <a href="qfont.html#setPixelSize">setPixelSize</a>(); however using <a href="qfont.html#setPointSize">setPointSize</a>() has a similar effect and provides device independence.</p>
 <p>In X11 you can set a font using its system specific name with <a href="qfont.html#setRawName">setRawName</a>().</p>
 <p>Loading fonts can be expensive, especially on X11. QFont contains extensive optimizations to make the copying of QFont objects fast, and to cache the results of the slow window system functions it depends upon.</p>
@@ -317,7 +325,7 @@
 <!-- $$$Capitalization$$$MixedCase$$$AllUppercase$$$AllLowercase$$$SmallCaps$$$Capitalize -->
 <h3 class="fn"><a name="Capitalization-enum"></a>enum QFont::Capitalization</h3>
 <p>Rendering option for text this font applies to.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::MixedCase</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">This is the normal text rendering option where no capitalization change is applied.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::AllUppercase</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">This alters the text to be rendered in all uppercase type.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::AllLowercase</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">This alters the text to be rendered in all lowercase type.</td></tr>
@@ -328,7 +336,7 @@
 <!-- @@@Capitalization -->
 <!-- $$$SpacingType$$$PercentageSpacing$$$AbsoluteSpacing -->
 <h3 class="fn"><a name="SpacingType-enum"></a>enum QFont::SpacingType</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::PercentageSpacing</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">A value of 100 will keep the spacing unchanged; a value of 200 will enlarge the spacing after a character by the width of the character itself.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::AbsoluteSpacing</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">A positive value increases the letter spacing by the corresponding pixels; a negative value decreases the spacing.</td></tr>
 </table>
@@ -337,7 +345,7 @@
 <!-- $$$Stretch$$$UltraCondensed$$$ExtraCondensed$$$Condensed$$$SemiCondensed$$$Unstretched$$$SemiExpanded$$$Expanded$$$ExtraExpanded$$$UltraExpanded -->
 <h3 class="fn"><a name="Stretch-enum"></a>enum QFont::Stretch</h3>
 <p>Predefined stretch values that follow the CSS naming convention. The higher the value, the more stretched the text is.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::UltraCondensed</tt></td><td class=" topAlign"><tt>50</tt></td><td  class="topAlign">50</td></tr>
 <tr><td  class="topAlign"><tt>QFont::ExtraCondensed</tt></td><td class=" topAlign"><tt>62</tt></td><td  class="topAlign">62</td></tr>
 <tr><td  class="topAlign"><tt>QFont::Condensed</tt></td><td class=" topAlign"><tt>75</tt></td><td  class="topAlign">75</td></tr>
@@ -353,7 +361,7 @@
 <!-- $$$Style$$$StyleNormal$$$StyleItalic$$$StyleOblique -->
 <h3 class="fn"><a name="Style-enum"></a>enum QFont::Style</h3>
 <p>This enum describes the different styles of glyphs that are used to display text.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::StyleNormal</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Normal glyphs used in unstyled text.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::StyleItalic</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Italic glyphs that are specifically designed for the purpose of representing italicized text.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::StyleOblique</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Glyphs with an italic appearance that are typically based on the unstyled glyphs, but are not fine-tuned for the purpose of representing italicized text.</td></tr>
@@ -363,7 +371,7 @@
 <!-- $$$StyleHint$$$Helvetica$$$SansSerif$$$Times$$$Serif$$$Courier$$$TypeWriter$$$OldEnglish$$$Decorative$$$System$$$AnyStyle$$$Cursive$$$Monospace$$$Fantasy -->
 <h3 class="fn"><a name="StyleHint-enum"></a>enum QFont::StyleHint</h3>
 <p>Style hints are used by the <a href="qfont.html">font matching</a> algorithm to find an appropriate default family if a selected font family is not available.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::AnyStyle</tt></td><td class=" topAlign">?</td><td  class="topAlign">leaves the font matching algorithm to choose the family. This is the default.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::SansSerif</tt></td><td class=" topAlign"><tt>Helvetica</tt></td><td  class="topAlign">the font matcher prefer sans serif fonts.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::Helvetica</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">is a synonym for <tt>SansSerif</tt>.</td></tr>
@@ -383,7 +391,7 @@
 <h3 class="fn"><a name="StyleStrategy-enum"></a>enum QFont::StyleStrategy</h3>
 <p>The style strategy tells the <a href="qfont.html">font matching</a> algorithm what type of fonts should be used to find an appropriate default family.</p>
 <p>The following strategies are available:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::PreferDefault</tt></td><td class=" topAlign"><tt>0x0001</tt></td><td  class="topAlign">the default style strategy. It does not prefer any type of font.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::PreferBitmap</tt></td><td class=" topAlign"><tt>0x0002</tt></td><td  class="topAlign">prefers bitmap fonts (as opposed to outline fonts).</td></tr>
 <tr><td  class="topAlign"><tt>QFont::PreferDevice</tt></td><td class=" topAlign"><tt>0x0004</tt></td><td  class="topAlign">prefers device fonts.</td></tr>
@@ -395,7 +403,7 @@
 <tr><td  class="topAlign"><tt>QFont::NoFontMerging</tt></td><td class=" topAlign"><tt>0x8000</tt></td><td  class="topAlign">If the font selected for a certain writing system does not contain a character requested to draw, then Qt automatically chooses a similar looking font that contains the character. The NoFontMerging flag disables this feature. Please note that enabling this flag will not prevent Qt from automatically picking a suitable font when the selected font does not support the writing system of the text.</td></tr>
 </table>
 <p>Any of these may be OR-ed with one of these flags:</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::PreferMatch</tt></td><td class=" topAlign"><tt>0x0020</tt></td><td  class="topAlign">prefer an exact match. The font matcher will try to use the exact font size that has been specified.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::PreferQuality</tt></td><td class=" topAlign"><tt>0x0040</tt></td><td  class="topAlign">prefer the best quality font. The font matcher will use the nearest standard point size that the font supports.</td></tr>
 <tr><td  class="topAlign"><tt>QFont::ForceIntegerMetrics</tt></td><td class=" topAlign"><tt>0x0400</tt></td><td  class="topAlign">forces the use of integer values in font engines that support fractional font metrics.</td></tr>
@@ -405,7 +413,7 @@
 <h3 class="fn"><a name="Weight-enum"></a>enum QFont::Weight</h3>
 <p>Qt uses a weighting scale from 0 to 99 similar to, but not the same as, the scales used in Windows or CSS. A weight of 0 is ultralight, whilst 99 will be an extremely black.</p>
 <p>This enum contains the predefined font weights:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QFont::Light</tt></td><td class=" topAlign"><tt>25</tt></td><td  class="topAlign">25</td></tr>
 <tr><td  class="topAlign"><tt>QFont::Normal</tt></td><td class=" topAlign"><tt>50</tt></td><td  class="topAlign">50</td></tr>
 <tr><td  class="topAlign"><tt>QFont::DemiBold</tt></td><td class=" topAlign"><tt>63</tt></td><td  class="topAlign">63</td></tr>
@@ -512,7 +520,7 @@
 <p>See also <a href="qfont.html#setKerning">setKerning</a>().</p>
 <!-- @@@kerning -->
 <!-- $$$key[overload1]$$$key -->
-<h3 class="fn"><a name="keyx"></a><a href="qstring.html">QString</a> QFont::key () const</h3>
+<h3 class="fn"><a name="key"></a><a href="qstring.html">QString</a> QFont::key () const</h3>
 <p>Returns the font's key, a textual representation of a font. It is typically used as the key for a cache or dictionary of fonts.</p>
 <p>See also <a href="qmap.html">QMap</a>.</p>
 <!-- @@@key -->
@@ -808,12 +816,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQFont& -->
-<h3 class="fn"><a name="operator-lt-lt-203"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, const QFont &amp; <i>font</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-24"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, const QFont &amp; <i>font</i> )</h3>
 <p>Writes the font <i>font</i> to the data stream <i>s</i>. (toString() writes to a text stream.)</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QFont& -->
-<h3 class="fn"><a name="operator-gt-gt-112"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, QFont &amp; <i>font</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-20"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, QFont &amp; <i>font</i> )</h3>
 <p>Reads the font <i>font</i> from the data stream <i>s</i>. (fromString() reads from a text stream.)</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->

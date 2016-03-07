@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -357,7 +365,7 @@
 <!-- $$$FieldAlignment$$$AlignLeft$$$AlignRight$$$AlignCenter$$$AlignAccountingStyle -->
 <h3 class="fn"><a name="FieldAlignment-enum"></a>enum QTextStream::FieldAlignment</h3>
 <p>This enum specifies how to align text in fields when the field is wider than the text that occupies it.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextStream::AlignLeft</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Pad on the right side of fields.</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::AlignRight</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Pad on the left side of fields.</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::AlignCenter</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Pad on both sides of field.</td></tr>
@@ -368,7 +376,7 @@
 <!-- $$$NumberFlag$$$ShowBase$$$ForcePoint$$$ForceSign$$$UppercaseBase$$$UppercaseDigits -->
 <h3 class="flags"><a name="NumberFlag-enum"></a>enum QTextStream::NumberFlag<br/>flags QTextStream::NumberFlags</h3>
 <p>This enum specifies various flags that can be set to affect the output of integers, <tt>float</tt>s, and <tt>double</tt>s.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextStream::ShowBase</tt></td><td class=" topAlign"><tt>0x1</tt></td><td  class="topAlign">Show the base as a prefix if the base is 16 (&quot;0x&quot;), 8 (&quot;0&quot;), or 2 (&quot;0b&quot;).</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::ForcePoint</tt></td><td class=" topAlign"><tt>0x2</tt></td><td  class="topAlign">Always put the decimal separator in numbers, even if there are no decimals.</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::ForceSign</tt></td><td class=" topAlign"><tt>0x4</tt></td><td  class="topAlign">Always put the sign in numbers, even for positive numbers.</td></tr>
@@ -381,7 +389,7 @@
 <!-- $$$RealNumberNotation$$$SmartNotation$$$FixedNotation$$$ScientificNotation -->
 <h3 class="fn"><a name="RealNumberNotation-enum"></a>enum QTextStream::RealNumberNotation</h3>
 <p>This enum specifies which notations to use for expressing <tt>float</tt> and <tt>double</tt> as strings.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextStream::ScientificNotation</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Scientific notation (<tt>printf()</tt>'s <tt>%e</tt> flag).</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::FixedNotation</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Fixed-point notation (<tt>printf()</tt>'s <tt>%f</tt> flag).</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::SmartNotation</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Scientific or fixed-point notation, depending on which makes most sense (<tt>printf()</tt>'s <tt>%g</tt> flag).</td></tr>
@@ -391,7 +399,7 @@
 <!-- $$$Status$$$Ok$$$ReadPastEnd$$$ReadCorruptData -->
 <h3 class="fn"><a name="Status-enum"></a>enum QTextStream::Status</h3>
 <p>This enum describes the current status of the text stream.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextStream::Ok</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The text stream is operating normally.</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::ReadPastEnd</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The text stream has read past the end of the data in the underlying device.</td></tr>
 <tr><td  class="topAlign"><tt>QTextStream::ReadCorruptData</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The text stream has read corrupt data.</td></tr>
@@ -452,7 +460,7 @@
 <!-- @@@atEnd -->
 <!-- $$$autoDetectUnicode[overload1]$$$autoDetectUnicode -->
 <h3 class="fn"><a name="autoDetectUnicode"></a>bool QTextStream::autoDetectUnicode () const</h3>
-<p>Returns true if automatic Unicode detection is enabled; otherwise returns false.</p>
+<p>Returns true if automatic Unicode detection is enabled, otherwise returns false. Automatic Unicode detection is enabled by default.</p>
 <p>See also <a href="qtextstream.html#setAutoDetectUnicode">setAutoDetectUnicode</a>() and <a href="qtextstream.html#setCodec">setCodec</a>().</p>
 <!-- @@@autoDetectUnicode -->
 <!-- $$$codec[overload1]$$$codec -->
@@ -482,7 +490,7 @@
 <!-- @@@flush -->
 <!-- $$$generateByteOrderMark[overload1]$$$generateByteOrderMark -->
 <h3 class="fn"><a name="generateByteOrderMark"></a>bool QTextStream::generateByteOrderMark () const</h3>
-<p>Returns true if <a href="qtextstream.html">QTextStream</a> is set to generate the UTF BOM (Byte Order Mark) when using a UTF codec; otherwise returns false.</p>
+<p>Returns true if <a href="qtextstream.html">QTextStream</a> is set to generate the UTF BOM (Byte Order Mark) when using a UTF codec; otherwise returns false. UTF BOM generation is set to false by default.</p>
 <p>See also <a href="qtextstream.html#setGenerateByteOrderMark">setGenerateByteOrderMark</a>().</p>
 <!-- @@@generateByteOrderMark -->
 <!-- $$$integerBase[overload1]$$$integerBase -->

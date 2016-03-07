@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -173,7 +181,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qsystemsemaphore.html#acquire">acquire</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> SystemSemaphoreError </td><td class="memItemRight bottomAlign"><b><a href="qsystemsemaphore.html#error">error</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsystemsemaphore.html#errorString">errorString</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsystemsemaphore.html#keyx">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsystemsemaphore.html#key">key</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qsystemsemaphore.html#release">release</a></b> ( int <i>n</i> = 1 )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qsystemsemaphore.html#setKey">setKey</a></b> ( const QString &amp; <i>key</i>, int <i>initialValue</i> = 0, AccessMode <i>mode</i> = Open )</td></tr>
 </table>
@@ -215,14 +223,14 @@
 <!-- $$$AccessMode$$$Open$$$Create -->
 <h3 class="fn"><a name="AccessMode-enum"></a>enum QSystemSemaphore::AccessMode</h3>
 <p>This enum is used by the constructor and <a href="qsystemsemaphore.html#setKey">setKey</a>(). Its purpose is to enable handling the problem in Unix implementations of semaphores that survive a crash. In Unix, when a semaphore survives a crash, we need a way to force it to reset its resource count, when the system reuses the semaphore. In Windows and in Symbian, where semaphores can't survive a crash, this enum has no effect.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSystemSemaphore::Open</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">If the semaphore already exists, its initial resource count is not reset. If the semaphore does not already exist, it is created and its initial resource count set.</td></tr>
 <tr><td  class="topAlign"><tt>QSystemSemaphore::Create</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign"><a href="qsystemsemaphore.html">QSystemSemaphore</a> takes ownership of the semaphore and sets its resource count to the requested value, regardless of whether the semaphore already exists by having survived a crash. This value should be passed to the constructor, when the first semaphore for a particular key is constructed and you know that if the semaphore already exists it could only be because of a crash. In Windows and in Symbian, where a semaphore can't survive a crash, Create and Open have the same behavior.</td></tr>
 </table>
 <!-- @@@AccessMode -->
 <!-- $$$SystemSemaphoreError$$$NoError$$$PermissionDenied$$$KeyError$$$AlreadyExists$$$NotFound$$$OutOfResources$$$UnknownError -->
 <h3 class="fn"><a name="SystemSemaphoreError-enum"></a>enum QSystemSemaphore::SystemSemaphoreError</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSystemSemaphore::NoError</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">No error occurred.</td></tr>
 <tr><td  class="topAlign"><tt>QSystemSemaphore::PermissionDenied</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The operation failed because the caller didn't have the required permissions.</td></tr>
 <tr><td  class="topAlign"><tt>QSystemSemaphore::KeyError</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The operation failed because of an invalid key.</td></tr>
@@ -242,7 +250,7 @@
 <p>In Unix, if the <i>mode</i> is <a href="qsystemsemaphore.html#AccessMode-enum">Create</a> and the system already has a semaphore identified by <i>key</i>, that semaphore is used, and its resource count is set to <i>initialValue</i>. If the system does not already have a semaphore identified by <i>key</i>, it creates a new semaphore for that key and sets its resource count to <i>initialValue</i>.</p>
 <p>In Windows and in Symbian, <i>mode</i> is ignored, and the system always tries to create a semaphore for the specified <i>key</i>. If the system does not already have a semaphore identified as <i>key</i>, it creates the semaphore and sets its resource count to <i>initialValue</i>. But if the system already has a semaphore identified as <i>key</i> it uses that semaphore and ignores <i>initialValue</i>.</p>
 <p>The <a href="qsystemsemaphore.html#AccessMode-enum">mode</a> parameter is only used in Unix systems to handle the case where a semaphore survives a process crash. In that case, the next process to allocate a semaphore with the same <i>key</i> will get the semaphore that survived the crash, and unless <i>mode</i> is <a href="qsystemsemaphore.html#AccessMode-enum">Create</a>, the resource count will not be reset to <i>initialValue</i> but will retain the initial value it had been given by the crashed process.</p>
-<p>See also <a href="qsystemsemaphore.html#acquire">acquire</a>() and <a href="qsystemsemaphore.html#keyx">key</a>().</p>
+<p>See also <a href="qsystemsemaphore.html#acquire">acquire</a>() and <a href="qsystemsemaphore.html#key">key</a>().</p>
 <!-- @@@QSystemSemaphore -->
 <!-- $$$~QSystemSemaphore[overload1]$$$~QSystemSemaphore -->
 <h3 class="fn"><a name="dtor.QSystemSemaphore"></a>QSystemSemaphore::~QSystemSemaphore ()</h3>
@@ -266,7 +274,7 @@
 <p>See also <a href="qsystemsemaphore.html#error">error</a>().</p>
 <!-- @@@errorString -->
 <!-- $$$key[overload1]$$$key -->
-<h3 class="fn"><a name="keyx"></a><a href="qstring.html">QString</a> QSystemSemaphore::key () const</h3>
+<h3 class="fn"><a name="key"></a><a href="qstring.html">QString</a> QSystemSemaphore::key () const</h3>
 <p>Returns the key assigned to this system semaphore. The key is the name by which the semaphore can be accessed from other processes.</p>
 <p>See also <a href="qsystemsemaphore.html#setKey">setKey</a>().</p>
 <!-- @@@key -->
@@ -285,7 +293,7 @@
 <!-- $$$setKey[overload1]$$$setKeyconstQString&intAccessMode -->
 <h3 class="fn"><a name="setKey"></a>void QSystemSemaphore::setKey ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, int <i>initialValue</i> = 0, <a href="qsystemsemaphore.html#AccessMode-enum">AccessMode</a> <i>mode</i> = Open )</h3>
 <p>This function works the same as the constructor. It reconstructs this <a href="qsystemsemaphore.html">QSystemSemaphore</a> object. If the new <i>key</i> is different from the old key, calling this function is like calling the destructor of the semaphore with the old key, then calling the constructor to create a new semaphore with the new <i>key</i>. The <i>initialValue</i> and <i>mode</i> parameters are as defined for the constructor.</p>
-<p>See also <a href="qsystemsemaphore.html#QSystemSemaphore">QSystemSemaphore</a>() and <a href="qsystemsemaphore.html#keyx">key</a>().</p>
+<p>See also <a href="qsystemsemaphore.html#QSystemSemaphore">QSystemSemaphore</a>() and <a href="qsystemsemaphore.html#key">key</a>().</p>
 <!-- @@@setKey -->
 </div>
         <div class="feedback t_button">

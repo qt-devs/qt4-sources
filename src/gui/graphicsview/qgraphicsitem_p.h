@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -477,10 +477,10 @@ public:
 
     inline void markParentDirty(bool updateBoundingRect = false);
 
-    void setFocusHelper(Qt::FocusReason focusReason, bool climb, bool focusFromShow);
+    void setFocusHelper(Qt::FocusReason focusReason, bool climb, bool focusFromHide);
     void clearFocusHelper(bool giveFocusToParent);
-    void setSubFocus(QGraphicsItem *rootItem = 0);
-    void clearSubFocus(QGraphicsItem *rootItem = 0);
+    void setSubFocus(QGraphicsItem *rootItem = 0, QGraphicsItem *stopItem = 0);
+    void clearSubFocus(QGraphicsItem *rootItem = 0, QGraphicsItem *stopItem = 0);
     void resetFocusProxy();
     virtual void subFocusItemChange();
     virtual void focusScopeItemChange(bool isSubFocusItem);
@@ -722,7 +722,7 @@ public:
 
 /*!
     Returns true if \a item1 is on top of \a item2.
-    The items dont need to be siblings.
+    The items don't need to be siblings.
 
     \internal
 */
@@ -776,7 +776,7 @@ inline bool qt_closestItemFirst(const QGraphicsItem *item1, const QGraphicsItem 
 
 /*!
     Returns true if \a item2 is on top of \a item1.
-    The items dont need to be siblings.
+    The items don't need to be siblings.
 
     \internal
 */

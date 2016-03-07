@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -231,7 +231,12 @@ void QInputDialogPrivate::ensureLayout()
     QObject::connect(buttonBox, SIGNAL(rejected()), q, SLOT(reject()));
 
     mainLayout = new QVBoxLayout(q);
+    //we want to let the input dialog grow to available size on Symbian.
+#ifndef Q_OS_SYMBIAN
     mainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+#else
+    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+#endif
     mainLayout->addWidget(label);
     mainLayout->addWidget(inputWidget);
     mainLayout->addWidget(buttonBox);
@@ -244,6 +249,9 @@ void QInputDialogPrivate::ensureLineEdit()
     Q_Q(QInputDialog);
     if (!lineEdit) {
         lineEdit = new QLineEdit(q);
+#ifndef QT_NO_IM
+        qt_widget_private(lineEdit)->inheritsInputMethodHints = 1;
+#endif
         lineEdit->hide();
         QObject::connect(lineEdit, SIGNAL(textChanged(QString)),
                          q, SLOT(_q_textChanged(QString)));
@@ -255,6 +263,9 @@ void QInputDialogPrivate::ensureComboBox()
     Q_Q(QInputDialog);
     if (!comboBox) {
         comboBox = new QComboBox(q);
+#ifndef QT_NO_IM
+        qt_widget_private(comboBox)->inheritsInputMethodHints = 1;
+#endif
         comboBox->hide();
         QObject::connect(comboBox, SIGNAL(editTextChanged(QString)),
                          q, SLOT(_q_textChanged(QString)));
@@ -552,6 +563,9 @@ void QInputDialog::setLabelText(const QString &text)
     } else {
         d->label->setText(text);
     }
+#ifdef Q_OS_SYMBIAN
+    d->label->setWordWrap(true);
+#endif
 }
 
 QString QInputDialog::labelText() const

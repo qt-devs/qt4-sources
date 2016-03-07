@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -44,6 +44,8 @@
 
 #include <QtCore/qobject.h>
 #include <QtCore/qdatastream.h>
+
+#include <private/qdeclarativeglobal_p.h>
 
 QT_BEGIN_HEADER
 
@@ -96,6 +98,7 @@ public:
 
     void clear();
     bool isEmpty() const;
+    QByteArray data() const;
 
 protected:
     friend class QPacketProtocol;
@@ -104,7 +107,7 @@ protected:
     QBuffer * buf;
 };
 
-class Q_DECLARATIVE_EXPORT QPacketAutoSend : public QPacket
+class Q_DECLARATIVE_PRIVATE_EXPORT QPacketAutoSend : public QPacket
 {
 public:
     virtual ~QPacketAutoSend();

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,22 +149,22 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QFileDialog</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qfiledialog.html">QFileDialog class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#filters">filters</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> FileMode </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#mode">mode</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#selectFilter">selectFilter</a></b> ( const QString &amp; <i>filter</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#selectedFile">selectedFile</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#selectedFilter">selectedFilter</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#setDir">setDir</a></b> ( const QString &amp; <i>directory</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#setDir-2">setDir</a></b> ( const QDir &amp; <i>directory</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#setFilter-2">setFilter</a></b> ( const QString &amp; <i>filter</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#setFilters">setFilters</a></b> ( const QStringList &amp; <i>filters</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#setMode">setMode</a></b> ( FileMode <i>m</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#filters">filters</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> FileMode </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#mode">mode</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#selectFilter">selectFilter</a></b> ( const QString &amp; <i>filter</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#selectedFile">selectedFile</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#selectedFilter">selectedFilter</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#setDir">setDir</a></b> ( const QString &amp; <i>directory</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#setDir-2">setDir</a></b> ( const QDir &amp; <i>directory</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#setFilter-2">setFilter</a></b> ( const QString &amp; <i>filter</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#setFilters">setFilters</a></b> ( const QStringList &amp; <i>filters</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#setMode">setMode</a></b> ( FileMode <i>m</i> )</td></tr>
 </table>
 <ul>
 <li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
@@ -165,10 +173,10 @@
 </ul>
 <h2>Static Public Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#getExistingDirectory-2">getExistingDirectory</a></b> ( const QString &amp; <i>dir</i>, QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), bool <i>dirOnly</i> = true, bool <i>resolveSymlinks</i> = true )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#getOpenFileName-2">getOpenFileName</a></b> ( const QString &amp; <i>dir</i>, const QString &amp; <i>filter</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), QString * <i>selectedFilter</i> = 0, bool <i>resolveSymlinks</i> = true )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#getOpenFileNames-2">getOpenFileNames</a></b> ( const QString &amp; <i>filter</i>, const QString &amp; <i>dir</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), QString * <i>selectedFilter</i> = 0, bool <i>resolveSymlinks</i> = true )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#getSaveFileName-2">getSaveFileName</a></b> ( const QString &amp; <i>dir</i>, const QString &amp; <i>filter</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), QString * <i>selectedFilter</i> = 0, bool <i>resolveSymlinks</i> = true )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#getExistingDirectory-2">getExistingDirectory</a></b> ( const QString &amp; <i>dir</i>, QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), bool <i>dirOnly</i> = true, bool <i>resolveSymlinks</i> = true )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#getOpenFileName-2">getOpenFileName</a></b> ( const QString &amp; <i>dir</i>, const QString &amp; <i>filter</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), QString * <i>selectedFilter</i> = 0, bool <i>resolveSymlinks</i> = true )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#getOpenFileNames-2">getOpenFileNames</a></b> ( const QString &amp; <i>filter</i>, const QString &amp; <i>dir</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), QString * <i>selectedFilter</i> = 0, bool <i>resolveSymlinks</i> = true )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog-qt3.html#getSaveFileName-2">getSaveFileName</a></b> ( const QString &amp; <i>dir</i>, const QString &amp; <i>filter</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, const QString &amp; <i>caption</i> = QString(), QString * <i>selectedFilter</i> = 0, bool <i>resolveSymlinks</i> = true )</td></tr>
 </table>
 <ul>
 <li class="fn">1 static public member inherited from <a href="qwidget.html#static-public-members">QWidget</a></li>
@@ -178,7 +186,7 @@
 <!-- $$$filters[overload1]$$$filters -->
 <h3 class="fn"><a name="filters"></a><a href="qstringlist.html">QStringList</a> QFileDialog::filters () const</h3>
 <p>Use <a href="qfiledialog.html#nameFilters">nameFilters</a>() instead.</p>
-<p>See also <a href="qfiledialog.html#setFilters">setFilters</a>().</p>
+<p>See also <a href="qfiledialog-qt3.html#setFilters">setFilters</a>().</p>
 <!-- @@@filters -->
 <!-- $$$getExistingDirectory$$$getExistingDirectoryconstQString&QWidget*constchar*constQString&boolbool -->
 <h3 class="fn"><a name="getExistingDirectory-2"></a><a href="qstring.html">QString</a> QFileDialog::getExistingDirectory ( const <a href="qstring.html">QString</a> &amp; <i>dir</i>, <a href="qwidget.html">QWidget</a> * <i>parent</i> = 0, const char * <i>name</i> = 0, const <a href="qstring.html">QString</a> &amp; <i>caption</i> = QString(), bool <i>dirOnly</i> = true, bool <i>resolveSymlinks</i> = true )<tt> [static]</tt></h3>
@@ -199,7 +207,7 @@
 <!-- $$$mode[overload1]$$$mode -->
 <h3 class="fn"><a name="mode"></a><a href="qfiledialog.html#FileMode-enum">FileMode</a> QFileDialog::mode () const</h3>
 <p>Use <a href="qfiledialog.html#fileMode-prop">fileMode</a>() instead.</p>
-<p>See also <a href="qfiledialog.html#setMode">setMode</a>().</p>
+<p>See also <a href="qfiledialog-qt3.html#setMode">setMode</a>().</p>
 <!-- @@@mode -->
 <!-- $$$selectFilter[overload1]$$$selectFilterconstQString& -->
 <h3 class="fn"><a name="selectFilter"></a>void QFileDialog::selectFilter ( const <a href="qstring.html">QString</a> &amp; <i>filter</i> )</h3>
@@ -235,12 +243,12 @@
 <!-- $$$setFilters[overload1]$$$setFiltersconstQStringList& -->
 <h3 class="fn"><a name="setFilters"></a>void QFileDialog::setFilters ( const <a href="qstringlist.html">QStringList</a> &amp; <i>filters</i> )</h3>
 <p>Use <a href="qfiledialog.html#setNameFilters">setNameFilters</a>() instead.</p>
-<p>See also <a href="qfiledialog.html#filters">filters</a>().</p>
+<p>See also <a href="qfiledialog-qt3.html#filters">filters</a>().</p>
 <!-- @@@setFilters -->
 <!-- $$$setMode[overload1]$$$setModeFileMode -->
 <h3 class="fn"><a name="setMode"></a>void QFileDialog::setMode ( <a href="qfiledialog.html#FileMode-enum">FileMode</a> <i>m</i> )</h3>
 <p>Use <a href="qfiledialog.html#fileMode-prop">setFileMode</a>() instead.</p>
-<p>See also <a href="qfiledialog.html#mode">mode</a>().</p>
+<p>See also <a href="qfiledialog-qt3.html#mode">mode</a>().</p>
 <!-- @@@setMode -->
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

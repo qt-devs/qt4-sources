@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -46,6 +46,7 @@
 #include "qdeclarativeexpression.h"
 #include "private/qdeclarativeexpression_p.h"
 #include "private/qdeclarativecontext_p.h"
+#include "private/qdeclarativebinding_p.h"
 
 Q_DECLARE_METATYPE(QScriptValue);
 
@@ -459,7 +460,7 @@ int QDeclarativeVMEMetaObject::metaCall(QMetaObject::Call c, int _id, void **a)
             id -= propOffset;
 
             if (id < metaData->propertyCount) {
-                int t = (metaData->propertyData() + id)->propertyType;
+               int t = (metaData->propertyData() + id)->propertyType;
                 bool needActivate = false;
 
                 if (t == -1) {
@@ -584,25 +585,42 @@ int QDeclarativeVMEMetaObject::metaCall(QMetaObject::Call c, int _id, void **a)
                 if (!target) 
                     return -1;
 
-                if (c == QMetaObject::ReadProperty && !aConnected.testBit(id)) {
-                    int sigIdx = methodOffset + id + metaData->propertyCount;
-                    QMetaObject::connect(context, d->contextIdx + ctxtPriv->notifyIndex, object, sigIdx);
+                connectAlias(id);
 
-                    if (d->propertyIdx != -1) {
-                        QMetaProperty prop = 
-                            target->metaObject()->property(d->propertyIdx);
-                        if (prop.hasNotifySignal())
-                            QMetaObject::connect(target, prop.notifySignalIndex(), 
-                                                 object, sigIdx);
-                    }
-                    aConnected.setBit(id);
-                }
-
-                if (d->propertyIdx == -1) {
+                if (d->isObjectAlias()) {
                     *reinterpret_cast<QObject **>(a[0]) = target;
                     return -1;
+                } 
+                
+                // Remove binding (if any) on write
+                if(c == QMetaObject::WriteProperty) {
+                    int flags = *reinterpret_cast<int*>(a[3]);
+                    if (flags & QDeclarativePropertyPrivate::RemoveBindingOnAliasWrite) {
+                        QDeclarativeData *targetData = QDeclarativeData::get(target);
+                        if (targetData && targetData->hasBindingBit(d->propertyIndex())) {
+                            QDeclarativeAbstractBinding *binding = QDeclarativePropertyPrivate::setBinding(target, d->propertyIndex(), d->isValueTypeAlias()?d->valueTypeIndex():-1, 0);
+                            if (binding) binding->destroy();
+                        }
+                    }
+                }
+                
+                if (d->isValueTypeAlias()) {
+                    // Value type property
+                    QDeclarativeEnginePrivate *ep = QDeclarativeEnginePrivate::get(ctxt->engine);
+
+                    QDeclarativeValueType *valueType = ep->valueTypes[d->valueType()];
+                    Q_ASSERT(valueType);
+
+                    valueType->read(target, d->propertyIndex());
+                    int rv = QMetaObject::metacall(valueType, c, d->valueTypeIndex(), a);
+                    
+                    if (c == QMetaObject::WriteProperty)
+                        valueType->write(target, d->propertyIndex(), 0x00);
+
+                    return rv;
+
                 } else {
-                    return QMetaObject::metacall(target, c, d->propertyIdx, a);
+                    return QMetaObject::metacall(target, c, d->propertyIndex(), a);
                 }
 
             }
@@ -816,6 +834,70 @@ void QDeclarativeVMEMetaObject::setVMEProperty(int index, const QScriptValue &v)
         static_cast<QDeclarativeVMEMetaObject *>(parent)->setVMEProperty(index, v);
     }
     return writeVarProperty(index - propOffset, v);
+}
+
+bool QDeclarativeVMEMetaObject::aliasTarget(int index, QObject **target, int *coreIndex, int *valueTypeIndex) const
+{
+    Q_ASSERT(index >= propOffset + metaData->propertyCount);
+
+    *target = 0;
+    *coreIndex = -1;
+    *valueTypeIndex = -1;
+
+    if (!ctxt)
+        return false;
+
+    QDeclarativeVMEMetaData::AliasData *d = metaData->aliasData() + (index - propOffset - metaData->propertyCount);
+    QDeclarativeContext *context = ctxt->asQDeclarativeContext();
+    QDeclarativeContextPrivate *ctxtPriv = QDeclarativeContextPrivate::get(context);
+
+    *target = ctxtPriv->data->idValues[d->contextIdx].data();
+    if (!*target)
+        return false;
+
+    if (d->isObjectAlias()) {
+    } else if (d->isValueTypeAlias()) {
+        *coreIndex = d->propertyIndex();
+        *valueTypeIndex = d->valueTypeIndex();
+    } else {
+        *coreIndex = d->propertyIndex();
+    }
+
+    return true;
+}
+
+void QDeclarativeVMEMetaObject::connectAlias(int aliasId)
+{
+    if (!aConnected.testBit(aliasId)) {
+        aConnected.setBit(aliasId);
+
+        QDeclarativeContext *context = ctxt->asQDeclarativeContext();
+        QDeclarativeContextPrivate *ctxtPriv = QDeclarativeContextPrivate::get(context);
+
+        QDeclarativeVMEMetaData::AliasData *d = metaData->aliasData() + aliasId;
+
+        QObject *target = ctxtPriv->data->idValues[d->contextIdx].data();
+        if (!target) 
+            return;
+
+        int sigIdx = methodOffset + aliasId + metaData->propertyCount;
+        QMetaObject::connect(context, d->contextIdx + ctxtPriv->notifyIndex, object, sigIdx);
+
+        if (!d->isObjectAlias()) {
+            QMetaProperty prop = target->metaObject()->property(d->propertyIndex());
+            if (prop.hasNotifySignal())
+                QDeclarativePropertyPrivate::connect(target, prop.notifySignalIndex(), object, sigIdx);
+        }
+    }
+}
+
+void QDeclarativeVMEMetaObject::connectAliasSignal(int index)
+{
+    int aliasId = (index - methodOffset) - metaData->propertyCount;
+    if (aliasId < 0 || aliasId >= metaData->aliasCount)
+        return;
+
+    connectAlias(aliasId);
 }
 
 QT_END_NAMESPACE

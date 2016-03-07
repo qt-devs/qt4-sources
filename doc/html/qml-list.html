@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,21 +147,64 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">QML Basic Type: list</h1>
 <span class="subtitle"></span>
 <!-- $$$list-description -->
 <div class="descr"> <a name="details"></a>
-<p>A list of objects. While not technically a basic type, QML also supports lists of object types. When used from QML, the engine automatically appends each value to the list.</p>
+<p>A list type contains a list of objects. While not technically a basic type, QML supports lists of object types. When used from QML, the engine automatically appends each value to the list. Items in the list can be accessed by index using the usual <tt>listName[index]</tt> syntax.</p>
 <p>For example, the <a href="qml-item.html">Item</a> class contains a list property named children that can be used like this:</p>
 <pre class="highlightedCode brush: cpp"> Item {
      children: [
          Item { id: child1 },
-         Rectangle { id: child2 },
+         Rectangle { id: child2; width: 200 },
          Text { id: child3 }
      ]
+
+     Component.onCompleted: {
+         console.log(&quot;Width of child rectangle:&quot;, children[1].width)
+     }
  }</pre>
-<p><tt>child1</tt>, <tt>child2</tt> and <tt>child3</tt> will all be added to the children list in the order in which they appear.</p>
+<p><tt>child1</tt>, <tt>child2</tt> and <tt>child3</tt> will be added to the children list in the order in which they appear.</p>
+<p>List <a href="qml-extending-types.html#adding-properties">properties</a> can be created as a <tt>variant</tt> type, or as a <tt>list&lt;Type&gt;</tt> type, where <tt>Type</tt> is the type of the object in the list:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     property variant values: [ 10, 20, 'abc', 'xyz' ]
+
+     property list&lt;Rectangle&gt; rects: [
+         Rectangle { width: 100; height: 100},
+         Rectangle { width: 200; height: 200}
+     ]
+ }</pre>
+<p>A <tt>variant</tt> list can contain values of any of the <a href="qdeclarativebasictypes.html">basic QML types</a> such as numbers, strings, etc. while a <tt>list&lt;Type&gt;</tt> list can only contain values that match (or are derived from) the specified <tt>Type</tt>.</p>
+<p>A list property can be cleared by setting it to an empty list:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     children: []
+ }</pre>
+<p>A list property cannot be modified in any other way. Items cannot be dynamically added to or removed from the list through JavaScript operations; any <tt>push()</tt> operations on the list only modify a <i>copy</i> of the list and not the actual list. (These current limitations are due to restrictions on <a href="propertybinding.html">Property Binding</a> where lists are involved.)</p>
+<p>You can, however, modify a copy of the list and then reassign the property to the modified value. Other options are to create an array object from within a <tt>.js</tt> JavaScript file, or implement a custom list element in C++. Here is a QML element that modifies the list in a JavaScript file:</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> // QML
+ import &quot;script.js&quot; as Script
+
+ Item {
+     Component.onCompleted: {
+         Script.addItem('abc')
+         console.log(&quot;Added:&quot;, Script.getList()[0])
+     }
+ }</pre>
+</p></td><td ><p><pre class="highlightedCode brush: cpp"> // script.js
+ var myArray = new Array()
+
+ function getList() {
+     return myArray
+ }
+
+ function addItem(item) {
+     myArray.push(item)
+ }</pre>
+</p></td></tr>
+</table>
+<p>However, note that a JavaScript list should not be used as a QML <tt>property</tt> value, as the property is not updated when the list changes.</p>
 </div>
 <p>See also <a href="qdeclarativebasictypes.html">QML Basic Types</a>.</p>
 <!-- @@@list -->

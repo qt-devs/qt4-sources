@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -81,7 +81,6 @@ class Q_AUTOTEST_EXPORT QDeclarativeComponentPrivate : public QObjectPrivate, pu
 public:
     QDeclarativeComponentPrivate() : typeData(0), progress(0.), start(-1), count(-1), cc(0), engine(0), creationContext(0) {}
 
-    QObject *create(QDeclarativeContextData *, const QBitField &);
     QObject *beginCreate(QDeclarativeContextData *, const QBitField &);
     void completeCreate();
 
@@ -109,9 +108,10 @@ public:
     };
     ConstructionState state;
 
-    static QObject *begin(QDeclarativeContextData *ctxt, QDeclarativeEnginePrivate *enginePriv,
-                          QDeclarativeCompiledData *component, int start, int count,
-                          ConstructionState *state, const QBitField &bindings = QBitField());
+    static QObject *begin(QDeclarativeContextData *parentContext, QDeclarativeContextData *componentCreationContext,
+                          QDeclarativeCompiledData *component, int start, int count, 
+                          ConstructionState *state, QList<QDeclarativeError> *errors, 
+                          const QBitField &bindings = QBitField());
     static void beginDeferred(QDeclarativeEnginePrivate *enginePriv, QObject *object, 
                               ConstructionState *state);
     static void complete(QDeclarativeEnginePrivate *enginePriv, ConstructionState *state);

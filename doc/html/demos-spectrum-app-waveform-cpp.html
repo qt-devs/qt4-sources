@@ -14,6 +14,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -30,37 +31,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -71,10 +72,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -98,7 +106,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -138,14 +146,14 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">waveform.cpp Example File</h1>
 <span class="small-subtitle">demos/spectrum/app/waveform.cpp</span>
 <!-- $$$demos/spectrum/app/waveform.cpp-description -->
 <div class="descr"> <a name="details"></a>
 <pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
  **
- ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -189,11 +197,18 @@
  #include &lt;QResizeEvent&gt;
  #include &lt;QDebug&gt;
 
- Waveform::Waveform(const QByteArray &amp;buffer, QWidget *parent)
+<span class="comment"> //#define PAINT_EVENT_TRACE</span>
+ #ifdef PAINT_EVENT_TRACE
+ #   define WAVEFORM_PAINT_DEBUG qDebug()
+ #else
+ #   define WAVEFORM_PAINT_DEBUG nullDebug()
+ #endif
+
+ Waveform::Waveform(QWidget *parent)
      :   QWidget(parent)
-     ,   m_buffer(buffer)
-     ,   m_dataLength(0)
-     ,   m_position(0)
+     ,   m_bufferPosition(0)
+     ,   m_bufferLength(0)
+     ,   m_audioPosition(0)
      ,   m_active(false)
      ,   m_tileLength(0)
      ,   m_tileArrayStart(0)
@@ -216,19 +231,19 @@
      painter.fillRect(rect(), Qt::black);
 
      if (m_active) {
-         WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot;
-                        &lt;&lt; &quot;windowPosition&quot; &lt;&lt; m_windowPosition
-                        &lt;&lt; &quot;windowLength&quot; &lt;&lt; m_windowLength;
+         WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot;
+                              &lt;&lt; &quot;windowPosition&quot; &lt;&lt; m_windowPosition
+                              &lt;&lt; &quot;windowLength&quot; &lt;&lt; m_windowLength;
          qint64 pos = m_windowPosition;
          const qint64 windowEnd = m_windowPosition + m_windowLength;
          int destLeft = 0;
          int destRight = 0;
          while (pos &lt; windowEnd) {
              const TilePoint point = tilePoint(pos);
-             WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;pos&quot; &lt;&lt; pos
-                            &lt;&lt; &quot;tileIndex&quot; &lt;&lt; point.index
-                            &lt;&lt; &quot;positionOffset&quot; &lt;&lt; point.positionOffset
-                            &lt;&lt; &quot;pixelOffset&quot; &lt;&lt; point.pixelOffset;
+             WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;pos&quot; &lt;&lt; pos
+                                  &lt;&lt; &quot;tileIndex&quot; &lt;&lt; point.index
+                                  &lt;&lt; &quot;positionOffset&quot; &lt;&lt; point.positionOffset
+                                  &lt;&lt; &quot;pixelOffset&quot; &lt;&lt; point.pixelOffset;
 
              if (point.index != NullIndex) {
                  const Tile &amp;tile = m_tiles[point.index];
@@ -248,9 +263,9 @@
                      sourceRect.setLeft(point.pixelOffset);
                      sourceRect.setRight(sourceRight);
 
-                     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;tileIndex&quot; &lt;&lt; point.index
-                                    &lt;&lt; &quot;source&quot; &lt;&lt; point.pixelOffset &lt;&lt; sourceRight
-                                    &lt;&lt; &quot;dest&quot; &lt;&lt; destLeft &lt;&lt; destRight;
+                     WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;tileIndex&quot; &lt;&lt; point.index
+                                          &lt;&lt; &quot;source&quot; &lt;&lt; point.pixelOffset &lt;&lt; sourceRight
+                                          &lt;&lt; &quot;dest&quot; &lt;&lt; destLeft &lt;&lt; destRight;
 
                      painter.drawPixmap(destRect, *tile.pixmap, sourceRect);
 
@@ -258,25 +273,25 @@
 
                      if (point.index &lt; m_tiles.count()) {
                          pos = tilePosition(point.index + 1);
-                         WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;pos -&gt;&quot; &lt;&lt; pos;
+                         WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;pos -&gt;&quot; &lt;&lt; pos;
                      } else {
                          <span class="comment">// Reached end of tile array</span>
-                         WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;reached end of tile array&quot;;
+                         WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;reached end of tile array&quot;;
                          break;
                      }
                  } else {
                      <span class="comment">// Passed last tile which is painted</span>
-                     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;tile&quot; &lt;&lt; point.index &lt;&lt; &quot;not painted&quot;;
+                     WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;tile&quot; &lt;&lt; point.index &lt;&lt; &quot;not painted&quot;;
                      break;
                  }
              } else {
                  <span class="comment">// pos is past end of tile array</span>
-                 WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;pos&quot; &lt;&lt; pos &lt;&lt; &quot;past end of tile array&quot;;
+                 WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;pos&quot; &lt;&lt; pos &lt;&lt; &quot;past end of tile array&quot;;
                  break;
              }
          }
 
-         WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;final pos&quot; &lt;&lt; pos &lt;&lt; &quot;final x&quot; &lt;&lt; destRight;
+         WAVEFORM_PAINT_DEBUG &lt;&lt; &quot;Waveform::paintEvent&quot; &lt;&lt; &quot;final pos&quot; &lt;&lt; pos &lt;&lt; &quot;final x&quot; &lt;&lt; destRight;
      }
  }
 
@@ -290,7 +305,6 @@
  {
      WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::initialize&quot;
                     &lt;&lt; &quot;audioBufferSize&quot; &lt;&lt; audioBufferSize
-                    &lt;&lt; &quot;m_buffer.size()&quot; &lt;&lt; m_buffer.size()
                     &lt;&lt; &quot;windowDurationUs&quot; &lt;&lt; windowDurationUs;
 
      reset();
@@ -330,8 +344,9 @@
  {
      WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::reset&quot;;
 
-     m_dataLength = 0;
-     m_position = 0;
+     m_bufferPosition = 0;
+     m_buffer = QByteArray();
+     m_audioPosition = 0;
      m_format = QAudioFormat();
      m_active = false;
      deletePixmaps();
@@ -342,30 +357,31 @@
      m_windowLength = 0;
  }
 
- void Waveform::dataLengthChanged(qint64 length)
+ void Waveform::bufferChanged(qint64 position, qint64 length, const QByteArray &amp;buffer)
  {
-     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::dataLengthChanged&quot; &lt;&lt; length;
-     const qint64 oldLength = m_dataLength;
-     m_dataLength = length;
-
-     if (m_active) {
-         if (m_dataLength &lt; oldLength)
-             positionChanged(m_dataLength);
-         else
-             paintTiles();
-     }
+     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::bufferChanged&quot;
+                    &lt;&lt; &quot;audioPosition&quot; &lt;&lt; m_audioPosition
+                    &lt;&lt; &quot;bufferPosition&quot; &lt;&lt; position
+                    &lt;&lt; &quot;bufferLength&quot; &lt;&lt; length;
+     m_bufferPosition = position;
+     m_bufferLength = length;
+     m_buffer = buffer;
+     paintTiles();
  }
 
- void Waveform::positionChanged(qint64 position)
+ void Waveform::audioPositionChanged(qint64 position)
  {
-     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::positionChanged&quot; &lt;&lt; position;
+     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::audioPositionChanged&quot;
+                    &lt;&lt; &quot;audioPosition&quot; &lt;&lt; position
+                    &lt;&lt; &quot;bufferPosition&quot; &lt;&lt; m_bufferPosition
+                    &lt;&lt; &quot;bufferLength&quot; &lt;&lt; m_bufferLength;
 
-     if (position + m_windowLength &gt; m_dataLength)
-         position = m_dataLength - m_windowLength;
-
-     m_position = position;
-
-     setWindowPosition(position);
+     if (position &gt;= m_bufferPosition) {
+         if (position + m_windowLength &gt; m_bufferPosition + m_bufferLength)
+             position = qMax(qint64(0), m_bufferPosition + m_bufferLength - m_windowLength);
+         m_audioPosition = position;
+         setWindowPosition(position);
+     }
  }
 
  void Waveform::deletePixmaps()
@@ -399,8 +415,6 @@
          m_tiles[i].pixmap = m_pixmaps[i];
          m_tiles[i].painted = false;
      }
-
-     paintTiles();
  }
 
  void Waveform::setWindowPosition(qint64 position)
@@ -471,8 +485,9 @@
      for (int i=0; i&lt;m_tiles.count(); ++i) {
          const Tile &amp;tile = m_tiles[i];
          if (!tile.painted) {
-             const qint64 tileEnd = m_tileArrayStart + (i + 1) * m_tileLength;
-             if (m_dataLength &gt;= tileEnd) {
+             const qint64 tileStart = m_tileArrayStart + i * m_tileLength;
+             const qint64 tileEnd = tileStart + m_tileLength;
+             if (m_bufferPosition &lt;= tileStart &amp;&amp; m_bufferPosition + m_bufferLength &gt;= tileEnd) {
                  paintTile(i);
                  updateRequired = true;
              }
@@ -487,16 +502,23 @@
 
  void Waveform::paintTile(int index)
  {
-     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintTile&quot; &lt;&lt; &quot;index&quot; &lt;&lt; index;
-
      const qint64 tileStart = m_tileArrayStart + index * m_tileLength;
-     Q_ASSERT(m_dataLength &gt;= tileStart + m_tileLength);
+
+     WAVEFORM_DEBUG &lt;&lt; &quot;Waveform::paintTile&quot;
+                    &lt;&lt; &quot;index&quot; &lt;&lt; index
+                    &lt;&lt; &quot;bufferPosition&quot; &lt;&lt; m_bufferPosition
+                    &lt;&lt; &quot;bufferLength&quot; &lt;&lt; m_bufferLength
+                    &lt;&lt; &quot;start&quot; &lt;&lt; tileStart
+                    &lt;&lt; &quot;end&quot; &lt;&lt; tileStart + m_tileLength;
+
+     Q_ASSERT(m_bufferPosition &lt;= tileStart);
+     Q_ASSERT(m_bufferPosition + m_bufferLength &gt;= tileStart + m_tileLength);
 
      Tile &amp;tile = m_tiles[index];
      Q_ASSERT(!tile.painted);
 
      const qint16* base = reinterpret_cast&lt;const qint16*&gt;(m_buffer.constData());
-     const qint16* buffer = base + (tileStart / 2);
+     const qint16* buffer = base + ((tileStart - m_bufferPosition) / 2);
      const int numSamples = m_tileLength / (2 * m_format.channels());
 
      QPainter painter(tile.pixmap);
@@ -520,6 +542,11 @@
 
      for (int i=0; i&lt;numSamples; ++i) {
          const qint16* ptr = buffer + i * m_format.channels();
+
+         const int offset = reinterpret_cast&lt;const char*&gt;(ptr) - m_buffer.constData();
+         Q_ASSERT(offset &gt;= 0);
+         Q_ASSERT(offset &lt; m_bufferLength);
+
          const qint16 pcmValue = *ptr;
          const qreal realValue = pcmToReal(pcmValue);
 

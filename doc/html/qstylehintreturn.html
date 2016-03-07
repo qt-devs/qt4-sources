@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -175,7 +183,7 @@
 <a name="public-variables"></a>
 <h2>Public Variables</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstylehintreturn.html#type-varx">type</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstylehintreturn.html#type-var">type</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstylehintreturn.html#version-var">version</a></b></td></tr>
 </table>
 <a name="related-non-members"></a>
@@ -196,7 +204,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$HintReturnType$$$SH_Default$$$SH_Mask$$$SH_Variant -->
 <h3 class="fn"><a name="HintReturnType-enum"></a>enum QStyleHintReturn::HintReturnType</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleHintReturn::SH_Default</tt></td><td class=" topAlign"><tt>0xf000</tt></td><td  class="topAlign"><a href="qstylehintreturn.html">QStyleHintReturn</a></td></tr>
 <tr><td  class="topAlign"><tt>QStyleHintReturn::SH_Mask</tt></td><td class=" topAlign">?</td><td  class="topAlign"><a href="qstyle.html#StyleHint-enum">QStyle::SH_RubberBand_Mask</a> <a href="qstyle.html#StyleHint-enum">QStyle::SH_FocusFrame_Mask</a></td></tr>
 <tr><td  class="topAlign"><tt>QStyleHintReturn::SH_Variant</tt></td><td class=" topAlign">?</td><td  class="topAlign"><a href="qstyle.html#StyleHint-enum">QStyle::SH_TextControl_FocusIndicatorTextCharFormat</a></td></tr>
@@ -205,7 +213,7 @@
 <!-- $$$StyleOptionType$$$Type -->
 <h3 class="fn"><a name="StyleOptionType-enum"></a>enum QStyleHintReturn::StyleOptionType</h3>
 <p>This enum is used to hold information about the type of the style option, and is defined for each <a href="qstylehintreturn.html">QStyleHintReturn</a> subclass.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleHintReturn::Type</tt></td><td class=" topAlign"><tt>SH_Default</tt></td><td  class="topAlign">The type of style option provided (<a href="qstylehintreturn.html#HintReturnType-enum">SH_Default</a> for this class).</td></tr>
 </table>
 <p>The type is used internally by <a href="qstylehintreturn.html">QStyleHintReturn</a>, its subclasses, and <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>() to determine the type of style option. In general you do not need to worry about this unless you want to create your own <a href="qstylehintreturn.html">QStyleHintReturn</a> subclass and your own styles.</p>
@@ -214,7 +222,7 @@
 <!-- $$$StyleOptionVersion$$$Version -->
 <h3 class="fn"><a name="StyleOptionVersion-enum"></a>enum QStyleHintReturn::StyleOptionVersion</h3>
 <p>This enum is used to hold information about the version of the style option, and is defined for each <a href="qstylehintreturn.html">QStyleHintReturn</a> subclass.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleHintReturn::Version</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">1</td></tr>
 </table>
 <p>The version is used by <a href="qstylehintreturn.html">QStyleHintReturn</a> subclasses to implement extensions without breaking compatibility. If you use <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>(), you normally do not need to check it.</p>
@@ -227,13 +235,13 @@
 <h3 class="fn"><a name="QStyleHintReturn"></a>QStyleHintReturn::QStyleHintReturn ( int <i>version</i> = QStyleOption::Version, int <i>type</i> = SH_Default )</h3>
 <p>Constructs a <a href="qstylehintreturn.html">QStyleHintReturn</a> with version <i>version</i> and type <i>type</i>.</p>
 <p>The version has no special meaning for <a href="qstylehintreturn.html">QStyleHintReturn</a>; it can be used by subclasses to distinguish between different version of the same hint type.</p>
-<p>See also <a href="qstyleoption.html#version-var">QStyleOption::version</a> and <a href="qstyleoption.html#type-varx">QStyleOption::type</a>.</p>
+<p>See also <a href="qstyleoption.html#version-var">QStyleOption::version</a> and <a href="qstyleoption.html#type-var">QStyleOption::type</a>.</p>
 <!-- @@@QStyleHintReturn -->
 </div>
 <div class="vars">
 <h2>Member Variable Documentation</h2>
 <!-- $$$type -->
-<h3 class="fn"><a name="type-varx"></a>int QStyleHintReturn::type</h3>
+<h3 class="fn"><a name="type-var"></a>int QStyleHintReturn::type</h3>
 <p>This variable holds the type of the style hint container.</p>
 <p>See also <a href="qstylehintreturn.html#HintReturnType-enum">HintReturnType</a>.</p>
 <!-- @@@type -->
@@ -247,7 +255,7 @@
 <h2>Related Non-Members</h2>
 <!-- $$$qstyleoption_cast$$$qstyleoption_castconstQStyleHintReturn* -->
 <h3 class="fn"><a name="qstyleoption_cast-2"></a>T qstyleoption_cast ( const QStyleHintReturn * <i>hint</i> )</h3>
-<p>Returns a T or 0 depending on the <a href="qstylehintreturn.html#type-varx">type</a> and <a href="qstylehintreturn.html#version-var">version</a> of <i>hint</i>.</p>
+<p>Returns a T or 0 depending on the <a href="qstylehintreturn.html#type-var">type</a> and <a href="qstylehintreturn.html#version-var">version</a> of <i>hint</i>.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> int MyStyle::styleHint(StyleHint stylehint, const QStyleOption *opt,
                         const QWidget *widget, QStyleHintReturn* returnData) const;
@@ -261,7 +269,7 @@
      }
      ...
  }</pre>
-<p>See also <a href="qstylehintreturn.html#type-varx">QStyleHintReturn::type</a> and <a href="qstylehintreturn.html#version-var">QStyleHintReturn::version</a>.</p>
+<p>See also <a href="qstylehintreturn.html#type-var">QStyleHintReturn::type</a> and <a href="qstylehintreturn.html#version-var">QStyleHintReturn::version</a>.</p>
 <!-- @@@qstyleoption_cast -->
 <!-- $$$qstyleoption_cast$$$qstyleoption_castQStyleHintReturn* -->
 <h3 class="fn"><a name="qstyleoption_cast-4"></a>T qstyleoption_cast ( QStyleHintReturn * <i>hint</i> )</h3>

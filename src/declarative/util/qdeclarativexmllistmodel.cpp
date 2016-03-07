@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -476,7 +476,7 @@ public:
 void QDeclarativeXmlListModelPrivate::append_role(QDeclarativeListProperty<QDeclarativeXmlListModelRole> *list, QDeclarativeXmlListModelRole *role)
 {
     QDeclarativeXmlListModel *_this = qobject_cast<QDeclarativeXmlListModel *>(list->object);
-    if (_this) {
+    if (_this && role) {
         int i = _this->d_func()->roleObjects.count();
         _this->d_func()->roleObjects.append(role);
         if (_this->d_func()->roleNames.contains(role->name())) {
@@ -503,9 +503,9 @@ void QDeclarativeXmlListModelPrivate::clear_role(QDeclarativeListProperty<QDecla
     \qmlclass XmlListModel QDeclarativeXmlListModel
     \ingroup qml-working-with-data
   \since 4.7
-    \brief The XmlListModel element is used to specify a model using XPath expressions.
+    \brief The XmlListModel element is used to specify a read-only model using XPath expressions.
 
-    XmlListModel is used to create a model from XML data. It can be used as a data source
+    XmlListModel is used to create a read-only model from XML data. It can be used as a data source
     for view elements (such as ListView, PathView, GridView) and other elements that interact with model
     data (such as \l Repeater).
 
@@ -924,6 +924,7 @@ void QDeclarativeXmlListModel::reload()
     } else {
         d->notifyQueryStarted(true);
         QNetworkRequest req(d->src);
+        req.setRawHeader("Accept", "application/xml");
         d->reply = qmlContext(this)->engine()->networkAccessManager()->get(req);
         QObject::connect(d->reply, SIGNAL(finished()), this, SLOT(requestFinished()));
         QObject::connect(d->reply, SIGNAL(downloadProgress(qint64,qint64)),

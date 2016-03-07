@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -335,7 +343,7 @@
 <!-- $$$Command$$$None$$$ConnectToHost$$$Login$$$Close$$$List$$$Cd$$$Get$$$Put$$$Remove$$$Mkdir$$$Rmdir$$$Rename$$$RawCommand -->
 <h3 class="fn"><a name="Command-enum"></a>enum Q3Ftp::Command</h3>
 <p>This enum is used as the return value for the <a href="q3ftp.html#currentCommand">currentCommand</a>() function. This allows you to perform specific actions for particular commands, e.g&#x2e; in a FTP client, you might want to clear the directory view when a <a href="q3ftp.html#list">list</a>() command is started; in this case you can simply check in the slot connected to the <a href="q3networkprotocol.html#start">start</a>() signal if the <a href="q3ftp.html#currentCommand">currentCommand</a>() is <tt>List</tt>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::None</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">No command is being executed.</td></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::ConnectToHost</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign"><a href="q3ftp.html#connectToHost">connectToHost</a>() is being executed.</td></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::Login</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign"><a href="q3ftp.html#login">login</a>() is being executed.</td></tr>
@@ -355,7 +363,7 @@
 <!-- $$$Error$$$NoError$$$UnknownError$$$HostNotFound$$$ConnectionRefused$$$NotConnected -->
 <h3 class="fn"><a name="Error-enum"></a>enum Q3Ftp::Error</h3>
 <p>This enum identifies the error that occurred.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::NoError</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">No error occurred.</td></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::HostNotFound</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The host name lookup failed.</td></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::ConnectionRefused</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">The server refused the connection.</td></tr>
@@ -367,7 +375,7 @@
 <!-- $$$State$$$Unconnected$$$HostLookup$$$Connecting$$$Connected$$$LoggedIn$$$Closing -->
 <h3 class="fn"><a name="State-enum"></a>enum Q3Ftp::State</h3>
 <p>This enum defines the connection state:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::Unconnected</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">There is no connection to the host.</td></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::HostLookup</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">A host name lookup is in progress.</td></tr>
 <tr><td  class="topAlign"><tt>Q3Ftp::Connecting</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">An attempt to connect to the host is in progress.</td></tr>
@@ -402,7 +410,7 @@
 <p>See also <a href="q3ftp.html#clearPendingCommands">clearPendingCommands</a>().</p>
 <!-- @@@abort -->
 <!-- $$$bytesAvailable[overload1]$$$bytesAvailable -->
-<h3 class="fn"><a name="bytesAvailable"></a><a href="qtglobal.html#Q_ULONG-typedef">Q_ULONG</a> Q3Ftp::bytesAvailable () const</h3>
+<h3 class="fn"><a name="bytesAvailable"></a><a href="qtglobal-qt3.html#Q_ULONG-typedef">Q_ULONG</a> Q3Ftp::bytesAvailable () const</h3>
 <p>Returns the number of bytes that can be read from the data socket at the moment.</p>
 <p>See also <a href="q3ftp.html#get">get</a>(), <a href="q3ftp.html#readyRead">readyRead</a>(), <a href="q3ftp.html#readBlock">readBlock</a>(), and <a href="q3ftp.html#readAll">readAll</a>().</p>
 <!-- @@@bytesAvailable -->
@@ -437,7 +445,7 @@
 <p>See also <a href="q3ftp.html#commandFinished">commandFinished</a>() and <a href="q3ftp.html#done">done</a>().</p>
 <!-- @@@commandStarted -->
 <!-- $$$connectToHost[overload1]$$$connectToHostconstQString&Q_UINT16 -->
-<h3 class="fn"><a name="connectToHost"></a>int Q3Ftp::connectToHost ( const <a href="qstring.html">QString</a> &amp; <i>host</i>, <a href="qtglobal.html#Q_UINT16-typedef">Q_UINT16</a> <i>port</i> = 21 )</h3>
+<h3 class="fn"><a name="connectToHost"></a>int Q3Ftp::connectToHost ( const <a href="qstring.html">QString</a> &amp; <i>host</i>, <a href="qtglobal-qt3.html#Q_UINT16-typedef">Q_UINT16</a> <i>port</i> = 21 )</h3>
 <p>Connects to the FTP server <i>host</i> using port <i>port</i>.</p>
 <p>The <a href="q3ftp.html#stateChanged">stateChanged</a>() signal is emitted when the state of the connecting process changes, e.g&#x2e; to <tt>HostLookup</tt>, then <tt>Connecting</tt>, then <tt>Connected</tt>.</p>
 <p>The function does not block and returns immediately. The command is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by <a href="q3ftp.html#commandStarted">commandStarted</a>() and <a href="q3ftp.html#commandFinished">commandFinished</a>().</p>
@@ -583,7 +591,7 @@
 <p>See also <a href="q3ftp.html#get">get</a>(), <a href="q3ftp.html#readyRead">readyRead</a>(), <a href="q3ftp.html#bytesAvailable">bytesAvailable</a>(), and <a href="q3ftp.html#readBlock">readBlock</a>().</p>
 <!-- @@@readAll -->
 <!-- $$$readBlock[overload1]$$$readBlockchar*Q_ULONG -->
-<h3 class="fn"><a name="readBlock"></a><a href="qtglobal.html#Q_LONG-typedef">Q_LONG</a> Q3Ftp::readBlock ( char * <i>data</i>, <a href="qtglobal.html#Q_ULONG-typedef">Q_ULONG</a> <i>maxlen</i> )</h3>
+<h3 class="fn"><a name="readBlock"></a><a href="qtglobal-qt3.html#Q_LONG-typedef">Q_LONG</a> Q3Ftp::readBlock ( char * <i>data</i>, <a href="qtglobal-qt3.html#Q_ULONG-typedef">Q_ULONG</a> <i>maxlen</i> )</h3>
 <p>Reads <i>maxlen</i> bytes from the data socket into <i>data</i> and returns the number of bytes read. Returns -1 if an error occurred.</p>
 <p>See also <a href="q3ftp.html#get">get</a>(), <a href="q3ftp.html#readyRead">readyRead</a>(), <a href="q3ftp.html#bytesAvailable">bytesAvailable</a>(), and <a href="q3ftp.html#readAll">readAll</a>().</p>
 <!-- @@@readBlock -->

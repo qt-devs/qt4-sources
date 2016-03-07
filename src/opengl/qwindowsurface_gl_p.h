@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -102,11 +102,15 @@ public:
 
     static QGLFormat surfaceFormat;
 
+    enum SwapMode { AutomaticSwap, AlwaysFullSwap, AlwaysPartialSwap, KillSwap };
+    static SwapMode swapBehavior;
+
 private slots:
     void deleted(QObject *object);
 
 private:
     void hijackWindow(QWidget *widget);
+    bool initializeOffscreenTexture(const QSize &size);
 
     QGLWindowSurfacePrivate *d_ptr;
 };

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -155,6 +155,13 @@
            startup time for applications that will run in fullscreen mode during their
            whole lifetime. This attribute must be set before QApplication is
            constructed.
+
+    \omitvalue AA_S60DisablePartialScreenInputMode By default in Symbian^3,
+           a separate editing window is opened on top of an application. This is exactly
+           like editing on previous versions of Symbian behave. When this attribute
+           is true, a virtual keyboard window is shown on top of application and it
+           is ensured that the focused text widget is visible. This is only supported in
+           Symbian^3. (internal)
 
     \omitvalue AA_AttributeCount
 */
@@ -461,15 +468,18 @@
     \value TextWordWrap Breaks lines at appropriate points, e.g. at word
            boundaries.
     \value TextWrapAnywhere Breaks lines anywhere, even within words.
-    \value TextHideMnemonic Same as Qt::TextShowMnemonic but doesn't draw the underlines.
-    \value TextDontPrint Treat this text as "hidden" and don't print
-    it.
-    \value IncludeTrailingSpaces When this option is set, QTextLine::naturalTextWidth() and naturalTextRect() will
-                                 return a value that includes the width of trailing spaces in the text; otherwise
-                                 this width is excluded.
+    \value TextHideMnemonic Same as Qt::TextShowMnemonic but doesn't draw
+           the underlines.
+    \value TextDontPrint Treat this text as "hidden" and don't print it.
+    \value IncludeTrailingSpaces When this option is set,
+           QTextLine::naturalTextWidth() and naturalTextRect() will
+           return a value that includes the width of trailing spaces in the
+           text; otherwise this width is excluded.
     \value TextIncludeTrailingSpaces Same as IncludeTrailingSpaces
     \value TextJustificationForced Ensures that text lines are justified.
 
+    \omitvalue TextLongestVariant Ensures that the longest variant is always used
+           when computing the size of a multi-variant string. (Internal)
     \omitvalue TextBypassShaping
     \omitvalue BreakAnywhere
     \omitvalue DontClip
@@ -482,7 +492,6 @@
     \omitvalue WordBreak
     \omitvalue TextForceLeftToRight
     \omitvalue TextForceRightToLeft
-    \omitvalue TextLongestVariant Always use the longest variant when computing the size of a multi-variant string.
 
     You can use as many modifier flags as you want, except that
     Qt::TextSingleLine and Qt::TextWordWrap cannot be combined.
@@ -509,9 +518,11 @@
     delivery at a later time.
 
     \value AutoConnection
-    	   (default) Same as DirectConnection, if the emitter and
-       	   receiver are in the same thread. Same as QueuedConnection,
-       	   if the emitter and receiver are in different threads.
+            (default) If the signal is emitted from a different thread than the
+            receiving object, the signal is queued, behaving as
+            Qt::QueuedConnection. Otherwise, the slot is invoked directly,
+            behaving as Qt::DirectConnection. The type of connection is
+            determined when the signal is emitted.
 
     \value DirectConnection
 	   The slot is invoked immediately, when the signal is
@@ -2767,7 +2778,7 @@
     \value ElideNone    Ellipsis should NOT appear in the text.
 
     Qt::ElideMiddle is normally the most appropriate choice for URLs (e.g.,
-    "\l{http://qt.nokia.com/careers/movingto/brisbane/}{http://qt.nok...ovingto/brisbane/}"),
+    "\l{http://bugreports.qt.nokia.com/browse/QTWEBSITE-13}{http://bugreports.qt.../QTWEBSITE-13/}"),
     whereas Qt::ElideRight is appropriate
     for other strings (e.g.,
     "\l{http://qt.nokia.com/doc/qq/qq09-mac-deployment.html}{Deploying Applications on Ma...}").

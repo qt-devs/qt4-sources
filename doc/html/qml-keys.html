@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,13 +147,15 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#signals">Signals</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example-usage">Example Usage</a></li>
+<li class="level2"><a href="#key-handling-priorities">Key Handling Priorities</a></li>
 </ul>
 </div>
 <h1 class="title">QML Keys Element</h1>
@@ -166,6 +176,7 @@
 <ul>
 <li class="fn"><b><b><a href="qml-keys.html#onAsteriskPressed-signal">onAsteriskPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onBackPressed-signal">onBackPressed</a></b></b></li>
+<li class="fn"><b><b><a href="qml-keys.html#onBacktabPressed-signal">onBacktabPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onCallPressed-signal">onCallPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onCancelPressed-signal">onCancelPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onContext1Pressed-signal">onContext1Pressed</a></b></b></li>
@@ -197,6 +208,7 @@
 <li class="fn"><b><b><a href="qml-keys.html#onRightPressed-signal">onRightPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onSelectPressed-signal">onSelectPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onSpacePressed-signal">onSpacePressed</a></b></b></li>
+<li class="fn"><b><b><a href="qml-keys.html#onTabPressed-signal">onTabPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onUpPressed-signal">onUpPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onVolumeDownPressed-signal">onVolumeDownPressed</a></b></b></li>
 <li class="fn"><b><b><a href="qml-keys.html#onVolumeUpPressed-signal">onVolumeUpPressed</a></b></b></li>
@@ -205,9 +217,13 @@
 <!-- $$$Keys-description -->
 <a name="details"></a>
 <h2>Detailed Description</h2>
-<p>All visual primitives support key handling via the <i>Keys</i> attached property. Keys can be handled via the <i>onPressed</i> and <i>onReleased</i> signal properties.</p>
+<p>All visual primitives support key handling via the Keys attached property. Keys can be handled via the <a href="qml-keys.html#onPressed-signal">onPressed</a> and <a href="qml-keys.html#onReleased-signal">onReleased</a> signal properties.</p>
 <p>The signal properties have a <a href="qml-keyevent.html">KeyEvent</a> parameter, named <i>event</i> which contains details of the event. If a key is handled <i>event.accepted</i> should be set to true to prevent the event from propagating up the item hierarchy.</p>
+<a name="example-usage"></a>
+<h2>Example Usage</h2>
+<p>The following example shows how the general <a href="qml-keys.html#onPressed-signal">onPressed</a> handler can be used to test for a certain key; in this case, the left cursor key:</p>
 <pre class="highlightedCode brush: cpp"> Item {
+     anchors.fill: parent
      focus: true
      Keys.onPressed: {
          if (event.key == Qt.Key_Left) {
@@ -218,11 +234,15 @@
  }</pre>
 <p>Some keys may alternatively be handled via specific signal properties, for example <i>onSelectPressed</i>. These handlers automatically set <i>event.accepted</i> to true.</p>
 <pre class="highlightedCode brush: cpp"> Item {
+     anchors.fill: parent
      focus: true
      Keys.onLeftPressed: console.log(&quot;move left&quot;)
  }</pre>
 <p>See <a href="qt.html#Key-enum">Qt.Key</a> for the list of keyboard codes.</p>
-<p>If priority is Keys.BeforeItem (default) the order of key event processing is:</p>
+<a name="key-handling-priorities"></a>
+<h2>Key Handling Priorities</h2>
+<p>The Keys attached property can be configured to handle key events before or after the item it is attached to. This makes it possible to intercept events in order to override an item's default behavior, or act as a fallback for keys not handled by the item.</p>
+<p>If <a href="qml-keys.html#priority-prop">priority</a> is Keys.BeforeItem (default) the order of key event processing is:</p>
 <ol class="1">
 <li>Items specified in <tt>forwardTo</tt></li>
 <li>specific key handlers, e.g&#x2e; <a href="qml-keys.html#onReturnPressed-signal">onReturnPressed</a></li>
@@ -243,11 +263,11 @@
 <!-- @@@Keys -->
 <h2>Property Documentation</h2>
 <!-- $$$enabled -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="enabled-prop"></a>enabled : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This flags enables key handling if true (default); otherwise no key handlers will be called.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="enabled-prop"></a>enabled : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This flags enables key handling if true (default); otherwise no key handlers will be called.</p>
 </div></div><!-- @@@enabled -->
 <br/>
 <!-- $$$forwardTo -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="forwardTo-prop"></a><span class="qmlreadonly">read-only</span>forwardTo : <a href="qml-list.html">list</a>&lt;Object&gt;</td></tr></table></div><div class="qmldoc"><p>This property provides a way to forward key presses, key releases, and keyboard input coming from input methods to other items. This can be useful when you want one item to handle some keys (e.g&#x2e; the up and down arrow keys), and another item to handle other keys (e.g&#x2e; the left and right arrow keys). Once an item that has been forwarded keys accepts the event it is no longer forwarded to items later in the list.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="forwardTo-prop"></a><span class="qmlreadonly">read-only</span>forwardTo : <a href="qml-list.html">list</a>&lt;Object&gt;</p></td></tr></table></div><div class="qmldoc"><p>This property provides a way to forward key presses, key releases, and keyboard input coming from input methods to other items. This can be useful when you want one item to handle some keys (e.g&#x2e; the up and down arrow keys), and another item to handle other keys (e.g&#x2e; the left and right arrow keys). Once an item that has been forwarded keys accepts the event it is no longer forwarded to items later in the list.</p>
 <p>This example forwards key events to two lists:</p>
 <pre class="highlightedCode brush: cpp"> ListView { id: list1 ... }
  ListView { id: list2 ... }
@@ -256,7 +276,7 @@
 </div></div><!-- @@@forwardTo -->
 <br/>
 <!-- $$$priority -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="priority-prop"></a>priority : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>This property determines whether the keys are processed before or after the attached item's own key handling.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="priority-prop"></a>priority : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>This property determines whether the keys are processed before or after the attached item's own key handling.</p>
 <ul>
 <li>Keys.BeforeItem (default) - process the key events before normal item key processing. If the event is accepted it will not be passed on to the item.</li>
 <li>Keys.AfterItem - process the key events after normal item key handling. If the item accepts the key event it will not be handled by the Keys attached property handler.</li>
@@ -271,6 +291,10 @@
 <!-- $$$onBackPressed -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onBackPressed-signal"></a>Keys::onBackPressed ( <a href="qml-keyevent.html">KeyEvent</a> <i>event</i> )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Back key has been pressed. The <i>event</i> parameter provides information about the event.</p>
 </div></div><!-- @@@onBackPressed -->
+<br/>
+<!-- $$$onBacktabPressed -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onBacktabPressed-signal"></a>Keys::onBacktabPressed ( <a href="qml-keyevent.html">KeyEvent</a> <i>event</i> )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Shift+Tab key combination (Backtab) has been pressed. The <i>event</i> parameter provides information about the event.</p>
+</div></div><!-- @@@onBacktabPressed -->
 <br/>
 <!-- $$$onCallPressed -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onCallPressed-signal"></a>Keys::onCallPressed ( <a href="qml-keyevent.html">KeyEvent</a> <i>event</i> )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Call key has been pressed. The <i>event</i> parameter provides information about the event.</p>
@@ -395,6 +419,10 @@
 <!-- $$$onSpacePressed -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onSpacePressed-signal"></a>Keys::onSpacePressed ( <a href="qml-keyevent.html">KeyEvent</a> <i>event</i> )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Space key has been pressed. The <i>event</i> parameter provides information about the event.</p>
 </div></div><!-- @@@onSpacePressed -->
+<br/>
+<!-- $$$onTabPressed -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onTabPressed-signal"></a>Keys::onTabPressed ( <a href="qml-keyevent.html">KeyEvent</a> <i>event</i> )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Tab key has been pressed. The <i>event</i> parameter provides information about the event.</p>
+</div></div><!-- @@@onTabPressed -->
 <br/>
 <!-- $$$onUpPressed -->
 <div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onUpPressed-signal"></a>Keys::onUpPressed ( <a href="qml-keyevent.html">KeyEvent</a> <i>event</i> )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Up arrow has been pressed. The <i>event</i> parameter provides information about the event.</p>

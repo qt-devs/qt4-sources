@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -197,8 +207,9 @@
 <!-- @@@Rectangle -->
 <h2>Property Documentation</h2>
 <!-- $$$border.width -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="border.width-prop"></a>border.width : <a href="qml-int.html">int</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="border.color-prop"></a>border.color : <a href="qml-rectangle.html#color-prop">color</a></td></tr></table></div><div class="qmldoc"><p>The width and color used to draw the border of the rectangle.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="border.width-prop"></a>border.width : <a href="qml-int.html">int</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="border.color-prop"></a>border.color : <a href="qml-rectangle.html#color-prop">color</a></p></td></tr></table></div><div class="qmldoc"><p>The width and color used to draw the border of the rectangle.</p>
 <p>A width of 1 creates a thin line. For no line, use a width of 0 or a transparent color.</p>
+<p><b>Note:</b> The width of the rectangle's border does not affect the geometry of the rectangle itself or its position relative to other items if anchors are used.</p>
 <p>If <tt>border.width</tt> is an odd number, the rectangle is painted at a half-pixel offset to retain border smoothness. Also, the border is rendered evenly on either side of the rectangle's boundaries, and the spare pixel is rendered to the right and below the rectangle (as documented for <a href="qrect.html">QRect</a> rendering). This can cause unintended effects if <tt>border.width</tt> is 1 and the rectangle is <a href="qml-item.html#clip-prop">clipped</a> by a parent item:</p>
 <div style="float: right; margin-left: 2em"><p><img src="images/rect-border-width.png" /> </div></p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
@@ -220,7 +231,7 @@
 </div></div><!-- @@@border.width -->
 <br/>
 <!-- $$$color -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="color-prop"></a>color : <a href="qml-color.html">color</a></td></tr></table></div><div class="qmldoc"><p>This property holds the color used to fill the rectangle.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="color-prop"></a>color : <a href="qml-color.html">color</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the color used to fill the rectangle.</p>
 <p>The default color is white.</p>
 <div style="float: right; margin-left: 2em"><p><img src="images/rect-color.png" /> </div></p>
 <p>The following example shows rectangles with colors specified using hexadecimal and named color notation:</p>
@@ -238,7 +249,7 @@
 </div></div><!-- @@@color -->
 <br/>
 <!-- $$$gradient -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="gradient-prop"></a>gradient : <a href="qml-gradient.html">Gradient</a></td></tr></table></div><div class="qmldoc"><p>The gradient to use to fill the rectangle.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="gradient-prop"></a>gradient : <a href="qml-gradient.html">Gradient</a></p></td></tr></table></div><div class="qmldoc"><p>The gradient to use to fill the rectangle.</p>
 <p>This property allows for the construction of simple vertical gradients. Other gradients may by formed by adding rotation to the rectangle.</p>
 <div style="float: left; margin-right: 2em"><p><img src="images/declarative-rect_gradient.png" /> </div></p>
 <pre class="highlightedCode brush: cpp"> Rectangle {
@@ -267,17 +278,17 @@
 </div></div><!-- @@@gradient -->
 <br/>
 <!-- $$$radius -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="radius-prop"></a>radius : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the corner radius used to draw a rounded rectangle.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="radius-prop"></a>radius : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the corner radius used to draw a rounded rectangle.</p>
 <p>If radius is non-zero, the rectangle will be painted as a rounded rectangle, otherwise it will be painted as a normal rectangle. The same radius is used by all 4 corners; there is currently no way to specify different radii for different corners.</p>
 </div></div><!-- @@@radius -->
 <br/>
 <!-- $$$smooth -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="smooth-prop"></a>smooth : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Set this property if you want the item to be smoothly scaled or transformed. Smooth filtering gives better visual quality, but is slower. If the item is displayed at its natural size, this property has no visual or performance effect.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="smooth-prop"></a>smooth : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>Set this property if you want the item to be smoothly scaled or transformed. Smooth filtering gives better visual quality, but is slower. If the item is displayed at its natural size, this property has no visual or performance effect.</p>
 <p><b>Note:</b> Generally scaling artifacts are only visible if the item is stationary on the screen. A common pattern when animating an item is to disable smooth filtering at the beginning of the animation and reenable it at the conclusion.</p>
 <p class="centerAlign"><img src="images/rect-smooth.png" /></p><p>On this image, smooth is turned off on the top half and on on the bottom half.</p>
 </div></div><!-- @@@smooth -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

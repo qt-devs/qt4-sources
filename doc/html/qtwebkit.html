@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -140,9 +148,13 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="qtsvg.html" />
   <link rel="next" href="qtxml.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qtsvg.html">QtSvg Module</a>]
+[Next: <a href="qtxml.html">QtXml Module</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -184,8 +196,8 @@
 <div class="descr">
 <h2>Detailed Description</h2>
 <p>QtWebKit provides a Web browser engine that makes it easy to embed content from the World Wide Web into your Qt application. At the same time Web content can be enhanced with native controls.</p>
-<p>QtWebKit provides facilities for rendering of HyperText Markup Language (HTML), Extensible HyperText Markup Language (XHTML) and Scalable Vector Graphics (SVG) documents, styled using Cascading Style Sheets (CSS) and scripted with <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>.</p>
-<p>A bridge between the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> execution environment and the Qt object model makes it possible for custom <a href="qtwebkit-bridge.html#qobjects">QObjects</a> to be scripted. For detailed documentation see <a href="qtwebkit-bridge.html">The QtWebkit Bridge</a>. Integration with the Qt networking module enables Web pages to be transparently loaded from Web servers, the local file system or even the Qt resource system.</p>
+<p>QtWebKit provides facilities for rendering of HyperText Markup Language (HTML), Extensible HyperText Markup Language (XHTML) and Scalable Vector Graphics (SVG) documents, styled using Cascading Style Sheets (CSS) and scripted with JavaScript.</p>
+<p>A bridge between the JavaScript execution environment and the Qt object model makes it possible for custom <a href="qtwebkit-bridge.html#qobjects">QObjects</a> to be scripted. For detailed documentation see <a href="qtwebkit-bridge.html">The QtWebkit Bridge</a>. Integration with the Qt networking module enables Web pages to be transparently loaded from Web servers, the local file system or even the Qt resource system.</p>
 <p>In addition to providing pure rendering features, HTML documents can be made fully editable to the user through the use of the <tt>contenteditable</tt> attribute on HTML elements.</p>
 <p>QtWebKit is based on the Open Source WebKit engine. More information about WebKit itself can be found on the <a href="http://webkit.org/">WebKit Open Source Project</a> Web site.</p>
 <a name="including-in-your-project"></a>
@@ -206,8 +218,8 @@
      view-&gt;load(QUrl(&quot;http://qt.nokia.com/&quot;));
      view-&gt;show();</pre>
 <p><a href="qwebview.html">QWebView</a> is used to view Web pages. An instance of <a href="qwebview.html">QWebView</a> has one <a href="qwebpage.html">QWebPage</a>. <a href="qwebpage.html">QWebPage</a> provides access to the document structure in a page, describing features such as frames, the navigation history, and the undo/redo stack for editable content.</p>
-<p>HTML documents can be nested using frames in a frameset. An individual frame in HTML is represented using the <a href="qwebframe.html">QWebFrame</a> class. This class includes the bridge to the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> window object and can be painted using <a href="qpainter.html">QPainter</a>. Each <a href="qwebpage.html">QWebPage</a> has one <a href="qwebframe.html">QWebFrame</a> object as its main frame, and the main frame may contain many child frames.</p>
-<p>Individual elements of an HTML document can be accessed via DOM <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> interfaces from within a web page. The equivalent of this API in QtWebKit is represented by <a href="qwebelement.html">QWebElement</a>. <a href="qwebelement.html">QWebElement</a> objects are obtained using <a href="qwebframe.html">QWebFrame</a>'s <a href="qwebframe.html#findAllElements">findAllElements()</a> and <a href="qwebframe.html#findFirstElement">findFirstElement()</a> functions with CSS selector queries.</p>
+<p>HTML documents can be nested using frames in a frameset. An individual frame in HTML is represented using the <a href="qwebframe.html">QWebFrame</a> class. This class includes the bridge to the JavaScript window object and can be painted using <a href="qpainter.html">QPainter</a>. Each <a href="qwebpage.html">QWebPage</a> has one <a href="qwebframe.html">QWebFrame</a> object as its main frame, and the main frame may contain many child frames.</p>
+<p>Individual elements of an HTML document can be accessed via DOM JavaScript interfaces from within a web page. The equivalent of this API in QtWebKit is represented by <a href="qwebelement.html">QWebElement</a>. <a href="qwebelement.html">QWebElement</a> objects are obtained using <a href="qwebframe.html">QWebFrame</a>'s <a href="qwebframe.html#findAllElements">findAllElements()</a> and <a href="qwebframe.html#findFirstElement">findFirstElement()</a> functions with CSS selector queries.</p>
 <p>Common web browser features, defaults and other settings can be configured through the <a href="qwebsettings.html">QWebSettings</a> class. It is possible to provide defaults for all <a href="qwebpage.html">QWebPage</a> instances through the default settings. Individual attributes can be overidden by the page specific settings object.</p>
 <a name="netscape-plugin-support"></a>
 <h2>Netscape Plugin Support</h2>
@@ -269,7 +281,7 @@
 <p>You should have received a copy of the GNU Library General Public License along with this library; see the file COPYING.LIB. If not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.</p>
 </div></div>
 <!-- @@@QtWebKit -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="qtsvg.html">QtSvg Module</a>]
 [Next: <a href="qtxml.html">QtXml Module</a>]
 </p>

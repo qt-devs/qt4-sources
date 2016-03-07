@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -186,8 +196,8 @@
 <h2>Overview</h2>
 <a name="the-technology"></a>
 <h3>The technology</h3>
-<p>The <a href="qtwebkit.html">QtWebKit</a> bridge is a mechanism that extends WebKit's <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> environment to access native objects that are represented as <a href="qobject.html">QObject</a>s. It takes advantage of the <a href="qobject.html">QObject</a> introspection, a part of the <a href="object.html">Object Model</a>, which makes it easy to integrate with the dynamic <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> environment, for example <a href="qobject.html">QObject</a> properties map directly to <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> properties.</p>
-<p>For example, both <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> and <a href="#qobjects">QObjects</a> have properties: a construct that represent a getter/setter pair under one name.</p>
+<p>The <a href="qtwebkit.html">QtWebKit</a> bridge is a mechanism that extends WebKit's JavaScript environment to access native objects that are represented as <a href="qobject.html">QObject</a>s. It takes advantage of the <a href="qobject.html">QObject</a> introspection, a part of the <a href="object.html">Object Model</a>, which makes it easy to integrate with the dynamic JavaScript environment, for example <a href="qobject.html">QObject</a> properties map directly to JavaScript properties.</p>
+<p>For example, both JavaScript and <a href="#qobjects">QObjects</a> have properties: a construct that represent a getter/setter pair under one name.</p>
 <a name="use-cases"></a>
 <h3>Use Cases</h3>
 <p>There are two main use cases for the <a href="qtwebkit.html">QtWebKit</a> bridge. Web content in a native application, and Thin Clients.</p>
@@ -197,7 +207,7 @@
 <p>With the <a href="qtwebkit.html">QtWebKit</a> bridge, that music store component can interact with native parts of the application, for example, if a file needs to be saved to a specific location.</p>
 <a name="thin-client"></a>
 <h4>Thin Client</h4>
-<p>Another use case is using Qt as a native backend to a full web application, referred to here as a thin client. In this use-case, the entire UI is driven by HTML, <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> and CSS, and native Qt-based components are used to allow that application access to native features not usually exposed to the web, or to enable helper components that are best written with C++.</p>
+<p>Another use case is using Qt as a native backend to a full web application, referred to here as a thin client. In this use-case, the entire UI is driven by HTML, JavaScript and CSS, and native Qt-based components are used to allow that application access to native features not usually exposed to the web, or to enable helper components that are best written with C++.</p>
 <p>An example for such a client is a UI for a video-on-demand service on a TV. The entire content and UI can be kept on the server, served dynamically through HTTP and rendered with WebKit, with additional native components for accessing hardware-specific features like extracting the list of images out of the video.</p>
 <a name="difference-from-other-bridge-technologies"></a>
 <h3>Difference from Other Bridge Technologies</h3>
@@ -222,7 +232,7 @@
 <ul>
 <li><b>Hybrid C++/script</b>: C++ application code connects a signal to a script function. For example, the script function can be a function that the user has typed in, or one that you have read from a file. This approach is useful if you have a <a href="qobject.html">QObject</a> but don't want to expose the object itself to the scripting environment; you just want a script to be able to define how a signal should be reacted to, and leave it up to the C++ side of your application to establish the connection.</li>
 <li><b>Hybrid script/C++</b>: A script can connect signals and slots to establish connections between pre-defined objects that the application exposes to the scripting environment. In this scenario, the slots themselves are still written in C++, but the definition of the connections is fully dynamic (script-defined).</li>
-<li><b>Purely script-defined</b>: A script can both define signal handler functions (effectively &quot;slots written in <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>&quot;), <i>and</i> set up the connections that utilize those handlers. For example, a script can define a function that will handle the <a href="qlineedit.html#returnPressed">QLineEdit::returnPressed</a>() signal, and then connect that signal to the script function.</li>
+<li><b>Purely script-defined</b>: A script can both define signal handler functions (effectively &quot;slots written in JavaScript&quot;), <i>and</i> set up the connections that utilize those handlers. For example, a script can define a function that will handle the <a href="qlineedit.html#returnPressed">QLineEdit::returnPressed</a>() signal, and then connect that signal to the script function.</li>
 </ul>
 <p>Note that <a href="qtscript.html">QtScript</a> functions such as qScriptConnect are unavilable in the web environment.</p>
 <a name="signal-to-function-connections"></a>
@@ -232,7 +242,7 @@
 <pre class="highlightedCode brush: cpp">     function myInterestingScriptFunction() { ... }
      ...
      myQObject.somethingChanged.connect(myInterestingScriptFunction);</pre>
-<p>The argument can be a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> function, as in the above example, or it can be a <a href="qobject.html">QObject</a> slot, as in the following example:</p>
+<p>The argument can be a JavaScript function, as in the above example, or it can be a <a href="qobject.html">QObject</a> slot, as in the following example:</p>
 <pre class="highlightedCode brush: cpp">     myQObject.somethingChanged.connect(myOtherQObject.doSomething);</pre>
 <p>When the argument is a <a href="qobject.html">QObject</a> slot, the argument types of the signal and slot do not necessarily have to be compatible; If necessary, the <a href="qtwebkit.html">QtWebKit</a> bridge will, perform conversion of the signal arguments to match the argument types of the slot.</p>
 <p>To disconnect from a signal, you invoke the signal's <tt>disconnect()</tt> function, passing the function to disconnect as argument:</p>
@@ -280,7 +290,7 @@
 <pre class="highlightedCode brush: cpp">     myQObject['myOverloadedSlot(int)'](&quot;10&quot;);   <span class="comment">// call int overload; the argument is converted to an int</span>
      myQObject['myOverloadedSlot(QString)'](10); <span class="comment">// call QString overload; the argument is converted to a string</span></pre>
 <p>If the overloads have different number of arguments, the <a href="qtwebkit.html">QtWebKit</a> bridge will pick the overload with the argument count that best matches the actual number of arguments passed to the slot.</p>
-<p>For overloaded signals, <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> will throw an error if you try to connect to the signal by name; you have to refer to the signal with the full normalized signature of the particular overload you want to connect to.</p>
+<p>For overloaded signals, JavaScript will throw an error if you try to connect to the signal by name; you have to refer to the signal with the full normalized signature of the particular overload you want to connect to.</p>
 <a name="invokable-methods"></a>
 <h4>Invokable Methods</h4>
 <p>Both slots and signals are invokable from script by default. In addition, it's also possible to define a method that's invokable from script without it being a signal or a slot. This is especially useful for functions with return types, as slots normally do not return anything (it would be meaningless to return values from a slot, as the connected signals don't handle the returned data). To make a non-slot method invokable, simply add the <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> macro before its definition:</p>
@@ -296,7 +306,7 @@
      };</pre>
 <a name="accessing-properties"></a>
 <h3>Accessing Properties</h3>
-<p>The properties of the <a href="qobject.html">QObject</a> are available as properties of the corresponding <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> object. When you manipulate a property in script code, the C++ get/set method for that property will automatically be invoked. For example, if your C++ class has a property declared as follows:</p>
+<p>The properties of the <a href="qobject.html">QObject</a> are available as properties of the corresponding JavaScript object. When you manipulate a property in script code, the C++ get/set method for that property will automatically be invoked. For example, if your C++ class has a property declared as follows:</p>
 <pre class="highlightedCode brush: cpp">         Q_PROPERTY(bool enabled READ enabled WRITE setEnabled)</pre>
 <p>then script code can do things like the following:</p>
 <pre class="highlightedCode brush: cpp">     myQObject.enabled = true;
@@ -306,7 +316,7 @@
      myQObject.enabled = !myQObject.enabled;</pre>
 <a name="accessing-child-qobjects"></a>
 <h3>Accessing Child QObjects</h3>
-<p>Every named child of the <a href="qobject.html">QObject</a> (that is, for which <a href="qobject.html#objectName-prop">QObject::objectName</a>() is not an empty string) is by default available as a property of the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> wrapper object. For example, if you have a <a href="qdialog.html">QDialog</a> with a child widget whose <tt>objectName</tt> property is <tt>&quot;okButton&quot;</tt>, you can access this object in script code through the expression</p>
+<p>Every named child of the <a href="qobject.html">QObject</a> (that is, for which <a href="qobject.html#objectName-prop">QObject::objectName</a>() is not an empty string) is by default available as a property of the JavaScript wrapper object. For example, if you have a <a href="qdialog.html">QDialog</a> with a child widget whose <tt>objectName</tt> property is <tt>&quot;okButton&quot;</tt>, you can access this object in script code through the expression</p>
 <pre class="highlightedCode brush: cpp">     myDialog.okButton</pre>
 <p>Since <tt>objectName</tt> is itself a Q_PROPERTY, you can manipulate the name in script code to, for example, rename an object:</p>
 <pre class="highlightedCode brush: cpp">     myDialog.okButton
@@ -314,50 +324,50 @@
      <span class="comment">// from now on, myDialog.cancelButton references the button</span></pre>
 <a name="data-types"></a>
 <h3>Data types</h3>
-<p>When calling slots, receiving signals or accessing properties, usually some payload is involved. For example, a property &quot;text&quot; might return a <a href="qstring.html">QString</a> parameter. The <a href="qtwebkit.html">QtWebKit</a> bridge does the job of converting between a given <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> data-type, and the expected or given Qt type. Each Qt type has a coresponding set of rules of how <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> treats it.</p>
+<p>When calling slots, receiving signals or accessing properties, usually some payload is involved. For example, a property &quot;text&quot; might return a <a href="qstring.html">QString</a> parameter. The <a href="qtwebkit.html">QtWebKit</a> bridge does the job of converting between a given JavaScript data-type, and the expected or given Qt type. Each Qt type has a coresponding set of rules of how JavaScript treats it.</p>
 <p>The data type conversions are also applicable for the data returned from non-void invokable methods.</p>
 <a name="numbers"></a>
 <h4>Numbers</h4>
-<p>All Qt numeric data types are converted to or from a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> number. These include int, short, float, double, and the porable Qt types (qreal, qint etc). A special case is <a href="qchar.html">QChar</a>; If a slot expects a <a href="qchar.html">QChar</a>, the <a href="qtwebkit.html">QtWebKit</a> bridge would use the unicode value in case of a number, or the first character in a string.</p>
-<p>Note that non-standard (typedefed) number types are not automatically converted to or from a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> number - it's advised to use standard number types for signal, slots and properties.</p>
-<p>When a non-number is passed as an argument to a method or property that expects a number, the appropriate <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> conversion function (parseInt / parseFloat) would be used.</p>
+<p>All Qt numeric data types are converted to or from a JavaScript number. These include int, short, float, double, and the porable Qt types (qreal, qint etc). A special case is <a href="qchar.html">QChar</a>; If a slot expects a <a href="qchar.html">QChar</a>, the <a href="qtwebkit.html">QtWebKit</a> bridge would use the unicode value in case of a number, or the first character in a string.</p>
+<p>Note that non-standard (typedefed) number types are not automatically converted to or from a JavaScript number - it's advised to use standard number types for signal, slots and properties.</p>
+<p>When a non-number is passed as an argument to a method or property that expects a number, the appropriate JavaScript conversion function (parseInt / parseFloat) would be used.</p>
 <a name="strings"></a>
 <h4>Strings</h4>
-<p>When <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> accesses methods or properties that expect a <a href="qstring.html">QString</a>, the <a href="qtwebkit.html">QtWebKit</a> bridge will automatically convert the value to a string (if it is not already a string), using the built-in <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> toString method.</p>
-<p>When a <a href="qstring.html">QString</a> is passed to <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> from a signal or a property, The <a href="qtwebkit.html">QtWebKit</a> bridge will convert it into a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> string.</p>
+<p>When JavaScript accesses methods or properties that expect a <a href="qstring.html">QString</a>, the <a href="qtwebkit.html">QtWebKit</a> bridge will automatically convert the value to a string (if it is not already a string), using the built-in JavaScript toString method.</p>
+<p>When a <a href="qstring.html">QString</a> is passed to JavaScript from a signal or a property, The <a href="qtwebkit.html">QtWebKit</a> bridge will convert it into a JavaScript string.</p>
 <a name="date-time"></a>
 <h4>Date &amp; Time</h4>
-<p>Both <a href="qdate.html">QDate</a>, <a href="qtime.html">QTime</a> and <a href="qdatetime.html">QDateTime</a> are automatically translated to or from the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> Date object. If a number were passed as an argument to a method that expects one of the date/time types, the <a href="qtwebkit.html">QtWebKit</a> bridge would treat it as a timestamp. If a sting is passed, <a href="qtwebkit.html">QtWebKit</a> would try different Qt date parsing functions to find the right one.</p>
+<p>Both <a href="qdate.html">QDate</a>, <a href="qtime.html">QTime</a> and <a href="qdatetime.html">QDateTime</a> are automatically translated to or from the JavaScript Date object. If a number were passed as an argument to a method that expects one of the date/time types, the <a href="qtwebkit.html">QtWebKit</a> bridge would treat it as a timestamp. If a sting is passed, <a href="qtwebkit.html">QtWebKit</a> would try different Qt date parsing functions to find the right one.</p>
 <a name="regular-expressions"></a>
 <h4>Regular Expressions</h4>
-<p>The <a href="qtwebkit.html">QtWebKit</a> bridge would automatically convert <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> RegEx object to a <a href="qregexp.html">QRegExp</a>. If a string is passed to a method expecting a <a href="qregexp.html">QRegExp</a>, the string would be converted to that <a href="qregexp.html">QRegExp</a>.</p>
+<p>The <a href="qtwebkit.html">QtWebKit</a> bridge would automatically convert JavaScript RegEx object to a <a href="qregexp.html">QRegExp</a>. If a string is passed to a method expecting a <a href="qregexp.html">QRegExp</a>, the string would be converted to that <a href="qregexp.html">QRegExp</a>.</p>
 <a name="lists"></a>
 <h4>Lists</h4>
-<p>The <a href="qtwebkit.html">QtWebKit</a> bridge treats several types of lists in a special way: <a href="qvariant.html#QVariantList-typedef">QVariantList</a>, <a href="qstringlist.html">QStringList</a>, <a href="qobject.html#QObjectList-typedef">QObjectList</a> and <a href="qlist.html">QList</a>&lt;int&gt;. When a slot or property expects one of those list types, the <a href="qtwebkit.html">QtWebKit</a> bridge would try to convert a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> array into that type, converting each of the array's elements to the single-element type of the list.</p>
-<p>The most useful type of list is perhaps <a href="qvariant.html#QVariantList-typedef">QVariantList</a>, which can be converted to from any <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> array.</p>
+<p>The <a href="qtwebkit.html">QtWebKit</a> bridge treats several types of lists in a special way: <a href="qvariant.html#QVariantList-typedef">QVariantList</a>, <a href="qstringlist.html">QStringList</a>, <a href="qobject.html#QObjectList-typedef">QObjectList</a> and <a href="qlist.html">QList</a>&lt;int&gt;. When a slot or property expects one of those list types, the <a href="qtwebkit.html">QtWebKit</a> bridge would try to convert a JavaScript array into that type, converting each of the array's elements to the single-element type of the list.</p>
+<p>The most useful type of list is perhaps <a href="qvariant.html#QVariantList-typedef">QVariantList</a>, which can be converted to from any JavaScript array.</p>
 <a name="compound-json-objects"></a>
 <h4>Compound (JSON) objects</h4>
-<p><a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> compound objects, also known as JSON objects, are variables that hold a list of key-value pairs, where all the keys are strings and the values can have any type. This translates very well to <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a>, which is nothing more than a <a href="qmap.html">QMap</a> of <a href="qstring.html">QString</a> to <a href="qvariant.html">QVariant</a>.</p>
-<p>The seamless conversion between JSON objects and <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a> allows for a very convenient way of passing arbitrary structured data between C++ and the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> environment. The native <a href="qobject.html">QObject</a> has to make sure that compound values are converted to <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a>s and <a href="qvariant.html#QVariantList-typedef">QVariantList</a>s, and <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> is guaranteed to receive them in a meaningful way.</p>
-<p>Note that types that are not supported by JSON, such as <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> functions and getters/setters, are not converted.</p>
+<p>JavaScript compound objects, also known as JSON objects, are variables that hold a list of key-value pairs, where all the keys are strings and the values can have any type. This translates very well to <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a>, which is nothing more than a <a href="qmap.html">QMap</a> of <a href="qstring.html">QString</a> to <a href="qvariant.html">QVariant</a>.</p>
+<p>The seamless conversion between JSON objects and <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a> allows for a very convenient way of passing arbitrary structured data between C++ and the JavaScript environment. The native <a href="qobject.html">QObject</a> has to make sure that compound values are converted to <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a>s and <a href="qvariant.html#QVariantList-typedef">QVariantList</a>s, and JavaScript is guaranteed to receive them in a meaningful way.</p>
+<p>Note that types that are not supported by JSON, such as JavaScript functions and getters/setters, are not converted.</p>
 <a name="qvariants"></a>
 <h4>QVariants</h4>
-<p>When a slot or property accepts a <a href="qvariant.html">QVariant</a>, the <a href="qtwebkit.html">QtWebKit</a> bridge would create a <a href="qvariant.html">QVariant</a> that best matches the argument passed by <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>. A string, for example, would become a <a href="qvariant.html">QVariant</a> holding a <a href="qstring.html">QString</a>, a normal JSON object would become a <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a>, and a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> array would become a <a href="qvariant.html#QVariantList-typedef">QVariantList</a>.</p>
-<p>Using <a href="qvariant.html">QVariant</a>s generously in C++ in that way makes C++ programming feel a bit more like <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> programming, as it adds another level of indirection. Passing <a href="qvariant.html">QVariant</a>s around like this q is very flexible, as the program can figure out the type of argument in runtime just like <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> would do, but it also takes away from the type-safety and robust nature of C++. It's recommended to use <a href="qvariant.html">QVariant</a>s only for convenience high-level functions, and to keep most of your <a href="qobject.html">QObject</a>s somewhat type-safe.</p>
+<p>When a slot or property accepts a <a href="qvariant.html">QVariant</a>, the <a href="qtwebkit.html">QtWebKit</a> bridge would create a <a href="qvariant.html">QVariant</a> that best matches the argument passed by JavaScript. A string, for example, would become a <a href="qvariant.html">QVariant</a> holding a <a href="qstring.html">QString</a>, a normal JSON object would become a <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a>, and a JavaScript array would become a <a href="qvariant.html#QVariantList-typedef">QVariantList</a>.</p>
+<p>Using <a href="qvariant.html">QVariant</a>s generously in C++ in that way makes C++ programming feel a bit more like JavaScript programming, as it adds another level of indirection. Passing <a href="qvariant.html">QVariant</a>s around like this q is very flexible, as the program can figure out the type of argument in runtime just like JavaScript would do, but it also takes away from the type-safety and robust nature of C++. It's recommended to use <a href="qvariant.html">QVariant</a>s only for convenience high-level functions, and to keep most of your <a href="qobject.html">QObject</a>s somewhat type-safe.</p>
 <a name="qobjects"></a>
 <h4>QObjects</h4>
 <p>A pointer to a <a href="qobject.html">QObject</a> or a <a href="qwidget.html">QWidget</a> can be passed as payload in signals, slots and properties. That object can then be used like an object that's exposed directly; i.e&#x2e; its slots can be invoked, its signals connected to etc. However, this functionality is fairly limited - the type used has to be <a href="qobject.html">QObject</a>* or <a href="qwidget.html">QWidget</a>*. If the type specified is a pointer to a non-<a href="qwidget.html">QWidget</a> subclass of <a href="qobject.html">QObject</a>, the <a href="qtwebkit.html">QtWebKit</a> bridge would not recognize it to be a <a href="qobject.html">QObject</a>.</p>
-<p>In general its advised to use care when passing <a href="qobject.html">QObject</a>s as arguments, as those objects don't become owned by the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> engine; That means that the application developer has to be extra careful not to try to access <a href="qobject.html">QObject</a>s that have already been deleted by the native environment.</p>
+<p>In general its advised to use care when passing <a href="qobject.html">QObject</a>s as arguments, as those objects don't become owned by the JavaScript engine; That means that the application developer has to be extra careful not to try to access <a href="qobject.html">QObject</a>s that have already been deleted by the native environment.</p>
 <a name="pixmaps-and-images"></a>
 <h4>Pixmaps and Images</h4>
-<p>The <a href="qtwebkit.html">QtWebKit</a> bridge handles <a href="qpixmap.html">QPixmap</a>s and <a href="qimage.html">QImage</a>s in a special way. Since <a href="qtwebkit.html">QtWebKit</a> stores <a href="qpixmap.html">QPixmap</a>s to represent HTML images, <a href="qpixmap.html">QPixmap</a>s coming from the native environment can be used directly inside WebKit. A <a href="qimage.html">QImage</a> or a <a href="qpixmap.html">QPixmap</a> coming from the Qt environment would convert to an intermediate <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> object, that can be represented like this:</p>
+<p>The <a href="qtwebkit.html">QtWebKit</a> bridge handles <a href="qpixmap.html">QPixmap</a>s and <a href="qimage.html">QImage</a>s in a special way. Since <a href="qtwebkit.html">QtWebKit</a> stores <a href="qpixmap.html">QPixmap</a>s to represent HTML images, <a href="qpixmap.html">QPixmap</a>s coming from the native environment can be used directly inside WebKit. A <a href="qimage.html">QImage</a> or a <a href="qpixmap.html">QPixmap</a> coming from the Qt environment would convert to an intermediate JavaScript object, that can be represented like this:</p>
 <pre class="highlightedCode brush: cpp">     {
          width: ...,
          height: ...,
          toDataURL: function() { ... },
          assignToHTMLImageElement: function(element) { ... }
      }</pre>
-<p>The <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> environment can then use the pixmap it gets from Qt and display it inside the HTML environment, by assigning it to an existing &lt;img /&gt; element using assignToHTMLImageElement. It can also use the toDataURL() function, which allows using the pixmap as the src attribute of an image or as a background-image url. Note that the toDataURL() function is costly and should be used with caution.</p>
+<p>The JavaScript environment can then use the pixmap it gets from Qt and display it inside the HTML environment, by assigning it to an existing &lt;img /&gt; element using assignToHTMLImageElement. It can also use the toDataURL() function, which allows using the pixmap as the src attribute of an image or as a background-image url. Note that the toDataURL() function is costly and should be used with caution.</p>
 <p>Example code:</p>
 <p>C++:</p>
 <pre class="highlightedCode brush: cpp">     class MyObject : QObject {
@@ -389,7 +399,7 @@
 <p>When a Qt object expects a <a href="qimage.html">QImage</a> or a <a href="qpixmap.html">QPixmap</a> as input, and the argument passed is an HTML image element, the <a href="qtwebkit.html">QtWebKit</a> bridge would convert the pixmap assigned to that image element into a <a href="qpixmap.html">QPixmap</a> or a <a href="qimage.html">QImage</a>.</p>
 <a name="qwebelement"></a>
 <h4>QWebElement</h4>
-<p>A signal, slot or property that expects or returns a <a href="qwebelement.html">QWebElement</a> can work seamlessly with <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> references to DOM elements. The <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> environment can select DOM elements, keep them in variables, then pass them to Qt as a <a href="qwebelement.html">QWebElement</a>, and receive them back. Example:</p>
+<p>A signal, slot or property that expects or returns a <a href="qwebelement.html">QWebElement</a> can work seamlessly with JavaScript references to DOM elements. The JavaScript environment can select DOM elements, keep them in variables, then pass them to Qt as a <a href="qwebelement.html">QWebElement</a>, and receive them back. Example:</p>
 <p>C++:</p>
 <pre class="highlightedCode brush: cpp"> class MyObject : QObject {
          Q_OBJECT
@@ -421,14 +431,14 @@
 <h2>Architecture issues</h2>
 <a name="limiting-the-scope-of-the-hybrid-layer"></a>
 <h3>Limiting the Scope of the Hybrid Layer</h3>
-<p>When using <a href="qtwebkit.html">QtWebKit</a>'s hybrid features, it is a common pitfall to make the API exposed to <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> very rich and use all its features. This, however, leads to complexity and can create bugs that are hard to trace. Instead, it is advisable to keep the hybrid layer small and manageable: create a gate only when there's an actual need for it, i.e&#x2e; there's a new native enabler that requires a direct interface to the application layer. Sometimes new functionality is better handled internally in the native layer or in the web layer; simplicity is your friend.</p>
+<p>When using <a href="qtwebkit.html">QtWebKit</a>'s hybrid features, it is a common pitfall to make the API exposed to JavaScript very rich and use all its features. This, however, leads to complexity and can create bugs that are hard to trace. Instead, it is advisable to keep the hybrid layer small and manageable: create a gate only when there's an actual need for it, i.e&#x2e; there's a new native enabler that requires a direct interface to the application layer. Sometimes new functionality is better handled internally in the native layer or in the web layer; simplicity is your friend.</p>
 <p>This usually becomes more apparent when the hybrid layer can create or destroy objects, or uses signals slots or properties with a <a href="qobject.html">QObject</a>* argument. It is advised to be very careful and to treat an exposed <a href="qobject.html">QObject</a> as a system - with careful attention to memory management and object ownership.</p>
 <a name="internet-security"></a>
 <h3>Internet Security</h3>
 <p>When exposing native object to an open web environment, it is importwhichant to understand the security implications. Think whether the exposed object enables the web environment access to things that shouldn't be open, and whether the web content loaded by that web page comes from a trusted. In general, when exposing native <a href="#qobjects">QObjects</a> that give the web environment access to private information or to functionality that's potentially harmful to the client, such exposure should be balanced by limiting the web page's access to trusted URLs only with HTTPS, and by utilizing other measures as part of a security strategy.</p>
 </div>
 <!-- @@@qtwebkit-bridge.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

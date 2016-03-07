@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -250,15 +260,15 @@
 <!-- @@@WebView -->
 <h2>Property Documentation</h2>
 <!-- $$$back -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="back-prop"></a><span class="qmlreadonly">read-only</span>back : <a href="qml-action.html">action</a></td></tr></table></div><div class="qmldoc"><p>This property holds the action for causing the previous URL in the history to be displayed.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="back-prop"></a><span class="qmlreadonly">read-only</span>back : <a href="qml-action.html">action</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the action for causing the previous URL in the history to be displayed.</p>
 </div></div><!-- @@@back -->
 <br/>
 <!-- $$$forward -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="forward-prop"></a><span class="qmlreadonly">read-only</span>forward : <a href="qml-action.html">action</a></td></tr></table></div><div class="qmldoc"><p>This property holds the action for causing the next URL in the history to be displayed.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="forward-prop"></a><span class="qmlreadonly">read-only</span>forward : <a href="qml-action.html">action</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the action for causing the next URL in the history to be displayed.</p>
 </div></div><!-- @@@forward -->
 <br/>
 <!-- $$$html -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="html-prop"></a>html : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>This property holds HTML text set directly</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="html-prop"></a>html : <a href="qml-string.html">string</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds HTML text set directly</p>
 <p>The html property can be set as a string.</p>
 <pre class="highlightedCode brush: cpp"> WebView {
      html: &quot;&lt;p&gt;This is &lt;b&gt;HTML&lt;/b&gt;.&quot;
@@ -266,13 +276,13 @@
 </div></div><!-- @@@html -->
 <br/>
 <!-- $$$icon -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="icon-prop"></a><span class="qmlreadonly">read-only</span>icon : pixmap</td></tr></table></div><div class="qmldoc"><p>This property holds the icon associated with the web page currently viewed</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="icon-prop"></a><span class="qmlreadonly">read-only</span>icon : pixmap</p></td></tr></table></div><div class="qmldoc"><p>This property holds the icon associated with the web page currently viewed</p>
 </div></div><!-- @@@icon -->
 <br/>
 <!-- $$$javaScriptWindowObjects -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="javaScriptWindowObjects-prop"></a><span class="qmlreadonly">read-only</span>javaScriptWindowObjects : <a href="qml-list.html">list</a>&lt;object&gt;</td></tr></table></div><div class="qmldoc"><p>A list of QML objects to expose to the web page.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="javaScriptWindowObjects-prop"></a><span class="qmlreadonly">read-only</span>javaScriptWindowObjects : <a href="qml-list.html">list</a>&lt;object&gt;</p></td></tr></table></div><div class="qmldoc"><p>A list of QML objects to expose to the web page.</p>
 <p>Each object will be added as a property of the web frame's window object. The property name is controlled by the value of <tt>WebView.windowObjectName</tt> attached property.</p>
-<p>Exposing QML objects to a web page allows <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> executing in the web page itself to communicate with QML, by reading and writing properties and by calling methods of the exposed QML objects.</p>
+<p>Exposing QML objects to a web page allows JavaScript executing in the web page itself to communicate with QML, by reading and writing properties and by calling methods of the exposed QML objects.</p>
 <p>This example shows how to call into a QML method using a window object.</p>
 <pre class="highlightedCode brush: cpp"> WebView {
      javaScriptWindowObjects: QtObject {
@@ -292,40 +302,40 @@
 </div></div><!-- @@@javaScriptWindowObjects -->
 <br/>
 <!-- $$$newWindowComponent -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="newWindowComponent-prop"></a>newWindowComponent : component</td></tr></table></div><div class="qmldoc"><p>This property holds the component to use for new windows. The component must have a <a href="qml-webview.html">WebView</a> somewhere in its structure.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="newWindowComponent-prop"></a>newWindowComponent : component</p></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use for new windows. The component must have a <a href="qml-webview.html">WebView</a> somewhere in its structure.</p>
 <p>When the web engine requests a new window, it will be an instance of this component.</p>
 <p>The parent of the new window is set by <a href="qml-webview.html#newWindowParent-prop">newWindowParent</a>. It must be set.</p>
 </div></div><!-- @@@newWindowComponent -->
 <br/>
 <!-- $$$newWindowParent -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="newWindowParent-prop"></a>newWindowParent : item</td></tr></table></div><div class="qmldoc"><p>The parent item for new windows.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="newWindowParent-prop"></a>newWindowParent : item</p></td></tr></table></div><div class="qmldoc"><p>The parent item for new windows.</p>
 <p>See also <a href="qml-webview.html#newWindowComponent-prop">newWindowComponent</a>.</p>
 </div></div><!-- @@@newWindowParent -->
 <br/>
 <!-- $$$preferredHeight -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="preferredHeight-prop"></a>preferredHeight : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the ideal height for displaying the current URL. This only affects the area zoomed by <a href="qml-webview.html#heuristicZoom-method">heuristicZoom</a>().</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="preferredHeight-prop"></a>preferredHeight : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the ideal height for displaying the current URL. This only affects the area zoomed by <a href="qml-webview.html#heuristicZoom-method">heuristicZoom</a>().</p>
 </div></div><!-- @@@preferredHeight -->
 <br/>
 <!-- $$$preferredWidth -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="preferredWidth-prop"></a>preferredWidth : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the ideal width for displaying the current URL.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="preferredWidth-prop"></a>preferredWidth : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the ideal width for displaying the current URL.</p>
 </div></div><!-- @@@preferredWidth -->
 <br/>
 <!-- $$$pressGrabTime -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="pressGrabTime-prop"></a>pressGrabTime : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>The number of milliseconds the user must press before the <a href="qml-webview.html">WebView</a> starts passing move events through to the Web engine (rather than letting other QML elements such as a Flickable take them).</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="pressGrabTime-prop"></a>pressGrabTime : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>The number of milliseconds the user must press before the <a href="qml-webview.html">WebView</a> starts passing move events through to the Web engine (rather than letting other QML elements such as a Flickable take them).</p>
 <p>Defaults to 400ms. Set to 0 to always grab and pass move events to the Web engine.</p>
 </div></div><!-- @@@pressGrabTime -->
 <br/>
 <!-- $$$progress -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="progress-prop"></a><span class="qmlreadonly">read-only</span>progress : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the progress of loading the current URL, from 0 to 1.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="progress-prop"></a><span class="qmlreadonly">read-only</span>progress : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the progress of loading the current URL, from 0 to 1.</p>
 <p>If you just want to know when progress gets to 1, use WebView::onLoadFinished() or WebView::onLoadFailed() instead.</p>
 </div></div><!-- @@@progress -->
 <br/>
 <!-- $$$reload -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="reload-prop"></a><span class="qmlreadonly">read-only</span>reload : <a href="qml-action.html">action</a></td></tr></table></div><div class="qmldoc"><p>This property holds the action for reloading with the current URL</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="reload-prop"></a><span class="qmlreadonly">read-only</span>reload : <a href="qml-action.html">action</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the action for reloading with the current URL</p>
 </div></div><!-- @@@reload -->
 <br/>
 <!-- $$$settings.standardFontFamily -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.standardFontFamily-prop"></a>settings.standardFontFamily : <a href="qml-string.html">string</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.fixedFontFamily-prop"></a>settings.fixedFontFamily : <a href="qml-string.html">string</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.serifFontFamily-prop"></a>settings.serifFontFamily : <a href="qml-string.html">string</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.sansSerifFontFamily-prop"></a>settings.sansSerifFontFamily : <a href="qml-string.html">string</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.cursiveFontFamily-prop"></a>settings.cursiveFontFamily : <a href="qml-string.html">string</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.fantasyFontFamily-prop"></a>settings.fantasyFontFamily : <a href="qml-string.html">string</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.minimumFontSize-prop"></a>settings.minimumFontSize : <a href="qml-int.html">int</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.minimumLogicalFontSize-prop"></a>settings.minimumLogicalFontSize : <a href="qml-int.html">int</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.defaultFontSize-prop"></a>settings.defaultFontSize : <a href="qml-int.html">int</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.defaultFixedFontSize-prop"></a>settings.defaultFixedFontSize : <a href="qml-int.html">int</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.autoLoadImages-prop"></a>settings.autoLoadImages : <a href="qml-bool.html">bool</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.javascriptEnabled-prop"></a>settings.javascriptEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.javaEnabled-prop"></a>settings.javaEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.pluginsEnabled-prop"></a>settings.pluginsEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.privateBrowsingEnabled-prop"></a>settings.privateBrowsingEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.javascriptCanOpenWindows-prop"></a>settings.javascriptCanOpenWindows : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.javascriptCanAccessClipboard-prop"></a>settings.javascriptCanAccessClipboard : <a href="qml-bool.html">bool</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.developerExtrasEnabled-prop"></a>settings.developerExtrasEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.linksIncludedInFocusChain-prop"></a>settings.linksIncludedInFocusChain : <a href="qml-bool.html">bool</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.zoomTextOnly-prop"></a>settings.zoomTextOnly : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.printElementBackgrounds-prop"></a>settings.printElementBackgrounds : <a href="qml-bool.html">bool</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.offlineStorageDatabaseEnabled-prop"></a>settings.offlineStorageDatabaseEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.offlineWebApplicationCacheEnabled-prop"></a>settings.offlineWebApplicationCacheEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.localStorageDatabaseEnabled-prop"></a>settings.localStorageDatabaseEnabled : <a href="qml-bool.html">bool</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.localContentCanAccessRemoteUrls-prop"></a>settings.localContentCanAccessRemoteUrls : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>These properties give access to the settings controlling the web view.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.standardFontFamily-prop"></a>settings.standardFontFamily : <a href="qml-string.html">string</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.fixedFontFamily-prop"></a>settings.fixedFontFamily : <a href="qml-string.html">string</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.serifFontFamily-prop"></a>settings.serifFontFamily : <a href="qml-string.html">string</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.sansSerifFontFamily-prop"></a>settings.sansSerifFontFamily : <a href="qml-string.html">string</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.cursiveFontFamily-prop"></a>settings.cursiveFontFamily : <a href="qml-string.html">string</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.fantasyFontFamily-prop"></a>settings.fantasyFontFamily : <a href="qml-string.html">string</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.minimumFontSize-prop"></a>settings.minimumFontSize : <a href="qml-int.html">int</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.minimumLogicalFontSize-prop"></a>settings.minimumLogicalFontSize : <a href="qml-int.html">int</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.defaultFontSize-prop"></a>settings.defaultFontSize : <a href="qml-int.html">int</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.defaultFixedFontSize-prop"></a>settings.defaultFixedFontSize : <a href="qml-int.html">int</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.autoLoadImages-prop"></a>settings.autoLoadImages : <a href="qml-bool.html">bool</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.javascriptEnabled-prop"></a>settings.javascriptEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.javaEnabled-prop"></a>settings.javaEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.pluginsEnabled-prop"></a>settings.pluginsEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.privateBrowsingEnabled-prop"></a>settings.privateBrowsingEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.javascriptCanOpenWindows-prop"></a>settings.javascriptCanOpenWindows : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.javascriptCanAccessClipboard-prop"></a>settings.javascriptCanAccessClipboard : <a href="qml-bool.html">bool</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.developerExtrasEnabled-prop"></a>settings.developerExtrasEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.linksIncludedInFocusChain-prop"></a>settings.linksIncludedInFocusChain : <a href="qml-bool.html">bool</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.zoomTextOnly-prop"></a>settings.zoomTextOnly : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.printElementBackgrounds-prop"></a>settings.printElementBackgrounds : <a href="qml-bool.html">bool</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.offlineStorageDatabaseEnabled-prop"></a>settings.offlineStorageDatabaseEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.offlineWebApplicationCacheEnabled-prop"></a>settings.offlineWebApplicationCacheEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="settings.localStorageDatabaseEnabled-prop"></a>settings.localStorageDatabaseEnabled : <a href="qml-bool.html">bool</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="settings.localContentCanAccessRemoteUrls-prop"></a>settings.localContentCanAccessRemoteUrls : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>These properties give access to the settings controlling the web view.</p>
 <p>See <a href="qwebsettings.html">QWebSettings</a> for details of these properties.</p>
 <pre class="highlightedCode brush: cpp"> WebView {
      settings.pluginsEnabled: true
@@ -335,27 +345,27 @@
 </div></div><!-- @@@settings.standardFontFamily -->
 <br/>
 <!-- $$$statusText -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="statusText-prop"></a><span class="qmlreadonly">read-only</span>statusText : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>This property is the current status suggested by the current web page. In a web browser, such status is often shown in some kind of status bar.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="statusText-prop"></a><span class="qmlreadonly">read-only</span>statusText : <a href="qml-string.html">string</a></p></td></tr></table></div><div class="qmldoc"><p>This property is the current status suggested by the current web page. In a web browser, such status is often shown in some kind of status bar.</p>
 </div></div><!-- @@@statusText -->
 <br/>
 <!-- $$$stop -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="stop-prop"></a><span class="qmlreadonly">read-only</span>stop : <a href="qml-action.html">action</a></td></tr></table></div><div class="qmldoc"><p>This property holds the action for stopping loading with the current URL</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="stop-prop"></a><span class="qmlreadonly">read-only</span>stop : <a href="qml-action.html">action</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the action for stopping loading with the current URL</p>
 </div></div><!-- @@@stop -->
 <br/>
 <!-- $$$title -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="title-prop"></a><span class="qmlreadonly">read-only</span>title : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>This property holds the title of the web page currently viewed</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="title-prop"></a><span class="qmlreadonly">read-only</span>title : <a href="qml-string.html">string</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the title of the web page currently viewed</p>
 <p>By default, this property contains an empty string.</p>
 </div></div><!-- @@@title -->
 <br/>
 <!-- $$$url -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="url-prop"></a>url : <a href="qml-url.html">url</a></td></tr></table></div><div class="qmldoc"><p>This property holds the URL to the page displayed in this item. It can be set, but also can change spontaneously (eg. because of network redirection).</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="url-prop"></a>url : <a href="qml-url.html">url</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the URL to the page displayed in this item. It can be set, but also can change spontaneously (eg. because of network redirection).</p>
 <p>If the url is empty, the page is blank.</p>
 <p>The url is always absolute (QML will resolve relative URL strings in the context of the containing QML document).</p>
 </div></div><!-- @@@url -->
 <br/>
 <h2>Signal Documentation</h2>
 <!-- $$$onAlert -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onAlert-signal"></a>WebView::onAlert ( <a href="qml-string.html">string</a> <i>message</i> )</p></td></tr></table></div><div class="qmldoc"><p>The handler is called when the web engine sends a <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> alert. The <i>message</i> is the text to be displayed in the alert to the user.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onAlert-signal"></a>WebView::onAlert ( <a href="qml-string.html">string</a> <i>message</i> )</p></td></tr></table></div><div class="qmldoc"><p>The handler is called when the web engine sends a JavaScript alert. The <i>message</i> is the text to be displayed in the alert to the user.</p>
 </div></div><!-- @@@onAlert -->
 <br/>
 <!-- $$$onDoubleClick -->
@@ -377,8 +387,8 @@
 <br/>
 <h2>Method Documentation</h2>
 <!-- $$$evaluateJavaScript -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="evaluateJavaScript-method"></a><a href="qml-bool.html">bool</a> WebView::evaluateJavaScript ( <a href="qml-string.html">string</a> <i>scriptSource</i> )</p></td></tr></table></div><div class="qmldoc"><p>Evaluates the <i>scriptSource</i> <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> inside the context of the main web frame, and returns the result of the last executed statement.</p>
-<p>Note that this <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> does <i>not</i> have any access to QML objects except as made available as windowObjects.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="evaluateJavaScript-method"></a><a href="qml-bool.html">bool</a> WebView::evaluateJavaScript ( <a href="qml-string.html">string</a> <i>scriptSource</i> )</p></td></tr></table></div><div class="qmldoc"><p>Evaluates the <i>scriptSource</i> JavaScript inside the context of the main web frame, and returns the result of the last executed statement.</p>
+<p>Note that this JavaScript does <i>not</i> have any access to QML objects except as made available as windowObjects.</p>
 </div></div><!-- @@@evaluateJavaScript -->
 <br/>
 <!-- $$$heuristicZoom -->
@@ -393,7 +403,7 @@
 <p>If such a zoom exists, emits zoomTo(zoom,centerX,centerY) and returns true; otherwise, no signal is emitted and returns false.</p>
 </div></div><!-- @@@heuristicZoom -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

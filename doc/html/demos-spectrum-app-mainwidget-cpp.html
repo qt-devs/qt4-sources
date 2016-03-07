@@ -14,6 +14,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -30,37 +31,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -71,10 +72,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -98,7 +106,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -138,14 +146,14 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">mainwidget.cpp Example File</h1>
 <span class="small-subtitle">demos/spectrum/app/mainwidget.cpp</span>
 <!-- $$$demos/spectrum/app/mainwidget.cpp-description -->
 <div class="descr"> <a name="details"></a>
 <pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
  **
- ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -210,7 +218,7 @@
      ,   m_mode(NoMode)
      ,   m_engine(new Engine(this))
  #ifndef DISABLE_WAVEFORM
-     ,   m_waveform(new Waveform(m_engine-&gt;buffer(), this))
+     ,   m_waveform(new Waveform(this))
  #endif
      ,   m_progressBar(new ProgressBar(this))
      ,   m_spectrograph(new Spectrograph(this))
@@ -310,52 +318,40 @@
      m_infoMessage-&gt;setText(&quot;&quot;);
  }
 
- void MainWidget::positionChanged(qint64 positionUs)
+ void MainWidget::audioPositionChanged(qint64 position)
  {
  #ifndef DISABLE_WAVEFORM
-     qint64 positionBytes = audioLength(m_engine-&gt;format(), positionUs);
-     m_waveform-&gt;positionChanged(positionBytes);
+     m_waveform-&gt;audioPositionChanged(position);
  #else
-     Q_UNUSED(positionUs)
+     Q_UNUSED(position)
  #endif
  }
 
- void MainWidget::bufferDurationChanged(qint64 durationUs)
+ void MainWidget::bufferLengthChanged(qint64 length)
  {
-     m_progressBar-&gt;bufferDurationChanged(durationUs);
+     m_progressBar-&gt;bufferLengthChanged(length);
  }
 
 <span class="comment"> //-----------------------------------------------------------------------------</span>
 <span class="comment"> // Private slots</span>
 <span class="comment"> //-----------------------------------------------------------------------------</span>
 
- void MainWidget::dataDurationChanged(qint64 duration)
- {
- #ifndef DISABLE_WAVEFORM
-     const qint64 dataLength = audioLength(m_engine-&gt;format(), duration);
-     m_waveform-&gt;dataLengthChanged(dataLength);
- #else
-     Q_UNUSED(duration)
- #endif
-
-     updateButtonStates();
- }
-
  void MainWidget::showFileDialog()
  {
-     reset();
      const QString dir;
      const QStringList fileNames = QFileDialog::getOpenFileNames(this, tr(&quot;Open WAV file&quot;), dir, &quot;*.wav&quot;);
      if (fileNames.count()) {
+         reset();
          setMode(LoadFileMode);
          m_engine-&gt;loadFile(fileNames.front());
          updateButtonStates();
+     } else {
+         updateModeMenu();
      }
  }
 
  void MainWidget::showSettingsDialog()
  {
-     reset();
      m_settingsDialog-&gt;exec();
      if (m_settingsDialog-&gt;result() == QDialog::Accepted) {
          m_engine-&gt;setAudioInputDevice(m_settingsDialog-&gt;inputDevice());
@@ -366,9 +362,9 @@
 
  void MainWidget::showToneGeneratorDialog()
  {
-     reset();
      m_toneGeneratorDialog-&gt;exec();
      if (m_toneGeneratorDialog-&gt;result() == QDialog::Accepted) {
+         reset();
          setMode(GenerateToneMode);
          const qreal amplitude = m_toneGeneratorDialog-&gt;amplitude();
          if (m_toneGeneratorDialog-&gt;isFrequencySweepEnabled()) {
@@ -379,6 +375,8 @@
              m_engine-&gt;generateTone(tone);
              updateButtonStates();
          }
+     } else {
+         updateModeMenu();
      }
  }
 
@@ -502,13 +500,13 @@
      CHECKED_CONNECT(m_engine, SIGNAL(formatChanged(const QAudioFormat &amp;)),
              this, SLOT(formatChanged(const QAudioFormat &amp;)));
 
-     m_progressBar-&gt;bufferDurationChanged(m_engine-&gt;bufferDuration());
+     m_progressBar-&gt;bufferLengthChanged(m_engine-&gt;bufferLength());
 
-     CHECKED_CONNECT(m_engine, SIGNAL(bufferDurationChanged(qint64)),
-             this, SLOT(bufferDurationChanged(qint64)));
+     CHECKED_CONNECT(m_engine, SIGNAL(bufferLengthChanged(qint64)),
+             this, SLOT(bufferLengthChanged(qint64)));
 
-     CHECKED_CONNECT(m_engine, SIGNAL(dataDurationChanged(qint64)),
-             this, SLOT(dataDurationChanged(qint64)));
+     CHECKED_CONNECT(m_engine, SIGNAL(dataLengthChanged(qint64)),
+             this, SLOT(updateButtonStates()));
 
      CHECKED_CONNECT(m_engine, SIGNAL(recordPositionChanged(qint64)),
              m_progressBar, SLOT(recordPositionChanged(qint64)));
@@ -517,10 +515,10 @@
              m_progressBar, SLOT(playPositionChanged(qint64)));
 
      CHECKED_CONNECT(m_engine, SIGNAL(recordPositionChanged(qint64)),
-             this, SLOT(positionChanged(qint64)));
+             this, SLOT(audioPositionChanged(qint64)));
 
      CHECKED_CONNECT(m_engine, SIGNAL(playPositionChanged(qint64)),
-             this, SLOT(positionChanged(qint64)));
+             this, SLOT(audioPositionChanged(qint64)));
 
      CHECKED_CONNECT(m_engine, SIGNAL(levelChanged(qreal, qreal, int)),
              m_levelMeter, SLOT(levelChanged(qreal, qreal, int)));
@@ -536,6 +534,11 @@
 
      CHECKED_CONNECT(m_spectrograph, SIGNAL(infoMessage(QString, int)),
              this, SLOT(infoMessage(QString, int)));
+
+ #ifndef DISABLE_WAVEFORM
+     CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &amp;)),
+             m_waveform, SLOT(bufferChanged(qint64, qint64, const QByteArray &amp;)));
+ #endif
  }
 
  void MainWidget::createMenus()
@@ -567,7 +570,7 @@
                                 QAudio::IdleState == m_engine-&gt;state());
      m_pauseButton-&gt;setEnabled(pauseEnabled);
 
-     const bool playEnabled = (m_engine-&gt;dataDuration() &amp;&amp;
+     const bool playEnabled = (<span class="comment">/*m_engine-&gt;dataLength() &amp;&amp;*/</span>
                                (QAudio::AudioOutput != m_engine-&gt;mode() ||
                                 (QAudio::ActiveState != m_engine-&gt;state() &amp;&amp;
                                  QAudio::IdleState != m_engine-&gt;state())));
@@ -587,11 +590,15 @@
 
  void MainWidget::setMode(Mode mode)
  {
-
      m_mode = mode;
-     m_loadFileAction-&gt;setChecked(LoadFileMode == mode);
-     m_generateToneAction-&gt;setChecked(GenerateToneMode == mode);
-     m_recordAction-&gt;setChecked(RecordMode == mode);
+     updateModeMenu();
+ }
+
+ void MainWidget::updateModeMenu()
+ {
+     m_loadFileAction-&gt;setChecked(LoadFileMode == m_mode);
+     m_generateToneAction-&gt;setChecked(GenerateToneMode == m_mode);
+     m_recordAction-&gt;setChecked(RecordMode == m_mode);
  }</pre>
 </div>
 <!-- @@@demos/spectrum/app/mainwidget.cpp -->

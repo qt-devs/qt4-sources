@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -279,41 +289,65 @@
  }</pre>
 <p>The currently selected item is highlighted with a blue <a href="qml-rectangle.html">Rectangle</a> using the <a href="qml-gridview.html#highlight-prop">highlight</a> property, and <tt>focus</tt> is set to <tt>true</tt> to enable keyboard navigation for the grid view. The grid view itself is a focus scope (see <a href="qdeclarativefocus.html#acquiring-focus-and-focus-scopes">the focus documentation page</a> for more details).</p>
 <p>Delegates are instantiated as needed and may be destroyed at any time. State should <i>never</i> be stored in a delegate.</p>
+<p>GridView attaches a number of properties to the root item of the delegate, for example <tt>GridView.isCurrentItem</tt>. In the following example, the root delegate item can access this attached property directly as <tt>GridView.isCurrentItem</tt>, while the child <tt>contactInfo</tt> object must refer to this property as <tt>wrapper.GridView.isCurrentItem</tt>.</p>
+<pre class="highlightedCode brush: cpp"> GridView {
+     width: 300; height: 200
+     cellWidth: 80; cellHeight: 80
+
+     Component {
+         id: contactsDelegate
+         Rectangle {
+             id: wrapper
+             width: 80
+             height: 80
+             color: GridView.isCurrentItem ? &quot;black&quot; : &quot;red&quot;
+             Text {
+                 id: contactInfo
+                 text: name + &quot;: &quot; + number
+                 color: wrapper.GridView.isCurrentItem ? &quot;red&quot; : &quot;black&quot;
+             }
+         }
+     }
+
+     model: ContactModel {}
+     delegate: contactsDelegate
+     focus: true
+ }</pre>
 <p><b>Note:</b> Views do not set the <a href="qml-item.html#clip-prop">clip</a> property automatically. If the view is not clipped by another item or the screen, it will be necessary to set this property to true in order to clip the items that are partially or fully outside the view.</p>
 <p>See also <a href="declarative-modelviews-gridview.html">GridView example</a>.</p>
 <!-- @@@GridView -->
 <h2>Property Documentation</h2>
 <!-- $$$cacheBuffer -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="cacheBuffer-prop"></a>cacheBuffer : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property determines whether delegates are retained outside the visible area of the view.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="cacheBuffer-prop"></a>cacheBuffer : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property determines whether delegates are retained outside the visible area of the view.</p>
 <p>If non-zero the view will keep as many delegates instantiated as will fit within the buffer specified. For example, if in a vertical view the delegate is 20 pixels high and <tt>cacheBuffer</tt> is set to 40, then up to 2 delegates above and 2 delegates below the visible area may be retained.</p>
 <p>Note that cacheBuffer is not a pixel buffer - it only maintains additional instantiated delegates.</p>
 <p>Setting this value can make scrolling the list smoother at the expense of additional memory usage. It is not a substitute for creating efficient delegates; the fewer elements in a delegate, the faster a view may be scrolled.</p>
 </div></div><!-- @@@cacheBuffer -->
 <br/>
 <!-- $$$cellWidth -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="cellWidth-prop"></a>cellWidth : <a href="qml-int.html">int</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="cellHeight-prop"></a>cellHeight : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>These properties holds the width and height of each cell in the grid.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="cellWidth-prop"></a>cellWidth : <a href="qml-int.html">int</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="cellHeight-prop"></a>cellHeight : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>These properties holds the width and height of each cell in the grid.</p>
 <p>The default cell size is 100x100.</p>
 </div></div><!-- @@@cellWidth -->
 <br/>
 <!-- $$$count -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="qmlreadonly">read-only</span>count : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the number of items in the view.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="qmlreadonly">read-only</span>count : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the number of items in the view.</p>
 </div></div><!-- @@@count -->
 <br/>
 <!-- $$$currentIndex -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="currentIndex-prop"></a>currentIndex : <a href="qml-int.html">int</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="currentItem-prop"></a><span class="qmlreadonly">read-only</span>currentItem : <a href="qml-item.html">Item</a></td></tr></table></div><div class="qmldoc"><p>The <tt>currentIndex</tt> property holds the index of the current item, and <tt>currentItem</tt> holds the current item.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="currentIndex-prop"></a>currentIndex : <a href="qml-int.html">int</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="currentItem-prop"></a><span class="qmlreadonly">read-only</span>currentItem : <a href="qml-item.html">Item</a></p></td></tr></table></div><div class="qmldoc"><p>The <tt>currentIndex</tt> property holds the index of the current item, and <tt>currentItem</tt> holds the current item. Setting the currentIndex to -1 will clear the highlight and set <a href="qml-gridview.html#currentItem-prop">currentItem</a> to null.</p>
 <p>If <a href="qml-gridview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> is <tt>true</tt>, setting either of these properties will smoothly scroll the <a href="qml-gridview.html">GridView</a> so that the current item becomes visible.</p>
 <p>Note that the position of the current item may only be approximate until it becomes visible in the view.</p>
 </div></div><!-- @@@currentIndex -->
 <br/>
 <!-- $$$delegate -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="delegate-prop"></a>delegate : <a href="qml-component.html">Component</a></td></tr></table></div><div class="qmldoc"><p>The delegate provides a template defining each item instantiated by the view. The index is exposed as an accessible <tt>index</tt> property. Properties of the model are also available depending upon the type of <a href="qdeclarativemodels.html#qmlmodels">Data Model</a>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="delegate-prop"></a>delegate : <a href="qml-component.html">Component</a></p></td></tr></table></div><div class="qmldoc"><p>The delegate provides a template defining each item instantiated by the view. The index is exposed as an accessible <tt>index</tt> property. Properties of the model are also available depending upon the type of <a href="qdeclarativemodels.html#qmlmodels">Data Model</a>.</p>
 <p>The number of elements in the delegate has a direct effect on the flicking performance of the view. If at all possible, place functionality that is not needed for the normal display of the delegate in a <a href="qml-loader.html">Loader</a> which can load additional elements when needed.</p>
 <p>The <a href="qml-gridview.html">GridView</a> will layout the items based on the size of the root item in the delegate.</p>
 <p><b>Note:</b> Delegates are instantiated as needed and may be destroyed at any time. State should <i>never</i> be stored in a delegate.</p>
 </div></div><!-- @@@delegate -->
 <br/>
 <!-- $$$flow -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="flow-prop"></a>flow : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>This property holds the flow of the grid.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="flow-prop"></a>flow : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the flow of the grid.</p>
 <p>Possible values:</p>
 <ul>
 <li><a href="qml-gridview.html">GridView</a>.LeftToRight (default) - Items are laid out from left to right, and the view scrolls vertically</li>
@@ -322,25 +356,25 @@
 </div></div><!-- @@@flow -->
 <br/>
 <!-- $$$footer -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="footer-prop"></a>footer : <a href="qml-component.html">Component</a></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the footer.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="footer-prop"></a>footer : <a href="qml-component.html">Component</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the footer.</p>
 <p>An instance of the footer component is created for each view. The footer is positioned at the end of the view, after any items.</p>
 <p>See also <a href="qml-gridview.html#header-prop">header</a>.</p>
 </div></div><!-- @@@footer -->
 <br/>
 <!-- $$$header -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="header-prop"></a>header : <a href="qml-component.html">Component</a></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the header.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="header-prop"></a>header : <a href="qml-component.html">Component</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the header.</p>
 <p>An instance of the header component is created for each view. The header is positioned at the beginning of the view, before any items.</p>
 <p>See also <a href="qml-gridview.html#footer-prop">footer</a>.</p>
 </div></div><!-- @@@header -->
 <br/>
 <!-- $$$highlight -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlight-prop"></a>highlight : <a href="qml-component.html">Component</a></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the highlight.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlight-prop"></a>highlight : <a href="qml-component.html">Component</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the highlight.</p>
 <p>An instance of the highlight component is created for each view. The geometry of the resulting component instance will be managed by the view so as to stay with the current item, unless the <a href="qml-gridview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> property is false.</p>
 <p>See also <a href="qml-gridview.html#highlightItem-prop">highlightItem</a> and <a href="qml-gridview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a>.</p>
 </div></div><!-- @@@highlight -->
 <br/>
 <!-- $$$highlightFollowsCurrentItem -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightFollowsCurrentItem-prop"></a>highlightFollowsCurrentItem : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property sets whether the highlight is managed by the view.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightFollowsCurrentItem-prop"></a>highlightFollowsCurrentItem : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This property sets whether the highlight is managed by the view.</p>
 <p>If this property is true (the default value), the highlight is moved smoothly to follow the current item. Otherwise, the highlight is not moved by the view, and any movement must be implemented by the highlight.</p>
 <p>Here is a highlight with its motion defined by a <a href="qml-springanimation.html">SpringAnimation</a> item:</p>
 <pre class="highlightedCode brush: cpp"> Component {
@@ -373,32 +407,32 @@
 </div></div><!-- @@@highlightFollowsCurrentItem -->
 <br/>
 <!-- $$$highlightItem -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightItem-prop"></a><span class="qmlreadonly">read-only</span>highlightItem : <a href="qml-item.html">Item</a></td></tr></table></div><div class="qmldoc"><p>This holds the highlight item created from the <a href="qml-gridview.html#highlight-prop">highlight</a> component.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightItem-prop"></a><span class="qmlreadonly">read-only</span>highlightItem : <a href="qml-item.html">Item</a></p></td></tr></table></div><div class="qmldoc"><p>This holds the highlight item created from the <a href="qml-gridview.html#highlight-prop">highlight</a> component.</p>
 <p>The highlightItem is managed by the view unless <a href="qml-gridview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> is set to false.</p>
 <p>See also <a href="qml-gridview.html#highlight-prop">highlight</a> and <a href="qml-gridview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a>.</p>
 </div></div><!-- @@@highlightItem -->
 <br/>
 <!-- $$$highlightMoveDuration -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightMoveDuration-prop"></a>highlightMoveDuration : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the move animation duration of the highlight delegate.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightMoveDuration-prop"></a>highlightMoveDuration : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the move animation duration of the highlight delegate.</p>
 <p><a href="qml-gridview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> must be true for this property to have effect.</p>
 <p>The default value for the duration is 150ms.</p>
 <p>See also <a href="qml-gridview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a>.</p>
 </div></div><!-- @@@highlightMoveDuration -->
 <br/>
 <!-- $$$keyNavigationWraps -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="keyNavigationWraps-prop"></a>keyNavigationWraps : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property holds whether the grid wraps key navigation</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="keyNavigationWraps-prop"></a>keyNavigationWraps : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the grid wraps key navigation</p>
 <p>If this is true, key navigation that would move the current item selection past one end of the view instead wraps around and moves the selection to the other end of the view.</p>
 <p>By default, key navigation is not wrapped.</p>
 </div></div><!-- @@@keyNavigationWraps -->
 <br/>
 <!-- $$$model -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="model-prop"></a>model : model</td></tr></table></div><div class="qmldoc"><p>This property holds the model providing data for the grid.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="model-prop"></a>model : model</p></td></tr></table></div><div class="qmldoc"><p>This property holds the model providing data for the grid.</p>
 <p>The model provides the set of data that is used to create the items in the view. Models can be created directly in QML using <a href="qml-listmodel.html">ListModel</a>, <a href="qml-xmllistmodel.html">XmlListModel</a> or <a href="qml-visualitemmodel.html">VisualItemModel</a>, or provided by C++ model classes. If a C++ model class is used, it must be a subclass of <a href="qabstractitemmodel.html">QAbstractItemModel</a> or a simple list.</p>
 <p>See also <a href="qdeclarativemodels.html#qmlmodels">Data Models</a>.</p>
 </div></div><!-- @@@model -->
 <br/>
 <!-- $$$preferredHighlightBegin -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="preferredHighlightBegin-prop"></a>preferredHighlightBegin : <a href="qml-real.html">real</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="preferredHighlightEnd-prop"></a>preferredHighlightEnd : <a href="qml-real.html">real</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightRangeMode-prop"></a>highlightRangeMode : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>These properties define the preferred range of the highlight (for the current item) within the view. The <tt>preferredHighlightBegin</tt> value must be less than the <tt>preferredHighlightEnd</tt> value.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="preferredHighlightBegin-prop"></a>preferredHighlightBegin : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="preferredHighlightEnd-prop"></a>preferredHighlightEnd : <a href="qml-real.html">real</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="highlightRangeMode-prop"></a>highlightRangeMode : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>These properties define the preferred range of the highlight (for the current item) within the view. The <tt>preferredHighlightBegin</tt> value must be less than the <tt>preferredHighlightEnd</tt> value.</p>
 <p>These properties affect the position of the current item when the view is scrolled. For example, if the currently selected item should stay in the middle of the view when it is scrolled, set the <tt>preferredHighlightBegin</tt> and <tt>preferredHighlightEnd</tt> values to the top and bottom coordinates of where the middle item would be. If the <tt>currentItem</tt> is changed programmatically, the view will automatically scroll so that the current item is in the middle of the view. Furthermore, the behavior of the current item index will occur whether or not a highlight exists.</p>
 <p>Valid values for <tt>highlightRangeMode</tt> are:</p>
 <ul>
@@ -409,7 +443,7 @@
 </div></div><!-- @@@preferredHighlightBegin -->
 <br/>
 <!-- $$$snapMode -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="snapMode-prop"></a>snapMode : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>This property determines how the view scrolling will settle following a drag or flick. The possible values are:</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="snapMode-prop"></a>snapMode : <a href="qml-enumeration.html">enumeration</a></p></td></tr></table></div><div class="qmldoc"><p>This property determines how the view scrolling will settle following a drag or flick. The possible values are:</p>
 <ul>
 <li><a href="qml-gridview.html">GridView</a>.NoSnap (default) - the view stops anywhere within the visible area.</li>
 <li><a href="qml-gridview.html">GridView</a>.SnapToRow - the view settles with a row (or column for <tt>GridView.TopToBottom</tt> flow) aligned with the start of the view.</li>
@@ -419,7 +453,7 @@
 <br/>
 <h2>Attached Property Documentation</h2>
 <!-- $$$delayRemove -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="delayRemove-prop"></a>GridView.delayRemove : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This attached property holds whether the delegate may be destroyed.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="delayRemove-prop"></a>GridView.delayRemove : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds whether the delegate may be destroyed.</p>
 <p>It is attached to each instance of the delegate.</p>
 <p>It is sometimes necessary to delay the destruction of an item until an animation completes.</p>
 <p>The example below ensures that the animation completes before the item is removed from the grid.</p>
@@ -436,13 +470,36 @@
 </div></div><!-- @@@delayRemove -->
 <br/>
 <!-- $$$isCurrentItem -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="isCurrentItem-prop"></a><span class="qmlreadonly">read-only</span>GridView.isCurrentItem : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This attached property is true if this delegate is the current item; otherwise false.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="isCurrentItem-prop"></a><span class="qmlreadonly">read-only</span>GridView.isCurrentItem : <a href="qml-bool.html">bool</a></p></td></tr></table></div><div class="qmldoc"><p>This attached property is true if this delegate is the current item; otherwise false.</p>
 <p>It is attached to each instance of the delegate.</p>
 </div></div><!-- @@@isCurrentItem -->
 <br/>
 <!-- $$$view -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="view-prop"></a><span class="qmlreadonly">read-only</span>GridView.view : GridView</td></tr></table></div><div class="qmldoc"><p>This attached property holds the view that manages this delegate instance.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="view-prop"></a><span class="qmlreadonly">read-only</span>GridView.view : GridView</p></td></tr></table></div><div class="qmldoc"><p>This attached property holds the view that manages this delegate instance.</p>
 <p>It is attached to each instance of the delegate.</p>
+<pre class="highlightedCode brush: cpp"> GridView {
+     width: 300; height: 200
+     cellWidth: 80; cellHeight: 80
+
+     Component {
+         id: contactsDelegate
+         Rectangle {
+             id: wrapper
+             width: 80
+             height: 80
+             color: GridView.isCurrentItem ? &quot;black&quot; : &quot;red&quot;
+             Text {
+                 id: contactInfo
+                 text: name + &quot;: &quot; + number
+                 color: wrapper.GridView.isCurrentItem ? &quot;red&quot; : &quot;black&quot;
+             }
+         }
+     }
+
+     model: ContactModel {}
+     delegate: contactsDelegate
+     focus: true
+ }</pre>
 </div></div><!-- @@@view -->
 <br/>
 <h2>Attached Signal Documentation</h2>
@@ -462,22 +519,22 @@
 </div></div><!-- @@@indexAt -->
 <br/>
 <!-- $$$moveCurrentIndexDown -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexDown-method"></a>GridView::moveCurrentIndexDown ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> down one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexDown-method"></a>GridView::moveCurrentIndexDown ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> down one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end. This method has no effect if the <a href="qml-gridview.html#count-prop">count</a> is zero.</p>
 <p><b>Note</b>: methods should only be called after the Component has completed.</p>
 </div></div><!-- @@@moveCurrentIndexDown -->
 <br/>
 <!-- $$$moveCurrentIndexLeft -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexLeft-method"></a>GridView::moveCurrentIndexLeft ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> left one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexLeft-method"></a>GridView::moveCurrentIndexLeft ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> left one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end. This method has no effect if the <a href="qml-gridview.html#count-prop">count</a> is zero.</p>
 <p><b>Note</b>: methods should only be called after the Component has completed.</p>
 </div></div><!-- @@@moveCurrentIndexLeft -->
 <br/>
 <!-- $$$moveCurrentIndexRight -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexRight-method"></a>GridView::moveCurrentIndexRight ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> right one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexRight-method"></a>GridView::moveCurrentIndexRight ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> right one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end. This method has no effect if the <a href="qml-gridview.html#count-prop">count</a> is zero.</p>
 <p><b>Note</b>: methods should only be called after the Component has completed.</p>
 </div></div><!-- @@@moveCurrentIndexRight -->
 <br/>
 <!-- $$$moveCurrentIndexUp -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexUp-method"></a>GridView::moveCurrentIndexUp ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> up one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="moveCurrentIndexUp-method"></a>GridView::moveCurrentIndexUp ()</p></td></tr></table></div><div class="qmldoc"><p>Move the <a href="qml-gridview.html#currentIndex-prop">currentIndex</a> up one item in the view. The current index will wrap if <a href="qml-gridview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end. This method has no effect if the <a href="qml-gridview.html#count-prop">count</a> is zero.</p>
 <p><b>Note</b>: methods should only be called after the Component has completed.</p>
 </div></div><!-- @@@moveCurrentIndexUp -->
 <br/>
@@ -496,7 +553,7 @@
 <pre class="highlightedCode brush: cpp"> Component.onCompleted: positionViewAtIndex(count - 1, GridView.Beginning)</pre>
 </div></div><!-- @@@positionViewAtIndex -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

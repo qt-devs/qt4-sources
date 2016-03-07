@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -78,7 +78,13 @@ QAudioDeviceInfoInternal::QAudioDeviceInfoInternal(QByteArray const& handle, QAu
 
 bool QAudioDeviceInfoInternal::isFormatSupported(const QAudioFormat& format) const
 {
-    return format.codec() == QString::fromLatin1("audio/pcm");
+    QAudioDeviceInfoInternal *self = const_cast<QAudioDeviceInfoInternal*>(this);
+
+    return format.isValid()
+            && format.codec() == QString::fromLatin1("audio/pcm")
+            && self->frequencyList().contains(format.frequency())
+            && self->channelsList().contains(format.channels())
+            && self->sampleSizeList().contains(format.sampleSize());
 }
 
 QAudioFormat QAudioDeviceInfoInternal::preferredFormat() const

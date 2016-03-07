@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -180,7 +188,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> SharedMemoryError </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#error">error</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#errorString">errorString</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#isAttached">isAttached</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#keyx">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#key">key</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#lock">lock</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#setKey">setKey</a></b> ( const QString &amp; <i>key</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#size">size</a></b> () const</td></tr>
@@ -219,14 +227,14 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$AccessMode$$$ReadOnly$$$ReadWrite -->
 <h3 class="fn"><a name="AccessMode-enum"></a>enum QSharedMemory::AccessMode</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSharedMemory::ReadOnly</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The shared memory segment is read-only. Writing to the shared memory segment is not allowed. An attempt to write to a shared memory segment created with ReadOnly causes the program to abort.</td></tr>
 <tr><td  class="topAlign"><tt>QSharedMemory::ReadWrite</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Reading and writing the shared memory segment are both allowed.</td></tr>
 </table>
 <!-- @@@AccessMode -->
 <!-- $$$SharedMemoryError$$$NoError$$$PermissionDenied$$$InvalidSize$$$KeyError$$$AlreadyExists$$$NotFound$$$LockError$$$OutOfResources$$$UnknownError -->
 <h3 class="fn"><a name="SharedMemoryError-enum"></a>enum QSharedMemory::SharedMemoryError</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSharedMemory::NoError</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">No error occurred.</td></tr>
 <tr><td  class="topAlign"><tt>QSharedMemory::PermissionDenied</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The operation failed because the caller didn't have the required permissions.</td></tr>
 <tr><td  class="topAlign"><tt>QSharedMemory::InvalidSize</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">A create operation failed because the requested size was invalid.</td></tr>
@@ -302,7 +310,7 @@
 <p>See also <a href="qsharedmemory.html#attach">attach</a>() and <a href="qsharedmemory.html#detach">detach</a>().</p>
 <!-- @@@isAttached -->
 <!-- $$$key[overload1]$$$key -->
-<h3 class="fn"><a name="keyx"></a><a href="qstring.html">QString</a> QSharedMemory::key () const</h3>
+<h3 class="fn"><a name="key"></a><a href="qstring.html">QString</a> QSharedMemory::key () const</h3>
 <p>Returns the key assigned to this shared memory. The key is the identifier used by the operating system to identify the shared memory segment. When <a href="qsharedmemory.html">QSharedMemory</a> is used for interprocess communication, the key is how each process attaches to the shared memory segment through which the IPC occurs.</p>
 <p>See also <a href="qsharedmemory.html#setKey">setKey</a>().</p>
 <!-- @@@key -->
@@ -314,7 +322,7 @@
 <!-- $$$setKey[overload1]$$$setKeyconstQString& -->
 <h3 class="fn"><a name="setKey"></a>void QSharedMemory::setKey ( const <a href="qstring.html">QString</a> &amp; <i>key</i> )</h3>
 <p>Sets a new <i>key</i> for this shared memory object. If <i>key</i> and the current key are the same, the function returns without doing anything. If the shared memory object is attached to an underlying shared memory segment, it will <a href="qsharedmemory.html#detach">detach</a> from it before setting the new key. This function does not do an <a href="qsharedmemory.html#attach">attach</a>().</p>
-<p>See also <a href="qsharedmemory.html#keyx">key</a>() and <a href="qsharedmemory.html#isAttached">isAttached</a>().</p>
+<p>See also <a href="qsharedmemory.html#key">key</a>() and <a href="qsharedmemory.html#isAttached">isAttached</a>().</p>
 <!-- @@@setKey -->
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn"><a name="size"></a>int QSharedMemory::size () const</h3>

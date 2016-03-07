@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,12 +149,13 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#public-functions">Public Functions</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#the-context-hierarchy">The Context Hierarchy</a></li>
 </ul>
 </div>
 <h1 class="title">QDeclarativeContext Class Reference</h1>
@@ -201,7 +210,8 @@
 
  QDeclarativeComponent component(&amp;engine);
  component.setData(&quot;import QtQuick 1.0\nListView { model: myModel }&quot;, QUrl());
- component.create(context);</pre>
+ QObject *window = component.create(context);</pre>
+<p>Note it is the responsibility of the creator to delete any QDeclarativeContext it constructs. If the <tt>context</tt> object in the example is no longer needed when the <tt>window</tt> component instance is destroyed, the <tt>context</tt> must be destroyed explicitly. The simplest way to ensure this is to set <tt>window</tt> as the parent of <tt>context</tt>.</p>
 <p>To simplify binding and maintaining larger data sets, a context object can be set on a QDeclarativeContext. All the properties of the context object are available by name in the context, as though they were all individually added through calls to <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>(). Changes to the property's values are detected through the property's notify signal. Setting a context object is both faster and easier than manually adding and maintaing context property values.</p>
 <p>The following example has the same effect as the previous one, but it uses a context object.</p>
 <pre class="highlightedCode brush: cpp"> class MyDataSet : ... {
@@ -219,7 +229,9 @@
  component.setData(&quot;import QtQuick 1.0\nListView { model: myModel }&quot;, QUrl());
  component.create(context);</pre>
 <p>All properties added explicitly by <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>() take precedence over the context object's properties.</p>
-<p>Contexts form a hierarchy. The root of this hierarchy is the <a href="qdeclarativeengine.html">QDeclarativeEngine</a>'s <a href="qdeclarativeengine.html#rootContext">root context</a>. A component instance can access the data in its own context, as well as all its ancestor contexts. Data can be made available to all instances by modifying the <a href="qdeclarativeengine.html#rootContext">root context</a>.</p>
+<a name="the-context-hierarchy"></a>
+<h3>The Context Hierarchy</h3>
+<p>Contexts form a hierarchy. The root of this hierarchy is the QML engine's <a href="qdeclarativeengine.html#rootContext">root context</a>. Child contexts inherit the context properties of their parents; if a child context sets a context property that already exists in its parent, the new context property overrides that of the parent.</p>
 <p>The following example defines two contexts - <tt>context1</tt> and <tt>context2</tt>. The second context overrides the &quot;b&quot; context property inherited from the first with a new value.</p>
 <pre class="highlightedCode brush: cpp"> QDeclarativeEngine engine;
  QDeclarativeContext *context1 = new QDeclarativeContext(engine.rootContext());
@@ -230,7 +242,7 @@
 
  context2-&gt;setContextProperty(&quot;b&quot;, 15);</pre>
 <p>While QML objects instantiated in a context are not strictly owned by that context, their bindings are. If a context is destroyed, the property bindings of outstanding QML objects will stop evaluating.</p>
-<p><b>Note:</b> Setting the context object or adding new context properties after an object has been created in that context is an expensive operation (essentially forcing all bindings to reevaluate). Thus whenever possible you should complete &quot;setup&quot; of the context before using it to create any objects.</p>
+<p><b>Warning:</b> Setting the context object or adding new context properties after an object has been created in that context is an expensive operation (essentially forcing all bindings to reevaluate). Thus whenever possible you should complete &quot;setup&quot; of the context before using it to create any objects.</p>
 </div>
 <p>See also <a href="qtbinding.html">Using QML in C++ Applications</a>.</p>
 <!-- @@@QDeclarativeContext -->

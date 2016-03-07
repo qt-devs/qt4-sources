@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -85,7 +85,7 @@ Item {
             MouseArea{
                 anchors.fill: parent
                 acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
-                onClicked: loader.focus=true;/* and don't propogate to the 'exit' area*/
+                onClicked: loader.focus=true;/* and don't propagate to the 'exit' area*/
             }
 
             Rectangle{ id: innerFrame

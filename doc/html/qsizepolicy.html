@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -194,8 +202,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qsizepolicy.html#operator-lt-lt-44">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QSizePolicy &amp; <i>policy</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qsizepolicy.html#operator-gt-gt-31">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QSizePolicy &amp; <i>policy</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qsizepolicy.html#operator-lt-lt-81">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QSizePolicy &amp; <i>policy</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qsizepolicy.html#operator-gt-gt-41">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QSizePolicy &amp; <i>policy</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QSizePolicy-description -->
@@ -216,7 +224,7 @@
 <!-- $$$ControlType$$$DefaultType$$$ButtonBox$$$CheckBox$$$ComboBox$$$Frame$$$GroupBox$$$Label$$$Line$$$LineEdit$$$PushButton$$$RadioButton$$$Slider$$$SpinBox$$$TabWidget$$$ToolButton -->
 <h3 class="flags"><a name="ControlType-enum"></a>enum QSizePolicy::ControlType<br/>flags QSizePolicy::ControlTypes</h3>
 <p>This enum specifies the different types of widgets in terms of layout interaction:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::DefaultType</tt></td><td class=" topAlign"><tt>0x00000001</tt></td><td  class="topAlign">The default type, when none is specified.</td></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::ButtonBox</tt></td><td class=" topAlign"><tt>0x00000002</tt></td><td  class="topAlign">A <a href="qdialogbuttonbox.html">QDialogButtonBox</a> instance.</td></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::CheckBox</tt></td><td class=" topAlign"><tt>0x00000004</tt></td><td  class="topAlign">A <a href="qcheckbox.html">QCheckBox</a> instance.</td></tr>
@@ -240,7 +248,7 @@
 <!-- $$$Policy$$$Fixed$$$Minimum$$$Maximum$$$Preferred$$$MinimumExpanding$$$Expanding$$$Ignored -->
 <h3 class="fn"><a name="Policy-enum"></a>enum QSizePolicy::Policy</h3>
 <p>This enum describes the various per-dimension sizing types used when constructing a <a href="qsizepolicy.html">QSizePolicy</a>.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::Fixed</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() is the only acceptable alternative, so the widget can never grow or shrink (e.g&#x2e; the vertical direction of a push button).</td></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::Minimum</tt></td><td class=" topAlign"><tt>GrowFlag</tt></td><td  class="topAlign">The sizeHint() is minimal, and sufficient. The widget can be expanded, but there is no advantage to it being larger (e.g&#x2e; the horizontal direction of a push button). It cannot be smaller than the size provided by sizeHint().</td></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::Maximum</tt></td><td class=" topAlign"><tt>ShrinkFlag</tt></td><td  class="topAlign">The sizeHint() is a maximum. The widget can be shrunk any amount without detriment if other widgets need the space (e.g&#x2e; a separator line). It cannot be larger than the size provided by sizeHint().</td></tr>
@@ -254,7 +262,7 @@
 <!-- $$$PolicyFlag$$$GrowFlag$$$ExpandFlag$$$ShrinkFlag$$$IgnoreFlag -->
 <h3 class="fn"><a name="PolicyFlag-enum"></a>enum QSizePolicy::PolicyFlag</h3>
 <p>These flags are combined together to form the various <a href="qsizepolicy.html#Policy-enum">Policy</a> values:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::GrowFlag</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The widget can grow beyond its size hint if necessary.</td></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::ExpandFlag</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The widget should get as much space as possible.</td></tr>
 <tr><td  class="topAlign"><tt>QSizePolicy::ShrinkFlag</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">The widget can shrink below its size hint if necessary.</td></tr>
@@ -375,13 +383,13 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQSizePolicy& -->
-<h3 class="fn"><a name="operator-lt-lt-44"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QSizePolicy &amp; <i>policy</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-81"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QSizePolicy &amp; <i>policy</i> )</h3>
 <p>Writes the size <i>policy</i> to the data stream <i>stream</i>.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QSizePolicy& -->
-<h3 class="fn"><a name="operator-gt-gt-31"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QSizePolicy &amp; <i>policy</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-41"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QSizePolicy &amp; <i>policy</i> )</h3>
 <p>Reads the size <i>policy</i> from the data stream <i>stream</i>.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>

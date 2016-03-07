@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -235,7 +243,7 @@
 <!-- $$$DisplayMode$$$DisplayBlock$$$DisplayInline$$$DisplayListItem$$$DisplayNone$$$DisplayModeUndefined -->
 <h3 class="fn"><a name="DisplayMode-enum"></a>enum Q3StyleSheetItem::DisplayMode</h3>
 <p>This enum type defines the way adjacent elements are displayed.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::DisplayBlock</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">elements are displayed as a rectangular block (e.g&#x2e; <tt>&lt;p&gt;...&lt;/p&gt;</tt>).</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::DisplayInline</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">elements are displayed in a horizontally flowing sequence (e.g&#x2e; <tt>&lt;em&gt;...&lt;/em&gt;</tt>).</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::DisplayListItem</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">elements are displayed in a vertical sequence (e.g&#x2e; <tt>&lt;li&gt;...&lt;/li&gt;</tt>).</td></tr>
@@ -245,7 +253,7 @@
 <!-- $$$ListStyle$$$ListDisc$$$ListCircle$$$ListSquare$$$ListDecimal$$$ListLowerAlpha$$$ListUpperAlpha$$$ListStyleUndefined -->
 <h3 class="fn"><a name="ListStyle-enum"></a>enum Q3StyleSheetItem::ListStyle</h3>
 <p>This enum type defines how the items in a list are prefixed when displayed.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::ListDisc</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">a filled circle (i.e&#x2e; a bullet)</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::ListCircle</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">an unfilled circle</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::ListSquare</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">a filled square</td></tr>
@@ -256,7 +264,7 @@
 <!-- @@@ListStyle -->
 <!-- $$$Margin$$$MarginLeft$$$MarginRight$$$MarginTop$$$MarginBottom$$$MarginFirstLine$$$MarginAll$$$MarginVertical$$$MarginHorizontal$$$MarginUndefined -->
 <h3 class="fn"><a name="Margin-enum"></a>enum Q3StyleSheetItem::Margin</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::MarginLeft</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">left margin</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::MarginRight</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">right margin</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::MarginTop</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">top margin</td></tr>
@@ -271,7 +279,7 @@
 <!-- $$$VerticalAlignment$$$VAlignBaseline$$$VAlignSub$$$VAlignSuper -->
 <h3 class="fn"><a name="VerticalAlignment-enum"></a>enum Q3StyleSheetItem::VerticalAlignment</h3>
 <p>This enum type defines the way elements are aligned vertically. This is only supported for text elements.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::VAlignBaseline</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">align the baseline of the element (or the bottom, if the element doesn't have a baseline) with the baseline of the parent</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::VAlignSub</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">subscript the element</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::VAlignSuper</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">superscript the element</td></tr>
@@ -280,7 +288,7 @@
 <!-- $$$WhiteSpaceMode$$$WhiteSpaceNormal$$$WhiteSpacePre$$$WhiteSpaceNoWrap$$$WhiteSpaceModeUndefined -->
 <h3 class="fn"><a name="WhiteSpaceMode-enum"></a>enum Q3StyleSheetItem::WhiteSpaceMode</h3>
 <p>This enum defines the ways in which <a href="q3stylesheet.html" class="compat">Q3StyleSheet</a> can treat whitespace.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::WhiteSpaceNormal</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">any sequence of whitespace (including line-breaks) is equivalent to a single space.</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::WhiteSpacePre</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">whitespace must be output exactly as given in the input.</td></tr>
 <tr><td  class="topAlign"><tt>Q3StyleSheetItem::WhiteSpaceNoWrap</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">multiple spaces are collapsed as with WhiteSpaceNormal, but no automatic line-breaks occur. To break lines manually, use the <tt>&lt;br&gt;</tt> tag.</td></tr>

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -115,6 +115,7 @@ private:
     friend class QEglContext; // Needs gl_surface
     friend class QGLContext; // Needs gl_surface
     friend class QX11GLPixmapData; // Needs gl_surface
+    friend class QMeeGoLivePixmapData; // Needs gl_surface and flags
     friend bool  qt_createEGLSurfaceForPixmap(QPixmapData*, bool); // Needs gl_surface
 
     void release();

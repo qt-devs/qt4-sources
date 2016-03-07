@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -438,7 +446,7 @@
 <!-- $$$RenameAction$$$Accept$$$Reject -->
 <h3 class="fn"><a name="RenameAction-enum"></a>enum Q3ListView::RenameAction</h3>
 <p>This enum describes whether a rename operation is accepted if the rename editor loses focus without the user pressing Enter.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::Accept</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Rename if Enter is pressed or focus is lost.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::Reject</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Discard the rename operation if focus is lost (and Enter has not been pressed).</td></tr>
 </table>
@@ -446,7 +454,7 @@
 <!-- $$$ResizeMode$$$NoColumn$$$AllColumns$$$LastColumn -->
 <h3 class="fn"><a name="ResizeMode-enum"></a>enum Q3ListView::ResizeMode</h3>
 <p>This enum describes how the list view's header adjusts to resize events which affect the width of the list view.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::NoColumn</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The columns do not get resized in resize events.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::AllColumns</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">All columns are resized equally to fit the width of the list view.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::LastColumn</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The last column is resized to fit the width of the list view.</td></tr>
@@ -455,7 +463,7 @@
 <!-- $$$SelectionMode$$$Single$$$Multi$$$Extended$$$NoSelection -->
 <h3 class="fn"><a name="SelectionMode-enum"></a>enum Q3ListView::SelectionMode</h3>
 <p>This enumerated type is used by <a href="q3listview.html" class="compat">Q3ListView</a> to indicate how it reacts to selection by the user.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::Single</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">When the user selects an item, any already-selected item becomes unselected, and the user cannot unselect the selected item.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::Multi</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">When the user selects an item in the usual way, the selection status of that item is toggled and the other items are left alone.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::Extended</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">When the user selects an item in the usual way, the selection is cleared and the new item selected. However, if the user presses the Ctrl key when clicking on an item, the clicked item gets toggled and all other items are left untouched. And if the user presses the Shift key while clicking on an item, all items between the current item and the clicked item get selected or unselected, depending on the state of the clicked item. Also, multiple items can be selected by dragging the mouse over them.</td></tr>
@@ -466,7 +474,7 @@
 <!-- $$$StringComparisonMode$$$CaseSensitive$$$BeginsWith$$$EndsWith$$$Contains$$$ExactMatch -->
 <h3 class="fn"><a name="StringComparisonMode-enum"></a>enum Q3ListView::StringComparisonMode</h3>
 <p>This enum type is used to set the string comparison mode when searching for an item. We'll refer to the string being searched as the 'target' string.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::CaseSensitive</tt></td><td class=" topAlign"><tt>0x00001</tt></td><td  class="topAlign">The strings must match case sensitively.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::ExactMatch</tt></td><td class=" topAlign"><tt>0x00010</tt></td><td  class="topAlign">The target and search strings must match exactly.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::BeginsWith</tt></td><td class=" topAlign"><tt>0x00002</tt></td><td  class="topAlign">The target string begins with the search string.</td></tr>
@@ -480,7 +488,7 @@
 <!-- $$$WidthMode$$$Manual$$$Maximum -->
 <h3 class="fn"><a name="WidthMode-enum"></a>enum Q3ListView::WidthMode</h3>
 <p>This enum type describes how the width of a column in the view changes.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::Manual</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">the column width does not change automatically.</td></tr>
 <tr><td  class="topAlign"><tt>Q3ListView::Maximum</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">the column is automatically sized according to the widths of all items in the column. (Note: The column never shrinks in this case.) This means that the column is always resized to the width of the item with the largest width in the column.</td></tr>
 </table>

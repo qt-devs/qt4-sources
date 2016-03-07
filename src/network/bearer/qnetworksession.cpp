@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -250,6 +250,9 @@ QNetworkSession::QNetworkSession(const QNetworkConfiguration& connectionConfig, 
             break;
         }
     }
+
+    qRegisterMetaType<QNetworkSession::State>();
+    qRegisterMetaType<QNetworkSession::SessionError>();
 }
 
 /*!
@@ -310,8 +313,9 @@ bool QNetworkSession::waitForOpened(int msecs)
     if (d->isOpen)
         return true;
 
-    if (d->state != Connecting)
+    if (!(d->state == Connecting || d->state == Connected)) {
         return false;
+    }
 
     QEventLoop* loop = new QEventLoop(this);
     QObject::connect(d, SIGNAL(quitPendingWaitsForOpened()),
@@ -489,15 +493,15 @@ QString QNetworkSession::errorString() const
             configuration resolved to when \l open() was called; otherwise an empty string.
 
             The purpose of this key is to determine the real QNetworkConfiguration that the
-            session is using. This key is different to \i ActiveConfiguration in that
+            session is using. This key is different from \e ActiveConfiguration in that
             this key may return an identifier for either a
             \l {QNetworkConfiguration::ServiceNetwork}{service network} or a
-            \l {QNetworkConfiguration::InternetAccessPoint}{Internet access points} configurations
-            whereas \i ActiveConfiguration always returns identifiers to 
+            \l {QNetworkConfiguration::InternetAccessPoint}{Internet access points} configurations,
+            whereas \e ActiveConfiguration always returns identifiers to 
             \l {QNetworkConfiguration::InternetAccessPoint}{Internet access points} configurations.
         \row
             \o ConnectInBackground
-            \o Setting this property to \i true before calling \l open() implies that the connection attempt
+            \o Setting this property to \e true before calling \l open() implies that the connection attempt
             is made but if no connection can be established, the user is not connsulted and asked to select
             a suitable connection. This property is not set by default and support for it depends on the platform.
 

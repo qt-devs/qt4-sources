@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -88,7 +88,7 @@ void qt_eglproperties_set_glformat(QEglProperties& eglProperties, const QGLForma
     // put in the list before 32-bit configs. So, to make sure 16-bit is preffered over 32-bit,
     // we must set the red/green/blue sizes to zero. This has an unfortunate consequence that
     // if the application sets the red/green/blue size to 5/6/5 on the QGLFormat, they will
-    // probably get a 32-bit config, even when there's an RGB565 config avaliable. Oh well.
+    // probably get a 32-bit config, even when there's an RGB565 config available. Oh well.
 
     // Now normalize the values so -1 becomes 0
     redSize   = redSize   > 0 ? redSize   : 0;
@@ -143,6 +143,7 @@ void qt_glformat_from_eglconfig(QGLFormat& format, const EGLConfig config)
     format.setRgba(true);            // EGL doesn't support colour index rendering
     format.setStereo(false);         // EGL doesn't support stereo buffers
     format.setAccumBufferSize(0);    // EGL doesn't support accululation buffers
+    format.setDoubleBuffer(true);    // We don't support single buffered EGL contexts
 
     // Clear the EGL error state because some of the above may
     // have errored out because the attribute is not applicable
@@ -203,6 +204,8 @@ void QGLContext::makeCurrent()
                 const char *egl_version = eglQueryString(d->eglContext->display(), EGL_VERSION);
                 if (egl_version && strstr(egl_version, "1.3"))
                     d->workaround_brokenFBOReadBack = true;
+                else if (egl_version && strstr(egl_version, "1.4"))
+                    d->workaround_brokenTexSubImage = true;
             }
         }
     }
@@ -275,12 +278,12 @@ EGLSurface QGLContextPrivate::eglSurfaceForDevice() const
     return eglSurface;
 }
 
-void QGLContextPrivate::swapRegion(const QRegion *region)
+void QGLContextPrivate::swapRegion(const QRegion &region)
 {
     if (!valid || !eglContext)
         return;
 
-    eglContext->swapBuffersRegion2NOK(eglSurfaceForDevice(), region);
+    eglContext->swapBuffersRegion2NOK(eglSurfaceForDevice(), &region);
 }
 
 void QGLWidget::setMouseTracking(bool enable)

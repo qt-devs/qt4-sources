@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -84,6 +84,25 @@ struct QDeclarativeVMEMetaData
         int contextIdx;
         int propertyIdx;
         int flags;
+
+        bool isObjectAlias() const {
+            return propertyIdx == -1;
+        }
+        bool isPropertyAlias() const {
+            return !isObjectAlias() && !(propertyIdx & 0xFF000000);
+        }
+        bool isValueTypeAlias() const {
+            return !isObjectAlias() && (propertyIdx & 0xFF000000);
+        }
+        int propertyIndex() const {
+            return propertyIdx & 0x0000FFFF;
+        }
+        int valueTypeIndex() const {
+            return (propertyIdx & 0x00FF0000) >> 16;
+        }
+        int valueType() const {
+            return ((unsigned int)propertyIdx) >> 24;
+        }
     };
     
     struct PropertyData {
@@ -119,12 +138,15 @@ public:
                      QDeclarativeCompiledData *compiledData);
     ~QDeclarativeVMEMetaObject();
 
+    bool aliasTarget(int index, QObject **target, int *coreIndex, int *valueTypeIndex) const;
     void registerInterceptor(int index, int valueIndex, QDeclarativePropertyValueInterceptor *interceptor);
     QScriptValue vmeMethod(int index);
     int vmeMethodLineNumber(int index);
     void setVmeMethod(int index, const QScriptValue &);
     QScriptValue vmeProperty(int index);
     void setVMEProperty(int index, const QScriptValue &);
+
+    void connectAliasSignal(int index);
 
 protected:
     virtual int metaCall(QMetaObject::Call _c, int _id, void **_a);
@@ -140,6 +162,7 @@ private:
 
     QDeclarativeVMEVariant *data;
 
+    void connectAlias(int aliasId);
     QBitArray aConnected;
     QBitArray aInterceptors;
     QHash<int, QPair<int, QDeclarativePropertyValueInterceptor*> > interceptors;

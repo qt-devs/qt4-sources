@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,9 +147,13 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
   <link rel="prev" href="qmake-running.html" />
   <link rel="next" href="qmake-advanced-usage.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qmake-running.html">Running qmake</a>]
+[Next: <a href="qmake-advanced-usage.html">qmake Advanced Usage</a>]
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -248,7 +260,7 @@
 <p>The stack size has a maximum value, whereas the heap size has a minimum and a maximum value, all specified in bytes. The minimum value prevents the application from starting if that amount of memory is not available. The minimum and maximum values are separated by a space. For example:</p>
 <pre class="highlightedCode brush: cpp"> TARGET.EPOCHEAPSIZE = 10000 10000000
  TARGET.EPOCSTACKSIZE = 0x8000</pre>
-<p>The default values depend on the version of the Symbian SDK you're using.</p>
+<p>The default values depend on the version of the Symbian SDK you're using, however, the Qt toolchain sets this to the maximum possible value and this should not be changed.</p>
 <a name="compiler-specific-options"></a>
 <h3>Compiler specific options</h3>
 <p>General compiler options can as usual be set using <tt>QMAKE_CFLAGS</tt> and <tt>QMAKE_CXXFLAGS</tt>. In order to set specific compiler options, <tt>QMAKE_CFLAGS.&lt;compiler&gt;</tt> and <tt>QMAKE_CXXFLAGS.&lt;compiler&gt;</tt> can be used. <tt>&lt;compiler&gt;</tt> can be either <tt>CW</tt> for the WINSCW architecture (emulator), or <tt>ARMCC</tt> for the ARMv5 architecture (hardware), or <tt>GCCE</tt> for the ARMv5 architecture (hardware).</p>
@@ -258,23 +270,25 @@
 <a name="unique-identifiers"></a>
 <h3>Unique identifiers</h3>
 <p>Symbian applications may have unique identifiers attached to them. Here is how to define them in a project file:</p>
-<p>There are four types of IDs supported: <tt>UID2</tt>, <tt>UID3</tt>, <tt>SID</tt>, and <tt>VID</tt>. They are specified like this:</p>
+<p>There are four available types of IDs supported: <tt>UID2</tt>, <tt>UID3</tt>, <tt>SID</tt>, and <tt>VID</tt>. They are specified like this:</p>
 <pre class="highlightedCode brush: cpp"> TARGET.UID2 = 0x00000001
  TARGET.UID3 = 0x00000002
  TARGET.SID = 0x00000003
  TARGET.VID = 0x00000004</pre>
-<p>If <tt>UID2</tt> is not specified, it defaults to the same value as <tt>UID3</tt>. If <tt>UID3</tt> is not specified, qmake will automatically generate a <tt>UID3</tt> suitable for development and debugging. This value should be manually specified for applications that are to be released. In order to obtain an official UID, please contact Nokia. Both <tt>SID</tt> and <tt>VID</tt> default to empty values.</p>
-<p>For more information about unique identifiers and their meaning for Symbian applications, please refer to the Symbian SDK documentation.</p>
+<p>If <tt>SID</tt> is not specified, it defaults to the same value as <tt>UID3</tt>. If <tt>UID3</tt> is not specified, qmake will automatically generate a <tt>UID3</tt> suitable for development and debugging. This value should be manually specified for applications that are to be released. In order to obtain an official UID, please contact http:\www.symbiansigned.com. Both <tt>SID</tt> and <tt>VID</tt> default to empty values.</p>
+<p>There exists one UID1 too, but this should not be touched by any application.</p>
+<p>The UID2 has a specific value for different types of files - e.g&#x2e; apps/exes are always 0x100039CE. The toolchain will set this for value for the most common file types like, EXE/APP and shared library DLL.</p>
+<p>For more information about unique identifiers and their meaning for Symbian applications, please refer to the http://developer.symbian.org/main/documentation/reference/s3/pdk/GUID-380A8C4F-3EB6-5E1C-BCFB-ED5B866136D9.html</p>
 <a name="capabilities"></a>
 <h3>Capabilities</h3>
-<p>Capabilities define extra priviledges for the application, such as the ability to list all files on the file system. Capabilities are defined in the project file like this:</p>
+<p>Capabilities define extra privileges for the application, such as the ability to list all files on the file system. Capabilities are defined in the project file like this:</p>
 <pre class="highlightedCode brush: cpp"> TARGET.CAPABILITY += AllFiles</pre>
 <p>It is also possible to specify which capabilities <i>not</i> to have, by first specifying <tt>ALL</tt> and then list the unwanted capabilities with a minus in front of them, like this:</p>
 <pre class="highlightedCode brush: cpp"> TARGET.CAPABILITY = ALL -TCB -DRM -AllFiles</pre>
 <p>For more information about capabilities, please refer to the Symbian SDK documentation.</p>
 </div>
 <!-- @@@qmake-platform-notes.html -->
-<p>
+<p class="naviNextPrevious footerNavi">
 [Previous: <a href="qmake-running.html">Running qmake</a>]
 [Next: <a href="qmake-advanced-usage.html">qmake Advanced Usage</a>]
 </p>

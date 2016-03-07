@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -419,7 +427,7 @@
 <p>The current char format's attributes are set with <a href="qtextedit.html#setFontItalic">setFontItalic</a>(), <a href="qtextedit.html#setFontWeight">setFontWeight</a>(), <a href="qtextedit.html#setFontUnderline">setFontUnderline</a>(), <a href="qtextedit.html#setFontFamily">setFontFamily</a>(), <a href="qtextedit.html#setFontPointSize">setFontPointSize</a>(), <a href="qtextedit.html#setTextColor">setTextColor</a>() and <a href="qtextedit.html#setCurrentFont">setCurrentFont</a>(). The current paragraph's alignment is set with <a href="qtextedit.html#setAlignment">setAlignment</a>().</p>
 <p>Selection of text is handled by the <a href="qtextcursor.html">QTextCursor</a> class, which provides functionality for creating selections, retrieving the text contents or deleting selections. You can retrieve the object that corresponds with the user-visible cursor using the <a href="qtextedit.html#textCursor">textCursor</a>() method. If you want to set a selection in QTextEdit just create one on a <a href="qtextcursor.html">QTextCursor</a> object and then make that cursor the visible cursor using <a href="qtextedit.html#setTextCursor">setTextCursor</a>(). The selection can be copied to the clipboard with <a href="qtextedit.html#copy">copy</a>(), or cut to the clipboard with <a href="qtextedit.html#cut">cut</a>(). The entire text can be selected using <a href="qtextedit.html#selectAll">selectAll</a>().</p>
 <p>When the cursor is moved and the underlying formatting attributes change, the <a href="qtextedit.html#currentCharFormatChanged">currentCharFormatChanged</a>() signal is emitted to reflect the new attributes at the new cursor position.</p>
-<p>QTextEdit holds a <a href="qtextdocument.html">QTextDocument</a> object which can be retrieved using the <a href="qtextedit.html#document">document</a>() method. You can also set your own document object using <a href="qtextedit.html#setDocument">setDocument</a>(). <a href="qtextdocument.html">QTextDocument</a> emits a <a href="qtextedit.html#textChanged">textChanged</a>() signal if the text changes and it also provides a <a href="qtextedit.html#isModified" class="compat">isModified</a>() function which will return true if the text has been modified since it was either loaded or since the last call to setModified with false as argument. In addition it provides methods for undo and redo.</p>
+<p>QTextEdit holds a <a href="qtextdocument.html">QTextDocument</a> object which can be retrieved using the <a href="qtextedit.html#document">document</a>() method. You can also set your own document object using <a href="qtextedit.html#setDocument">setDocument</a>(). <a href="qtextdocument.html">QTextDocument</a> emits a <a href="qtextedit.html#textChanged">textChanged</a>() signal if the text changes and it also provides a <a href="qtextedit-qt3.html#isModified" class="compat">isModified</a>() function which will return true if the text has been modified since it was either loaded or since the last call to setModified with false as argument. In addition it provides methods for undo and redo.</p>
 <a name="drag-and-drop"></a>
 <h4>Drag and Drop</h4>
 <p>QTextEdit also supports custom drag and drop behavior. By default, QTextEdit will insert plain text, HTML and rich text when the user drops data of these MIME types onto a document. Reimplement <a href="qtextedit.html#canInsertFromMimeData">canInsertFromMimeData</a>() and <a href="qtextedit.html#insertFromMimeData">insertFromMimeData</a>() to add support for additional MIME types.</p>
@@ -482,7 +490,7 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$AutoFormattingFlag$$$AutoNone$$$AutoBulletList$$$AutoAll -->
 <h3 class="flags"><a name="AutoFormattingFlag-enum"></a>enum QTextEdit::AutoFormattingFlag<br/>flags QTextEdit::AutoFormatting</h3>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QTextEdit::AutoNone</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Don't do any automatic formatting.</td></tr>
 <tr><td  class="topAlign"><tt>QTextEdit::AutoBulletList</tt></td><td class=" topAlign"><tt>0x00000001</tt></td><td  class="topAlign">Automatically create bullet lists (e.g&#x2e; when the user enters an asterisk ('*') in the left most column, or presses Enter in an existing list item.</td></tr>
 <tr><td  class="topAlign"><tt>QTextEdit::AutoAll</tt></td><td class=" topAlign"><tt>0xffffffff</tt></td><td  class="topAlign">Apply all automatic formatting. Currently only automatic bullet lists are supported.</td></tr>
@@ -1016,7 +1024,7 @@
 <h3 class="fn"><a name="setDocument"></a>void QTextEdit::setDocument ( <a href="qtextdocument.html">QTextDocument</a> * <i>document</i> )</h3>
 <p>Makes <i>document</i> the new document of the text editor.</p>
 <p><b>Note:</b> The editor <i>does not take ownership of the document</i> unless it is the document's parent object. The parent object of the provided document remains the owner of the object.</p>
-<p>If the current document is a child of the text editor, then it is deleted.</p>
+<p>The editor does not delete the current document, even if it is a child of the editor.</p>
 <p>See also <a href="qtextedit.html#document">document</a>().</p>
 <!-- @@@setDocument -->
 <!-- $$$setExtraSelections[overload1]$$$setExtraSelectionsconstQList<ExtraSelection>& -->
@@ -1056,7 +1064,7 @@
 <p>Sets the text edit's <i>text</i>. The text can be plain text or HTML and the text edit will try to guess the right format.</p>
 <p>Use <a href="qtextedit.html#html-prop">setHtml</a>() or <a href="qtextedit.html#plainText-prop">setPlainText</a>() directly to avoid text edit's guessing.</p>
 <p>This function was introduced in Qt 4.2.</p>
-<p>See also <a href="qtextedit.html#text" class="compat">text</a>().</p>
+<p>See also <a href="qtextedit-qt3.html#text" class="compat">text</a>().</p>
 <!-- @@@setText -->
 <!-- $$$setTextBackgroundColor[overload1]$$$setTextBackgroundColorconstQColor& -->
 <h3 class="fn"><a name="setTextBackgroundColor"></a>void QTextEdit::setTextBackgroundColor ( const <a href="qcolor.html">QColor</a> &amp; <i>c</i> )<tt> [slot]</tt></h3>

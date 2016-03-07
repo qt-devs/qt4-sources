@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,7 +147,9 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -240,12 +250,12 @@
 <!-- @@@PropertyAnimation -->
 <h2>Property Documentation</h2>
 <!-- $$$duration -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="duration-prop"></a>duration : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>This property holds the duration of the animation, in milliseconds.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="duration-prop"></a>duration : <a href="qml-int.html">int</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the duration of the animation, in milliseconds.</p>
 <p>The default value is 250.</p>
 </div></div><!-- @@@duration -->
 <br/>
 <!-- $$$easing.type -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="easing.type-prop"></a>easing.type : <a href="qml-enumeration.html">enumeration</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="easing.amplitude-prop"></a>easing.amplitude : <a href="qml-real.html">real</a></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="easing.overshoot-prop"></a>easing.overshoot : <a href="qml-real.html">real</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="easing.period-prop"></a>easing.period : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>To specify an easing curve you need to specify at least the type. For some curves you can also specify amplitude, period and/or overshoot (more details provided after the table). The default easing curve is <tt>Easing.Linear</tt>.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="easing.type-prop"></a>easing.type : <a href="qml-enumeration.html">enumeration</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="easing.amplitude-prop"></a>easing.amplitude : <a href="qml-real.html">real</a></p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="easing.overshoot-prop"></a>easing.overshoot : <a href="qml-real.html">real</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="easing.period-prop"></a>easing.period : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>To specify an easing curve you need to specify at least the type. For some curves you can also specify amplitude, period and/or overshoot (more details provided after the table). The default easing curve is <tt>Easing.Linear</tt>.</p>
 <pre class="highlightedCode brush: cpp"> PropertyAnimation { properties: &quot;y&quot;; easing.type: Easing.InOutElastic; easing.amplitude: 2.0; easing.period: 1.5 }</pre>
 <p>Available types are:</p>
 <table class="generic">
@@ -298,22 +308,24 @@
 </div></div><!-- @@@easing.type -->
 <br/>
 <!-- $$$exclude -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="even"><td class="tblQmlPropNode"><p><a name="exclude-prop"></a><span class="qmlreadonly">read-only</span>exclude : <a href="qml-list.html">list</a>&lt;Object&gt;</td></tr></table></div><div class="qmldoc"><p>This property holds the items not to be affected by this animation.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="even"><td class="tblQmlPropNode"><p><a name="exclude-prop"></a><span class="qmlreadonly">read-only</span>exclude : <a href="qml-list.html">list</a>&lt;Object&gt;</p></td></tr></table></div><div class="qmldoc"><p>This property holds the items not to be affected by this animation.</p>
 <p>See also <a href="qml-propertyanimation.html#targets-prop">PropertyAnimation::targets</a>.</p>
 </div></div><!-- @@@exclude -->
 <br/>
 <!-- $$$from -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="from-prop"></a>from : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the starting value for the animation.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="from-prop"></a>from : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the starting value for the animation.</p>
 <p>If the <a href="qml-propertyanimation.html">PropertyAnimation</a> is defined within a <a href="qml-transition.html">Transition</a> or <a href="qml-behavior.html">Behavior</a>, this value defaults to the value defined in the starting state of the <a href="qml-transition.html">Transition</a>, or the current value of the property at the moment the <a href="qml-behavior.html">Behavior</a> is triggered.</p>
 <p>See also <a href="qdeclarativeanimation.html">QML Animation</a>.</p>
 </div></div><!-- @@@from -->
 <br/>
 <!-- $$$properties -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="properties-prop"></a>properties : <a href="qml-string.html">string</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="targets-prop"></a><span class="qmlreadonly">read-only</span>targets : <a href="qml-list.html">list</a>&lt;Object&gt;</td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="property-prop"></a>property : <a href="qml-string.html">string</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="target-prop"></a>target : Object</td></tr></table></div><div class="qmldoc"><p>These properties are used as a set to determine which properties should be animated. The singular and plural forms are functionally identical, e.g&#x2e;</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="properties-prop"></a>properties : <a href="qml-string.html">string</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="targets-prop"></a><span class="qmlreadonly">read-only</span>targets : <a href="qml-list.html">list</a>&lt;Object&gt;</p></td></tr><tr class="odd"><td class="tblQmlPropNode"><p><a name="property-prop"></a>property : <a href="qml-string.html">string</a></p></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="target-prop"></a>target : Object</p></td></tr></table></div><div class="qmldoc"><p>These properties are used as a set to determine which properties should be animated. The singular and plural forms are functionally identical, e.g&#x2e;</p>
 <pre class="highlightedCode brush: cpp"> NumberAnimation { target: theItem; property: &quot;x&quot;; to: 500 }</pre>
 <p>has the same meaning as</p>
 <pre class="highlightedCode brush: cpp"> NumberAnimation { targets: theItem; properties: &quot;x&quot;; to: 500 }</pre>
 <p>The singular forms are slightly optimized, so if you do have only a single target/property to animate you should try to use them.</p>
+<p>The <tt>targets</tt> property allows multiple targets to be set. For example, this animates the <tt>x</tt> property of both <tt>itemA</tt> and <tt>itemB</tt>:</p>
+<pre class="highlightedCode brush: cpp"> NumberAnimation { targets: [itemA, itemB]; properties: &quot;x&quot;; to: 500 }</pre>
 <p>In many cases these properties do not need to be explicitly specified, as they can be inferred from the animation framework:</p>
 <table class="generic">
  <tr class="odd topAlign"><td ><p>Value Source / Behavior</p></td><td ><p>When an animation is used as a value source or in a Behavior, the default target and property name to be animated can both be inferred.<pre class="highlightedCode brush: cpp">    Rectangle {
@@ -357,16 +369,16 @@
 </p></td></tr>
 </table>
 <p>As seen in the above example, properties is specified as a comma-separated string of property names to animate.</p>
-<p>See also <a href="qml-propertyanimation.html#exclude-prop">exclude</a>.</p>
+<p>See also <a href="qml-propertyanimation.html#exclude-prop">exclude</a> and <a href="qdeclarativeanimation.html">QML Animation</a>.</p>
 </div></div><!-- @@@properties -->
 <br/>
 <!-- $$$to -->
-<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="to-prop"></a>to : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>This property holds the end value for the animation.</p>
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="to-prop"></a>to : <a href="qml-real.html">real</a></p></td></tr></table></div><div class="qmldoc"><p>This property holds the end value for the animation.</p>
 <p>If the <a href="qml-propertyanimation.html">PropertyAnimation</a> is defined within a <a href="qml-transition.html">Transition</a> or <a href="qml-behavior.html">Behavior</a>, this value defaults to the value defined in the end state of the <a href="qml-transition.html">Transition</a>, or the value of the property change that triggered the <a href="qml-behavior.html">Behavior</a>.</p>
 <p>See also <a href="qdeclarativeanimation.html">QML Animation</a>.</p>
 </div></div><!-- @@@to -->
 <br/>
-<p>
+<p class="naviNextPrevious footerNavi">
 </p>
         <div class="feedback t_button">
           [+] Documentation Feedback</div>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,51 +149,51 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">Qt 3 Support Members for QPainter</h1>
 <p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
 <p><ul><li><a href="qpainter.html">QPainter class reference</a></li></ul></p>
 <h2>Public Functions</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> const QColor &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#backgroundColor">backgroundColor</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#begin-2">begin</a></b> ( QPaintDevice * <i>device</i>, const QWidget * <i>init</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#boundingRect-2">boundingRect</a></b> ( const QRect &amp; <i>rectangle</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#boundingRect-3">boundingRect</a></b> ( int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawConvexPolygon-5">drawConvexPolygon</a></b> ( const QPolygonF &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawConvexPolygon-6">drawConvexPolygon</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawCubicBezier">drawCubicBezier</a></b> ( const QPolygon &amp; <i>controlPoints</i>, int <i>index</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawLineSegments">drawLineSegments</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i> = 0, int <i>count</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawPoints-5">drawPoints</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawPolygon-3">drawPolygon</a></b> ( const QPolygonF &amp; <i>polygon</i>, bool <i>winding</i>, int <i>index</i> = 0, int <i>count</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawPolygon-4">drawPolygon</a></b> ( const QPolygon &amp; <i>polygon</i>, bool <i>winding</i>, int <i>index</i> = 0, int <i>count</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawPolyline-3">drawPolyline</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawText-3">drawText</a></b> ( int <i>x</i>, int <i>y</i>, const QString &amp; <i>text</i>, int <i>pos</i>, int <i>length</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawText-4">drawText</a></b> ( const QPoint &amp; <i>point</i>, const QString &amp; <i>text</i>, int <i>pos</i>, int <i>length</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawText-5">drawText</a></b> ( int <i>x</i>, int <i>y</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawText-6">drawText</a></b> ( const QPoint &amp; <i>point</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawText-7">drawText</a></b> ( const QRect &amp; <i>rectangle</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i>, QRect * <i>br</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#drawText-8">drawText</a></b> ( int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i>, QRect * <i>br</i> = 0 )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#hasViewXForm">hasViewXForm</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#hasWorldXForm">hasWorldXForm</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#resetXForm">resetXForm</a></b> ()</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#setBackgroundColor">setBackgroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#setViewXForm">setViewXForm</a></b> ( bool <i>enabled</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#setWorldXForm">setWorldXForm</a></b> ( bool <i>enabled</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#translationX">translationX</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#translationY">translationY</a></b> () const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xForm">xForm</a></b> ( const QPoint &amp; <i>point</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xForm-2">xForm</a></b> ( const QRect &amp; <i>rectangle</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xForm-3">xForm</a></b> ( const QPolygon &amp; <i>polygon</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xForm-4">xForm</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xFormDev">xFormDev</a></b> ( const QPoint &amp; <i>point</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xFormDev-2">xFormDev</a></b> ( const QRect &amp; <i>rectangle</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xFormDev-3">xFormDev</a></b> ( const QPolygon &amp; <i>polygon</i> ) const</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#xFormDev-4">xFormDev</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const QColor &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#backgroundColor">backgroundColor</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#begin-2">begin</a></b> ( QPaintDevice * <i>device</i>, const QWidget * <i>init</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#boundingRect-2">boundingRect</a></b> ( const QRect &amp; <i>rectangle</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#boundingRect-3">boundingRect</a></b> ( int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawConvexPolygon-5">drawConvexPolygon</a></b> ( const QPolygonF &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawConvexPolygon-6">drawConvexPolygon</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawCubicBezier">drawCubicBezier</a></b> ( const QPolygon &amp; <i>controlPoints</i>, int <i>index</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawLineSegments">drawLineSegments</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i> = 0, int <i>count</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawPoints-5">drawPoints</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawPolygon-3">drawPolygon</a></b> ( const QPolygonF &amp; <i>polygon</i>, bool <i>winding</i>, int <i>index</i> = 0, int <i>count</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawPolygon-4">drawPolygon</a></b> ( const QPolygon &amp; <i>polygon</i>, bool <i>winding</i>, int <i>index</i> = 0, int <i>count</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawPolyline-3">drawPolyline</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> = -1 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawText-3">drawText</a></b> ( int <i>x</i>, int <i>y</i>, const QString &amp; <i>text</i>, int <i>pos</i>, int <i>length</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawText-4">drawText</a></b> ( const QPoint &amp; <i>point</i>, const QString &amp; <i>text</i>, int <i>pos</i>, int <i>length</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawText-5">drawText</a></b> ( int <i>x</i>, int <i>y</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawText-6">drawText</a></b> ( const QPoint &amp; <i>point</i>, const QString &amp; <i>text</i>, int <i>length</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawText-7">drawText</a></b> ( const QRect &amp; <i>rectangle</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i>, QRect * <i>br</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#drawText-8">drawText</a></b> ( int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>length</i>, QRect * <i>br</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#hasViewXForm">hasViewXForm</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#hasWorldXForm">hasWorldXForm</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#resetXForm">resetXForm</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#setBackgroundColor">setBackgroundColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#setViewXForm">setViewXForm</a></b> ( bool <i>enabled</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#setWorldXForm">setWorldXForm</a></b> ( bool <i>enabled</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#translationX">translationX</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#translationY">translationY</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xForm">xForm</a></b> ( const QPoint &amp; <i>point</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xForm-2">xForm</a></b> ( const QRect &amp; <i>rectangle</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xForm-3">xForm</a></b> ( const QPolygon &amp; <i>polygon</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xForm-4">xForm</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xFormDev">xFormDev</a></b> ( const QPoint &amp; <i>point</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xFormDev-2">xFormDev</a></b> ( const QRect &amp; <i>rectangle</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xFormDev-3">xFormDev</a></b> ( const QPolygon &amp; <i>polygon</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPolygon </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#xFormDev-4">xFormDev</a></b> ( const QPolygon &amp; <i>polygon</i>, int <i>index</i>, int <i>count</i> ) const</td></tr>
 </table>
 <h2>Static Public Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#redirect">redirect</a></b> ( QPaintDevice * <i>pdev</i>, QPaintDevice * <i>replacement</i> )</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> QPaintDevice * </td><td class="memItemRight bottomAlign"><b><a href="qpainter.html#redirect-2">redirect</a></b> ( QPaintDevice * <i>pdev</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#redirect">redirect</a></b> ( QPaintDevice * <i>pdev</i>, QPaintDevice * <i>replacement</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPaintDevice * </td><td class="memItemRight bottomAlign"><b><a href="qpainter-qt3.html#redirect-2">redirect</a></b> ( QPaintDevice * <i>pdev</i> )</td></tr>
 </table>
 <h2>Member Function Documentation</h2>
 <!-- $$$backgroundColor[overload1]$$$backgroundColor -->
@@ -196,7 +204,7 @@
 <p>you can rewrite it as</p>
 <pre class="highlightedCode brush: cpp"> QColor myColor = background().color();</pre>
 <p>Note that the background can be a complex brush such as a texture or a gradient.</p>
-<p>See also <a href="qpainter.html#setBackgroundColor">setBackgroundColor</a>().</p>
+<p>See also <a href="qpainter-qt3.html#setBackgroundColor">setBackgroundColor</a>().</p>
 <!-- @@@backgroundColor -->
 <!-- $$$begin$$$beginQPaintDevice*constQWidget* -->
 <h3 class="fn"><a name="begin-2"></a>bool QPainter::begin ( <a href="qpaintdevice.html">QPaintDevice</a> * <i>device</i>, const <a href="qwidget.html">QWidget</a> * <i>init</i> )</h3>
@@ -410,11 +418,11 @@
 <!-- @@@hasWorldXForm -->
 <!-- $$$redirect[overload1]$$$redirectQPaintDevice*QPaintDevice* -->
 <h3 class="fn"><a name="redirect"></a>void QPainter::redirect ( <a href="qpaintdevice.html">QPaintDevice</a> * <i>pdev</i>, <a href="qpaintdevice.html">QPaintDevice</a> * <i>replacement</i> )<tt> [static]</tt></h3>
-<p>Use <a href="qpainter.html#setRedirected" class="obsolete">setRedirected</a>() instead.</p>
+<p>Use <a href="qpainter-obsolete.html#setRedirected" class="obsolete">setRedirected</a>() instead.</p>
 <!-- @@@redirect -->
 <!-- $$$redirect$$$redirectQPaintDevice* -->
 <h3 class="fn"><a name="redirect-2"></a><a href="qpaintdevice.html">QPaintDevice</a> * QPainter::redirect ( <a href="qpaintdevice.html">QPaintDevice</a> * <i>pdev</i> )<tt> [static]</tt></h3>
-<p>Use <a href="qpainter.html#redirected" class="obsolete">redirected</a>() instead.</p>
+<p>Use <a href="qpainter-obsolete.html#redirected" class="obsolete">redirected</a>() instead.</p>
 <!-- @@@redirect -->
 <!-- $$$resetXForm[overload1]$$$resetXForm -->
 <h3 class="fn"><a name="resetXForm"></a>void QPainter::resetXForm ()</h3>
@@ -423,17 +431,17 @@
 <!-- $$$setBackgroundColor[overload1]$$$setBackgroundColorconstQColor& -->
 <h3 class="fn"><a name="setBackgroundColor"></a>void QPainter::setBackgroundColor ( const <a href="qcolor.html">QColor</a> &amp; <i>color</i> )</h3>
 <p>Use <a href="qpainter.html#setBackground">setBackground</a>() instead.</p>
-<p>See also <a href="qpainter.html#backgroundColor">backgroundColor</a>().</p>
+<p>See also <a href="qpainter-qt3.html#backgroundColor">backgroundColor</a>().</p>
 <!-- @@@setBackgroundColor -->
 <!-- $$$setViewXForm[overload1]$$$setViewXFormbool -->
 <h3 class="fn"><a name="setViewXForm"></a>void QPainter::setViewXForm ( bool <i>enabled</i> )</h3>
 <p>Use <a href="qpainter.html#setViewTransformEnabled">setViewTransformEnabled</a>() instead.</p>
-<p>See also <a href="qpainter.html#hasViewXForm">hasViewXForm</a>().</p>
+<p>See also <a href="qpainter-qt3.html#hasViewXForm">hasViewXForm</a>().</p>
 <!-- @@@setViewXForm -->
 <!-- $$$setWorldXForm[overload1]$$$setWorldXFormbool -->
 <h3 class="fn"><a name="setWorldXForm"></a>void QPainter::setWorldXForm ( bool <i>enabled</i> )</h3>
 <p>Use <a href="qpainter.html#setWorldMatrixEnabled">setWorldMatrixEnabled</a>() instead.</p>
-<p>See also <a href="qpainter.html#hasWorldXForm">hasWorldXForm</a>().</p>
+<p>See also <a href="qpainter-qt3.html#hasWorldXForm">hasWorldXForm</a>().</p>
 <!-- @@@setWorldXForm -->
 <!-- $$$translationX[overload1]$$$translationX -->
 <h3 class="fn"><a name="translationX"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QPainter::translationX () const</h3>

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -198,7 +206,7 @@
 <h2>Detailed Description</h2>
 <p>The QResource class provides an interface for reading directly from resources.</p>
 <p>QResource is an object that represents a set of data (and possibly children) relating to a single resource entity. QResource gives direct access to the bytes in their raw format. In this way direct access allows reading data without buffer copying or indirection. Indirection is often useful when interacting with the resource entity as if it is a file, this can be achieved with <a href="qfile.html">QFile</a>. The data and children behind a QResource are normally compiled into an application/library, but it is also possible to load a resource at runtime. When loaded at run time the resource file will be loaded as one big set of data and then given out in pieces via references into the resource tree.</p>
-<p>A QResource can either be loaded with an absolute path, either treated as a file system rooted with a <tt>/</tt> character, or in resource notation rooted with a <tt>:</tt> character. A relative resource can also be opened which will be found through the <a href="qresource.html#searchPaths" class="obsolete">searchPaths</a>().</p>
+<p>A QResource can either be loaded with an absolute path, either treated as a file system rooted with a <tt>/</tt> character, or in resource notation rooted with a <tt>:</tt> character. A relative resource can also be opened which will be found in the list of paths returned by <a href="qdir.html#searchPaths">QDir::searchPaths</a>().</p>
 <p>A QResource that is representing a file will have data backing it, this data can possibly be compressed, in which case <a href="qbytearray.html#qUncompress">qUncompress</a>() must be used to access the real data; this happens implicitly when accessed through a <a href="qfile.html">QFile</a>. A QResource that is representing a directory will have only children and no data.</p>
 <a name="dynamic-resource-loading"></a>
 <h3>Dynamic Resource Loading</h3>
@@ -214,7 +222,7 @@
 <!-- $$$QResource[overload1]$$$QResourceconstQString&constQLocale& -->
 <h3 class="fn"><a name="QResource"></a>QResource::QResource ( const <a href="qstring.html">QString</a> &amp; <i>file</i> = QString(), const <a href="qlocale.html">QLocale</a> &amp; <i>locale</i> = QLocale() )</h3>
 <p>Constructs a <a href="qresource.html">QResource</a> pointing to <i>file</i>. <i>locale</i> is used to load a specific localization of a resource data.</p>
-<p>See also <a href="qfileinfo.html">QFileInfo</a>, <a href="qresource.html#searchPaths" class="obsolete">searchPaths</a>(), <a href="qresource.html#setFileName">setFileName</a>(), and <a href="qresource.html#setLocale">setLocale</a>().</p>
+<p>See also <a href="qfileinfo.html">QFileInfo</a>, <a href="qresource-obsolete.html#searchPaths" class="obsolete">searchPaths</a>(), <a href="qresource.html#setFileName">setFileName</a>(), and <a href="qresource.html#setLocale">setLocale</a>().</p>
 <!-- @@@QResource -->
 <!-- $$$~QResource[overload1]$$$~QResource -->
 <h3 class="fn"><a name="dtor.QResource"></a>QResource::~QResource ()</h3>
@@ -222,7 +230,7 @@
 <!-- @@@~QResource -->
 <!-- $$$absoluteFilePath[overload1]$$$absoluteFilePath -->
 <h3 class="fn"><a name="absoluteFilePath"></a><a href="qstring.html">QString</a> QResource::absoluteFilePath () const</h3>
-<p>Returns the real path that this <a href="qresource.html">QResource</a> represents, if the resource was found via the <a href="qresource.html#searchPaths" class="obsolete">searchPaths</a>() it will be indicated in the path.</p>
+<p>Returns the real path that this <a href="qresource.html">QResource</a> represents, if the resource was found via the <a href="qresource-obsolete.html#searchPaths" class="obsolete">searchPaths</a>() it will be indicated in the path.</p>
 <p>See also <a href="qresource.html#fileName">fileName</a>().</p>
 <!-- @@@absoluteFilePath -->
 <!-- $$$children[overload1]$$$children -->
@@ -278,7 +286,7 @@
 <!-- @@@registerResource -->
 <!-- $$$setFileName[overload1]$$$setFileNameconstQString& -->
 <h3 class="fn"><a name="setFileName"></a>void QResource::setFileName ( const <a href="qstring.html">QString</a> &amp; <i>file</i> )</h3>
-<p>Sets a <a href="qresource.html">QResource</a> to point to <i>file</i>. <i>file</i> can either be absolute, in which case it is opened directly, if relative then the file will be tried to be found in <a href="qresource.html#searchPaths" class="obsolete">searchPaths</a>().</p>
+<p>Sets a <a href="qresource.html">QResource</a> to point to <i>file</i>. <i>file</i> can either be absolute, in which case it is opened directly, if relative then the file will be tried to be found in <a href="qresource-obsolete.html#searchPaths" class="obsolete">searchPaths</a>().</p>
 <p>See also <a href="qresource.html#fileName">fileName</a>() and <a href="qresource.html#absoluteFilePath">absoluteFilePath</a>().</p>
 <!-- @@@setFileName -->
 <!-- $$$setLocale[overload1]$$$setLocaleconstQLocale& -->

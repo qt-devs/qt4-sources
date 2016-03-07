@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -270,13 +278,13 @@
 <h2>Member Type Documentation</h2>
 <!-- $$$ObjectOwnership$$$CppOwnership$$$JavaScriptOwnership -->
 <h3 class="fn"><a name="ObjectOwnership-enum"></a>enum QDeclarativeEngine::ObjectOwnership</h3>
-<p>Ownership controls whether or not QML automatically destroys the <a href="qobject.html">QObject</a> when the object is garbage collected by the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> engine. The two ownership options are:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
-<tr><td  class="topAlign"><tt>QDeclarativeEngine::CppOwnership</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The object is owned by C++ code, and will never be deleted by QML. The <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> destroy() method cannot be used on objects with CppOwnership. This option is similar to <a href="qscriptengine.html#ValueOwnership-enum">QScriptEngine::QtOwnership</a>.</td></tr>
-<tr><td  class="topAlign"><tt>QDeclarativeEngine::JavaScriptOwnership</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The object is owned by <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>. When the object is returned to QML as the return value of a method call or property access, QML will delete the object if there are no remaining <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> references to it and it has no <a href="qobject.html#parent">QObject::parent</a>(). This option is similar to <a href="qscriptengine.html#ValueOwnership-enum">QScriptEngine::ScriptOwnership</a>.</td></tr>
+<p>Ownership controls whether or not QML automatically destroys the <a href="qobject.html">QObject</a> when the object is garbage collected by the JavaScript engine. The two ownership options are:</p>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td  class="topAlign"><tt>QDeclarativeEngine::CppOwnership</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The object is owned by C++ code, and will never be deleted by QML. The JavaScript destroy() method cannot be used on objects with CppOwnership. This option is similar to <a href="qscriptengine.html#ValueOwnership-enum">QScriptEngine::QtOwnership</a>.</td></tr>
+<tr><td  class="topAlign"><tt>QDeclarativeEngine::JavaScriptOwnership</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The object is owned by JavaScript. When the object is returned to QML as the return value of a method call or property access, QML will delete the object if there are no remaining JavaScript references to it and it has no <a href="qobject.html#parent">QObject::parent</a>(). This option is similar to <a href="qscriptengine.html#ValueOwnership-enum">QScriptEngine::ScriptOwnership</a>.</td></tr>
 </table>
-<p>Generally an application doesn't need to set an object's ownership explicitly. QML uses a heuristic to set the default object ownership. By default, an object that is created by QML has JavaScriptOwnership. The exception to this are the root objects created by calling QDeclarativeCompnent::create() or <a href="qdeclarativecomponent.html#beginCreate">QDeclarativeComponent::beginCreate</a>() which have CppOwnership by default. The ownership of these root-level objects is considered to have been transfered to the C++ caller.</p>
-<p>Objects not-created by QML have CppOwnership by default. The exception to this is objects returned from a C++ method call. The ownership of these objects is passed to <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>.</p>
+<p>Generally an application doesn't need to set an object's ownership explicitly. QML uses a heuristic to set the default object ownership. By default, an object that is created by QML has JavaScriptOwnership. The exception to this are the root objects created by calling QDeclarativeCompnent::create() or <a href="qdeclarativecomponent.html#beginCreate">QDeclarativeComponent::beginCreate</a>() which have CppOwnership by default. The ownership of these root-level objects is considered to have been transferred to the C++ caller.</p>
+<p>Objects not-created by QML have CppOwnership by default. The exception to this is objects returned from a C++ method call. The ownership of these objects is passed to JavaScript.</p>
 <p>Calling <a href="qdeclarativeengine.html#setObjectOwnership">setObjectOwnership</a>() overrides the default ownership heuristic used by QML.</p>
 <!-- @@@ObjectOwnership -->
 </div>
@@ -311,14 +319,15 @@
 <h3 class="fn"><a name="addImageProvider"></a>void QDeclarativeEngine::addImageProvider ( const <a href="qstring.html">QString</a> &amp; <i>providerId</i>, <a href="qdeclarativeimageprovider.html">QDeclarativeImageProvider</a> * <i>provider</i> )</h3>
 <p>Sets the <i>provider</i> to use for images requested via the <i>image</i>: url scheme, with host <i>providerId</i>. The <a href="qdeclarativeengine.html">QDeclarativeEngine</a> takes ownership of <i>provider</i>.</p>
 <p>Image providers enable support for pixmap and threaded image requests. See the <a href="qdeclarativeimageprovider.html">QDeclarativeImageProvider</a> documentation for details on implementing and using image providers.</p>
+<p>All required image providers should be added to the engine before any QML sources files are loaded.</p>
 <p>Note that images loaded from a <a href="qdeclarativeimageprovider.html">QDeclarativeImageProvider</a> are cached by <a href="qpixmapcache.html">QPixmapCache</a>, similar to any image loaded by QML.</p>
 <p>See also <a href="qdeclarativeengine.html#removeImageProvider">removeImageProvider</a>().</p>
 <!-- @@@addImageProvider -->
 <!-- $$$addImportPath[overload1]$$$addImportPathconstQString& -->
 <h3 class="fn"><a name="addImportPath"></a>void QDeclarativeEngine::addImportPath ( const <a href="qstring.html">QString</a> &amp; <i>path</i> )</h3>
-<p>Adds <i>path</i> as a directory where the engine searches for installed modules in a URL-based directory structure.</p>
+<p>Adds <i>path</i> as a directory where the engine searches for installed modules in a URL-based directory structure. The <i>path</i> may be a local filesystem directory or a URL.</p>
 <p>The newly added <i>path</i> will be first in the <a href="qdeclarativeengine.html#importPathList">importPathList</a>().</p>
-<p>See also <a href="qdeclarativeengine.html#setImportPathList">setImportPathList</a>().</p>
+<p>See also <a href="qdeclarativeengine.html#setImportPathList">setImportPathList</a>(), l, and <a href="qdeclarativemodules.html#qml-modules">QML Modules</a>.</p>
 <!-- @@@addImportPath -->
 <!-- $$$addPluginPath[overload1]$$$addPluginPathconstQString& -->
 <h3 class="fn"><a name="addPluginPath"></a>void QDeclarativeEngine::addPluginPath ( const <a href="qstring.html">QString</a> &amp; <i>path</i> )</h3>
@@ -426,7 +435,7 @@
 <h3 class="fn"><a name="setNetworkAccessManagerFactory"></a>void QDeclarativeEngine::setNetworkAccessManagerFactory ( <a href="qdeclarativenetworkaccessmanagerfactory.html">QDeclarativeNetworkAccessManagerFactory</a> * <i>factory</i> )</h3>
 <p>Sets the <i>factory</i> to use for creating <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>(s).</p>
 <p><a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> is used for all network access by QML. By implementing a factory it is possible to create custom <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> with specialized caching, proxy and cookie support.</p>
-<p>The factory must be set before exceuting the engine.</p>
+<p>The factory must be set before executing the engine.</p>
 <p>See also <a href="qdeclarativeengine.html#networkAccessManagerFactory">networkAccessManagerFactory</a>().</p>
 <!-- @@@setNetworkAccessManagerFactory -->
 <!-- $$$setObjectOwnership[overload1]$$$setObjectOwnershipQObject*ObjectOwnership -->
@@ -456,7 +465,7 @@
 <h2>Related Non-Members</h2>
 <!-- $$$qmlInfo[overload1]$$$qmlInfoconstQObject* -->
 <h3 class="fn"><a name="qmlInfo"></a>QDeclarativeInfo qmlInfo ( const <a href="qobject.html">QObject</a> * <i>object</i> )</h3>
-<p>Prints warnings messages that include the file and line number for QML types.</p>
+<p>Prints warning messages that include the file and line number for the specified QML <i>object</i>.</p>
 <p>When QML types display warning messages, it improves traceability if they include the QML file and line number on which the particular instance was instantiated.</p>
 <p>To include the file and line number, an object must be passed. If the file and line number is not available for that instance (either it was not instantiated by the QML engine or location information is disabled), &quot;unknown location&quot; will be used instead.</p>
 <p>For example,</p>
@@ -467,6 +476,7 @@
 <!-- $$$qmlRegisterInterface[overload1]$$$qmlRegisterInterfaceconstchar* -->
 <h3 class="fn"><a name="qmlRegisterInterface"></a>int qmlRegisterInterface ( const char * <i>typeName</i> )</h3>
 <p>This template function registers the C++ type in the QML system under the name <i>typeName</i>.</p>
+<p>#include &lt;<a href="qtdeclarative.html">QtDeclarative</a>&gt; to use this function.</p>
 <p>Returns the QML type id.</p>
 <!-- @@@qmlRegisterInterface -->
 <!-- $$$qmlRegisterType[overload1]$$$qmlRegisterTypeconstchar*intintconstchar* -->
@@ -474,7 +484,11 @@
 <p>This template function registers the C++ type in the QML system with the name <i>qmlName</i>, in the library imported from <i>uri</i> having the version number composed from <i>versionMajor</i> and <i>versionMinor</i>.</p>
 <p>Returns the QML type id.</p>
 <p>For example, this registers a C++ class <tt>MySliderItem</tt> as a QML type named <tt>Slider</tt> for version 1.0 of a <a href="qdeclarativemodules.html#qml-modules">module</a> called &quot;com.mycompany.qmlcomponents&quot;:</p>
-<pre class="highlightedCode brush: cpp"> qmlRegisterType&lt;MySliderItem&gt;(&quot;com.mycompany.qmlcomponents&quot;, 1, 0, &quot;Slider&quot;);</pre>
+<pre class="highlightedCode brush: cpp"> #include &lt;QtDeclarative&gt;
+
+ ...
+
+ qmlRegisterType&lt;MySliderItem&gt;(&quot;com.mycompany.qmlcomponents&quot;, 1, 0, &quot;Slider&quot;);</pre>
 <p>Once this is registered, the type can be used in QML by importing the specified module name and version number:</p>
 <pre class="highlightedCode brush: cpp"> import com.mycompany.qmlcomponents 1.0
 
@@ -485,6 +499,7 @@
 <h3 class="fn"><a name="qmlRegisterType-2"></a>int qmlRegisterType ()</h3>
 <p>This is an overloaded function.</p>
 <p>This template function registers the C++ type in the QML system. Instances of this type cannot be created from the QML system.</p>
+<p>#include &lt;<a href="qtdeclarative.html">QtDeclarative</a>&gt; to use this function.</p>
 <p>Returns the QML type id.</p>
 <!-- @@@qmlRegisterType -->
 <!-- $$$qmlRegisterTypeNotAvailable[overload1]$$$qmlRegisterTypeNotAvailableconstchar*intintconstchar*constQString& -->
@@ -503,6 +518,7 @@
     Game {
     ^</pre>
 <p>Without this, a generic &quot;Game is not a type&quot; message would be given.</p>
+<p>#include &lt;<a href="qtdeclarative.html">QtDeclarative</a>&gt; to use this function.</p>
 <p>See also <a href="qdeclarativeengine.html#qmlRegisterUncreatableType">qmlRegisterUncreatableType</a>().</p>
 <!-- @@@qmlRegisterTypeNotAvailable -->
 <!-- $$$qmlRegisterUncreatableType[overload1]$$$qmlRegisterUncreatableTypeconstchar*intintconstchar*constQString& -->
@@ -511,6 +527,7 @@
 <p>While the type has a name and a type, it cannot be created, and the given error <i>message</i> will result if creation is attempted.</p>
 <p>This is useful where the type is only intended for providing attached properties or enum values.</p>
 <p>Returns the QML type id.</p>
+<p>#include &lt;<a href="qtdeclarative.html">QtDeclarative</a>&gt; to use this function.</p>
 <p>See also <a href="qdeclarativeengine.html#qmlRegisterTypeNotAvailable">qmlRegisterTypeNotAvailable</a>().</p>
 <!-- @@@qmlRegisterUncreatableType -->
 </div>
@@ -519,11 +536,13 @@
 <!-- $$$QML_DECLARE_TYPE[overload1]$$$QML_DECLARE_TYPE -->
 <h3 class="fn"><a name="QML_DECLARE_TYPE"></a>QML_DECLARE_TYPE ()</h3>
 <p>Equivalent to <tt>Q_DECLARE_METATYPE(TYPE)</tt> and <tt>Q_DECLARE_METATYPE(QDeclarativeListProperty&lt;TYPE&gt;)</tt></p>
+<p>#include &lt;<a href="qtdeclarative.html">QtDeclarative</a>&gt; to use this macro.</p>
 <!-- @@@QML_DECLARE_TYPE -->
 <!-- $$$QML_DECLARE_TYPEINFO[overload1]$$$QML_DECLARE_TYPEINFO -->
 <h3 class="fn"><a name="QML_DECLARE_TYPEINFO"></a>QML_DECLARE_TYPEINFO (  <i>Type</i>,  <i>Flags</i> )</h3>
 <p>Declares additional properties of the given <i>Type</i> as described by the specified <i>Flags</i>.</p>
 <p>Current the only supported type info is <tt>QML_HAS_ATTACHED_PROPERTIES</tt> which declares that the <i>Type</i> supports <a href="qdeclarativeintroduction.html#attached-properties">Attached Properties</a>.</p>
+<p>#include &lt;<a href="qtdeclarative.html">QtDeclarative</a>&gt; to use this macro.</p>
 <!-- @@@QML_DECLARE_TYPEINFO -->
 </div>
         <div class="feedback t_button">

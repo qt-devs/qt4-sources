@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,142 +147,105 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <h1 class="title">QML Elements</h1>
 <span class="subtitle"></span>
 <!-- $$$qdeclarativeelements.html-description -->
 <div class="descr"> <a name="details"></a>
-<a name="elements"></a><p>This is a dictionary of all standard QML elements made available in the <a href="qtdeclarative.html">QtDeclarative</a> module.</p>
+<a name="elements"></a><p>This is a dictionary of all standard QML elements made available in the Qt Declarative module.</p>
 <p>To see the QML elements listed by functional area, see the <a href="qml-groups.html">Groups Of Related QML Elements</a> page.</p>
-<p  class="centerAlign functionIndex"><b><a href="#a">A</a>&nbsp;<a href="#b">B</a>&nbsp;<a href="#c">C</a>&nbsp;<a href="#d">D</a>&nbsp;<a href="#f">F</a>&nbsp;<a href="#g">G</a>&nbsp;<a href="#i">I</a>&nbsp;<a href="#k">K</a>&nbsp;<a href="#l">L</a>&nbsp;<a href="#m">M</a>&nbsp;<a href="#n">N</a>&nbsp;<a href="#p">P</a>&nbsp;<a href="#q">Q</a>&nbsp;<a href="#r">R</a>&nbsp;<a href="#s">S</a>&nbsp;<a href="#t">T</a>&nbsp;<a href="#v">V</a>&nbsp;<a href="#w">W</a>&nbsp;<a href="#x">X</a>&nbsp;</b></p>
-<div class="flowListDiv">
-<dl class="flowList odd"><dt class="alphaChar"><a name="a"></a><b>A</b></dt>
-<dd><a href="qml-anchoranimation.html">AnchorAnimation</a></dd>
-<dd><a href="qml-anchorchanges.html">AnchorChanges</a></dd>
-<dd><a href="qml-animatedimage.html">AnimatedImage</a></dd>
-<dd><a href="qml-animation.html">Animation</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="b"></a><b>B</b></dt>
-<dd><a href="qml-behavior.html">Behavior</a></dd>
-<dd><a href="qml-binding.html">Binding</a></dd>
-<dd><a href="qml-borderimage.html">BorderImage</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="c"></a><b>C</b></dt>
-<dd><a href="qml-coloranimation.html">ColorAnimation</a></dd>
-<dd><a href="qml-column.html">Column</a></dd>
-<dd><a href="qml-component.html">Component</a></dd>
-<dd><a href="qml-connections.html">Connections</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="d"></a><b>D</b></dt>
-<dd><a href="qml-doublevalidator.html">DoubleValidator</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="f"></a><b>F</b></dt>
-<dd><a href="qml-flickable.html">Flickable</a></dd>
-<dd><a href="qml-flipable.html">Flipable</a></dd>
-<dd><a href="qml-flow.html">Flow</a></dd>
-<dd><a href="qml-focuspanel.html">FocusPanel</a></dd>
-<dd><a href="qml-focusscope.html">FocusScope</a></dd>
-<dd><a href="qml-folderlistmodel.html">FolderListModel</a></dd>
-<dd><a href="qml-fontloader.html">FontLoader</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="g"></a><b>G</b></dt>
-<dd><a href="qml-gesturearea.html">GestureArea</a></dd>
-<dd><a href="qml-gradient.html">Gradient</a></dd>
-<dd><a href="qml-gradientstop.html">GradientStop</a></dd>
-<dd><a href="qml-grid.html">Grid</a></dd>
-<dd><a href="qml-gridview.html">GridView</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="i"></a><b>I</b></dt>
-<dd><a href="qml-image.html">Image</a></dd>
-<dd><a href="qml-intvalidator.html">IntValidator</a></dd>
-<dd><a href="qml-item.html">Item</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="k"></a><b>K</b></dt>
-<dd><a href="qml-keyevent.html">KeyEvent</a></dd>
-<dd><a href="qml-keynavigation.html">KeyNavigation</a></dd>
-<dd><a href="qml-keys.html">Keys</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="l"></a><b>L</b></dt>
-<dd><a href="qml-layoutitem.html">LayoutItem</a></dd>
-<dd><a href="qml-listelement.html">ListElement</a></dd>
-<dd><a href="qml-listmodel.html">ListModel</a></dd>
-<dd><a href="qml-listview.html">ListView</a></dd>
-<dd><a href="qml-loader.html">Loader</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="m"></a><b>M</b></dt>
-<dd><a href="qml-mousearea.html">MouseArea</a></dd>
-<dd><a href="qml-mouseevent.html">MouseEvent</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="n"></a><b>N</b></dt>
-<dd><a href="qml-numberanimation.html">NumberAnimation</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="p"></a><b>P</b></dt>
-<dd><a href="qml-package.html">Package</a></dd>
-<dd><a href="qml-parallelanimation.html">ParallelAnimation</a></dd>
-<dd><a href="qml-parentanimation.html">ParentAnimation</a></dd>
-<dd><a href="qml-parentchange.html">ParentChange</a></dd>
-<dd><a href="qml-particlemotiongravity.html">ParticleMotionGravity</a></dd>
-<dd><a href="qml-particlemotionlinear.html">ParticleMotionLinear</a></dd>
-<dd><a href="qml-particlemotionwander.html">ParticleMotionWander</a></dd>
-<dd><a href="qml-particles.html">Particles</a></dd>
-<dd><a href="qml-path.html">Path</a></dd>
-<dd><a href="qml-pathattribute.html">PathAttribute</a></dd>
-<dd><a href="qml-pathcubic.html">PathCubic</a></dd>
-<dd><a href="qml-pathelement.html">PathElement</a></dd>
-<dd><a href="qml-pathline.html">PathLine</a></dd>
-<dd><a href="qml-pathpercent.html">PathPercent</a></dd>
-<dd><a href="qml-pathquad.html">PathQuad</a></dd>
-<dd><a href="qml-pathview.html">PathView</a></dd>
-<dd><a href="qml-pauseanimation.html">PauseAnimation</a></dd>
-<dd><a href="qml-propertyaction.html">PropertyAction</a></dd>
-<dd><a href="qml-propertyanimation.html">PropertyAnimation</a></dd>
-<dd><a href="qml-propertychanges.html">PropertyChanges</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="q"></a><b>Q</b></dt>
-<dd><a href="qml-qt.html">QML:Qt</a></dd>
-<dd><a href="qml-qtobject.html">QML:QtObject</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="r"></a><b>R</b></dt>
-<dd><a href="qml-rectangle.html">Rectangle</a></dd>
-<dd><a href="qml-regexpvalidator.html">RegExpValidator</a></dd>
-<dd><a href="qml-repeater.html">Repeater</a></dd>
-<dd><a href="qml-rotation.html">Rotation</a></dd>
-<dd><a href="qml-rotationanimation.html">RotationAnimation</a></dd>
-<dd><a href="qml-row.html">Row</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="s"></a><b>S</b></dt>
-<dd><a href="qml-scale.html">Scale</a></dd>
-<dd><a href="qml-scriptaction.html">ScriptAction</a></dd>
-<dd><a href="qml-sequentialanimation.html">SequentialAnimation</a></dd>
-<dd><a href="qml-smoothedanimation.html">SmoothedAnimation</a></dd>
-<dd><a href="qml-springanimation.html">SpringAnimation</a></dd>
-<dd><a href="qml-state.html">State</a></dd>
-<dd><a href="qml-statechangescript.html">StateChangeScript</a></dd>
-<dd><a href="qml-stategroup.html">StateGroup</a></dd>
-<dd><a href="qml-systempalette.html">SystemPalette</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="t"></a><b>T</b></dt>
-<dd><a href="qml-text.html">Text</a></dd>
-<dd><a href="qml-textedit.html">TextEdit</a></dd>
-<dd><a href="qml-textinput.html">TextInput</a></dd>
-<dd><a href="qml-timer.html">Timer</a></dd>
-<dd><a href="qml-transform.html">Transform</a></dd>
-<dd><a href="qml-transition.html">Transition</a></dd>
-<dd><a href="qml-translate.html">Translate</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="v"></a><b>V</b></dt>
-<dd><a href="qml-vector3danimation.html">Vector3dAnimation</a></dd>
-<dd><a href="qml-visualdatamodel.html">VisualDataModel</a></dd>
-<dd><a href="qml-visualitemmodel.html">VisualItemModel</a></dd>
-</dl>
-<dl class="flowList even"><dt class="alphaChar"><a name="w"></a><b>W</b></dt>
-<dd><a href="qml-webview.html">WebView</a></dd>
-<dd><a href="qml-workerscript.html">WorkerScript</a></dd>
-</dl>
-<dl class="flowList odd"><dt class="alphaChar"><a name="x"></a><b>X</b></dt>
-<dd><a href="qml-xmllistmodel.html">XmlListModel</a></dd>
-</dl>
-</div>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Basic Visual Items</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-item.html">Item</a></p></td><td ><p>Basic item element inherited by all visual items in QML</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-rectangle.html">Rectangle</a></p></td><td ><p>Basic visual rectangle element</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-gradient.html">Gradient</a></p></td><td ><p>Defines a gradient between two or more colors</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-gradientstop.html">GradientStop</a></p></td><td ><p>Defines a color used in a <a href="qml-gradient.html">Gradient</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-image.html">Image</a></p></td><td ><p>Allows the use of bitmaps to a scene</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-borderimage.html">BorderImage</a> (Item-specific)</p></td><td ><p>Defines an image as a border</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-animatedimage.html">AnimatedImage</a></p></td><td ><p>For playing animations stored as a series of frames</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-text.html">Text</a></p></td><td ><p>Allows the use of formatted text in a scene</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-textinput.html">TextInput</a></p></td><td ><p>Displays an editable line of text</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-intvalidator.html">IntValidator</a></p></td><td ><p>Validator for integer values</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-doublevalidator.html">DoubleValidator</a></p></td><td ><p>Validator for non-integer values</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-regexpvalidator.html">RegExpValidator</a></p></td><td ><p>Validator for string regular expressions</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-textedit.html">TextEdit</a></p></td><td ><p>Displays multiple lines of editable formatted text</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Basic Interaction Items</b></th></tr></thead>
+<tr class="even topAlign"><td ><p><a href="qml-mousearea.html">MouseArea</a></p></td><td ><p>Handles mouse interactions</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-focusscope.html">FocusScope</a></p></td><td ><p>For keyboard focus handling</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-flickable.html">Flickable</a></p></td><td ><p>Provides a surface that can be &quot;flicked&quot;</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-flipable.html">Flipable</a></p></td><td ><p>Provides a surface that produces flipping effects</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-gesturearea.html">GestureArea</a> (experimental)</p></td><td ><p>Enables simple gesture handling</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>States</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-state.html">State</a></p></td><td ><p>Defines sets of configurations of objects and properties</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-propertychanges.html">PropertyChanges</a></p></td><td ><p>Describes property changes within a state</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-stategroup.html">StateGroup</a></p></td><td ><p>Contains a set of states and state transitions</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-statechangescript.html">StateChangeScript</a></p></td><td ><p>Allows script binding in a state</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-parentchange.html">ParentChange</a> (Item-specific)</p></td><td ><p>Re-parent an Item in a state change</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-anchorchanges.html">AnchorChanges</a></p></td><td ><p>Change the anchors of an item in a state</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Animation and Transitions</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-behavior.html">Behavior</a></p></td><td ><p>Specifies a default animation for property changes</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-sequentialanimation.html">SequentialAnimation</a></p></td><td ><p>Runs animations sequentially</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-parallelanimation.html">ParallelAnimation</a></p></td><td ><p>Runs animations in parallel</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-propertyanimation.html">PropertyAnimation</a></p></td><td ><p>Animates property changes</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-numberanimation.html">NumberAnimation</a></p></td><td ><p>Animates properties of type qreal</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-vector3danimation.html">Vector3dAnimation</a></p></td><td ><p>Animates properties of type QVector3d</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-coloranimation.html">ColorAnimation</a></p></td><td ><p>Animates color changes</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-rotationanimation.html">RotationAnimation</a></p></td><td ><p>Animates rotations</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-parentanimation.html">ParentAnimation</a></p></td><td ><p>Animates parent changes</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-anchoranimation.html">AnchorAnimation</a></p></td><td ><p>Animates anchor changes</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-pauseanimation.html">PauseAnimation</a></p></td><td ><p>Pauses an animation</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-smoothedanimation.html">SmoothedAnimation</a></p></td><td ><p>Allows a property to smoothly track a value</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-springanimation.html">SpringAnimation</a></p></td><td ><p>Allows a property to track a value in a spring-like motion</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-propertyaction.html">PropertyAction</a></p></td><td ><p>Sets immediate property changes during animation</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-scriptaction.html">ScriptAction</a></p></td><td ><p>Runs scripts during an animation</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-transition.html">Transition</a></p></td><td ><p>Animates transitions during state changes</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Working with Data</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-binding.html">Binding</a></p></td><td ><p>Binds any value to any property</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-listmodel.html">ListModel</a></p></td><td ><p>Defines a list of data</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-listelement.html">ListElement</a></p></td><td ><p>Defines a data item in a <a href="qml-listmodel.html">ListModel</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-visualitemmodel.html">VisualItemModel</a></p></td><td ><p>Contains items that already defines its own visual delegate</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-visualdatamodel.html">VisualDataModel</a></p></td><td ><p>Encapsulates a model and a delegate</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-package.html">Package</a></p></td><td ><p>Collection that enables sharing of items within different views</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-xmllistmodel.html">XmlListModel</a></p></td><td ><p>Specifies a model using XPath expressions</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-xmlrole.html">XmlRole</a></p></td><td ><p>Specifies a role for an <a href="qml-xmllistmodel.html">XmlListModel</a></p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Views</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-listview.html">ListView</a></p></td><td ><p>Provides a list visualization of a model</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-gridview.html">GridView</a></p></td><td ><p>Provides a grid visualization of a model</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-pathview.html">PathView</a></p></td><td ><p>Visualizes a model's contents along a path</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-path.html">Path</a></p></td><td ><p>Defines a path used by <a href="qml-pathview.html">PathView</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-pathline.html">PathLine</a></p></td><td ><p>Defines a line in <a href="qml-path.html">Path</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-pathquad.html">PathQuad</a></p></td><td ><p>Defines a quadratic Bezier curve in a <a href="qml-path.html">Path</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-pathcubic.html">PathCubic</a></p></td><td ><p>Defines a cubic Bezier curve in a <a href="qml-path.html">Path</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-pathattribute.html">PathAttribute</a></p></td><td ><p>Allows the setting of attributes along a <a href="qml-path.html">Path</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-pathpercent.html">PathPercent</a></p></td><td ><p>Modifies the item distribution along a <a href="qml-path.html">Path</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-webview.html">WebView</a></p></td><td ><p>Allows the addition of web content to a canvas</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Positioners</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-column.html">Column</a></p></td><td ><p>Arranges its children vertically</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-row.html">Row</a></p></td><td ><p>Arranges its children horizontally</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-grid.html">Grid</a></p></td><td ><p>Positions its children in a grid</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-flow.html">Flow</a></p></td><td ><p>Positions its children with wrapping support</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Utility</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-connections.html">Connections</a></p></td><td ><p>Explicitly connects signals and signal handlers</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-component.html">Component</a></p></td><td ><p>Encapsulate QML items as a component</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-timer.html">Timer</a></p></td><td ><p>Provides timed triggers</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-qtobject.html">QtObject</a></p></td><td ><p>Basic element containing only the objectName property</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-qt.html">Qt</a></p></td><td ><p>The QML global Qt object provides useful enums and functions from Qt.</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-workerscript.html">WorkerScript</a></p></td><td ><p>Enables the use of threads in QML</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-loader.html">Loader</a></p></td><td ><p>Controls the loading of items or components</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-repeater.html">Repeater</a></p></td><td ><p>Uses a model to create multiples of components</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-systempalette.html">SystemPalette</a></p></td><td ><p>Provides access to the Qt palettes</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-fontloader.html">FontLoader</a></p></td><td ><p>Loads fonts by name or URL</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-layoutitem.html">LayoutItem</a></p></td><td ><p>Allows declarative UI elements inside Qt's Graphics View layouts</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Transforms</b></th></tr></thead>
+<tr class="even topAlign"><td ><p><a href="qml-scale.html">Scale</a></p></td><td ><p>Assigns item scaling behaviors</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-rotation.html">Rotation</a></p></td><td ><p>Assigns item rotation behaviors</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-translate.html">Translate</a></p></td><td ><p>Assigns item translation behaviors</p></td></tr>
+<thead><tr class="qt-style topAlign"><th  colspan="2"><b>Effects</b></th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qml-particles.html">Particles</a> (experimental)</p></td><td ><p>Generates and animates particles</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-particlemotionlinear.html">ParticleMotionLinear</a></p></td><td ><p>Adds linear motion behavior to <a href="qml-particles.html">Particles</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qml-particlemotiongravity.html">ParticleMotionGravity</a></p></td><td ><p>Adds gravitational motion to <a href="qml-particles.html">Particles</a></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qml-particlemotionwander.html">ParticleMotionWander</a></p></td><td ><p>Adds varied motions to <a href="qml-particles.html">Particles</a></p></td></tr>
+</table>
 </div>
 <!-- @@@qdeclarativeelements.html -->
         <div class="feedback t_button">

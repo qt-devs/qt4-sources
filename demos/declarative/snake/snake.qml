@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -47,6 +47,7 @@ Rectangle {
     id: screen;
     SystemPalette { id: activePalette }
     color: activePalette.window
+    property bool activeGame: false
 
     property int gridSize : 34
     property int margin: 4
@@ -75,6 +76,7 @@ Rectangle {
     Timer {
         id: heartbeat;
         interval: heartbeatInterval;
+        running: activeGame && runtime.isActiveWindow
         repeat: true
         onTriggered: { Logic.move() }
     }
@@ -94,9 +96,17 @@ Rectangle {
     Timer {
         id: startHeartbeatTimer;
         interval: 1000 ;
-        onTriggered: { state = "running"; heartbeat.running = true; }
+        onTriggered: { state = "running"; activeGame = true; }
     }
 
+    Image{
+        id: pauseDialog
+        z: 1
+        source: "content/pics/pause.png"
+        anchors.centerIn: parent;
+        //opacity is deliberately not animated
+        opacity: activeGame && !runtime.isActiveWindow
+    }
 
     Image {
         Image {

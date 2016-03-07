@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -194,7 +194,7 @@ public:
             widget = new QGLWidget(QGLFormat(QGL::SingleBuffer | QGL::NoDepthBuffer | QGL::NoStencilBuffer));
             widget->resize(1, 1);
 
-            // We dont need this internal widget to appear in QApplication::topLevelWidgets()
+            // We don't need this internal widget to appear in QApplication::topLevelWidgets()
             if (QWidgetPrivate::allWidgets)
                 QWidgetPrivate::allWidgets->remove(widget);
             initializing = false;
@@ -267,6 +267,7 @@ struct QGLWindowSurfacePrivate
     int tried_pb : 1;
     int destructive_swap_buffers : 1;
     int geometry_updated : 1;
+    int did_paint : 1;
 
     QGLContext *ctx;
 
@@ -275,12 +276,15 @@ struct QGLWindowSurfacePrivate
     QRegion paintedRegion;
     QSize size;
 
+    QSize textureSize;
+
     QList<QImage> buffers;
     QGLWindowSurfaceGLPaintDevice glDevice;
     QGLWindowSurface* q_ptr;
 };
 
 QGLFormat QGLWindowSurface::surfaceFormat;
+QGLWindowSurface::SwapMode QGLWindowSurface::swapBehavior = QGLWindowSurface::AutomaticSwap;
 
 void QGLWindowSurfaceGLPaintDevice::endPaint()
 {
@@ -316,6 +320,7 @@ QGLWindowSurface::QGLWindowSurface(QWidget *window)
     d_ptr->pb = 0;
     d_ptr->fbo = 0;
     d_ptr->ctx = 0;
+    d_ptr->tex_id = 0;
 #if defined (QT_OPENGL_ES_2)
     d_ptr->tried_fbo = true;
     d_ptr->tried_pb = true;
@@ -327,6 +332,7 @@ QGLWindowSurface::QGLWindowSurface(QWidget *window)
     d_ptr->glDevice.d = d_ptr;
     d_ptr->q_ptr = this;
     d_ptr->geometry_updated = false;
+    d_ptr->did_paint = false;
 }
 
 QGLWindowSurface::~QGLWindowSurface()
@@ -374,7 +380,18 @@ void QGLWindowSurface::hijackWindow(QWidget *widget)
     if (widgetPrivate->extraData()->glContext)
         return;
 
-    QGLContext *ctx = new QGLContext(surfaceFormat, widget);
+    QGLContext *ctx = NULL;
+
+    // For translucent top-level widgets we need alpha in the format.
+    if (widget->testAttribute(Qt::WA_TranslucentBackground)) {
+        QGLFormat modFormat(surfaceFormat);
+        modFormat.setSampleBuffers(false);
+        modFormat.setSamples(0);
+        modFormat.setAlpha(true);
+        ctx = new QGLContext(modFormat, widget);
+    } else
+        ctx = new QGLContext(surfaceFormat, widget);
+
     ctx->create(qt_gl_share_widget()->context());
 
 #ifndef QT_NO_EGL
@@ -433,7 +450,7 @@ static void drawTexture(const QRectF &rect, GLuint tex_id, const QSize &texSize,
 
 void QGLWindowSurface::beginPaint(const QRegion &)
 {
-    if (! context())
+    if (!context())
         return;
 
     int clearFlags = 0;
@@ -447,6 +464,8 @@ void QGLWindowSurface::beginPaint(const QRegion &)
         glClearColor(0.0, 0.0, 0.0, 0.0);
         glClear(clearFlags);
     }
+
+    d_ptr->did_paint = true;
 }
 
 void QGLWindowSurface::endPaint(const QRegion &rgn)
@@ -457,17 +476,54 @@ void QGLWindowSurface::endPaint(const QRegion &rgn)
     d_ptr->buffers.clear();
 }
 
+static void blitTexture(QGLContext *ctx, GLuint texture, const QSize &viewport, const QSize &texSize, const QRect &targetRect, const QRect &sourceRect)
+{
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_SCISSOR_TEST);
+    glDisable(GL_BLEND);
+
+    glViewport(0, 0, viewport.width(), viewport.height());
+
+    QGLShaderProgram *blitProgram =
+        QGLEngineSharedShaders::shadersForContext(ctx)->blitProgram();
+    blitProgram->bind();
+    blitProgram->setUniformValue("imageTexture", 0 /*QT_IMAGE_TEXTURE_UNIT*/);
+
+    // The shader manager's blit program does not multiply the
+    // vertices by the pmv matrix, so we need to do the effect
+    // of the orthographic projection here ourselves.
+    QRectF r;
+    qreal w = viewport.width();
+    qreal h = viewport.height();
+    r.setLeft((targetRect.left() / w) * 2.0f - 1.0f);
+    if (targetRect.right() == (viewport.width() - 1))
+        r.setRight(1.0f);
+    else
+        r.setRight((targetRect.right() / w) * 2.0f - 1.0f);
+    r.setBottom((targetRect.top() / h) * 2.0f - 1.0f);
+    if (targetRect.bottom() == (viewport.height() - 1))
+        r.setTop(1.0f);
+    else
+        r.setTop((targetRect.bottom() / w) * 2.0f - 1.0f);
+
+    drawTexture(r, texture, texSize, sourceRect);
+}
+
+
 void QGLWindowSurface::flush(QWidget *widget, const QRegion &rgn, const QPoint &offset)
 {
-    if (context() && widget != window()) {
-        qWarning("No native child widget support in GL window surface without FBOs or pixel buffers");
-        return;
-    }
-
     //### Find out why d_ptr->geometry_updated isn't always false.
     // flush() should not be called when d_ptr->geometry_updated is true. It assumes that either
     // d_ptr->fbo or d_ptr->pb is allocated and has the correct size.
     if (d_ptr->geometry_updated)
+        return;
+
+    // did_paint is set to true in ::beginPaint. ::beginPaint means that we
+    // at least cleared the background (= painted something). In EGL API it's a
+    // mistake to call swapBuffers if nothing was painted unless
+    // EGL_BUFFER_PRESERVED is set. This check protects the flush func from
+    // being executed if it's for nothing.
+    if (!hasPartialUpdateSupport() && !d_ptr->did_paint)
         return;
 
     QWidget *parent = widget->internalWinId() ? widget : widget->nativeParentWidget();
@@ -486,6 +542,9 @@ void QGLWindowSurface::flush(QWidget *widget, const QRegion &rgn, const QPoint &
 
     const GLenum target = GL_TEXTURE_2D;
     Q_UNUSED(target);
+
+    if (QGLWindowSurface::swapBehavior == QGLWindowSurface::KillSwap)
+        return;
 
     if (context()) {
         context()->makeCurrent();
@@ -534,11 +593,36 @@ void QGLWindowSurface::flush(QWidget *widget, const QRegion &rgn, const QPoint &
                 }
             }
 #endif
-            if (d_ptr->paintedRegion.boundingRect() != geometry() && 
-                hasPartialUpdateSupport()) {
-                context()->d_func()->swapRegion(&d_ptr->paintedRegion);             
-            } else
-                context()->swapBuffers();
+            bool doingPartialUpdate = false;
+            if (QGLWindowSurface::swapBehavior == QGLWindowSurface::AutomaticSwap)
+                doingPartialUpdate = hasPartialUpdateSupport() && br.width() * br.height() < parent->geometry().width() * parent->geometry().height() * 0.2;
+            else if (QGLWindowSurface::swapBehavior == QGLWindowSurface::AlwaysFullSwap)
+                doingPartialUpdate = false;
+            else if (QGLWindowSurface::swapBehavior == QGLWindowSurface::AlwaysPartialSwap)
+                doingPartialUpdate = hasPartialUpdateSupport();
+
+            QGLContext *ctx = reinterpret_cast<QGLContext *>(parent->d_func()->extraData()->glContext);
+            if (widget != window()) {
+                if (initializeOffscreenTexture(window()->size()))
+                    qWarning() << "QGLWindowSurface: Flushing to native child widget, may lead to significant performance loss";
+                glBindTexture(target, d_ptr->tex_id);
+
+                const uint bottom = window()->height() - (br.y() + br.height());
+                glCopyTexSubImage2D(target, 0, br.x(), bottom, br.x(), bottom, br.width(), br.height());
+
+                glBindTexture(target, 0);
+
+                ctx->makeCurrent();
+                if (doingPartialUpdate)
+                    blitTexture(ctx, d_ptr->tex_id, parent->size(), window()->size(), rect, br);
+                else
+                    blitTexture(ctx, d_ptr->tex_id, parent->size(), window()->size(), parent->rect(), parent->rect().translated(offset + wOffset));
+            }
+
+            if (doingPartialUpdate)
+                ctx->d_func()->swapRegion(br);
+            else
+                ctx->swapBuffers();
 
             d_ptr->paintedRegion = QRegion();
         } else {
@@ -664,38 +748,10 @@ void QGLWindowSurface::flush(QWidget *widget, const QRegion &rgn, const QPoint &
     else if (d_ptr->fbo) {
         Q_UNUSED(target);
 
-        GLuint texture = d_ptr->fbo->texture();
-
-        glDisable(GL_DEPTH_TEST);
-
         if (d_ptr->fbo->isBound())
             d_ptr->fbo->release();
 
-        glViewport(0, 0, size.width(), size.height());
-
-        QGLShaderProgram *blitProgram =
-            QGLEngineSharedShaders::shadersForContext(ctx)->blitProgram();
-        blitProgram->bind();
-        blitProgram->setUniformValue("imageTexture", 0 /*QT_IMAGE_TEXTURE_UNIT*/);
-
-        // The shader manager's blit program does not multiply the
-        // vertices by the pmv matrix, so we need to do the effect
-        // of the orthographic projection here ourselves.
-        QRectF r;
-        qreal w = size.width() ? size.width() : 1.0f;
-        qreal h = size.height() ? size.height() : 1.0f;
-        r.setLeft((rect.left() / w) * 2.0f - 1.0f);
-        if (rect.right() == (size.width() - 1))
-            r.setRight(1.0f);
-        else
-            r.setRight((rect.right() / w) * 2.0f - 1.0f);
-        r.setBottom((rect.top() / h) * 2.0f - 1.0f);
-        if (rect.bottom() == (size.height() - 1))
-            r.setTop(1.0f);
-        else
-            r.setTop((rect.bottom() / w) * 2.0f - 1.0f);
-
-        drawTexture(r, texture, window()->size(), br);
+        blitTexture(ctx, d_ptr->fbo->texture(), size, window()->size(), rect, br);
     }
 #endif
 
@@ -703,6 +759,8 @@ void QGLWindowSurface::flush(QWidget *widget, const QRegion &rgn, const QPoint &
         ctx->swapBuffers();
     else
         glFlush();
+
+    d_ptr->did_paint = false;
 }
 
 
@@ -717,7 +775,6 @@ void QGLWindowSurface::updateGeometry() {
     if (!d_ptr->geometry_updated)
         return;
     d_ptr->geometry_updated = false;
-
 
     QRect rect = geometry();
     hijackWindow(window());
@@ -739,11 +796,8 @@ void QGLWindowSurface::updateGeometry() {
 
     if (d_ptr->ctx) {
 #ifndef QT_OPENGL_ES_2
-        if (d_ptr->destructive_swap_buffers) {
-            glBindTexture(target, d_ptr->tex_id);
-            glTexImage2D(target, 0, GL_RGBA, rect.width(), rect.height(), 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
-            glBindTexture(target, 0);
-        }
+        if (d_ptr->destructive_swap_buffers)
+            initializeOffscreenTexture(rect.size());
 #endif
         return;
     }
@@ -823,20 +877,30 @@ void QGLWindowSurface::updateGeometry() {
     ctx->makeCurrent();
 
 #ifndef QT_OPENGL_ES_2
-    if (d_ptr->destructive_swap_buffers) {
-        glGenTextures(1, &d_ptr->tex_id);
-        glBindTexture(target, d_ptr->tex_id);
-        glTexImage2D(target, 0, GL_RGBA, rect.width(), rect.height(), 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
-
-        glTexParameterf(target, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameterf(target, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glBindTexture(target, 0);
-    }
+    if (d_ptr->destructive_swap_buffers)
+        initializeOffscreenTexture(rect.size());
 #endif
 
     qDebug() << "QGLWindowSurface: Using plain widget as window surface" << this;;
     d_ptr->ctx = ctx;
     d_ptr->ctx->d_ptr->internal_context = true;
+}
+
+bool QGLWindowSurface::initializeOffscreenTexture(const QSize &size)
+{
+    if (size == d_ptr->textureSize)
+        return false;
+
+    glGenTextures(1, &d_ptr->tex_id);
+    glBindTexture(GL_TEXTURE_2D, d_ptr->tex_id);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, size.width(), size.height(), 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    d_ptr->textureSize = size;
+    return true;
 }
 
 bool QGLWindowSurface::scroll(const QRegion &area, int dx, int dy)

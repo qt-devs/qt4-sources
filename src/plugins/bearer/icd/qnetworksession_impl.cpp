@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -679,7 +679,7 @@ void QNetworkSessionPrivateImpl::open()
     if (serviceConfig.isValid()) {
         lastError = QNetworkSession::OperationNotSupportedError;
         emit QNetworkSessionPrivate::error(lastError);
-    } else if (!isOpen) {
+    } else if (!opened) {
 	if (publicConfig.type() == QNetworkConfiguration::UserChoice) {
 	    /* Caller is trying to connect to default IAP.
 	     * At this time we will not know the IAP details so we just
@@ -794,7 +794,7 @@ void QNetworkSessionPrivateImpl::stateChange(const QDBusMessage& rep)
             qDebug() << "connect to"<< publicConfig.identifier() << "failed, result is empty";
 #endif
             updateState(QNetworkSession::Disconnected);
-            emit QNetworkSessionPrivate::error(QNetworkSession::InvalidConfigurationError);
+            emit QNetworkSessionPrivate::error(QNetworkSession::SessionAbortedError);
             if (publicConfig.type() == QNetworkConfiguration::UserChoice)
                     copyConfig(publicConfig, activeConfig);
             return;
@@ -808,7 +808,7 @@ void QNetworkSessionPrivateImpl::stateChange(const QDBusMessage& rep)
         if ((publicConfig.type() != QNetworkConfiguration::UserChoice) &&
             (connected_iap != config.identifier())) {
             updateState(QNetworkSession::Disconnected);
-            emit QNetworkSessionPrivate::error(QNetworkSession::InvalidConfigurationError);
+            emit QNetworkSessionPrivate::error(QNetworkSession::UnknownSessionError);
             return;
         }
 
@@ -1025,6 +1025,9 @@ QString QNetworkSessionPrivateImpl::errorString() const
         break;
     case QNetworkSession::SessionAbortedError:
         errorStr = QNetworkSessionPrivateImpl::tr("Session aborted by user or system");
+        break;
+    case QNetworkSession::InvalidConfigurationError:
+        errorStr = QNetworkSessionPrivateImpl::tr("The specified configuration cannot be used.");
         break;
     default:
     case QNetworkSession::UnknownSessionError:

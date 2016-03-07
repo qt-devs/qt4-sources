@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -54,6 +54,11 @@
 //
 // We mean it.
 //
+
+// vgDrawGlyphs() only exists in OpenVG 1.1 and higher.
+#if !defined(OPENVG_VERSION_1_1) && !defined(QVG_NO_DRAW_GLYPHS)
+#define QVG_NO_DRAW_GLYPHS 1
+#endif
 
 #include <QtGui/qimage.h>
 

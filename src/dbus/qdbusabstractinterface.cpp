@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -560,7 +560,7 @@ void QDBusAbstractInterface::connectNotify(const char *signal)
     if (!d->isValid)
         return;
 
-    // we end up recursing here, so optimise away
+    // we end up recursing here, so optimize away
     if (qstrcmp(signal + 1, "destroyed(QObject*)") == 0)
         return;
 

@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -181,7 +189,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#intersects">intersects</a></b> ( const QRect &amp; <i>r</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#isSelectable">isSelectable</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#isSelected">isSelected</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#keyx">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#key">key</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#move">move</a></b> ( int <i>x</i>, int <i>y</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#move-2">move</a></b> ( const QPoint &amp; <i>pnt</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="q3iconviewitem.html#moveBy">moveBy</a></b> ( int <i>dx</i>, int <i>dy</i> )</td></tr>
@@ -249,7 +257,7 @@
      do_something_with(item);</pre>
 <p>The item's icon view is available from <a href="q3iconviewitem.html#iconView">iconView</a>(), and its position in the icon view from <a href="q3iconviewitem.html#index">index</a>().</p>
 <p>The item's selection status is available from <a href="q3iconviewitem.html#isSelected">isSelected</a>() and is set and controlled by <a href="q3iconviewitem.html#setSelected">setSelected</a>() and <a href="q3iconviewitem.html#isSelectable">isSelectable</a>().</p>
-<p>The text and icon can be set with <a href="q3iconviewitem.html#setText">setText</a>() and <a href="q3iconviewitem.html#setPixmap">setPixmap</a>() and retrieved with <a href="q3iconviewitem.html#text">text</a>() and <a href="q3iconviewitem.html#pixmap">pixmap</a>(). The item's sort key defaults to <a href="q3iconviewitem.html#text">text</a>() but may be set with <a href="q3iconviewitem.html#setKey">setKey</a>() and retrieved with <a href="q3iconviewitem.html#keyx">key</a>(). The comparison function, <a href="q3iconviewitem.html#compare">compare</a>() uses <a href="q3iconviewitem.html#keyx">key</a>().</p>
+<p>The text and icon can be set with <a href="q3iconviewitem.html#setText">setText</a>() and <a href="q3iconviewitem.html#setPixmap">setPixmap</a>() and retrieved with <a href="q3iconviewitem.html#text">text</a>() and <a href="q3iconviewitem.html#pixmap">pixmap</a>(). The item's sort key defaults to <a href="q3iconviewitem.html#text">text</a>() but may be set with <a href="q3iconviewitem.html#setKey">setKey</a>() and retrieved with <a href="q3iconviewitem.html#key">key</a>(). The comparison function, <a href="q3iconviewitem.html#compare">compare</a>() uses <a href="q3iconviewitem.html#key">key</a>().</p>
 <p>Items may be repositioned with <a href="q3iconviewitem.html#move">move</a>() and <a href="q3iconviewitem.html#moveBy">moveBy</a>(). An item's geometry is available from <a href="q3iconviewitem.html#rect">rect</a>(), <a href="q3iconviewitem.html#x">x</a>(), <a href="q3iconviewitem.html#y">y</a>(), <a href="q3iconviewitem.html#width">width</a>(), <a href="q3iconviewitem.html#height">height</a>(), <a href="q3iconviewitem.html#size">size</a>(), <a href="q3iconviewitem.html#pos">pos</a>(), <a href="q3iconviewitem.html#textRect">textRect</a>() and <a href="q3iconviewitem.html#pixmapRect">pixmapRect</a>(). You can also test against the position of a point with <a href="q3iconviewitem.html#contains">contains</a>() and <a href="q3iconviewitem.html#intersects">intersects</a>().</p>
 <p>To remove an item from an icon view, just delete the item. The Q3IconViewItem destructor removes it cleanly from its icon view.</p>
 <p>Because the icon view is designed to use drag-and-drop, the icon view item also has functions for drag-and-drop which may be reimplemented.</p>
@@ -307,12 +315,12 @@
 <!-- $$$compare[overload1]$$$compareQ3IconViewItem* -->
 <h3 class="fn"><a name="compare"></a>int Q3IconViewItem::compare ( Q3IconViewItem * <i>i</i> ) const<tt> [virtual]</tt></h3>
 <p>Compares this icon view item to <i>i</i>. Returns -1 if this item is less than <i>i</i>, 0 if they are equal, and 1 if this icon view item is greater than <i>i</i>.</p>
-<p>The default implementation compares the item keys (<a href="q3iconviewitem.html#keyx">key</a>()) using <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(). A reimplementation may use different values and a different comparison function. Here is a reimplementation that uses plain Unicode comparison:</p>
+<p>The default implementation compares the item keys (<a href="q3iconviewitem.html#key">key</a>()) using <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(). A reimplementation may use different values and a different comparison function. Here is a reimplementation that uses plain Unicode comparison:</p>
 <pre class="highlightedCode brush: cpp"> int MyIconViewItem::compare(Q3IconViewItem *i) const
  {
      return key().compare(i-&gt;key());
  }</pre>
-<p>See also <a href="q3iconviewitem.html#keyx">key</a>(), <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(), and <a href="qstring.html#compare">QString::compare</a>().</p>
+<p>See also <a href="q3iconviewitem.html#key">key</a>(), <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>(), and <a href="qstring.html#compare">QString::compare</a>().</p>
 <!-- @@@compare -->
 <!-- $$$contains[overload1]$$$containsconstQPoint& -->
 <h3 class="fn"><a name="contains"></a>bool Q3IconViewItem::contains ( const <a href="qpoint.html">QPoint</a> &amp; <i>pnt</i> ) const</h3>
@@ -370,7 +378,7 @@
 <p>See also <a href="q3iconviewitem.html#setSelected">setSelected</a>().</p>
 <!-- @@@isSelected -->
 <!-- $$$key[overload1]$$$key -->
-<h3 class="fn"><a name="keyx"></a><a href="qstring.html">QString</a> Q3IconViewItem::key () const<tt> [virtual]</tt></h3>
+<h3 class="fn"><a name="key"></a><a href="qstring.html">QString</a> Q3IconViewItem::key () const<tt> [virtual]</tt></h3>
 <p>Returns the key of the icon view item or <a href="q3iconviewitem.html#text">text</a>() if no key has been explicitly set.</p>
 <p>See also <a href="q3iconviewitem.html#setKey">setKey</a>() and <a href="q3iconviewitem.html#compare">compare</a>().</p>
 <!-- @@@key -->
@@ -481,7 +489,7 @@
 <!-- $$$setKey[overload1]$$$setKeyconstQString& -->
 <h3 class="fn"><a name="setKey"></a>void Q3IconViewItem::setKey ( const <a href="qstring.html">QString</a> &amp; <i>k</i> )<tt> [virtual]</tt></h3>
 <p>Sets <i>k</i> as the sort key of the icon view item. By default <a href="q3iconviewitem.html#text">text</a>() is used for sorting.</p>
-<p>See also <a href="q3iconviewitem.html#keyx">key</a>() and <a href="q3iconviewitem.html#compare">compare</a>().</p>
+<p>See also <a href="q3iconviewitem.html#key">key</a>() and <a href="q3iconviewitem.html#compare">compare</a>().</p>
 <!-- @@@setKey -->
 <!-- $$$setPicture[overload1]$$$setPictureconstQPicture& -->
 <h3 class="fn"><a name="setPicture"></a>void Q3IconViewItem::setPicture ( const <a href="qpicture.html">QPicture</a> &amp; <i>icon</i> )<tt> [virtual]</tt></h3>

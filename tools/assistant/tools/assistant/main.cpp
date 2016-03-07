@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -420,16 +420,18 @@ int main(int argc, char *argv[])
         cachedCollection.setCurrentFilter(cmd.currentFilter());
     }
 
+    if (collectionFileGiven)
+        cmd.setCollectionFile(cachedCollectionFile);
+
+    MainWindow *w = new MainWindow(&cmd);
+    w->show();
+    a.connect(&a, SIGNAL(lastWindowClosed()), &a, SLOT(quit()));
+
     /*
      * We need to be careful here: The main window has to be deleted before
      * the help engine wrapper, which has to be deleted before the
      * QApplication.
      */
-    if (collectionFileGiven)
-        cmd.setCollectionFile(cachedCollectionFile);
-    MainWindow *w = new MainWindow(&cmd);
-    w->show();
-    a.connect(&a, SIGNAL(lastWindowClosed()), &a, SLOT(quit()));
     const int retval = a.exec();
     delete w;
     HelpEngineWrapper::removeInstance();

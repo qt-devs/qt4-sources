@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -108,16 +108,46 @@ Item {
     so that ancestor items do not also respond to the same event.
 */
 
+/*!
+    \qmlproperty int KeyEvent::modifiers
+
+    This property holds the keyboard modifier flags that existed immediately
+    before the event occurred.
+
+    It contains a bitwise combination of:
+    \list
+    \o Qt.NoModifier - No modifier key is pressed.
+    \o Qt.ShiftModifier - A Shift key on the keyboard is pressed.
+    \o Qt.ControlModifier - A Ctrl key on the keyboard is pressed.
+    \o Qt.AltModifier - An Alt key on the keyboard is pressed.
+    \o Qt.MetaModifier - A Meta key on the keyboard is pressed.
+    \o Qt.KeypadModifier - A keypad button is pressed.
+    \endlist
+
+    For example, to react to a Shift key + Enter key combination:
+    \qml
+    Item {
+        focus: true
+        Keys.onPressed: {
+            if ((event.key == Qt.Key_Enter) && (event.modifiers & Qt.ShiftModifier))
+                doSomething();
+        }
+    }
+    \endqml
+*/
+
 
 /*!
     \qmlclass MouseEvent QDeclarativeMouseEvent
     \since 4.7
     \ingroup qml-event-elements
-    
+
     \brief The MouseEvent object provides information about a mouse event.
 
-    The position of the mouse can be found via the x and y properties.
-    The button that caused the event is available via the button property.
+    The position of the mouse can be found via the \l x and \l y properties.
+    The button that caused the event is available via the \l button property.
+
+    \sa MouseArea
 */
 
 /*!
@@ -129,7 +159,7 @@ Item {
     \qmlproperty int MouseEvent::x
     \qmlproperty int MouseEvent::y
 
-    These properties hold the position of the mouse event.
+    These properties hold the coordinates of the position supplied by the mouse event.
 */
 
 
@@ -186,7 +216,7 @@ Item {
     It contains a bitwise combination of:
     \list
     \o Qt.NoModifier - No modifier key is pressed.
-    \o Qt.ShiftModifier	- A Shift key on the keyboard is pressed.
+    \o Qt.ShiftModifier - A Shift key on the keyboard is pressed.
     \o Qt.ControlModifier - A Ctrl key on the keyboard is pressed.
     \o Qt.AltModifier - An Alt key on the keyboard is pressed.
     \o Qt.MetaModifier - A Meta key on the keyboard is pressed.
@@ -195,9 +225,12 @@ Item {
 
     For example, to react to a Shift key + Left mouse button click:
     \qml
-MouseArea {
-    onClicked: { if (mouse.button == Qt.LeftButton && mouse.modifiers & Qt.ShiftModifier) doSomething(); }
-}
+    MouseArea {
+        onClicked: {
+            if ((mouse.button == Qt.LeftButton) && (mouse.modifiers & Qt.ShiftModifier))
+                doSomething();
+        }
+    }
     \endqml
 */
 

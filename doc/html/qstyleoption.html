@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -141,7 +149,7 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
@@ -185,7 +193,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> QPalette </td><td class="memItemRight bottomAlign"><b><a href="qstyleoption.html#palette-var">palette</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qstyleoption.html#rect-var">rect</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QStyle::State </td><td class="memItemRight bottomAlign"><b><a href="qstyleoption.html#state-var">state</a></b></td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstyleoption.html#type-varx">type</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstyleoption.html#type-var">type</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstyleoption.html#version-var">version</a></b></td></tr>
 </table>
 <a name="related-non-members"></a>
@@ -242,7 +250,7 @@
 <!-- $$$OptionType$$$SO_Default$$$SO_FocusRect$$$SO_Button$$$SO_Tab$$$SO_MenuItem$$$SO_Frame$$$SO_ProgressBar$$$SO_ToolBox$$$SO_Header$$$SO_Q3DockWindow$$$SO_DockWidget$$$SO_Q3ListViewItem$$$SO_ViewItem$$$SO_TabWidgetFrame$$$SO_TabBarBase$$$SO_RubberBand$$$SO_ToolBar$$$SO_GraphicsItem$$$SO_Complex$$$SO_Slider$$$SO_SpinBox$$$SO_ToolButton$$$SO_ComboBox$$$SO_Q3ListView$$$SO_TitleBar$$$SO_GroupBox$$$SO_SizeGrip$$$SO_CustomBase$$$SO_ComplexCustomBase -->
 <h3 class="fn"><a name="OptionType-enum"></a>enum QStyleOption::OptionType</h3>
 <p>This enum is used internally by <a href="qstyleoption.html">QStyleOption</a>, its subclasses, and <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>() to determine the type of style option. In general you do not need to worry about this unless you want to create your own <a href="qstyleoption.html">QStyleOption</a> subclass and your own styles.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_Button</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign"><a href="qstyleoptionbutton.html">QStyleOptionButton</a></td></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_ComboBox</tt></td><td class=" topAlign">?</td><td  class="topAlign"><a href="qstyleoptioncombobox.html">QStyleOptionComboBox</a></td></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_Complex</tt></td><td class=" topAlign"><tt>0xf0000</tt></td><td  class="topAlign"><a href="qstyleoptioncomplex.html">QStyleOptionComplex</a></td></tr>
@@ -269,22 +277,22 @@
 <tr><td  class="topAlign"><tt>QStyleOption::SO_ViewItem</tt></td><td class=" topAlign"><tt>12</tt></td><td  class="topAlign"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a> (used in Interviews)</td></tr>
 </table>
 <p>The following values are used for custom controls:</p>
-<table class="valuelist"><tr class="even"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_CustomBase</tt></td><td class=" topAlign"><tt>0xf00</tt></td><td  class="topAlign">Reserved for custom QStyleOptions; all custom controls values must be above this value</td></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_ComplexCustomBase</tt></td><td class=" topAlign"><tt>0xf000000</tt></td><td  class="topAlign">Reserved for custom QStyleOptions; all custom complex controls values must be above this value</td></tr>
 </table>
 <p>Some style options are defined for various <a href="qt3support.html">Qt3Support</a> controls:</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_Q3DockWindow</tt></td><td class=" topAlign"><tt>9</tt></td><td  class="topAlign"><a href="qstyleoptionq3dockwindow.html">QStyleOptionQ3DockWindow</a></td></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_Q3ListView</tt></td><td class=" topAlign">?</td><td  class="topAlign"><a href="qstyleoptionq3listview.html">QStyleOptionQ3ListView</a></td></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::SO_Q3ListViewItem</tt></td><td class=" topAlign"><tt>11</tt></td><td  class="topAlign"><a href="qstyleoptionq3listviewitem.html">QStyleOptionQ3ListViewItem</a></td></tr>
 </table>
-<p>See also <a href="qstyleoption.html#type-varx">type</a>.</p>
+<p>See also <a href="qstyleoption.html#type-var">type</a>.</p>
 <!-- @@@OptionType -->
 <!-- $$$StyleOptionType$$$Type -->
 <h3 class="fn"><a name="StyleOptionType-enum"></a>enum QStyleOption::StyleOptionType</h3>
 <p>This enum is used to hold information about the type of the style option, and is defined for each <a href="qstyleoption.html">QStyleOption</a> subclass.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::Type</tt></td><td class=" topAlign"><tt>SO_Default</tt></td><td  class="topAlign">The type of style option provided (<a href="qstyleoption.html#OptionType-enum">SO_Default</a> for this class).</td></tr>
 </table>
 <p>The type is used internally by <a href="qstyleoption.html">QStyleOption</a>, its subclasses, and <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>() to determine the type of style option. In general you do not need to worry about this unless you want to create your own <a href="qstyleoption.html">QStyleOption</a> subclass and your own styles.</p>
@@ -293,7 +301,7 @@
 <!-- $$$StyleOptionVersion$$$Version -->
 <h3 class="fn"><a name="StyleOptionVersion-enum"></a>enum QStyleOption::StyleOptionVersion</h3>
 <p>This enum is used to hold information about the version of the style option, and is defined for each <a href="qstyleoption.html">QStyleOption</a> subclass.</p>
-<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<table class="valuelist"><tr class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td  class="topAlign"><tt>QStyleOption::Version</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">1</td></tr>
 </table>
 <p>The version is used by <a href="qstyleoption.html">QStyleOption</a> subclasses to implement extensions without breaking compatibility. If you use <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>(), you normally do not need to check it.</p>
@@ -307,7 +315,7 @@
 <p>Constructs a <a href="qstyleoption.html">QStyleOption</a> with the specified <i>version</i> and <i>type</i>.</p>
 <p>The version has no special meaning for <a href="qstyleoption.html">QStyleOption</a>; it can be used by subclasses to distinguish between different version of the same option type.</p>
 <p>The <a href="qstyleoption.html#state-var">state</a> member variable is initialized to <a href="qstyle.html#StateFlag-enum">QStyle::State_None</a>.</p>
-<p>See also <a href="qstyleoption.html#version-var">version</a> and <a href="qstyleoption.html#type-varx">type</a>.</p>
+<p>See also <a href="qstyleoption.html#version-var">version</a> and <a href="qstyleoption.html#type-var">type</a>.</p>
 <!-- @@@QStyleOption -->
 <!-- $$$QStyleOption$$$QStyleOptionconstQStyleOption& -->
 <h3 class="fn"><a name="QStyleOption-2"></a>QStyleOption::QStyleOption ( const QStyleOption &amp; <i>other</i> )</h3>
@@ -363,7 +371,7 @@
 <p>See also <a href="qstyleoption.html#initFrom">initFrom</a>(), <a href="qstyle.html#drawPrimitive">QStyle::drawPrimitive</a>(), <a href="qstyle.html#drawControl">QStyle::drawControl</a>(), <a href="qstyle.html#drawComplexControl">QStyle::drawComplexControl</a>(), and <a href="qstyle.html#StateFlag-enum">QStyle::State</a>.</p>
 <!-- @@@state -->
 <!-- $$$type -->
-<h3 class="fn"><a name="type-varx"></a>int QStyleOption::type</h3>
+<h3 class="fn"><a name="type-var"></a>int QStyleOption::type</h3>
 <p>This variable holds the option type of the style option.</p>
 <p>The default value is <a href="qstyleoption.html#OptionType-enum">SO_Default</a>.</p>
 <p>See also <a href="qstyleoption.html#OptionType-enum">OptionType</a>.</p>
@@ -379,7 +387,7 @@
 <h2>Related Non-Members</h2>
 <!-- $$$qstyleoption_cast[overload1]$$$qstyleoption_castconstQStyleOption* -->
 <h3 class="fn"><a name="qstyleoption_cast"></a>T qstyleoption_cast ( const QStyleOption * <i>option</i> )</h3>
-<p>Returns a T or 0 depending on the <a href="qstyleoption.html#type-varx">type</a> and <a href="qstyleoption.html#version-var">version</a> of the given <i>option</i>.</p>
+<p>Returns a T or 0 depending on the <a href="qstyleoption.html#type-var">type</a> and <a href="qstyleoption.html#version-var">version</a> of the given <i>option</i>.</p>
 <p>Example:</p>
 <pre class="highlightedCode brush: cpp"> void MyStyle::drawPrimitive(PrimitiveElement element,
                              const QStyleOption *option,
@@ -395,7 +403,7 @@
      }
      <span class="comment">// ...</span>
  }</pre>
-<p>See also <a href="qstyleoption.html#type-varx">QStyleOption::type</a> and <a href="qstyleoption.html#version-var">QStyleOption::version</a>.</p>
+<p>See also <a href="qstyleoption.html#type-var">QStyleOption::type</a> and <a href="qstyleoption.html#version-var">QStyleOption::version</a>.</p>
 <!-- @@@qstyleoption_cast -->
 <!-- $$$qstyleoption_cast$$$qstyleoption_castQStyleOption* -->
 <h3 class="fn"><a name="qstyleoption_cast-3"></a>T qstyleoption_cast ( QStyleOption * <i>option</i> )</h3>

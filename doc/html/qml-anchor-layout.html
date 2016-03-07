@@ -15,6 +15,7 @@
     <div id="nav-logo">
       <a href="index.html">Home</a></div>
     <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
     <div id="nav-topright">
       <ul>
         <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
@@ -31,37 +32,37 @@
         <li class="shortCut-topleft-active"><a href="http://doc.qt.nokia.com">ALL VERSIONS        </a></li>
       </ul>
      </div>
- <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
-		 <li><a href="#">API Lookup</a> 
-			 <ul id="topmenuLook"> 
-			   <li><a href="classes.html">Class index</a></li> 
- 			  <li><a href="functions.html">Function index</a></li> 
-			   <li><a href="modules.html">Modules</a></li> 
-			   <li><a href="namespaces.html">Namespaces</a></li> 
-			   <li><a href="qtglobal.html">Global Declarations</a></li> 
-			   <li><a href="licensing.html">Licenses and Credits</a></li> 
-			   </ul> 
-		 </li> 
-		 <li><a href="#">Qt Topics</a> 
-			 <ul id="topmenuTopic"> 
-			   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
-			   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
-			   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
-			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
-			   <li><a href="technology-apis.html">Qt and Key Technologies</a></li> 
-			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
-			 </ul> 
-		</li> 
-		 <li><a href="#">Examples</a> 
-			 <ul id="topmenuexample"> 
-				 <li><a href="all-examples.html">Examples</a></li> 
-				 <li><a href="tutorials.html">Tutorials</a></li> 
-				 <li><a href="demos.html">Demos</a></li> 
-				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
-			 </ul> 
-		 </li> 
- </ul> 
+ <ul class="sf-menu" id="narrowmenu"> 
+ 			<li><a href="#">API Lookup</a> 
+ 				<ul> 
+ 					<li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+ 		    </ul> 
+ 			</li> 
+ 			<li><a href="#">Qt Topics</a> 
+ 				<ul> 
+ 					   <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+ 					   <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+ 					   <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+ 					   <li><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li>  
+ 					   <li><a href="platform-specific.html">Platform-specific info</a></li>  
+ 					   <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+ 					   <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+ 		     </ul> 
+ 				</li> 
+ 				<li><a href="#">Examples</a> 
+ 					<ul> 
+ 		              <li><a href="all-examples.html">Examples</a></li> 
+ 		              <li><a href="tutorials.html">Tutorials</a></li> 
+ 		              <li><a href="demos.html">Demos</a></li> 
+ 		              <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+ 		       </ul> 
+ 					</li> 
+ 				</ul> 
     </div>
   </div>
   <div class="wrapper">
@@ -72,10 +73,17 @@
       <div class="sidebar">
         <div class="searchlabel">
           Search index:</div>
-        <div class="search">
+        <div class="search" id="sidebarsearch">
           <form id="qtdocsearch" action="" onsubmit="return false;">
             <fieldset>
               <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+<!-- <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> --> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
             </fieldset>
           </form>
         </div>
@@ -99,7 +107,7 @@
           <div id="list002" class="list">
             <ul id="ul002" >
 			   <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
-			   <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
 			   <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
 			   <li class="defaultLink"><a href="developing-with-qt.html">Cross-platform and Platform-specific</a></li> 
 			   <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li> 
@@ -139,38 +147,45 @@
             </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content mainContent">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
 <ul>
-<li class="level1"><a href="#limitations">Limitations</a></li>
+<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#anchor-margins-and-offsets">Anchor Margins and Offsets</a></li>
+<li class="level1"><a href="#restrictions">Restrictions</a></li>
 </ul>
 </div>
 <h1 class="title">Anchor-based Layout in QML</h1>
 <span class="subtitle"></span>
 <!-- $$$qml-anchor-layout.html-description -->
 <div class="descr"> <a name="details"></a>
-<a name="anchor-layout"></a><p>In addition to the more traditional <a href="qml-grid.html">Grid</a>, <a href="qml-row.html">Row</a>, and <a href="qml-column.html">Column</a>, QML also provides a way to layout items using the concept of <i>anchors</i>. Each item can be thought of as having a set of 7 invisible &quot;anchor lines&quot;: <a href="qml-item.html#anchors.left-prop">left</a>, <a href="qml-item.html#anchors.horizontalCenter-prop">horizontalCenter</a>, <a href="qml-item.html#anchors.right-prop">right</a>, <a href="qml-item.html#anchors.top-prop">top</a>, <a href="qml-item.html#anchors.verticalCenter-prop">verticalCenter</a>, <a href="qml-item.html#anchors.baseline-prop">baseline</a>, and <a href="qml-item.html#anchors.bottom-prop">bottom</a>.</p>
+<a name="anchor-layout"></a><a name="overview"></a>
+<h2>Overview</h2>
+<p>In addition to the more traditional <a href="qml-grid.html">Grid</a>, <a href="qml-row.html">Row</a>, and <a href="qml-column.html">Column</a>, QML also provides a way to layout items using the concept of <i>anchors</i>. Each item can be thought of as having a set of 7 invisible &quot;anchor lines&quot;: <a href="qml-item.html#anchors.left-prop">left</a>, <a href="qml-item.html#anchors.horizontalCenter-prop">horizontalCenter</a>, <a href="qml-item.html#anchors.right-prop">right</a>, <a href="qml-item.html#anchors.top-prop">top</a>, <a href="qml-item.html#anchors.verticalCenter-prop">verticalCenter</a>, <a href="qml-item.html#anchors.baseline-prop">baseline</a>, and <a href="qml-item.html#anchors.bottom-prop">bottom</a>.</p>
 <p class="centerAlign"><img src="images/edges_qml.png" /></p><p>The baseline (not pictured above) corresponds to the imaginary line on which text would sit. For items with no text it is the same as <i>top</i>.</p>
 <p>The QML anchoring system allows you to define relationships between the anchor lines of different items. For example, you can write:</p>
 <pre class="highlightedCode brush: cpp"> Rectangle { id: rect1; ... }
  Rectangle { id: rect2; anchors.left: rect1.right; ... }</pre>
 <p>In this case, the left edge of <i>rect2</i> is bound to the right edge of <i>rect1</i>, producing the following:</p>
-<p class="centerAlign"><img src="images/edge1.png" /></p><p>The anchoring system also allows you to specify margins and offsets. Margins specify the amount of empty space to leave to the outside of an item, while offsets allow you to manipulate positioning using the center anchor lines. Note that margins specified using the anchor layout system only have meaning for anchors; they won't have any effect when using other layouts or absolute positioning.</p>
+<p class="centerAlign"><img src="images/edge1.png" /></p><p>You can specify multiple anchors. For example:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle { id: rect1; ... }
+ Rectangle { id: rect2; anchors.left: rect1.right; anchors.top: rect1.bottom; ... }</pre>
+<p class="centerAlign"><img src="images/edge3.png" /></p><p>By specifying multiple horizontal or vertical anchors you can control the size of an item. Below, <i>rect2</i> is anchored to the right of <i>rect1</i> and the left of <i>rect3</i>. If either of the blue rectangles are moved, <i>rect2</i> will stretch and shrink as necessary:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle { id: rect1; x: 0; ... }
+ Rectangle { id: rect2; anchors.left: rect1.right; anchors.right: rect3.left; ... }
+ Rectangle { id: rect3; x: 150; ... }</pre>
+<p class="centerAlign"><img src="images/edge4.png" /></p><a name="anchor-margins-and-offsets"></a>
+<h2>Anchor Margins and Offsets</h2>
+<p>The anchoring system also allows <i>margins</i> and <i>offsets</i> to be specified for an item's anchors. Margins specify the amount of empty space to leave to the outside of an item's anchor, while offsets allow positioning to be manipulated using the center anchor lines. An item can specify its anchor margins individually through <a href="qml-item.html#anchors.leftMargin-prop">leftMargin</a>, <a href="qml-item.html#anchors.rightMargin-prop">rightMargin</a>, <a href="qml-item.html#anchors.topMargin-prop">topMargin</a> and <a href="qml-item.html#anchors.bottomMargin-prop">bottomMargin</a>, or use <a href="qml-item.html#anchors.margins-prop">anchors.margins</a> to specify the same margin value for all four edges. Anchor offsets are specified using <a href="qml-item.html#anchors.horizontalCenterOffset-prop">horizontalCenterOffset</a>, <a href="qml-item.html#anchors.verticalCenterOffset-prop">verticalCenterOffset</a> and <a href="qml-item.html#anchors.baselineOffset-prop">baselineOffset</a>.</p>
 <p class="centerAlign"><img src="images/margins_qml.png" /></p><p>The following example specifies a left margin:</p>
 <pre class="highlightedCode brush: cpp"> Rectangle { id: rect1; ... }
  Rectangle { id: rect2; anchors.left: rect1.right; anchors.leftMargin: 5; ... }</pre>
 <p>In this case, a margin of 5 pixels is reserved to the left of <i>rect2</i>, producing the following:</p>
-<p class="centerAlign"><img src="images/edge2.png" /></p><p>You can specify multiple anchors. For example:</p>
-<pre class="highlightedCode brush: cpp"> Rectangle { id: rect1; ... }
- Rectangle { id: rect2; anchors.left: rect1.right; anchors.top: rect1.bottom; ... }</pre>
-<p class="centerAlign"><img src="images/edge3.png" /></p><p>By specifying multiple horizontal or vertical anchors you can control the size of an item. For example:</p>
-<pre class="highlightedCode brush: cpp"> Rectangle { id: rect1; x: 0; ... }
- Rectangle { id: rect2; anchors.left: rect1.right; anchors.right: rect3.left; ... }
- Rectangle { id: rect3; x: 150; ... }</pre>
-<p class="centerAlign"><img src="images/edge4.png" /></p><a name="limitations"></a>
-<h2>Limitations</h2>
-<p>For performance reasons, you can only anchor an item to its siblings and direct parent. For example, the following anchor would be considered invalid and would produce a warning:</p>
+<p class="centerAlign"><img src="images/edge2.png" /></p><p><b>Note:</b> Anchor margins only apply to anchors; they are <i>not</i> a generic means of applying margins to an <a href="qml-item.html">Item</a>. If an anchor margin is specified for an edge but the item is not anchored to any item on that edge, the margin is not applied.</p>
+<a name="restrictions"></a>
+<h2>Restrictions</h2>
+<p>For performance reasons, you can only anchor an item to its siblings and direct parent. For example, the following anchor is invalid and would produce a warning:</p>
 <pre class="highlightedCode brush: cpp"> Item {
      id: group1
      Rectangle { id: rect1; ..&#x2e; }
@@ -179,6 +194,7 @@
      id: group2
      Rectangle { id: rect2; anchors.left: rect1.right; ..&#x2e; }    // invalid anchor!
  }</pre>
+<p>Also, anchor-based layouts cannot be mixed with absolute positioning. If an item specifies its <a href="qml-item.html#x-prop">x</a> position and also sets <a href="qml-item.html#anchors.left-prop">anchors.left</a>, or anchors its left and right edges but additionally sets a <a href="qml-item.html#width-prop">width</a>, the result is undefined, as it would not be clear whether the item should use anchoring or absolute positioning. The same can be said for setting an item's <a href="qml-item.html#y-prop">y</a> and <a href="qml-item.html#height-prop">height</a> with <a href="qml-item.html#anchors.top-prop">anchors.top</a> and <a href="qml-item.html#anchors.bottom-prop">anchors.bottom</a>, or setting <a href="qml-item.html#anchors.fill-prop">anchors.fill</a> as well as <a href="qml-item.html#width-prop">width</a> or <a href="qml-item.html#height-prop">height</a>. If you wish to change from using anchor-based to absolute positioning, you can clear an anchor value by setting it to <tt>undefined</tt>.</p>
 </div>
 <!-- @@@qml-anchor-layout.html -->
         <div class="feedback t_button">
