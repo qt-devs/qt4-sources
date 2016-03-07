@@ -2767,9 +2767,11 @@ void QWidgetPrivate::setParent_sys(QWidget *parent, Qt::WindowFlags f)
         }
         if (wasWindow) {
             oldToolbar = [oldWindow toolbar];
-            [oldToolbar retain];
-            oldToolbarVisible = [oldToolbar isVisible];
-            [oldWindow setToolbar:nil];
+            if (oldToolbar) {
+                [oldToolbar retain];
+                oldToolbarVisible = [oldToolbar isVisible];
+                [oldWindow setToolbar:nil];
+            }
         }
 #endif
     }
@@ -2780,13 +2782,14 @@ void QWidgetPrivate::setParent_sys(QWidget *parent, Qt::WindowFlags f)
 
     //recreate and setup flags
     QObjectPrivate::setParent_helper(parent);
-    QPoint pt = q->pos();
     bool explicitlyHidden = q->testAttribute(Qt::WA_WState_Hidden) && q->testAttribute(Qt::WA_WState_ExplicitShowHide);
     if (wasCreated && !qt_isGenuineQWidget(q))
         return;
 
-    if ((data.window_flags & Qt::Sheet) && topData && topData->opacity == 242)
+    if (!q->testAttribute(Qt::WA_WState_WindowOpacitySet)) {
         q->setWindowOpacity(1.0f);
+        q->setAttribute(Qt::WA_WState_WindowOpacitySet, false);
+    }
 
     setWinId(0); //do after the above because they may want the id
 
@@ -3275,6 +3278,8 @@ void QWidgetPrivate::show_sys()
 
     bool realWindow = isRealWindow();
     if (realWindow && !q->testAttribute(Qt::WA_Moved)) {
+        if (qt_mac_is_macsheet(q))
+            recreateMacWindow();
         q->createWinId();
         if (QWidget *p = q->parentWidget()) {
             p->createWinId();
@@ -4181,6 +4186,7 @@ void QWidgetPrivate::setGeometry_sys(int x, int y, int w, int h, bool isMove)
 
     QMacCocoaAutoReleasePool pool;
     bool realWindow = isRealWindow();
+    BOOL needDisplay = realWindow ? YES : NO;
 
     if (realWindow && !q->testAttribute(Qt::WA_DontShowOnScreen)){
         adjustWithinMaxAndMinSize(w, h);
@@ -4212,7 +4218,7 @@ void QWidgetPrivate::setGeometry_sys(int x, int y, int w, int h, bool isMove)
         if (currTopLeft.x() == x && currTopLeft.y() == y
                 && cocoaFrameRect.size.width != 0
                 && cocoaFrameRect.size.height != 0) {
-            [window setFrame:cocoaFrameRect display:NO];
+            [window setFrame:cocoaFrameRect display:needDisplay];
         } else {
             // The window is moved and resized (or resized to zero).
             // Since Cocoa usually only sends us a resize callback after
@@ -4221,7 +4227,7 @@ void QWidgetPrivate::setGeometry_sys(int x, int y, int w, int h, bool isMove)
             // would have the same origin as the setFrame call) we shift the
             // window back and forth inbetween.
             cocoaFrameRect.origin.y += 1;
-            [window setFrame:cocoaFrameRect display:NO];
+            [window setFrame:cocoaFrameRect display:needDisplay];
             cocoaFrameRect.origin.y -= 1;
             [window setFrameOrigin:cocoaFrameRect.origin];
         }

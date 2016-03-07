@@ -1048,16 +1048,20 @@ void QGL2PaintEngineExPrivate::stroke(const QVectorPath &path, const QPen &pen)
     // prepareForDraw() down below.
     updateMatrix();
 
+    QRectF clip = q->state()->matrix.inverted().mapRect(q->state()->clipEnabled
+                                                        ? q->state()->rectangleClip
+                                                        : QRectF(0, 0, width, height));
+
     if (penStyle == Qt::SolidLine) {
-        stroker.process(path, pen);
+        stroker.process(path, pen, clip);
 
     } else { // Some sort of dash
-        dasher.process(path, pen);
+        dasher.process(path, pen, clip);
 
         QVectorPath dashStroke(dasher.points(),
                                dasher.elementCount(),
                                dasher.elementTypes());
-        stroker.process(dashStroke, pen);
+        stroker.process(dashStroke, pen, clip);
     }
 
     if (opaque) {
@@ -1390,7 +1394,8 @@ void QGL2PaintEngineExPrivate::drawCachedGlyphs(const QPointF &p, QFontEngineGly
 
     glActiveTexture(GL_TEXTURE0 + QT_MASK_TEXTURE_UNIT);
     glBindTexture(GL_TEXTURE_2D, cache->texture());
-    updateTextureFilter(GL_TEXTURE_2D, GL_REPEAT, false);
+    QOpenGL2PaintEngineState *s = q->state();
+    updateTextureFilter(GL_TEXTURE_2D, GL_REPEAT, s->matrix.type() > QTransform::TxTranslate);
 
     shaderManager->currentProgram()->setUniformValue(location(QGLEngineShaderManager::MaskTexture), QT_MASK_TEXTURE_UNIT);
     glDrawArrays(GL_TRIANGLES, 0, 6 * glyphs.size());

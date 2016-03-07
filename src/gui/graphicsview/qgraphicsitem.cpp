@@ -5445,9 +5445,6 @@ void QGraphicsItem::update(const QRectF &rect)
             return;
     }
 
-    if (d_ptr->discardUpdateRequest())
-        return;
-
     if (d_ptr->scene)
         d_ptr->scene->d_func()->markDirty(this, rect);
 }
@@ -5489,8 +5486,9 @@ void QGraphicsItem::scroll(qreal dx, qreal dy, const QRectF &rect)
                 // Adjust with 2 pixel margin. Notice the loss of precision
                 // when converting to QRect.
                 int adjust = 2;
+                QRectF scrollRect = !rect.isNull() ? rect : boundingRect();
                 QRectF br = boundingRect().adjusted(-adjust, -adjust, adjust, adjust);
-                QRect irect = rect.toRect().translated(-br.x(), -br.y());
+                QRect irect = scrollRect.toRect().translated(-br.x(), -br.y());
 
                 pix.scroll(dx, dy, irect);
 
@@ -5498,11 +5496,11 @@ void QGraphicsItem::scroll(qreal dx, qreal dy, const QRectF &rect)
 
                 // Translate the existing expose.
                 foreach (QRectF exposedRect, c->exposed)
-                    c->exposed += exposedRect.translated(dx, dy) & rect;
+                    c->exposed += exposedRect.translated(dx, dy) & scrollRect;
 
                 // Calculate exposure.
                 QRegion exposed;
-                QRect r = rect.toRect();
+                QRect r = scrollRect.toRect();
                 exposed += r;
                 exposed -= r.translated(dx, dy);
                 foreach (QRect rect, exposed.rects())
@@ -6984,7 +6982,8 @@ void QGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
                     // Root items that ignore transformations need to
                     // calculate their diff by mapping viewport coordinates
                     // directly to parent coordinates.
-                    QTransform viewToParentTransform = (item->transform().translate(item->d_ptr->pos.x(), item->d_ptr->pos.y()))
+                    // COMBINE
+                    QTransform viewToParentTransform = (item->d_func()->transformData->computedFullTransform().translate(item->d_ptr->pos.x(), item->d_ptr->pos.y()))
                                                        * (item->sceneTransform() * view->viewportTransform()).inverted();
                     currentParentPos = viewToParentTransform.map(QPointF(view->mapFromGlobal(event->screenPos())));
                     buttonDownParentPos = viewToParentTransform.map(QPointF(view->mapFromGlobal(event->buttonDownScreenPos(Qt::LeftButton))));
@@ -10937,7 +10936,7 @@ QPixmap QGraphicsItemEffectSourcePrivate::pixmap(Qt::CoordinateSystem system, QP
         // Item coordinates with info.
         QTransform newEffectTransform = info->transformPtr->inverted();
         newEffectTransform *= effectTransform;
-        scened->draw(item, &pixmapPainter, info->viewTransform, info->transformPtr, info->exposedRegion,
+        scened->draw(item, &pixmapPainter, info->viewTransform, info->transformPtr, 0,
                      info->widget, info->opacity, &newEffectTransform, info->wasDirtySceneTransform,
                      info->drawItem);
     }

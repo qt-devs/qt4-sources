@@ -104,7 +104,8 @@ QAbstractItemViewPrivate::QAbstractItemViewPrivate()
         horizontalScrollMode(QAbstractItemView::ScrollPerItem),
         currentIndexSet(false),
         wrapItemText(false),
-        delayedPendingLayout(false)
+        delayedPendingLayout(false),
+        moveCursorUpdatedView(false)
 {
 }
 
@@ -679,7 +680,11 @@ void QAbstractItemView::setModel(QAbstractItemModel *model)
         connect(d->model, SIGNAL(modelReset()), this, SLOT(reset()));
         connect(d->model, SIGNAL(layoutChanged()), this, SLOT(_q_layoutChanged()));
     }
-    setSelectionModel(new QItemSelectionModel(d->model, this));
+
+    QItemSelectionModel *selection_model = new QItemSelectionModel(d->model, this);
+    connect(d->model, SIGNAL(destroyed()), selection_model, SLOT(deleteLater()));
+    setSelectionModel(selection_model);
+
     reset(); // kill editors, set new root and do layout
 }
 
@@ -2213,6 +2218,7 @@ void QAbstractItemView::keyPressEvent(QKeyEvent *event)
 #endif
 
     QPersistentModelIndex newCurrent;
+    d->moveCursorUpdatedView = false;
     switch (event->key()) {
     case Qt::Key_Down:
         newCurrent = moveCursor(MoveDown, event->modifiers());
@@ -2269,6 +2275,7 @@ void QAbstractItemView::keyPressEvent(QKeyEvent *event)
                 QRect rect(d->pressedPosition - d->offset(), QSize(1, 1));
                 setSelection(rect, command);
             }
+            event->accept();
             return;
         }
     }
@@ -2300,6 +2307,8 @@ void QAbstractItemView::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Escape:
     case Qt::Key_Shift:
     case Qt::Key_Control:
+    case Qt::Key_Delete:
+    case Qt::Key_BackSpace:
         event->ignore();
         break;
     case Qt::Key_Space:
@@ -2364,6 +2373,8 @@ void QAbstractItemView::keyPressEvent(QKeyEvent *event)
         }
         break; }
     }
+    if (d->moveCursorUpdatedView)
+        event->accept();
 }
 
 /*!

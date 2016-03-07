@@ -933,6 +933,9 @@ const QString qt_reg_winclass(QWidget *w)        // register window class
     if (qt_widget_private(w)->isGLWidget) {
         cname = QLatin1String("QGLWidget");
         style = CS_DBLCLKS;
+#ifndef Q_WS_WINCE
+        style |= CS_OWNDC;
+#endif
         icon  = true;
     } else if (flags & Qt::MSWindowsOwnDC) {
         cname = QLatin1String("QWidgetOwnDC");
@@ -1579,6 +1582,10 @@ LRESULT CALLBACK QtWndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam
     case WM_MBUTTONDOWN:
     case WM_RBUTTONDOWN:
     case WM_XBUTTONDOWN:
+    case WM_LBUTTONDBLCLK:
+    case WM_RBUTTONDBLCLK:
+    case WM_MBUTTONDBLCLK:
+    case WM_XBUTTONDBLCLK:
         if (qt_win_ignoreNextMouseReleaseEvent)
             qt_win_ignoreNextMouseReleaseEvent = false;
         break;
@@ -2982,7 +2989,10 @@ bool QETWidget::translateMouseEvent(const MSG &msg)
                 // most recent one.
                 msgPtr->lParam = mouseMsg.lParam;
                 msgPtr->wParam = mouseMsg.wParam;
-                msgPtr->pt = mouseMsg.pt;
+                // Extract the x,y coordinates from the lParam as we do in the WndProc
+                msgPtr->pt.x = GET_X_LPARAM(mouseMsg.lParam);
+                msgPtr->pt.y = GET_Y_LPARAM(mouseMsg.lParam);
+                ClientToScreen(msg.hwnd, &(msgPtr->pt));
                 // Remove the mouse move message
                 PeekMessage(&mouseMsg, msg.hwnd, WM_MOUSEMOVE,
                             WM_MOUSEMOVE, PM_REMOVE);
@@ -3008,6 +3018,11 @@ bool QETWidget::translateMouseEvent(const MSG &msg)
             break;
         }
     }
+#ifndef Q_OS_WINCE
+    static bool trackMouseEventLookup = false;
+    typedef BOOL (WINAPI *PtrTrackMouseEvent)(LPTRACKMOUSEEVENT);
+    static PtrTrackMouseEvent ptrTrackMouseEvent = 0;
+#endif
     state  = translateButtonState(msg.wParam, type, button); // button state
     const QPoint widgetPos = mapFromGlobal(QPoint(msg.pt.x, msg.pt.y));
     QWidget *alienWidget = !internalWinId() ? this : childAt(widgetPos);
@@ -3072,9 +3087,6 @@ bool QETWidget::translateMouseEvent(const MSG &msg)
 #ifndef Q_OS_WINCE
 
             if (curWin != 0) {
-                static bool trackMouseEventLookup = false;
-                typedef BOOL (WINAPI *PtrTrackMouseEvent)(LPTRACKMOUSEEVENT);
-                static PtrTrackMouseEvent ptrTrackMouseEvent = 0;
                 if (!trackMouseEventLookup) {
                     trackMouseEventLookup = true;
                     ptrTrackMouseEvent = (PtrTrackMouseEvent)QLibrary::resolve(QLatin1String("comctl32"), "_TrackMouseEvent");
@@ -3188,6 +3200,21 @@ bool QETWidget::translateMouseEvent(const MSG &msg)
             qt_button_down = 0;
         }
 
+#ifndef Q_OS_WINCE
+        if (type == QEvent::MouseButtonPress
+            && QApplication::activePopupWidget() != activePopupWidget
+            && ptrTrackMouseEvent
+            && curWin) {
+            // Since curWin is already the window we clicked on,
+            // we have to setup the mouse tracking here.
+            TRACKMOUSEEVENT tme;
+            tme.cbSize = sizeof(TRACKMOUSEEVENT);
+            tme.dwFlags = 0x00000002;    // TME_LEAVE
+            tme.hwndTrack = curWin;      // Track on window receiving msgs
+            tme.dwHoverTime = (DWORD)-1; // HOVER_DEFAULT
+            ptrTrackMouseEvent(&tme);
+        }
+#endif
         if (type == QEvent::MouseButtonPress
             && QApplication::activePopupWidget() != activePopupWidget
             && replayPopupMouseEvent) {

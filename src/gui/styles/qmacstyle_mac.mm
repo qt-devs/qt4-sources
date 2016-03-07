@@ -432,13 +432,13 @@ static inline bool isTreeView(const QWidget *widget)
 
 QString qt_mac_removeMnemonics(const QString &original)
 {
-    // copied from qt_format_text (to be bug-for-bug compatible).
     QString returnText(original.size(), 0);
     int finalDest = 0;
     int currPos = 0;
     int l = original.length();
     while (l) {
-        if (original.at(currPos) == QLatin1Char('&')) {
+        if (original.at(currPos) == QLatin1Char('&')
+            && (l == 1 || original.at(currPos + 1) != QLatin1Char('&'))) {
             ++currPos;
             --l;
             if (l == 0)
@@ -1914,7 +1914,7 @@ void qt_mac_fill_background(QPainter *painter, const QRegion &rgn, const QBrush 
 
         painter->setClipRegion(rgn);
 
-        CGContextRef cg = qt_mac_cg_context(target);
+        QCFType<CGContextRef> cg = qt_mac_cg_context(target);
         CGContextSaveGState(cg);
         HIThemeSetFill(kThemeBrushDialogBackgroundActive, 0, cg, kHIThemeOrientationInverted);
 

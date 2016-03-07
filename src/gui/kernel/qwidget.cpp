@@ -67,6 +67,8 @@
 # include "qt_mac_p.h"
 # include "qt_cocoa_helpers_mac_p.h"
 # include "qmainwindow.h"
+# include "qtoolbar.h"
+# include <private/qmainwindowlayout_p.h>
 #endif
 #if defined(Q_WS_QWS)
 # include "qwsdisplay_qws.h"
@@ -306,6 +308,8 @@ QInputContext *QWidget::inputContext()
   This function sets the input context \a context
   on this widget.
 
+  Qt takes ownership of the given input \a context.
+
   \sa inputContext()
 */
 void QWidget::setInputContext(QInputContext *context)
@@ -314,6 +318,8 @@ void QWidget::setInputContext(QInputContext *context)
     if (!testAttribute(Qt::WA_InputMethodEnabled))
         return;
 #ifndef QT_NO_IM
+    if (context == d->ic)
+        return;
     if (d->ic)
         delete d->ic;
     d->ic = context;
@@ -2861,6 +2867,15 @@ bool QWidget::isFullScreen() const
 */
 void QWidget::showFullScreen()
 {
+#ifdef Q_WS_MAC
+    // If the unified toolbar is enabled, we have to disable it before going fullscreen.
+    QMainWindow *mainWindow = qobject_cast<QMainWindow*>(this);
+    if (mainWindow && mainWindow->unifiedTitleAndToolBarOnMac()) {
+        mainWindow->setUnifiedTitleAndToolBarOnMac(false);
+        QMainWindowLayout *mainLayout = qobject_cast<QMainWindowLayout*>(mainWindow->layout());
+        mainLayout->activateUnifiedToolbarAfterFullScreen = true;
+    }
+#endif // Q_WS_MAC
     ensurePolished();
 #ifdef QT3_SUPPORT
     if (parent())
@@ -2893,6 +2908,18 @@ void QWidget::showMaximized()
 
     setWindowState((windowState() & ~(Qt::WindowMinimized | Qt::WindowFullScreen))
                    | Qt::WindowMaximized);
+#ifdef Q_WS_MAC
+    // If the unified toolbar was enabled before going fullscreen, we have to enable it back.
+    QMainWindow *mainWindow = qobject_cast<QMainWindow*>(this);
+    if (mainWindow)
+    {
+        QMainWindowLayout *mainLayout = qobject_cast<QMainWindowLayout*>(mainWindow->layout());
+        if (mainLayout->activateUnifiedToolbarAfterFullScreen) {
+            mainWindow->setUnifiedTitleAndToolBarOnMac(true);
+            mainLayout->activateUnifiedToolbarAfterFullScreen = false;
+        }
+    }
+#endif // Q_WS_MAC
     show();
 }
 
@@ -2914,6 +2941,18 @@ void QWidget::showNormal()
     setWindowState(windowState() & ~(Qt::WindowMinimized
                                      | Qt::WindowMaximized
                                      | Qt::WindowFullScreen));
+#ifdef Q_WS_MAC
+    // If the unified toolbar was enabled before going fullscreen, we have to enable it back.
+    QMainWindow *mainWindow = qobject_cast<QMainWindow*>(this);
+    if (mainWindow)
+    {
+        QMainWindowLayout *mainLayout = qobject_cast<QMainWindowLayout*>(mainWindow->layout());
+        if (mainLayout->activateUnifiedToolbarAfterFullScreen) {
+            mainWindow->setUnifiedTitleAndToolBarOnMac(true);
+            mainLayout->activateUnifiedToolbarAfterFullScreen = false;
+        }
+    }
+#endif // Q_WS_MAC
     show();
 }
 
@@ -9602,46 +9641,58 @@ QWidget *QWidget::childAt(const QPoint &p) const
 
 QWidget *QWidgetPrivate::childAt_helper(const QPoint &p, bool ignoreChildrenInDestructor) const
 {
-    Q_Q(const QWidget);
-#ifdef Q_WS_MAC
-    bool includeFrame = q->isWindow() && qobject_cast<const QMainWindow *>(q)
-                        && static_cast<const QMainWindow *>(q)->unifiedTitleAndToolBarOnMac();
-#endif
-
-    if (
-#ifdef Q_WS_MAC
-            !includeFrame &&
-#endif
-            !q->rect().contains(p))
+    if (children.isEmpty())
         return 0;
 
-    for (int i = children.size(); i > 0 ;) {
-        --i;
-        QWidget *w = qobject_cast<QWidget *>(children.at(i));
-        if (w && !w->isWindow() && !w->isHidden()
-                && (w->geometry().contains(p)
 #ifdef Q_WS_MAC
-                    || (includeFrame && w->geometry().contains(qt_mac_nativeMapFromParent(w, p)))
+    Q_Q(const QWidget);
+    // Unified tool bars on the Mac require special handling since they live outside
+    // QMainWindow's geometry(). See commit: 35667fd45ada49269a5987c235fdedfc43e92bb8
+    bool includeFrame = q->isWindow() && qobject_cast<const QMainWindow *>(q)
+                        && static_cast<const QMainWindow *>(q)->unifiedTitleAndToolBarOnMac();
+    if (includeFrame)
+        return childAtRecursiveHelper(p, ignoreChildrenInDestructor, includeFrame);
 #endif
-               )) {
-            if (ignoreChildrenInDestructor && w->data->in_destructor)
-                continue;
-            if (w->testAttribute(Qt::WA_TransparentForMouseEvents))
-                continue;
-            QPoint childPoint = w->mapFromParent(p);
-#ifdef Q_WS_MAC
-            if (includeFrame && !w->geometry().contains(p))
-                childPoint = qt_mac_nativeMapFromParent(w, p);
+
+    if (!pointInsideRectAndMask(p))
+        return 0;
+    return childAtRecursiveHelper(p, ignoreChildrenInDestructor);
+}
+
+QWidget *QWidgetPrivate::childAtRecursiveHelper(const QPoint &p, bool ignoreChildrenInDestructor, bool includeFrame) const
+{
+#ifndef Q_WS_MAC
+    Q_UNUSED(includeFrame);
 #endif
-            if (QWidget *t = w->d_func()->childAt_helper(childPoint, ignoreChildrenInDestructor))
-                return t;
-            // if WMouseNoMask is set the widget mask is ignored, if
-            // the widget has no mask then the WMouseNoMask flag has no
-            // effect
-            if (w->testAttribute(Qt::WA_MouseNoMask) || w->mask().contains(childPoint)
-                || w->mask().isEmpty())
-                return w;
+    for (int i = children.size() - 1; i >= 0; --i) {
+        QWidget *child = qobject_cast<QWidget *>(children.at(i));
+        if (!child || child->isWindow() || child->isHidden() || child->testAttribute(Qt::WA_TransparentForMouseEvents)
+            || (ignoreChildrenInDestructor && child->data->in_destructor)) {
+            continue;
         }
+
+        // Map the point 'p' from parent coordinates to child coordinates.
+        QPoint childPoint = p;
+#ifdef Q_WS_MAC
+        // 'includeFrame' is true if the child's parent is a top-level QMainWindow with an unified tool bar.
+        // An unified tool bar on the Mac lives outside QMainWindow's geometry(), so a normal
+        // QWidget::mapFromParent won't do the trick.
+        if (includeFrame && qobject_cast<QToolBar *>(child))
+            childPoint = qt_mac_nativeMapFromParent(child, p);
+        else
+#endif
+        childPoint -= child->data->crect.topLeft();
+
+        // Check if the point hits the child.
+        if (!child->d_func()->pointInsideRectAndMask(childPoint))
+            continue;
+
+        // Do the same for the child's descendants.
+        if (QWidget *w = child->d_func()->childAtRecursiveHelper(childPoint, ignoreChildrenInDestructor))
+            return w;
+
+        // We have found our target; namely the child at position 'p'.
+        return child;
     }
     return 0;
 }

@@ -111,7 +111,7 @@ int qFindStringBoyerMoore(const QChar *haystack, int haystackLen, int from,
 static int ucstricmp(const ushort *a, const ushort *ae, const ushort *b, const ushort *be)
 {
     if (a == b)
-        return 0;
+        return (ae - be);
     if (a == 0)
         return 1;
     if (b == 0)
@@ -123,7 +123,7 @@ static int ucstricmp(const ushort *a, const ushort *ae, const ushort *b, const u
 
     uint alast = 0;
     uint blast = 0;
-    while (a != e) {
+    while (a < e) {
 //         qDebug() << hex << alast << blast;
 //         qDebug() << hex << "*a=" << *a << "alast=" << alast << "folded=" << foldCase (*a, alast);
 //         qDebug() << hex << "*b=" << *b << "blast=" << blast << "folded=" << foldCase (*b, blast);
@@ -152,7 +152,7 @@ static int ucstricmp(const ushort *a, const ushort *ae, const uchar *b)
     if (b == 0)
         return -1;
 
-    while (a != ae && *b) {
+    while (a < ae && *b) {
         int diff = foldCase(*a) - foldCase(*b);
         if ((diff))
             return diff;
@@ -4532,8 +4532,11 @@ int QString::compare_helper(const QChar *data1, int length1, QLatin1String s2,
         return length1;
 
     if (cs == Qt::CaseSensitive) {
-        while (uc != e && *c && *uc == *c)
+        while (uc < e && *c && *uc == *c)
             uc++, c++;
+
+        if (uc == e)
+            return -*c;
 
         return *uc - *c;
     } else {
@@ -6507,8 +6510,9 @@ QString QString::arg(qlonglong a, int fieldWidth, int base, const QChar &fillCha
     QString locale_arg;
     if (d.locale_occurrences > 0) {
         QLocale locale;
-        locale_arg = locale.d()->longLongToString(a, -1, base, fieldWidth,
-                                                  flags | QLocalePrivate::ThousandsGroup);
+        if (!locale.numberOptions() & QLocale::OmitGroupSeparator)
+            flags |= QLocalePrivate::ThousandsGroup;
+        locale_arg = locale.d()->longLongToString(a, -1, base, fieldWidth, flags);
     }
 
     return replaceArgEscapes(*this, d, fieldWidth, arg, locale_arg, fillChar);
@@ -6550,8 +6554,9 @@ QString QString::arg(qulonglong a, int fieldWidth, int base, const QChar &fillCh
     QString locale_arg;
     if (d.locale_occurrences > 0) {
         QLocale locale;
-        locale_arg = locale.d()->unsLongLongToString(a, -1, base, fieldWidth,
-                                                     flags | QLocalePrivate::ThousandsGroup);
+        if (!locale.numberOptions() & QLocale::OmitGroupSeparator)
+            flags |= QLocalePrivate::ThousandsGroup;
+        locale_arg = locale.d()->unsLongLongToString(a, -1, base, fieldWidth, flags);
     }
 
     return replaceArgEscapes(*this, d, fieldWidth, arg, locale_arg, fillChar);
@@ -6684,7 +6689,8 @@ QString QString::arg(double a, int fieldWidth, char fmt, int prec, const QChar &
     if (d.locale_occurrences > 0) {
         QLocale locale;
 
-        flags |= QLocalePrivate::ThousandsGroup;
+        if (!locale.numberOptions() & QLocale::OmitGroupSeparator)
+            flags |= QLocalePrivate::ThousandsGroup;
         locale_arg = locale.d()->doubleToString(a, prec, form, fieldWidth, flags);
     }
 

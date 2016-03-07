@@ -680,8 +680,20 @@ void QSslSocketBackendPrivate::transmit()
 #endif
                 plainSocket->disconnectFromHost();
                 break;
+            case SSL_ERROR_SYSCALL: // some IO error
+            case SSL_ERROR_SSL: // error in the SSL library
+                // we do not know exactly what the error is, nor whether we can recover from it,
+                // so just return to prevent an endless loop in the outer "while" statement
+                q->setErrorString(QSslSocket::tr("Error while reading: %1").arg(SSL_ERRORSTR()));
+                q->setSocketError(QAbstractSocket::UnknownSocketError);
+                emit q->error(QAbstractSocket::UnknownSocketError);
+                return;
             default:
-                // ### Handle errors better.
+                // SSL_ERROR_WANT_CONNECT, SSL_ERROR_WANT_ACCEPT: can only happen with a
+                // BIO_s_connect() or BIO_s_accept(), which we do not call.
+                // SSL_ERROR_WANT_X509_LOOKUP: can only happen with a
+                // SSL_CTX_set_client_cert_cb(), which we do not call.
+                // So this default case should never be triggered.
                 q->setErrorString(QSslSocket::tr("Error while reading: %1").arg(SSL_ERRORSTR()));
                 q->setSocketError(QAbstractSocket::UnknownSocketError);
                 emit q->error(QAbstractSocket::UnknownSocketError);
@@ -815,17 +827,16 @@ bool QSslSocketBackendPrivate::startHandshake()
             QString peerName = (verificationPeerName.isEmpty () ? q->peerName() : verificationPeerName);
             QString commonName = configuration.peerCertificate.subjectInfo(QSslCertificate::CommonName);
 
-            QRegExp regexp(commonName, Qt::CaseInsensitive, QRegExp::Wildcard);
-            if (!regexp.exactMatch(peerName)) {
+            if (!isMatchingHostname(commonName.lower(), peerName.lower())) {
                 bool matched = false;
                 foreach (const QString &altName, configuration.peerCertificate
                          .alternateSubjectNames().values(QSsl::DnsEntry)) {
-                    regexp.setPattern(altName);
-                    if (regexp.exactMatch(peerName)) {
+                    if (isMatchingHostname(altName.lower(), peerName.lower())) {
                         matched = true;
                         break;
                     }
                 }
+
                 if (!matched) {
                     // No matches in common names or alternate names.
                     QSslError error(QSslError::HostNameMismatch, configuration.peerCertificate);
@@ -948,6 +959,41 @@ QList<QSslCertificate> QSslSocketBackendPrivate::STACKOFX509_to_QSslCertificates
             certificates << QSslCertificatePrivate::QSslCertificate_from_X509(entry);
     }
     return certificates;
+}
+
+bool QSslSocketBackendPrivate::isMatchingHostname(const QString &cn, const QString &hostname)
+{
+    int wildcard = cn.indexOf(QLatin1Char('*'));
+
+    // Check this is a wildcard cert, if not then just compare the strings
+    if (wildcard < 0)
+        return cn == hostname;
+
+    int firstCnDot = cn.indexOf(QLatin1Char('.'));
+    int secondCnDot = cn.indexOf(QLatin1Char('.'), firstCnDot+1);
+
+    // Check at least 3 components
+    if ((-1 == secondCnDot) || (secondCnDot+1 >= cn.length()))
+        return false;
+
+    // Check * is last character of 1st component (ie. there's a following .)
+    if (wildcard+1 != firstCnDot)
+        return false;
+
+    // Check only one star
+    if (cn.lastIndexOf(QLatin1Char('*')) != wildcard)
+        return false;
+
+    // Check characters preceding * (if any) match
+    if (wildcard && (hostname.leftRef(wildcard) != cn.leftRef(wildcard)))
+        return false;
+
+    // Check characters following first . match
+    if (hostname.midRef(hostname.indexOf(QLatin1Char('.'))) != cn.midRef(firstCnDot))
+        return false;
+
+    // Ok, I guess this was a wildcard CN and the hostname matches.
+    return true;
 }
 
 QT_END_NAMESPACE

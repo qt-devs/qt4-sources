@@ -146,9 +146,9 @@
  qint64 Generator::readData(char *data, qint64 len)
  {
      qint64 total = 0;
-     while (len - total) {
+     while (len - total &gt; 0) {
          const qint64 chunk = qMin((m_buffer.size() - m_pos), len - total);
-         memcpy(data, m_buffer.constData() + m_pos, chunk);
+         memcpy(data + total, m_buffer.constData() + m_pos, chunk);
          m_pos = (m_pos + chunk) % m_buffer.size();
          total += chunk;
      }
@@ -330,6 +330,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.4</div></td>
 </tr></table></div></address></body>
 </html>

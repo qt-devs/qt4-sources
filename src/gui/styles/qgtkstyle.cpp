@@ -67,6 +67,7 @@
 #include <QtGui/QRadioButton>
 #include <QtGui/QCheckBox>
 #include <QtGui/QTreeView>
+#include <QtGui/QStyledItemDelegate>
 #include <qpixmapcache.h>
 #undef signals // Collides with GTK stymbols
 #include <private/qgtkpainter_p.h>
@@ -325,6 +326,7 @@ void QGtkStyle::polish(QApplication *app)
             qt_filedialog_save_filename_hook = &QGtkStylePrivate::saveFilename;
             qt_filedialog_open_filenames_hook = &QGtkStylePrivate::openFilenames;
             qt_filedialog_existing_directory_hook = &QGtkStylePrivate::openDirectory;
+            qApp->installEventFilter(&d->filter);
         }
     }
 }
@@ -345,6 +347,7 @@ void QGtkStyle::unpolish(QApplication *app)
         qt_filedialog_save_filename_hook = 0;
         qt_filedialog_open_filenames_hook = 0;
         qt_filedialog_existing_directory_hook = 0;
+        qApp->removeEventFilter(&d->filter);
     }
 }
 
@@ -813,24 +816,49 @@ void QGtkStyle::drawPrimitive(PrimitiveElement element,
                                      option->state & State_Open ? openState : closedState , gtkTreeView->style);
         }
         break;
+
+    case PE_PanelItemViewRow:
+        // This primitive is only used to draw selection behind selected expander arrows.
+        // We try not to decorate the tree branch background unless you inherit from StyledItemDelegate
+        // The reason for this is that a lot of code that relies on custom item delegates will look odd having
+        // a gradient on the branch but a flat shaded color on the item itself.
+        QCommonStyle::drawPrimitive(element, option, painter, widget);
+        if (!option->state & State_Selected) {
+            break;
+        } else {
+            if (const QAbstractItemView *view = qobject_cast<const QAbstractItemView*>(widget)) {
+                if (!qobject_cast<QStyledItemDelegate*>(view->itemDelegate()))
+                    break;
+            }
+        } // fall through
+
     case PE_PanelItemViewItem:
         if (const QStyleOptionViewItemV4 *vopt = qstyleoption_cast<const QStyleOptionViewItemV4 *>(option)) {
-            if (vopt->state & State_Selected) {
-                QLinearGradient gradient;
-                gradient.setStart(option->rect.left(), option->rect.top());
-                gradient.setFinalStop(option->rect.left(), option->rect.bottom());
-                gradient.setColorAt(0, option->palette.highlight().color().lighter(105));
-                gradient.setColorAt(0.5, option->palette.highlight().color().lighter(101));
-                gradient.setColorAt(0.51, option->palette.highlight().color().darker(101));
-                gradient.setColorAt(1, option->palette.highlight().color().darker(105));
-                painter->fillRect(option->rect, gradient);
-            } else {
-                if (vopt->backgroundBrush.style() != Qt::NoBrush) {
-                    QPointF oldBO = painter->brushOrigin();
-                    painter->setBrushOrigin(vopt->rect.topLeft());
-                    painter->fillRect(vopt->rect, vopt->backgroundBrush);
-                    painter->setBrushOrigin(oldBO);
+            if (vopt->backgroundBrush.style() != Qt::NoBrush) {
+                QPointF oldBO = painter->brushOrigin();
+                painter->setBrushOrigin(vopt->rect.topLeft());
+                painter->fillRect(vopt->rect, vopt->backgroundBrush);
+                painter->setBrushOrigin(oldBO);
+                if (!(option->state & State_Selected))
+                    break;
+            }
+            if (GtkWidget *gtkTreeView = d->gtkWidget("GtkTreeView")) {
+                const char *detail = "cell_even_ruled";
+                if (vopt && vopt->features & QStyleOptionViewItemV2::Alternate)
+                    detail = "cell_odd_ruled";
+                bool isActive = option->state & State_Active;
+                QString key;
+                if (isActive ) {
+                    // Required for active/non-active window appearance
+                    key = QLS("a");
+                    GTK_WIDGET_SET_FLAGS(gtkTreeView, GTK_HAS_FOCUS);
                 }
+                gtkPainter.paintFlatBox(gtkTreeView, detail, option->rect,
+                                        option->state & State_Selected ? GTK_STATE_SELECTED :
+                                        option->state & State_Enabled ? GTK_STATE_NORMAL : GTK_STATE_INSENSITIVE,
+                                        GTK_SHADOW_OUT, gtkTreeView->style, key);
+                if (isActive )
+                    GTK_WIDGET_UNSET_FLAGS(gtkTreeView, GTK_HAS_FOCUS);
             }
         }
         break;
@@ -1621,6 +1649,7 @@ void QGtkStyle::drawComplexControl(ComplexControl control, const QStyleOptionCom
             style = scrollbarWidget->style;
             gboolean trough_under_steppers = true;
             gboolean trough_side_details = false;
+            gboolean activate_slider = false;
             gboolean stepper_size = 14;
             gint trough_border = 1;
             if (!d->gtk_check_version(2, 10, 0)) {
@@ -1628,6 +1657,7 @@ void QGtkStyle::drawComplexControl(ComplexControl control, const QStyleOptionCom
                                            "trough-border",   &trough_border,
                                            "trough-side-details",   &trough_side_details,
                                            "trough-under-steppers", &trough_under_steppers,
+                                           "activate-slider",       &activate_slider,
                                            "stepper-size",          &stepper_size, NULL);
             }
             if (trough_under_steppers) {
@@ -1673,6 +1703,9 @@ void QGtkStyle::drawComplexControl(ComplexControl control, const QStyleOptionCom
 
                 if (!(option->state & State_Enabled))
                     state = GTK_STATE_INSENSITIVE;
+                else if (activate_slider &&
+                         option->state & State_Sunken && (scrollBar->activeSubControls & SC_ScrollBarSlider))
+                    state = GTK_STATE_ACTIVE;
                 else if (option->state & State_MouseOver && (scrollBar->activeSubControls & SC_ScrollBarSlider))
                     state = GTK_STATE_PRELIGHT;
 
@@ -1911,14 +1944,11 @@ void QGtkStyle::drawComplexControl(ComplexControl control, const QStyleOptionCom
 
             QRect groove = proxy()->subControlRect(CC_Slider, option, SC_SliderGroove, widget);
             QRect handle = proxy()->subControlRect(CC_Slider, option, SC_SliderHandle, widget);
-            QRect ticks = proxy()->subControlRect(CC_Slider, option, SC_SliderTickmarks, widget);
 
             bool horizontal = slider->orientation == Qt::Horizontal;
             bool ticksAbove = slider->tickPosition & QSlider::TicksAbove;
             bool ticksBelow = slider->tickPosition & QSlider::TicksBelow;
-            QColor activeHighlight = option->palette.color(QPalette::Normal, QPalette::Highlight);
 
-            QPixmap cache;
             QBrush oldBrush = painter->brush();
             QPen oldPen = painter->pen();
 
@@ -1927,6 +1957,8 @@ void QGtkStyle::drawComplexControl(ComplexControl control, const QStyleOptionCom
             QColor highlightAlpha(Qt::white);
             highlightAlpha.setAlpha(80);
 
+            QGtkStylePrivate::gtk_widget_set_direction(hScaleWidget, slider->upsideDown ?
+                                                       GTK_TEXT_DIR_RTL : GTK_TEXT_DIR_LTR);
             GtkWidget *scaleWidget = horizontal ? hScaleWidget : vScaleWidget;
             style = scaleWidget->style;
 
@@ -1960,11 +1992,21 @@ void QGtkStyle::drawComplexControl(ComplexControl control, const QStyleOptionCom
                     QRect lowerGroove = grooveRect;
 
                     if (horizontal) {
-                        upperGroove.setLeft(handle.center().x());
-                        lowerGroove.setRight(handle.center().x());
+                        if (slider->upsideDown) {
+                            lowerGroove.setLeft(handle.center().x());
+                            upperGroove.setRight(handle.center().x());
+                        } else {
+                            upperGroove.setLeft(handle.center().x());
+                            lowerGroove.setRight(handle.center().x());
+                        }
                     } else {
-                        upperGroove.setBottom(handle.center().y());
-                        lowerGroove.setTop(handle.center().y());
+                        if (!slider->upsideDown) {
+                            lowerGroove.setBottom(handle.center().y());
+                            upperGroove.setTop(handle.center().y());
+                        } else {
+                            upperGroove.setBottom(handle.center().y());
+                            lowerGroove.setTop(handle.center().y());
+                        }
                     }
 
                     gtkPainter.paintBox( scaleWidget, "trough-upper", upperGroove, state,

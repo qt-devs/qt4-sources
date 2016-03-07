@@ -156,7 +156,7 @@
 <a name="//apple_ref/cpp/instm/QSslCertificate/isValid"></a>
 <h3 class="fn"><a name="isValid"></a>bool QSslCertificate::isValid () const</h3>
 <p>Returns true if this certificate is valid; otherwise returns false.</p>
-<p>Note: Currently, this function only checks that the current data-time is within the date-time range during which the certificate is considered valid. No other checks are currently performed.</p>
+<p>Note: Currently, this function checks that the current data-time is within the date-time range during which the certificate is considered valid, and checks that the certificate is not in a blacklist of fraudulent certificates.</p>
 <p>See also <a href="qsslcertificate.html#isNull">isNull</a>().</p>
 <a name="//apple_ref/cpp/instm/QSslCertificate/issuerInfo"></a>
 <h3 class="fn"><a name="issuerInfo"></a><a href="qstring.html">QString</a> QSslCertificate::issuerInfo ( <a href="qsslcertificate.html#SubjectInfo-enum">SubjectInfo</a> <i>subject</i> ) const</h3>
@@ -170,7 +170,7 @@
 <p>Returns the certificate subject's public key.</p>
 <a name="//apple_ref/cpp/instm/QSslCertificate/serialNumber"></a>
 <h3 class="fn"><a name="serialNumber"></a><a href="qbytearray.html">QByteArray</a> QSslCertificate::serialNumber () const</h3>
-<p>Returns the certificate's serial number string in decimal format.</p>
+<p>Returns the certificate's serial number string in decimal format. In case the serial number cannot be converted to decimal format (i.e&#x2e; if it is bigger than 4294967295, which means it does not fit into 4 bytes), its hexadecimal version is returned.</p>
 <a name="//apple_ref/cpp/instm/QSslCertificate/subjectInfo"></a>
 <h3 class="fn"><a name="subjectInfo"></a><a href="qstring.html">QString</a> QSslCertificate::subjectInfo ( <a href="qsslcertificate.html#SubjectInfo-enum">SubjectInfo</a> <i>subject</i> ) const</h3>
 <p>Returns the information for the <i>subject</i>, or an empty string if there is no information for <i>subject</i> in the certificate.</p>
@@ -200,6 +200,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.3</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.4</div></td>
 </tr></table></div></address></body>
 </html>
