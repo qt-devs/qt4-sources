@@ -555,7 +555,7 @@
 <h3 class="fn"><a name="ignoreSslErrors"></a><span class="type">void</span> QSslSocket::<span class="name">ignoreSslErrors</span> ()<tt> [slot]</tt></h3>
 <p>This slot tells <a href="qsslsocket.html">QSslSocket</a> to ignore errors during <a href="qsslsocket.html">QSslSocket</a>'s handshake phase and continue connecting. If you want to continue with the connection even if errors occur during the handshake phase, then you must call this slot, either from a slot connected to <a href="qsslsocket.html#sslErrors">sslErrors</a>(), or before the handshake phase. If you don't call this slot, either in response to errors or before the handshake, the connection will be dropped after the <a href="qsslsocket.html#sslErrors">sslErrors</a>() signal has been emitted.</p>
 <p>If there are no errors during the SSL handshake phase (i.e&#x2e;, the identity of the peer is established with no problems), <a href="qsslsocket.html">QSslSocket</a> will not emit the <a href="qsslsocket.html#sslErrors">sslErrors</a>() signal, and it is unnecessary to call this function.</p>
-<p>Ignoring errors that occur during an SSL handshake should be done with caution. A fundamental characteristic of secure connections is that they should be established with an error free handshake.</p>
+<p><b>Warning:</b> Be sure to always let the user inspect the errors reported by the <a href="qsslsocket.html#sslErrors">sslErrors</a>() signal, and only call this method upon confirmation from the user that proceeding is ok. If there are unexpected errors, the connection should be aborted. Calling this method without inspecting the actual errors will most likely pose a security risk for your application. Use it with great care!</p>
 <p><b>See also </b><a href="qsslsocket.html#sslErrors">sslErrors</a>().</p>
 <!-- @@@ignoreSslErrors -->
 <!-- $$$ignoreSslErrors$$$ignoreSslErrorsconstQList<QSslError>& -->
@@ -866,7 +866,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

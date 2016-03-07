@@ -257,12 +257,13 @@
 <h3 class="fn"><a name="EventFilter-typedef"></a>typedef QAbstractEventDispatcher::<span class="name">EventFilter</span></h3>
 <p>Typedef for a function with the signature</p>
 <pre class="cpp"> <span class="type">bool</span> myEventFilter(<span class="type">void</span> <span class="operator">*</span>message);</pre>
-<p>Note that the type of the <i>message</i> is platform dependent. The following table shows the <i>message</i>'s type on Windows, Mac, and X11. You can do a static cast to these types.</p>
+<p>Note that the type of the <i>message</i> is platform dependent. The following table shows the <i>message</i>'s type on Windows, Mac, X11 and BlackBerry. You can do a static cast to these types.</p>
 <table class="generic">
 <thead><tr class="qt-style"><th >Platform</th><th >type</th></tr></thead>
 <tr valign="top" class="odd"><td >Windows</td><td >MSG</td></tr>
 <tr valign="top" class="even"><td >X11</td><td >XEvent</td></tr>
 <tr valign="top" class="odd"><td >Mac</td><td >NSEvent</td></tr>
+<tr valign="top" class="even"><td >BlackBerry</td><td >bps_event_t</td></tr>
 </table>
 <p><b>See also </b><a href="qabstracteventdispatcher.html#setEventFilter">setEventFilter</a>() and <a href="qabstracteventdispatcher.html#filterEvent">filterEvent</a>().</p>
 <!-- @@@EventFilter -->
@@ -382,7 +383,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

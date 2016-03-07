@@ -224,6 +224,7 @@
  &lt;/QHelpCollectionProject&gt;</pre>
 <p>Sometimes, depending on the application for which <i>Qt Assistant</i> acts as a help viewer, more documentation needs to be added over time; for example, when installing more application components or plugins. This can be done manually by starting <i>Qt Assistant</i>, opening the <b>Edit|Preferences</b> dialog and navigating to the <b>Documentation</b> tab page. Then click the <b>Add..&#x2e;</b> button, select a Qt compressed help file (*.qch) and press <b>Open</b>. However, this approach has the disadvantage that every user has to do it manually to get access to the new documentation.</p>
 <p>The prefered way of adding documentation to an already existing collection file is to use the <tt>-register</tt> command line flag of <i>Qt Assistant</i>. When starting <i>Qt Assistant</i> with this flag, the documentation will be added and <i>Qt Assistant</i> will exit right away displaying a message if the registration was successful or not.</p>
+<p>The search indexing will only index your custom *.html, *.htm, and *.txt files.</p>
 <pre class="cpp"> assistant -collectionFile mycollection.qhc -register myapplication-manual.qch</pre>
 <p>The <tt>-quiet</tt> flag can be passed on to <i>Qt Assistant</i> to prevent it from writing out the status message.</p>
 <p><b>Note:</b> <i>Qt Assistant</i> will show the documentation in the contents view in the same order as it was registered.</p>
@@ -345,7 +346,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

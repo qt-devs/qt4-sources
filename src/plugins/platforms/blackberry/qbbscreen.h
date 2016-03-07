@@ -51,6 +51,7 @@
 QT_BEGIN_NAMESPACE
 
 class QBBWindow;
+class QPlatformCursor;
 
 class QBBScreen : public QPlatformScreen
 {
@@ -82,14 +83,18 @@ public:
     void updateHierarchy();
 
     void onWindowPost(QBBWindow* window);
+    void adjustOrientation();
     void ensureDisplayCreated();
 
     QSharedPointer<QBBRootWindow> rootWindow() const { return mRootWindow; }
+
+    QPlatformCursor *cursor() const;
 
 public Q_SLOTS:
     void setRotation(int rotation);
     void newWindowCreated(screen_window_t window);
     void windowClosed(screen_window_t window);
+    void windowGroupStateChanged(const QByteArray &id, Qt::WindowState state);
     void activateWindowGroup(const QByteArray &id);
     void deactivateWindowGroup(const QByteArray &id);
 
@@ -102,6 +107,8 @@ private:
     void resizeWindows(const QRect &previousScreenGeometry);
     void addOverlayWindow(screen_window_t window);
     void removeOverlayWindow(screen_window_t window);
+
+    QWidget *topMostChildWindow() const;
 
     screen_context_t mContext;
     screen_display_t mDisplay;
@@ -121,6 +128,8 @@ private:
     QList<QBBWindow*> mChildren;
     QList<screen_window_t> mOverlays;
     int mScreenIndex;
+
+    QPlatformCursor *mCursor;
 
     bool isPrimaryDisplay() { return mPrimaryDisplay; }
 };

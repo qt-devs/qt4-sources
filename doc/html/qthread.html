@@ -179,7 +179,6 @@
 <li class="level1"><a href="#static-protected-members">Static Protected Members</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
 <li class="level2"><a href="#managing-threads">Managing threads</a></li>
-<li class="level2"><a href="#subclassing-qthread">Subclassing QThread</a></li>
 </ul>
 </div>
 <h1 class="title">QThread Class Reference</h1>
@@ -271,30 +270,50 @@
 <div class="descr">
 <h2>Detailed Description</h2>
 <p>The QThread class provides a platform-independent way to manage threads.</p>
-<p>A QThread object manages one thread of control within the program. To make code run in a separate thread, simply create a QThread, change the thread affinity of the <a href="qobject.html">QObject</a>(s) that contain the code, and <a href="qthread.html#start">start</a>() the new event loop. For example:</p>
+<p>A QThread object manages one thread of control within the program. QThreads begin executing in <a href="qthread.html#run">run</a>(). By default, <a href="qthread.html#run">run</a>() starts the event loop by calling <a href="qthread.html#exec">exec</a>() and runs a Qt event loop inside the thread.</p>
+<p>You can use worker objects by moving them to the thread using <a href="qobject.html#moveToThread">QObject::moveToThread</a>().</p>
 <pre class="cpp"> <span class="keyword">class</span> Worker : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
  {
      Q_OBJECT
+     <span class="type">QThread</span> workerThread;
 
  <span class="keyword">public</span> <span class="keyword">slots</span>:
-     <span class="type">void</span> doWork() {
-         <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+     <span class="type">void</span> doWork(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>parameter) {
+         <span class="comment">// ...</span>
+         <span class="keyword">emit</span> resultReady(result);
      }
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> resultReady(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>result);
  };
 
- <span class="type">void</span> MyObject<span class="operator">::</span>putWorkerInAThread()
+ <span class="keyword">class</span> Controller : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
  {
-     Worker <span class="operator">*</span>worker <span class="operator">=</span> <span class="keyword">new</span> Worker;
-     <span class="type">QThread</span> <span class="operator">*</span>workerThread <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QThread</span>(<span class="keyword">this</span>);
-
-     connect(workerThread<span class="operator">,</span> SIGNAL(started())<span class="operator">,</span> worker<span class="operator">,</span> SLOT(doWork()));
-     connect(workerThread<span class="operator">,</span> SIGNAL(finished())<span class="operator">,</span> worker<span class="operator">,</span> SLOT(deleteLater()));
-     worker<span class="operator">-</span><span class="operator">&gt;</span>moveToThread(workerThread);
-
-     <span class="comment">// Starts an event loop, and emits workerThread-&gt;started()</span>
-     workerThread<span class="operator">-</span><span class="operator">&gt;</span>start();
- }</pre>
-<p>The code inside the Worker's slot would then execute in a separate thread. In this example, the QThread triggers the Worker's doWork() slot upon starting, and frees the Worker's memory upon terminating. However, you are free to connect the Worker's slots to any signal, from any object, in any thread. It is safe to connect signals and slots across different threads, thanks to a mechanism called <a href="qt.html#ConnectionType-enum">queued connections</a>.</p>
+     Q_OBJECT
+     <span class="type">QThread</span> workerThread;
+ <span class="keyword">public</span>:
+     Controller() {
+         Worker <span class="operator">*</span>worker <span class="operator">=</span> <span class="keyword">new</span> Worker;
+         worker<span class="operator">-</span><span class="operator">&gt;</span>moveToThread(<span class="operator">&amp;</span>workerThread);
+         connect(workerThread<span class="operator">,</span> SIGNAL(finished())<span class="operator">,</span> worker<span class="operator">,</span> SLOT(deleteLater()));
+         connect(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(operate(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span> worker<span class="operator">,</span> SLOT(doWork(<span class="type"><a href="qstring.html">QString</a></span>)));
+         connect(worker<span class="operator">,</span> SIGNAL(resultReady(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(handleResults(<span class="type"><a href="qstring.html">QString</a></span>)));
+         workerThread<span class="operator">.</span>start();
+     }
+     <span class="operator">~</span>Controller() {
+         workerThread<span class="operator">.</span>quit();
+         workerThread<span class="operator">.</span>wait();
+     }
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> handleResults(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>);
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> operate(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>);
+ };</pre>
+<p>The code inside the Worker's slot would then execute in a separate thread. However, you are free to connect the Worker's slots to any signal, from any object, in any thread. It is safe to connect signals and slots across different threads, thanks to a mechanism called <a href="qt.html#ConnectionType-enum">queued connections</a>.</p>
+<p>Another way to make code run in a separate thread, is to subclass QThread and reimplement <a href="qthread.html#run">run</a>(). For example:</p>
+<pre class="cpp"></pre>
+<p>In that example, the thread will exit after the run function has returned. There will not be any event loop running in the thread unless you call <a href="qthread.html#exec">exec</a>().</p>
+<p>It is important to remember that a QThread object usually lives in the thread where it was created, not in the thread that it manages. This oft-overlooked detail means that a QThread's slots will be executed in the context of its home thread, not in the context of the thread it is managing. For this reason, implementing new slots in a QThread subclass is error-prone and discouraged.</p>
 <p><b>Note:</b> If you interact with an object, using any technique other than queued signal/slot connections (e.g&#x2e; direct function calls), then the usual multithreading precautions need to be taken.</p>
 <p><b>Note:</b> It is not possible to change the thread affinity of GUI objects; they must remain in the main thread.</p>
 <a name="managing-threads"></a>
@@ -304,25 +323,9 @@
 <p>From Qt 4.8 onwards, it is possible to deallocate objects that live in a thread that has just ended, by connecting the <a href="qthread.html#finished">finished</a>() signal to <a href="qobject.html#deleteLater">QObject::deleteLater</a>().</p>
 <p>Use <a href="qthread.html#wait">wait</a>() to block the calling thread, until the other thread has finished execution (or until a specified time has passed).</p>
 <p>The static functions <a href="qthread.html#currentThreadId">currentThreadId</a>() and <a href="qthread.html#currentThread">currentThread</a>() return identifiers for the currently executing thread. The former returns a platform specific ID for the thread; the latter returns a QThread pointer.</p>
-<a name="subclassing-qthread"></a>
-<h3>Subclassing QThread</h3>
-<p>Subclassing QThread is unnecessary for most purposes, since QThread provides fully-functional thread management capabilities. Nonetheless, QThread can be subclassed if you wish to implement advanced thread management. This is done by adding new member functions to the subclass, and/or by reimplementing <a href="qthread.html#run">run</a>(). QThread's <a href="qthread.html#run">run</a>() function is analogous to an application's main() function -- it is executed when the thread is started, and the thread will end when it returns.</p>
-<p><b>Note:</b> Prior to Qt 4.4, the only way to use QThread for parallel processing was to subclass it and implement the processing code inside <a href="qthread.html#run">run</a>(). This approach is now considered \b {bad practice}; a QThread should only manage a thread, not process data.</p>
-<p>If you require event handling and signal/slot connections to work in your thread, and if you reimplement <a href="qthread.html#run">run</a>(), you must explicitly call <a href="qthread.html#exec">exec</a>() at the end of your reimplementation:</p>
-<pre class="cpp"> <span class="keyword">class</span> AdvancedThreadManager : <span class="keyword">public</span> <span class="type">QThread</span>
- {
- <span class="keyword">protected</span>:
-     <span class="type">void</span> run()
-     {
-         <span class="comment">/* ... other code to initialize thread... */</span>
-
-         <span class="comment">// Begin event handling</span>
-         exec();
-     }
- };</pre>
+<p>To choose the name that your thread will be given (as identified by the command <tt>ps -L</tt> on Linux, for example), you can call <a href="qobject.html#objectName-prop">setObjectName()</a> before starting the thread. If you don't call <a href="qobject.html#objectName-prop">setObjectName()</a>, the name given to your thread will be the class name of the runtime type of your thread object (for example, <tt>&quot;RenderThread&quot;</tt> in the case of the <a href="threads-mandelbrot.html">Mandelbrot Example</a>, as that is the name of the QThread subclass). Note that this is currently not available with release builds on Windows.</p>
 <p>QThread also provides static, platform independent sleep functions: <a href="qthread.html#sleep">sleep</a>(), <a href="qthread.html#msleep">msleep</a>(), and <a href="qthread.html#usleep">usleep</a>() allow full second, millisecond, and microsecond resolution respectively.</p>
 <p><b>Note:</b> <a href="qthread.html#wait">wait</a>() and the <a href="qthread.html#sleep">sleep</a>() functions should be unnecessary in general, since Qt is an event-driven framework. Instead of <a href="qthread.html#wait">wait</a>(), consider listening for the <a href="qthread.html#finished">finished</a>() signal. Instead of the <a href="qthread.html#sleep">sleep</a>() functions, consider using <a href="qtimer.html">QTimer</a>.</p>
-<p>It is important to remember that a QThread object usually lives in the thread where it was created, not in the thread that it manages. This oft-overlooked detail means that a QThread's slots will be executed in the context of its home thread, not in the context of the thread it is managing. For this reason, implementing new slots in a QThread subclass is error-prone and discouraged.</p>
 </div>
 <p><b>See also </b><a href="threads.html">Thread Support in Qt</a>, <a href="qthreadstorage.html">QThreadStorage</a>, <a href="qmutex.html">QMutex</a>, <a href="qsemaphore.html">QSemaphore</a>, <a href="qwaitcondition.html">QWaitCondition</a>, <a href="threads-mandelbrot.html">Mandelbrot Example</a>, <a href="threads-semaphores.html">Semaphores Example</a>, and <a href="threads-waitconditions.html">Wait Conditions Example</a>.</p>
 <!-- @@@QThread -->
@@ -506,7 +509,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).
+** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
 **
 ** This file is part of the QtDeclarative module of the Qt Toolkit.
@@ -153,7 +153,7 @@ public:
 private:
     void clearGuards();
     QScriptValue eval(QObject *secondaryScope, bool *isUndefined);
-    void updateGuards(const QPODVector<QDeclarativeEnginePrivate::CapturedProperty> &properties);
+    void updateGuards(const QPODVector<QDeclarativeEnginePrivate::CapturedProperty, 16> &properties);
 
     bool trackChange;
 

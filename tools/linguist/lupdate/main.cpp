@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).
+** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
 **
 ** This file is part of the Qt Linguist of the Qt Toolkit.
@@ -352,7 +352,12 @@ static void processProject(
         QStringList subProFiles;
         QDir proDir(pfi.absoluteDir());
         foreach (const QString &subdir, visitor.values(QLatin1String("SUBDIRS"))) {
-            QString subPro = QDir::cleanPath(proDir.absoluteFilePath(subdir));
+            QString realdir = visitor.value(subdir + QLatin1String(".subdir"));
+            if (realdir.isEmpty())
+                realdir = visitor.value(subdir + QLatin1String(".file"));
+            if (realdir.isEmpty())
+                realdir = subdir;
+            QString subPro = QDir::cleanPath(proDir.absoluteFilePath(realdir));
             QFileInfo subInfo(subPro);
             if (subInfo.isDir())
                 subProFiles << (subPro + QLatin1Char('/')

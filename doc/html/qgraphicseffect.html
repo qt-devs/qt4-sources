@@ -371,7 +371,7 @@
 <pre class="cpp"> MyGraphicsOpacityEffect<span class="operator">::</span><a href="qgraphicseffect.html#draw">draw</a>(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter)
  {
      <span class="comment">// Fully opaque; draw directly without going through a pixmap.</span>
-     <span class="keyword">if</span> (<a href="qtransform.html#qFuzzyCompare">qFuzzyCompare</a>(m_opacity<span class="operator">,</span> <span class="number">1</span>)) {
+     <span class="keyword">if</span> (<a href="qmatrix4x4.html#qFuzzyCompare">qFuzzyCompare</a>(m_opacity<span class="operator">,</span> <span class="number">1</span>)) {
          drawSource(painter);
          <span class="keyword">return</span>;
      }
@@ -429,7 +429,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

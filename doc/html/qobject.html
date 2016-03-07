@@ -274,7 +274,7 @@
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#QObjectList-typedef">QObjectList</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QList&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#qFindChildren">qFindChildren</a></b> ( const QObject * <i>obj</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#qobject_cast">qobject_cast</a></b> ( QObject * <i>object</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#qobject_cast">qobject_cast</a></b> ( QObject * <i>object</i> )</td></tr>
 </table>
 <a name="macros"></a>
 <h2>Macros</h2>
@@ -466,7 +466,7 @@
 <!-- $$$deleteLater[overload1]$$$deleteLater -->
 <h3 class="fn"><a name="deleteLater"></a><span class="type">void</span> QObject::<span class="name">deleteLater</span> ()<tt> [slot]</tt></h3>
 <p>Schedules this object for deletion.</p>
-<p>The object will be deleted when control returns to the event loop. If the event loop is not running when this function is called (e.g&#x2e; deleteLater() is called on an object before <a href="qcoreapplication.html#exec">QCoreApplication::exec</a>()), the object will be deleted once the event loop is started.</p>
+<p>The object will be deleted when control returns to the event loop. If the event loop is not running when this function is called (e.g&#x2e; deleteLater() is called on an object before <a href="qcoreapplication.html#exec">QCoreApplication::exec</a>()), the object will be deleted once the event loop is started. If deleteLater() is called after the main event loop has stopped, the object will not be deleted. Since Qt 4.8, if deleteLater() is called on an object that lives in a thread with no running event loop, the object will be destroyed when the thread finishes.</p>
 <p>Note that entering and leaving a new event loop (e.g&#x2e;, by opening a modal dialog) will <i>not</i> perform the deferred deletion; for the object to be deleted, the control must return to the event loop from which deleteLater() was called.</p>
 <p><b>Note:</b> It is safe to call this function more than once; when the first deferred deletion event is delivered, any pending events for the object are removed from the event queue.</p>
 <p><b>See also </b><a href="qobject.html#destroyed">destroyed</a>() and <a href="qpointer.html">QPointer</a>.</p>
@@ -893,7 +893,7 @@
 <p><b>See also </b><a href="qobject.html#findChildren">QObject::findChildren</a>().</p>
 <!-- @@@qFindChildren -->
 <!-- $$$qobject_cast[overload1]$$$qobject_castQObject* -->
-<h3 class="fn"><a name="qobject_cast"></a><span class="type"><a href="qwidget.html">QWidget</a></span> * <span class="name">qobject_cast</span> ( <span class="type">QObject</span> * <i>object</i> )</h3>
+<h3 class="fn"><a name="qobject_cast"></a><span class="type">T</span> <span class="name">qobject_cast</span> ( <span class="type">QObject</span> * <i>object</i> )</h3>
 <p>Returns the given <i>object</i> cast to type T if the object is of type T (or of a subclass); otherwise returns 0. If <i>object</i> is 0 then it will also return 0.</p>
 <p>The class T must inherit (directly or indirectly) <a href="qobject.html">QObject</a> and be declared with the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro.</p>
 <p>A class is considered to inherit itself.</p>
@@ -1110,7 +1110,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

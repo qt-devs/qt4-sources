@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).
+** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
 **
 ** This file is part of the plugins of the Qt Toolkit.
@@ -51,6 +51,7 @@
 #include <qlabel.h>
 #include <qgroupbox.h>
 #include <qlcdnumber.h>
+#include <qtextdocument.h>
 #include <qlineedit.h>
 #include <private/qlineedit_p.h>
 #include <qstyle.h>
@@ -540,7 +541,14 @@ QString QAccessibleDisplay::text(Text t, int child) const
         str = widget()->accessibleName();
         if (str.isEmpty()) {
             if (qobject_cast<QLabel*>(object())) {
-                str = qobject_cast<QLabel*>(object())->text();
+                QLabel *label = qobject_cast<QLabel*>(object());
+                str = label->text();
+                if (label->textFormat() == Qt::RichText
+                    || (label->textFormat() == Qt::AutoText && Qt::mightBeRichText(str))) {
+                    QTextDocument doc;
+                    doc.setHtml(str);
+                    str = doc.toPlainText();
+                }
 #ifndef QT_NO_LCDNUMBER
             } else if (qobject_cast<QLCDNumber*>(object())) {
                 QLCDNumber *l = qobject_cast<QLCDNumber*>(object());

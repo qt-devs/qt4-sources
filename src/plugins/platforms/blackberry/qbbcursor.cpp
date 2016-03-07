@@ -1,9 +1,9 @@
 /****************************************************************************
 **
-** Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).
+** Copyright (C) 2011 - 2012 Research In Motion <blackberry-qt@qnx.com>
 ** Contact: http://www.qt-project.org/legal
 **
-** This file is part of the QtDeclarative module of the Qt Toolkit.
+** This file is part of the plugins of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
 ** Commercial License Usage
@@ -39,41 +39,36 @@
 **
 ****************************************************************************/
 
-#ifndef QPERFORMANCETIMER_P_H
-#define QPERFORMANCETIMER_P_H
+#include "qbbcursor.h"
 
-//
-//  W A R N I N G
-//  -------------
-//
-// This file is not part of the Qt API.  It exists for the convenience
-// of moc.  This header file may change from version to version without notice,
-// or even be removed.
-//
-// We mean it.
-//
-
-#include <QtCore/qglobal.h>
-
-QT_BEGIN_HEADER
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 
-QT_MODULE(Declarative)
-
-class Q_DECLARATIVE_EXPORT QPerformanceTimer
+QBBCursor::QBBCursor(QPlatformScreen *screen) : QPlatformCursor(screen)
 {
-public:
-    void start();
-    qint64 elapsed() const;
-    qint64 elapsedToAbsoluteTime(qint64 absoluteMonotonicTimeNs) const;
-private:
-    qint64 t1;
-    qint64 t2;
-};
+}
+
+void QBBCursor::changeCursor(QCursor *widgetCursor, QWidget *widget)
+{
+    Q_UNUSED(widgetCursor);
+    Q_UNUSED(widget);
+}
+
+void QBBCursor::setPos(const QPoint &pos)
+{
+#ifdef QBBCURSOR_DEBUG
+    qDebug() << "QBBCursor::setPos -" << pos;
+#endif
+    mPos = pos;
+}
+
+QPoint QBBCursor::pos() const
+{
+#ifdef QBBCURSOR_DEBUG
+    qDebug() << "QBBCursor::pos -" << mPos;
+#endif
+    return mPos;
+}
 
 QT_END_NAMESPACE
-
-QT_END_HEADER
-
-#endif // QPERFORMANCETIMER_P_H

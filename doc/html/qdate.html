@@ -248,8 +248,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-lt-lt-133">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QDate &amp; <i>date</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-gt-gt-86">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QDate &amp; <i>date</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-lt-lt-121">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QDate &amp; <i>date</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-gt-gt-78">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QDate &amp; <i>date</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QDate-description -->
@@ -458,7 +458,7 @@
 <li>6 = &quot;Saturday&quot;</li>
 <li>7 = &quot;Sunday&quot;</li>
 </ul>
-<p>The day names will be localized according to the system's locale settings.</p>
+<p>The day names will be localized according to the system's default locale settings.</p>
 <p>This function was introduced in Qt 4.5.</p>
 <p><b>See also </b><a href="qdate.html#toString">toString</a>(), <a href="qdate.html#shortDayName">shortDayName</a>(), <a href="qdate.html#shortMonthName">shortMonthName</a>(), and <a href="qdate.html#longMonthName">longMonthName</a>().</p>
 <!-- @@@longDayName -->
@@ -485,7 +485,7 @@
 <li>11 = &quot;November&quot;</li>
 <li>12 = &quot;December&quot;</li>
 </ul>
-<p>The month names will be localized according to the system's locale settings.</p>
+<p>The month names will be localized according to the system's default locale settings.</p>
 <p>This function was introduced in Qt 4.5.</p>
 <p><b>See also </b><a href="qdate.html#toString">toString</a>(), <a href="qdate.html#shortMonthName">shortMonthName</a>(), <a href="qdate.html#shortDayName">shortDayName</a>(), and <a href="qdate.html#longDayName">longDayName</a>().</p>
 <!-- @@@longMonthName -->
@@ -533,7 +533,7 @@
 <li>6 = &quot;Sat&quot;</li>
 <li>7 = &quot;Sun&quot;</li>
 </ul>
-<p>The day names will be localized according to the system's locale settings.</p>
+<p>The day names will be localized according to the system's default locale settings.</p>
 <p>This function was introduced in Qt 4.5.</p>
 <p><b>See also </b><a href="qdate.html#toString">toString</a>(), <a href="qdate.html#shortMonthName">shortMonthName</a>(), <a href="qdate.html#longMonthName">longMonthName</a>(), and <a href="qdate.html#longDayName">longDayName</a>().</p>
 <!-- @@@shortDayName -->
@@ -560,7 +560,7 @@
 <li>11 = &quot;Nov&quot;</li>
 <li>12 = &quot;Dec&quot;</li>
 </ul>
-<p>The month names will be localized according to the system's locale settings.</p>
+<p>The month names will be localized according to the system's default locale settings.</p>
 <p>This function was introduced in Qt 4.5.</p>
 <p><b>See also </b><a href="qdate.html#toString">toString</a>(), <a href="qdate.html#longMonthName">longMonthName</a>(), <a href="qdate.html#shortDayName">shortDayName</a>(), and <a href="qdate.html#longDayName">longDayName</a>().</p>
 <!-- @@@shortMonthName -->
@@ -602,7 +602,7 @@
 <h3 class="fn"><a name="toString-2"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">toString</span> ( <span class="type"><a href="qt.html#DateFormat-enum">Qt::DateFormat</a></span> <i>format</i> = Qt::TextDate ) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns the date as a string. The <i>format</i> parameter determines the format of the string.</p>
-<p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::TextDate</a>, the string is formatted in the default way. <a href="qdate.html#shortDayName">QDate::shortDayName</a>() and <a href="qdate.html#shortMonthName">QDate::shortMonthName</a>() are used to generate the string, so the day and month names will be localized names. An example of this formatting is &quot;Sat May 20 1995&quot;.</p>
+<p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::TextDate</a>, the string is formatted in the default way. <a href="qdate.html#shortDayName">QDate::shortDayName</a>() and <a href="qdate.html#shortMonthName">QDate::shortMonthName</a>() are used to generate the string, so the day and month names will be localized names using the default locale from the system. An example of this formatting is &quot;Sat May 20 1995&quot;.</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::ISODate</a>, the string format corresponds to the ISO 8601 extended specification for representations of dates and times, taking the form YYYY-MM-DD, where YYYY is the year, MM is the month of the year (between 01 and 12), and DD is the day of the month between 01 and 31.</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::SystemLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::SystemLocaleLongDate</a>, the string format depends on the locale settings of the system. Identical to calling <a href="qlocale.html#system">QLocale::system</a>().toString(date, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or <a href="qlocale.html#system">QLocale::system</a>().toString(date, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleLongDate</a>, the string format depends on the default application locale. This is the locale set with <a href="qlocale.html#setDefault">QLocale::setDefault</a>(), or the system locale if no default locale has been set. Identical to calling QLocale().toString(date, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or QLocale().toString(date, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
@@ -653,12 +653,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQDate& -->
-<h3 class="fn"><a name="operator-lt-lt-133"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QDate</span> &amp; <i>date</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-121"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QDate</span> &amp; <i>date</i> )</h3>
 <p>Writes the <i>date</i> to stream <i>out</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QDate& -->
-<h3 class="fn"><a name="operator-gt-gt-86"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QDate</span> &amp; <i>date</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-78"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QDate</span> &amp; <i>date</i> )</h3>
 <p>Reads a date from stream <i>in</i> into the <i>date</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->
@@ -672,7 +672,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

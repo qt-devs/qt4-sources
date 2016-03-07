@@ -394,7 +394,7 @@
 <!-- $$$ignoreSslErrors[overload1]$$$ignoreSslErrors -->
 <h3 class="fn"><a name="ignoreSslErrors"></a><span class="type">void</span> QNetworkReply::<span class="name">ignoreSslErrors</span> ()<tt> [virtual slot]</tt></h3>
 <p>If this function is called, SSL errors related to network connection will be ignored, including certificate validation errors.</p>
-<p>Note that calling this function without restraint may pose a security risk for your application. Use it with care.</p>
+<p><b>Warning:</b> Be sure to always let the user inspect the errors reported by the <a href="qnetworkreply.html#sslErrors">sslErrors</a>() signal, and only call this method upon confirmation from the user that proceeding is ok. If there are unexpected errors, the reply should be aborted. Calling this method without inspecting the actual errors will most likely pose a security risk for your application. Use it with great care!</p>
 <p>This function can be called from the slot connected to the <a href="qnetworkreply.html#sslErrors">sslErrors</a>() signal, which indicates which errors were found.</p>
 <p><b>See also </b><a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(), <a href="qnetworkreply.html#sslErrors">sslErrors</a>(), and <a href="qsslsocket.html#ignoreSslErrors">QSslSocket::ignoreSslErrors</a>().</p>
 <!-- @@@ignoreSslErrors -->
@@ -557,7 +557,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

@@ -186,9 +186,9 @@
 <a name="overview"></a>
 <h2>Overview</h2>
 <p>The Qt help system includes tools for generating and viewing Qt help files. In addition it provides classes for accessing help contents programatically to be able to integrate online help into Qt applications.</p>
-<p>The actual help data, meaning the table of contents, index keywords or html documents, is contained in Qt compressed help files. So, one such a help file represents usually one manual or documentation set. Since most products are more comprehensive and consist of a number of tools, one manual is rarely enough. Instead, more manuals which should be accessible at the same time, exist. Ideally, it should also be possible to reference certain points of interest of one manual to another. Therefore, the Qt help system operates on help collection files which include any number of compressed help files.</p>
+<p>The actual help data, meaning the table of contents, index keywords or HTML documents, is contained in Qt compressed help files. So, one such a help file represents usually one manual or documentation set. Since most products are more comprehensive and consist of a number of tools, one manual is rarely enough. Instead, more manuals which should be accessible at the same time, exist. Ideally, it should also be possible to reference certain points of interest of one manual to another. Therefore, the Qt help system operates on help collection files which include any number of compressed help files.</p>
 <p>However, having collection files to merge many documentation sets may lead to some problems. For example, one index keyword may be defined in different documentations. So, when only seeing it in the index and activating it, you cannot be sure that the expected documentation will be shown. Therefore, the Qt help system offers the possibiltiy to filter the help contents after certain attributes. This requires however, that the attributes have been assigned to the help contents before the generation of the compressed help file.</p>
-<p>As already mentioned, the Qt compressed help file contains all data, so there is no need any longer to ship all single html files. Instead, only the compressed help file and optionally the collection file has to be distributed. The collection file is optional since any existing collection file, e.g&#x2e; from an older release could be used.</p>
+<p>As already mentioned, the Qt compressed help file contains all data, so there is no need any longer to ship all single HTML files. Instead, only the compressed help file and optionally the collection file has to be distributed. The collection file is optional since any existing collection file, e.g&#x2e; from an older release could be used.</p>
 <p>So, in general, there are four files interacting with the help system, two used for generating Qt help and two meant for distribution:</p>
 <table class="generic">
 <thead><tr class="qt-style"><th >Name</th><th >Extension</th><th >Brief Description</th></tr></thead>
@@ -199,10 +199,11 @@
 </table>
 <a name="generating-qt-help"></a>
 <h2>Generating Qt Help</h2>
-<p>Building help files for the Qt help system assumes that the html documentation files already exist, i.e&#x2e; the Qt help system does not offer the possibility to create html files like e.g&#x2e; Doxygen.</p>
-<p>Once the html documentents are in place, a <a href="qthelpproject.html">Qt Help Project</a> file has to be created. After specifying all relevant information in this file, it needs to be compiled by calling:</p>
+<p>Building help files for the Qt help system assumes that the HTML documentation files already exist.</p>
+<p>Once the HTML documents are in place, a <a href="qthelpproject.html">Qt Help Project</a> file, with an extension of <tt>.qhp</tt> has to be created. After specifying all relevant information in this file, it needs to be compiled by calling:</p>
 <pre class="cpp"> qhelpgenerator doc.qhp -o doc.qch</pre>
-<p>The file 'doc.qch' contains then all html files in compressed form along with the table of contents and index keywords. To test if the generated file is correct, open Qt Assistant and install the file via the Settings|Documentation page.</p>
+<p>The file 'doc.qch' contains then all HTML files in compressed form along with the table of contents and index keywords. To test if the generated file is correct, open Qt Assistant and install the file via the Settings|Documentation page.</p>
+<p>For the standard Qt source build, the .qhp file is generated and placed in the same directory as the HTML pages.</p>
 <a name="qt-help-collection-project"></a><a name="creating-a-qt-help-collection"></a>
 <h3>Creating a Qt Help Collection</h3>
 <p>The first step is to create a Qt Help Collection Project file. Since a Qt help collection stores primarily references to compressed help files, the project 'mycollection.qhcp' file looks unsurprisingly simple:</p>
@@ -269,7 +270,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

@@ -169,7 +169,7 @@
 <div class="descr"> <a name="details"></a>
 <pre class="cpp"> <span class="comment">/****************************************************************************
  **
- ** Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
  ** Contact: http://www.qt-project.org/legal
  **
  ** This file is part of the demos of the Qt Toolkit.
@@ -264,10 +264,10 @@
      <span class="keyword">const</span> <span class="type">int</span> pos <span class="operator">=</span> <span class="operator">-</span><a href="qtglobal.html#qRound">qRound</a>(slideRatio <span class="operator">*</span> width());
      m_slidingSurface<span class="operator">-</span><span class="operator">&gt;</span>scroll(pos <span class="operator">-</span> m_homeView<span class="operator">-</span><span class="operator">&gt;</span>x()<span class="operator">,</span> <span class="number">0</span>);
 
-     <span class="keyword">if</span> (<a href="qtransform.html#qFuzzyCompare">qFuzzyCompare</a>(slideRatio<span class="operator">,</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(<span class="number">1.0f</span>))) {
+     <span class="keyword">if</span> (<a href="qmatrix4x4.html#qFuzzyCompare">qFuzzyCompare</a>(slideRatio<span class="operator">,</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(<span class="number">1.0f</span>))) {
          m_browserView<span class="operator">-</span><span class="operator">&gt;</span>show();
          m_homeView<span class="operator">-</span><span class="operator">&gt;</span>hide();
-     } <span class="keyword">else</span> <span class="keyword">if</span> (<a href="qtransform.html#qFuzzyCompare">qFuzzyCompare</a>(slideRatio<span class="operator">,</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(<span class="number">0.0f</span>))) {
+     } <span class="keyword">else</span> <span class="keyword">if</span> (<a href="qmatrix4x4.html#qFuzzyCompare">qFuzzyCompare</a>(slideRatio<span class="operator">,</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(<span class="number">0.0f</span>))) {
          m_homeView<span class="operator">-</span><span class="operator">&gt;</span>show();
          m_browserView<span class="operator">-</span><span class="operator">&gt;</span>hide();
      } <span class="keyword">else</span> {
@@ -309,7 +309,7 @@
                                                               <span class="operator">?</span> <span class="type"><a href="qabstractanimation.html">QAbstractAnimation</a></span><span class="operator">::</span>Forward
                                                                   : <span class="type"><a href="qabstractanimation.html">QAbstractAnimation</a></span><span class="operator">::</span>Backward;
              m_animation<span class="operator">-</span><span class="operator">&gt;</span>setDirection(direction);
-         } <span class="keyword">else</span> <span class="keyword">if</span> (<a href="qtransform.html#qFuzzyCompare">qFuzzyCompare</a>(slideValue()<span class="operator">,</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(<span class="number">1.0f</span>)))
+         } <span class="keyword">else</span> <span class="keyword">if</span> (<a href="qmatrix4x4.html#qFuzzyCompare">qFuzzyCompare</a>(slideValue()<span class="operator">,</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(<span class="number">1.0f</span>)))
              showHomeView();
          <span class="keyword">else</span>
              showBrowserView();
@@ -344,7 +344,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2012 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
