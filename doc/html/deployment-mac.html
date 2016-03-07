@@ -17,8 +17,8 @@
 </p>
 <h1 class="title">Deploying an Application on Mac OS X<br /><span class="subtitle"></span>
 </h1>
-<p>Starting with version 4.5, Qt now includes a <a href="#macdeploy">deployment tool</a> that automates the prodecures described in this document.</p>
-<p>This documentation will describe how to create a bundle, and how to make sure that the application will find the resources it needs at run-time. We will demonstrate the procedures in terms of deploying the <a href="tools-plugandpaint.html">Plug &amp; Paint</a> application that is provided in Qt's examples directory.</p>
+<p>Beginning with Qt 4.5, a <a href="#macdeploy">deployment tool</a> is included that automates the prodecures described here.</p>
+<p>This document describes how to create a bundle and how to make sure that the application will find the resources it needs at run-time. We demonstrate the procedures in terms of deploying the <a href="tools-plugandpaint.html">Plug &amp; Paint</a> application that is provided in Qt's examples directory.</p>
 <ul><li><a href="#the-bundle">The Bundle</a></li>
 <li><a href="#xcode">Xcode</a></li>
 <li><a href="#static-linking">Static Linking</a></li>
@@ -260,25 +260,17 @@
 <p>Unlike the deployment processes on <a href="deployment-x11.html">X11</a> and <a href="deployment-windows.html">Windows</a>, compiler specific libraries rarely have to be redistributed along with your application. But since Qt can be configured, built, and installed in several ways on Mac OS X, there are also several ways to deploy applications. Typically your goals help determine how you are going to deploy the application. The last sections describe a couple of things to keep in mind when you are deploying your application.</p>
 <a name="mac-os-x-version-dependencies"></a>
 <h3>Mac OS X Version Dependencies</h3>
-<p>Qt 4.2 has been designed to be built and deployed on Mac OS X 10.3 up until the current version as of this writing, Mac OS X 10.4 and all their minor releases. Qt achieves this by using &quot;weak linking.&quot; This means that Qt tests if a function added in newer versions of Mac OS X is available on the computer it is running on before it uses it. This results in getting access to newer features when running on newer versions of OS X while still remaining compatible on older versions.</p>
+<p>From Qt 4.6, Mac OS X 10.3 (Panther) is no longer supported. Qt 4.6 applications can be built and deployed on Mac OS X 10.4 (Tiger) and higher. This is achieved using <i>weak linking</i>. In <i>weak linking</i>, Qt tests whether a function added in a newer version of Mac OS X is available on the computer it is running on. This allows Qt to use newer features, when it runs on a newer version of OS X, while remaining compatible on the older versions.</p>
 <p>For more information about cross development issues on Mac OS X, see <a href="http://developer.apple.com/documentation/DeveloperTools/Conceptual/cross_development/index.html">Apple's Developer Website</a>.</p>
-<p>Since the linker is set to be compatible with all OS X version, you have to change the <tt>MACOSX_DEPLOYMENT_TARGET</tt> environment variable to get weak linking to work for your application. You can add:</p>
+<p>Since the linker is set to be compatible with all OS X versions, you must change the <tt>MACOSX_DEPLOYMENT_TARGET</tt> environment variable to get <i>weak linking</i> to work for your application. You can add:</p>
 <pre> QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.3</pre>
-<p>to your .pro file and qmake will take care of this for you.</p>
-<p>However, there is a bit of a wrinkle to keep in mind when your are deploying. Mac OS X 10.4 (&quot;Tiger&quot;) ships GCC 4.0 as its default compiler. This is also the GCC compiler we use for building the binary Qt package. If you use GCC 4.0 to build your application, it will link against a dynamic libstdc++ that is only available on Mac OS X 10.4 and Mac OS X 10.3&#x2e;9&#x2e; The application will refuse to run on older versions of the operating system.</p>
+<p>to your .pro file, and qmake will take care of this for you.</p>
 <p>For more information about C++ runtime environment, see <a href="http://developer.apple.com/documentation/DeveloperTools/Conceptual/CppRuntimeEnv/index.html">Apple's Developer Website</a></p>
-<p>If you want to deploy to versions of Mac OS X earlier than 10.3&#x2e;9, you must build with GCC 3.3 which is the default on Mac OS X 10.3&#x2e; GCC 3.3 is also available on the Mac OS X 10.4 &quot;Xcode Tools&quot; CD and as a download for earlier versions of Mac OS X from Apple (<a href="https://connect.apple.com/">connect.apple.com</a>). You can use Apple's <tt>gcc_select(1)</tt> command line tool to switch the default complier on your system.</p>
 <a name="deploying-phonon-applications-on-mac-os-x"></a>
 <h4>Deploying Phonon Applications on Mac OS X</h4>
 <ul>
-<li>If you build your Phonon application on Tiger, it will work on Tiger, Leopard and Panther.</li>
-<li>If you build your application on Leopard, it will <b>not</b> work on Panther unless you rename the libraries with the following command after you have built your application:<pre> install_name_tool -change /System/Library/Frameworks/CoreVideo.framework/
- Versions/A/CoreVideo /System/Library/Frameworks/QuartzCore.framework/
- Versions/A/QuartzCore libphonon_qt7.dylib</pre>
-<p>This command must be invoked in the directory where <tt>libphonon_qt7.dylib</tt> is located, usually in <tt>yourapp.app/Contents/plugins/phonon_backend/</tt>.</p>
-</li>
-<li>The <a href="#macdeploy">deployment tool</a> will perform this step for you.</li>
-<li>If you are using Leopard, but would like to build your application against Tiger, you can use:<pre> ./CONFIGURE - SDK MacOSX10.4u.sdk</pre>
+<li>If you build your Qt 4.6 Phonon application on OS X 10.4 (Tiger), it will run on OS X 10.4 and higher.</li>
+<li>If you are using Leopard but would like to build your application against Tiger, you can use:<pre> ./CONFIGURE - SDK MacOSX10.4u.sdk</pre>
 </li>
 </ul>
 <a name="architecture-dependencies"></a>
@@ -318,8 +310,8 @@
 </p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

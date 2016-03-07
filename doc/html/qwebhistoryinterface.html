@@ -54,7 +54,7 @@
 <hr />
 <h2>Detailed Description</h2>
 <p>The QWebHistoryInterface class provides an interface to implement link history.</p>
-<p>The QWebHistoryInterface is an interface that can be used to implement link history. It contains two pure virtual methods that are called by the WebKit engine. <a href="qwebhistoryinterface.html#addHistoryEntry">addHistoryEntry</a>() is used to add pages that have been visited to the interface, while <a href="qwebhistoryinterface.html#historyContains">historyContains</a>() is used to query whether this page has been visited by the user.</p>
+<p>The QWebHistoryInterface is an interface that can be used to implement link history. It contains two pure virtual methods that are called by the <a href="examples.html#webkit">WebKit</a> engine. <a href="qwebhistoryinterface.html#addHistoryEntry">addHistoryEntry</a>() is used to add pages that have been visited to the interface, while <a href="qwebhistoryinterface.html#historyContains">historyContains</a>() is used to query whether this page has been visited by the user.</p>
 <hr />
 <h2>Member Function Documentation</h2>
 <a name="//apple_ref/cpp/instm/QWebHistoryInterface/QWebHistoryInterface"></a>
@@ -65,23 +65,23 @@
 <p>Destructor. If this is currently the default interface it will be unset.</p>
 <a name="//apple_ref/cpp/instm/QWebHistoryInterface/addHistoryEntry"></a>
 <h3 class="fn"><a name="addHistoryEntry"></a>void QWebHistoryInterface::addHistoryEntry ( const <a href="qstring.html">QString</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
-<p>Called by WebKit to add another <i>url</i> to the list of visited pages.</p>
+<p>Called by <a href="examples.html#webkit">WebKit</a> to add another <i>url</i> to the list of visited pages.</p>
 <a name="//apple_ref/cpp/clm/QWebHistoryInterface/defaultInterface"></a>
 <h3 class="fn"><a name="defaultInterface"></a>QWebHistoryInterface * QWebHistoryInterface::defaultInterface ()&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Returns the default interface that will be used by WebKit. If no default interface has been set, <a href="demos.html#qtwebkit">QtWebkit</a> will not track history.</p>
+<p>Returns the default interface that will be used by <a href="examples.html#webkit">WebKit</a>. If no default interface has been set, <a href="demos.html#qtwebkit">QtWebkit</a> will not track history.</p>
 <p>See also <a href="qwebhistoryinterface.html#setDefaultInterface">setDefaultInterface</a>().</p>
 <a name="//apple_ref/cpp/instm/QWebHistoryInterface/historyContains"></a>
 <h3 class="fn"><a name="historyContains"></a>bool QWebHistoryInterface::historyContains ( const <a href="qstring.html">QString</a> &amp; <i>url</i> ) const&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
-<p>Called by the WebKit engine to query whether a certain <i>url</i> has been visited by the user already. Returns true if the <i>url</i> is part of the history of visited links; otherwise returns false.</p>
+<p>Called by the <a href="examples.html#webkit">WebKit</a> engine to query whether a certain <i>url</i> has been visited by the user already. Returns true if the <i>url</i> is part of the history of visited links; otherwise returns false.</p>
 <a name="//apple_ref/cpp/clm/QWebHistoryInterface/setDefaultInterface"></a>
 <h3 class="fn"><a name="setDefaultInterface"></a>void QWebHistoryInterface::setDefaultInterface ( QWebHistoryInterface * <i>defaultInterface</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Sets a new default interface, <i>defaultInterface</i>, that will be used by all of WebKit for managing history.</p>
+<p>Sets a new default interface, <i>defaultInterface</i>, that will be used by all of <a href="examples.html#webkit">WebKit</a> for managing history.</p>
 <p>If an interface without a parent has already been set, the old interface will be deleted. When the application exists <a href="qwebhistoryinterface.html">QWebHistoryInterface</a> will automatically delete the <i>defaultInterface</i> if it does not have a parent.</p>
 <p>See also <a href="qwebhistoryinterface.html#defaultInterface">defaultInterface</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

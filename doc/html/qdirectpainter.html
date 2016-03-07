@@ -54,7 +54,7 @@
 <h2>Static Public Members</h2>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr><td class="memItemLeft" align="right" valign="top">uchar * </td><td class="memItemRight" valign="bottom"><b><a href="qdirectpainter.html#frameBuffer">frameBuffer</a></b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qdirectpainter.html#linestep">linestep</a></b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qdirectpainter.html#linestepx">linestep</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qdirectpainter.html#lock">lock</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qdirectpainter.html#screenDepth">screenDepth</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qdirectpainter.html#screenHeight">screenHeight</a></b> ()</td></tr>
@@ -93,7 +93,7 @@
 <h3>Rendering</h3>
 <p>To draw on a given region, the application must first get hold of a pointer to the framebuffer. In most cases, this pointer can be retrieved using the <a href="qdirectpainter.html#frameBuffer">QDirectPainter::frameBuffer</a>() function. But note that if the current screen has subscreens, you must query the screen driver instead to identify the correct subscreen. A pointer to the current screen driver can always be retrieved using the static <a href="qscreen.html#instance">QScreen::instance</a>() function. Then use <a href="qscreen.html">QScreen</a>'s <a href="qscreen.html#subScreenIndexAt">subScreenIndexAt()</a> and <a href="qscreen.html#subScreens">subScreens()</a> functions to access the correct subscreen, and the subscreen's <a href="qscreen.html#base">base()</a> function to retrieve a pointer to the framebuffer.</p>
 <p>Depending on the hardware, it might be necessary to lock the framebuffer for exclusive use while writing to it. This is possible using the <a href="qdirectpainter.html#lock">lock</a>() and <a href="qdirectpainter.html#unlock">unlock</a>() functions. Note that calling <a href="qdirectpainter.html#lock">lock</a>() will prevent all other applications from working until <a href="qdirectpainter.html#unlock">unlock</a>() is called.</p>
-<p>In addition, QDirectPainter provides several functions returning information about the framebuffer: the <a href="qdirectpainter.html#linestep">linestep</a>() function returns the length (in bytes) of each scanline of the framebuffer while the <a href="qdirectpainter.html#screenDepth">screenDepth</a>(), <a href="qdirectpainter.html#screenWidth">screenWidth</a>() and <a href="qdirectpainter.html#screenHeight">screenHeight</a>() function return the screen metrics.</p>
+<p>In addition, QDirectPainter provides several functions returning information about the framebuffer: the <a href="qdirectpainter.html#linestepx">linestep</a>() function returns the length (in bytes) of each scanline of the framebuffer while the <a href="qdirectpainter.html#screenDepth">screenDepth</a>(), <a href="qdirectpainter.html#screenWidth">screenWidth</a>() and <a href="qdirectpainter.html#screenHeight">screenHeight</a>() function return the screen metrics.</p>
 <p>See also <a href="qscreen.html">QScreen</a>, <a href="qwsembedwidget.html">QWSEmbedWidget</a>, and <a href="qt-embedded-architecture.html">Qt for Embedded Linux Architecture</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
@@ -142,14 +142,14 @@
 <p>Returns a pointer to the beginning of the display memory.</p>
 <p>Note that it is the application's responsibility to limit itself to modifying only the reserved region.</p>
 <p>Do not use this pointer if the current screen has subscreens, query the screen driver instead: A pointer to the current screen driver can always be retrieved using the static <a href="qscreen.html#instance">QScreen::instance</a>() function. Then use <a href="qscreen.html">QScreen</a>'s <a href="qscreen.html#subScreenIndexAt">subScreenIndexAt()</a> and <a href="qscreen.html#subScreens">subScreens()</a> functions to access the correct subscreen, and the subscreen's <a href="qscreen.html#base">base()</a> function to retrieve a pointer to the framebuffer.</p>
-<p>See also <a href="qdirectpainter.html#requestedRegion">requestedRegion</a>(), <a href="qdirectpainter.html#allocatedRegion">allocatedRegion</a>(), and <a href="qdirectpainter.html#linestep">linestep</a>().</p>
+<p>See also <a href="qdirectpainter.html#requestedRegion">requestedRegion</a>(), <a href="qdirectpainter.html#allocatedRegion">allocatedRegion</a>(), and <a href="qdirectpainter.html#linestepx">linestep</a>().</p>
 <a name="//apple_ref/cpp/instm/QDirectPainter/geometry"></a>
 <h3 class="fn"><a name="geometry"></a><a href="qrect.html">QRect</a> QDirectPainter::geometry () const</h3>
 <p>Returns the bounding rectangle of the requested region.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qdirectpainter.html#setGeometry">setGeometry</a>() and <a href="qdirectpainter.html#requestedRegion">requestedRegion</a>().</p>
 <a name="//apple_ref/cpp/clm/QDirectPainter/linestep"></a>
-<h3 class="fn"><a name="linestep"></a>int QDirectPainter::linestep ()&nbsp;&nbsp;<tt> [static]</tt></h3>
+<h3 class="fn"><a name="linestepx"></a>int QDirectPainter::linestep ()&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns the length (in bytes) of each scanline of the framebuffer.</p>
 <p>See also <a href="qdirectpainter.html#frameBuffer">frameBuffer</a>().</p>
 <a name="//apple_ref/cpp/clm/QDirectPainter/lock"></a>
@@ -224,8 +224,8 @@
 <p>This function was introduced in Qt 4.2.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

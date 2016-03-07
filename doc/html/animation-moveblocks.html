@@ -24,7 +24,7 @@
 <ul>
 <li><tt>StateSwitcher</tt> inherits <a href="qstate.html">QState</a> and can add <tt>StateSwitchTransition</tt>s to other states. When entered, it will randomly transition to one of these states.</li>
 <li><tt>StateSwitchTransition</tt> is a custom transition that triggers on <tt>StateSwitchEvent</tt>s.</li>
-<li><tt>StateSwitchEvent</tt> is a <a href="qevent.html">QEvent</a> that trigger <tt>StateSwitchTransition</tt>s.</li>
+<li><tt>StateSwitchEvent</tt> is a <a href="qevent.html">QEvent</a> that triggers <tt>StateSwitchTransition</tt>s.</li>
 <li><tt>QGraphicsRectWidget</tt> is a <a href="qgraphicswidget.html">QGraphicsWidget</a> that simply paints its background in a solid <a href="qt.html#GlobalColor-enum">blue</a> color.</li>
 </ul>
 <p>The blocks are instances of <tt>QGraphicsRectWidget</tt> and are animated in a <a href="qgraphicsscene.html">QGraphicsScene</a>. We do this by building a state graph, which we insert animations into. The graph is then executed in a <a href="qstatemachine.html">QStateMachine</a>. All this is done in <tt>main()</tt>. Let's look at the <tt>main()</tt> function first.</p>
@@ -106,7 +106,7 @@
      machine.start();</pre>
 <p>Finally, we can create the state machine, add our initial state, and start execution of the state graph.</p>
 <a name="the-function"></a>
-<h3>The <tt>createGemetryState()</tt> Function</h3>
+<h3>The <tt>createGeometryState()</tt> Function</h3>
 <p>In <tt>createGeometryState()</tt>, we set up the geometry for each graphics item.</p>
 <pre> QState *createGeometryState(QObject *w1, const QRect &amp;rect1,
                              QObject *w2, const QRect &amp;rect2,
@@ -115,7 +115,6 @@
                              QState *parent)
  {
      QState *result = new QState(parent);
-     result-&gt;assignProperty(w1, &quot;geometry&quot;, rect1);
      result-&gt;assignProperty(w1, &quot;geometry&quot;, rect1);
      result-&gt;assignProperty(w2, &quot;geometry&quot;, rect2);
      result-&gt;assignProperty(w3, &quot;geometry&quot;, rect3);
@@ -126,7 +125,7 @@
 <p>As mentioned before, <a href="qabstracttransition.html">QAbstractTransition</a> will set up an animation added with <a href="qabstracttransition.html#addAnimation">addAnimation()</a> using property values set with <a href="qstate.html#assignProperty">assignProperty()</a>.</p>
 <a name="the-stateswitcher-class"></a>
 <h2>The StateSwitcher Class</h2>
-<p><tt>StateSwitcher</tt> has state switch transitions to each <a href="qstate.html">QState</a>s we created with <tt>createGemetryState()</tt>. Its job is to transition to one of these states at random when it is entered.</p>
+<p><tt>StateSwitcher</tt> has state switch transitions to each <a href="qstate.html">QState</a>s we created with <tt>createGeometryState()</tt>. Its job is to transition to one of these states at random when it is entered.</p>
 <p>All functions in <tt>StateSwitcher</tt> are inlined. We'll step through its definition.</p>
 <pre> class StateSwitcher : public QState
  {
@@ -205,8 +204,8 @@
 <p>QState::addAnimation() takes a <a href="qabstractanimation.html">QAbstractAnimation</a>, so any type of animation can be inserted into the graph.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

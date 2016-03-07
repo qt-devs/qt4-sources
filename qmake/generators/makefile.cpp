@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -1513,6 +1513,19 @@ MakefileGenerator::replaceExtraCompilerVariables(const QString &orig_var, const 
                         base = fi.fileName();
                     val += base;
                 }
+            } else if(var == QLatin1String("QMAKE_FILE_EXT")) {
+                filePath = true;
+                for(int i = 0; i < in.size(); ++i) {
+                    QFileInfo fi(fileInfo(Option::fixPathToLocalOS(in.at(i))));
+                    QString ext;
+                    // Ensure complementarity with QMAKE_FILE_BASE
+                    int baseLen = fi.completeBaseName().length();
+                    if(baseLen == 0)
+                        ext = fi.fileName();
+                    else
+                        ext = fi.fileName().remove(0, baseLen);
+                    val += ext;
+                }
             } else if(var == QLatin1String("QMAKE_FILE_PATH") || var == QLatin1String("QMAKE_FILE_IN_PATH")) {
                 filePath = true;
                 for(int i = 0; i < in.size(); ++i)
@@ -2411,16 +2424,14 @@ MakefileGenerator::writeSubTargets(QTextStream &t, QList<MakefileGenerator::SubT
 
         //qmake it
         if(!subtarget->profile.isEmpty()) {
-            QString out = out_directory + subtarget->makefile,
-                     in = fileFixify(in_directory + subtarget->profile, in_directory);
-            if(in.startsWith(in_directory))
-                in = in.mid(in_directory.length());
+            QString out = subtarget->makefile;
+            QString in = fileFixify(in_directory + subtarget->profile, out_directory, QString(), FileFixifyAbsolute);
             if(out.startsWith(in_directory))
                 out = out.mid(in_directory.length());
             t << mkfile << ": " << "\n\t";
             if(!in_directory.isEmpty()) {
-                t << mkdir_p_asstring(in_directory)
-                  << in_directory_cdin
+                t << mkdir_p_asstring(out_directory)
+                  << out_directory_cdin
                   << "$(QMAKE) " << in << buildArgs(in_directory) << " -o " << out
                   << in_directory_cdout << endl;
             } else {
@@ -2431,8 +2442,8 @@ MakefileGenerator::writeSubTargets(QTextStream &t, QList<MakefileGenerator::SubT
                 t <<  " FORCE";
             t << "\n\t";
             if(!in_directory.isEmpty()) {
-                t << mkdir_p_asstring(in_directory)
-                  << in_directory_cdin
+                t << mkdir_p_asstring(out_directory)
+                  << out_directory_cdin
                   << "$(QMAKE) " << in << buildArgs(in_directory) << " -o " << out
                   << in_directory_cdout << endl;
             } else {

@@ -29,6 +29,12 @@
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qpainter-obsolete.html#setWorldMatrix">setWorldMatrix</a></b> ( const QMatrix &amp; <i>matrix</i>, bool <i>combine</i> = false )&nbsp;&nbsp;<tt> (obsolete)</tt></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const QMatrix &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qpainter-obsolete.html#worldMatrix">worldMatrix</a></b> () const&nbsp;&nbsp;<tt> (obsolete)</tt></td></tr>
 </table>
+<h2>Static Public Members</h2>
+<table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td class="memItemLeft" align="right" valign="top">QPaintDevice * </td><td class="memItemRight" valign="bottom"><b><a href="qpainter-obsolete.html#redirected">redirected</a></b> ( const QPaintDevice * <i>device</i>, QPoint * <i>offset</i> = 0 )&nbsp;&nbsp;<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qpainter-obsolete.html#restoreRedirected">restoreRedirected</a></b> ( const QPaintDevice * <i>device</i> )&nbsp;&nbsp;<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qpainter-obsolete.html#setRedirected">setRedirected</a></b> ( const QPaintDevice * <i>device</i>, QPaintDevice * <i>replacement</i>, const QPoint &amp; <i>offset</i> = QPoint() )&nbsp;&nbsp;<tt> (obsolete)</tt></td></tr>
+</table>
 <hr />
 <h2>Member Function Documentation</h2>
 <a name="//apple_ref/cpp/instm/QPainter/combinedMatrix"></a>
@@ -64,11 +70,25 @@
 <h3 class="fn"><a name="matrixEnabled"></a>bool QPainter::matrixEnabled () const</h3>
 <p>Use <a href="qpainter.html#worldMatrixEnabled">worldMatrixEnabled</a>() instead</p>
 <p>See also <a href="qpainter-obsolete.html#setMatrixEnabled">setMatrixEnabled</a>() and <a href="qpainter.html#worldMatrixEnabled">worldMatrixEnabled</a>().</p>
+<a name="//apple_ref/cpp/clm/QPainter/redirected"></a>
+<h3 class="fn"><a name="redirected"></a><a href="qpaintdevice.html">QPaintDevice</a> * QPainter::redirected ( const <a href="qpaintdevice.html">QPaintDevice</a> * <i>device</i>, <a href="qpoint.html">QPoint</a> * <i>offset</i> = 0 )&nbsp;&nbsp;<tt> [static]</tt></h3>
+<p>Using <a href="qwidget.html#render">QWidget::render</a>() obsoletes the use of this function.</p>
+<p>Returns the replacement for given <i>device</i>. The optional out parameter <i>offset</i> returns the offset within the replaced device.</p>
+<p><b>Warning:</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() and <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of QWidget::render is strongly encouraged.</p>
+<p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<p>See also <a href="qpainter-obsolete.html#setRedirected">setRedirected</a>() and <a href="qpainter-obsolete.html#restoreRedirected">restoreRedirected</a>().</p>
 <a name="//apple_ref/cpp/instm/QPainter/resetMatrix"></a>
 <h3 class="fn"><a name="resetMatrix"></a>void QPainter::resetMatrix ()</h3>
 <p>Resets any transformations that were made using <a href="qpainter.html#translate">translate</a>(), <a href="qpainter.html#scale">scale</a>(), <a href="qpainter.html#shear">shear</a>(), <a href="qpainter.html#rotate">rotate</a>(), <a href="qpainter-obsolete.html#setWorldMatrix">setWorldMatrix</a>(), <a href="qpainter.html#setViewport">setViewport</a>() and <a href="qpainter.html#setWindow">setWindow</a>().</p>
 <p>It is advisable to use <a href="qpainter.html#resetTransform">resetTransform</a>() instead of this function to preserve the properties of perspective transformations.</p>
 <p>See also <a href="qpainter.html#coordinate-transformations">Coordinate Transformations</a>.</p>
+<a name="//apple_ref/cpp/clm/QPainter/restoreRedirected"></a>
+<h3 class="fn"><a name="restoreRedirected"></a>void QPainter::restoreRedirected ( const <a href="qpaintdevice.html">QPaintDevice</a> * <i>device</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
+<p>Using <a href="qwidget.html#render">QWidget::render</a>() obsoletes the use of this function.</p>
+<p>Restores the previous redirection for the given <i>device</i> after a call to <a href="qpainter-obsolete.html#setRedirected">setRedirected</a>().</p>
+<p><b>Warning:</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() and <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of QWidget::render is strongly encouraged.</p>
+<p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<p>See also <a href="qpainter-obsolete.html#redirected">redirected</a>().</p>
 <a name="//apple_ref/cpp/instm/QPainter/setMatrix"></a>
 <h3 class="fn"><a name="setMatrix"></a>void QPainter::setMatrix ( const <a href="qmatrix.html">QMatrix</a> &amp; <i>matrix</i>, bool <i>combine</i> = false )</h3>
 <p>Use <a href="qpainter.html#setWorldTransform">setWorldTransform</a>() instead.</p>
@@ -77,6 +97,14 @@
 <h3 class="fn"><a name="setMatrixEnabled"></a>void QPainter::setMatrixEnabled ( bool <i>enable</i> )</h3>
 <p>Use <a href="qpainter.html#setWorldMatrixEnabled">setWorldMatrixEnabled</a>() instead.</p>
 <p>See also <a href="qpainter-obsolete.html#matrixEnabled">matrixEnabled</a>() and <a href="qpainter.html#setWorldMatrixEnabled">setWorldMatrixEnabled</a>().</p>
+<a name="//apple_ref/cpp/clm/QPainter/setRedirected"></a>
+<h3 class="fn"><a name="setRedirected"></a>void QPainter::setRedirected ( const <a href="qpaintdevice.html">QPaintDevice</a> * <i>device</i>, <a href="qpaintdevice.html">QPaintDevice</a> * <i>replacement</i>, const <a href="qpoint.html">QPoint</a> &amp; <i>offset</i> = QPoint() )&nbsp;&nbsp;<tt> [static]</tt></h3>
+<p>Please use <a href="qwidget.html#render">QWidget::render</a>() instead.</p>
+<p>Redirects all paint commands for the given paint <i>device</i>, to the <i>replacement</i> device. The optional point <i>offset</i> defines an offset within the source device.</p>
+<p>The redirection will not be effective until the <a href="qpainter.html#begin">begin</a>() function has been called; make sure to call <a href="qpainter.html#end">end</a>() for the given <i>device</i>'s painter (if any) before redirecting. Call <a href="qpainter-obsolete.html#restoreRedirected">restoreRedirected</a>() to restore the previous redirection.</p>
+<p><b>Warning:</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() and <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of QWidget::render is strongly encouraged.</p>
+<p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<p>See also <a href="qpainter-obsolete.html#redirected">redirected</a>() and <a href="qpainter-obsolete.html#restoreRedirected">restoreRedirected</a>().</p>
 <a name="//apple_ref/cpp/instm/QPainter/setWorldMatrix"></a>
 <h3 class="fn"><a name="setWorldMatrix"></a>void QPainter::setWorldMatrix ( const <a href="qmatrix.html">QMatrix</a> &amp; <i>matrix</i>, bool <i>combine</i> = false )</h3>
 <p>Sets the transformation matrix to <i>matrix</i> and enables transformations.</p>
@@ -109,8 +137,8 @@
 <p>See also <a href="qpainter-obsolete.html#setWorldMatrix">setWorldMatrix</a>(), <a href="qpainter.html#coordinate-transformations">Coordinate Transformations</a>, and <a href="coordsys.html">The Coordinate System</a>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

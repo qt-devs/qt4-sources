@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -72,6 +72,12 @@ enum EngineMode {
 };
 
 QT_BEGIN_NAMESPACE
+
+#define GL_STENCIL_HIGH_BIT         GLuint(0x80)
+#define QT_BRUSH_TEXTURE_UNIT       GLuint(0)
+#define QT_IMAGE_TEXTURE_UNIT       GLuint(0) //Can be the same as brush texture unit
+#define QT_MASK_TEXTURE_UNIT        GLuint(1)
+#define QT_BACKGROUND_TEXTURE_UNIT  GLuint(2)
 
 class QGL2PaintEngineExPrivate;
 
@@ -190,6 +196,9 @@ public:
     void drawPixmaps(const QDrawPixmaps::Data *drawingData, int dataCount, const QPixmap &pixmap, QDrawPixmaps::DrawingHints hints);
     void drawCachedGlyphs(const QPointF &p, QFontEngineGlyphCache::Type glyphType, const QTextItemInt &ti);
 
+    // Calls glVertexAttributePointer if the pointer has changed
+    inline void setVertexAttributePointer(unsigned int arrayIndex, const GLfloat *pointer);
+
     // draws whatever is in the vertex array:
     void drawVertexArrays(const float *data, int *stops, int stopCount, GLenum primitive);
     void drawVertexArrays(QGL2PEXVertexArray &vertexArray, GLenum primitive) {
@@ -224,6 +233,7 @@ public:
     void regenerateClip();
     void systemStateChanged();
 
+
     static QGLEngineShaderManager* shaderManagerForEngine(QGL2PaintEngineEx *engine) { return engine->d_func()->shaderManager; }
     static QGL2PaintEngineExPrivate *getData(QGL2PaintEngineEx *engine) { return engine->d_func(); }
     static void cleanupVectorPath(QPaintEngineEx *engine, void *data);
@@ -242,8 +252,6 @@ public:
     bool compositionModeDirty;
     bool brushTextureDirty;
     bool brushUniformsDirty;
-    bool simpleShaderMatrixUniformDirty;
-    bool shaderMatrixUniformDirty;
     bool opacityUniformDirty;
 
     bool stencilClean; // Has the stencil not been used for clipping so far?
@@ -285,7 +293,23 @@ public:
 
     QSet<QVectorPath::CacheEntry *> pathCaches;
     QVector<GLuint> unusedVBOSToClean;
+
+    const GLfloat *vertexAttribPointers[3];
 };
+
+
+void QGL2PaintEngineExPrivate::setVertexAttributePointer(unsigned int arrayIndex, const GLfloat *pointer)
+{
+    Q_ASSERT(arrayIndex < 3);
+    if (pointer == vertexAttribPointers[arrayIndex])
+        return;
+
+    vertexAttribPointers[arrayIndex] = pointer;
+    if (arrayIndex == QT_OPACITY_ATTR)
+        glVertexAttribPointer(arrayIndex, 1, GL_FLOAT, GL_FALSE, 0, pointer);
+    else
+        glVertexAttribPointer(arrayIndex, 2, GL_FLOAT, GL_FALSE, 0, pointer);
+}
 
 QT_END_NAMESPACE
 

@@ -247,6 +247,10 @@
  glDrawArrays(GL_TRIANGLES, 0, 3);
 
  program.disableAttributeArray(vertexLocation);</pre>
+<a name="binary-shaders-and-programs"></a>
+<h3>Binary shaders and programs</h3>
+<p>Binary shaders may be specified using <tt>glShaderBinary()</tt> on the return value from <a href="qglshader.html#shaderId">QGLShader::shaderId</a>(). The <a href="qglshader.html">QGLShader</a> instance containing the binary can then be added to the shader program with <a href="qglshaderprogram.html#addShader">addShader</a>() and linked in the usual fashion with <a href="qglshaderprogram.html#link">link</a>().</p>
+<p>Binary programs may be specified using <tt>glProgramBinaryOES()</tt> on the return value from <a href="qglshaderprogram.html#programId">programId</a>(). Then the application should call <a href="qglshaderprogram.html#link">link</a>(), which will notice that the program has already been specified and linked, allowing other operations to be performed on the shader program.</p>
 <p>See also <a href="qglshader.html">QGLShader</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
@@ -767,8 +771,8 @@
 <p>See also <a href="qglshaderprogram.html#attributeLocation">attributeLocation</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

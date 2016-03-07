@@ -96,7 +96,7 @@
 <p>Support for browser plugins can enabled by setting the <a href="qwebsettings.html#WebAttribute-enum">PluginsEnabled</a> attribute. For many applications, this attribute is enabled for all pages by setting it on the <a href="qwebsettings.html#globalSettings">global settings object</a>.</p>
 <a name="web-application-support"></a>
 <h3>Web Application Support</h3>
-<p>WebKit provides support for features specified in <a href="http://www.w3.org/TR/html5/">HTML 5</a> that improve the performance and capabilities of Web applications. These include client-side (offline) storage and the use of a Web application cache.</p>
+<p><a href="examples.html#webkit">WebKit</a> provides support for features specified in <a href="http://www.w3.org/TR/html5/">HTML 5</a> that improve the performance and capabilities of Web applications. These include client-side (offline) storage and the use of a Web application cache.</p>
 <p>Client-side (offline) storage is an improvement over the use of cookies to store persistent data in Web applications. Applications can configure and enable the use of an offline storage database by calling the <a href="qwebsettings.html#setOfflineStoragePath">setOfflineStoragePath</a>() with an appropriate file path, and can limit the quota for each application by calling <a href="qwebsettings.html#setOfflineStorageDefaultQuota">setOfflineStorageDefaultQuota</a>().</p>
 <p>See also <a href="qwebpage.html#settings">QWebPage::settings</a>(), <a href="qwebview.html#settings">QWebView::settings</a>(), and <a href="demos-browser.html">Web Browser</a>.</p>
 <hr />
@@ -160,10 +160,10 @@
 <tr><td valign="top"><tt>QWebSettings::JavascriptEnabled</tt></td><td align="center" valign="top"><tt>1</tt></td><td valign="top">Enables or disables the running of JavaScript programs.</td></tr>
 <tr><td valign="top"><tt>QWebSettings::JavaEnabled</tt></td><td align="center" valign="top"><tt>2</tt></td><td valign="top">Enables or disables Java applets. Currently Java applets are not supported.</td></tr>
 <tr><td valign="top"><tt>QWebSettings::PluginsEnabled</tt></td><td align="center" valign="top"><tt>3</tt></td><td valign="top">Enables or disables plugins in Web pages.</td></tr>
-<tr><td valign="top"><tt>QWebSettings::PrivateBrowsingEnabled</tt></td><td align="center" valign="top"><tt>4</tt></td><td valign="top">Private browsing prevents WebKit from recording visited pages in the history and storing web page icons.</td></tr>
+<tr><td valign="top"><tt>QWebSettings::PrivateBrowsingEnabled</tt></td><td align="center" valign="top"><tt>4</tt></td><td valign="top">Private browsing prevents <a href="examples.html#webkit">WebKit</a> from recording visited pages in the history and storing web page icons.</td></tr>
 <tr><td valign="top"><tt>QWebSettings::JavascriptCanOpenWindows</tt></td><td align="center" valign="top"><tt>5</tt></td><td valign="top">Specifies whether JavaScript programs can open new windows.</td></tr>
 <tr><td valign="top"><tt>QWebSettings::JavascriptCanAccessClipboard</tt></td><td align="center" valign="top"><tt>6</tt></td><td valign="top">Specifies whether JavaScript programs can read or write to the clipboard.</td></tr>
-<tr><td valign="top"><tt>QWebSettings::DeveloperExtrasEnabled</tt></td><td align="center" valign="top"><tt>7</tt></td><td valign="top">Enables extra tools for Web developers. Currently this enables the &quot;Inspect&quot; element in the context menu as well as the use of <a href="qwebinspector.html">QWebInspector</a> which controls the WebKit WebInspector for web site debugging.</td></tr>
+<tr><td valign="top"><tt>QWebSettings::DeveloperExtrasEnabled</tt></td><td align="center" valign="top"><tt>7</tt></td><td valign="top">Enables extra tools for Web developers. Currently this enables the &quot;Inspect&quot; element in the context menu as well as the use of <a href="qwebinspector.html">QWebInspector</a> which controls the <a href="examples.html#webkit">WebKit</a> WebInspector for web site debugging.</td></tr>
 <tr><td valign="top"><tt>QWebSettings::LinksIncludedInFocusChain</tt></td><td align="center" valign="top"><tt>8</tt></td><td valign="top">Specifies whether hyperlinks should be included in the keyboard focus chain.</td></tr>
 <tr><td valign="top"><tt>QWebSettings::ZoomTextOnly</tt></td><td align="center" valign="top"><tt>9</tt></td><td valign="top">Specifies whether the zoom factor on a frame applies to only the text or all content.</td></tr>
 <tr><td valign="top"><tt>QWebSettings::PrintElementBackgrounds</tt></td><td align="center" valign="top"><tt>10</tt></td><td valign="top">Specifies whether the background color and images are also drawn when the page is printed.</td></tr>
@@ -203,7 +203,7 @@
 <p>See also <a href="qwebsettings.html#setDefaultTextEncoding">setDefaultTextEncoding</a>().</p>
 <a name="//apple_ref/cpp/clm/QWebSettings/enablePersistentStorage"></a>
 <h3 class="fn"><a name="enablePersistentStorage"></a>void QWebSettings::enablePersistentStorage ( const <a href="qstring.html">QString</a> &amp; <i>path</i> = QString() )&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Enables WebKit persistent data and sets the path to <i>path</i>. If the <i>path</i> is empty the path for persistent data is set to the user-specific data location specified by <a href="qdesktopservices.html#StandardLocation-enum">DataLocation</a>.</p>
+<p>Enables <a href="examples.html#webkit">WebKit</a> persistent data and sets the path to <i>path</i>. If the <i>path</i> is empty the path for persistent data is set to the user-specific data location specified by <a href="qdesktopservices.html#StandardLocation-enum">DataLocation</a>.</p>
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qwebsettings.html#localStoragePath">localStoragePath</a>().</p>
 <a name="//apple_ref/cpp/instm/QWebSettings/fontFamily"></a>
@@ -366,7 +366,7 @@
 <h2>Related Non-Members</h2>
 <a name="//apple_ref/cpp/clm/QWebSettings/enablePersistentStorage"></a>
 <h3 class="fn"><a name="enablePersistentStorage"></a>void QWebSettings::enablePersistentStorage ( const <a href="qstring.html">QString</a> &amp; <i>path</i> = QString() )&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Enables WebKit persistent data and sets the path to <i>path</i>. If the <i>path</i> is empty the path for persistent data is set to the user-specific data location specified by <a href="qdesktopservices.html#StandardLocation-enum">DataLocation</a>.</p>
+<p>Enables <a href="examples.html#webkit">WebKit</a> persistent data and sets the path to <i>path</i>. If the <i>path</i> is empty the path for persistent data is set to the user-specific data location specified by <a href="qdesktopservices.html#StandardLocation-enum">DataLocation</a>.</p>
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qwebsettings.html#localStoragePath">localStoragePath</a>().</p>
 <a name="//apple_ref/cpp/instm/QWebSettings/localStoragePath"></a>
@@ -397,8 +397,8 @@
 <p>See also <a href="qwebsettings.html#offlineWebApplicationCachePath">offlineWebApplicationCachePath</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

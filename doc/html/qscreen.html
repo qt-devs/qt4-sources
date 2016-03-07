@@ -38,7 +38,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">uchar * </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#base">base</a></b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#blank">blank</a></b> ( bool <i>on</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#blit">blit</a></b> ( const QImage &amp; <i>image</i>, const QPoint &amp; <i>topLeft</i>, const QRegion &amp; <i>region</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">ClassId </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#classIdx">classId</a></b> () const</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ClassId </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#classId">classId</a></b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QRgb * </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#clut">clut</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#colorCount">colorCount</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#connect">connect</a></b> ( const QString &amp; <i>displaySpec</i> ) = 0</td></tr>
@@ -53,7 +53,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#initDevice">initDevice</a></b> () = 0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#isInterlaced">isInterlaced</a></b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#isTransformed">isTransformed</a></b> () const</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#linestep">linestep</a></b> () const</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#linestepx">linestep</a></b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QSize </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#mapFromDevice">mapFromDevice</a></b> ( const QSize &amp; <i>size</i> ) const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QPoint </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#mapFromDevice-2">mapFromDevice</a></b> ( const QPoint &amp; <i>point</i>, const QSize &amp; <i>screenSize</i> ) const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QRect </td><td class="memItemRight" valign="bottom"><b><a href="qscreen.html#mapFromDevice-3">mapFromDevice</a></b> ( const QRect &amp; <i>rectangle</i>, const QSize &amp; <i>screenSize</i> ) const</td></tr>
@@ -169,7 +169,7 @@
 <tr valign="top" class="odd"><td>Pixmap Alignment</td><td>Use the <a href="qscreen.html#pixmapOffsetAlignment">pixmapOffsetAlignment</a>() function to retrieve the value to which the start address of pixmaps held in the graphics card's memory, should be aligned.<p>Use the <a href="qscreen.html#pixmapLinestepAlignment">pixmapLinestepAlignment</a>() to retrieve the value to which the <i>individual scanlines</i> of pixmaps should be aligned.</p>
 </td></tr>
 <tr valign="top" class="even"><td>Image Display</td><td>The <a href="qscreen.html#isInterlaced">isInterlaced</a>() function tells whether the screen is displaying images progressively, and the <a href="qscreen.html#isTransformed">isTransformed</a>() function whether it is rotated. The <a href="qscreen.html#transformOrientation">transformOrientation</a>() function can be reimplemented to return the current rotation.</td></tr>
-<tr valign="top" class="odd"><td>Scanlines</td><td>Use the <a href="qscreen.html#linestep">linestep</a>() function to retrieve the length of each scanline of the framebuffer.</td></tr>
+<tr valign="top" class="odd"><td>Scanlines</td><td>Use the <a href="qscreen.html#linestepx">linestep</a>() function to retrieve the length of each scanline of the framebuffer.</td></tr>
 <tr valign="top" class="even"><td>Pixel Type</td><td>The <a href="qscreen.html#pixelType">pixelType</a>() function returns the screen's pixel storage format as described by the <a href="qscreen.html#PixelType-enum">PixelType</a> enum.</td></tr>
 </table></p>
 <a name="subclassing-and-initial-values"></a>
@@ -218,7 +218,7 @@
 <tr><td valign="top"><tt>QScreen::GLClass</tt></td><td align="center" valign="top"><tt>8</tt></td><td valign="top">QGLScreen</td></tr>
 <tr><td valign="top"><tt>QScreen::CustomClass</tt></td><td align="center" valign="top"><tt>1024</tt></td><td valign="top">Unknown <a href="qscreen.html">QScreen</a> subclass</td></tr>
 </table></p>
-<p>See also <a href="qscreen.html#classIdx">classId</a>().</p>
+<p>See also <a href="qscreen.html#classId">classId</a>().</p>
 <a name="//apple_ref/cpp/tag/QScreen/PixelType"></a>
 <a name="//apple_ref/cpp/econst/QScreen/NormalPixel"></a>
 <a name="//apple_ref/cpp/econst/QScreen/BGRPixel"></a>
@@ -265,7 +265,7 @@
 <p>Reimplement this function to make use of <a href="qt-embedded-accel.html">accelerated hardware</a>. Note that this function must be reimplemented if the framebuffer format is not supported by <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> (See the <a href="qt-embedded-displaymanagement.html">Display Management</a> documentation for more details).</p>
 <p>See also <a href="qscreen.html#exposeRegion">exposeRegion</a>(), <a href="qscreen.html#solidFill">solidFill</a>(), and <a href="qscreen.html#blank">blank</a>().</p>
 <a name="//apple_ref/cpp/instm/QScreen/classId"></a>
-<h3 class="fn"><a name="classIdx"></a><a href="qscreen.html#ClassId-enum">ClassId</a> QScreen::classId () const</h3>
+<h3 class="fn"><a name="classId"></a><a href="qscreen.html#ClassId-enum">ClassId</a> QScreen::classId () const</h3>
 <p>Returns the class identifier for the screen object.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <a name="//apple_ref/cpp/instm/QScreen/clut"></a>
@@ -342,13 +342,13 @@
 <h3 class="fn"><a name="isInterlaced"></a>bool QScreen::isInterlaced () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Returns true if the display is interlaced (i.e&#x2e; is displaying images progressively like a television screen); otherwise returns false.</p>
 <p>If the display is interlaced, the drawing is altered to look better.</p>
-<p>See also <a href="qscreen.html#isTransformed">isTransformed</a>() and <a href="qscreen.html#linestep">linestep</a>().</p>
+<p>See also <a href="qscreen.html#isTransformed">isTransformed</a>() and <a href="qscreen.html#linestepx">linestep</a>().</p>
 <a name="//apple_ref/cpp/instm/QScreen/isTransformed"></a>
 <h3 class="fn"><a name="isTransformed"></a>bool QScreen::isTransformed () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Returns true if the screen is transformed (for instance, rotated 90 degrees); otherwise returns false.</p>
 <p>See also <a href="qscreen.html#transformOrientation">transformOrientation</a>() and <a href="qscreen.html#isInterlaced">isInterlaced</a>().</p>
 <a name="//apple_ref/cpp/instm/QScreen/linestep"></a>
-<h3 class="fn"><a name="linestep"></a>int QScreen::linestep () const</h3>
+<h3 class="fn"><a name="linestepx"></a>int QScreen::linestep () const</h3>
 <p>Returns the length of each scanline of the framebuffer in bytes.</p>
 <p>See also <a href="qscreen.html#isInterlaced">isInterlaced</a>().</p>
 <a name="//apple_ref/cpp/instm/QScreen/mapFromDevice"></a>
@@ -578,8 +578,8 @@
 <p>Here it is. <i>transformation</i> and <i>screenNo</i></p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

@@ -53,12 +53,12 @@
 <tr><td class="memItemLeft" align="right" valign="top">QSharedPointer&lt;X&gt; </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>other</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QSharedPointer&lt;X&gt; </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#qSharedPointerDynamicCast">qSharedPointerDynamicCast</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>other</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QSharedPointer&lt;X&gt; </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#qSharedPointerObjectCast">qSharedPointerObjectCast</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>other</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-not-eq-29">operator!=</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-not-eq-30">operator!=</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-not-eq-31">operator!=</a></b> ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-eq-eq-36">operator==</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-eq-eq-37">operator==</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-eq-eq-38">operator==</a></b> ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-not-eq-27">operator!=</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-not-eq-28">operator!=</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-not-eq-29">operator!=</a></b> ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-eq-eq-43">operator==</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-eq-eq-44">operator==</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qsharedpointer.html#operator-eq-eq-45">operator==</a></b> ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
 </table>
 <a name="details"></a>
 <hr />
@@ -84,7 +84,7 @@
 <p>A feature of QSharedPointer that can be enabled at compile-time for debugging purposes is a pointer tracking mechanism. When enabled, QSharedPointer registers in a global set all the pointers that it tracks. This allows one to catch mistakes like assigning the same pointer to two QSharedPointer objects.</p>
 <p>This function is enabled by defining the <tt>QT_SHAREDPOINTER_TRACK_POINTERS</tt> macro before including the QSharedPointer header.</p>
 <p>It is safe to use this feature even with code compiled without the feature. QSharedPointer will ensure that the pointer is removed from the tracker even from code compiled without pointer tracking.</p>
-<p>Note, however, that the pointer tracking feature has limitations on multiple- or virtual-inheritance (that is, in cases where two different pointer addresses can refer to the same object). In that case, if a pointer is cast to a different type and its value changes, QSharedPointer's pointer tracking mechanism mail fail to detect that the object being tracked is the same.</p>
+<p>Note, however, that the pointer tracking feature has limitations on multiple- or virtual-inheritance (that is, in cases where two different pointer addresses can refer to the same object). In that case, if a pointer is cast to a different type and its value changes, QSharedPointer's pointer tracking mechanism may fail to detect that the object being tracked is the same.</p>
 <p>See also <a href="qshareddatapointer.html">QSharedDataPointer</a>, <a href="qweakpointer.html">QWeakPointer</a>, and <a href="qscopedpointer.html">QScopedPointer</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
@@ -205,28 +205,28 @@
 <p>Note that <tt>X</tt> must have the same cv-qualifiers (<tt>const</tt> and <tt>volatile</tt>) that <tt>T</tt> has, or the code will fail to compile. Use qSharedPointerConstCast to cast away the constness.</p>
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qsharedpointer.html#objectCast">QSharedPointer::objectCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), and <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
-<h3 class="fn"><a name="operator-not-eq-29"></a>bool operator!= ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-27"></a>bool operator!= ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is not the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s, you will get a compiler error.</p>
-<h3 class="fn"><a name="operator-not-eq-30"></a>bool operator!= ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-28"></a>bool operator!= ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is not the same pointer as <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s type is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s type is not a base or a derived type from this <i>ptr1</i>'s, you will get a compiler error.</p>
-<h3 class="fn"><a name="operator-not-eq-31"></a>bool operator!= ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-29"></a>bool operator!= ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer <i>ptr1</i> is not the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s type, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s type, you will get a compiler error.</p>
-<h3 class="fn"><a name="operator-eq-eq-36"></a>bool operator== ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-43"></a>bool operator== ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s, you will get a compiler error.</p>
-<h3 class="fn"><a name="operator-eq-eq-37"></a>bool operator== ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-44"></a>bool operator== ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const X * <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is the same pointer as <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s type is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s type is not a base or a derived type from this <i>ptr1</i>'s, you will get a compiler error.</p>
-<h3 class="fn"><a name="operator-eq-eq-38"></a>bool operator== ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-45"></a>bool operator== ( const T * <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer <i>ptr1</i> is the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s type, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s type, you will get a compiler error.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

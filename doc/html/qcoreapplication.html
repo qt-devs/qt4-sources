@@ -252,6 +252,7 @@
 <h3 class="fn"><a name="addLibraryPath"></a>void QCoreApplication::addLibraryPath ( const <a href="qstring.html">QString</a> &amp; <i>path</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Prepends <i>path</i> to the beginning of the library path list, ensuring that it is searched for libraries first. If <i>path</i> is empty or already in the path list, the path list is not changed.</p>
 <p>The default path list consists of a single entry, the installation directory for plugins. The default installation directory for plugins is <tt>INSTALL/plugins</tt>, where <tt>INSTALL</tt> is the directory where Qt was installed.</p>
+<p>In Symbian this function is only useful for adding paths for finding Qt extension plugin stubs, since the OS can only load libraries from the <tt>/sys/bin</tt> directory.</p>
 <p>See also <a href="qcoreapplication.html#removeLibraryPath">removeLibraryPath</a>(), <a href="qcoreapplication.html#libraryPaths">libraryPaths</a>(), and <a href="qcoreapplication.html#setLibraryPaths">setLibraryPaths</a>().</p>
 <a name="//apple_ref/cpp/clm/QCoreApplication/applicationDirPath"></a>
 <h3 class="fn"><a name="applicationDirPath"></a><a href="qstring.html">QString</a> QCoreApplication::applicationDirPath ()&nbsp;&nbsp;<tt> [static]</tt></h3>
@@ -440,6 +441,7 @@
 <a name="//apple_ref/cpp/clm/QCoreApplication/setLibraryPaths"></a>
 <h3 class="fn"><a name="setLibraryPaths"></a>void QCoreApplication::setLibraryPaths ( const <a href="qstringlist.html">QStringList</a> &amp; <i>paths</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Sets the list of directories to search when loading libraries to <i>paths</i>. All existing paths will be deleted and the path list will consist of the paths given in <i>paths</i>.</p>
+<p>In Symbian this function is only useful for setting paths for finding Qt extension plugin stubs, since the OS can only load libraries from the <tt>/sys/bin</tt> directory.</p>
 <p>See also <a href="qcoreapplication.html#libraryPaths">libraryPaths</a>(), <a href="qcoreapplication.html#addLibraryPath">addLibraryPath</a>(), <a href="qcoreapplication.html#removeLibraryPath">removeLibraryPath</a>(), and <a href="qlibrary.html">QLibrary</a>.</p>
 <a name="//apple_ref/cpp/clm/QCoreApplication/startingUp"></a>
 <h3 class="fn"><a name="startingUp"></a>bool QCoreApplication::startingUp ()&nbsp;&nbsp;<tt> [static]</tt></h3>
@@ -539,8 +541,8 @@
 <p>See also <a href="qobject.html#Q_OBJECT">Q_OBJECT</a>, <a href="qobject.html#tr">QObject::tr</a>(), and <a href="qobject.html#trUtf8">QObject::trUtf8</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

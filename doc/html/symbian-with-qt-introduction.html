@@ -16,6 +16,8 @@
 <ul><li><a href="#required-tools">Required tools</a></li>
 <li><a href="#installing-qt-and-running-demos">Installing Qt and running demos</a></li>
 <li><a href="#building-your-own-applications">Building your own applications</a></li>
+<ul><li><a href="#smart-installer">Smart Installer</a></li>
+</ul>
 <li><a href="#installing-your-own-applications">Installing your own applications</a></li>
 <li><a href="#running-applications-from-command-line">Running applications from command line</a></li>
 </ul>
@@ -42,10 +44,15 @@
 <tr valign="top" class="even"><td><tt>run</tt></td><td>Run the application on the emulator.</td></tr>
 <tr valign="top" class="odd"><td><tt>runonphone</tt></td><td>Run the application on a device.</td></tr>
 <tr valign="top" class="even"><td><tt>sis</tt></td><td>Create signed <tt>.sis</tt> file for project.</td></tr>
+<tr valign="top" class="odd"><td><tt>installer_sis</tt></td><td>Create signed <a href="#smart-installer">smart installer</a> <tt>.sis</tt> file for project. Smart installer will attempt to download missing dependencies in addition to just installing the application.</td></tr>
 </table></p>
 <p>The following lines perform a debug build for the emulator and deploy all the needed files:</p>
 <pre>     make debug-winscw</pre>
 <p>To work on your project in Carbide, simply import the <tt>.pro</tt> file by right clicking on the project explorer and executing &quot;Import..&#x2e;&quot;&#x2e;</p>
+<a name="smart-installer"></a>
+<h4>Smart Installer</h4>
+<p>The Smart Installer makes sure that deployed applications have all the Qt dependencies they need to run on a device.</p>
+<p>Download the latest release of the Smart Installer from <a href="http://get.qt.nokia.com/nokiasmartinstaller/">http://get.qt.nokia.com/nokiasmartinstaller/</a>, and install it on top of the Qt package.</p>
 <a name="installing-your-own-applications"></a>
 <h3>Installing your own applications</h3>
 <p>To install your own applications on hardware, you need a signed <tt>.sis</tt> file. (Refer to the <a href="http://developer.symbian.org/wiki/index.php/Platform_Security_%28Fundamentals_of_Symbian_C%2B%2B%29#Self-Signed_Applications">Platform Security Article</a> for more informations about self-signing.) The signed <tt>.sis</tt> file can be created with <tt>make</tt> <tt>sis</tt> target. <tt>sis</tt> target is only supported for executables or projects with <tt>DEPLOYMENT</tt> statements. By default the <tt>sis</tt> target will create signed <tt>.sis</tt> file for last build target. For example, the following sequence will generate the needed makefiles, build the project for <tt>debug-winscw</tt> and <tt>release-armv5</tt>, and create self-signed <tt>.sis</tt> file for <tt>release-armv5</tt> target:</p>
@@ -86,8 +93,8 @@
 </table></p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

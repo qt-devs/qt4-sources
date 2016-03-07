@@ -24,12 +24,12 @@
  abld build gcce urel</pre>
 <p>If all steps pass without errors your Symbian development environment is very likely installed correctly.</p>
 </li>
-<li>Install Qt<p>Uncompress the <a href="http://qt.nokia.com/downloads">downloaded</a> source package into the directory you want Qt installed, e.g&#x2e; <tt>C:\Qt\4.6.1</tt>.</p>
+<li>Install Qt<p>Uncompress the <a href="http://qt.nokia.com/downloads">downloaded</a> source package into the directory you want Qt installed, e.g&#x2e; <tt>C:\Qt\4.6.2</tt>.</p>
 <p><b>Note:</b> Qt must be installed on the same drive as the Symbian SDK you are using, and the install path must not contain any spaces.</p>
 </li>
 <li>Environment variables<p>In order to build and use Qt, the <tt>PATH</tt> environment variable needs to be extended:</p>
 <pre> PATH               - to locate qmake, moc and other Qt tools</pre>
-<p>This is done by adding <tt>c:\Qt\4.6.1\bin</tt> to the <tt>PATH</tt> variable.</p>
+<p>This is done by adding <tt>c:\Qt\4.6.2\bin</tt> to the <tt>PATH</tt> variable.</p>
 <p>On Windows the PATH can be extended by navigating to &quot;Control Panel-&gt;System-&gt;Advanced-&gt;Environment variables&quot;.</p>
 <p>In addition, you must configure the environment for use with the Symbian emulator. This is done by locating the Carbide.c++ submenu on the Start menu, and choosing &quot;Configure environment for WINSCW command line&quot;.</p>
 <p>If you are planning to use abld (the default build system that comes with the S60 SDK) to build Qt, you will also need to set the following environment variable:</p>
@@ -37,10 +37,10 @@
 <p>This is not necessary for other applications, only when building Qt.</p>
 </li>
 <li>Configure Qt<p>To configure Qt for the Symbian platform, do:</p>
-<pre> cd \Qt\4.6.1
+<pre> cd \Qt\4.6.2
  configure -platform win32-g++ -xplatform symbian-abld</pre>
 <p>to build the tools using MinGW, and the libraries using abld. or</p>
-<pre> cd \Qt\4.6.1
+<pre> cd \Qt\4.6.2
  configure -platform win32-g++ -xplatform symbian-sbsv2</pre>
 <p>to build the tools using MinGW, and the libraries using SBSv2.</p>
 <p>SBSv2 (also known as <a href="http://developer.symbian.org/wiki/index.php/Introduction_to_RAPTOR">Raptor</a>) is a next-generation Symbian build system. SBSv2 is not officially supported by any of the S60 SDKs currently available from Forum Nokia.</p>
@@ -51,16 +51,36 @@
 <pre> make release-armv5</pre>
 <p>Congratulations, Qt is now ready to use.</p>
 </li>
-<li>Running Qt demos<p>We've included a subset of the Qt demos in this package for you to try out. An excellent starting point is the &quot;fluidlauncher&quot; demo. To run the demo on a real device, you first have to install the Qt libraries on the device:</p>
+<li>Installing Qt libraries on the device<p>To run the demo on a real device, you first have to install the Qt libraries on the device:</p>
 <pre> cd src\s60installs
  make sis QT_SIS_OPTIONS=-i QT_SIS_CERTIFICATE=&lt;certificate file&gt; QT_SIS_KEY=&lt;certificate key file&gt;
  cd ..\3rdparty\webkit\WebCore
  make sis QT_SIS_OPTIONS=-i QT_SIS_CERTIFICATE=&lt;certificate file&gt; QT_SIS_KEY=&lt;certificate key file&gt;</pre>
-<p><b>Note:</b> You will need to supply certificate that allows installation of binaries with &quot;All -Tcb&quot; capability to your device.</p>
+<p>The Qt libraries are built with &quot;All -Tcb&quot; capability, so that they can support all types of application. If you don't have a suitable certificate, it is possible to patch the binaries as follows:</p>
+<ol type="A">
+<li>Installing Qt without a certificate<p>If you have no certificate, build a self signed Qt:</p>
+<pre> cd src\s60installs
+ patch_capabilities.pl Qt_template.pkg release-armv5
+ make sis QT_SIS_OPTIONS=-i
+ cd ..\3rdparty\webkit\WebCore
+ patch_capabilities.pl QtWebkit_template.pkg release-armv5
+ make sis QT_SIS_OPTIONS=-i</pre>
+</li>
+<li>Installing Qt with a Symbian developer certificate<p>If you have a symbian-signed developer certificate, specify the capabilities you can sign for, for example:</p>
+<pre> cd src\s60installs
+ patch_capabilities.pl Qt_template.pkg release-armv5 &quot;ALL -Tcb -AllFiles -DRM&quot;
+ make sis QT_SIS_OPTIONS=-i QT_SIS_CERTIFICATE=&lt;certificate file&gt; QT_SIS_KEY=&lt;certificate key file&gt;
+ cd ..\3rdparty\webkit\WebCore
+ patch_capabilities.pl QtWebKit_template.pkg release-armv5 &quot;ALL -Tcb -AllFiles -DRM&quot;
+ make sis QT_SIS_OPTIONS=-i QT_SIS_CERTIFICATE=&lt;certificate file&gt; QT_SIS_KEY=&lt;certificate key file&gt;</pre>
+</li>
+</ol>
+</li>
+<li>Running Qt demos<p>We've included a subset of the Qt demos in this package for you to try out. An excellent starting point is the &quot;fluidlauncher&quot; demo.</p>
 <p>Similarly, install fluidlauncher to the device:</p>
 <pre> cd demos\embedded\fluidlauncher
  make sis QT_SIS_OPTIONS=-i</pre>
-<p>This will create a self-signed <tt>fluidlauncher_armv5_urel.sis</tt> and install it to your device.</p>
+<p>This will create a self-signed <tt>fluidlauncher.sis</tt> and install it to your device.</p>
 <p>To run the demos on the emulator simply navigate to the directory of the demo you want to see and run:</p>
 <pre> make run</pre>
 <p>For more information about building and running Qt programs on the Symbian platform, see <a href="symbian-with-qt-introduction.html">The Symbian platform - Introduction to Qt</a>.</p>
@@ -69,8 +89,8 @@
 </ol>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

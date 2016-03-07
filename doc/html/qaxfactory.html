@@ -33,7 +33,7 @@
 <tr><td class="memItemLeft" align="right" valign="top"></td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#QAxFactory">QAxFactory</a></b> ( const QUuid &amp; <i>libid</i>, const QUuid &amp; <i>appid</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual </td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#dtor.QAxFactory">~QAxFactory</a></b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QUuid </td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#appID">appID</a></b> () const</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual QUuid </td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#classID">classID</a></b> ( const QString &amp; <i>key</i> ) const</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QUuid </td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#classIDx">classID</a></b> ( const QString &amp; <i>key</i> ) const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QObject * </td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#createObject">createObject</a></b> ( const QString &amp; <i>key</i> ) = 0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool </td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#createObjectWrapper">createObjectWrapper</a></b> ( QObject * <i>object</i>, IDispatch ** <i>wrapper</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QUuid </td><td class="memItemRight" valign="bottom"><b><a href="qaxfactory.html#eventsID">eventsID</a></b> ( const QString &amp; <i>key</i> ) const</td></tr>
@@ -192,7 +192,7 @@
 <h3 class="fn"><a name="appID"></a><a href="quuid.html">QUuid</a> QAxFactory::appID () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplement this function to return the ActiveX server's application identifier.</p>
 <a name="//apple_ref/cpp/instm/QAxFactory/classID"></a>
-<h3 class="fn"><a name="classID"></a><a href="quuid.html">QUuid</a> QAxFactory::classID ( const <a href="qstring.html">QString</a> &amp; <i>key</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
+<h3 class="fn"><a name="classIDx"></a><a href="quuid.html">QUuid</a> QAxFactory::classID ( const <a href="qstring.html">QString</a> &amp; <i>key</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplement this function to return the class identifier for each <i>key</i> returned by the <a href="qaxfactory.html#featureList">featureList</a>() implementation, or an empty <a href="quuid.html">QUuid</a> if this factory doesn't support the value of <i>key</i>.</p>
 <p>The default implementation interprets <i>key</i> as the class name, and returns the value of the <a href="qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>() entry &quot;ClassID&quot;.</p>
 <a name="//apple_ref/cpp/instm/QAxFactory/createObject"></a>
@@ -360,8 +360,8 @@
 <p>See also <a href="qaxfactory.html#QAXFACTORY_BEGIN">QAXFACTORY_BEGIN</a>(), <a href="qaxfactory.html#QAXCLASS">QAXCLASS</a>(), <a href="qaxfactory.html#QAXFACTORY_END">QAXFACTORY_END</a>(), and <a href="qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

@@ -14,7 +14,7 @@
 </h1>
 <pre><span class="comment"> /****************************************************************************
  **
- ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -683,6 +683,13 @@
      m_MediaObject.play();
  }
 
+ void MediaPlayer::setLocation(const QString&amp; location)
+ {
+     setWindowTitle(location.right(location.length() - location.lastIndexOf('/') - 1));
+     m_MediaObject.setCurrentSource(Phonon::MediaSource(QUrl::fromEncoded(location.toUtf8())));
+     m_MediaObject.play();
+ }
+
  bool MediaPlayer::playPauseForDialog()
  {
      <span class="comment">// If we're running on a small screen, we want to pause the video when</span>
@@ -860,9 +867,7 @@
      bool ok = false;
      sourceURL = QInputDialog::getText(this, tr(&quot;Open Location&quot;), tr(&quot;Please enter a valid address here:&quot;), QLineEdit::Normal, sourceURL, &amp;ok);
      if (ok &amp;&amp; !sourceURL.isEmpty()) {
-         setWindowTitle(sourceURL.right(sourceURL.length() - sourceURL.lastIndexOf('/') - 1));
-         m_MediaObject.setCurrentSource(Phonon::MediaSource(QUrl::fromEncoded(sourceURL.toUtf8())));
-         m_MediaObject.play();
+         setLocation(sourceURL);
          settings.setValue(&quot;location&quot;, sourceURL);
      }
  }
@@ -902,10 +907,11 @@
      }
 
      if (!list.isEmpty()) {
-         m_MediaObject.setCurrentSource(Phonon::MediaSource(list[0]));
-         m_MediaObject.play();
+         m_MediaObject.clearQueue();
+         setLocation(list[0].toString());
          for (int i = 1; i &lt; list.count(); i++)
              m_MediaObject.enqueue(Phonon::MediaSource(list[i]));
+         m_MediaObject.play();
      }
 
      forwardButton-&gt;setEnabled(!m_MediaObject.queue().isEmpty());
@@ -949,8 +955,8 @@
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

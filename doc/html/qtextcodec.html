@@ -133,7 +133,8 @@
  while (new_data_available()) {
      QByteArray chunk = get_new_data();
      string += decoder-&gt;toUnicode(chunk);
- }</pre>
+ }
+ delete decoder;</pre>
 <p>The <a href="qtextdecoder.html">QTextDecoder</a> object maintains state between chunks and therefore works correctly even if a multi-byte character is split between chunks.</p>
 <a name="creating-your-own-codec-class"></a>
 <h3>Creating Your Own Codec Class</h3>
@@ -299,8 +300,8 @@
 <p><i>chars</i> contains the source characters.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

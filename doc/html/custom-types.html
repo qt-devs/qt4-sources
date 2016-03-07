@@ -89,9 +89,9 @@
 <pre>     Message message(body, headers);
      qDebug() &lt;&lt; &quot;Original:&quot; &lt;&lt; message;</pre>
 <p>This is achieved by creating a streaming operator for the type, which is often defined in the header file for that type:</p>
-<pre> QDebug &amp;operator&lt;&lt;(QDebug &amp;dbg, const Message &amp;message);</pre>
+<pre> QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message);</pre>
 <p>The implementation for the <tt>Message</tt> type in the <a href="tools-customtype.html">Custom Type Example</a> goes to some effort to make the printable representation as readable as possible:</p>
-<pre> QDebug &amp;operator&lt;&lt;(QDebug &amp;dbg, const Message &amp;message)
+<pre> QDebug operator&lt;&lt;(QDebug dbg, const Message &amp;message)
  {
      QStringList pieces = message.body().split(&quot;\r\n&quot;, QString::SkipEmptyParts);
      if (pieces.isEmpty())
@@ -110,8 +110,8 @@
 <p>The <a href="debug.html">Debugging Techniques</a> document provides an overview of the debugging mechanisms discussed above.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

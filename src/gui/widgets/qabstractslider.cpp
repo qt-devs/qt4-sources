@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -697,6 +697,8 @@ void QAbstractSlider::wheelEvent(QWheelEvent * e)
 {
     Q_D(QAbstractSlider);
     e->ignore();
+    if (e->orientation() != d->orientation && !rect().contains(e->pos()))
+        return;
 
     int stepsToScroll = 0;
     qreal offset = qreal(e->delta()) / 120;

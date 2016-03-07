@@ -47,7 +47,7 @@
 <p>The QWebDatabase class provides access to HTML 5 databases created with JavaScript.</p>
 <p>The upcoming HTML 5 standard includes support for SQL databases that web sites can create and access on a local computer through JavaScript. QWebDatabase is the C++ interface to these databases.</p>
 <p>To get access to all databases defined by a security origin, use <a href="qwebsecurityorigin.html#databases">QWebSecurityOrigin::databases</a>(). Each database has an internal <a href="qwebdatabase.html#name">name</a>(), as well as a user-friendly name, provided by <a href="qwebdatabase.html#displayName">displayName</a>().</p>
-<p>WebKit uses SQLite to create and access the local SQL databases. The location of the database file in the local file system is returned by <a href="qwebdatabase.html#fileName">fileName</a>(). You can access the database directly through the <a href="qtsql.html">QtSql</a> database module.</p>
+<p><a href="examples.html#webkit">WebKit</a> uses SQLite to create and access the local SQL databases. The location of the database file in the local file system is returned by <a href="qwebdatabase.html#fileName">fileName</a>(). You can access the database directly through the <a href="qtsql.html">QtSql</a> database module.</p>
 <p>For each database the web site can define an <a href="qwebdatabase.html#expectedSize">expectedSize</a>(). The current size of the database in bytes is returned by <a href="qwebdatabase.html#size">size</a>().</p>
 <p>For more information refer to the <a href="http://dev.w3.org/html5/webdatabase/">HTML 5 Draft Standard</a>.</p>
 <p>See also <a href="qwebsecurityorigin.html">QWebSecurityOrigin</a>.</p>
@@ -76,7 +76,7 @@
      QStringList tables = sqldb.tables();
      ...
  }</pre>
-<p><b>Note:</b> Concurrent access to a database from multiple threads or processes is not very efficient because SQLite is used as WebKit's database backend.</p>
+<p><b>Note:</b> Concurrent access to a database from multiple threads or processes is not very efficient because SQLite is used as <a href="examples.html#webkit">WebKit</a>'s database backend.</p>
 <a name="//apple_ref/cpp/instm/QWebDatabase/name"></a>
 <h3 class="fn"><a name="name"></a><a href="qstring.html">QString</a> QWebDatabase::name () const</h3>
 <p>Returns the name of the database.</p>
@@ -99,8 +99,8 @@
 <p>Assigns the <i>other</i> web database to this.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

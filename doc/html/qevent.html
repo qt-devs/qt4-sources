@@ -78,13 +78,13 @@
 <a name="//apple_ref/cpp/econst/QEvent/ApplicationLayoutDirectionChange"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ApplicationPaletteChange"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ApplicationWindowIconChange"></a>
-<a name="//apple_ref/cpp/econst/QEvent/CloseSoftwareInputPanel"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ChildAdded"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ChildInserted"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ChildPolished"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ChildRemoved"></a>
 <a name="//apple_ref/cpp/econst/QEvent/Clipboard"></a>
 <a name="//apple_ref/cpp/econst/QEvent/Close"></a>
+<a name="//apple_ref/cpp/econst/QEvent/CloseSoftwareInputPanel"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ContentsRectChange"></a>
 <a name="//apple_ref/cpp/econst/QEvent/ContextMenu"></a>
 <a name="//apple_ref/cpp/econst/QEvent/CursorChange"></a>
@@ -253,13 +253,13 @@
 <tr><td valign="top"><tt>QEvent::ApplicationLayoutDirectionChange</tt></td><td align="center" valign="top"><tt>37</tt></td><td valign="top">The default application layout direction has changed.</td></tr>
 <tr><td valign="top"><tt>QEvent::ApplicationPaletteChange</tt></td><td align="center" valign="top"><tt>38</tt></td><td valign="top">The default application palette has changed.</td></tr>
 <tr><td valign="top"><tt>QEvent::ApplicationWindowIconChange</tt></td><td align="center" valign="top"><tt>35</tt></td><td valign="top">The application's icon has changed.</td></tr>
-<tr><td valign="top"><tt>QEvent::CloseSoftwareInputPanel</tt></td><td align="center" valign="top"><tt>200</tt></td><td valign="top">A widget wants to close the software input panel (SIP).</td></tr>
 <tr><td valign="top"><tt>QEvent::ChildAdded</tt></td><td align="center" valign="top"><tt>68</tt></td><td valign="top">An object gets a child (<a href="qchildevent.html">QChildEvent</a>).</td></tr>
 <tr><td valign="top"><tt>QEvent::ChildInserted</tt></td><td align="center" valign="top"><tt>70</tt></td><td valign="top">An object gets a child (<a href="qchildevent.html">QChildEvent</a>). <a href="qt3support.html">Qt3Support</a> only, use ChildAdded instead.</td></tr>
 <tr><td valign="top"><tt>QEvent::ChildPolished</tt></td><td align="center" valign="top"><tt>69</tt></td><td valign="top">A widget child gets polished (<a href="qchildevent.html">QChildEvent</a>).</td></tr>
 <tr><td valign="top"><tt>QEvent::ChildRemoved</tt></td><td align="center" valign="top"><tt>71</tt></td><td valign="top">An object loses a child (<a href="qchildevent.html">QChildEvent</a>).</td></tr>
 <tr><td valign="top"><tt>QEvent::Clipboard</tt></td><td align="center" valign="top"><tt>40</tt></td><td valign="top">The clipboard contents have changed (QClipboardEvent).</td></tr>
 <tr><td valign="top"><tt>QEvent::Close</tt></td><td align="center" valign="top"><tt>19</tt></td><td valign="top">Widget was closed (<a href="qcloseevent.html">QCloseEvent</a>).</td></tr>
+<tr><td valign="top"><tt>QEvent::CloseSoftwareInputPanel</tt></td><td align="center" valign="top"><tt>200</tt></td><td valign="top">A widget wants to close the software input panel (SIP).</td></tr>
 <tr><td valign="top"><tt>QEvent::ContentsRectChange</tt></td><td align="center" valign="top"><tt>178</tt></td><td valign="top">The margins of the widget's content rect changed.</td></tr>
 <tr><td valign="top"><tt>QEvent::ContextMenu</tt></td><td align="center" valign="top"><tt>82</tt></td><td valign="top">Context popup menu (<a href="qcontextmenuevent.html">QContextMenuEvent</a>).</td></tr>
 <tr><td valign="top"><tt>QEvent::CursorChange</tt></td><td align="center" valign="top"><tt>183</tt></td><td valign="top">The widget's cursor has changed.</td></tr>
@@ -279,10 +279,10 @@
 <tr><td valign="top"><tt>QEvent::GrabKeyboard</tt></td><td align="center" valign="top"><tt>188</tt></td><td valign="top">Item gains keyboard grab (<a href="qgraphicsitem.html">QGraphicsItem</a> only).</td></tr>
 <tr><td valign="top"><tt>QEvent::GrabMouse</tt></td><td align="center" valign="top"><tt>186</tt></td><td valign="top">Item gains mouse grab (<a href="qgraphicsitem.html">QGraphicsItem</a> only).</td></tr>
 <tr><td valign="top"><tt>QEvent::GraphicsSceneContextMenu</tt></td><td align="center" valign="top"><tt>159</tt></td><td valign="top">Context popup menu over a graphics scene (<a href="qgraphicsscenecontextmenuevent.html">QGraphicsSceneContextMenuEvent</a>).</td></tr>
-<tr><td valign="top"><tt>QEvent::GraphicsSceneDragEnter</tt></td><td align="center" valign="top"><tt>164</tt></td><td valign="top">The cursor enters a graphics scene during a drag and drop operation.</td></tr>
-<tr><td valign="top"><tt>QEvent::GraphicsSceneDragLeave</tt></td><td align="center" valign="top"><tt>166</tt></td><td valign="top">The cursor leaves a graphics scene during a drag and drop operation.</td></tr>
-<tr><td valign="top"><tt>QEvent::GraphicsSceneDragMove</tt></td><td align="center" valign="top"><tt>165</tt></td><td valign="top">A drag and drop operation is in progress over a scene.</td></tr>
-<tr><td valign="top"><tt>QEvent::GraphicsSceneDrop</tt></td><td align="center" valign="top"><tt>167</tt></td><td valign="top">A drag and drop operation is completed over a scene.</td></tr>
+<tr><td valign="top"><tt>QEvent::GraphicsSceneDragEnter</tt></td><td align="center" valign="top"><tt>164</tt></td><td valign="top">The cursor enters a graphics scene during a drag and drop operation (<a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a>).</td></tr>
+<tr><td valign="top"><tt>QEvent::GraphicsSceneDragLeave</tt></td><td align="center" valign="top"><tt>166</tt></td><td valign="top">The cursor leaves a graphics scene during a drag and drop operation (<a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a>).</td></tr>
+<tr><td valign="top"><tt>QEvent::GraphicsSceneDragMove</tt></td><td align="center" valign="top"><tt>165</tt></td><td valign="top">A drag and drop operation is in progress over a scene (<a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a>).</td></tr>
+<tr><td valign="top"><tt>QEvent::GraphicsSceneDrop</tt></td><td align="center" valign="top"><tt>167</tt></td><td valign="top">A drag and drop operation is completed over a scene (<a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a>).</td></tr>
 <tr><td valign="top"><tt>QEvent::GraphicsSceneHelp</tt></td><td align="center" valign="top"><tt>163</tt></td><td valign="top">The user requests help for a graphics scene (<a href="qhelpevent.html">QHelpEvent</a>).</td></tr>
 <tr><td valign="top"><tt>QEvent::GraphicsSceneHoverEnter</tt></td><td align="center" valign="top"><tt>160</tt></td><td valign="top">The mouse cursor enters a hover item in a graphics scene (<a href="qgraphicsscenehoverevent.html">QGraphicsSceneHoverEvent</a>).</td></tr>
 <tr><td valign="top"><tt>QEvent::GraphicsSceneHoverLeave</tt></td><td align="center" valign="top"><tt>162</tt></td><td valign="top">The mouse cursor leaves a hover item in a graphics scene (<a href="qgraphicsscenehoverevent.html">QGraphicsSceneHoverEvent</a>).</td></tr>
@@ -430,8 +430,8 @@
 <p>Returns the event type.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

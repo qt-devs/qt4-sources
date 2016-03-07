@@ -14,7 +14,7 @@
 </h1>
 <pre><span class="comment"> /****************************************************************************
  **
- ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -117,10 +117,10 @@
  qint64 Generator::readData(char *data, qint64 maxlen)
  {
      int len = maxlen;
-     if(len &gt; 16384)
+     if (len &gt; 16384)
          len = 16384;
 
-     if(len &lt; (SECONDS*SYSTEM_FREQ*2)-pos) {
+     if (len &lt; (SECONDS*SYSTEM_FREQ*2)-pos) {
          <span class="comment">// Normal</span>
          memcpy(data,t+pos,len);
          pos+=len;
@@ -193,6 +193,9 @@
 
      if(settings.sampleSize() != 16) {
          qWarning()&lt;&lt;&quot;audio device doesn't support 16 bit samples, example cannot run&quot;;
+         button-&gt;setDisabled(true);
+         button2-&gt;setDisabled(true);
+         audioOutput = 0;
          return;
      }
 
@@ -226,15 +229,15 @@
 
  void AudioTest::status()
  {
-     qWarning()&lt;&lt;&quot;byteFree = &quot;&lt;&lt;audioOutput-&gt;bytesFree()&lt;&lt;&quot; bytes, elapsedUSecs = &quot;&lt;&lt;audioOutput-&gt;elapsedUSecs()&lt;&lt;&quot;, processedUSecs = &quot;&lt;&lt;audioOutput-&gt;processedUSecs();
+     qWarning() &lt;&lt; &quot;byteFree = &quot; &lt;&lt; audioOutput-&gt;bytesFree() &lt;&lt; &quot; bytes, elapsedUSecs = &quot; &lt;&lt; audioOutput-&gt;elapsedUSecs() &lt;&lt; &quot;, processedUSecs = &quot; &lt;&lt; audioOutput-&gt;processedUSecs();
  }
 
  void AudioTest::writeMore()
  {
-     if(!audioOutput)
+     if (!audioOutput)
          return;
 
-     if(audioOutput-&gt;state() == QAudio::StoppedState)
+     if (audioOutput-&gt;state() == QAudio::StoppedState)
          return;
 
      int    l;
@@ -243,9 +246,9 @@
      int chunks = audioOutput-&gt;bytesFree()/audioOutput-&gt;periodSize();
      while(chunks) {
         l = gen-&gt;read(buffer,audioOutput-&gt;periodSize());
-        if(l &gt; 0)
+        if (l &gt; 0)
             out = output-&gt;write(buffer,l);
-        if(l != audioOutput-&gt;periodSize())
+        if (l != audioOutput-&gt;periodSize())
             break;
         chunks--;
      }
@@ -273,31 +276,31 @@
  void AudioTest::togglePlay()
  {
      <span class="comment">// toggle suspend/resume</span>
-     if(audioOutput-&gt;state() == QAudio::SuspendedState) {
-         qWarning()&lt;&lt;&quot;status: Suspended, resume()&quot;;
+     if (audioOutput-&gt;state() == QAudio::SuspendedState) {
+         qWarning() &lt;&lt; &quot;status: Suspended, resume()&quot;;
          audioOutput-&gt;resume();
          button2-&gt;setText(&quot;Click To Suspend&quot;);
      } else if (audioOutput-&gt;state() == QAudio::ActiveState) {
-         qWarning()&lt;&lt;&quot;status: Active, suspend()&quot;;
+         qWarning() &lt;&lt; &quot;status: Active, suspend()&quot;;
          audioOutput-&gt;suspend();
          button2-&gt;setText(&quot;Click To Resume&quot;);
      } else if (audioOutput-&gt;state() == QAudio::StoppedState) {
-         qWarning()&lt;&lt;&quot;status: Stopped, resume()&quot;;
+         qWarning() &lt;&lt; &quot;status: Stopped, resume()&quot;;
          audioOutput-&gt;resume();
          button2-&gt;setText(&quot;Click To Suspend&quot;);
      } else if (audioOutput-&gt;state() == QAudio::IdleState) {
-         qWarning()&lt;&lt;&quot;status: IdleState&quot;;
+         qWarning() &lt;&lt; &quot;status: IdleState&quot;;
      }
  }
 
  void AudioTest::state(QAudio::State state)
  {
-     qWarning()&lt;&lt;&quot; state=&quot;&lt;&lt;state;
+     qWarning() &lt;&lt; &quot; state=&quot; &lt;&lt; state;
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

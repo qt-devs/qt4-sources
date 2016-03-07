@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -1439,7 +1439,16 @@ QWidget::~QWidget()
     }
 #endif
 
-    if (QWidgetBackingStore *bs = d->maybeBackingStore()) {
+    if (d->extra && d->extra->topextra && d->extra->topextra->backingStore) {
+        // Okay, we are about to destroy the top-level window that owns
+        // the backing store. Make sure we delete the backing store right away
+        // before the window handle is invalid. This is important because
+        // the backing store will delete its window surface, which may or may
+        // not have a reference to this widget that will be used later to
+        // notify the window it no longer has a surface.
+        delete d->extra->topextra->backingStore;
+        d->extra->topextra->backingStore = 0;
+    } else if (QWidgetBackingStore *bs = d->maybeBackingStore()) {
         bs->removeDirtyWidget(this);
         if (testAttribute(Qt::WA_StaticContents))
             bs->removeStaticWidget(this);
@@ -2021,6 +2030,14 @@ void QWidgetPrivate::updateIsOpaque()
     Q_Q(QWidget);
 #ifdef Q_WS_X11
     if (q->testAttribute(Qt::WA_X11OpenGLOverlay)) {
+        setOpaque(false);
+        return;
+    }
+#endif
+
+#ifdef Q_WS_S60
+    if (q->windowType() == Qt::Dialog && q->testAttribute(Qt::WA_TranslucentBackground)
+                && S60->avkonComponentsSupportTransparency) {
         setOpaque(false);
         return;
     }
@@ -3088,7 +3105,8 @@ void QWidgetPrivate::setEnabled_helper(bool enable)
         QWidget *focusWidget = effectiveFocusWidget();
         QInputContext *qic = focusWidget->d_func()->inputContext();
         if (enable) {
-            qic->setFocusWidget(focusWidget);
+            if (focusWidget->testAttribute(Qt::WA_InputMethodEnabled))
+                qic->setFocusWidget(focusWidget);
         } else {
             qic->reset();
             qic->setFocusWidget(0);
@@ -6405,6 +6423,8 @@ void QWidget::setTabOrder(QWidget* first, QWidget *second)
         first = fp;
     }
 
+    if (fp == second)
+        return;
 
     if (QWidget *sp = second->focusProxy())
         second = sp;
@@ -10357,17 +10377,22 @@ void QWidget::setAttribute(Qt::WidgetAttribute attribute, bool on)
 #ifndef QT_NO_IM
         QWidget *focusWidget = d->effectiveFocusWidget();
         QInputContext *ic = 0;
-        if (on && !internalWinId() && testAttribute(Qt::WA_InputMethodEnabled) && hasFocus()) {
+        if (on && !internalWinId() && hasFocus()
+            && focusWidget->testAttribute(Qt::WA_InputMethodEnabled)) {
             ic = focusWidget->d_func()->inputContext();
-            ic->reset();
-            ic->setFocusWidget(0);
+            if (ic) {
+                ic->reset();
+                ic->setFocusWidget(0);
+            }
         }
         if (!qApp->testAttribute(Qt::AA_DontCreateNativeWidgetSiblings) && parentWidget())
             parentWidget()->d_func()->enforceNativeChildren();
         if (on && !internalWinId() && testAttribute(Qt::WA_WState_Created))
             d->createWinId();
-        if (ic && isEnabled())
+        if (ic && isEnabled() && focusWidget->isEnabled()
+            && focusWidget->testAttribute(Qt::WA_InputMethodEnabled)) {
             ic->setFocusWidget(focusWidget);
+        }
 #endif //QT_NO_IM
         break;
     }
@@ -10404,7 +10429,8 @@ void QWidget::setAttribute(Qt::WidgetAttribute attribute, bool on)
         if (!ic && (!on || hasFocus()))
             ic = focusWidget->d_func()->inputContext();
         if (ic) {
-            if (on && hasFocus() && ic->focusWidget() != focusWidget && isEnabled()) {
+            if (on && hasFocus() && ic->focusWidget() != focusWidget && isEnabled()
+                && focusWidget->testAttribute(Qt::WA_InputMethodEnabled)) {
                 ic->setFocusWidget(focusWidget);
             } else if (!on && ic->focusWidget() == focusWidget) {
                 ic->reset();

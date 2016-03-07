@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -112,6 +112,7 @@ public:
     void dropEvent(QDropEvent *e);
     void handleDrop(QDropEvent *e);
     void setFile(const QString &text);
+    void setLocation(const QString &location);
     void initVideoWindow();
     void initSettingsDialog();
 

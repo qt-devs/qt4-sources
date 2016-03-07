@@ -19,7 +19,7 @@
 <p>The file format is XML-based. For a better understanding of the format we'll discuss the following example:</p>
 <pre> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
  &lt;QtHelpProject version=&quot;1.0&quot;&gt;
-     &lt;namespace&gt;mycompany.com.myapplication.1_0&lt;/namespace&gt;
+     &lt;namespace&gt;mycompany.com.myapplication.1.0&lt;/namespace&gt;
      &lt;virtualFolder&gt;doc&lt;/virtualFolder&gt;
      &lt;customFilter name=&quot;My Application 1.0&quot;&gt;
          &lt;filterAttribute&gt;myapp&lt;/filterAttribute&gt;
@@ -48,7 +48,7 @@
  &lt;/QtHelpProject&gt;</pre>
 <a name="namespace"></a>
 <h3>Namespace</h3>
-<p>To enable the <a href="qhelpengine.html">QHelpEngine</a> to retrieve the proper documentation to a given link, every documentation set has to have a unique identifier. A unique identifier makes is also possible for the help collection to keep track of a documentation set without relying on its file name. The Qt help system uses a namespace as identifier which is defined by the mandatory namespace tags. In the example above, the namespace is &quot;mycompany.com.myapplication.1_0&quot;.</p>
+<p>To enable the <a href="qhelpengine.html">QHelpEngine</a> to retrieve the proper documentation to a given link, every documentation set has to have a unique identifier. A unique identifier makes is also possible for the help collection to keep track of a documentation set without relying on its file name. The Qt help system uses a namespace as identifier which is defined by the mandatory namespace tags. In the example above, the namespace is &quot;mycompany.com.myapplication.1&#x2e;0&quot;.</p>
 <a name="virtual-folders"></a><a name="virtual-folders"></a>
 <h3>Virtual Folders</h3>
 <p>Having a namespace for every documentation naturally means that the documentation sets are quite separated. From the help engines point of view this is beneficial, but from the documentors view it is often desirable to cross reference certain topic from one manual to another without having to specify absolute links. To solve this problem, the help system introduced the concept of virtual folders.</p>
@@ -113,8 +113,8 @@
 <p>Finally, the actual documentation files have to be listed. Make sure that all files neccessary to display the help are mentioned, i.e&#x2e; stylesheets or similar files need to be there as well. The files, like all file references in a Qt help project, are relative to the help project file itself. As the example shows, files (but not directories) can also be specified as patterns using wildcards. All listed files will be compressed and written to the Qt compressed help file. So, in the end, one single Qt help file contains all documentation files along with the contents and indices. <b>Note:</b> The referenced files must be inside the same directory (or within a subdirectory) as the help project file. An absolute file path is not supported either.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

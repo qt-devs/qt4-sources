@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -121,8 +121,10 @@ extern bool qt_wince_is_pocket_pc();  //qguifunctions_wince.cpp
 
 static void initResources()
 {
-#ifdef Q_WS_WINCE
+#if defined(Q_WS_WINCE)
     Q_INIT_RESOURCE(qstyle_wince);
+#elif defined(Q_OS_SYMBIAN)
+    Q_INIT_RESOURCE(qstyle_s60);
 #else
     Q_INIT_RESOURCE(qstyle);
 #endif

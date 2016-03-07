@@ -14,7 +14,7 @@
 </h1>
 <pre><span class="comment"> /****************************************************************************
  **
- ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -62,6 +62,7 @@
  #include &quot;ControlStrip.h&quot;
  #include &quot;TitleBar.h&quot;
  #include &quot;flickcharm.h&quot;
+ #include &quot;webview.h&quot;
  #include &quot;ZoomStrip.h&quot;
 
  #if defined (Q_OS_SYMBIAN)
@@ -76,7 +77,7 @@
      , m_currentZoom(100)
  {
      m_titleBar = new TitleBar(this);
-     m_webView = new QWebView(this);
+     m_webView = new WebView(this);
      m_zoomStrip = new ZoomStrip(this);
      m_controlStrip = new ControlStrip(this);
 
@@ -109,7 +110,7 @@
      connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(finish(bool)));
      connect(m_webView, SIGNAL(urlChanged(QUrl)), SLOT(updateTitleBar()));
 
-     m_webView-&gt;setHtml(&quot;Will try to load page soon!&quot;);
+     m_webView-&gt;setHtml(&quot;about:blank&quot;);
      m_webView-&gt;setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
      m_webView-&gt;setFocus();
  #ifdef Q_OS_SYMBIAN
@@ -199,8 +200,8 @@
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

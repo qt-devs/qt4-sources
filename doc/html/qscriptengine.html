@@ -147,7 +147,7 @@
  QScriptValue three = myEngine.evaluate(&quot;1 + 2&quot;);</pre>
 <p><a href="qscriptengine.html#evaluate">evaluate</a>() returns a <a href="qscriptvalue.html">QScriptValue</a> that holds the result of the evaluation. The <a href="qscriptvalue.html">QScriptValue</a> class provides functions for converting the result to various C++ types (e.g&#x2e; <a href="qscriptvalue.html#toString">QScriptValue::toString</a>() and <a href="qscriptvalue.html#toNumber">QScriptValue::toNumber</a>()).</p>
 <p>The following code snippet shows how a script function can be defined and then invoked from C++ using <a href="qscriptvalue.html#call">QScriptValue::call</a>():</p>
-<pre> QScriptValue fun = myEngine.evaluate(&quot;function(a, b) { return a + b; }&quot;);
+<pre> QScriptValue fun = myEngine.evaluate(&quot;(function(a, b) { return a + b; })&quot;);
  QScriptValueList args;
  args &lt;&lt; 1 &lt;&lt; 2;
  QScriptValue threeAgain = fun.call(QScriptValue(), args);</pre>
@@ -773,8 +773,8 @@
 <p>This function was introduced in Qt 4.3.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

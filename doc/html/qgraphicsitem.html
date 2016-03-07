@@ -178,7 +178,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setInputMethodHints">setInputMethodHints</a></b> ( Qt::InputMethodHints <i>hints</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setOpacity">setOpacity</a></b> ( qreal <i>opacity</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setPanelModality">setPanelModality</a></b> ( PanelModality <i>panelModality</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setParentItem">setParentItem</a></b> ( QGraphicsItem * <i>parent</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setParentItem">setParentItem</a></b> ( QGraphicsItem * <i>newParent</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setPos">setPos</a></b> ( const QPointF &amp; <i>pos</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setPos-2">setPos</a></b> ( qreal <i>x</i>, qreal <i>y</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#setRotation">setRotation</a></b> ( qreal <i>angle</i> )</td></tr>
@@ -219,6 +219,7 @@
 <a name="static-public-members"></a>
 <h2>Static Public Members</h2>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td class="memItemLeft" align="right" valign="top">const int </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#Type-var">Type</a></b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const int </td><td class="memItemRight" valign="bottom"><b><a href="qgraphicsitem.html#UserType-var">UserType</a></b></td></tr>
 </table>
 <hr />
@@ -1426,7 +1427,7 @@
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qgraphicsitem.html#panelModality">panelModality</a>().</p>
 <a name="//apple_ref/cpp/instm/QGraphicsItem/setParentItem"></a>
-<h3 class="fn"><a name="setParentItem"></a>void QGraphicsItem::setParentItem ( QGraphicsItem * <i>parent</i> )</h3>
+<h3 class="fn"><a name="setParentItem"></a>void QGraphicsItem::setParentItem ( QGraphicsItem * <i>newParent</i> )</h3>
 <p>Sets this item's parent item to <i>parent</i>. If this item already has a parent, it is first removed from the previous parent. If <i>parent</i> is 0, this item will become a top-level item.</p>
 <p>Note that this implicitly adds this graphics item to the scene of the parent. You should not <a href="qgraphicsscene.html#addItem">add</a> the item to the scene yourself.</p>
 <p>Calling this function on an item that is an ancestor of <i>parent</i> have undefined behaviour.</p>
@@ -1648,6 +1649,16 @@
 <p>See also <a href="qgraphicsitem.html#setZValue">setZValue</a>(), <a href="qgraphicsitem.html#sorting">Sorting</a>, <a href="qgraphicsitem.html#stackBefore">stackBefore</a>(), and <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemStacksBehindParent</a>.</p>
 <hr />
 <h2>Member Variable Documentation</h2>
+<a name="//apple_ref/cpp/data/QGraphicsItem/Type"></a>
+<h3 class="fn"><a name="Type-var"></a>const int QGraphicsItem::Type</h3>
+<p>The type value returned by the virtual <a href="qgraphicsitem.html#type">type</a>() function in standard graphics item classes in Qt. All such standard graphics item classes in Qt are associated with a unique value for Type, e.g&#x2e; the value returned by <a href="qgraphicspathitem.html#type">QGraphicsPathItem::type</a>() is 2.</p>
+<pre> class QGraphicsPathItem : public QAbstractGraphicsShapeItem
+ {
+  public:
+   enum { Type = 2 };
+     int type() const { return Type; }
+   ...
+ };</pre>
 <a name="//apple_ref/cpp/data/QGraphicsItem/UserType"></a>
 <h3 class="fn"><a name="UserType-var"></a>const int QGraphicsItem::UserType</h3>
 <p>The lowest permitted type value for custom items (subclasses of <a href="qgraphicsitem.html">QGraphicsItem</a> or any of the standard items). This value is used in conjunction with a reimplementation of <a href="qgraphicsitem.html#type">QGraphicsItem::type</a>() and declaring a Type enum value. Example:</p>
@@ -1663,6 +1674,7 @@
     }
     ...
  };</pre>
+<p><b>Note:</b> UserType = 65536</p>
 <hr />
 <h2>Related Non-Members</h2>
 <a name="//apple_ref/cpp/func//qgraphicsitem_cast"></a>
@@ -1673,8 +1685,8 @@
 <p>See also <a href="qgraphicsitem.html#type">QGraphicsItem::type</a>() and <a href="qgraphicsitem.html#UserType-var">QGraphicsItem::UserType</a>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

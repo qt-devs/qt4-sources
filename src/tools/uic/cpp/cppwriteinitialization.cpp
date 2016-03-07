@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -721,8 +721,9 @@ void WriteInitialization::acceptWidget(DomWidget *node)
             m_output << m_indent << parentWidget << "->addDockWidget(" << area << varName << ");\n";
         } else if (m_uic->customWidgetsInfo()->extends(className, QLatin1String("QStatusBar"))) {
             m_output << m_indent << parentWidget << "->setStatusBar(" << varName << ");\n";
-        } else {
-            m_output << m_indent << parentWidget << "->setCentralWidget(" << varName << ");\n";
+        } else if (!m_uic->customWidgetsInfo()->extends(className, QLatin1String("Q3DockWindow"))
+                   && !m_uic->customWidgetsInfo()->extends(className, QLatin1String("Q3ToolBar"))) {
+                m_output << m_indent << parentWidget << "->setCentralWidget(" << varName << ");\n";
         }
     }
 
@@ -1221,9 +1222,10 @@ void WriteInitialization::writeProperties(const QString &varName,
             const DomRect *r = p->elementRect();
             m_output << m_indent << varName << "->resize(" << r->elementWidth() << ", " << r->elementHeight() << ");\n";
             continue;
-        } else if (propertyName == QLatin1String("buttonGroupId") && buttonGroupWidget) { // Q3ButtonGroup support
-            m_output << m_indent << m_driver->findOrInsertWidget(buttonGroupWidget) << "->insert("
-                   << varName << ", " << p->elementNumber() << ");\n";
+        } else if (propertyName == QLatin1String("buttonGroupId")) { // Q3ButtonGroup support
+            if (buttonGroupWidget)
+                m_output << m_indent << m_driver->findOrInsertWidget(buttonGroupWidget) << "->insert("
+                         << varName << ", " << p->elementNumber() << ");\n";
             continue;
         } else if (propertyName == QLatin1String("currentRow") // QListWidget::currentRow
                     && m_uic->customWidgetsInfo()->extends(className, QLatin1String("QListWidget"))) {

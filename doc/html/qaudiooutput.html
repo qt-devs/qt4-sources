@@ -95,7 +95,7 @@
 
  audio = new QAudioOutput(format, this);
  connect(audio,SIGNAL(stateChanged(QAudio::State)),SLOT(finishedPlaying(QAudio::State)));
- audio-&gt;start(inputFile);</pre>
+ audio-&gt;start(&amp;inputFile);</pre>
 <p>The file will start playing assuming that the audio system and output device support it. If you run out of luck, check what's up with the <a href="qaudiooutput.html#error">error</a>() function.</p>
 <p>After the file has finished playing, we need to stop the device:</p>
 <pre> void finishedPlaying(QAudio::State state)
@@ -114,7 +114,7 @@
          switch (newState) {
              case QAudio::StopState:
                  if (output-&gt;error() != QAudio::NoError) {
-                     <span class="comment">// Do your error handlin</span>
+                     <span class="comment">// Perform error handling</span>
                  } else {
                      <span class="comment">// Normal stop</span>
                  }
@@ -197,8 +197,8 @@
 <p>Stops processing audio data, preserving buffered audio data.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

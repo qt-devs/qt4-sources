@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -776,6 +776,11 @@ qint64 QNativeSocketEngine::read(char *data, qint64 maxSize)
     if (readBytes == 0 && d->socketType == QAbstractSocket::TcpSocket) {
         d->setError(QAbstractSocket::RemoteHostClosedError,
                     QNativeSocketEnginePrivate::RemoteHostClosedErrorString);
+        close();
+        return -1;
+    } else if (readBytes == -1) {
+        d->setError(QAbstractSocket::NetworkError,
+                    QNativeSocketEnginePrivate::ReadErrorString);
         close();
         return -1;
     }

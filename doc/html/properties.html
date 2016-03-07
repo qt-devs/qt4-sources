@@ -94,7 +94,7 @@
  QObject *object = myinstance;
 
  myinstance-&gt;setPriority(MyClass::VeryHigh);
- object-&gt;setProperty(&quot;priority&quot;, (int)MyClass::VeryHigh);</pre>
+ object-&gt;setProperty(&quot;priority&quot;, &quot;VeryHigh&quot;);</pre>
 <p>In the example, the enumeration type that is the property type is declared in MyClass and registered with the <a href="metaobjects.html">Meta-Object System</a> using the <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>() macro. This makes the enumeration values available as strings for use as in the call to setProperty(). Had the enumeration type been declared in another class, its fully qualified name (i.e&#x2e;, OtherClass::Priority) would be required, and that other class would also have to inherit <a href="qobject.html">QObject</a> and register the enumeration type there using the <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>() macro.</p>
 <p>A similar macro, <a href="qobject.html#Q_FLAGS">Q_FLAGS</a>(), is also available. Like <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>(), it registers an enumeration type, but it marks the type as being a set of <i>flags</i>, i.e&#x2e; values that can be OR'd together. An I/O class might have enumeration values <tt>Read</tt> and <tt>Write</tt> and then <a href="qobject.html#setProperty">QObject::setProperty</a>() could accept <tt>Read | Write</tt>. <a href="qobject.html#Q_FLAGS">Q_FLAGS</a>() should be used to register this enumeration type.</p>
 <a name="dynamic-properties"></a>
@@ -113,8 +113,8 @@
 <p>See also <a href="metaobjects.html">Meta-Object System</a>, <a href="signalsandslots.html">Signals and Slots</a>, <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(), <a href="qmetatype.html">QMetaType</a>, and <a href="qvariant.html">QVariant</a>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -710,7 +710,8 @@ void expblur(QImage &img, qreal radius, bool improvedQuality = false, int transp
         radius *= qreal(0.5);
 
     Q_ASSERT(img.format() == QImage::Format_ARGB32_Premultiplied
-             || img.format() == QImage::Format_RGB32);
+             || img.format() == QImage::Format_RGB32
+             || img.format() == QImage::Format_Indexed8);
 
     // choose the alpha such that pixels at radius distance from a fully
     // saturated pixel will have an alpha component of no greater than
@@ -953,7 +954,7 @@ static void grayscale(const QImage &image, QImage &dest, const QRect& rect = QRe
         srcRect = dest.rect();
         destRect = dest.rect();
     }
-    if (image != dest) {
+    if (&image != &dest) {
         destRect.moveTo(QPoint(0, 0));
     }
 

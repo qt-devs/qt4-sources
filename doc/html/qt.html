@@ -102,7 +102,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">enum </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#UIEffect-enum">UIEffect</a></b> { UI_AnimateMenu, UI_FadeMenu, UI_AnimateCombo, UI_AnimateTooltip, UI_FadeTooltip, UI_AnimateToolBox }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#WFlags-typedef">WFlags</a></b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#WhiteSpaceMode-enum">WhiteSpaceMode</a></b> { WhiteSpaceNormal, WhiteSpacePre, WhiteSpaceNoWrap }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#WidgetAttribute-enum">WidgetAttribute</a></b> { WA_AcceptDrops, WA_AlwaysShowToolTips, WA_ContentsPropagated, WA_CustomWhatsThis, ..., WA_TouchPadAcceptSingleTouchEvents }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#WidgetAttribute-enum">WidgetAttribute</a></b> { WA_AcceptDrops, WA_AlwaysShowToolTips, WA_ContentsPropagated, WA_CustomWhatsThis, ..., WA_MergeSoftkeysRecursively }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">flags </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#WindowType-enum">WindowFlags</a></b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#WindowFrameSection-enum">WindowFrameSection</a></b> { NoSection, LeftSection, TopLeftSection, TopSection, ..., TitleBarArea }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum </td><td class="memItemRight" valign="bottom"><b><a href="qt.html#WindowModality-enum">WindowModality</a></b> { NonModal, WindowModal, ApplicationModal }</td></tr>
@@ -225,11 +225,7 @@
 <tr><th width="25%">Constant</th><th width="15%">Value</th><th width="60%">Description</th></tr>
 <tr><td valign="top"><tt>Qt::AA_ImmediateWidgetCreation</tt></td><td align="center" valign="top"><tt>0</tt></td><td valign="top">Ensures that widgets are created as soon as they are constructed. By default, resources for widgets are allocated on demand to improve efficiency and minimize resource usage. Setting or clearing this attribute affects widgets constructed after the change. Setting it tells Qt to create toplevel windows immediately. Therefore, if it is important to minimize resource consumption, do not set this attribute.</td></tr>
 <tr><td valign="top"><tt>Qt::AA_MSWindowsUseDirect3DByDefault</tt></td><td align="center" valign="top"><tt>1</tt></td><td valign="top">This value is obsolete and has no effect.</td></tr>
-<tr><td valign="top"><tt>Qt::AA_DontShowIconsInMenus</tt></td><td align="center" valign="top"><tt>2</tt></td><td valign="top">Actions with the Icon property won't be shown in any menus unless specifically set by the <a href="qaction.html#iconVisibleInMenu-prop">QAction::iconVisibleInMenu</a> property.</td></tr>
-</table></p>
-<p>Menus that are currently open or menus already created in the native Mac OS X menubar <i>may not</i> pick up a change in this attribute. Changes in the <a href="qaction.html#iconVisibleInMenu-prop">QAction::iconVisibleInMenu</a> property will always be picked up.</p>
-<p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
-<tr><th width="25%">Constant</th><th width="15%">Value</th><th width="60%">Description</th></tr>
+<tr><td valign="top"><tt>Qt::AA_DontShowIconsInMenus</tt></td><td align="center" valign="top"><tt>2</tt></td><td valign="top">Actions with the Icon property won't be shown in any menus unless specifically set by the <a href="qaction.html#iconVisibleInMenu-prop">QAction::iconVisibleInMenu</a> property. Menus that are currently open or menus already created in the native Mac OS X menubar <i>may not</i> pick up a change in this attribute. Changes in the <a href="qaction.html#iconVisibleInMenu-prop">QAction::iconVisibleInMenu</a> property will always be picked up.</td></tr>
 <tr><td valign="top"><tt>Qt::AA_NativeWindows</tt></td><td align="center" valign="top"><tt>3</tt></td><td valign="top">Ensures that widgets have native windows.</td></tr>
 <tr><td valign="top"><tt>Qt::AA_DontCreateNativeWidgetSiblings</tt></td><td align="center" valign="top"><tt>4</tt></td><td valign="top">Ensures that siblings of native widgets stay non-native unless specifically set by the <a href="qt.html#WidgetAttribute-enum">Qt::WA_NativeWindow</a> attribute.</td></tr>
 <tr><td valign="top"><tt>Qt::AA_MacPluginApplication</tt></td><td align="center" valign="top"><tt>5</tt></td><td valign="top">Stops the Qt mac application from doing specific initializations that do not necessarily make sense when using Qt to author a plugin. This includes avoiding loading our nib for the main menu and not taking possession of the native menu bar. When setting this attribute to true will also set the AA_DontUseNativeMenuBar attribute to true.</td></tr>
@@ -2492,6 +2488,8 @@
 <a name="//apple_ref/cpp/econst/Qt/WA_MacFrameworkScaled"></a>
 <a name="//apple_ref/cpp/econst/Qt/WA_AcceptTouchEvents"></a>
 <a name="//apple_ref/cpp/econst/Qt/WA_TouchPadAcceptSingleTouchEvents"></a>
+<a name="//apple_ref/cpp/econst/Qt/WA_MergeSoftkeys"></a>
+<a name="//apple_ref/cpp/econst/Qt/WA_MergeSoftkeysRecursively"></a>
 <a name="//apple_ref/cpp/econst/Qt/WA_SetLayoutDirection"></a>
 <a name="//apple_ref/cpp/econst/Qt/WA_InputMethodTransparent"></a>
 <a name="//apple_ref/cpp/econst/Qt/WA_WState_CompressKeys"></a>
@@ -2607,6 +2605,8 @@
 <tr><td valign="top"><tt>Qt::WA_MacFrameworkScaled</tt></td><td align="center" valign="top"><tt>117</tt></td><td valign="top">Enables resolution independence aware mode on Mac when using Carbon. This attribute has no effect on Cocoa. The attribute is off by default and can be enabled on a per-window basis.</td></tr>
 <tr><td valign="top"><tt>Qt::WA_AcceptTouchEvents</tt></td><td align="center" valign="top"><tt>121</tt></td><td valign="top">Allows touch events (see <a href="qtouchevent.html">QTouchEvent</a>) to be sent to the widget. Must be set on all widgets that can handle touch events. Without this attribute set, events from a touch device will be sent as mouse events.</td></tr>
 <tr><td valign="top"><tt>Qt::WA_TouchPadAcceptSingleTouchEvents</tt></td><td align="center" valign="top"><tt>123</tt></td><td valign="top">Allows touchpad single touch events to be sent to the widget.</td></tr>
+<tr><td valign="top"><tt>Qt::WA_MergeSoftkeys</tt></td><td align="center" valign="top"><tt>124</tt></td><td valign="top">Allows widget to merge softkeys with parent widget, i.e&#x2e; widget can set only one softkeys and request softkey implementation to take rest of the softkeys from the parent. Note parents are traversed until WA_MergeSoftkeys is not set. See also Qt::WA_MergeSoftkeysRecursively This attribute currently has effect only on Symbian platforms</td></tr>
+<tr><td valign="top"><tt>Qt::WA_MergeSoftkeysRecursively</tt></td><td align="center" valign="top"><tt>125</tt></td><td valign="top">Allows widget to merge softkeys recursively with all parents. If this attribute is set, the widget parents are traversed until window boundary (widget without parent or dialog) is found. This attribute currently has effect only on Symbian platforms</td></tr>
 </table></p>
 <a name="//apple_ref/cpp/tag/Qt/WindowFrameSection"></a>
 <a name="//apple_ref/cpp/econst/Qt/NoSection"></a>
@@ -2853,8 +2853,8 @@
 <p>This function is defined in the <tt>&lt;QTextDocument&gt;</tt> header file.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

@@ -14,7 +14,7 @@
 </h1>
 <pre><span class="comment"> /****************************************************************************
  **
- ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -94,9 +94,8 @@
      showStatus(QString(&quot;Error: %1&quot;).arg(msg));
  }
 
- QString GoogleChat::evalJS(const QString &amp;js) {
-     QWebFrame *frame = form.webView-&gt;page()-&gt;mainFrame();
-     return frame-&gt;evaluateJavaScript(js).toString();
+ QWebElement GoogleChat::document() const {
+     return form.webView-&gt;page()-&gt;mainFrame()-&gt;documentElement();
  }
 
  void GoogleChat::adjustLoginButton() {
@@ -126,9 +125,11 @@
      showStatus(&quot;Logging in...&quot;);
 
      QString userEmail = userName + &quot;@gmail.com&quot;;
-     evalJS(QString(&quot;document.getElementById('Email').value = \&quot;%1\&quot;;&quot;).arg(userEmail));
-     evalJS(QString(&quot;document.getElementById('Passwd').value = \&quot;%1\&quot;;&quot;).arg(password));
-     evalJS(&quot;document.getElementById('gaia_loginform').submit();&quot;);
+
+     document().findFirst(&quot;#Email&quot;).setAttribute(&quot;value&quot;, userEmail);
+     document().findFirst(&quot;#Passwd&quot;).setAttribute(&quot;value&quot;, password);
+     document().findFirst(&quot;#gaia_loginform&quot;).evaluateJavaScript(&quot;this.submit();&quot;);
+
  }
 
  void GoogleChat::initialPage(bool ok) {
@@ -138,11 +139,12 @@
      }
 
      if (ok) {
-         QString s1 = evalJS(&quot;document.getElementById('Email').name&quot;);
-         QString s2 = evalJS(&quot;document.getElementById('Passwd').name&quot;);
-         QString s3 = evalJS(&quot;document.getElementById('gaia_loginform').id&quot;);
-         if (s1 == &quot;Email&quot; &amp;&amp; s2 == &quot;Passwd&quot; &amp;&amp; s3 == &quot;gaia_loginform&quot;) {
+         QWebElement email = document().findFirst(&quot;#Email&quot;);
+         QWebElement passwd = document().findFirst(&quot;#Passwd&quot;);
+         QWebElement loginForm = document().findFirst(&quot;#gaia_loginform&quot;);
+         if (!email.isNull() &amp;&amp; !passwd.isNull() &amp;&amp; !loginForm.isNull()) {
              form.stackedWidget-&gt;setCurrentIndex(1);
+             form.userNameEdit-&gt;setFocus();
              form.webView-&gt;disconnect();
              return;
          }
@@ -153,8 +155,8 @@
 
  void GoogleChat::hideElements()
  {
-     evalJS(&quot;var e = document.getElementsByClassName('footer-footer')[0]; e.parentElement.removeChild(e)&quot;);
-     evalJS(&quot;var e = document.getElementsByClassName('title-bar-bg title-bar')[0]; e.parentElement.removeChild(e)&quot;);
+     document().findFirst(&quot;.footer-footer&quot;).removeFromDocument();
+     document().findFirst(&quot;.title-bar-bg .title-bar&quot;).removeFromDocument();
      QTimer::singleShot(2000, this, SLOT(hideElements()));
  }
 
@@ -166,16 +168,18 @@
          showError(&quot;Service unavailable&quot;);
      } else {
          <span class="comment">// check for any error message</span>
-         QString c = evalJS(&quot;document.getElementsByClassName('errormsg').length&quot;);
-         if (c == &quot;0&quot;) {
+
+         QWebElement  e = document().findFirst(&quot;.errormsg&quot;);
+         if (e.isNull()) {
              form.stackedWidget-&gt;setCurrentIndex(2);
              QTimer::singleShot(500, this, SLOT(hideElements()));
              return;
          }
 
-         QString err = &quot;Unknown login failure.&quot;;
-         if (c == &quot;1&quot;) {
-             err = evalJS(&quot;document.getElementsByClassName('errormsg')[0].textContent&quot;);
+        QString err = &quot;Unknown login failure.&quot;;
+        const QString errorMessage = e.toPlainText();
+         if (!errorMessage.isEmpty()) {
+             err = errorMessage;
              err = err.simplified();
          }
          showError(err);
@@ -183,8 +187,8 @@
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

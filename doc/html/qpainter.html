@@ -16,7 +16,7 @@
 </h1>
 <p>The QPainter class performs low-level painting on widgets and other paint devices. <a href="#details">More...</a></p>
 <pre> #include &lt;QPainter&gt;</pre><p>Inherited by <a href="q3painter.html" class="compat">Q3Painter</a> and <a href="qstylepainter.html">QStylePainter</a>.</p>
-<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>, but <a href="qpainter.html#setRedirected">setRedirected</a>(), <a href="qpainter.html#redirected">redirected</a>(), and <a href="qpainter.html#restoreRedirected">restoreRedirected</a>() are also <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>, but <a href="qpainter-obsolete.html#setRedirected" class="obsolete">setRedirected</a>(), <a href="qpainter-obsolete.html#redirected" class="obsolete">redirected</a>(), and <a href="qpainter-obsolete.html#restoreRedirected" class="obsolete">restoreRedirected</a>() are also <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
 <ul>
 <li><a href="qpainter-members.html">List of all members, including inherited members</a></li>
 <li><a href="qpainter-obsolete.html">Obsolete members</a></li>
@@ -220,14 +220,6 @@
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b><a href="qpainter.html#worldMatrixEnabled">worldMatrixEnabled</a></b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const QTransform &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qpainter.html#worldTransform">worldTransform</a></b> () const</td></tr>
 </table>
-<hr />
-<a name="static-public-members"></a>
-<h2>Static Public Members</h2>
-<table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
-<tr><td class="memItemLeft" align="right" valign="top">QPaintDevice * </td><td class="memItemRight" valign="bottom"><b><a href="qpainter.html#redirected">redirected</a></b> ( const QPaintDevice * <i>device</i>, QPoint * <i>offset</i> = 0 )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qpainter.html#restoreRedirected">restoreRedirected</a></b> ( const QPaintDevice * <i>device</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qpainter.html#setRedirected">setRedirected</a></b> ( const QPaintDevice * <i>device</i>, QPaintDevice * <i>replacement</i>, const QPoint &amp; <i>offset</i> = QPoint() )</td></tr>
-</table>
 <a name="details"></a>
 <hr />
 <h2>Detailed Description</h2>
@@ -244,7 +236,7 @@
 <p>The core functionality of QPainter is drawing, but the class also provide several functions that allows you to customize QPainter's settings and its rendering quality, and others that enable clipping. In addition you can control how different shapes are merged together by specifying the painter's composition mode.</p>
 <p>The <a href="qpainter.html#isActive">isActive</a>() function indicates whether the painter is active. A painter is activated by the <a href="qpainter.html#begin">begin</a>() function and the constructor that takes a <a href="qpaintdevice.html">QPaintDevice</a> argument. The <a href="qpainter.html#end">end</a>() function, and the destructor, deactivates it.</p>
 <p>Together with the <a href="qpaintdevice.html">QPaintDevice</a> and <a href="qpaintengine.html">QPaintEngine</a> classes, QPainter form the basis for Qt's paint system. QPainter is the class used to perform drawing operations. <a href="qpaintdevice.html">QPaintDevice</a> represents a device that can be painted on using a QPainter. <a href="qpaintengine.html">QPaintEngine</a> provides the interface that the painter uses to draw onto different types of devices. If the painter is active, <a href="qpainter.html#device">device</a>() returns the paint device on which the painter paints, and <a href="qpainter.html#paintEngine">paintEngine</a>() returns the paint engine that the painter is currently operating on. For more information, see <a href="paintsystem.html">The Paint System</a> documentation.</p>
-<p>Sometimes it is desirable to make someone else paint on an unusual <a href="qpaintdevice.html">QPaintDevice</a>. QPainter supports a static function to do this, <a href="qpainter.html#setRedirected">setRedirected</a>().</p>
+<p>Sometimes it is desirable to make someone else paint on an unusual <a href="qpaintdevice.html">QPaintDevice</a>. QPainter supports a static function to do this, <a href="qpainter-obsolete.html#setRedirected" class="obsolete">setRedirected</a>().</p>
 <p><b>Warning:</b> When the paintdevice is a widget, QPainter can only be used inside a paintEvent() function or in a function called by paintEvent(); that is unless the <a href="qt.html#WidgetAttribute-enum">Qt::WA_PaintOutsidePaintEvent</a> widget attribute is set. On Mac OS X and Windows, you can only paint in a paintEvent() function regardless of this attribute's setting.</p>
 <ul><li><a href="#settings">Settings</a></li>
 <li><a href="#drawing">Drawing</a></li>
@@ -344,7 +336,7 @@
 <p>The outlines generated by Qt's stroker are only an approximation when dealing with curved shapes. It is in most cases impossible to represent the outline of a bezier curve segment using another bezier curve segment, and so Qt approximates the curve outlines by using several smaller curves. For performance reasons there is a limit to how many curves Qt uses for these outlines, and thus when using large pen widths or scales the outline error increases. To generate outlines with smaller errors it is possible to use the <a href="qpainterpathstroker.html">QPainterPathStroker</a> class, which has the setCurveThreshold member function which let's the user specify the error tolerance. Another workaround is to convert the paths to polygons first and then draw the polygons instead.</p>
 <a name="performance"></a>
 <h3>Performance</h3>
-<p>QPainter is a rich framework that allows developers to do a great variety of graphical operations, such as gradients, composition modes and vector graphics. And QPainter can do this across a variety of different hardware and software stacks. Naturally the underlying combination of hardware and software has some implications for performance, and ensuring that every single operation is fast in combination with all the various combinations of composition modes, brushes, clipping, transformation, etc, is close to an impossible task because of the number of permutations. As a compromise we have selected a subset of the QPainter API and backends, were performance is guaranteed to be as good as we can sensibly get it for the given combination of hardware and software.</p>
+<p>QPainter is a rich framework that allows developers to do a great variety of graphical operations, such as gradients, composition modes and vector graphics. And QPainter can do this across a variety of different hardware and software stacks. Naturally the underlying combination of hardware and software has some implications for performance, and ensuring that every single operation is fast in combination with all the various combinations of composition modes, brushes, clipping, transformation, etc, is close to an impossible task because of the number of permutations. As a compromise we have selected a subset of the QPainter API and backends, where performance is guaranteed to be as good as we can sensibly get it for the given combination of hardware and software.</p>
 <p>The backends we focus on as high-performance engines are:</p>
 <ul>
 <li>Raster - This backend implements all rendering in pure software and is always used to render into QImages. For optimal performance only use the format types <a href="qimage.html#Format-enum">QImage::Format_ARGB32_Premultiplied</a>, <a href="qimage.html#Format-enum">QImage::Format_RGB32</a> or <a href="qimage.html#Format-enum">QImage::Format_RGB16</a>. Any other format, including <a href="qimage.html#Format-enum">QImage::Format_ARGB32</a>, has significantly worse performance. This engine is also used by default on Windows and on QWS. It can be used as default graphics system on any OS/hardware/software combination by passing <tt>-graphicssystem raster</tt> on the command line</li>
@@ -355,7 +347,6 @@
 <ul>
 <li>Simple transformations, meaning translation and scaling, pluss 0, 90, 180, 270 degree rotations.</li>
 <li><tt>drawPixmap()</tt> in combination with simple transformations and opacity with non-smooth transformation mode (<tt>QPainter::SmoothPixmapTransform</tt> not enabled as a render hint).</li>
-<li>Text drawing with regular font sizes with simple transformations with solid colors using no or 8-bit antialiasing.</li>
 <li>Rectangle fills with solid color, two-color linear gradients and simple transforms.</li>
 <li>Rectangular clipping with simple transformations and intersect clip.</li>
 <li>Composition Modes <tt>QPainter::CompositionMode_Source</tt> and <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceOver</a></li>
@@ -517,6 +508,7 @@
 <a name="//apple_ref/cpp/instm/QPainter/beginNativePainting"></a>
 <h3 class="fn"><a name="beginNativePainting"></a>void QPainter::beginNativePainting ()</h3>
 <p>Flushes the painting pipeline and prepares for the user issuing commands directly to the underlying graphics context. Must be followed by a call to <a href="qpainter.html#endNativePainting">endNativePainting</a>().</p>
+<p>Note that only the states the underlying paint engine changes will be reset to their respective default states. If, for example, the OpenGL polygon mode is changed by the user inside a beginNativePaint()/<a href="qpainter.html#endNativePainting">endNativePainting</a>() block, it will not be reset to the default state by <a href="qpainter.html#endNativePainting">endNativePainting</a>().</p>
 <p>Here is an example that shows intermixing of painter commands and raw OpenGL commands:</p>
 <pre> QPainter painter(this);
  painter.fillRect(0, 0, 128, 128, Qt::green);
@@ -1219,11 +1211,6 @@
 <h3 class="fn"><a name="pen"></a>const <a href="qpen.html">QPen</a> &amp; QPainter::pen () const</h3>
 <p>Returns the painter's current pen.</p>
 <p>See also <a href="qpainter.html#setPen">setPen</a>() and <a href="qpainter.html#settings">Settings</a>.</p>
-<a name="//apple_ref/cpp/clm/QPainter/redirected"></a>
-<h3 class="fn"><a name="redirected"></a><a href="qpaintdevice.html">QPaintDevice</a> * QPainter::redirected ( const <a href="qpaintdevice.html">QPaintDevice</a> * <i>device</i>, <a href="qpoint.html">QPoint</a> * <i>offset</i> = 0 )&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Returns the replacement for given <i>device</i>. The optional out parameter <i>offset</i> returns the offset within the replaced device.</p>
-<p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
-<p>See also <a href="qpainter.html#setRedirected">setRedirected</a>() and <a href="qpainter.html#restoreRedirected">restoreRedirected</a>().</p>
 <a name="//apple_ref/cpp/instm/QPainter/renderHints"></a>
 <h3 class="fn"><a name="renderHints"></a><a href="qpainter.html#RenderHint-enum">RenderHints</a> QPainter::renderHints () const</h3>
 <p>Returns a flag that specifies the rendering hints that are set for this painter.</p>
@@ -1236,11 +1223,6 @@
 <h3 class="fn"><a name="restore"></a>void QPainter::restore ()</h3>
 <p>Restores the current painter state (pops a saved state off the stack).</p>
 <p>See also <a href="qpainter.html#save">save</a>().</p>
-<a name="//apple_ref/cpp/clm/QPainter/restoreRedirected"></a>
-<h3 class="fn"><a name="restoreRedirected"></a>void QPainter::restoreRedirected ( const <a href="qpaintdevice.html">QPaintDevice</a> * <i>device</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Restores the previous redirection for the given <i>device</i> after a call to <a href="qpainter.html#setRedirected">setRedirected</a>().</p>
-<p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
-<p>See also <a href="qpainter.html#redirected">redirected</a>().</p>
 <a name="//apple_ref/cpp/instm/QPainter/rotate"></a>
 <h3 class="fn"><a name="rotate"></a>void QPainter::rotate ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>angle</i> )</h3>
 <p>Rotates the coordinate system the given <i>angle</i> clockwise.</p>
@@ -1340,13 +1322,6 @@
 <h3 class="fn"><a name="setPen-3"></a>void QPainter::setPen ( <a href="qt.html#PenStyle-enum">Qt::PenStyle</a> <i>style</i> )</h3>
 <p>This is an overloaded function.</p>
 <p>Sets the painter's pen to have the given <i>style</i>, width 0 and black color.</p>
-<a name="//apple_ref/cpp/clm/QPainter/setRedirected"></a>
-<h3 class="fn"><a name="setRedirected"></a>void QPainter::setRedirected ( const <a href="qpaintdevice.html">QPaintDevice</a> * <i>device</i>, <a href="qpaintdevice.html">QPaintDevice</a> * <i>replacement</i>, const <a href="qpoint.html">QPoint</a> &amp; <i>offset</i> = QPoint() )&nbsp;&nbsp;<tt> [static]</tt></h3>
-<p>Redirects all paint commands for the given paint <i>device</i>, to the <i>replacement</i> device. The optional point <i>offset</i> defines an offset within the source device.</p>
-<p>The redirection will not be effective until the <a href="qpainter.html#begin">begin</a>() function has been called; make sure to call <a href="qpainter.html#end">end</a>() for the given <i>device</i>'s painter (if any) before redirecting. Call <a href="qpainter.html#restoreRedirected">restoreRedirected</a>() to restore the previous redirection.</p>
-<p>In general, you'll probably find that calling <a href="qpixmap.html#grabWidget">QPixmap::grabWidget</a>() or <a href="qpixmap.html#grabWindow">QPixmap::grabWindow</a>() is an easier solution.</p>
-<p><b>Note:</b> This function is <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
-<p>See also <a href="qpainter.html#redirected">redirected</a>() and <a href="qpainter.html#restoreRedirected">restoreRedirected</a>().</p>
 <a name="//apple_ref/cpp/instm/QPainter/setRenderHint"></a>
 <h3 class="fn"><a name="setRenderHint"></a>void QPainter::setRenderHint ( <a href="qpainter.html#RenderHint-enum">RenderHint</a> <i>hint</i>, bool <i>on</i> = true )</h3>
 <p>Sets the given render <i>hint</i> on the painter if <i>on</i> is true; otherwise clears the render hint.</p>
@@ -1442,8 +1417,8 @@
 <p>See also <a href="qpainter.html#setWorldTransform">setWorldTransform</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

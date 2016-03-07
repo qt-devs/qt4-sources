@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -184,6 +184,9 @@ QGLEngineSharedShaders::QGLEngineSharedShaders(const QGLContext* context)
     simpleShaderProg->addShader(vertexShader);
     simpleShaderProg->addShader(fragShader);
     simpleShaderProg->bindAttributeLocation("vertexCoordsArray", QT_VERTEX_COORDS_ATTR);
+    simpleShaderProg->bindAttributeLocation("pmvMatrix1", QT_PMV_MATRIX_1_ATTR);
+    simpleShaderProg->bindAttributeLocation("pmvMatrix2", QT_PMV_MATRIX_2_ATTR);
+    simpleShaderProg->bindAttributeLocation("pmvMatrix3", QT_PMV_MATRIX_3_ATTR);
     simpleShaderProg->link();
     if (!simpleShaderProg->isLinked()) {
         qCritical() << "Errors linking simple shader:"
@@ -216,6 +219,23 @@ QGLEngineSharedShaders::QGLEngineSharedShaders(const QGLContext* context)
                     << simpleShaderProg->log();
     }
 
+}
+
+QGLEngineSharedShaders::~QGLEngineSharedShaders()
+{
+    QList<QGLEngineShaderProg*>::iterator itr;
+    for (itr = cachedPrograms.begin(); itr != cachedPrograms.end(); ++itr)
+        delete *itr;
+
+    if (blitShaderProg) {
+        delete blitShaderProg;
+        blitShaderProg = 0;
+    }
+
+    if (simpleShaderProg) {
+        delete simpleShaderProg;
+        simpleShaderProg = 0;
+    }
 }
 
 #if defined (QT_DEBUG)
@@ -307,6 +327,11 @@ QGLEngineShaderProg *QGLEngineSharedShaders::findProgramInCache(const QGLEngineS
             newProg->program->bindAttributeLocation("textureCoordArray", QT_TEXTURE_COORDS_ATTR);
         if (newProg->useOpacityAttribute)
             newProg->program->bindAttributeLocation("opacityArray", QT_OPACITY_ATTR);
+        if (newProg->usePmvMatrix) {
+            newProg->program->bindAttributeLocation("pmvMatrix1", QT_PMV_MATRIX_1_ATTR);
+            newProg->program->bindAttributeLocation("pmvMatrix2", QT_PMV_MATRIX_2_ATTR);
+            newProg->program->bindAttributeLocation("pmvMatrix3", QT_PMV_MATRIX_3_ATTR);
+        }
 
         newProg->program->link();
         if (!newProg->program->isLinked()) {
@@ -393,7 +418,7 @@ QGLEngineShaderManager::~QGLEngineShaderManager()
     removeCustomStage();
 }
 
-GLuint QGLEngineShaderManager::getUniformLocation(const Uniform id)
+GLuint QGLEngineShaderManager::getUniformLocation(Uniform id)
 {
     if (!currentShaderProg)
         return 0;
@@ -407,7 +432,6 @@ GLuint QGLEngineShaderManager::getUniformLocation(const Uniform id)
         "patternColor",
         "globalOpacity",
         "depth",
-        "pmvMatrix",
         "maskTexture",
         "fragmentColor",
         "linearData",
@@ -428,7 +452,7 @@ GLuint QGLEngineShaderManager::getUniformLocation(const Uniform id)
 }
 
 
-void QGLEngineShaderManager::optimiseForBrushTransform(const QTransform::TransformationType transformType)
+void QGLEngineShaderManager::optimiseForBrushTransform(QTransform::TransformationType transformType)
 {
     Q_UNUSED(transformType); // Currently ignored
 }
@@ -505,7 +529,27 @@ QGLShaderProgram* QGLEngineShaderManager::currentProgram()
     if (currentShaderProg)
         return currentShaderProg->program;
     else
-        return simpleProgram();
+        return sharedShaders->simpleProgram();
+}
+
+void QGLEngineShaderManager::useSimpleProgram()
+{
+    sharedShaders->simpleProgram()->bind();
+    QGLContextPrivate* ctx_d = ctx->d_func();
+    ctx_d->setVertexAttribArrayEnabled(QT_VERTEX_COORDS_ATTR, true);
+    ctx_d->setVertexAttribArrayEnabled(QT_TEXTURE_COORDS_ATTR, false);
+    ctx_d->setVertexAttribArrayEnabled(QT_OPACITY_ATTR, false);
+    shaderProgNeedsChanging = true;
+}
+
+void QGLEngineShaderManager::useBlitProgram()
+{
+    sharedShaders->blitProgram()->bind();
+    QGLContextPrivate* ctx_d = ctx->d_func();
+    ctx_d->setVertexAttribArrayEnabled(QT_VERTEX_COORDS_ATTR, true);
+    ctx_d->setVertexAttribArrayEnabled(QT_TEXTURE_COORDS_ATTR, true);
+    ctx_d->setVertexAttribArrayEnabled(QT_OPACITY_ATTR, false);
+    shaderProgNeedsChanging = true;
 }
 
 QGLShaderProgram* QGLEngineShaderManager::simpleProgram()
@@ -706,6 +750,7 @@ bool QGLEngineShaderManager::useCorrectShaderProg()
     }
     requiredProgram.useTextureCoords = texCoords;
     requiredProgram.useOpacityAttribute = (opacityMode == AttributeOpacity);
+    requiredProgram.usePmvMatrix = true;
 
     // At this point, requiredProgram is fully populated so try to find the program in the cache
     currentShaderProg = sharedShaders->findProgramInCache(requiredProgram);
@@ -715,6 +760,13 @@ bool QGLEngineShaderManager::useCorrectShaderProg()
         if (useCustomSrc)
             customSrcStage->setUniforms(currentShaderProg->program);
     }
+
+    // Make sure all the vertex attribute arrays the program uses are enabled (and the ones it
+    // doesn't use are disabled)
+    QGLContextPrivate* ctx_d = ctx->d_func();
+    ctx_d->setVertexAttribArrayEnabled(QT_VERTEX_COORDS_ATTR, true);
+    ctx_d->setVertexAttribArrayEnabled(QT_TEXTURE_COORDS_ATTR, currentShaderProg->useTextureCoords);
+    ctx_d->setVertexAttribArrayEnabled(QT_OPACITY_ATTR, currentShaderProg->useOpacityAttribute);
 
     shaderProgNeedsChanging = false;
     return true;

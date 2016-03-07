@@ -145,8 +145,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b><a href="qcolor.html#qRed">qRed</a></b> ( QRgb <i>rgb</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QRgb </td><td class="memItemRight" valign="bottom"><b><a href="qcolor.html#qRgb">qRgb</a></b> ( int <i>r</i>, int <i>g</i>, int <i>b</i> )</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QRgb </td><td class="memItemRight" valign="bottom"><b><a href="qcolor.html#qRgba">qRgba</a></b> ( int <i>r</i>, int <i>g</i>, int <i>b</i>, int <i>a</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qcolor.html#operator-lt-lt-31">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QColor &amp; <i>color</i> )</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qcolor.html#operator-gt-gt-16">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qcolor.html#operator-lt-lt-105">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QDataStream &amp; </td><td class="memItemRight" valign="bottom"><b><a href="qcolor.html#operator-gt-gt-60">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QColor &amp; <i>color</i> )</td></tr>
 </table>
 <a name="details"></a>
 <hr />
@@ -511,11 +511,11 @@
 <p>See also <a href="qcolor.html#setRedF">setRedF</a>(), <a href="qcolor.html#red">red</a>(), and <a href="qcolor.html#getRgbF">getRgbF</a>().</p>
 <a name="//apple_ref/cpp/instm/QColor/rgb"></a>
 <h3 class="fn"><a name="rgb"></a><a href="qcolor.html#QRgb-typedef">QRgb</a> QColor::rgb () const</h3>
-<p>Returns the RGB value of the color. The alpha is stripped for compatibility.</p>
+<p>Returns the RGB value of the color. The alpha value is opaque.</p>
 <p>See also <a href="qcolor.html#setRgb">setRgb</a>(), <a href="qcolor.html#getRgb">getRgb</a>(), and <a href="qcolor.html#rgba">rgba</a>().</p>
 <a name="//apple_ref/cpp/instm/QColor/rgba"></a>
 <h3 class="fn"><a name="rgba"></a><a href="qcolor.html#QRgb-typedef">QRgb</a> QColor::rgba () const</h3>
-<p>Returns the RGB value of the color. Unlike <a href="qcolor.html#rgb">rgb</a>(), the alpha is not stripped.</p>
+<p>Returns the RGB value of the color, including its alpha.</p>
 <p>For an invalid color, the alpha value of the returned color is unspecified.</p>
 <p>See also <a href="qcolor.html#setRgba">setRgba</a>() and <a href="qcolor.html#rgb">rgb</a>().</p>
 <a name="//apple_ref/cpp/instm/QColor/saturation"></a>
@@ -619,7 +619,7 @@
 <p>See also <a href="qcolor.html#rgb">rgb</a>(), <a href="qcolor.html#getRgb">getRgb</a>(), and <a href="qcolor.html#setRgbF">setRgbF</a>().</p>
 <h3 class="fn"><a name="setRgb-2"></a>void QColor::setRgb ( <a href="qcolor.html#QRgb-typedef">QRgb</a> <i>rgb</i> )</h3>
 <p>This is an overloaded function.</p>
-<p>Sets the RGB value to <i>rgb</i>, ignoring the alpha.</p>
+<p>Sets the RGB value to <i>rgb</i>. The alpha value is set to opaque.</p>
 <a name="//apple_ref/cpp/instm/QColor/setRgbF"></a>
 <h3 class="fn"><a name="setRgbF"></a>void QColor::setRgbF ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>r</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>g</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>b</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>a</i> = 1.0 )</h3>
 <p>Sets the color channels of this color to <i>r</i> (red), <i>g</i> (green), <i>b</i> (blue) and <i>a</i> (alpha, transparency).</p>
@@ -627,7 +627,7 @@
 <p>See also <a href="qcolor.html#rgb">rgb</a>(), <a href="qcolor.html#getRgbF">getRgbF</a>(), and <a href="qcolor.html#setRgb">setRgb</a>().</p>
 <a name="//apple_ref/cpp/instm/QColor/setRgba"></a>
 <h3 class="fn"><a name="setRgba"></a>void QColor::setRgba ( <a href="qcolor.html#QRgb-typedef">QRgb</a> <i>rgba</i> )</h3>
-<p>Sets the RGBA value to <i>rgba</i>. Unlike setRgb(<a href="qcolor.html#QRgb-typedef">QRgb</a> rgb), this function does not ignore the alpha.</p>
+<p>Sets the RGB value to <i>rgba</i>, including its alpha.</p>
 <p>See also <a href="qcolor.html#rgba">rgba</a>() and <a href="qcolor.html#rgb">rgb</a>().</p>
 <a name="//apple_ref/cpp/instm/QColor/spec"></a>
 <h3 class="fn"><a name="spec"></a><a href="qcolor.html#Spec-enum">Spec</a> QColor::spec () const</h3>
@@ -719,16 +719,16 @@
 <h3 class="fn"><a name="qRgba"></a><a href="qcolor.html#QRgb-typedef">QRgb</a> qRgba ( int <i>r</i>, int <i>g</i>, int <i>b</i>, int <i>a</i> )</h3>
 <p>Returns the ARGB quadruplet (<i>a</i>, <i>r</i>, <i>g</i>, <i>b</i>).</p>
 <p>See also <a href="qcolor.html#qRgb">qRgb</a>(), <a href="qcolor.html#qRed">qRed</a>(), <a href="qcolor.html#qGreen">qGreen</a>(), and <a href="qcolor.html#qBlue">qBlue</a>().</p>
-<h3 class="fn"><a name="operator-lt-lt-31"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QColor &amp; <i>color</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-105"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QColor &amp; <i>color</i> )</h3>
 <p>Writes the <i>color</i> to the <i>stream</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream Operators</a>.</p>
-<h3 class="fn"><a name="operator-gt-gt-16"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QColor &amp; <i>color</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-60"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QColor &amp; <i>color</i> )</h3>
 <p>Reads the <i>color</i> from the <i>stream</i>.</p>
 <p>See also <a href="datastreamformat.html">Format of the QDataStream Operators</a>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>

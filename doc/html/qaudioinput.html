@@ -97,7 +97,7 @@
 
    audio = new QAudioInput(format, this);
    QTimer::singleShot(3000, this, SLOT(stopRecording()));
-   audio-&gt;start(outputFile);
+   audio-&gt;start(&amp;outputFile);
    <span class="comment">// Records audio for 3000ms</span>
  }</pre>
 <p>This will start recording if the format specified is supported by the input device (you can check this with <a href="qaudiodeviceinfo.html#isFormatSupported">QAudioDeviceInfo::isFormatSupported</a>(). In case there are any snags, use the <a href="qaudioinput.html#error">error</a>() function to check what went wrong. We stop recording in the <tt>stopRecording()</tt> slot.</p>
@@ -198,8 +198,8 @@
 <p>Stops processing audio data, preserving buffered audio data.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
-<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="left">Copyright &copy; 2010 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.2</div></td>
 </tr></table></div></address></body>
 </html>
