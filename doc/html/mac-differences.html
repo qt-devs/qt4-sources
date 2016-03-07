@@ -42,6 +42,11 @@
 <li class="level1"><a href="#limitations">Limitations</a></li>
 <li class="level2"><a href="#menu-actions">Menu Actions</a></li>
 <li class="level2"><a href="#native-widgets">Native Widgets</a></li>
+<li class="level1"><a href="#preparing-a-qt-application-for-mac-app-store-submission">Preparing a Qt application for Mac App Store submission</a></li>
+<li class="level2"><a href="#changing-the-location-of-global-qt-settings">Changing the location of global Qt settings</a></li>
+<li class="level2"><a href="#storage-location-paths">Storage location paths</a></li>
+<li class="level2"><a href="#info-plist-and-application-icon">Info.plist and application icon</a></li>
+<li class="level2"><a href="#debug-symbols">Debug symbols</a></li>
 </ul>
 </div>
 <h1 class="title">Qt for Mac OS X - Specific Issues</h1>
@@ -154,6 +159,28 @@
 <a name="native-widgets"></a>
 <h3>Native Widgets</h3>
 <p>Qt has support for sheets and drawers, represented in the window flags by <a href="qt.html#WindowType-enum">Qt::Sheet</a> and <a href="qt.html#WindowType-enum">Qt::Drawer</a> respectiviely. Brushed metal windows can also be created by using the <a href="qt.html#WidgetAttribute-enum">Qt::WA_MacMetalStyle</a> window attribute.</p>
+<a name="preparing-a-qt-application-for-mac-app-store-submission"></a>
+<h2>Preparing a Qt application for Mac App Store submission</h2>
+<a name="changing-the-location-of-global-qt-settings"></a>
+<h3>Changing the location of global Qt settings</h3>
+<p>By default, global Qt settings are stored in the file com.trolltech.plist, which does not conform with Mac App Store file system usage requirements. Instructions for changing the location can be found in the <a href="qsettings.html#changing-the-location-of-global-qt-settings-on-mac-os-x">QSettings documentation</a>.</p>
+<a name="storage-location-paths"></a>
+<h3>Storage location paths</h3>
+<p>If you are using <a href="qdesktopservices.html#storageLocation">QDesktopServices::storageLocation</a>() to find locations for data or cache files, you should ensure that the application and organization names used by Qt match the values in iTunes Connect. If the values do not match, the paths that storageLocation() returns will not conform with the Mac App Store file system usage requirements. You can set the application and organization names that Qt uses by calling <a href="qcoreapplication.html#organizationName-prop">QCoreApplication::setOrganizationName</a>() and <a href="qcoreapplication.html#applicationName-prop">QCoreApplication::setApplicationName</a>().</p>
+<a name="info-plist-and-application-icon"></a>
+<h3>Info.plist and application icon</h3>
+<p>A custom Info.plist file instead of the qmake-generated one is needed, since the Mac App Store requires some specific keys to be set that are not present in the generated file. See <a href="qmake-variable-reference.html#qmake-info-plist">QMAKE_INFO_PLIST</a> for details.</p>
+<p>Information about the required Info.plist contents can be found in Apple's <a href="https://developer.apple.com/library/mac/#releasenotes/General/SubmittingToMacAppStore/_index.html#//apple_ref/doc/uid/TP40010572">Submitting to the Mac App Store</a> document.</p>
+<p>You'll also need to provide an icon for your application, as described in <a href="appicon.html#setting-the-application-icon-on-mac-os-x">Setting the Application Icon on Mac OS X</a>.</p>
+<a name="debug-symbols"></a>
+<h3>Debug symbols</h3>
+<p>To generate the debug symbol information needed for the Mac App Store submission in a release build, add these settings to your .pro file:</p>
+<pre class="cpp"> QMAKE_CFLAGS_RELEASE <span class="operator">=</span> $$QMAKE_CFLAGS_RELEASE_WITH_DEBUGINFO
+ QMAKE_CXXFLAGS_RELEASE <span class="operator">=</span> $$QMAKE_CXXFLAGS_RELEASE_WITH_DEBUGINFO
+ QMAKE_OBJECTIVE_CFLAGS_RELEASE <span class="operator">=</span> $$QMAKE_OBJECTIVE_CFLAGS_RELEASE_WITH_DEBUGINFO
+ QMAKE_LFLAGS_RELEASE <span class="operator">=</span> $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO</pre>
+<p>The debug symbols can be extracted with the dsymutil command as follows:</p>
+<pre class="cpp"> dsymutil MyApp<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>MacOS<span class="operator">/</span>MyApp <span class="operator">-</span>o MyApp<span class="operator">.</span>app<span class="operator">.</span>dSYM</pre>
 </div>
 <!-- @@@mac-differences.html -->
   <div class="ft">
@@ -161,20 +188,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

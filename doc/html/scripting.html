@@ -263,7 +263,7 @@
 <a name="script-ownership"></a>
 <h4>Script Ownership</h4>
 <p>Specifying <a href="qscriptengine.html#ValueOwnership-enum">QScriptEngine::ScriptOwnership</a> as the ownership mode will cause the script engine to take full ownership of the <a href="qobject.html">QObject</a> and delete it when it determines that it is safe to do so (i.e&#x2e;, when there are no more references to it in script code). This ownership mode is appropriate if the <a href="qobject.html">QObject</a> does not have a parent object, and/or the <a href="qobject.html">QObject</a> is created in the context of the script engine and is not intended to outlive the script engine.</p>
-<p>For example, a constructor function that constructs QObjects only to be used in the script environment is a good candidate:</p>
+<p>For example, a constructor function that constructs <a href="qtwebkit-bridge.html#qobjects">QObjects</a> only to be used in the script environment is a good candidate:</p>
 <pre class="cpp"> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> myQObjectConstructor(<span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>context<span class="operator">,</span> <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> <span class="operator">*</span>engine)
  {
    <span class="comment">// let the engine manage the new object's lifetime.</span>
@@ -443,7 +443,7 @@
 <pre class="cpp"> <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>(<span class="type">int</span> nonScriptableProperty READ foo WRITE bar SCRIPTABLE <span class="keyword">false</span>)</pre>
 <a name="reacting-to-c-objects-signals-in-scripts"></a>
 <h3>Reacting to C++ Objects Signals in Scripts</h3>
-<p>In the Qt object model, signals are used as a notification mechanism between QObjects. This means one object can connect a signal to another object's slot and, every time the signal is emitted, the slot is called. This connection is established using the <a href="qobject.html#connect">QObject::connect</a>() function.</p>
+<p>In the Qt object model, signals are used as a notification mechanism between <a href="qtwebkit-bridge.html#qobjects">QObjects</a>. This means one object can connect a signal to another object's slot and, every time the signal is emitted, the slot is called. This connection is established using the <a href="qobject.html#connect">QObject::connect</a>() function.</p>
 <p>The signals and slots mechanism is also available to <a href="qtscript.html">QtScript</a> programmers. The code to declare a signal in C++ is the same, regardless of whether the signal will be connected to a slot in C++ or in <a href="qtscript.html">QtScript</a>.</p>
 <pre class="cpp"> <span class="keyword">class</span> MyObject : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
  {
@@ -484,8 +484,8 @@
  }</pre>
 <a name="design-of-application-objects"></a>
 <h3>Design of Application Objects</h3>
-<p>The previous section described how to implement C++ objects which can be used in <a href="qtscript.html">QtScript</a>. Application objects are the same kind of objects, and they make your application's functionality available to <a href="qtscript.html">QtScript</a> scripters. Since the C++ application is already written in Qt, many objects are already QObjects. The easiest approach would be to simply add all these QObjects as application objects to the scripting engine. For small applications this might be sufficient, but for larger applications this is probably not the right approach. The problem is that this method reveals too much of the internal API and gives script programmers access to application internals which should not be exposed.</p>
-<p>Generally, the best way of making application functionality available to scripters is to code some QObjects which define the applications public API using signals, slots, and properties. This gives you complete control of the functionality made available by the application. The implementations of these objects simply call the functions in the application which do the real work. So, instead of making all your QObjects available to the scripting engine, just add the wrapper QObjects.</p>
+<p>The previous section described how to implement C++ objects which can be used in <a href="qtscript.html">QtScript</a>. Application objects are the same kind of objects, and they make your application's functionality available to <a href="qtscript.html">QtScript</a> scripters. Since the C++ application is already written in Qt, many objects are already <a href="qtwebkit-bridge.html#qobjects">QObjects</a>. The easiest approach would be to simply add all these <a href="qtwebkit-bridge.html#qobjects">QObjects</a> as application objects to the scripting engine. For small applications this might be sufficient, but for larger applications this is probably not the right approach. The problem is that this method reveals too much of the internal API and gives script programmers access to application internals which should not be exposed.</p>
+<p>Generally, the best way of making application functionality available to scripters is to code some <a href="qtwebkit-bridge.html#qobjects">QObjects</a> which define the applications public API using signals, slots, and properties. This gives you complete control of the functionality made available by the application. The implementations of these objects simply call the functions in the application which do the real work. So, instead of making all your <a href="qtwebkit-bridge.html#qobjects">QObjects</a> available to the scripting engine, just add the wrapper <a href="qtwebkit-bridge.html#qobjects">QObjects</a>.</p>
 <a name="returning-qobject-pointers"></a>
 <h4>Returning QObject Pointers</h4>
 <p>If you have a slot that returns a <a href="qobject.html">QObject</a> pointer, you should note that, by default, Qt Script only handles conversion of the types <a href="qobject.html">QObject</a>* and <a href="qwidget.html">QWidget</a>*. This means that if your slot is declared with a signature like &quot;MyObject* getMyObject()&quot;, <a href="qtscript.html">QtScript</a> doesn't automatically know that MyObject* should be handled in the same way as <a href="qobject.html">QObject</a>* and <a href="qwidget.html">QWidget</a>*. The simplest way to solve this is to only use <a href="qobject.html">QObject</a>* and <a href="qwidget.html">QWidget</a>* in the method signatures of your scripting interface.</p>
@@ -852,7 +852,7 @@
 <a name="making-use-of-prototype-based-inheritance"></a>
 <h2>Making Use of Prototype-Based Inheritance</h2>
 <p>In ECMAScript, inheritance is based on the concept of <i>shared prototype objects</i>; this is quite different from the class-based inheritance familiar to C++ programmers. With <a href="qtscript.html">QtScript</a>, you can associate a custom prototype object with a C++ type using <a href="qscriptengine.html#setDefaultPrototype">QScriptEngine::setDefaultPrototype</a>(); this is the key to providing a script interface to that type. Since the <a href="qtscript.html">QtScript</a> module is built on top of Qt's meta-type system, this can be done for any C++ type.</p>
-<p>You might be wondering when exactly you would need to use this functionality in your application; isn't the automatic binding provided by <a href="qscriptengine.html#newQObject">QScriptEngine::newQObject</a>() enough? No, not under all circumstances. Firstly, not every C++ type is derived from <a href="qobject.html">QObject</a>; types that are not QObjects cannot be introspected through Qt's meta-object system (they do not have properties, signals and slots). Secondly, even if a type is <a href="qobject.html">QObject</a>-derived, the functionality you want to expose to scripts might not all be available, since it is unusual to define every function to be a slot (and it's not always possible/desirable to change the C++ API to make it so).</p>
+<p>You might be wondering when exactly you would need to use this functionality in your application; isn't the automatic binding provided by <a href="qscriptengine.html#newQObject">QScriptEngine::newQObject</a>() enough? No, not under all circumstances. Firstly, not every C++ type is derived from <a href="qobject.html">QObject</a>; types that are not <a href="qtwebkit-bridge.html#qobjects">QObjects</a> cannot be introspected through Qt's meta-object system (they do not have properties, signals and slots). Secondly, even if a type is <a href="qobject.html">QObject</a>-derived, the functionality you want to expose to scripts might not all be available, since it is unusual to define every function to be a slot (and it's not always possible/desirable to change the C++ API to make it so).</p>
 <p>It is perfectly possible to solve this problem by using &quot;conventional&quot; C++ techniques. For instance, the <a href="qrect.html">QRect</a> class could effectively be made scriptable by creating a <a href="qobject.html">QObject</a>-based C++ wrapper class with <tt>x</tt>, <tt>y</tt>, <tt>width</tt> properties and so on, which forwarded property access and function calls to the wrapped value. However, as we shall see, by taking advantage of the ECMAScript object model and combining it with Qt's meta-object system, we can arrive at a solution that is more elegant, consistent and lightweight, supported by a small API.</p>
 <p>This section explains the underlying concepts of prototype-based inheritance. Once these concepts are understood, the associated practices can be applied throughout the <a href="qtscript.html">QtScript</a> API in order to create well-behaved, consistent bindings to C++ that will fit nicely into the ECMAScript universe.</p>
 <p>When experimenting with <a href="qtscript.html">QtScript</a> objects and inheritance, it can be helpful to use the interactive interpreter included with the <a href="examples-script.html">Qt Script Examples</a>, located in <tt>examples/script/qscript</tt>.</p>
@@ -960,7 +960,7 @@
 <a name="implementing-prototype-objects-for-value-based-types"></a>
 <h3>Implementing Prototype Objects for Value-based Types</h3>
 <p>When implementing a prototype object for a value-based type -- e.g&#x2e; <a href="qpointf.html">QPointF</a> -- the same general technique applies; you populate a prototype object with functionality that should be shared among instances. You then associate the prototype object with the type by calling <a href="qscriptengine.html#setDefaultPrototype">QScriptEngine::setDefaultPrototype</a>(). This ensures that when e.g&#x2e; a value of the relevant type is returned from a slot back to the script, the prototype link of the script value will be initialized correctly.</p>
-<p>When values of the custom type are stored in QVariants -- which Qt Script does by default --, <a href="qscriptvalue.html#qscriptvalue_cast">qscriptvalue_cast</a>() enables you to safely cast the script value to a pointer to the C++ type. This makes it easy to do type-checking, and, for prototype functions that should modify the underlying C++ value, lets you modify the actual value contained in the script value (and not a copy of it).</p>
+<p>When values of the custom type are stored in <a href="qtwebkit-bridge.html#qvariants">QVariants</a> -- which Qt Script does by default --, <a href="qscriptvalue.html#qscriptvalue_cast">qscriptvalue_cast</a>() enables you to safely cast the script value to a pointer to the C++ type. This makes it easy to do type-checking, and, for prototype functions that should modify the underlying C++ value, lets you modify the actual value contained in the script value (and not a copy of it).</p>
 <pre class="cpp"> <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(<span class="type"><a href="qpointf.html">QPointF</a></span>)
  <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(<span class="type"><a href="qpointf.html">QPointF</a></span><span class="operator">*</span>)
 
@@ -996,7 +996,7 @@
 <p>In the above code we simplified things a bit, e.g&#x2e; we didn't check the argument count to decide which <a href="qpoint.html">QPoint</a> C++ constructor to use. In your own constructors you have to do this type of resolution yourself, i.e&#x2e; by checking the number of arguments passed to the native function, and/or by checking the type of the arguments and converting the arguments to the desired type. If you detect a problem with the arguments you may want to signal this by throwing a script exception; see <a href="qscriptcontext.html#throwError">QScriptContext::throwError</a>().</p>
 <a name="managing-non-qobject-based-objects"></a>
 <h3>Managing Non-QObject-based Objects</h3>
-<p>For value-based types (e.g&#x2e; <a href="qpoint.html">QPoint</a>), the C++ object will be destroyed when the Qt Script object is garbage-collected, so managing the memory of the C++ object is not an issue. For QObjects, Qt Script provides several alternatives for managing the underlying C++ object's lifetime; see the <a href="#controlling-qobject-ownership">Controlling QObject Ownership</a> section. However, for polymorphic types that don't inherit from <a href="qobject.html">QObject</a>, and when you can't (or won't) wrap the type in a <a href="qobject.html">QObject</a>, you have to manage the lifetime of the C++ object yourself.</p>
+<p>For value-based types (e.g&#x2e; <a href="qpoint.html">QPoint</a>), the C++ object will be destroyed when the Qt Script object is garbage-collected, so managing the memory of the C++ object is not an issue. For <a href="qtwebkit-bridge.html#qobjects">QObjects</a>, Qt Script provides several alternatives for managing the underlying C++ object's lifetime; see the <a href="#controlling-qobject-ownership">Controlling QObject Ownership</a> section. However, for polymorphic types that don't inherit from <a href="qobject.html">QObject</a>, and when you can't (or won't) wrap the type in a <a href="qobject.html">QObject</a>, you have to manage the lifetime of the C++ object yourself.</p>
 <p>A behavior that's often reasonable when a Qt Script object wraps a C++ object, is that the C++ object is deleted when the Qt Script object is garbage-collected; this is typically the case when the objects can be constructed by scripts, as opposed to the application providing the scripts with pre-made &quot;environment&quot; objects. A way of making the lifetime of the C++ object follow the lifetime of the Qt Script object is by using a shared pointer class, such as <a href="qsharedpointer.html">QSharedPointer</a>, to hold a pointer to your object; when the Qt Script object containing the <a href="qsharedpointer.html">QSharedPointer</a> is garbage-collected, the underlying C++ object will be deleted if there are no other references to the object.</p>
 <p>The following snippet shows a constructor function that constructs <a href="qxmlstreamreader.html">QXmlStreamReader</a> objects that are stored using <a href="qsharedpointer.html">QSharedPointer</a>:</p>
 <pre class="cpp"> <span class="keyword">typedef</span> <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span><span class="type"><a href="qxmlstreamreader.html">QXmlStreamReader</a></span><span class="operator">&gt;</span> XmlStreamReaderPointer;
@@ -1198,20 +1198,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

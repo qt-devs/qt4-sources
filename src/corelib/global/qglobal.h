@@ -44,19 +44,19 @@
 
 #include <stddef.h>
 
-#define QT_VERSION_STR "4.8.1"
+#define QT_VERSION_STR "4.8.2"
 /*
    QT_VERSION is (major << 16) + (minor << 8) + patch.
 */
-#define QT_VERSION 0x040801
+#define QT_VERSION 0x040802
 /*
    can be used like #if (QT_VERSION >= QT_VERSION_CHECK(4, 4, 0))
 */
 #define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))
 
-#define QT_PACKAGEDATE_STR "2012-03-14"
+#define QT_PACKAGEDATE_STR "2012-04-26"
 
-#define QT_PACKAGE_TAG "1e0021d8d9e374ae3959fcd4eac5d9e7238cbc54"
+#define QT_PACKAGE_TAG "f1a55ad65337bb614c3dd6e723554bded72a28e4"
 
 #if !defined(QT_BUILD_MOC)
 #include <QtCore/qconfig.h>
@@ -1629,7 +1629,8 @@ public:
         SV_SF_3 = 50,
         SV_SF_4 = 60,  // Deprecated
         SV_API_5_3 = 70,
-        SV_API_5_4 = 80
+        SV_API_5_4 = 80,
+        SV_API_5_5 = 90
     };
     static SymbianVersion symbianVersion();
     enum S60Version {
@@ -1641,7 +1642,8 @@ public:
         SV_S60_5_1 = SV_SF_2,  // Deprecated
         SV_S60_5_2 = SV_SF_3,
         SV_S60_5_3 = SV_API_5_3,
-        SV_S60_5_4 = SV_API_5_4
+        SV_S60_5_4 = SV_API_5_4,
+        SV_S60_5_5 = SV_API_5_5
     };
     static S60Version s60Version();
 #endif
@@ -1767,6 +1769,10 @@ Q_CORE_EXPORT_INLINE QDebug qWarning();
 Q_CORE_EXPORT_INLINE QDebug qCritical();
 #else
 inline QNoDebug qDebug();
+#endif
+
+#ifdef QT_NO_WARNING_OUTPUT
+inline QNoDebug qWarning();
 #endif
 
 #define QT_NO_QDEBUG_MACRO while (false) qDebug

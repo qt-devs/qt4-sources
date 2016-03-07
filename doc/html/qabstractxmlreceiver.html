@@ -47,7 +47,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#QAbstractXmlReceiver">QAbstractXmlReceiver</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#dtor.QAbstractXmlReceiver">~QAbstractXmlReceiver</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#atomicValue">atomicValue</a></b> ( const QVariant &amp; <i>value</i> ) = 0</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#attributex">attribute</a></b> ( const QXmlName &amp; <i>name</i>, const QStringRef &amp; <i>value</i> ) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#attribute">attribute</a></b> ( const QXmlName &amp; <i>name</i>, const QStringRef &amp; <i>value</i> ) = 0</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#characters">characters</a></b> ( const QStringRef &amp; <i>value</i> ) = 0</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#comment">comment</a></b> ( const QString &amp; <i>value</i> ) = 0</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractxmlreceiver.html#endDocument">endDocument</a></b> () = 0</td></tr>
@@ -100,7 +100,7 @@
 <ul>
 <li><a href="qabstractxmlreceiver.html#startDocument">startDocument</a>() and <a href="qabstractxmlreceiver.html#endDocument">endDocument</a>() are called for each <i>Document Node</i> in the <i>sequence</i>. <a href="qabstractxmlreceiver.html#endDocument">endDocument</a>() is not called until all the <i>Document Node's</i> children have appeared in the <i>sequence</i>.</li>
 <li><a href="qabstractxmlreceiver.html#startElement">startElement</a>() and <a href="qabstractxmlreceiver.html#endElement">endElement</a>() are called for each <i>Element Node</i>. <a href="qabstractxmlreceiver.html#endElement">endElement</a>() is not called until all the <i>Element Node's</i> children have appeared in the <i>sequence</i>.</li>
-<li><a href="qabstractxmlreceiver.html#attributex">attribute</a>() is called for each <i>Attribute Node</i>.</li>
+<li><a href="qabstractxmlreceiver.html#attribute">attribute</a>() is called for each <i>Attribute Node</i>.</li>
 <li><a href="qabstractxmlreceiver.html#comment">comment</a>() is called for each <i>Comment Node</i>.</li>
 <li><a href="qabstractxmlreceiver.html#characters">characters</a>() is called for each <i>Text Node</i>.</li>
 <li><a href="qabstractxmlreceiver.html#processingInstruction">processingInstruction</a>() is called for each <i>Processing Instruction Node</i>.</li>
@@ -126,7 +126,7 @@
 <p>This callback is called when an atomic value appears in the <a href="qabstractxmlreceiver.html#xquery-sequence">sequence</a>. The <i>value</i> is a simple <a href="qvariant.html">data value</a>. It is guaranteed to be <a href="qvariant.html#isValid">valid</a>.</p>
 <!-- @@@atomicValue -->
 <!-- $$$attribute[overload1]$$$attributeconstQXmlName&constQStringRef& -->
-<h3 class="fn"><a name="attributex"></a><span class="type">void</span> QAbstractXmlReceiver::<span class="name">attribute</span> ( const <span class="type"><a href="qxmlname.html">QXmlName</a></span> &amp; <i>name</i>, const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp; <i>value</i> )<tt> [pure virtual]</tt></h3>
+<h3 class="fn"><a name="attribute"></a><span class="type">void</span> QAbstractXmlReceiver::<span class="name">attribute</span> ( const <span class="type"><a href="qxmlname.html">QXmlName</a></span> &amp; <i>name</i>, const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp; <i>value</i> )<tt> [pure virtual]</tt></h3>
 <p>This callback is called when an attribute node appears in the <a href="qabstractxmlreceiver.html#xquery-sequence">sequence</a>. <i>name</i> is the <a href="qxmlname.html">attribute name</a> and the <i>value</i> string contains the attribute value.</p>
 <!-- @@@attribute -->
 <!-- $$$characters[overload1]$$$charactersconstQStringRef& -->
@@ -179,20 +179,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

@@ -211,12 +211,12 @@
 <pre class="cpp"> <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>();
  button<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(<span class="string">&quot;button&quot;</span>);
  interpreter<span class="operator">-</span><span class="operator">&gt;</span>addTransientObject(button);</pre>
-<p>The code above adds the button to the global namespace under the name &quot;button&quot;. One obvious limitation here is that there is potential for either unnamed <a href="qobject.html">QObject</a>s or objects whose names conflict. Qt Script provides a more flexible way of adding QObjects to the scripting environment.</p>
+<p>The code above adds the button to the global namespace under the name &quot;button&quot;. One obvious limitation here is that there is potential for either unnamed <a href="qobject.html">QObject</a>s or objects whose names conflict. Qt Script provides a more flexible way of adding <a href="qtwebkit-bridge.html#qobjects">QObjects</a> to the scripting environment.</p>
 <pre class="cpp"> <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>();
  <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> scriptButton <span class="operator">=</span> engine<span class="operator">.</span>newQObject(button);
  engine<span class="operator">.</span>globalObject()<span class="operator">.</span>setProperty(<span class="string">&quot;button&quot;</span><span class="operator">,</span> scriptButton);</pre>
 <p>In the code above we create a <a href="qpushbutton.html">QPushButton</a> and wrap it in a script value using the function, <a href="qscriptengine.html#newQObject">QScriptEngine::newQObject</a>(). This gives us a script value that we put into the global object using the name &quot;button&quot;. The concept of objects and properties discussed above is quite visible here in the public C++ API as well. We have no dependency on the object's name and we can also resolve name conflicts more gracefully. Here, we operate directly on <a href="qscriptvalue.html">QScriptValue</a> objects. This is the actual object that is being passed around inside the script engine, so we actually have low-level access to the internal script data structures, far beyond that which is possible in QSA. Properties, signals and slots of the <a href="qobject.html">QObject</a> are accessible to the scripter in Qt Script, just like in QSA.</p>
-<p>The other way to expose <a href="qobject.html">QObject</a>s in QSA was to create a <tt>QSObjectFactory</tt> that made it possible to instantiate QObjects from scripts.</p>
+<p>The other way to expose <a href="qobject.html">QObject</a>s in QSA was to create a <tt>QSObjectFactory</tt> that made it possible to instantiate <a href="qtwebkit-bridge.html#qobjects">QObjects</a> from scripts.</p>
 <p>Below is listed some code from the filter example in the QSA package.</p>
 <pre class="cpp"> ModuleFactory<span class="operator">::</span>ModuleFactory()
  {
@@ -253,11 +253,11 @@
 <p>If we want to add more &quot;static&quot; data to the <a href="qpushbutton.html">QPushButton</a> type in Qt Script, we're free to add properties, similar to how we did for the script. It is also possible to add custom functions to a Qt Script <a href="qpushbutton.html">QPushButton</a> instance by setting more properties on it, such as making the <a href="qabstractbutton.html#text-prop">setText()</a> C++ function available. It is also possible to acheive this by installing a custom prototype, and be memory efficient, as discussed in the script example above.</p>
 <a name="accessing-non-qobjects"></a>
 <h3>Accessing Non-QObjects</h3>
-<p>In QSA, it was possible to expose non-QObjects to QSA by wrapping them in a <a href="qobject.html">QObject</a> and using either <tt>QSWrapperFactory</tt> or <tt>QSObjectFactory</tt> to expose them. Deciding when to use each of these classes could be confusing, as one was used for script based construction and the other for wrapping function parameters and return values, but in essence they did exactly the same thing.</p>
-<p>In Qt Script, providing access to QObjects and non-QObjects is done in the same way as shown above, by creating a constructor function, and by adding properties or a custom prototype to the constructed object.</p>
+<p>In QSA, it was possible to expose non-<a href="qtwebkit-bridge.html#qobjects">QObjects</a> to QSA by wrapping them in a <a href="qobject.html">QObject</a> and using either <tt>QSWrapperFactory</tt> or <tt>QSObjectFactory</tt> to expose them. Deciding when to use each of these classes could be confusing, as one was used for script based construction and the other for wrapping function parameters and return values, but in essence they did exactly the same thing.</p>
+<p>In Qt Script, providing access to <a href="qtwebkit-bridge.html#qobjects">QObjects</a> and non-<a href="qtwebkit-bridge.html#qobjects">QObjects</a> is done in the same way as shown above, by creating a constructor function, and by adding properties or a custom prototype to the constructed object.</p>
 <a name="data-mapping"></a>
 <h3>Data Mapping</h3>
-<p>QSA supported a hardcoded set of type mappings which covered most of the <a href="qvariant.html">QVariant</a> types, QObjects and primitives. For more complex type signatures, such as the template-based tool classes, it had rather limited support. Qt Script is significantly better at type mapping and will convert lists of template types into arrays of the appropriate types, given that all the types are declared to the meta-type system.</p>
+<p>QSA supported a hardcoded set of type mappings which covered most of the <a href="qvariant.html">QVariant</a> types, <a href="qtwebkit-bridge.html#qobjects">QObjects</a> and primitives. For more complex type signatures, such as the template-based tool classes, it had rather limited support. Qt Script is significantly better at type mapping and will convert lists of template types into arrays of the appropriate types, given that all the types are declared to the meta-type system.</p>
 </div>
 <!-- @@@porting-qsa.html -->
   <div class="ft">
@@ -265,20 +265,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

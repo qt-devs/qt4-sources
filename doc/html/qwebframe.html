@@ -284,7 +284,7 @@
 <h3 class="fn"><a name="addToJavaScriptWindowObject"></a><span class="type">void</span> QWebFrame::<span class="name">addToJavaScriptWindowObject</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i>, <span class="type"><a href="qobject.html">QObject</a></span> * <i>object</i> )</h3>
 <p>Make <i>object</i> available under <i>name</i> from within the frame's JavaScript context. The <i>object</i> will be inserted as a child of the frame's window object.</p>
 <p>Qt properties will be exposed as JavaScript properties and slots as JavaScript methods. The interaction between C++ and JavaScript is explained in the documentation of the <a href="qtwebkit-bridge.html">QtWebKit bridge</a>.</p>
-<p>If you want to ensure that your QObjects remain accessible after loading a new URL, you should add them in a slot connected to the <a href="qwebframe.html#javaScriptWindowObjectCleared">javaScriptWindowObjectCleared</a>() signal.</p>
+<p>If you want to ensure that your <a href="qtwebkit-bridge.html#qobjects">QObjects</a> remain accessible after loading a new URL, you should add them in a slot connected to the <a href="qwebframe.html#javaScriptWindowObjectCleared">javaScriptWindowObjectCleared</a>() signal.</p>
 <p>If Javascript is not enabled for this page, then this method does nothing.</p>
 <p>The <i>object</i> will never be explicitly deleted by <a href="qtwebkit.html">QtWebKit</a>.</p>
 <!-- @@@addToJavaScriptWindowObject -->
@@ -293,7 +293,7 @@
 <p>This is an overloaded function.</p>
 <p>Make <i>object</i> available under <i>name</i> from within the frame's JavaScript context. The <i>object</i> will be inserted as a child of the frame's window object.</p>
 <p>Qt properties will be exposed as JavaScript properties and slots as JavaScript methods. The interaction between C++ and JavaScript is explained in the documentation of the <a href="qtwebkit-bridge.html">QtWebKit bridge</a>.</p>
-<p>If you want to ensure that your QObjects remain accessible after loading a new URL, you should add them in a slot connected to the <a href="qwebframe.html#javaScriptWindowObjectCleared">javaScriptWindowObjectCleared</a>() signal.</p>
+<p>If you want to ensure that your <a href="qtwebkit-bridge.html#qobjects">QObjects</a> remain accessible after loading a new URL, you should add them in a slot connected to the <a href="qwebframe.html#javaScriptWindowObjectCleared">javaScriptWindowObjectCleared</a>() signal.</p>
 <p>If Javascript is not enabled for this page, then this method does nothing.</p>
 <p>The ownership of <i>object</i> is specified using <i>own</i>.</p>
 <!-- @@@addToJavaScriptWindowObject -->
@@ -362,7 +362,7 @@
 <!-- $$$javaScriptWindowObjectCleared[overload1]$$$javaScriptWindowObjectCleared -->
 <h3 class="fn"><a name="javaScriptWindowObjectCleared"></a><span class="type">void</span> QWebFrame::<span class="name">javaScriptWindowObjectCleared</span> ()<tt> [signal]</tt></h3>
 <p>This signal is emitted whenever the global window object of the JavaScript environment is cleared, e.g&#x2e;, before starting a new load.</p>
-<p>If you intend to add QObjects to a <a href="qwebframe.html">QWebFrame</a> using <a href="qwebframe.html#addToJavaScriptWindowObject">addToJavaScriptWindowObject</a>(), you should add them in a slot connected to this signal. This ensures that your objects remain accessible when loading new URLs.</p>
+<p>If you intend to add <a href="qtwebkit-bridge.html#qobjects">QObjects</a> to a <a href="qwebframe.html">QWebFrame</a> using <a href="qwebframe.html#addToJavaScriptWindowObject">addToJavaScriptWindowObject</a>(), you should add them in a slot connected to this signal. This ensures that your objects remain accessible when loading new URLs.</p>
 <!-- @@@javaScriptWindowObjectCleared -->
 <!-- $$$load[overload1]$$$loadconstQUrl& -->
 <h3 class="fn"><a name="load"></a><span class="type">void</span> QWebFrame::<span class="name">load</span> ( const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>url</i> )</h3>
@@ -570,20 +570,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

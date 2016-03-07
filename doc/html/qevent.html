@@ -75,7 +75,7 @@
 <p>The QEvent class is the base class of all event classes. Event objects contain event parameters.</p>
 <p>Qt's main event loop (<a href="qcoreapplication.html#exec">QCoreApplication::exec</a>()) fetches native window system events from the event queue, translates them into QEvents, and sends the translated events to <a href="qobject.html">QObject</a>s.</p>
 <p>In general, events come from the underlying window system (<a href="qevent.html#spontaneous">spontaneous</a>() returns true), but it is also possible to manually send events using <a href="qcoreapplication.html#sendEvent">QCoreApplication::sendEvent</a>() and <a href="qcoreapplication.html#postEvent">QCoreApplication::postEvent</a>() (<a href="qevent.html#spontaneous">spontaneous</a>() returns false).</p>
-<p>QObjects receive events by having their <a href="qobject.html#event">QObject::event</a>() function called. The function can be reimplemented in subclasses to customize event handling and add additional event types; <a href="qwidget.html#event">QWidget::event</a>() is a notable example. By default, events are dispatched to event handlers like <a href="qobject.html#timerEvent">QObject::timerEvent</a>() and <a href="qwidget.html#mouseMoveEvent">QWidget::mouseMoveEvent</a>(). <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() allows an object to intercept events destined for another object.</p>
+<p><a href="qtwebkit-bridge.html#qobjects">QObjects</a> receive events by having their <a href="qobject.html#event">QObject::event</a>() function called. The function can be reimplemented in subclasses to customize event handling and add additional event types; <a href="qwidget.html#event">QWidget::event</a>() is a notable example. By default, events are dispatched to event handlers like <a href="qobject.html#timerEvent">QObject::timerEvent</a>() and <a href="qwidget.html#mouseMoveEvent">QWidget::mouseMoveEvent</a>(). <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() allows an object to intercept events destined for another object.</p>
 <p>The basic QEvent contains only an event type parameter and an &quot;accept&quot; flag. The accept flag set with <a href="qevent.html#accept">accept</a>(), and cleared with <a href="qevent.html#ignore">ignore</a>(). It is set by default, but don't rely on this as subclasses may choose to clear it in their constructor.</p>
 <p>Subclasses of QEvent contain additional parameters that describe the particular event.</p>
 </div>
@@ -292,20 +292,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

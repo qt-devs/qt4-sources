@@ -155,11 +155,11 @@
 <h2>Detailed Description</h2>
 <p>The QObject class is the base class of all Qt objects.</p>
 <p>QObject is the heart of the Qt <a href="object.html">Object Model</a>. The central feature in this model is a very powerful mechanism for seamless object communication called <a href="signalsandslots.html#signals-and-slots">signals and slots</a>. You can connect a signal to a slot with <a href="qobject.html#connect">connect</a>() and destroy the connection with <a href="qobject.html#disconnect">disconnect</a>(). To avoid never ending notification loops you can temporarily block signals with <a href="qobject.html#blockSignals">blockSignals</a>(). The protected functions <a href="qobject.html#connectNotify">connectNotify</a>() and <a href="qobject.html#disconnectNotify">disconnectNotify</a>() make it possible to track connections.</p>
-<p>QObjects organize themselves in <a href="objecttrees.html">object trees</a>. When you create a QObject with another object as parent, the object will automatically add itself to the parent's <a href="qobject.html#children">children</a>() list. The parent takes ownership of the object; i.e&#x2e;, it will automatically delete its children in its destructor. You can look for an object by name and optionally type using <a href="qobject.html#findChild">findChild</a>() or <a href="qobject.html#findChildren">findChildren</a>().</p>
+<p><a href="qtwebkit-bridge.html#qobjects">QObjects</a> organize themselves in <a href="objecttrees.html">object trees</a>. When you create a QObject with another object as parent, the object will automatically add itself to the parent's <a href="qobject.html#children">children</a>() list. The parent takes ownership of the object; i.e&#x2e;, it will automatically delete its children in its destructor. You can look for an object by name and optionally type using <a href="qobject.html#findChild">findChild</a>() or <a href="qobject.html#findChildren">findChildren</a>().</p>
 <p>Every object has an <a href="qobject.html#objectName-prop">objectName</a>() and its class name can be found via the corresponding <a href="qobject.html#metaObject">metaObject</a>() (see <a href="qmetaobject.html#className">QMetaObject::className</a>()). You can determine whether the object's class inherits another class in the QObject inheritance hierarchy by using the <a href="qobject.html#inherits">inherits</a>() function.</p>
-<p>When an object is deleted, it emits a <a href="qobject.html#destroyed">destroyed</a>() signal. You can catch this signal to avoid dangling references to QObjects.</p>
-<p>QObjects can receive events through <a href="qobject.html#event">event</a>() and filter the events of other objects. See <a href="qobject.html#installEventFilter">installEventFilter</a>() and <a href="qobject.html#eventFilter">eventFilter</a>() for details. A convenience handler, <a href="qobject.html#childEvent">childEvent</a>(), can be reimplemented to catch child events.</p>
-<p>Events are delivered in the thread in which the object was created; see <a href="threads.html">Thread Support in Qt</a> and <a href="qobject.html#thread">thread</a>() for details. Note that event processing is not done at all for QObjects with no thread affinity (<a href="qobject.html#thread">thread</a>() returns zero). Use the <a href="qobject.html#moveToThread">moveToThread</a>() function to change the thread affinity for an object and its children (the object cannot be moved if it has a parent).</p>
+<p>When an object is deleted, it emits a <a href="qobject.html#destroyed">destroyed</a>() signal. You can catch this signal to avoid dangling references to <a href="qtwebkit-bridge.html#qobjects">QObjects</a>.</p>
+<p><a href="qtwebkit-bridge.html#qobjects">QObjects</a> can receive events through <a href="qobject.html#event">event</a>() and filter the events of other objects. See <a href="qobject.html#installEventFilter">installEventFilter</a>() and <a href="qobject.html#eventFilter">eventFilter</a>() for details. A convenience handler, <a href="qobject.html#childEvent">childEvent</a>(), can be reimplemented to catch child events.</p>
+<p>Events are delivered in the thread in which the object was created; see <a href="threads.html">Thread Support in Qt</a> and <a href="qobject.html#thread">thread</a>() for details. Note that event processing is not done at all for <a href="qtwebkit-bridge.html#qobjects">QObjects</a> with no thread affinity (<a href="qobject.html#thread">thread</a>() returns zero). Use the <a href="qobject.html#moveToThread">moveToThread</a>() function to change the thread affinity for an object and its children (the object cannot be moved if it has a parent).</p>
 <p>Last but not least, QObject provides the basic timer support in Qt; see <a href="qtimer.html">QTimer</a> for high-level support for timers.</p>
 <p>Notice that the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro is mandatory for any object that implements signals, slots or properties. You also need to run the <a href="moc.html#moc">Meta Object Compiler</a> on the source file. We strongly recommend the use of this macro in all subclasses of QObject regardless of whether or not they actually use signals, slots and properties, since failure to do so may lead certain functions to exhibit strange behavior.</p>
 <p>All Qt widgets inherit QObject. The convenience function <a href="qobject.html#isWidgetType">isWidgetType</a>() returns whether an object is actually a widget. It is much faster than <a href="qobject.html#qobject_cast">qobject_cast</a>&lt;<a href="qwidget.html">QWidget</a> *&gt;(<i>obj</i>) or <i>obj</i>-&gt;<a href="qobject.html#inherits">inherits</a>(&quot;<a href="qwidget.html">QWidget</a>&quot;).</p>
@@ -962,20 +962,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

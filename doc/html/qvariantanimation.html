@@ -141,7 +141,7 @@
 <p>QVariantAnimation cannot be used directly as it is an abstract class; it has a pure virtual method called <a href="qvariantanimation.html#updateCurrentValue">updateCurrentValue</a>(). The class performs interpolation over <a href="qvariant.html">QVariant</a>s, but leaves using the interpolated values to its subclasses. Currently, Qt provides <a href="qpropertyanimation.html">QPropertyAnimation</a>, which animates Qt <a href="properties.html#qt-s-property-system">properties</a>. See the <a href="qpropertyanimation.html">QPropertyAnimation</a> class description if you wish to animate such properties.</p>
 <p>You can then set start and end values for the property by calling <a href="qvariantanimation.html#startValue-prop">setStartValue</a>() and <a href="qvariantanimation.html#endValue-prop">setEndValue</a>(), and finally call <a href="qabstractanimation.html#start">start</a>() to start the animation. QVariantAnimation will interpolate the property of the target object and emit <a href="qvariantanimation.html#valueChanged">valueChanged</a>(). To react to a change in the current value you have to reimplement the <a href="qvariantanimation.html#updateCurrentValue">updateCurrentValue</a>() virtual function.</p>
 <p>It is also possible to set values at specified steps situated between the start and end value. The interpolation will then touch these points at the specified steps. Note that the start and end values are defined as the key values at 0.0 and 1.0&#x2e;</p>
-<p>There are two ways to affect how QVariantAnimation interpolates the values. You can set an easing curve by calling <a href="qvariantanimation.html#easingCurve-prop">setEasingCurve</a>(), and configure the duration by calling <a href="qvariantanimation.html#duration-prop">setDuration</a>(). You can change how the QVariants are interpolated by creating a subclass of QVariantAnimation, and reimplementing the virtual <a href="qvariantanimation.html#interpolated">interpolated</a>() function.</p>
+<p>There are two ways to affect how QVariantAnimation interpolates the values. You can set an easing curve by calling <a href="qvariantanimation.html#easingCurve-prop">setEasingCurve</a>(), and configure the duration by calling <a href="qvariantanimation.html#duration-prop">setDuration</a>(). You can change how the <a href="qtwebkit-bridge.html#qvariants">QVariants</a> are interpolated by creating a subclass of QVariantAnimation, and reimplementing the virtual <a href="qvariantanimation.html#interpolated">interpolated</a>() function.</p>
 <p>Subclassing QVariantAnimation can be an alternative if you have <a href="qvariant.html">QVariant</a>s that you do not wish to declare as Qt properties. Note, however, that you in most cases will be better off declaring your <a href="qvariant.html">QVariant</a> as a property.</p>
 <p>Not all <a href="qvariant.html">QVariant</a> types are supported. Below is a list of currently supported <a href="qvariant.html">QVariant</a> types:</p>
 <ul>
@@ -318,20 +318,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

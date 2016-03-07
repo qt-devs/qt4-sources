@@ -43,6 +43,7 @@
 <li class="level3"><a href="#accessing-the-windows-registry-directly">Accessing the Windows Registry Directly</a></li>
 <li class="level3"><a href="#accessing-common-registry-settings-on-windows">Accessing Common Registry Settings on Windows</a></li>
 <li class="level3"><a href="#securing-application-settings-in-symbian">Securing application settings in Symbian</a></li>
+<li class="level3"><a href="#changing-the-location-of-global-qt-settings-on-mac-os-x">Changing the location of global Qt settings on Mac OS X</a></li>
 <li class="level3"><a href="#platform-limitations">Platform Limitations</a></li>
 </ul>
 </div>
@@ -368,6 +369,15 @@
      <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
  }</pre>
 <p>Note that this may affect framework libraries' functionality if they expect the settings to be shared between applications.</p>
+<a name="changing-the-location-of-global-qt-settings-on-mac-os-x"></a>
+<h4>Changing the location of global Qt settings on Mac OS X</h4>
+<p>On Mac OS X, the global Qt settings (stored in <tt>com.trolltech.plist</tt>) are stored in the application settings file in two situations:</p>
+<ol class="1">
+<li>If the application runs in a Mac OS X sandbox (on Mac OS X 10.7 or later) or</li>
+<li>If the <tt>Info.plist</tt> file of the application contains the key <tt>&quot;ForAppStore&quot;</tt> with the value <tt>&quot;yes&quot;</tt></li>
+</ol>
+<p>In these situations, the application settings file is named using the bundle identifier of the application, which must consequently be set in the application's <tt>Info.plist</tt> file.</p>
+<p>This feature is provided to ease the acceptance of Qt applications into the Mac App Store, as the default behaviour of storing global Qt settings in the <tt>com.trolltech.plist</tt> file does not conform with Mac App Store file system usage requirements. For more information about submitting Qt applications to the Mac App Store, see <a href="mac-differences.html#preparing-a-qt-application-for-mac-app-store-submission">Preparing a Qt application for Mac App Store submission</a>.</p>
 <a name="platform-limitations"></a>
 <h4>Platform Limitations</h4>
 <p>While QSettings attempts to smooth over the differences between the different supported platforms, there are still a few differences that you should be aware of when porting your application:</p>
@@ -894,20 +904,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

@@ -44,7 +44,7 @@
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdomelement.html#QDomElement">QDomElement</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdomelement.html#QDomElement-2">QDomElement</a></b> ( const QDomElement &amp; <i>x</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdomelement.html#attributex">attribute</a></b> ( const QString &amp; <i>name</i>, const QString &amp; <i>defValue</i> = QString() ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdomelement.html#attribute">attribute</a></b> ( const QString &amp; <i>name</i>, const QString &amp; <i>defValue</i> = QString() ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdomelement.html#attributeNS">attributeNS</a></b> ( const QString <i>nsURI</i>, const QString &amp; <i>localName</i>, const QString &amp; <i>defValue</i> = QString() ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QDomAttr </td><td class="memItemRight bottomAlign"><b><a href="qdomelement.html#attributeNode">attributeNode</a></b> ( const QString &amp; <i>name</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QDomAttr </td><td class="memItemRight bottomAlign"><b><a href="qdomelement.html#attributeNodeNS">attributeNodeNS</a></b> ( const QString &amp; <i>nsURI</i>, const QString &amp; <i>localName</i> )</td></tr>
@@ -86,7 +86,7 @@
 <h2>Detailed Description</h2>
 <p>The QDomElement class represents one element in the DOM tree.</p>
 <p>Elements have a <a href="qdomelement.html#tagName">tagName</a>() and zero or more attributes associated with them. The tag name can be changed with <a href="qdomelement.html#setTagName">setTagName</a>().</p>
-<p>Element attributes are represented by <a href="qdomattr.html">QDomAttr</a> objects that can be queried using the <a href="qdomelement.html#attributex">attribute</a>() and <a href="qdomelement.html#attributeNode">attributeNode</a>() functions. You can set attributes with the <a href="qdomelement.html#setAttribute">setAttribute</a>() and <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>() functions. Attributes can be removed with <a href="qdomelement.html#removeAttribute">removeAttribute</a>(). There are namespace-aware equivalents to these functions, i.e&#x2e; <a href="qdomelement.html#setAttributeNS">setAttributeNS</a>(), <a href="qdomelement.html#setAttributeNodeNS">setAttributeNodeNS</a>() and <a href="qdomelement.html#removeAttributeNS">removeAttributeNS</a>().</p>
+<p>Element attributes are represented by <a href="qdomattr.html">QDomAttr</a> objects that can be queried using the <a href="qdomelement.html#attribute">attribute</a>() and <a href="qdomelement.html#attributeNode">attributeNode</a>() functions. You can set attributes with the <a href="qdomelement.html#setAttribute">setAttribute</a>() and <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>() functions. Attributes can be removed with <a href="qdomelement.html#removeAttribute">removeAttribute</a>(). There are namespace-aware equivalents to these functions, i.e&#x2e; <a href="qdomelement.html#setAttributeNS">setAttributeNS</a>(), <a href="qdomelement.html#setAttributeNodeNS">setAttributeNodeNS</a>() and <a href="qdomelement.html#removeAttributeNS">removeAttributeNS</a>().</p>
 <p>If you want to access the text of a node use <a href="qdomelement.html#text">text</a>(), e.g&#x2e;</p>
 <pre class="cpp"> <span class="type">QDomElement</span> e <span class="operator">=</span> <span class="comment">//...</span>
  <span class="comment">//...</span>
@@ -124,29 +124,29 @@
 <p>The data of the copy is shared (shallow copy): modifying one node will also change the other. If you want to make a deep copy, use <a href="qdomnode.html#cloneNode">cloneNode</a>().</p>
 <!-- @@@QDomElement -->
 <!-- $$$attribute[overload1]$$$attributeconstQString&constQString& -->
-<h3 class="fn"><a name="attributex"></a><span class="type"><a href="qstring.html">QString</a></span> QDomElement::<span class="name">attribute</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>defValue</i> = QString() ) const</h3>
+<h3 class="fn"><a name="attribute"></a><span class="type"><a href="qstring.html">QString</a></span> QDomElement::<span class="name">attribute</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>defValue</i> = QString() ) const</h3>
 <p>Returns the attribute called <i>name</i>. If the attribute does not exist <i>defValue</i> is returned.</p>
 <p><b>See also </b><a href="qdomelement.html#setAttribute">setAttribute</a>(), <a href="qdomelement.html#attributeNode">attributeNode</a>(), <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>(), and <a href="qdomelement.html#attributeNS">attributeNS</a>().</p>
 <!-- @@@attribute -->
 <!-- $$$attributeNS[overload1]$$$attributeNSconstQStringconstQString&constQString& -->
 <h3 class="fn"><a name="attributeNS"></a><span class="type"><a href="qstring.html">QString</a></span> QDomElement::<span class="name">attributeNS</span> ( const <span class="type"><a href="qstring.html">QString</a></span> <i>nsURI</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>localName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>defValue</i> = QString() ) const</h3>
 <p>Returns the attribute with the local name <i>localName</i> and the namespace URI <i>nsURI</i>. If the attribute does not exist <i>defValue</i> is returned.</p>
-<p><b>See also </b><a href="qdomelement.html#setAttributeNS">setAttributeNS</a>(), <a href="qdomelement.html#attributeNodeNS">attributeNodeNS</a>(), <a href="qdomelement.html#setAttributeNodeNS">setAttributeNodeNS</a>(), and <a href="qdomelement.html#attributex">attribute</a>().</p>
+<p><b>See also </b><a href="qdomelement.html#setAttributeNS">setAttributeNS</a>(), <a href="qdomelement.html#attributeNodeNS">attributeNodeNS</a>(), <a href="qdomelement.html#setAttributeNodeNS">setAttributeNodeNS</a>(), and <a href="qdomelement.html#attribute">attribute</a>().</p>
 <!-- @@@attributeNS -->
 <!-- $$$attributeNode[overload1]$$$attributeNodeconstQString& -->
 <h3 class="fn"><a name="attributeNode"></a><span class="type"><a href="qdomattr.html">QDomAttr</a></span> QDomElement::<span class="name">attributeNode</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i> )</h3>
 <p>Returns the <a href="qdomattr.html">QDomAttr</a> object that corresponds to the attribute called <i>name</i>. If no such attribute exists a <a href="qdomnode.html#isNull">null attribute</a> is returned.</p>
-<p><b>See also </b><a href="qdomelement.html#setAttributeNode">setAttributeNode</a>(), <a href="qdomelement.html#attributex">attribute</a>(), <a href="qdomelement.html#setAttribute">setAttribute</a>(), and <a href="qdomelement.html#attributeNodeNS">attributeNodeNS</a>().</p>
+<p><b>See also </b><a href="qdomelement.html#setAttributeNode">setAttributeNode</a>(), <a href="qdomelement.html#attribute">attribute</a>(), <a href="qdomelement.html#setAttribute">setAttribute</a>(), and <a href="qdomelement.html#attributeNodeNS">attributeNodeNS</a>().</p>
 <!-- @@@attributeNode -->
 <!-- $$$attributeNodeNS[overload1]$$$attributeNodeNSconstQString&constQString& -->
 <h3 class="fn"><a name="attributeNodeNS"></a><span class="type"><a href="qdomattr.html">QDomAttr</a></span> QDomElement::<span class="name">attributeNodeNS</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>nsURI</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>localName</i> )</h3>
 <p>Returns the <a href="qdomattr.html">QDomAttr</a> object that corresponds to the attribute with the local name <i>localName</i> and the namespace URI <i>nsURI</i>. If no such attribute exists a <a href="qdomnode.html#isNull">null attribute</a> is returned.</p>
-<p><b>See also </b><a href="qdomelement.html#setAttributeNodeNS">setAttributeNodeNS</a>(), <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>(), <a href="qdomelement.html#attributex">attribute</a>(), and <a href="qdomelement.html#setAttribute">setAttribute</a>().</p>
+<p><b>See also </b><a href="qdomelement.html#setAttributeNodeNS">setAttributeNodeNS</a>(), <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>(), <a href="qdomelement.html#attribute">attribute</a>(), and <a href="qdomelement.html#setAttribute">setAttribute</a>().</p>
 <!-- @@@attributeNodeNS -->
 <!-- $$$attributes[overload1]$$$attributes -->
 <h3 class="fn"><a name="attributes"></a><span class="type"><a href="qdomnamednodemap.html">QDomNamedNodeMap</a></span> QDomElement::<span class="name">attributes</span> () const</h3>
 <p>Returns a <a href="qdomnamednodemap.html">QDomNamedNodeMap</a> containing all this element's attributes.</p>
-<p><b>See also </b><a href="qdomelement.html#attributex">attribute</a>(), <a href="qdomelement.html#setAttribute">setAttribute</a>(), <a href="qdomelement.html#attributeNode">attributeNode</a>(), and <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>().</p>
+<p><b>See also </b><a href="qdomelement.html#attribute">attribute</a>(), <a href="qdomelement.html#setAttribute">setAttribute</a>(), <a href="qdomelement.html#attributeNode">attributeNode</a>(), and <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>().</p>
 <!-- @@@attributes -->
 <!-- $$$elementsByTagName[overload1]$$$elementsByTagNameconstQString& -->
 <h3 class="fn"><a name="elementsByTagName"></a><span class="type"><a href="qdomnodelist.html">QDomNodeList</a></span> QDomElement::<span class="name">elementsByTagName</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>tagname</i> ) const</h3>
@@ -175,7 +175,7 @@
 <!-- $$$removeAttribute[overload1]$$$removeAttributeconstQString& -->
 <h3 class="fn"><a name="removeAttribute"></a><span class="type">void</span> QDomElement::<span class="name">removeAttribute</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i> )</h3>
 <p>Removes the attribute called name <i>name</i> from this element.</p>
-<p><b>See also </b><a href="qdomelement.html#setAttribute">setAttribute</a>(), <a href="qdomelement.html#attributex">attribute</a>(), and <a href="qdomelement.html#removeAttributeNS">removeAttributeNS</a>().</p>
+<p><b>See also </b><a href="qdomelement.html#setAttribute">setAttribute</a>(), <a href="qdomelement.html#attribute">attribute</a>(), and <a href="qdomelement.html#removeAttributeNS">removeAttributeNS</a>().</p>
 <!-- @@@removeAttribute -->
 <!-- $$$removeAttributeNS[overload1]$$$removeAttributeNSconstQString&constQString& -->
 <h3 class="fn"><a name="removeAttributeNS"></a><span class="type">void</span> QDomElement::<span class="name">removeAttributeNS</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>nsURI</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>localName</i> )</h3>
@@ -190,7 +190,7 @@
 <!-- $$$setAttribute[overload1]$$$setAttributeconstQString&constQString& -->
 <h3 class="fn"><a name="setAttribute"></a><span class="type">void</span> QDomElement::<span class="name">setAttribute</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>value</i> )</h3>
 <p>Adds an attribute called <i>name</i> with value <i>value</i>. If an attribute with the same name exists, its value is replaced by <i>value</i>.</p>
-<p><b>See also </b><a href="qdomelement.html#attributex">attribute</a>(), <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>(), and <a href="qdomelement.html#setAttributeNS">setAttributeNS</a>().</p>
+<p><b>See also </b><a href="qdomelement.html#attribute">attribute</a>(), <a href="qdomelement.html#setAttributeNode">setAttributeNode</a>(), and <a href="qdomelement.html#setAttributeNS">setAttributeNS</a>().</p>
 <!-- @@@setAttribute -->
 <!-- $$$setAttribute$$$setAttributeconstQString&int -->
 <h3 class="fn"><a name="setAttribute-2"></a><span class="type">void</span> QDomElement::<span class="name">setAttribute</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>name</i>, <span class="type">int</span> <i>value</i> )</h3>
@@ -292,20 +292,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

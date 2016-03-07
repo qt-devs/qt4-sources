@@ -99,7 +99,7 @@
 <p>The communication between clients and the server is initiated when <a href="qaccessible.html#setRootObject">setRootObject()</a> is called. This is done when the <a href="qapplication.html">QApplication</a> instance is instantiated and you should not have to do this yourself.</p>
 <p>When a <a href="qobject.html">QObject</a> calls <a href="qaccessible.html#updateAccessibility">updateAccessibility()</a>, clients that are listening to events are notified of the change. The function is used to post events to the assistive technology, and accessible <a href="qaccessible.html#Event-enum">events</a> are posted by <a href="qaccessible.html#updateAccessibility">updateAccessibility()</a>.</p>
 <p><a href="qaccessible.html#queryAccessibleInterface">queryAccessibleInterface()</a> returns accessible interfaces for <a href="qobject.html">QObject</a>s. All widgets in Qt provide interfaces; if you need interfaces to control the behavior of other <a href="qobject.html">QObject</a> subclasses, you must implement the interfaces yourself, although the <a href="qaccessibleobject.html">QAccessibleObject</a> convenience class implements parts of the functionality for you.</p>
-<p>The factory that produces accessibility interfaces for QObjects is a function of type <a href="qaccessible.html#InterfaceFactory-typedef">QAccessible::InterfaceFactory</a>. It is possible to have several factories installed. The last factory installed will be the first to be asked for interfaces. <a href="qaccessible.html#queryAccessibleInterface">queryAccessibleInterface()</a> uses the factories to create interfaces for <a href="qobject.html">QObject</a>s. Normally, you need not be concerned about factories because you can implement plugins that produce interfaces. We will give examples of both approaches later.</p>
+<p>The factory that produces accessibility interfaces for <a href="qtwebkit-bridge.html#qobjects">QObjects</a> is a function of type <a href="qaccessible.html#InterfaceFactory-typedef">QAccessible::InterfaceFactory</a>. It is possible to have several factories installed. The last factory installed will be the first to be asked for interfaces. <a href="qaccessible.html#queryAccessibleInterface">queryAccessibleInterface()</a> uses the factories to create interfaces for <a href="qobject.html">QObject</a>s. Normally, you need not be concerned about factories because you can implement plugins that produce interfaces. We will give examples of both approaches later.</p>
 <a name="enabling-accessibility-support"></a>
 <h3>Enabling Accessibility Support</h3>
 <p>By default, Qt applications are run with accessibility support enabled on Windows and Mac OS X. On Unix/X11 platforms, applications must be launched in an environment with the <tt>QT_ACCESSIBILITY</tt> variable set to 1. For example, this is set in the following way with the bash shell:</p>
@@ -119,7 +119,7 @@
 <p>It is possible to implement interfaces by inheriting <a href="qaccessibleinterface.html">QAccessibleInterface</a> and implementing its pure virtual functions. In practice, however, it is usually preferable to inherit <a href="qaccessibleobject.html">QAccessibleObject</a> or <a href="qaccessiblewidget.html">QAccessibleWidget</a>, which implement part of the functionality for you. In the next section, we will see an example of implementing accessibility for a widget by inheriting the <a href="qaccessiblewidget.html">QAccessibleWidget</a> class.</p>
 <a name="the-qaccessibleobject-and-qaccessiblewidget-convenience-classes"></a>
 <h3>The QAccessibleObject and QAccessibleWidget Convenience Classes</h3>
-<p>When implementing an accessibility interface for widgets, one would as a rule inherit <a href="qaccessiblewidget.html">QAccessibleWidget</a>, which is a convenience class for widgets. Another available convenience class, which is inherited by <a href="qaccessiblewidget.html">QAccessibleWidget</a>, is the <a href="qaccessibleobject.html">QAccessibleObject</a>, which implements part of the interface for QObjects.</p>
+<p>When implementing an accessibility interface for widgets, one would as a rule inherit <a href="qaccessiblewidget.html">QAccessibleWidget</a>, which is a convenience class for widgets. Another available convenience class, which is inherited by <a href="qaccessiblewidget.html">QAccessibleWidget</a>, is the <a href="qaccessibleobject.html">QAccessibleObject</a>, which implements part of the interface for <a href="qtwebkit-bridge.html#qobjects">QObjects</a>.</p>
 <p>The <a href="qaccessiblewidget.html">QAccessibleWidget</a> provides the following functionality:</p>
 <ul>
 <li>It handles the navigation of the tree and hit testing of the objects.</li>
@@ -313,20 +313,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

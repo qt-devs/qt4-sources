@@ -244,7 +244,7 @@
      Q_ASSERT(<span class="operator">!</span>objects<span class="operator">.</span>contains(<span class="number">0</span>));
      <span class="keyword">return</span> objects;
  }</pre>
-<p>The first half of the function is an example of the standard code pattern for using <a href="qtxmlpatterns.html">QtXmlPatterns</a> to run an <a href="xmlprocessing.html">XQuery</a>. First it creates an instance of <a href="qxmlquery.html">QXmlQuery</a>. Then it <a href="qxmlquery.html#bindVariable">binds</a> the <a href="xmlprocessing.html">XQuery</a> variable <tt>$root</tt> to the root node of the of the node model; i.e&#x2e;, the root of the <a href="qobject.html">QObject</a> tree. Then it <a href="qxmlquery.html#setQuery">sets the query</a> to be an <a href="xmlprocessing.html">XQuery</a> that returns all the QObjects in the node model. Finally, the query is evaluated into a <a href="qxmlresultitems.html">result item list</a>.</p>
+<p>The first half of the function is an example of the standard code pattern for using <a href="qtxmlpatterns.html">QtXmlPatterns</a> to run an <a href="xmlprocessing.html">XQuery</a>. First it creates an instance of <a href="qxmlquery.html">QXmlQuery</a>. Then it <a href="qxmlquery.html#bindVariable">binds</a> the <a href="xmlprocessing.html">XQuery</a> variable <tt>$root</tt> to the root node of the of the node model; i.e&#x2e;, the root of the <a href="qobject.html">QObject</a> tree. Then it <a href="qxmlquery.html#setQuery">sets the query</a> to be an <a href="xmlprocessing.html">XQuery</a> that returns all the <a href="qtwebkit-bridge.html#qobjects">QObjects</a> in the node model. Finally, the query is evaluated into a <a href="qxmlresultitems.html">result item list</a>.</p>
 <p><b>Note:</b> <a href="qxmlquery.html#bindVariable">QXmlQuery::bindVariable</a>() must be called before <a href="qxmlquery.html#setQuery">QXmlQuery::setQuery</a>(), because setting the query causes <a href="qtxmlpatterns.html">QtXmlPatterns</a> to <i>compile</i> the <a href="xmlprocessing.html">XQuery</a>, which requires knowledge of the variable bindings.</p>
 <p>The second half of the function traverses the <a href="qxmlresultitems.html">result item list</a>, getting the <a href="qmetaobject.html">QMetaObject</a> hierarchy for each <a href="qobject.html">QObject</a> and appending it to <a href="#all-metaobjects">m_allMetaObjects</a>, if it isn't already there. But how do we include this vector of pointers to QMetaObjects in the node model? The key insight is shown in the full listing of <a href="#full-listing-of-nextfromsimpleaxis">nextFromSimpleAxis()</a>, where we are interested now in the <tt>MetaObjectXXX</tt> cases:</p>
 <a name="full-listing-of-nextfromsimpleaxis"></a><pre class="cpp"> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="type">QObjectXmlModel</span><span class="operator">::</span>nextFromSimpleAxis(SimpleAxis axis<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>n) <span class="keyword">const</span>
@@ -365,20 +365,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

@@ -153,8 +153,8 @@
 <tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qvariant.html#QVariantList-typedef">QVariantList</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qvariant.html#QVariantMap-typedef">QVariantMap</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qvariant.html#qvariant_cast">qvariant_cast</a></b> ( const QVariant &amp; <i>value</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvariant.html#operator-not-eq">operator!=</a></b> ( const QVariant &amp; <i>v1</i>, const QVariant &amp; <i>v2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvariant.html#operator-eq-eq">operator==</a></b> ( const QVariant &amp; <i>v1</i>, const QVariant &amp; <i>v2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvariant.html#operator-not-eq-22">operator!=</a></b> ( const QVariant &amp; <i>v1</i>, const QVariant &amp; <i>v2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvariant.html#operator-eq-eq-38">operator==</a></b> ( const QVariant &amp; <i>v1</i>, const QVariant &amp; <i>v2</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QVariant-description -->
@@ -392,11 +392,11 @@
 <!-- @@@QVariant -->
 <!-- $$$QVariant$$$QVariantconstQMap<QString,QVariant>& -->
 <h3 class="fn"><a name="QVariant-25"></a>QVariant::<span class="name">QVariant</span> ( const <span class="type"><a href="qmap.html">QMap</a></span>&lt;<span class="type"><a href="qstring.html">QString</a></span>, <span class="type">QVariant</span>&gt; &amp; <i>val</i> )</h3>
-<p>Constructs a new variant with a map of QVariants, <i>val</i>.</p>
+<p>Constructs a new variant with a map of <a href="qtwebkit-bridge.html#qvariants">QVariants</a>, <i>val</i>.</p>
 <!-- @@@QVariant -->
 <!-- $$$QVariant$$$QVariantconstQHash<QString,QVariant>& -->
 <h3 class="fn"><a name="QVariant-26"></a>QVariant::<span class="name">QVariant</span> ( const <span class="type"><a href="qhash.html">QHash</a></span>&lt;<span class="type"><a href="qstring.html">QString</a></span>, <span class="type">QVariant</span>&gt; &amp; <i>val</i> )</h3>
-<p>Constructs a new variant with a hash of QVariants, <i>val</i>.</p>
+<p>Constructs a new variant with a hash of <a href="qtwebkit-bridge.html#qvariants">QVariants</a>, <i>val</i>.</p>
 <!-- @@@QVariant -->
 <!-- $$$QVariant$$$QVariantconstQSize& -->
 <h3 class="fn"><a name="QVariant-27"></a>QVariant::<span class="name">QVariant</span> ( const <span class="type"><a href="qsize.html">QSize</a></span> &amp; <i>val</i> )</h3>
@@ -785,13 +785,13 @@
 <p>This function is equivalent to <a href="qvariant.html#value">QVariant::value</a>().</p>
 <p><b>See also </b><a href="qvariant.html#value">QVariant::value</a>().</p>
 <!-- @@@qvariant_cast -->
-<!-- $$$operator!=[overload1]$$$operator!=constQVariant&constQVariant& -->
-<h3 class="fn"><a name="operator-not-eq"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type">QVariant</span> &amp; <i>v1</i>, const <span class="type">QVariant</span> &amp; <i>v2</i> )</h3>
+<!-- $$$operator!=$$$operator!=constQVariant&constQVariant& -->
+<h3 class="fn"><a name="operator-not-eq-22"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type">QVariant</span> &amp; <i>v1</i>, const <span class="type">QVariant</span> &amp; <i>v2</i> )</h3>
 <p>Returns false if <i>v1</i> and <i>v2</i> are equal; otherwise returns true.</p>
 <p><b>Warning:</b> This function doesn't support custom types registered with <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>().</p>
 <!-- @@@operator!= -->
-<!-- $$$operator==[overload1]$$$operator==constQVariant&constQVariant& -->
-<h3 class="fn"><a name="operator-eq-eq"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type">QVariant</span> &amp; <i>v1</i>, const <span class="type">QVariant</span> &amp; <i>v2</i> )</h3>
+<!-- $$$operator==$$$operator==constQVariant&constQVariant& -->
+<h3 class="fn"><a name="operator-eq-eq-38"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type">QVariant</span> &amp; <i>v1</i>, const <span class="type">QVariant</span> &amp; <i>v2</i> )</h3>
 <p>Returns true if <i>v1</i> and <i>v2</i> are equal; otherwise returns false.</p>
 <p><b>Warning:</b> This function doesn't support custom types registered with <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>().</p>
 <!-- @@@operator== -->
@@ -801,20 +801,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

@@ -55,7 +55,7 @@
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#dtor.QNetworkReply">~QNetworkReply</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#abort">abort</a></b> () = 0</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#attributex">attribute</a></b> ( QNetworkRequest::Attribute <i>code</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#attribute">attribute</a></b> ( QNetworkRequest::Attribute <i>code</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> NetworkError </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#error">error</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#hasRawHeader">hasRawHeader</a></b> ( const QByteArray &amp; <i>headerName</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#header">header</a></b> ( QNetworkRequest::KnownHeaders <i>header</i> ) const</td></tr>
@@ -196,7 +196,7 @@
 <p><b>See also </b><a href="qnetworkreply.html#close">close</a>().</p>
 <!-- @@@abort -->
 <!-- $$$attribute[overload1]$$$attributeQNetworkRequest::Attribute -->
-<h3 class="fn"><a name="attributex"></a><span class="type"><a href="qvariant.html">QVariant</a></span> QNetworkReply::<span class="name">attribute</span> ( <span class="type"><a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a></span> <i>code</i> ) const</h3>
+<h3 class="fn"><a name="attribute"></a><span class="type"><a href="qvariant.html">QVariant</a></span> QNetworkReply::<span class="name">attribute</span> ( <span class="type"><a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a></span> <i>code</i> ) const</h3>
 <p>Returns the attribute associated with the code <i>code</i>. If the attribute has not been set, it returns an invalid <a href="qvariant.html">QVariant</a> (type QVariant::Null).</p>
 <p>You can expect the default values listed in <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a> to be applied to the values returned by this function.</p>
 <p><b>See also </b><a href="qnetworkreply.html#setAttribute">setAttribute</a>() and <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a>.</p>
@@ -323,7 +323,7 @@
 <!-- $$$setAttribute[overload1]$$$setAttributeQNetworkRequest::AttributeconstQVariant& -->
 <h3 class="fn"><a name="setAttribute"></a><span class="type">void</span> QNetworkReply::<span class="name">setAttribute</span> ( <span class="type"><a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a></span> <i>code</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>value</i> )<tt> [protected]</tt></h3>
 <p>Sets the attribute <i>code</i> to have value <i>value</i>. If <i>code</i> was previously set, it will be overridden. If <i>value</i> is an invalid <a href="qvariant.html">QVariant</a>, the attribute will be unset.</p>
-<p><b>See also </b><a href="qnetworkreply.html#attributex">attribute</a>() and <a href="qnetworkrequest.html#setAttribute">QNetworkRequest::setAttribute</a>().</p>
+<p><b>See also </b><a href="qnetworkreply.html#attribute">attribute</a>() and <a href="qnetworkrequest.html#setAttribute">QNetworkRequest::setAttribute</a>().</p>
 <!-- @@@setAttribute -->
 <!-- $$$setError[overload1]$$$setErrorNetworkErrorconstQString& -->
 <h3 class="fn"><a name="setError"></a><span class="type">void</span> QNetworkReply::<span class="name">setError</span> ( <span class="type"><a href="qnetworkreply.html#NetworkError-enum">NetworkError</a></span> <i>errorCode</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>errorString</i> )<tt> [protected]</tt></h3>
@@ -409,20 +409,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

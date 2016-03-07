@@ -104,7 +104,7 @@
 <ul>
 <li><a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>(cond), where <tt>cond</tt> is a boolean expression, writes the warning &quot;ASSERT: '<i>cond</i>' in file xyz.cpp, line 234&quot; and exits if <tt>cond</tt> is false.</li>
 <li><a href="qtglobal.html#Q_ASSERT_X">Q_ASSERT_X</a>(cond, where, what), where <tt>cond</tt> is a boolean expression, <tt>where</tt> a location, and <tt>what</tt> a message, writes the warning: &quot;ASSERT failure in <tt>where</tt>: '<tt>what</tt>', file xyz.cpp, line 234&quot; and exits if <tt>cond</tt> is false.</li>
-<li><a href="qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>(ptr), where <tt>ptr</tt> is a pointer. Writes the warning &quot;In file xyz.cpp, line 234: Out of memory&quot; and exits if <tt>ptr</tt> is 0.</li>
+<li><a href="qtglobal.html#Q_CHECK_PTRx">Q_CHECK_PTR</a>(ptr), where <tt>ptr</tt> is a pointer. Writes the warning &quot;In file xyz.cpp, line 234: Out of memory&quot; and exits if <tt>ptr</tt> is 0.</li>
 </ul>
 <p>These macros are useful for detecting program errors, e.g&#x2e; like this:</p>
 <pre class="cpp"> <span class="type">char</span> <span class="operator">*</span>alloc(<span class="type">int</span> size)
@@ -114,14 +114,14 @@
      Q_CHECK_PTR(ptr);
      <span class="keyword">return</span> ptr;
  }</pre>
-<p><a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>(), <a href="qtglobal.html#Q_ASSERT_X">Q_ASSERT_X</a>(), and <a href="qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>() expand to nothing if <tt>QT_NO_DEBUG</tt> is defined during compilation. For this reason, the arguments to these macro should not have any side-effects. Here is an incorrect usage of <a href="qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>():</p>
+<p><a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>(), <a href="qtglobal.html#Q_ASSERT_X">Q_ASSERT_X</a>(), and <a href="qtglobal.html#Q_CHECK_PTRx">Q_CHECK_PTR</a>() expand to nothing if <tt>QT_NO_DEBUG</tt> is defined during compilation. For this reason, the arguments to these macro should not have any side-effects. Here is an incorrect usage of <a href="qtglobal.html#Q_CHECK_PTRx">Q_CHECK_PTR</a>():</p>
 <pre class="cpp"> <span class="type">char</span> <span class="operator">*</span>alloc(<span class="type">int</span> size)
  {
      <span class="type">char</span> <span class="operator">*</span>ptr;
      Q_CHECK_PTR(ptr <span class="operator">=</span> <span class="keyword">new</span> <span class="type">char</span><span class="operator">[</span>size<span class="operator">]</span>);  <span class="comment">// WRONG</span>
      <span class="keyword">return</span> ptr;
  }</pre>
-<p>If this code is compiled with <tt>QT_NO_DEBUG</tt> defined, the code in the <a href="qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>() expression is not executed and <i>alloc</i> returns an unitialized pointer.</p>
+<p>If this code is compiled with <tt>QT_NO_DEBUG</tt> defined, the code in the <a href="qtglobal.html#Q_CHECK_PTRx">Q_CHECK_PTR</a>() expression is not executed and <i>alloc</i> returns an unitialized pointer.</p>
 <p>The Qt library contains hundreds of internal checks that will print warning messages when a programming error is detected. We therefore recommend that you use a debug version of Qt when developing Qt-based software.</p>
 <a name="common-bugs"></a>
 <h2>Common Bugs</h2>
@@ -133,20 +133,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

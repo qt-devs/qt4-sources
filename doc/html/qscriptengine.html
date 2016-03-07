@@ -715,7 +715,7 @@
 <h3 class="fn"><a name="toScriptValue"></a><span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> QScriptEngine::<span class="name">toScriptValue</span> ( const <span class="type">T</span> &amp; <i>value</i> )</h3>
 <p>Creates a <a href="qscriptvalue.html">QScriptValue</a> with the given <i>value</i>.</p>
 <p>Note that the template type <tt>T</tt> must be known to <a href="qmetatype.html">QMetaType</a>.</p>
-<p>See <a href="scripting.html#conversion-between-qtscript-and-c-types">Conversion Between QtScript and C++ Types</a> for a description of the built-in type conversion provided by <a href="qtscript.html">QtScript</a>. By default, the types that are not specially handled by <a href="qtscript.html">QtScript</a> are represented as QVariants (e.g&#x2e; the <i>value</i> is passed to <a href="qscriptengine.html#newVariant">newVariant</a>()); you can change this behavior by installing your own type conversion functions with <a href="qscriptengine.html#qScriptRegisterMetaType">qScriptRegisterMetaType</a>().</p>
+<p>See <a href="scripting.html#conversion-between-qtscript-and-c-types">Conversion Between QtScript and C++ Types</a> for a description of the built-in type conversion provided by <a href="qtscript.html">QtScript</a>. By default, the types that are not specially handled by <a href="qtscript.html">QtScript</a> are represented as <a href="qtwebkit-bridge.html#qvariants">QVariants</a> (e.g&#x2e; the <i>value</i> is passed to <a href="qscriptengine.html#newVariant">newVariant</a>()); you can change this behavior by installing your own type conversion functions with <a href="qscriptengine.html#qScriptRegisterMetaType">qScriptRegisterMetaType</a>().</p>
 <p><b>See also </b><a href="qscriptengine.html#fromScriptValue">fromScriptValue</a>() and <a href="qscriptengine.html#qScriptRegisterMetaType">qScriptRegisterMetaType</a>().</p>
 <!-- @@@toScriptValue -->
 <!-- $$$toStringHandle[overload1]$$$toStringHandleconstQString& -->
@@ -778,7 +778,7 @@
 <p>Registers the type <tt>T</tt> in the given <i>engine</i>. <i>toScriptValue</i> must be a function that will convert from a value of type <tt>T</tt> to a <a href="qscriptvalue.html">QScriptValue</a>, and <i>fromScriptValue</i> a function that does the opposite. <i>prototype</i>, if valid, is the prototype that's set on QScriptValues returned by <i>toScriptValue</i>.</p>
 <p>Returns the internal ID used by <a href="qmetatype.html">QMetaType</a>.</p>
 <p>You only need to call this function if you want to provide custom conversion of values of type <tt>T</tt>, i.e&#x2e; if the default <a href="qvariant.html">QVariant</a>-based representation and conversion is not appropriate. (Note that custom <a href="qobject.html">QObject</a>-derived types also fall in this category; e.g&#x2e; for a <a href="qobject.html">QObject</a>-derived class called MyObject, you probably want to define conversion functions for MyObject* that utilize <a href="qscriptengine.html#newQObject">QScriptEngine::newQObject</a>() and <a href="qscriptvalue.html#toQObject">QScriptValue::toQObject</a>().)</p>
-<p>If you only want to define a common script interface for values of type <tt>T</tt>, and don't care how those values are represented (i.e&#x2e; storing them in QVariants is fine), use <a href="qscriptengine.html#setDefaultPrototype">setDefaultPrototype</a>() instead; this will minimize conversion costs.</p>
+<p>If you only want to define a common script interface for values of type <tt>T</tt>, and don't care how those values are represented (i.e&#x2e; storing them in <a href="qtwebkit-bridge.html#qvariants">QVariants</a> is fine), use <a href="qscriptengine.html#setDefaultPrototype">setDefaultPrototype</a>() instead; this will minimize conversion costs.</p>
 <p>You need to declare the custom type first with <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>().</p>
 <p>After a type has been registered, you can convert from a <a href="qscriptvalue.html">QScriptValue</a> to that type using <a href="qscriptengine.html#fromScriptValue">fromScriptValue</a>(), and create a <a href="qscriptvalue.html">QScriptValue</a> from a value of that type using <a href="qscriptengine.html#toScriptValue">toScriptValue</a>(). The engine will take care of calling the proper conversion function when calling C++ slots, and when getting or setting a C++ property; i.e&#x2e; the custom type may be used seamlessly on both the C++ side and the script side.</p>
 <p>The following is an example of how to use this function. We will specify custom conversion of our type <tt>MyStruct</tt>. Here's the C++ type:</p>
@@ -871,20 +871,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>

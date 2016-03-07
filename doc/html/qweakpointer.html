@@ -67,10 +67,10 @@
 <tr><td class="memItemLeft rightAlign topAlign"> QSharedPointer&lt;X&gt; </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#qSharedPointerDynamicCast-2">qSharedPointerDynamicCast</a></b> ( const QWeakPointer&lt;T&gt; &amp; <i>other</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QSharedPointer&lt;X&gt; </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#qSharedPointerObjectCast-2">qSharedPointerObjectCast</a></b> ( const QWeakPointer&lt;T&gt; &amp; <i>other</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QWeakPointer&lt;X&gt; </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#qWeakPointerCast">qWeakPointerCast</a></b> ( const QWeakPointer&lt;T&gt; &amp; <i>other</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-not-eq-20">operator!=</a></b> ( const QWeakPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-not-eq-21">operator!=</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QWeakPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-eq-eq-25">operator==</a></b> ( const QWeakPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-eq-eq-26">operator==</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QWeakPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-not-eq-63">operator!=</a></b> ( const QWeakPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-not-eq-64">operator!=</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QWeakPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-eq-eq-91">operator==</a></b> ( const QWeakPointer&lt;T&gt; &amp; <i>ptr1</i>, const QSharedPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qweakpointer.html#operator-eq-eq-92">operator==</a></b> ( const QSharedPointer&lt;T&gt; &amp; <i>ptr1</i>, const QWeakPointer&lt;X&gt; &amp; <i>ptr2</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QWeakPointer-description -->
@@ -114,7 +114,7 @@
 <h3 class="fn"><a name="QWeakPointer-4"></a>QWeakPointer::<span class="name">QWeakPointer</span> ( const <span class="type"><a href="qobject.html">QObject</a></span> * <i>obj</i> )</h3>
 <p>Creates a <a href="qweakpointer.html">QWeakPointer</a> that holds a weak reference directly to the <a href="qobject.html">QObject</a> <i>obj</i>. This constructor is only available if the template type <tt>T</tt> is <a href="qobject.html">QObject</a> or derives from it (otherwise a compilation error will result).</p>
 <p>You can use this constructor with any <a href="qobject.html">QObject</a>, even if they were not created with <a href="qsharedpointer.html">QSharedPointer</a>.</p>
-<p>Note that QWeakPointers created this way on arbitrary QObjects usually cannot be promoted to <a href="qsharedpointer.html">QSharedPointer</a>.</p>
+<p>Note that QWeakPointers created this way on arbitrary <a href="qtwebkit-bridge.html#qobjects">QObjects</a> usually cannot be promoted to <a href="qsharedpointer.html">QSharedPointer</a>.</p>
 <p>This function was introduced in Qt 4.6.</p>
 <p><b>See also </b><a href="qsharedpointer.html">QSharedPointer</a> and <a href="qweakpointer.html#tracking-qobject">QWeakPointer#tracking-qobject</a>.</p>
 <!-- @@@QWeakPointer -->
@@ -236,22 +236,22 @@
 <p>Note that <tt>X</tt> must have the same cv-qualifiers (<tt>const</tt> and <tt>volatile</tt>) that <tt>T</tt> has, or the code will fail to compile. Use qSharedPointerConstCast to cast away the constness.</p>
 <!-- @@@qWeakPointerCast -->
 <!-- $$$operator!=$$$operator!=constQWeakPointer<T>&constQSharedPointer<X>& -->
-<h3 class="fn"><a name="operator-not-eq-20"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type">QWeakPointer</span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-63"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type">QWeakPointer</span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is not the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s, you will get a compiler error.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator!=$$$operator!=constQSharedPointer<T>&constQWeakPointer<X>& -->
-<h3 class="fn"><a name="operator-not-eq-21"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type">QWeakPointer</span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-not-eq-64"></a><span class="type">bool</span> <span class="name">operator!=</span> ( const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type">QWeakPointer</span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is not the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s, you will get a compiler error.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator==$$$operator==constQWeakPointer<T>&constQSharedPointer<X>& -->
-<h3 class="fn"><a name="operator-eq-eq-25"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type">QWeakPointer</span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-91"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type">QWeakPointer</span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s, you will get a compiler error.</p>
 <!-- @@@operator== -->
 <!-- $$$operator==$$$operator==constQSharedPointer<T>&constQWeakPointer<X>& -->
-<h3 class="fn"><a name="operator-eq-eq-26"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type">QWeakPointer</span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
+<h3 class="fn"><a name="operator-eq-eq-92"></a><span class="type">bool</span> <span class="name">operator==</span> ( const <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp; <i>ptr1</i>, const <span class="type">QWeakPointer</span>&lt;<span class="type">X</span>&gt; &amp; <i>ptr2</i> )</h3>
 <p>Returns true if the pointer referenced by <i>ptr1</i> is the same pointer as that referenced by <i>ptr2</i>.</p>
 <p>If <i>ptr2</i>'s template parameter is different from <i>ptr1</i>'s, <a href="qsharedpointer.html">QSharedPointer</a> will attempt to perform an automatic <tt>static_cast</tt> to ensure that the pointers being compared are equal. If <i>ptr2</i>'s template parameter is not a base or a derived type from <i>ptr1</i>'s, you will get a compiler error.</p>
 <!-- @@@operator== -->
@@ -261,20 +261,24 @@
   </div>
 </div> 
 <div class="footer">
-  <p>
-     <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
-     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
-     in Finland and/or other countries worldwide.</p>
-  <p>
-     All other trademarks are property of their respective owners. <a title="Privacy Policy"
-     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
-  <br />
-  <p>
-    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
-  <p>
-    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
-    Free Documentation License version 1.3</a>
-    as published by the Free Software Foundation.</p>
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2012 Nokia Corporation and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
 </div>
 </body>
 </html>
