@@ -63,7 +63,7 @@
      resize(500, 500);
      myBrush = QBrush();
      myPen = QPen();
-     initImage();
+     initPixmap();
      setAutoFillBackground(true);
      deviceDown = false;
      myColor = Qt::red;
@@ -73,25 +73,25 @@
      lineWidthType = LineWidthPressure;
  }
 
- void TabletCanvas::initImage()
+ void TabletCanvas::initPixmap()
  {
-     QImage newImage = QImage(width(), height(), QImage::Format_ARGB32);
-     QPainter painter(&amp;newImage);
-     painter.fillRect(0, 0, newImage.width(), newImage.height(), Qt::white);
-     if (!image.isNull())
-         painter.drawImage(0, 0, image);
+     QPixmap newPixmap = QPixmap(width(), height());
+     newPixmap.fill(Qt::white);
+     QPainter painter(&amp;newPixmap);
+     if (!pixmap.isNull())
+         painter.drawPixmap(0, 0, pixmap);
      painter.end();
-     image = newImage;
+     pixmap = newPixmap;
  }
 
  bool TabletCanvas::saveImage(const QString &amp;file)
  {
-     return image.save(file);
+     return pixmap.save(file);
  }
 
  bool TabletCanvas::loadImage(const QString &amp;file)
  {
-     bool success = image.load(file);
+     bool success = pixmap.load(file);
 
      if (success) {
          update();
@@ -121,8 +121,8 @@
 
              if (deviceDown) {
                  updateBrush(event);
-                 QPainter painter(&amp;image);
-                 paintImage(painter, event);
+                 QPainter painter(&amp;pixmap);
+                 paintPixmap(painter, event);
              }
              break;
          default:
@@ -134,10 +134,10 @@
  void TabletCanvas::paintEvent(QPaintEvent *)
  {
      QPainter painter(this);
-     painter.drawImage(QPoint(0, 0), image);
+     painter.drawPixmap(0, 0, pixmap);
  }
 
- void TabletCanvas::paintImage(QPainter &amp;painter, QTabletEvent *event)
+ void TabletCanvas::paintPixmap(QPainter &amp;painter, QTabletEvent *event)
  {
      QPoint brushAdjust(10, 10);
 
@@ -265,13 +265,13 @@
 
  void TabletCanvas::resizeEvent(QResizeEvent *)
  {
-     initImage();
+     initPixmap();
      polyLine[0] = polyLine[1] = polyLine[2] = QPoint();
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

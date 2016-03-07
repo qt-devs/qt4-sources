@@ -162,10 +162,10 @@
      QString currentFortune;
  };</pre>
 <p>BlockingClient is very similar to the Client class in the <a href="network-fortuneclient.html">Fortune Client</a> example, but in this class we store a FortuneThread member instead of a pointer to a <a href="qtcpsocket.html">QTcpSocket</a>. When the user clicks the &quot;Get Fortune&quot; button, the same slot is called, but its implementation is slightly different:</p>
-<pre>     connect(&amp;thread, SIGNAL(newFortune(const QString &amp;)),
-             this, SLOT(showFortune(const QString &amp;)));
-     connect(&amp;thread, SIGNAL(error(int, const QString &amp;)),
-             this, SLOT(displayError(int, const QString &amp;)));</pre>
+<pre>     connect(&amp;thread, SIGNAL(newFortune(QString)),
+             this, SLOT(showFortune(QString)));
+     connect(&amp;thread, SIGNAL(error(int,QString)),
+             this, SLOT(displayError(int,QString)));</pre>
 <p>We connect our FortuneThread's two signals newFortune() and error() (which are somewhat similar to <a href="qiodevice.html#readyRead">QTcpSocket::readyRead</a>() and <a href="qabstractsocket.html#error">QTcpSocket::error</a>() in the previous example) to requestNewFortune() and displayError().</p>
 <pre> void BlockingClient::requestNewFortune()
  {
@@ -191,6 +191,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

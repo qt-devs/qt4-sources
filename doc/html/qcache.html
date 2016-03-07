@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QCache" />
+<a name="//apple_ref/cpp/cl//QCache"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -62,68 +62,68 @@
 <p>See also <a href="qpixmapcache.html">QPixmapCache</a>, <a href="qhash.html">QHash</a>, and <a href="qmap.html">QMap</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QCache/QCache" />
+<a name="//apple_ref/cpp/instm/QCache/QCache"></a>
 <h3 class="fn"><a name="QCache"></a>QCache::QCache ( int <i>maxCost</i> = 100 )</h3>
 <p>Constructs a cache whose contents will never have a total cost greater than <i>maxCost</i>.</p>
-<a name="//apple_ref/cpp/instm/QCache/~QCache" />
+<a name="//apple_ref/cpp/instm/QCache/~QCache"></a>
 <h3 class="fn"><a name="dtor.QCache"></a>QCache::~QCache ()</h3>
 <p>Destroys the cache. Deletes all the objects in the cache.</p>
-<a name="//apple_ref/cpp/instm/QCache/clear" />
+<a name="//apple_ref/cpp/instm/QCache/clear"></a>
 <h3 class="fn"><a name="clear"></a>void QCache::clear ()</h3>
 <p>Deletes all the objects in the cache.</p>
 <p>See also <a href="qcache.html#remove">remove</a>() and <a href="qcache.html#take">take</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/contains" />
+<a name="//apple_ref/cpp/instm/QCache/contains"></a>
 <h3 class="fn"><a name="contains"></a>bool QCache::contains ( const Key &amp; <i>key</i> ) const</h3>
 <p>Returns true if the cache contains an object associated with key <i>key</i>; otherwise returns false.</p>
 <p>See also <a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/count" />
+<a name="//apple_ref/cpp/instm/QCache/count"></a>
 <h3 class="fn"><a name="count"></a>int QCache::count () const</h3>
 <p>Same as <a href="qcache.html#size">size</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/insert" />
+<a name="//apple_ref/cpp/instm/QCache/insert"></a>
 <h3 class="fn"><a name="insert"></a>bool QCache::insert ( const Key &amp; <i>key</i>, T * <i>object</i>, int <i>cost</i> = 1 )</h3>
 <p>Inserts <i>object</i> into the cache with key <i>key</i> and associated cost <i>cost</i>. Any object with the same key already in the cache will be removed.</p>
 <p>After this call, <i>object</i> is owned by the <a href="qcache.html">QCache</a> and may be deleted at any time. In particular, if <i>cost</i> is greater than <a href="qcache.html#maxCost">maxCost</a>(), the object will be deleted immediately.</p>
 <p>The function returns true if the object was inserted into the cache; otherwise it returns false.</p>
 <p>See also <a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/isEmpty" />
+<a name="//apple_ref/cpp/instm/QCache/isEmpty"></a>
 <h3 class="fn"><a name="isEmpty"></a>bool QCache::isEmpty () const</h3>
 <p>Returns true if the cache contains no objects; otherwise returns false.</p>
 <p>See also <a href="qcache.html#size">size</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/keys" />
+<a name="//apple_ref/cpp/instm/QCache/keys"></a>
 <h3 class="fn"><a name="keys"></a><a href="qlist.html">QList</a>&lt;Key&gt; QCache::keys () const</h3>
 <p>Returns a list of the keys in the cache.</p>
-<a name="//apple_ref/cpp/instm/QCache/maxCost" />
+<a name="//apple_ref/cpp/instm/QCache/maxCost"></a>
 <h3 class="fn"><a name="maxCost"></a>int QCache::maxCost () const</h3>
 <p>Returns the maximum allowed total cost of the cache.</p>
 <p>See also <a href="qcache.html#setMaxCost">setMaxCost</a>() and <a href="qcache.html#totalCost">totalCost</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/object" />
+<a name="//apple_ref/cpp/instm/QCache/object"></a>
 <h3 class="fn"><a name="object"></a>T * QCache::object ( const Key &amp; <i>key</i> ) const</h3>
 <p>Returns the object associated with key <i>key</i>, or 0 if the key does not exist in the cache.</p>
 <p><b>Warning:</b> The returned object is owned by <a href="qcache.html">QCache</a> and may be deleted at any time.</p>
 <p>See also <a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/remove" />
+<a name="//apple_ref/cpp/instm/QCache/remove"></a>
 <h3 class="fn"><a name="remove"></a>bool QCache::remove ( const Key &amp; <i>key</i> )</h3>
 <p>Deletes the object associated with key <i>key</i>. Returns true if the object was found in the cache; otherwise returns false.</p>
 <p>See also <a href="qcache.html#take">take</a>() and <a href="qcache.html#clear">clear</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/setMaxCost" />
+<a name="//apple_ref/cpp/instm/QCache/setMaxCost"></a>
 <h3 class="fn"><a name="setMaxCost"></a>void QCache::setMaxCost ( int <i>cost</i> )</h3>
 <p>Sets the maximum allowed total cost of the cache to <i>cost</i>. If the current total cost is greater than <i>cost</i>, some objects are deleted immediately.</p>
 <p>See also <a href="qcache.html#maxCost">maxCost</a>() and <a href="qcache.html#totalCost">totalCost</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/size" />
+<a name="//apple_ref/cpp/instm/QCache/size"></a>
 <h3 class="fn"><a name="size"></a>int QCache::size () const</h3>
 <p>Returns the number of objects in the cache.</p>
 <p>See also <a href="qcache.html#isEmpty">isEmpty</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/take" />
+<a name="//apple_ref/cpp/instm/QCache/take"></a>
 <h3 class="fn"><a name="take"></a>T * QCache::take ( const Key &amp; <i>key</i> )</h3>
 <p>Takes the object associated with key <i>key</i> out of the cache without deleting it. Returns a pointer to the object taken out, or 0 if the key does not exist in the cache.</p>
 <p>The ownership of the returned object is passed to the caller.</p>
 <p>See also <a href="qcache.html#remove">remove</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/totalCost" />
+<a name="//apple_ref/cpp/instm/QCache/totalCost"></a>
 <h3 class="fn"><a name="totalCost"></a>int QCache::totalCost () const</h3>
 <p>Returns the total cost of the objects in the cache.</p>
 <p>This value is normally below <a href="qcache.html#maxCost">maxCost</a>(), but <a href="qcache.html">QCache</a> makes an exception for Qt's <a href="implicit-sharing.html#implicitly-shared">implicitly shared</a> classes. If a cached object shares its internal data with another instance, <a href="qcache.html">QCache</a> may keep the object lying around, possibly contributing to making totalCost() larger than <a href="qcache.html#maxCost">maxCost</a>().</p>
 <p>See also <a href="qcache.html#setMaxCost">setMaxCost</a>().</p>
-<a name="//apple_ref/cpp/instm/QCache/operator[]" />
+<a name="//apple_ref/cpp/instm/QCache/operator[]"></a>
 <h3 class="fn"><a name="operator-5b-5d"></a>T * QCache::operator[] ( const Key &amp; <i>key</i> ) const</h3>
 <p>Returns the object associated with key <i>key</i>, or 0 if the key does not exist in the cache.</p>
 <p>This is the same as <a href="qcache.html#object">object</a>().</p>
@@ -132,6 +132,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -65,12 +65,12 @@
 
      mediaObject-&gt;setTickInterval(1000);
      connect(mediaObject, SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
-     connect(mediaObject, SIGNAL(stateChanged(Phonon::State, Phonon::State)),
-             this, SLOT(stateChanged(Phonon::State, Phonon::State)));
+     connect(mediaObject, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
+             this, SLOT(stateChanged(Phonon::State,Phonon::State)));
      connect(metaInformationResolver, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
-             this, SLOT(metaStateChanged(Phonon::State, Phonon::State)));
-     connect(mediaObject, SIGNAL(currentSourceChanged(const Phonon::MediaSource &amp;)),
-             this, SLOT(sourceChanged(const Phonon::MediaSource &amp;)));
+             this, SLOT(metaStateChanged(Phonon::State,Phonon::State)));
+     connect(mediaObject, SIGNAL(currentSourceChanged(Phonon::MediaSource)),
+             this, SLOT(sourceChanged(Phonon::MediaSource)));
      connect(mediaObject, SIGNAL(aboutToFinish()), this, SLOT(aboutToFinish()));
 
      Phonon::createPath(mediaObject, audioOutput);
@@ -312,8 +312,8 @@
      musicTable-&gt;setHorizontalHeaderLabels(headers);
      musicTable-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
      musicTable-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
-     connect(musicTable, SIGNAL(cellPressed(int, int)),
-             this, SLOT(tableClicked(int, int)));
+     connect(musicTable, SIGNAL(cellPressed(int,int)),
+             this, SLOT(tableClicked(int,int)));
 
      QHBoxLayout *seekerLayout = new QHBoxLayout;
      seekerLayout-&gt;addWidget(seekSlider);
@@ -340,6 +340,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

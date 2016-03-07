@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QXmlSchemaValidator" />
+<a name="//apple_ref/cpp/cl//QXmlSchemaValidator"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -62,33 +62,36 @@
          else
              qDebug() &lt;&lt; &quot;instance document is invalid&quot;;
      }</pre>
+<a name="xml-schema-version"></a>
+<h3>XML Schema Version</h3>
+<p>This class implements schema validation according to the <a href="http://www.w3.org/XML/Schema">XML Schema</a> 1.0 specification.</p>
 <p>See also <a href="qxmlschema.html">QXmlSchema</a> and <a href="xmlpatterns-schema.html">XML Schema Validation Example</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/QXmlSchemaValidator" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/QXmlSchemaValidator"></a>
 <h3 class="fn"><a name="QXmlSchemaValidator"></a>QXmlSchemaValidator::QXmlSchemaValidator ()</h3>
 <p>Constructs a schema validator. The schema used for validation must be referenced in the XML instance document via the <tt>xsi:schemaLocation</tt> or <tt>xsi:noNamespaceSchemaLocation</tt> attribute.</p>
 <h3 class="fn"><a name="QXmlSchemaValidator-2"></a>QXmlSchemaValidator::QXmlSchemaValidator ( const <a href="qxmlschema.html">QXmlSchema</a> &amp; <i>schema</i> )</h3>
 <p>Constructs a schema validator that will use <i>schema</i> for validation. If an empty <a href="qxmlschema.html">QXmlSchema</a> schema is passed to the validator, the schema used for validation must be referenced in the XML instance document via the <tt>xsi:schemaLocation</tt> or <tt>xsi:noNamespaceSchemaLocation</tt> attribute.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/~QXmlSchemaValidator" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/~QXmlSchemaValidator"></a>
 <h3 class="fn"><a name="dtor.QXmlSchemaValidator"></a>QXmlSchemaValidator::~QXmlSchemaValidator ()</h3>
 <p>Destroys this <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a>.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/messageHandler" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/messageHandler"></a>
 <h3 class="fn"><a name="messageHandler"></a><a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> * QXmlSchemaValidator::messageHandler () const</h3>
 <p>Returns the message handler that handles parsing and validation messages for this <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a>.</p>
 <p>See also <a href="qxmlschemavalidator.html#setMessageHandler">setMessageHandler</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/namePool" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/namePool"></a>
 <h3 class="fn"><a name="namePool"></a><a href="qxmlnamepool.html">QXmlNamePool</a> QXmlSchemaValidator::namePool () const</h3>
 <p>Returns the name pool used by this <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a> for constructing <a href="qxmlname.html">names</a>. There is no setter for the name pool, because mixing name pools causes errors due to name confusion.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/networkAccessManager" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/networkAccessManager"></a>
 <h3 class="fn"><a name="networkAccessManager"></a><a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> * QXmlSchemaValidator::networkAccessManager () const</h3>
 <p>Returns the network manager, or 0 if it has not been set.</p>
 <p>See also <a href="qxmlschemavalidator.html#setNetworkAccessManager">setNetworkAccessManager</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/schema" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/schema"></a>
 <h3 class="fn"><a name="schema"></a><a href="qxmlschema.html">QXmlSchema</a> QXmlSchemaValidator::schema () const</h3>
 <p>Returns the schema that is used for validation.</p>
 <p>See also <a href="qxmlschemavalidator.html#setSchema">setSchema</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setMessageHandler" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setMessageHandler"></a>
 <h3 class="fn"><a name="setMessageHandler"></a>void QXmlSchemaValidator::setMessageHandler ( <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> * <i>handler</i> )</h3>
 <p>Changes the <a href="qabstractmessagehandler.html">message handler</a> for this <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a> to <i>handler</i>. The schema validator sends all parsing and validation messages to this message handler. <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a> does not take ownership of <i>handler</i>.</p>
 <p>Normally, the default message handler is sufficient. It writes compile and validation messages to <i>stderr</i>. The default message handler includes color codes if <i>stderr</i> can render colors.</p>
@@ -101,25 +104,25 @@
 <tr valign="top" class="even"><td>const <a href="qsourcelocation.html">QSourceLocation</a> &amp; sourceLocation</td><td>Identifies where the error occurred.</td></tr>
 </table></p>
 <p>See also <a href="qxmlschemavalidator.html#messageHandler">messageHandler</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setNetworkAccessManager" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setNetworkAccessManager"></a>
 <h3 class="fn"><a name="setNetworkAccessManager"></a>void QXmlSchemaValidator::setNetworkAccessManager ( <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> * <i>manager</i> )</h3>
 <p>Sets the network manager to <i>manager</i>. <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a> does not take ownership of <i>manager</i>.</p>
 <p>See also <a href="qxmlschemavalidator.html#networkAccessManager">networkAccessManager</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setSchema" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setSchema"></a>
 <h3 class="fn"><a name="setSchema"></a>void QXmlSchemaValidator::setSchema ( const <a href="qxmlschema.html">QXmlSchema</a> &amp; <i>schema</i> )</h3>
 <p>Sets the <i>schema</i> that shall be used for further validation. If the schema is empty, the schema used for validation must be referenced in the XML instance document via the <tt>xsi:schemaLocation</tt> or <tt>xsi:noNamespaceSchemaLocation</tt> attribute.</p>
 <p>See also <a href="qxmlschemavalidator.html#schema">schema</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setUriResolver" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/setUriResolver"></a>
 <h3 class="fn"><a name="setUriResolver"></a>void QXmlSchemaValidator::setUriResolver ( const <a href="qabstracturiresolver.html">QAbstractUriResolver</a> * <i>resolver</i> )</h3>
 <p>Sets the URI resolver to <i>resolver</i>. <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a> does not take ownership of <i>resolver</i>.</p>
 <p>See also <a href="qxmlschemavalidator.html#uriResolver">uriResolver</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/uriResolver" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/uriResolver"></a>
 <h3 class="fn"><a name="uriResolver"></a>const <a href="qabstracturiresolver.html">QAbstractUriResolver</a> * QXmlSchemaValidator::uriResolver () const</h3>
 <p>Returns the schema's URI resolver. If no URI resolver has been set, <a href="qtxmlpatterns.html">QtXmlPatterns</a> will use the URIs in instance documents as they are.</p>
 <p>The URI resolver provides a level of abstraction, or <i>polymorphic URIs</i>. A resolver can rewrite <i>logical</i> URIs to physical ones, or it can translate obsolete or invalid URIs to valid ones.</p>
 <p>When <a href="qtxmlpatterns.html">QtXmlPatterns</a> calls <a href="qabstracturiresolver.html#resolve">QAbstractUriResolver::resolve</a>() the absolute URI is the URI mandated by the schema specification, and the relative URI is the URI specified by the user.</p>
 <p>See also <a href="qxmlschemavalidator.html#setUriResolver">setUriResolver</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/validate" />
+<a name="//apple_ref/cpp/instm/QXmlSchemaValidator/validate"></a>
 <h3 class="fn"><a name="validate"></a>bool QXmlSchemaValidator::validate ( const <a href="qurl.html">QUrl</a> &amp; <i>source</i> ) const</h3>
 <p>Validates the XML instance document read from <i>source</i> against the schema.</p>
 <p>Returns <tt>true</tt> if the XML instance document is valid according to the schema, <tt>false</tt> otherwise.</p>
@@ -168,6 +171,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

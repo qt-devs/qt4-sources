@@ -31,7 +31,7 @@
 <p>The example consists of the following:</p>
 <ul>
 <li>The <tt>MainWindow</tt> class inherits <a href="qmainwindow.html">QMainWindow</a> and creates the examples menus and connect their slots and signals.</li>
-<li>The <tt>TabletCanvas</tt> class inherits <a href="qwidget.html">QWidget</a> and receives tablet events. It uses the events to paint on a <a href="qimage.html">QImage</a>, which it draws onto itself.</li>
+<li>The <tt>TabletCanvas</tt> class inherits <a href="qwidget.html">QWidget</a> and receives tablet events. It uses the events to paint on a offscreen pixmap, which it draws onto itself.</li>
 <li>The <tt>TabletApplication</tt> class inherits <a href="qapplication.html">QApplication</a>. This class handles tablet events that are not sent to <tt>tabletEvent()</tt>. We will look at this later.</li>
 <li>The <tt>main()</tt> function creates a <tt>MainWindow</tt> and shows it as a top level window.</li>
 </ul>
@@ -209,8 +209,8 @@
      alphaChannelGroup-&gt;addAction(alphaChannelPressureAction);
      alphaChannelGroup-&gt;addAction(alphaChannelTiltAction);
      alphaChannelGroup-&gt;addAction(noAlphaChannelAction);
-     connect(alphaChannelGroup, SIGNAL(triggered(QAction *)),
-             this, SLOT(alphaActionTriggered(QAction *)));</pre>
+     connect(alphaChannelGroup, SIGNAL(triggered(QAction*)),
+             this, SLOT(alphaActionTriggered(QAction*)));</pre>
 <p>We want the user to be able to choose if the drawing color's alpha component should be changed by the tablet pressure or tilt. We have one action for each choice and an action if the alpha channel is not to be changed, i.e, the color is opaque. We make the actions checkable; the <tt>alphaChannelGroup</tt> will then ensure that only one of the actions are checked at any time. The <tt>triggered()</tt> signal is emitted when an action is checked.</p>
 <pre>     ...
  }</pre>
@@ -286,8 +286,8 @@
      void resizeEvent(QResizeEvent *event);
 
  private:
-     void initImage();
-     void paintImage(QPainter &amp;painter, QTabletEvent *event);
+     void initPixmap();
+     void paintPixmap(QPainter &amp;painter, QTabletEvent *event);
      Qt::BrushStyle brushPattern(qreal value);
      void updateBrush(QTabletEvent *event);
 
@@ -298,15 +298,15 @@
      QTabletEvent::TabletDevice myTabletDevice;
      QColor myColor;
 
-     QImage image;
+     QPixmap pixmap;
      QBrush myBrush;
      QPen myPen;
      bool deviceDown;
      QPoint polyLine[3];
  };</pre>
 <p>The canvas can change the alpha channel, color saturation, and line width of the drawing. We have one enum for each of these; their values decide if it is the tablet pressure or tilt that will alter them. We keep a private variable for each, the <tt>alphaChannelType</tt>, <tt>colorSturationType</tt>, and <tt>penWidthType</tt>, which we provide access functions for.</p>
-<p>We draw on a <a href="qimage.html">QImage</a> with <tt>myPen</tt> and <tt>myBrush</tt> using <tt>myColor</tt>. The <tt>saveImage()</tt> and <tt>loadImage()</tt> saves and loads the <a href="qimage.html">QImage</a> to disk. The image is drawn on the widget in <tt>paintEvent()</tt>. The <tt>pointerType</tt> and <tt>deviceType</tt> keeps the type of pointer, which is either a pen or an eraser, and device currently used on the tablet, which is either a stylus or an airbrush.</p>
-<p>The interpretation of events from the tablet is done in <tt>tabletEvent()</tt>; <tt>paintImage()</tt>, <tt>updateBrush()</tt>, and <tt>brushPattern()</tt> are helper functions used by <tt>tabletEvent()</tt>.</p>
+<p>We draw on a <a href="qpixmap.html">QPixmap</a> with <tt>myPen</tt> and <tt>myBrush</tt> using <tt>myColor</tt>. The <tt>saveImage()</tt> and <tt>loadImage()</tt> saves and loads the <a href="qpixmap.html">QPixmap</a> to disk. The pixmap is drawn on the widget in <tt>paintEvent()</tt>. The <tt>pointerType</tt> and <tt>deviceType</tt> keeps the type of pointer, which is either a pen or an eraser, and device currently used on the tablet, which is either a stylus or an airbrush.</p>
+<p>The interpretation of events from the tablet is done in <tt>tabletEvent()</tt>; <tt>paintPixmap()</tt>, <tt>updateBrush()</tt>, and <tt>brushPattern()</tt> are helper functions used by <tt>tabletEvent()</tt>.</p>
 <a name="tabletcanvas-class-implementation"></a>
 <h2>TabletCanvas Class Implementation</h2>
 <p>We start with a look at the constructor:</p>
@@ -315,7 +315,7 @@
      resize(500, 500);
      myBrush = QBrush();
      myPen = QPen();
-     initImage();
+     initPixmap();
      setAutoFillBackground(true);
      deviceDown = false;
      myColor = Qt::red;
@@ -325,27 +325,27 @@
      lineWidthType = LineWidthPressure;
  }
 
- void TabletCanvas::initImage()
+ void TabletCanvas::initPixmap()
  {
-     QImage newImage = QImage(width(), height(), QImage::Format_ARGB32);
-     QPainter painter(&amp;newImage);
-     painter.fillRect(0, 0, newImage.width(), newImage.height(), Qt::white);
-     if (!image.isNull())
-         painter.drawImage(0, 0, image);
+     QPixmap newPixmap = QPixmap(width(), height());
+     newPixmap.fill(Qt::white);
+     QPainter painter(&amp;newPixmap);
+     if (!pixmap.isNull())
+         painter.drawPixmap(0, 0, pixmap);
      painter.end();
-     image = newImage;
+     pixmap = newPixmap;
  }</pre>
-<p>In the constructor we initialize our class variables. We need to draw the background of our image, as the default is gray.</p>
+<p>In the constructor we initialize our class variables. We need to draw the background of our pixmap, as the default is gray.</p>
 <p>Here is the implementation of <tt>saveImage()</tt>:</p>
 <pre> bool TabletCanvas::saveImage(const QString &amp;file)
  {
-     return image.save(file);
+     return pixmap.save(file);
  }</pre>
-<p><a href="qimage.html">QImage</a> implements functionality to save itself to disk, so we simply call <a href="qimage.html#save">save()</a>.</p>
+<p><a href="qpixmap.html">QPixmap</a> implements functionality to save itself to disk, so we simply call <a href="qpixmap.html#save">save()</a>.</p>
 <p>Here is the implementation of <tt>loadImage()</tt>:</p>
 <pre> bool TabletCanvas::loadImage(const QString &amp;file)
  {
-     bool success = image.load(file);
+     bool success = pixmap.load(file);
 
      if (success) {
          update();
@@ -353,7 +353,7 @@
      }
      return false;
  }</pre>
-<p>We simply call <a href="qimage.html#load">load()</a>, which loads the image in <i>file</i>.</p>
+<p>We simply call <a href="qpixmap.html#load">load()</a>, which loads the image in <i>file</i>.</p>
 <p>Here is the implementation of <tt>tabletEvent()</tt>:</p>
 <pre> void TabletCanvas::tabletEvent(QTabletEvent *event)
  {
@@ -376,8 +376,8 @@
 
              if (deviceDown) {
                  updateBrush(event);
-                 QPainter painter(&amp;image);
-                 paintImage(painter, event);
+                 QPainter painter(&amp;pixmap);
+                 paintPixmap(painter, event);
              }
              break;
          default:
@@ -385,16 +385,16 @@
      }
      update();
  }</pre>
-<p>We get three kind of events to this function: TabletPress, TabletRelease, and TabletMove, which is generated when a device is pressed down on, leaves, or moves on the tablet. We set the <tt>deviceDown</tt> to true when a device is pressed down on the tablet; we then know when we should draw when we receive move events. We have implemented the <tt>updateBrush()</tt> and <tt>paintImage()</tt> helper functions to update <tt>myBrush</tt> and <tt>myPen</tt> after the state of <tt>alphaChannelType</tt>, <tt>colorSaturationType</tt>, and <tt>lineWidthType</tt>.</p>
+<p>We get three kind of events to this function: TabletPress, TabletRelease, and TabletMove, which is generated when a device is pressed down on, leaves, or moves on the tablet. We set the <tt>deviceDown</tt> to true when a device is pressed down on the tablet; we then know when we should draw when we receive move events. We have implemented the <tt>updateBrush()</tt> and <tt>paintPixmap()</tt> helper functions to update <tt>myBrush</tt> and <tt>myPen</tt> after the state of <tt>alphaChannelType</tt>, <tt>colorSaturationType</tt>, and <tt>lineWidthType</tt>.</p>
 <p>Here is the implementation of <tt>paintEvent()</tt>:</p>
 <pre> void TabletCanvas::paintEvent(QPaintEvent *)
  {
      QPainter painter(this);
-     painter.drawImage(QPoint(0, 0), image);
+     painter.drawPixmap(0, 0, pixmap);
  }</pre>
-<p>We simply draw the image to the top left of the widget.</p>
-<p>Here is the implementation of <tt>paintImage()</tt>:</p>
-<pre> void TabletCanvas::paintImage(QPainter &amp;painter, QTabletEvent *event)
+<p>We simply draw the pixmap to the top left of the widget.</p>
+<p>Here is the implementation of <tt>paintPixmap()</tt>:</p>
+<pre> void TabletCanvas::paintPixmap(QPainter &amp;painter, QTabletEvent *event)
  {
      QPoint brushAdjust(10, 10);
 
@@ -441,7 +441,7 @@
              break;
      }
  }</pre>
-<p>In this function we draw on the image based on the movement of the device. If the device used on the tablet is a stylus we want to draw a line between the positions of the stylus recorded in <tt>polyLine</tt>. We also assume that this is a reasonable handling of any unknown device, but update the statusbar with a warning so that the user can see that for his tablet he might have to implement special handling. If it is an airbrush we want to draw a circle of points with a point density based on the tangential pressure, which is the position of the finger wheel on the airbrush. We use the <a href="qt.html#BrushStyle-enum">Qt::BrushStyle</a> to draw the points as it has styles that draw points with different density; we select the style based on the tangential pressure in <tt>brushPattern()</tt>.</p>
+<p>In this function we draw on the pixmap based on the movement of the device. If the device used on the tablet is a stylus we want to draw a line between the positions of the stylus recorded in <tt>polyLine</tt>. We also assume that this is a reasonable handling of any unknown device, but update the statusbar with a warning so that the user can see that for his tablet he might have to implement special handling. If it is an airbrush we want to draw a circle of points with a point density based on the tangential pressure, which is the position of the finger wheel on the airbrush. We use the <a href="qt.html#BrushStyle-enum">Qt::BrushStyle</a> to draw the points as it has styles that draw points with different density; we select the style based on the tangential pressure in <tt>brushPattern()</tt>.</p>
 <pre> Qt::BrushStyle TabletCanvas::brushPattern(qreal value)
  {
      int pattern = int((value) * 100.0) % 7;
@@ -520,7 +520,7 @@
          myPen.setColor(myColor);
      }
  }</pre>
-<p>We finally check wether the pointer is the stylus or the eraser. If it is the eraser, we set the color to the background color of the image an let the pressure decide the pen width, else we set the colors we have set up previously in the function.</p>
+<p>We finally check wether the pointer is the stylus or the eraser. If it is the eraser, we set the color to the background color of the pixmap an let the pressure decide the pen width, else we set the colors we have set up previously in the function.</p>
 <a name="tabletapplication-class-definition"></a>
 <h2>TabletApplication Class Definition</h2>
 <p>We inherit <a href="qapplication.html">QApplication</a> in this class because we want to reimplement the <a href="qapplication.html#event">event()</a> function.</p>
@@ -574,6 +574,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

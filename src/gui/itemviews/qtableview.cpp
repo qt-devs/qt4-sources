@@ -1064,14 +1064,29 @@ QTableView::~QTableView()
 void QTableView::setModel(QAbstractItemModel *model)
 {
     Q_D(QTableView);
-    connect(model, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SLOT(_q_updateSpanInsertedRows(QModelIndex,int,int)));
-    connect(model, SIGNAL(columnsInserted(QModelIndex,int,int)),
-            this, SLOT(_q_updateSpanInsertedColumns(QModelIndex,int,int)));
-    connect(model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SLOT(_q_updateSpanRemovedRows(QModelIndex,int,int)));
-    connect(model, SIGNAL(columnsRemoved(QModelIndex,int,int)),
-            this, SLOT(_q_updateSpanRemovedColumns(QModelIndex,int,int)));
+    if (model == d->model)
+        return;
+    //let's disconnect from the old model
+    if (d->model && d->model != QAbstractItemModelPrivate::staticEmptyModel()) {
+        disconnect(d->model, SIGNAL(rowsInserted(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanInsertedRows(QModelIndex,int,int)));
+        disconnect(d->model, SIGNAL(columnsInserted(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanInsertedColumns(QModelIndex,int,int)));
+        disconnect(d->model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanRemovedRows(QModelIndex,int,int)));
+        disconnect(d->model, SIGNAL(columnsRemoved(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanRemovedColumns(QModelIndex,int,int)));
+    }
+    if (model) { //and connect to the new one
+        connect(model, SIGNAL(rowsInserted(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanInsertedRows(QModelIndex,int,int)));
+        connect(model, SIGNAL(columnsInserted(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanInsertedColumns(QModelIndex,int,int)));
+        connect(model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanRemovedRows(QModelIndex,int,int)));
+        connect(model, SIGNAL(columnsRemoved(QModelIndex,int,int)),
+                this, SLOT(_q_updateSpanRemovedColumns(QModelIndex,int,int)));
+    }
     d->verticalHeader->setModel(model);
     d->horizontalHeader->setModel(model);
     QAbstractItemView::setModel(model);
@@ -2344,12 +2359,22 @@ void QTableView::setColumnHidden(int column, bool hide)
     \property QTableView::sortingEnabled
     \brief whether sorting is enabled
 
-    If this property is true, sorting is enabled for the table; if the
-    property is false, sorting is not enabled. The default value is false.
+    If this property is true, sorting is enabled for the table.  If
+    this property is false, sorting is not enabled. The default value
+    is false.
+
+    \note. Setting the property to true with setSortingEnabled()
+    immediately triggers a call to sortByColumn() with the current
+    sort section and order.
 
     \sa sortByColumn()
 */
 
+/*!
+  If \a enabled true enables sorting for the table and immediately
+  trigger a call to sortByColumn() with the current sort section and
+  order
+ */
 void QTableView::setSortingEnabled(bool enable)
 {
     Q_D(QTableView);

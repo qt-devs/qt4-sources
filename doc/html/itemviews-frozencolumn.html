@@ -37,6 +37,7 @@
  protected:
        virtual void resizeEvent(QResizeEvent *event);
        virtual QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
+       void scrollTo (const QModelIndex &amp; index, ScrollHint hint = EnsureVisible);
 
  private:
        QTableView *frozenTableView;
@@ -60,10 +61,10 @@
        init();
 
        <span class="comment">//connect the headers and scrollbars of both tableviews together</span>
-       connect(horizontalHeader(),SIGNAL(sectionResized ( int ,int,int )), this,
-               SLOT(updateSectionWidth(int, int, int)));
-       connect(verticalHeader(),SIGNAL(sectionResized ( int ,int,int )), this,
-               SLOT(updateSectionHeight(int, int, int)));
+       connect(horizontalHeader(),SIGNAL(sectionResized(int,int,int)), this,
+               SLOT(updateSectionWidth(int,int,int)));
+       connect(verticalHeader(),SIGNAL(sectionResized(int,int,int)), this,
+               SLOT(updateSectionHeight(int,int,int)));
 
        connect(frozenTableView-&gt;verticalScrollBar(), SIGNAL(valueChanged(int)),
                verticalScrollBar(), SLOT(setValue(int)));
@@ -82,7 +83,8 @@
        viewport()-&gt;stackUnder(frozenTableView);</pre>
 <p>In terms of the frozen column's z-order, we stack it on top of the viewport. This is achieved by calling <a href="qwidget.html#stackUnder">stackUnder()</a> on the viewport. For appearance's sake, we prevent the column from stealing focus from the main tableview. Also, we make sure that both views share the same selection model, so only one cell can be selected at a time. A few other tweaks are done to make our application look good and behave consistently with the main tableview. Note that we called <tt>updateFrozenTableGeometry()</tt> to make the column occupy the correct spot.</p>
 <pre>       frozenTableView-&gt;setStyleSheet(&quot;QTableView { border: none;&quot;
-                                      &quot;background-color: #8EDE21;}&quot;); <span class="comment">//for demo purposes</span>
+                                      &quot;background-color: #8EDE21;&quot;
+                                      &quot;selection-background-color: #999}&quot;); <span class="comment">//for demo purposes</span>
        frozenTableView-&gt;setSelectionModel(selectionModel());
        for(int col=1; col&lt;model()-&gt;columnCount(); col++)
              frozenTableView-&gt;setColumnHidden(col, true);
@@ -145,6 +147,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

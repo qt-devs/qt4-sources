@@ -89,13 +89,13 @@
      Priority priority() const;
  };</pre>
 <p>The <tt>READ</tt> function is const and returns the property type. The <tt>WRITE</tt> function returns void and has exactly one parameter of the property type. The meta-object compiler enforces these requirements.</p>
-<p>Given a pointer to an instance of MyClass or a pointer to an instance of <a href="qobject.html">QObject</a> that happens to be an instance of MyClass, we have two ways to set its priority property.</p>
+<p>Given a pointer to an instance of MyClass or a pointer to a <a href="qobject.html">QObject</a> that is an instance of MyClass, we have two ways to set its priority property:</p>
 <pre> MyClass *myinstance = new MyClass;
  QObject *object = myinstance;
 
  myinstance-&gt;setPriority(MyClass::VeryHigh);
- object-&gt;setProperty(&quot;priority&quot;, &quot;VeryHigh&quot;);</pre>
-<p>In the example, the enumeration type used for the property type was locally declared in MyClass. Had it been declared in another class, its fully qualified name (i.e&#x2e;, OtherClass::Priority) would be required. In addition, that other class must also inherit <a href="qobject.html">QObject</a> and register the enum type using <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>().</p>
+ object-&gt;setProperty(&quot;priority&quot;, (int)MyClass::VeryHigh);</pre>
+<p>In the example, the enumeration type that is the property type is declared in MyClass and registered with the <a href="metaobjects.html">Meta-Object System</a> using the <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>() macro. This makes the enumeration values available as strings for use as in the call to setProperty(). Had the enumeration type been declared in another class, its fully qualified name (i.e&#x2e;, OtherClass::Priority) would be required, and that other class would also have to inherit <a href="qobject.html">QObject</a> and register the enumeration type there using the <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>() macro.</p>
 <p>A similar macro, <a href="qobject.html#Q_FLAGS">Q_FLAGS</a>(), is also available. Like <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>(), it registers an enumeration type, but it marks the type as being a set of <i>flags</i>, i.e&#x2e; values that can be OR'd together. An I/O class might have enumeration values <tt>Read</tt> and <tt>Write</tt> and then <a href="qobject.html#setProperty">QObject::setProperty</a>() could accept <tt>Read | Write</tt>. <a href="qobject.html#Q_FLAGS">Q_FLAGS</a>() should be used to register this enumeration type.</p>
 <a name="dynamic-properties"></a>
 <h3>Dynamic Properties</h3>
@@ -115,6 +115,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3DragObject" />
+<a name="//apple_ref/cpp/cl//Q3DragObject"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -81,12 +81,12 @@
 <p>The <a href="q3dragobject.html#drag">drag</a>() function is used to start a drag operation. You can specify the <a href="q3dragobject.html#DragMode-enum">DragMode</a> in the call or use one of the convenience functions <a href="q3dragobject.html#dragCopy">dragCopy</a>(), <a href="q3dragobject.html#dragMove">dragMove</a>(), or <a href="q3dragobject.html#dragLink">dragLink</a>(). The drag source where the data originated is retrieved with <a href="q3dragobject.html#source">source</a>(). If the data was dropped on a widget within the application, <a href="q3dragobject.html#target">target</a>() will return a pointer to that widget. Specify the pixmap to display during the drag with <a href="q3dragobject.html#setPixmap">setPixmap</a>().</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/Q3DragObject/DragMode" />
-<a name="//apple_ref/cpp/econst/Q3DragObject/DragDefault" />
-<a name="//apple_ref/cpp/econst/Q3DragObject/DragCopy" />
-<a name="//apple_ref/cpp/econst/Q3DragObject/DragMove" />
-<a name="//apple_ref/cpp/econst/Q3DragObject/DragLink" />
-<a name="//apple_ref/cpp/econst/Q3DragObject/DragCopyOrMove" />
+<a name="//apple_ref/cpp/tag/Q3DragObject/DragMode"></a>
+<a name="//apple_ref/cpp/econst/Q3DragObject/DragDefault"></a>
+<a name="//apple_ref/cpp/econst/Q3DragObject/DragCopy"></a>
+<a name="//apple_ref/cpp/econst/Q3DragObject/DragMove"></a>
+<a name="//apple_ref/cpp/econst/Q3DragObject/DragLink"></a>
+<a name="//apple_ref/cpp/econst/Q3DragObject/DragCopyOrMove"></a>
 <h3 class="fn"><a name="DragMode-enum"></a>enum Q3DragObject::DragMode</h3>
 <p>This enum describes the possible drag modes.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -99,14 +99,14 @@
 </table></p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3DragObject/Q3DragObject" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/Q3DragObject"></a>
 <h3 class="fn"><a name="Q3DragObject"></a>Q3DragObject::Q3DragObject ( <a href="qwidget.html">QWidget</a> * <i>dragSource</i> = 0, const char * <i>name</i> = 0 )</h3>
 <p>Constructs a drag object called <i>name</i> with a parent <i>dragSource</i>.</p>
 <p>Note that the drag object will be deleted when the <i>dragSource</i> is deleted.</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/~Q3DragObject" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/~Q3DragObject"></a>
 <h3 class="fn"><a name="dtor.Q3DragObject"></a>Q3DragObject::~Q3DragObject ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destroys the drag object, canceling any drag and drop operation in which it is involved.</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/drag" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/drag"></a>
 <h3 class="fn"><a name="drag"></a>bool Q3DragObject::drag ()</h3>
 <p>Starts a drag operation using the contents of this object, using <a href="q3dragobject.html#DragMode-enum">DragDefault</a> mode.</p>
 <p>The function returns true if the caller should delete the original copy of the dragged data (but see <a href="q3dragobject.html#target">target</a>()); otherwise returns false.</p>
@@ -118,28 +118,28 @@
 <p>At this point, the object becomes owned by Qt, not the application. You should not delete the drag object or anything it references. The actual transfer of data to the target application will be done during future event processing - after that time the drag object will be deleted.</p>
 <p>Returns true if the dragged data was dragged as a <i>move</i>, indicating that the caller should remove the original source of the data (the drag object must continue to have a copy); otherwise returns false.</p>
 <p>The <i>mode</i> specifies the drag mode (see <a href="q3dragobject.html#DragMode-enum">Q3DragObject::DragMode</a>.) Normally one of the simpler <a href="q3dragobject.html#drag">drag</a>(), <a href="q3dragobject.html#dragMove">dragMove</a>(), or <a href="q3dragobject.html#dragCopy">dragCopy</a>() functions would be used instead.</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/dragCopy" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/dragCopy"></a>
 <h3 class="fn"><a name="dragCopy"></a>void Q3DragObject::dragCopy ()</h3>
 <p>Starts a drag operation using the contents of this object, using <tt>DragCopy</tt> mode. Be sure to read the constraints described in <a href="q3dragobject.html#drag">drag</a>().</p>
 <p>See also <a href="q3dragobject.html#drag">drag</a>(), <a href="q3dragobject.html#dragMove">dragMove</a>(), and <a href="q3dragobject.html#dragLink">dragLink</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/dragLink" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/dragLink"></a>
 <h3 class="fn"><a name="dragLink"></a>void Q3DragObject::dragLink ()</h3>
 <p>Starts a drag operation using the contents of this object, using <tt>DragLink</tt> mode. Be sure to read the constraints described in <a href="q3dragobject.html#drag">drag</a>().</p>
 <p>See also <a href="q3dragobject.html#drag">drag</a>(), <a href="q3dragobject.html#dragCopy">dragCopy</a>(), and <a href="q3dragobject.html#dragMove">dragMove</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/dragMove" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/dragMove"></a>
 <h3 class="fn"><a name="dragMove"></a>bool Q3DragObject::dragMove ()</h3>
 <p>Starts a drag operation using the contents of this object, using <tt>DragMove</tt> mode. Be sure to read the constraints described in <a href="q3dragobject.html#drag">drag</a>().</p>
 <p>Returns true if the data was dragged as a <i>move</i>, indicating that the caller should remove the original source of the data (the drag object must continue to have a copy); otherwise returns false.</p>
 <p>See also <a href="q3dragobject.html#drag">drag</a>(), <a href="q3dragobject.html#dragCopy">dragCopy</a>(), and <a href="q3dragobject.html#dragLink">dragLink</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/pixmap" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/pixmap"></a>
 <h3 class="fn"><a name="pixmap"></a><a href="qpixmap.html">QPixmap</a> Q3DragObject::pixmap () const</h3>
 <p>Returns the currently set pixmap, or a null pixmap if none is set.</p>
 <p>See also <a href="q3dragobject.html#setPixmap">setPixmap</a>() and <a href="qpixmap.html#isNull">QPixmap::isNull</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/pixmapHotSpot" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/pixmapHotSpot"></a>
 <h3 class="fn"><a name="pixmapHotSpot"></a><a href="qpoint.html">QPoint</a> Q3DragObject::pixmapHotSpot () const</h3>
 <p>Returns the currently set pixmap hotspot.</p>
 <p>See also <a href="q3dragobject.html#setPixmap">setPixmap</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/setPixmap" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/setPixmap"></a>
 <h3 class="fn"><a name="setPixmap"></a>void Q3DragObject::setPixmap ( <a href="qpixmap.html">QPixmap</a> <i>pm</i>, const <a href="qpoint.html">QPoint</a> &amp; <i>hotspot</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Set the pixmap, <i>pm</i>, to display while dragging the object. The platform-specific implementation will use this where it can - so provide a small masked pixmap, and do not assume that the user will actually see it.</p>
 <p>The <i>hotspot</i> is the point on (or off) the pixmap that should be under the cursor as it is dragged. It is relative to the top-left pixel of the pixmap.</p>
@@ -148,10 +148,10 @@
 <h3 class="fn"><a name="setPixmap-2"></a>void Q3DragObject::setPixmap ( <a href="qpixmap.html">QPixmap</a> <i>pm</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>Uses a hotspot that positions the pixmap below and to the right of the mouse pointer. This allows the user to clearly see the point on the window where they are dragging the data.</p>
-<a name="//apple_ref/cpp/instm/Q3DragObject/source" />
+<a name="//apple_ref/cpp/instm/Q3DragObject/source"></a>
 <h3 class="fn"><a name="source"></a><a href="qwidget.html">QWidget</a> * Q3DragObject::source ()</h3>
 <p>Returns a pointer to the widget where this object originated (the drag source).</p>
-<a name="//apple_ref/cpp/clm/Q3DragObject/target" />
+<a name="//apple_ref/cpp/clm/Q3DragObject/target"></a>
 <h3 class="fn"><a name="target"></a><a href="qwidget.html">QWidget</a> * Q3DragObject::target ()&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>After the drag completes, this function will return the <a href="qwidget.html">QWidget</a> which received the drop, or 0 if the data was dropped on another application.</p>
 <p>This can be useful for detecting the case where drag and drop is to and from the same widget.</p>
@@ -159,6 +159,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

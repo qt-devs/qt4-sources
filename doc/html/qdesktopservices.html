@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QDesktopServices" />
+<a name="//apple_ref/cpp/cl//QDesktopServices"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -63,18 +63,18 @@
 <p>See also <a href="qsystemtrayicon.html">QSystemTrayIcon</a> and <a href="qprocess.html">QProcess</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QDesktopServices/StandardLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/DesktopLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/DocumentsLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/FontsLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/ApplicationsLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/MusicLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/MoviesLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/PicturesLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/TempLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/HomeLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/DataLocation" />
-<a name="//apple_ref/cpp/econst/QDesktopServices/CacheLocation" />
+<a name="//apple_ref/cpp/tag/QDesktopServices/StandardLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/DesktopLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/DocumentsLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/FontsLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/ApplicationsLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/MusicLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/MoviesLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/PicturesLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/TempLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/HomeLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/DataLocation"></a>
+<a name="//apple_ref/cpp/econst/QDesktopServices/CacheLocation"></a>
 <h3 class="fn"><a name="StandardLocation-enum"></a>enum QDesktopServices::StandardLocation</h3>
 <p>This enum describes the different locations that can be queried by QDesktopServices::storageLocation and QDesktopServices::displayName.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -95,10 +95,10 @@
 <p>See also <a href="qdesktopservices.html#storageLocation">storageLocation</a>() and <a href="qdesktopservices.html#displayName">displayName</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/clm/QDesktopServices/displayName" />
+<a name="//apple_ref/cpp/clm/QDesktopServices/displayName"></a>
 <h3 class="fn"><a name="displayName"></a><a href="qstring.html">QString</a> QDesktopServices::displayName ( <a href="qdesktopservices.html#StandardLocation-enum">StandardLocation</a> <i>type</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns a localized display name for the given location <i>type</i> or an empty <a href="qstring.html">QString</a> if no relevant location can be found.</p>
-<a name="//apple_ref/cpp/clm/QDesktopServices/openUrl" />
+<a name="//apple_ref/cpp/clm/QDesktopServices/openUrl"></a>
 <h3 class="fn"><a name="openUrl"></a>bool QDesktopServices::openUrl ( const <a href="qurl.html">QUrl</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Opens the given <i>url</i> in the appropriate Web browser for the user's desktop environment, and returns true if successful; otherwise returns false.</p>
 <p>If the URL is a reference to a local file (i.e&#x2e;, the URL scheme is &quot;file&quot;) then it will be opened with a suitable application instead of a Web browser.</p>
@@ -109,7 +109,7 @@
 <pre> mailto:user@foo.com?subject=Test&amp;body=Just a test</pre>
 <p><b>Warning:</b> Although many e-mail clients can send attachments and are Unicode-aware, the user may have configured their client without these features. Also, certain e-mail clients (e.g&#x2e;, Lotus Notes) have problems with long URLs.</p>
 <p>See also <a href="qdesktopservices.html#setUrlHandler">setUrlHandler</a>().</p>
-<a name="//apple_ref/cpp/clm/QDesktopServices/setUrlHandler" />
+<a name="//apple_ref/cpp/clm/QDesktopServices/setUrlHandler"></a>
 <h3 class="fn"><a name="setUrlHandler"></a>void QDesktopServices::setUrlHandler ( const <a href="qstring.html">QString</a> &amp; <i>scheme</i>, <a href="qobject.html">QObject</a> * <i>receiver</i>, const char * <i>method</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Sets the handler for the given <i>scheme</i> to be the handler <i>method</i> provided by the <i>receiver</i> object.</p>
 <p>This function provides a way to customize the behavior of <a href="qdesktopservices.html#openUrl">openUrl</a>(). If <a href="qdesktopservices.html#openUrl">openUrl</a>() is called with a URL with the specified <i>scheme</i> then the given <i>method</i> on the <i>receiver</i> object is called instead of <a href="qdesktopservices.html">QDesktopServices</a> launching an external application.</p>
@@ -117,13 +117,13 @@
 <p>If setUrlHandler() is used to set a new handler for a scheme which already has a handler, the existing handler is simply replaced with the new one. Since <a href="qdesktopservices.html">QDesktopServices</a> does not take ownership of handlers, no objects are deleted when a handler is replaced.</p>
 <p>Note that the handler will always be called from within the same thread that calls <a href="qdesktopservices.html#openUrl">QDesktopServices::openUrl</a>().</p>
 <p>See also <a href="qdesktopservices.html#openUrl">openUrl</a>() and <a href="qdesktopservices.html#unsetUrlHandler">unsetUrlHandler</a>().</p>
-<a name="//apple_ref/cpp/clm/QDesktopServices/storageLocation" />
+<a name="//apple_ref/cpp/clm/QDesktopServices/storageLocation"></a>
 <h3 class="fn"><a name="storageLocation"></a><a href="qstring.html">QString</a> QDesktopServices::storageLocation ( <a href="qdesktopservices.html#StandardLocation-enum">StandardLocation</a> <i>type</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns the default system directory where files of <i>type</i> belong, or an empty string if the location cannot be determined.</p>
 <p><b>Note:</b> The storage location returned can be a directory that does not exist; i.e&#x2e;, it may need to be created by the system or the user.</p>
 <p><b>Note:</b> On Symbian OS, <a href="qdesktopservices.html#StandardLocation-enum">ApplicationsLocation</a> always point /sys/bin folder on the same drive with executable. <a href="qdesktopservices.html#StandardLocation-enum">FontsLocation</a> always points to folder on ROM drive. Symbian OS does not have desktop concept, <a href="qdesktopservices.html#StandardLocation-enum">DesktopLocation</a> returns same path as <a href="qdesktopservices.html#StandardLocation-enum">DocumentsLocation</a>. Rest of the standard locations point to folder on same drive with executable, except that if executable is in ROM the folder from C drive is returned.</p>
 <p>This function was introduced in Qt 4.4.</p>
-<a name="//apple_ref/cpp/clm/QDesktopServices/unsetUrlHandler" />
+<a name="//apple_ref/cpp/clm/QDesktopServices/unsetUrlHandler"></a>
 <h3 class="fn"><a name="unsetUrlHandler"></a>void QDesktopServices::unsetUrlHandler ( const <a href="qstring.html">QString</a> &amp; <i>scheme</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Removes a previously set URL handler for the specified <i>scheme</i>.</p>
 <p>See also <a href="qdesktopservices.html#setUrlHandler">setUrlHandler</a>().</p>
@@ -131,6 +131,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3Process" />
+<a name="//apple_ref/cpp/cl//Q3Process"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -124,11 +124,11 @@
 <p>See also <a href="q3socket.html">Q3Socket</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/Q3Process/Communication" />
-<a name="//apple_ref/cpp/econst/Q3Process/Stdin" />
-<a name="//apple_ref/cpp/econst/Q3Process/Stdout" />
-<a name="//apple_ref/cpp/econst/Q3Process/Stderr" />
-<a name="//apple_ref/cpp/econst/Q3Process/DupStderr" />
+<a name="//apple_ref/cpp/tag/Q3Process/Communication"></a>
+<a name="//apple_ref/cpp/econst/Q3Process/Stdin"></a>
+<a name="//apple_ref/cpp/econst/Q3Process/Stdout"></a>
+<a name="//apple_ref/cpp/econst/Q3Process/Stderr"></a>
+<a name="//apple_ref/cpp/econst/Q3Process/DupStderr"></a>
 <h3 class="fn"><a name="Communication-enum"></a>enum Q3Process::Communication</h3>
 <p>This enum type defines the communication channels connected to the process.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -141,7 +141,7 @@
 <p>See also <a href="q3process.html#setCommunication">setCommunication</a>() and <a href="q3process.html#communication">communication</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3Process/Q3Process" />
+<a name="//apple_ref/cpp/instm/Q3Process/Q3Process"></a>
 <h3 class="fn"><a name="Q3Process"></a>Q3Process::Q3Process ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0, const char * <i>name</i> = 0 )</h3>
 <p>Constructs a <a href="q3process.html" class="compat">Q3Process</a> object. The <i>parent</i> and <i>name</i> parameters are passed to the <a href="qobject.html">QObject</a> constructor.</p>
 <p>See also <a href="q3process.html#setArguments">setArguments</a>(), <a href="q3process.html#addArgument">addArgument</a>(), and <a href="q3process.html#start">start</a>().</p>
@@ -153,18 +153,18 @@
 <p>Constructs a <a href="q3process.html" class="compat">Q3Process</a> with <i>args</i> as the arguments of the process. The first element in the list is the command to be executed. The other elements in the list are the arguments to this command. The <i>parent</i> and <i>name</i> parameters are passed to the <a href="qobject.html">QObject</a> constructor.</p>
 <p>The process is not started. You must call <a href="q3process.html#start">start</a>() or <a href="q3process.html#launch">launch</a>() to start the process.</p>
 <p>See also <a href="q3process.html#setArguments">setArguments</a>(), <a href="q3process.html#addArgument">addArgument</a>(), and <a href="q3process.html#start">start</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/~Q3Process" />
+<a name="//apple_ref/cpp/instm/Q3Process/~Q3Process"></a>
 <h3 class="fn"><a name="dtor.Q3Process"></a>Q3Process::~Q3Process ()</h3>
 <p>Destroys the instance.</p>
 <p>If the process is running, it is &lt;b&gt;not&lt;/b&gt; terminated! The standard input, standard output and standard error of the process are closed.</p>
 <p>You can connect the <a href="qobject.html#destroyed">destroyed</a>() signal to the <a href="q3process.html#kill">kill</a>() slot, if you want the process to be terminated automatically when the instance is destroyed.</p>
 <p>See also <a href="q3process.html#tryTerminate">tryTerminate</a>() and <a href="q3process.html#kill">kill</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/addArgument" />
+<a name="//apple_ref/cpp/instm/Q3Process/addArgument"></a>
 <h3 class="fn"><a name="addArgument"></a>void Q3Process::addArgument ( const <a href="qstring.html">QString</a> &amp; <i>arg</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Adds <i>arg</i> to the end of the list of arguments.</p>
 <p>The first element in the list of arguments is the command to be executed; the following elements are the command's arguments.</p>
 <p>See also <a href="q3process.html#arguments">arguments</a>() and <a href="q3process.html#setArguments">setArguments</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/arguments" />
+<a name="//apple_ref/cpp/instm/Q3Process/arguments"></a>
 <h3 class="fn"><a name="arguments"></a><a href="qstringlist.html">QStringList</a> Q3Process::arguments () const</h3>
 <p>Returns the list of arguments that are set for the process. Arguments can be specified with the constructor or with the functions <a href="q3process.html#setArguments">setArguments</a>() and <a href="q3process.html#addArgument">addArgument</a>().</p>
 <p>Note that if you want to iterate over the list, you should iterate over a copy, e.g&#x2e;</p>
@@ -175,43 +175,43 @@
      ++it;
  }</pre>
 <p>See also <a href="q3process.html#setArguments">setArguments</a>() and <a href="q3process.html#addArgument">addArgument</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/canReadLineStderr" />
+<a name="//apple_ref/cpp/instm/Q3Process/canReadLineStderr"></a>
 <h3 class="fn"><a name="canReadLineStderr"></a>bool Q3Process::canReadLineStderr () const</h3>
 <p>Returns true if it's possible to read an entire line of text from standard error at this time; otherwise returns false.</p>
 <p>See also <a href="q3process.html#readLineStderr">readLineStderr</a>() and <a href="q3process.html#canReadLineStdout">canReadLineStdout</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/canReadLineStdout" />
+<a name="//apple_ref/cpp/instm/Q3Process/canReadLineStdout"></a>
 <h3 class="fn"><a name="canReadLineStdout"></a>bool Q3Process::canReadLineStdout () const</h3>
 <p>Returns true if it's possible to read an entire line of text from standard output at this time; otherwise returns false.</p>
 <p>See also <a href="q3process.html#readLineStdout">readLineStdout</a>() and <a href="q3process.html#canReadLineStderr">canReadLineStderr</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/clearArguments" />
+<a name="//apple_ref/cpp/instm/Q3Process/clearArguments"></a>
 <h3 class="fn"><a name="clearArguments"></a>void Q3Process::clearArguments ()</h3>
 <p>Clears the list of arguments that are set for the process.</p>
 <p>See also <a href="q3process.html#setArguments">setArguments</a>() and <a href="q3process.html#addArgument">addArgument</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/closeStdin" />
+<a name="//apple_ref/cpp/instm/Q3Process/closeStdin"></a>
 <h3 class="fn"><a name="closeStdin"></a>void Q3Process::closeStdin ()&nbsp;&nbsp;<tt> [virtual slot]</tt></h3>
 <p>Closes the process's standard input.</p>
 <p>This function also deletes any pending data that has not been written to standard input.</p>
 <p>See also <a href="q3process.html#wroteToStdin">wroteToStdin</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/communication" />
+<a name="//apple_ref/cpp/instm/Q3Process/communication"></a>
 <h3 class="fn"><a name="communication"></a>int Q3Process::communication () const</h3>
 <p>Returns the communication required with the process, i.e&#x2e; some combination of the <tt>Communication</tt> flags.</p>
 <p>See also <a href="q3process.html#setCommunication">setCommunication</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/connectNotify" />
+<a name="//apple_ref/cpp/instm/Q3Process/connectNotify"></a>
 <h3 class="fn"><a name="connectNotify"></a>void Q3Process::connectNotify ( const char * <i>signal</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qobject.html#connectNotify">QObject::connectNotify</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/disconnectNotify" />
+<a name="//apple_ref/cpp/instm/Q3Process/disconnectNotify"></a>
 <h3 class="fn"><a name="disconnectNotify"></a>void Q3Process::disconnectNotify ( const char * <i>signal</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qobject.html#disconnectNotify">QObject::disconnectNotify</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/exitStatus" />
+<a name="//apple_ref/cpp/instm/Q3Process/exitStatus"></a>
 <h3 class="fn"><a name="exitStatus"></a>int Q3Process::exitStatus () const</h3>
 <p>Returns the exit status of the process or 0 if the process is still running. This function returns immediately and does not wait until the process is finished.</p>
 <p>If <a href="q3process.html#normalExit">normalExit</a>() is false (e.g&#x2e; if the program was killed or crashed), this function returns 0, so you should check the return value of <a href="q3process.html#normalExit">normalExit</a>() before relying on this value.</p>
 <p>See also <a href="q3process.html#normalExit">normalExit</a>() and <a href="q3process.html#processExited">processExited</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/isRunning" />
+<a name="//apple_ref/cpp/instm/Q3Process/isRunning"></a>
 <h3 class="fn"><a name="isRunning"></a>bool Q3Process::isRunning () const</h3>
 <p>Returns true if the process is running; otherwise returns false.</p>
 <p>See also <a href="q3process.html#normalExit">normalExit</a>(), <a href="q3process.html#exitStatus">exitStatus</a>(), and <a href="q3process.html#processExited">processExited</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/kill" />
+<a name="//apple_ref/cpp/instm/Q3Process/kill"></a>
 <h3 class="fn"><a name="kill"></a>void Q3Process::kill () const&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Terminates the process. This is not a safe way to end a process since the process will not be able to do any cleanup. <a href="q3process.html#tryTerminate">tryTerminate</a>() is safer, but processes can ignore a <a href="q3process.html#tryTerminate">tryTerminate</a>().</p>
 <p>The nice way to end a process and to be sure that it is finished, is to do something like this:</p>
@@ -220,7 +220,7 @@
 <p>This tries to terminate the process the nice way. If the process is still running after 5 seconds, it terminates the process the hard way. The timeout should be chosen depending on the time the process needs to do all its cleanup: use a higher value if the process is likely to do a lot of computation or I/O on cleanup.</p>
 <p>The slot returns immediately: it does not wait until the process has finished. When the process terminates, the <a href="q3process.html#processExited">processExited</a>() signal is emitted.</p>
 <p>See also <a href="q3process.html#tryTerminate">tryTerminate</a>() and <a href="q3process.html#processExited">processExited</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/launch" />
+<a name="//apple_ref/cpp/instm/Q3Process/launch"></a>
 <h3 class="fn"><a name="launch"></a>bool Q3Process::launch ( const <a href="qbytearray.html">QByteArray</a> &amp; <i>buf</i>, <a href="qstringlist.html">QStringList</a> * <i>env</i> = 0 )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Runs the process and writes the data <i>buf</i> to the process's standard input. If all the data is written to standard input, standard input is closed. The command is searched for in the path for executable programs; you can also use an absolute path in the command itself.</p>
 <p>If <i>env</i> is null, then the process is started with the same environment as the starting process. If <i>env</i> is non-null, then the values in the string list are interpreted as environment setttings of the form <tt>key=value</tt> and the process is started with these environment settings. For convenience, there is a small exception to this rule under Unix: if <i>env</i> does not contain any settings for the environment variable <tt>LD_LIBRARY_PATH</tt>, then this variable is inherited from the starting process.</p>
@@ -233,73 +233,73 @@
 <h3 class="fn"><a name="launch-2"></a>bool Q3Process::launch ( const <a href="qstring.html">QString</a> &amp; <i>buf</i>, <a href="qstringlist.html">QStringList</a> * <i>env</i> = 0 )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>The data <i>buf</i> is written to standard input with <a href="q3process.html#writeToStdin">writeToStdin</a>() using the <a href="qstring-qt3.html#local8Bit" class="compat">QString::local8Bit</a>() representation of the strings.</p>
-<a name="//apple_ref/cpp/instm/Q3Process/launchFinished" />
+<a name="//apple_ref/cpp/instm/Q3Process/launchFinished"></a>
 <h3 class="fn"><a name="launchFinished"></a>void Q3Process::launchFinished ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted when the process was started with <a href="q3process.html#launch">launch</a>(). If the start was successful, this signal is emitted after all the data has been written to standard input. If the start failed, then this signal is emitted immediately.</p>
 <p>This signal is especially useful if you want to know when you can safely delete the <a href="q3process.html" class="compat">Q3Process</a> object when you are not interested in reading from standard output or standard error.</p>
 <p>See also <a href="q3process.html#launch">launch</a>() and <a href="qobject.html#deleteLater">QObject::deleteLater</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/normalExit" />
+<a name="//apple_ref/cpp/instm/Q3Process/normalExit"></a>
 <h3 class="fn"><a name="normalExit"></a>bool Q3Process::normalExit () const</h3>
 <p>Returns true if the process has exited normally; otherwise returns false. This implies that this function returns false if the process is still running.</p>
 <p>See also <a href="q3process.html#isRunning">isRunning</a>(), <a href="q3process.html#exitStatus">exitStatus</a>(), and <a href="q3process.html#processExited">processExited</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/processExited" />
+<a name="//apple_ref/cpp/instm/Q3Process/processExited"></a>
 <h3 class="fn"><a name="processExited"></a>void Q3Process::processExited ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted when the process has exited.</p>
 <p>See also <a href="q3process.html#isRunning">isRunning</a>(), <a href="q3process.html#normalExit">normalExit</a>(), <a href="q3process.html#exitStatus">exitStatus</a>(), <a href="q3process.html#start">start</a>(), and <a href="q3process.html#launch">launch</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/processIdentifier" />
+<a name="//apple_ref/cpp/instm/Q3Process/processIdentifier"></a>
 <h3 class="fn"><a name="processIdentifier"></a>PID Q3Process::processIdentifier ()</h3>
 <p>Returns platform dependent information about the process. This can be used together with platform specific system calls.</p>
 <p>Under Unix the return value is the PID of the process, or -1 if no process belongs to this object.</p>
 <p>Under Windows it is a pointer to the <tt>PROCESS_INFORMATION</tt> struct, or 0 if no process is belongs to this object.</p>
 <p>Use of this function's return value is likely to be non-portable.</p>
-<a name="//apple_ref/cpp/instm/Q3Process/readLineStderr" />
+<a name="//apple_ref/cpp/instm/Q3Process/readLineStderr"></a>
 <h3 class="fn"><a name="readLineStderr"></a><a href="qstring.html">QString</a> Q3Process::readLineStderr ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reads a line of text from standard error, excluding any trailing newline or carriage return characters and returns it. Returns an empty string if <a href="q3process.html#canReadLineStderr">canReadLineStderr</a>() returns false.</p>
 <p>By default, the text is interpreted to be in Latin-1 encoding. If you need other codecs, you can set a different codec with <a href="qtextcodec.html#setCodecForCStrings">QTextCodec::setCodecForCStrings</a>().</p>
 <p>See also <a href="q3process.html#canReadLineStderr">canReadLineStderr</a>(), <a href="q3process.html#readyReadStderr">readyReadStderr</a>(), <a href="q3process.html#readStderr">readStderr</a>(), and <a href="q3process.html#readLineStdout">readLineStdout</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/readLineStdout" />
+<a name="//apple_ref/cpp/instm/Q3Process/readLineStdout"></a>
 <h3 class="fn"><a name="readLineStdout"></a><a href="qstring.html">QString</a> Q3Process::readLineStdout ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reads a line of text from standard output, excluding any trailing newline or carriage return characters, and returns it. Returns an empty string if <a href="q3process.html#canReadLineStdout">canReadLineStdout</a>() returns false.</p>
 <p>By default, the text is interpreted to be in Latin-1 encoding. If you need other codecs, you can set a different codec with <a href="qtextcodec.html#setCodecForCStrings">QTextCodec::setCodecForCStrings</a>().</p>
 <p>See also <a href="q3process.html#canReadLineStdout">canReadLineStdout</a>(), <a href="q3process.html#readyReadStdout">readyReadStdout</a>(), <a href="q3process.html#readStdout">readStdout</a>(), and <a href="q3process.html#readLineStderr">readLineStderr</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/readStderr" />
+<a name="//apple_ref/cpp/instm/Q3Process/readStderr"></a>
 <h3 class="fn"><a name="readStderr"></a><a href="qbytearray.html">QByteArray</a> Q3Process::readStderr ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reads the data that the process has written to standard error. When new data is written to standard error, the class emits the signal <a href="q3process.html#readyReadStderr">readyReadStderr</a>().</p>
 <p>If there is no data to read, this function returns a <a href="qbytearray.html">QByteArray</a> of size 0: it does not wait until there is something to read.</p>
 <p>See also <a href="q3process.html#readyReadStderr">readyReadStderr</a>(), <a href="q3process.html#readLineStderr">readLineStderr</a>(), <a href="q3process.html#readStdout">readStdout</a>(), and <a href="q3process.html#writeToStdin">writeToStdin</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/readStdout" />
+<a name="//apple_ref/cpp/instm/Q3Process/readStdout"></a>
 <h3 class="fn"><a name="readStdout"></a><a href="qbytearray.html">QByteArray</a> Q3Process::readStdout ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reads the data that the process has written to standard output. When new data is written to standard output, the class emits the signal <a href="q3process.html#readyReadStdout">readyReadStdout</a>().</p>
 <p>If there is no data to read, this function returns a <a href="qbytearray.html">QByteArray</a> of size 0: it does not wait until there is something to read.</p>
 <p>See also <a href="q3process.html#readyReadStdout">readyReadStdout</a>(), <a href="q3process.html#readLineStdout">readLineStdout</a>(), <a href="q3process.html#readStderr">readStderr</a>(), and <a href="q3process.html#writeToStdin">writeToStdin</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/readyReadStderr" />
+<a name="//apple_ref/cpp/instm/Q3Process/readyReadStderr"></a>
 <h3 class="fn"><a name="readyReadStderr"></a>void Q3Process::readyReadStderr ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted when the process has written data to standard error. You can read the data with <a href="q3process.html#readStderr">readStderr</a>().</p>
 <p>Note that this signal is only emitted when there is new data and not when there is old, but unread data. In the slot connected to this signal, you should always read everything that is available at that moment to make sure that you don't lose any data.</p>
 <p>See also <a href="q3process.html#readStderr">readStderr</a>(), <a href="q3process.html#readLineStderr">readLineStderr</a>(), and <a href="q3process.html#readyReadStdout">readyReadStdout</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/readyReadStdout" />
+<a name="//apple_ref/cpp/instm/Q3Process/readyReadStdout"></a>
 <h3 class="fn"><a name="readyReadStdout"></a>void Q3Process::readyReadStdout ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted when the process has written data to standard output. You can read the data with <a href="q3process.html#readStdout">readStdout</a>().</p>
 <p>Note that this signal is only emitted when there is new data and not when there is old, but unread data. In the slot connected to this signal, you should always read everything that is available at that moment to make sure that you don't lose any data.</p>
 <p>See also <a href="q3process.html#readStdout">readStdout</a>(), <a href="q3process.html#readLineStdout">readLineStdout</a>(), and <a href="q3process.html#readyReadStderr">readyReadStderr</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/setArguments" />
+<a name="//apple_ref/cpp/instm/Q3Process/setArguments"></a>
 <h3 class="fn"><a name="setArguments"></a>void Q3Process::setArguments ( const <a href="qstringlist.html">QStringList</a> &amp; <i>args</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets <i>args</i> as the arguments for the process. The first element in the list is the command to be executed. The other elements in the list are the arguments to the command. Any previous arguments are deleted.</p>
 <p><a href="q3process.html" class="compat">Q3Process</a> does not perform argument substitutions; for example, if you specify &quot;*&quot; or &quot;$DISPLAY&quot;, these values are passed to the process literally. If you want to have the same behavior as the shell provides, you must do the substitutions yourself; i.e&#x2e; instead of specifying a &quot;*&quot; you must specify the list of all the filenames in the current directory, and instead of &quot;$DISPLAY&quot; you must specify the value of the environment variable <tt>DISPLAY</tt>.</p>
 <p>Note for Windows users. The standard Windows shells, e.g&#x2e; <tt>command.com</tt> and <tt>cmd.exe</tt>, do not perform file globbing, i.e&#x2e; they do not convert a &quot;*&quot; on the command line into a list of files in the current directory. For this reason most Windows applications implement their own file globbing, and as a result of this, specifying an argument of &quot;*&quot; for a Windows application is likely to result in the application performing a file glob and ending up with a list of filenames.</p>
 <p>See also <a href="q3process.html#arguments">arguments</a>() and <a href="q3process.html#addArgument">addArgument</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/setCommunication" />
+<a name="//apple_ref/cpp/instm/Q3Process/setCommunication"></a>
 <h3 class="fn"><a name="setCommunication"></a>void Q3Process::setCommunication ( int <i>commFlags</i> )</h3>
 <p>Sets <i>commFlags</i> as the communication required with the process.</p>
 <p><i>commFlags</i> is a bitwise OR of the flags defined by the <tt>Communication</tt> enum.</p>
 <p>The default is <tt>Stdin|Stdout|Stderr</tt>.</p>
 <p>See also <a href="q3process.html#communication">communication</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/setWorkingDirectory" />
+<a name="//apple_ref/cpp/instm/Q3Process/setWorkingDirectory"></a>
 <h3 class="fn"><a name="setWorkingDirectory"></a>void Q3Process::setWorkingDirectory ( const <a href="qdir.html">QDir</a> &amp; <i>dir</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets <i>dir</i> as the working directory for processes. This does not affect running processes; only processes that are started afterwards are affected.</p>
 <p>Setting the working directory is especially useful for processes that try to access files with relative paths.</p>
 <p>See also <a href="q3process.html#workingDirectory">workingDirectory</a>() and <a href="q3process.html#start">start</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/start" />
+<a name="//apple_ref/cpp/instm/Q3Process/start"></a>
 <h3 class="fn"><a name="start"></a>bool Q3Process::start ( <a href="qstringlist.html">QStringList</a> * <i>env</i> = 0 )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Tries to run a process for the command and arguments that were specified with <a href="q3process.html#setArguments">setArguments</a>(), <a href="q3process.html#addArgument">addArgument</a>() or that were specified in the constructor. The command is searched for in the path for executable programs; you can also use an absolute path in the command itself.</p>
 <p>If <i>env</i> is null, then the process is started with the same environment as the starting process. If <i>env</i> is non-null, then the values in the stringlist are interpreted as environment setttings of the form <tt>key=value</tt> and the process is started in these environment settings. For convenience, there is a small exception to this rule: under Unix, if <i>env</i> does not contain any settings for the environment variable <tt>LD_LIBRARY_PATH</tt>, then this variable is inherited from the starting process; under Windows the same applies for the environment variable <tt>PATH</tt>.</p>
@@ -307,16 +307,16 @@
 <p>You can write data to the process's standard input with <a href="q3process.html#writeToStdin">writeToStdin</a>(). You can close standard input with <a href="q3process.html#closeStdin">closeStdin</a>() and you can terminate the process with <a href="q3process.html#tryTerminate">tryTerminate</a>(), or with <a href="q3process.html#kill">kill</a>().</p>
 <p>You can call this function even if you've used this instance to create a another process which is still running. In such cases, <a href="q3process.html" class="compat">Q3Process</a> closes the old process's standard input and deletes pending data, i.e&#x2e;, you lose all control over the old process, but the old process is not terminated. This applies also if the process could not be started. (On operating systems that have zombie processes, Qt will also wait() on the old process.)</p>
 <p>See also <a href="q3process.html#launch">launch</a>() and <a href="q3process.html#closeStdin">closeStdin</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/tryTerminate" />
+<a name="//apple_ref/cpp/instm/Q3Process/tryTerminate"></a>
 <h3 class="fn"><a name="tryTerminate"></a>void Q3Process::tryTerminate () const&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Asks the process to terminate. Processes can ignore this if they wish. If you want to be certain that the process really terminates, you can use <a href="q3process.html#kill">kill</a>() instead.</p>
 <p>The slot returns immediately: it does not wait until the process has finished. When the process terminates, the <a href="q3process.html#processExited">processExited</a>() signal is emitted.</p>
 <p>See also <a href="q3process.html#kill">kill</a>() and <a href="q3process.html#processExited">processExited</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/workingDirectory" />
+<a name="//apple_ref/cpp/instm/Q3Process/workingDirectory"></a>
 <h3 class="fn"><a name="workingDirectory"></a><a href="qdir.html">QDir</a> Q3Process::workingDirectory () const</h3>
 <p>Returns the working directory that was set with <a href="q3process.html#setWorkingDirectory">setWorkingDirectory</a>(), or the current directory if none has been explicitly set.</p>
 <p>See also <a href="q3process.html#setWorkingDirectory">setWorkingDirectory</a>() and <a href="qdir.html#current">QDir::current</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Process/writeToStdin" />
+<a name="//apple_ref/cpp/instm/Q3Process/writeToStdin"></a>
 <h3 class="fn"><a name="writeToStdin"></a>void Q3Process::writeToStdin ( const <a href="qbytearray.html">QByteArray</a> &amp; <i>buf</i> )&nbsp;&nbsp;<tt> [virtual slot]</tt></h3>
 <p>Writes the data <i>buf</i> to the process's standard input. The process may or may not read this data.</p>
 <p>This function returns immediately; the <a href="q3process.html" class="compat">Q3Process</a> class might write the data at a later point (you must enter the event loop for this to occur). When all the data is written to the process, the signal <a href="q3process.html#wroteToStdin">wroteToStdin</a>() is emitted. This does not mean that the process actually read the data, since this class only detects when it was able to write the data to the operating system.</p>
@@ -324,7 +324,7 @@
 <h3 class="fn"><a name="writeToStdin-2"></a>void Q3Process::writeToStdin ( const <a href="qstring.html">QString</a> &amp; <i>buf</i> )&nbsp;&nbsp;<tt> [virtual slot]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>The string <i>buf</i> is handled as text using the <a href="qstring-qt3.html#local8Bit" class="compat">QString::local8Bit</a>() representation.</p>
-<a name="//apple_ref/cpp/instm/Q3Process/wroteToStdin" />
+<a name="//apple_ref/cpp/instm/Q3Process/wroteToStdin"></a>
 <h3 class="fn"><a name="wroteToStdin"></a>void Q3Process::wroteToStdin ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted if the data sent to standard input (via <a href="q3process.html#writeToStdin">writeToStdin</a>()) was actually written to the process. This does not imply that the process really read the data, since this class only detects when it was able to write the data to the operating system. But it is now safe to close standard input without losing pending data.</p>
 <p>See also <a href="q3process.html#writeToStdin">writeToStdin</a>() and <a href="q3process.html#closeStdin">closeStdin</a>().</p>
@@ -332,6 +332,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

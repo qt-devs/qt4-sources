@@ -95,18 +95,18 @@
      abortButton-&gt;setEnabled(false);
 
      treeWidget = new QTreeWidget(this);
-     connect(treeWidget, SIGNAL(itemActivated(QTreeWidgetItem*, int)),
+     connect(treeWidget, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
              this, SLOT(itemActivated(QTreeWidgetItem*)));
      QStringList headerLabels;
      headerLabels &lt;&lt; tr(&quot;Title&quot;) &lt;&lt; tr(&quot;Link&quot;);
      treeWidget-&gt;setHeaderLabels(headerLabels);
      treeWidget-&gt;header()-&gt;setResizeMode(QHeaderView::ResizeToContents);
 
-     connect(&amp;http, SIGNAL(readyRead(const QHttpResponseHeader &amp;)),
-              this, SLOT(readData(const QHttpResponseHeader &amp;)));
+     connect(&amp;http, SIGNAL(readyRead(QHttpResponseHeader)),
+              this, SLOT(readData(QHttpResponseHeader)));
 
-     connect(&amp;http, SIGNAL(requestFinished(int, bool)),
-              this, SLOT(finished(int, bool)));
+     connect(&amp;http, SIGNAL(requestFinished(int,bool)),
+              this, SLOT(finished(int,bool)));
 
      connect(lineEdit, SIGNAL(returnPressed()), this, SLOT(fetch()));
      connect(fetchButton, SIGNAL(clicked()), this, SLOT(fetch()));
@@ -252,6 +252,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

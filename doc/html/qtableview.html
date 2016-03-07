@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QTableView" />
+<a name="//apple_ref/cpp/cl//QTableView"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -92,9 +92,9 @@
 <li><div bar="2" class="fn"></div>57 public functions inherited from <a href="qabstractitemview.html#public-functions">QAbstractItemView</a></li>
 <li><div bar="2" class="fn"></div>17 public functions inherited from <a href="qabstractscrollarea.html#public-functions">QAbstractScrollArea</a></li>
 <li><div bar="2" class="fn"></div>14 public functions inherited from <a href="qframe.html#public-functions">QFrame</a></li>
-<li><div bar="2" class="fn"></div>216 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li><div bar="2" class="fn"></div>217 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
 <li><div bar="2" class="fn"></div>29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
-<li><div bar="2" class="fn"></div>12 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+<li><div bar="2" class="fn"></div>13 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
 </ul>
 <hr />
 <a name="public-slots"></a>
@@ -207,8 +207,8 @@
 <p>See also <a href="qtablewidget.html">QTableWidget</a>, <a href="model-view-view.html">View Classes</a>, <a href="qabstractitemmodel.html">QAbstractItemModel</a>, <a href="qabstractitemview.html">QAbstractItemView</a>, <a href="itemviews-chart.html">Chart Example</a>, <a href="itemviews-pixelator.html">Pixelator Example</a>, and <a href="sql-tablemodel.html">Table Model Example</a>.</p>
 <hr />
 <h2>Property Documentation</h2>
-<a name="//apple_ref/cpp/instm/QTableView/isCornerButtonEnabled" />
-<a name="//apple_ref/cpp/instm/QTableView/setCornerButtonEnabled" />
+<a name="//apple_ref/cpp/instm/QTableView/isCornerButtonEnabled"></a>
+<a name="//apple_ref/cpp/instm/QTableView/setCornerButtonEnabled"></a>
 <h3 class="fn"><a name="cornerButtonEnabled-prop"></a>cornerButtonEnabled : bool</h3>
 <p>This property holds whether the button in the top-left corner is enabled.</p>
 <p>If this property is true then button in the top-left corner of the table view is enabled. Clicking on this button will select all the cells in the table view.</p>
@@ -219,8 +219,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b>isCornerButtonEnabled</b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b>setCornerButtonEnabled</b> ( bool <i>enable</i> )</td></tr>
 </table>
-<a name="//apple_ref/cpp/instm/QTableView/gridStyle" />
-<a name="//apple_ref/cpp/instm/QTableView/setGridStyle" />
+<a name="//apple_ref/cpp/instm/QTableView/gridStyle"></a>
+<a name="//apple_ref/cpp/instm/QTableView/setGridStyle"></a>
 <h3 class="fn"><a name="gridStyle-prop"></a>gridStyle : <a href="qt.html#PenStyle-enum">Qt::PenStyle</a></h3>
 <p>This property holds the pen style used to draw the grid.</p>
 <p>This property holds the style used when drawing the grid (see <a href="qtableview.html#showGrid-prop">showGrid</a>).</p>
@@ -229,8 +229,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">Qt::PenStyle </td><td class="memItemRight" valign="bottom"><b>gridStyle</b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b>setGridStyle</b> ( Qt::PenStyle <i>style</i> )</td></tr>
 </table>
-<a name="//apple_ref/cpp/instm/QTableView/showGrid" />
-<a name="//apple_ref/cpp/instm/QTableView/setShowGrid" />
+<a name="//apple_ref/cpp/instm/QTableView/showGrid"></a>
+<a name="//apple_ref/cpp/instm/QTableView/setShowGrid"></a>
 <h3 class="fn"><a name="showGrid-prop"></a>showGrid : bool</h3>
 <p>This property holds whether the grid is shown.</p>
 <p>If this property is true a grid is drawn for the table; if the property is false, no grid is drawn. The default value is true.</p>
@@ -239,11 +239,12 @@
 <tr><td class="memItemLeft" align="right" valign="top">bool </td><td class="memItemRight" valign="bottom"><b>showGrid</b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b>setShowGrid</b> ( bool <i>show</i> )</td></tr>
 </table>
-<a name="//apple_ref/cpp/instm/QTableView/isSortingEnabled" />
-<a name="//apple_ref/cpp/instm/QTableView/setSortingEnabled" />
+<a name="//apple_ref/cpp/instm/QTableView/isSortingEnabled"></a>
+<a name="//apple_ref/cpp/instm/QTableView/setSortingEnabled"></a>
 <h3 class="fn"><a name="sortingEnabled-prop"></a>sortingEnabled : bool</h3>
 <p>This property holds whether sorting is enabled.</p>
-<p>If this property is true, sorting is enabled for the table; if the property is false, sorting is not enabled. The default value is false.</p>
+<p>If this property is true, sorting is enabled for the table. If this property is false, sorting is not enabled. The default value is false.</p>
+<p><b>Note:</b>. Setting the property to true with setSortingEnabled() immediately triggers a call to <a href="qtableview.html#sortByColumn">sortByColumn</a>() with the current sort section and order.</p>
 <p>This property was introduced in Qt 4.2.</p>
 <p><b>Access functions:</b></p>
 <table class="alignedsummary" border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -251,8 +252,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b>setSortingEnabled</b> ( bool <i>enable</i> )</td></tr>
 </table>
 <p>See also <a href="qtableview.html#sortByColumn">sortByColumn</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/wordWrap" />
-<a name="//apple_ref/cpp/instm/QTableView/setWordWrap" />
+<a name="//apple_ref/cpp/instm/QTableView/wordWrap"></a>
+<a name="//apple_ref/cpp/instm/QTableView/setWordWrap"></a>
 <h3 class="fn"><a name="wordWrap-prop"></a>wordWrap : bool</h3>
 <p>This property holds the item text word-wrapping policy.</p>
 <p>If this property is true then the item text is wrapped where necessary at word-breaks; otherwise it is not wrapped at all. This property is true by default.</p>
@@ -265,240 +266,240 @@
 </table>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QTableView/QTableView" />
+<a name="//apple_ref/cpp/instm/QTableView/QTableView"></a>
 <h3 class="fn"><a name="QTableView"></a>QTableView::QTableView ( <a href="qwidget.html">QWidget</a> * <i>parent</i> = 0 )</h3>
 <p>Constructs a table view with a <i>parent</i> to represent the data.</p>
 <p>See also <a href="qabstractitemmodel.html">QAbstractItemModel</a>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/~QTableView" />
+<a name="//apple_ref/cpp/instm/QTableView/~QTableView"></a>
 <h3 class="fn"><a name="dtor.QTableView"></a>QTableView::~QTableView ()</h3>
 <p>Destroys the table view.</p>
-<a name="//apple_ref/cpp/instm/QTableView/clearSpans" />
+<a name="//apple_ref/cpp/instm/QTableView/clearSpans"></a>
 <h3 class="fn"><a name="clearSpans"></a>void QTableView::clearSpans ()</h3>
 <p>Removes all row and column spans in the table view.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p>See also <a href="qtableview.html#setSpan">setSpan</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/columnAt" />
+<a name="//apple_ref/cpp/instm/QTableView/columnAt"></a>
 <h3 class="fn"><a name="columnAt"></a>int QTableView::columnAt ( int <i>x</i> ) const</h3>
 <p>Returns the column in which the given x-coordinate, <i>x</i>, in contents coordinates is located.</p>
 <p><b>Note:</b> This function returns -1 if the given coordinate is not valid (has no column).</p>
 <p>See also <a href="qtableview.html#rowAt">rowAt</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/columnCountChanged" />
+<a name="//apple_ref/cpp/instm/QTableView/columnCountChanged"></a>
 <h3 class="fn"><a name="columnCountChanged"></a>void QTableView::columnCountChanged ( int <i>oldCount</i>, int <i>newCount</i> )&nbsp;&nbsp;<tt> [protected slot]</tt></h3>
 <p>This slot is called whenever columns are added or deleted. The previous number of columns is specified by <i>oldCount</i>, and the new number of columns is specified by <i>newCount</i>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/columnMoved" />
+<a name="//apple_ref/cpp/instm/QTableView/columnMoved"></a>
 <h3 class="fn"><a name="columnMoved"></a>void QTableView::columnMoved ( int <i>column</i>, int <i>oldIndex</i>, int <i>newIndex</i> )&nbsp;&nbsp;<tt> [protected slot]</tt></h3>
 <p>This slot is called to change the index of the given <i>column</i> in the table view. The old index is specified by <i>oldIndex</i>, and the new index by <i>newIndex</i>.</p>
 <p>See also <a href="qtableview.html#rowMoved">rowMoved</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/columnResized" />
+<a name="//apple_ref/cpp/instm/QTableView/columnResized"></a>
 <h3 class="fn"><a name="columnResized"></a>void QTableView::columnResized ( int <i>column</i>, int <i>oldWidth</i>, int <i>newWidth</i> )&nbsp;&nbsp;<tt> [protected slot]</tt></h3>
 <p>This slot is called to change the width of the given <i>column</i>. The old width is specified by <i>oldWidth</i>, and the new width by <i>newWidth</i>.</p>
 <p>See also <a href="qtableview.html#rowResized">rowResized</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/columnSpan" />
+<a name="//apple_ref/cpp/instm/QTableView/columnSpan"></a>
 <h3 class="fn"><a name="columnSpan"></a>int QTableView::columnSpan ( int <i>row</i>, int <i>column</i> ) const</h3>
 <p>Returns the column span of the table element at (<i>row</i>, <i>column</i>). The default is 1.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qtableview.html#setSpan">setSpan</a>() and <a href="qtableview.html#rowSpan">rowSpan</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/columnViewportPosition" />
+<a name="//apple_ref/cpp/instm/QTableView/columnViewportPosition"></a>
 <h3 class="fn"><a name="columnViewportPosition"></a>int QTableView::columnViewportPosition ( int <i>column</i> ) const</h3>
 <p>Returns the x-coordinate in contents coordinates of the given <i>column</i>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/columnWidth" />
+<a name="//apple_ref/cpp/instm/QTableView/columnWidth"></a>
 <h3 class="fn"><a name="columnWidth"></a>int QTableView::columnWidth ( int <i>column</i> ) const</h3>
 <p>Returns the width of the given <i>column</i>.</p>
 <p>See also <a href="qtableview.html#setColumnWidth">setColumnWidth</a>(), <a href="qtableview.html#resizeColumnToContents">resizeColumnToContents</a>(), and <a href="qtableview.html#rowHeight">rowHeight</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/currentChanged" />
+<a name="//apple_ref/cpp/instm/QTableView/currentChanged"></a>
 <h3 class="fn"><a name="currentChanged"></a>void QTableView::currentChanged ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>current</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>previous</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#currentChanged">QAbstractItemView::currentChanged</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/hideColumn" />
+<a name="//apple_ref/cpp/instm/QTableView/hideColumn"></a>
 <h3 class="fn"><a name="hideColumn"></a>void QTableView::hideColumn ( int <i>column</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Hide the given <i>column</i>.</p>
 <p>See also <a href="qtableview.html#showColumn">showColumn</a>() and <a href="qtableview.html#hideRow">hideRow</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/hideRow" />
+<a name="//apple_ref/cpp/instm/QTableView/hideRow"></a>
 <h3 class="fn"><a name="hideRow"></a>void QTableView::hideRow ( int <i>row</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Hide the given <i>row</i>.</p>
 <p>See also <a href="qtableview.html#showRow">showRow</a>() and <a href="qtableview.html#hideColumn">hideColumn</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/horizontalHeader" />
+<a name="//apple_ref/cpp/instm/QTableView/horizontalHeader"></a>
 <h3 class="fn"><a name="horizontalHeader"></a><a href="qheaderview.html">QHeaderView</a> * QTableView::horizontalHeader () const</h3>
 <p>Returns the table view's horizontal header.</p>
 <p>See also <a href="qtableview.html#setHorizontalHeader">setHorizontalHeader</a>(), <a href="qtableview.html#verticalHeader">verticalHeader</a>(), and <a href="qabstractitemmodel.html#headerData">QAbstractItemModel::headerData</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/horizontalOffset" />
+<a name="//apple_ref/cpp/instm/QTableView/horizontalOffset"></a>
 <h3 class="fn"><a name="horizontalOffset"></a>int QTableView::horizontalOffset () const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#horizontalOffset">QAbstractItemView::horizontalOffset</a>().</p>
 <p>Returns the horizontal offset of the items in the table view.</p>
 <p>Note that the table view uses the horizontal header section positions to determine the positions of columns in the view.</p>
 <p>See also <a href="qtableview.html#verticalOffset">verticalOffset</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/indexAt" />
+<a name="//apple_ref/cpp/instm/QTableView/indexAt"></a>
 <h3 class="fn"><a name="indexAt"></a><a href="qmodelindex.html">QModelIndex</a> QTableView::indexAt ( const <a href="qpoint.html">QPoint</a> &amp; <i>pos</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#indexAt">QAbstractItemView::indexAt</a>().</p>
 <p>Returns the index position of the model item corresponding to the table item at position <i>pos</i> in contents coordinates.</p>
-<a name="//apple_ref/cpp/instm/QTableView/isColumnHidden" />
+<a name="//apple_ref/cpp/instm/QTableView/isColumnHidden"></a>
 <h3 class="fn"><a name="isColumnHidden"></a>bool QTableView::isColumnHidden ( int <i>column</i> ) const</h3>
 <p>Returns true if the given <i>column</i> is hidden; otherwise returns false.</p>
 <p>See also <a href="qtableview.html#isRowHidden">isRowHidden</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/isIndexHidden" />
+<a name="//apple_ref/cpp/instm/QTableView/isIndexHidden"></a>
 <h3 class="fn"><a name="isIndexHidden"></a>bool QTableView::isIndexHidden ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#isIndexHidden">QAbstractItemView::isIndexHidden</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/isRowHidden" />
+<a name="//apple_ref/cpp/instm/QTableView/isRowHidden"></a>
 <h3 class="fn"><a name="isRowHidden"></a>bool QTableView::isRowHidden ( int <i>row</i> ) const</h3>
 <p>Returns true if the given <i>row</i> is hidden; otherwise returns false.</p>
 <p>See also <a href="qtableview.html#isColumnHidden">isColumnHidden</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/moveCursor" />
+<a name="//apple_ref/cpp/instm/QTableView/moveCursor"></a>
 <h3 class="fn"><a name="moveCursor"></a><a href="qmodelindex.html">QModelIndex</a> QTableView::moveCursor ( <a href="qabstractitemview.html#CursorAction-enum">CursorAction</a> <i>cursorAction</i>, <a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifiers</a> <i>modifiers</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#moveCursor">QAbstractItemView::moveCursor</a>().</p>
 <p>Moves the cursor in accordance with the given <i>cursorAction</i>, using the information provided by the <i>modifiers</i>.</p>
 <p>See also <a href="qabstractitemview.html#CursorAction-enum">QAbstractItemView::CursorAction</a>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/paintEvent" />
+<a name="//apple_ref/cpp/instm/QTableView/paintEvent"></a>
 <h3 class="fn"><a name="paintEvent"></a>void QTableView::paintEvent ( <a href="qpaintevent.html">QPaintEvent</a> * <i>event</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>().</p>
 <p>Paints the table on receipt of the given paint event <i>event</i>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/resizeColumnToContents" />
+<a name="//apple_ref/cpp/instm/QTableView/resizeColumnToContents"></a>
 <h3 class="fn"><a name="resizeColumnToContents"></a>void QTableView::resizeColumnToContents ( int <i>column</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Resizes the given <i>column</i> based on the size hints of the delegate used to render each item in the column.</p>
 <p><b>Note:</b> Only visible columns will be resized. Reimplement <a href="qtableview.html#sizeHintForColumn">sizeHintForColumn</a>() to resize hidden columns as well.</p>
-<a name="//apple_ref/cpp/instm/QTableView/resizeColumnsToContents" />
+<a name="//apple_ref/cpp/instm/QTableView/resizeColumnsToContents"></a>
 <h3 class="fn"><a name="resizeColumnsToContents"></a>void QTableView::resizeColumnsToContents ()&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Resizes all columns based on the size hints of the delegate used to render each item in the columns.</p>
-<a name="//apple_ref/cpp/instm/QTableView/resizeRowToContents" />
+<a name="//apple_ref/cpp/instm/QTableView/resizeRowToContents"></a>
 <h3 class="fn"><a name="resizeRowToContents"></a>void QTableView::resizeRowToContents ( int <i>row</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Resizes the given <i>row</i> based on the size hints of the delegate used to render each item in the row.</p>
-<a name="//apple_ref/cpp/instm/QTableView/resizeRowsToContents" />
+<a name="//apple_ref/cpp/instm/QTableView/resizeRowsToContents"></a>
 <h3 class="fn"><a name="resizeRowsToContents"></a>void QTableView::resizeRowsToContents ()&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Resizes all rows based on the size hints of the delegate used to render each item in the rows.</p>
-<a name="//apple_ref/cpp/instm/QTableView/rowAt" />
+<a name="//apple_ref/cpp/instm/QTableView/rowAt"></a>
 <h3 class="fn"><a name="rowAt"></a>int QTableView::rowAt ( int <i>y</i> ) const</h3>
 <p>Returns the row in which the given y-coordinate, <i>y</i>, in contents coordinates is located.</p>
 <p><b>Note:</b> This function returns -1 if the given coordinate is not valid (has no row).</p>
 <p>See also <a href="qtableview.html#columnAt">columnAt</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/rowCountChanged" />
+<a name="//apple_ref/cpp/instm/QTableView/rowCountChanged"></a>
 <h3 class="fn"><a name="rowCountChanged"></a>void QTableView::rowCountChanged ( int <i>oldCount</i>, int <i>newCount</i> )&nbsp;&nbsp;<tt> [protected slot]</tt></h3>
 <p>This slot is called whenever rows are added or deleted. The previous number of rows is specified by <i>oldCount</i>, and the new number of rows is specified by <i>newCount</i>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/rowHeight" />
+<a name="//apple_ref/cpp/instm/QTableView/rowHeight"></a>
 <h3 class="fn"><a name="rowHeight"></a>int QTableView::rowHeight ( int <i>row</i> ) const</h3>
 <p>Returns the height of the given <i>row</i>.</p>
 <p>See also <a href="qtableview.html#setRowHeight">setRowHeight</a>(), <a href="qtableview.html#resizeRowToContents">resizeRowToContents</a>(), and <a href="qtableview.html#columnWidth">columnWidth</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/rowMoved" />
+<a name="//apple_ref/cpp/instm/QTableView/rowMoved"></a>
 <h3 class="fn"><a name="rowMoved"></a>void QTableView::rowMoved ( int <i>row</i>, int <i>oldIndex</i>, int <i>newIndex</i> )&nbsp;&nbsp;<tt> [protected slot]</tt></h3>
 <p>This slot is called to change the index of the given <i>row</i> in the table view. The old index is specified by <i>oldIndex</i>, and the new index by <i>newIndex</i>.</p>
 <p>See also <a href="qtableview.html#columnMoved">columnMoved</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/rowResized" />
+<a name="//apple_ref/cpp/instm/QTableView/rowResized"></a>
 <h3 class="fn"><a name="rowResized"></a>void QTableView::rowResized ( int <i>row</i>, int <i>oldHeight</i>, int <i>newHeight</i> )&nbsp;&nbsp;<tt> [protected slot]</tt></h3>
 <p>This slot is called to change the height of the given <i>row</i>. The old height is specified by <i>oldHeight</i>, and the new height by <i>newHeight</i>.</p>
 <p>See also <a href="qtableview.html#columnResized">columnResized</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/rowSpan" />
+<a name="//apple_ref/cpp/instm/QTableView/rowSpan"></a>
 <h3 class="fn"><a name="rowSpan"></a>int QTableView::rowSpan ( int <i>row</i>, int <i>column</i> ) const</h3>
 <p>Returns the row span of the table element at (<i>row</i>, <i>column</i>). The default is 1.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qtableview.html#setSpan">setSpan</a>() and <a href="qtableview.html#columnSpan">columnSpan</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/rowViewportPosition" />
+<a name="//apple_ref/cpp/instm/QTableView/rowViewportPosition"></a>
 <h3 class="fn"><a name="rowViewportPosition"></a>int QTableView::rowViewportPosition ( int <i>row</i> ) const</h3>
 <p>Returns the y-coordinate in contents coordinates of the given <i>row</i>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/selectColumn" />
+<a name="//apple_ref/cpp/instm/QTableView/selectColumn"></a>
 <h3 class="fn"><a name="selectColumn"></a>void QTableView::selectColumn ( int <i>column</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Selects the given <i>column</i> in the table view if the current <a href="qabstractitemview.html#SelectionMode-enum">SelectionMode</a> and <a href="qabstractitemview.html#SelectionBehavior-enum">SelectionBehavior</a> allows columns to be selected.</p>
 <p>See also <a href="qtableview.html#selectRow">selectRow</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/selectRow" />
+<a name="//apple_ref/cpp/instm/QTableView/selectRow"></a>
 <h3 class="fn"><a name="selectRow"></a>void QTableView::selectRow ( int <i>row</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Selects the given <i>row</i> in the table view if the current <a href="qabstractitemview.html#SelectionMode-enum">SelectionMode</a> and <a href="qabstractitemview.html#SelectionBehavior-enum">SelectionBehavior</a> allows rows to be selected.</p>
 <p>See also <a href="qtableview.html#selectColumn">selectColumn</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/selectedIndexes" />
+<a name="//apple_ref/cpp/instm/QTableView/selectedIndexes"></a>
 <h3 class="fn"><a name="selectedIndexes"></a><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a> QTableView::selectedIndexes () const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#selectedIndexes">QAbstractItemView::selectedIndexes</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/selectionChanged" />
+<a name="//apple_ref/cpp/instm/QTableView/selectionChanged"></a>
 <h3 class="fn"><a name="selectionChanged"></a>void QTableView::selectionChanged ( const <a href="qitemselection.html">QItemSelection</a> &amp; <i>selected</i>, const <a href="qitemselection.html">QItemSelection</a> &amp; <i>deselected</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#selectionChanged">QAbstractItemView::selectionChanged</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setColumnHidden" />
+<a name="//apple_ref/cpp/instm/QTableView/setColumnHidden"></a>
 <h3 class="fn"><a name="setColumnHidden"></a>void QTableView::setColumnHidden ( int <i>column</i>, bool <i>hide</i> )</h3>
 <p>If <i>hide</i> is true the given <i>column</i> will be hidden; otherwise it will be shown.</p>
 <p>See also <a href="qtableview.html#isColumnHidden">isColumnHidden</a>() and <a href="qtableview.html#setRowHidden">setRowHidden</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setColumnWidth" />
+<a name="//apple_ref/cpp/instm/QTableView/setColumnWidth"></a>
 <h3 class="fn"><a name="setColumnWidth"></a>void QTableView::setColumnWidth ( int <i>column</i>, int <i>width</i> )</h3>
 <p>Sets the width of the given <i>column</i> to be <i>width</i>.</p>
 <p>This function was introduced in Qt 4.1.</p>
 <p>See also <a href="qtableview.html#columnWidth">columnWidth</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setHorizontalHeader" />
+<a name="//apple_ref/cpp/instm/QTableView/setHorizontalHeader"></a>
 <h3 class="fn"><a name="setHorizontalHeader"></a>void QTableView::setHorizontalHeader ( <a href="qheaderview.html">QHeaderView</a> * <i>header</i> )</h3>
 <p>Sets the widget to use for the horizontal header to <i>header</i>.</p>
 <p>See also <a href="qtableview.html#horizontalHeader">horizontalHeader</a>() and <a href="qtableview.html#setVerticalHeader">setVerticalHeader</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setModel" />
+<a name="//apple_ref/cpp/instm/QTableView/setModel"></a>
 <h3 class="fn"><a name="setModel"></a>void QTableView::setModel ( <a href="qabstractitemmodel.html">QAbstractItemModel</a> * <i>model</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#setModel">QAbstractItemView::setModel</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setRootIndex" />
+<a name="//apple_ref/cpp/instm/QTableView/setRootIndex"></a>
 <h3 class="fn"><a name="setRootIndex"></a>void QTableView::setRootIndex ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#setRootIndex">QAbstractItemView::setRootIndex</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setRowHeight" />
+<a name="//apple_ref/cpp/instm/QTableView/setRowHeight"></a>
 <h3 class="fn"><a name="setRowHeight"></a>void QTableView::setRowHeight ( int <i>row</i>, int <i>height</i> )</h3>
 <p>Sets the height of the given <i>row</i> to be <i>height</i>.</p>
 <p>This function was introduced in Qt 4.1.</p>
 <p>See also <a href="qtableview.html#rowHeight">rowHeight</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setRowHidden" />
+<a name="//apple_ref/cpp/instm/QTableView/setRowHidden"></a>
 <h3 class="fn"><a name="setRowHidden"></a>void QTableView::setRowHidden ( int <i>row</i>, bool <i>hide</i> )</h3>
 <p>If <i>hide</i> is true <i>row</i> will be hidden, otherwise it will be shown.</p>
 <p>See also <a href="qtableview.html#isRowHidden">isRowHidden</a>() and <a href="qtableview.html#setColumnHidden">setColumnHidden</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setSelection" />
+<a name="//apple_ref/cpp/instm/QTableView/setSelection"></a>
 <h3 class="fn"><a name="setSelection"></a>void QTableView::setSelection ( const <a href="qrect.html">QRect</a> &amp; <i>rect</i>, <a href="qitemselectionmodel.html#SelectionFlag-enum">QItemSelectionModel::SelectionFlags</a> <i>flags</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#setSelection">QAbstractItemView::setSelection</a>().</p>
 <p>Selects the items within the given <i>rect</i> and in accordance with the specified selection <i>flags</i>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/setSelectionModel" />
+<a name="//apple_ref/cpp/instm/QTableView/setSelectionModel"></a>
 <h3 class="fn"><a name="setSelectionModel"></a>void QTableView::setSelectionModel ( <a href="qitemselectionmodel.html">QItemSelectionModel</a> * <i>selectionModel</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#setSelectionModel">QAbstractItemView::setSelectionModel</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setSpan" />
+<a name="//apple_ref/cpp/instm/QTableView/setSpan"></a>
 <h3 class="fn"><a name="setSpan"></a>void QTableView::setSpan ( int <i>row</i>, int <i>column</i>, int <i>rowSpanCount</i>, int <i>columnSpanCount</i> )</h3>
 <p>Sets the span of the table element at (<i>row</i>, <i>column</i>) to the number of rows and columns specified by (<i>rowSpanCount</i>, <i>columnSpanCount</i>).</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qtableview.html#rowSpan">rowSpan</a>() and <a href="qtableview.html#columnSpan">columnSpan</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/setVerticalHeader" />
+<a name="//apple_ref/cpp/instm/QTableView/setVerticalHeader"></a>
 <h3 class="fn"><a name="setVerticalHeader"></a>void QTableView::setVerticalHeader ( <a href="qheaderview.html">QHeaderView</a> * <i>header</i> )</h3>
 <p>Sets the widget to use for the vertical header to <i>header</i>.</p>
 <p>See also <a href="qtableview.html#verticalHeader">verticalHeader</a>() and <a href="qtableview.html#setHorizontalHeader">setHorizontalHeader</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/showColumn" />
+<a name="//apple_ref/cpp/instm/QTableView/showColumn"></a>
 <h3 class="fn"><a name="showColumn"></a>void QTableView::showColumn ( int <i>column</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Show the given <i>column</i>.</p>
 <p>See also <a href="qtableview.html#hideColumn">hideColumn</a>() and <a href="qtableview.html#showRow">showRow</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/showRow" />
+<a name="//apple_ref/cpp/instm/QTableView/showRow"></a>
 <h3 class="fn"><a name="showRow"></a>void QTableView::showRow ( int <i>row</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Show the given <i>row</i>.</p>
 <p>See also <a href="qtableview.html#hideRow">hideRow</a>() and <a href="qtableview.html#showColumn">showColumn</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/sizeHintForColumn" />
+<a name="//apple_ref/cpp/instm/QTableView/sizeHintForColumn"></a>
 <h3 class="fn"><a name="sizeHintForColumn"></a>int QTableView::sizeHintForColumn ( int <i>column</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#sizeHintForColumn">QAbstractItemView::sizeHintForColumn</a>().</p>
 <p>Returns the size hint for the given <i>column</i>'s width or -1 if there is no model.</p>
 <p>If you need to set the width of a given column to a fixed value, call <a href="qheaderview.html#resizeSection">QHeaderView::resizeSection</a>() on the table's horizontal header.</p>
 <p>If you reimplement this function in a subclass, note that the value you return will be used when <a href="qtableview.html#resizeColumnToContents">resizeColumnToContents</a>() or <a href="qheaderview.html#resizeSections">QHeaderView::resizeSections</a>() is called. If a larger column width is required by either the horizontal header or the item delegate, the larger width will be used instead.</p>
 <p>See also <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a> and <a href="qtableview.html#horizontalHeader">horizontalHeader</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/sizeHintForRow" />
+<a name="//apple_ref/cpp/instm/QTableView/sizeHintForRow"></a>
 <h3 class="fn"><a name="sizeHintForRow"></a>int QTableView::sizeHintForRow ( int <i>row</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#sizeHintForRow">QAbstractItemView::sizeHintForRow</a>().</p>
 <p>Returns the size hint for the given <i>row</i>'s height or -1 if there is no model.</p>
 <p>If you need to set the height of a given row to a fixed value, call <a href="qheaderview.html#resizeSection">QHeaderView::resizeSection</a>() on the table's vertical header.</p>
 <p>If you reimplement this function in a subclass, note that the value you return is only used when <a href="qtableview.html#resizeRowToContents">resizeRowToContents</a>() is called. In that case, if a larger row height is required by either the vertical header or the item delegate, that width will be used instead.</p>
 <p>See also <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a> and <a href="qtableview.html#verticalHeader">verticalHeader</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/sortByColumn" />
+<a name="//apple_ref/cpp/instm/QTableView/sortByColumn"></a>
 <h3 class="fn"><a name="sortByColumn"></a>void QTableView::sortByColumn ( int <i>column</i>, <a href="qt.html#SortOrder-enum">Qt::SortOrder</a> <i>order</i> )</h3>
 <p>Sorts the model by the values in the given <i>column</i> in the given <i>order</i>.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qtableview.html#sortingEnabled-prop">sortingEnabled</a>.</p>
-<a name="//apple_ref/cpp/instm/QTableView/timerEvent" />
+<a name="//apple_ref/cpp/instm/QTableView/timerEvent"></a>
 <h3 class="fn"><a name="timerEvent"></a>void QTableView::timerEvent ( <a href="qtimerevent.html">QTimerEvent</a> * <i>event</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qobject.html#timerEvent">QObject::timerEvent</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/updateGeometries" />
+<a name="//apple_ref/cpp/instm/QTableView/updateGeometries"></a>
 <h3 class="fn"><a name="updateGeometries"></a>void QTableView::updateGeometries ()&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#updateGeometries">QAbstractItemView::updateGeometries</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/verticalHeader" />
+<a name="//apple_ref/cpp/instm/QTableView/verticalHeader"></a>
 <h3 class="fn"><a name="verticalHeader"></a><a href="qheaderview.html">QHeaderView</a> * QTableView::verticalHeader () const</h3>
 <p>Returns the table view's vertical header.</p>
 <p>See also <a href="qtableview.html#setVerticalHeader">setVerticalHeader</a>(), <a href="qtableview.html#horizontalHeader">horizontalHeader</a>(), and <a href="qabstractitemmodel.html#headerData">QAbstractItemModel::headerData</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/verticalOffset" />
+<a name="//apple_ref/cpp/instm/QTableView/verticalOffset"></a>
 <h3 class="fn"><a name="verticalOffset"></a>int QTableView::verticalOffset () const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#verticalOffset">QAbstractItemView::verticalOffset</a>().</p>
 <p>Returns the vertical offset of the items in the table view.</p>
 <p>Note that the table view uses the vertical header section positions to determine the positions of rows in the view.</p>
 <p>See also <a href="qtableview.html#horizontalOffset">horizontalOffset</a>().</p>
-<a name="//apple_ref/cpp/instm/QTableView/viewOptions" />
+<a name="//apple_ref/cpp/instm/QTableView/viewOptions"></a>
 <h3 class="fn"><a name="viewOptions"></a><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a> QTableView::viewOptions () const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qabstractitemview.html#viewOptions">QAbstractItemView::viewOptions</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3SqlCursor" />
+<a name="//apple_ref/cpp/cl//Q3SqlCursor"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -130,12 +130,12 @@
 <p>Note that Q3SqlCursor does not inherit from <a href="qobject.html">QObject</a>. This means that you are responsible for destroying instances of this class yourself. However if you create a Q3SqlCursor and use it in a <a href="q3datatable.html">Q3DataTable</a>, <a href="q3databrowser.html">Q3DataBrowser</a> or a <a href="q3dataview.html">Q3DataView</a> these classes will usually take ownership of the cursor and destroy it when they don't need it anymore. The documentation for <a href="q3datatable.html">Q3DataTable</a>, <a href="q3databrowser.html">Q3DataBrowser</a> and <a href="q3dataview.html">Q3DataView</a> explicitly states which calls take ownership of the cursor.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/Q3SqlCursor/Mode" />
-<a name="//apple_ref/cpp/econst/Q3SqlCursor/ReadOnly" />
-<a name="//apple_ref/cpp/econst/Q3SqlCursor/Insert" />
-<a name="//apple_ref/cpp/econst/Q3SqlCursor/Update" />
-<a name="//apple_ref/cpp/econst/Q3SqlCursor/Delete" />
-<a name="//apple_ref/cpp/econst/Q3SqlCursor/Writable" />
+<a name="//apple_ref/cpp/tag/Q3SqlCursor/Mode"></a>
+<a name="//apple_ref/cpp/econst/Q3SqlCursor/ReadOnly"></a>
+<a name="//apple_ref/cpp/econst/Q3SqlCursor/Insert"></a>
+<a name="//apple_ref/cpp/econst/Q3SqlCursor/Update"></a>
+<a name="//apple_ref/cpp/econst/Q3SqlCursor/Delete"></a>
+<a name="//apple_ref/cpp/econst/Q3SqlCursor/Writable"></a>
 <h3 class="fn"><a name="Mode-enum"></a>enum Q3SqlCursor::Mode</h3>
 <p>This enum type describes how <a href="q3sqlcursor.html" class="compat">Q3SqlCursor</a> operates on records in the database.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -148,7 +148,7 @@
 </table></p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/Q3SqlCursor" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/Q3SqlCursor"></a>
 <h3 class="fn"><a name="Q3SqlCursor"></a>Q3SqlCursor::Q3SqlCursor ( const <a href="qstring.html">QString</a> &amp; <i>name</i> = QString(), bool <i>autopopulate</i> = true, <a href="qsqldatabase.html">QSqlDatabase</a> <i>db</i> = QSqlDatabase() )</h3>
 <p>Constructs a cursor on database <i>db</i> using table or view <i>name</i>.</p>
 <p>If <i>autopopulate</i> is true (the default), the <i>name</i> of the cursor must correspond to an existing table or view name in the database so that field information can be automatically created. If the table or view does not exist, the cursor will not be functional.</p>
@@ -157,32 +157,32 @@
 <p>See also <a href="q3sqlcursor.html#setName">setName</a>() and <a href="q3sqlcursor.html#setMode">setMode</a>().</p>
 <h3 class="fn"><a name="Q3SqlCursor-2"></a>Q3SqlCursor::Q3SqlCursor ( const Q3SqlCursor &amp; <i>other</i> )</h3>
 <p>Constructs a copy of <i>other</i>.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/~Q3SqlCursor" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/~Q3SqlCursor"></a>
 <h3 class="fn"><a name="dtor.Q3SqlCursor"></a>Q3SqlCursor::~Q3SqlCursor ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destroys the object and frees any allocated resources.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/append" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/append"></a>
 <h3 class="fn"><a name="append"></a>void Q3SqlCursor::append ( const <a href="q3sqlfieldinfo.html">Q3SqlFieldInfo</a> &amp; <i>fieldInfo</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Append a copy of field <i>fieldInfo</i> to the end of the cursor. Note that all references to the cursor edit buffer become invalidated.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/calculateField" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/calculateField"></a>
 <h3 class="fn"><a name="calculateField"></a><a href="qvariant.html">QVariant</a> Q3SqlCursor::calculateField ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Protected virtual function which is called whenever a field needs to be calculated. If calculated fields are being used, derived classes must reimplement this function and return the appropriate value for field <i>name</i>. The default implementation returns an invalid <a href="qvariant.html">QVariant</a>.</p>
 <p>See also <a href="q3sqlcursor.html#setCalculated">setCalculated</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/canDelete" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/canDelete"></a>
 <h3 class="fn"><a name="canDelete"></a>bool Q3SqlCursor::canDelete () const</h3>
 <p>Returns true if the cursor will perform deletes; otherwise returns false.</p>
 <p>See also <a href="q3sqlcursor.html#setMode">setMode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/canInsert" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/canInsert"></a>
 <h3 class="fn"><a name="canInsert"></a>bool Q3SqlCursor::canInsert () const</h3>
 <p>Returns true if the cursor will perform inserts; otherwise returns false.</p>
 <p>See also <a href="q3sqlcursor.html#setMode">setMode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/canUpdate" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/canUpdate"></a>
 <h3 class="fn"><a name="canUpdate"></a>bool Q3SqlCursor::canUpdate () const</h3>
 <p>Returns true if the cursor will perform updates; otherwise returns false.</p>
 <p>See also <a href="q3sqlcursor.html#setMode">setMode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/clear" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/clear"></a>
 <h3 class="fn"><a name="clear"></a>void Q3SqlCursor::clear ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Removes all fields from the cursor. Note that all references to the cursor edit buffer become invalidated.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/del" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/del"></a>
 <h3 class="fn"><a name="del"></a>int Q3SqlCursor::del ( bool <i>invalidate</i> = true )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Deletes a record from the database using the cursor's primary index and the contents of the cursor edit buffer. Returns the number of records which were deleted. For error information, use <a href="qsqlquery.html#lastError">lastError</a>().</p>
 <p>Only records which meet the filter criteria specified by the cursor's primary index are deleted. If the cursor does not contain a primary index, no delete is performed and 0 is returned. If <i>invalidate</i> is true (the default), the current cursor can no longer be navigated. A new <a href="q3sqlcursor.html#select">select</a>() call must be made before you can move to a valid record. For example:</p>
@@ -199,25 +199,25 @@
 <p>Deletes the current cursor record from the database using the filter <i>filter</i>. Only records which meet the filter criteria are deleted. Returns the number of records which were deleted. If <i>invalidate</i> is true (the default), the current cursor can no longer be navigated. A new <a href="q3sqlcursor.html#select">select</a>() call must be made before you can move to a valid record. For error information, use <a href="qsqlquery.html#lastError">lastError</a>().</p>
 <p>The <i>filter</i> is an SQL <tt>WHERE</tt> clause, e.g&#x2e; <tt>id=500</tt>.</p>
 <p>See also <a href="q3sqlcursor.html#setMode">setMode</a>() and <a href="qsqlquery.html#lastError">lastError</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/editBuffer" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/editBuffer"></a>
 <h3 class="fn"><a name="editBuffer"></a><a href="qsqlrecord.html">QSqlRecord</a> * Q3SqlCursor::editBuffer ( bool <i>copy</i> = false )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Returns the current internal edit buffer. If <i>copy</i> is true (the default is false), the current cursor field values are first copied into the edit buffer. The edit buffer is valid as long as the cursor remains valid. The cursor retains ownership of the returned pointer, so it must not be deleted or modified.</p>
 <p>See also <a href="q3sqlcursor.html#primeInsert">primeInsert</a>(), <a href="q3sqlcursor.html#primeUpdate">primeUpdate</a>(), and <a href="q3sqlcursor.html#primeDelete">primeDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/exec" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/exec"></a>
 <h3 class="fn"><a name="exec"></a>bool Q3SqlCursor::exec ( const <a href="qstring.html">QString</a> &amp; <i>sql</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Executes the SQL query <i>sql</i>. Returns true of the cursor is active, otherwise returns false.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/filter" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/filter"></a>
 <h3 class="fn"><a name="filter"></a><a href="qstring.html">QString</a> Q3SqlCursor::filter () const</h3>
 <p>Returns the current filter, or an empty string if there is no current filter.</p>
 <p>See also <a href="q3sqlcursor.html#setFilter">setFilter</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/index" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/index"></a>
 <h3 class="fn"><a name="index"></a><a href="qsqlindex.html">QSqlIndex</a> Q3SqlCursor::index ( const <a href="qstringlist.html">QStringList</a> &amp; <i>fieldNames</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Returns an index composed of <i>fieldNames</i>, all in ASCending order. Note that all field names must exist in the cursor, otherwise an empty index is returned.</p>
 <p>See also <a href="qsqlindex.html">QSqlIndex</a>.</p>
 <h3 class="fn"><a name="index-2"></a><a href="qsqlindex.html">QSqlIndex</a> Q3SqlCursor::index ( const <a href="qstring.html">QString</a> &amp; <i>fieldName</i> ) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns an index based on <i>fieldName</i>.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/insert" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/insert"></a>
 <h3 class="fn"><a name="insert"></a>void Q3SqlCursor::insert ( int <i>pos</i>, const <a href="q3sqlfieldinfo.html">Q3SqlFieldInfo</a> &amp; <i>fieldInfo</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Insert a copy of <i>fieldInfo</i> at position <i>pos</i>. If a field already exists at <i>pos</i>, it is removed. Note that all references to the cursor edit buffer become invalidated.</p>
 <h3 class="fn"><a name="insert-2"></a>int Q3SqlCursor::insert ( bool <i>invalidate</i> = true )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
@@ -231,11 +231,11 @@
  cur.insert();</pre>
 <p>In the above example, a cursor is created on the 'prices' table and a pointer to the insert buffer is acquired using <a href="q3sqlcursor.html#primeInsert">primeInsert</a>(). Each field's value is set to the desired value and then <a href="q3sqlcursor.html#insert">insert</a>() is called to insert the data into the database. Remember: all edit operations (<a href="q3sqlcursor.html#insert">insert</a>(), <a href="q3sqlcursor.html#update">update</a>() and delete()) operate on the contents of the cursor edit buffer and not on the contents of the cursor itself.</p>
 <p>See also <a href="q3sqlcursor.html#setMode">setMode</a>() and <a href="qsqlquery.html#lastError">lastError</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/isCalculated" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/isCalculated"></a>
 <h3 class="fn"><a name="isCalculated"></a>bool Q3SqlCursor::isCalculated ( const <a href="qstring.html">QString</a> &amp; <i>name</i> ) const</h3>
 <p>Returns true if the field <i>name</i> exists and is calculated; otherwise returns false.</p>
 <p>See also <a href="q3sqlcursor.html#setCalculated">setCalculated</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/isNull" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/isNull"></a>
 <h3 class="fn"><a name="isNull"></a>bool Q3SqlCursor::isNull ( int <i>i</i> ) const</h3>
 <p>Returns true if the field <i>i</i> is NULL or if there is no field at position <i>i</i>; otherwise returns false.</p>
 <p>This is the same as calling QSqlRecord::isNull(<i>i</i>)</p>
@@ -243,43 +243,43 @@
 <p>This is an overloaded function.</p>
 <p>Returns true if the field called <i>name</i> is NULL or if there is no field called <i>name</i>; otherwise returns false.</p>
 <p>This is the same as calling QSqlRecord::isNull(<i>name</i>)</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/isReadOnly" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/isReadOnly"></a>
 <h3 class="fn"><a name="isReadOnly"></a>bool Q3SqlCursor::isReadOnly () const</h3>
 <p>Returns true if the cursor is read-only; otherwise returns false. The default is false. Read-only cursors cannot be edited using <a href="q3sqlcursor.html#insert">insert</a>(), <a href="q3sqlcursor.html#update">update</a>() or <a href="q3sqlcursor.html#del">del</a>().</p>
 <p>See also <a href="q3sqlcursor.html#setMode">setMode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/isTrimmed" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/isTrimmed"></a>
 <h3 class="fn"><a name="isTrimmed"></a>bool Q3SqlCursor::isTrimmed ( const <a href="qstring.html">QString</a> &amp; <i>name</i> ) const</h3>
 <p>Returns true if the field <i>name</i> exists and is trimmed; otherwise returns false.</p>
 <p>When a trimmed field of type string or cstring is read from the database any trailing (right-most) spaces are removed.</p>
 <p>See also <a href="q3sqlcursor.html#setTrimmed">setTrimmed</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/mode" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/mode"></a>
 <h3 class="fn"><a name="mode"></a>int Q3SqlCursor::mode () const</h3>
 <p>Returns the current cursor mode.</p>
 <p>See also <a href="q3sqlcursor.html#setMode">setMode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/name" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/name"></a>
 <h3 class="fn"><a name="name"></a><a href="qstring.html">QString</a> Q3SqlCursor::name () const</h3>
 <p>Returns the name of the cursor.</p>
 <p>See also <a href="q3sqlcursor.html#setName">setName</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/primaryIndex" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/primaryIndex"></a>
 <h3 class="fn"><a name="primaryIndex"></a><a href="qsqlindex.html">QSqlIndex</a> Q3SqlCursor::primaryIndex ( bool <i>setFromCursor</i> = true ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Returns the primary index associated with the cursor as defined in the database, or an empty index if there is no primary index. If <i>setFromCursor</i> is true (the default), the index fields are populated with the corresponding values in the cursor's current record.</p>
 <p>See also <a href="q3sqlcursor.html#setPrimaryIndex">setPrimaryIndex</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/primeDelete" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/primeDelete"></a>
 <h3 class="fn"><a name="primeDelete"></a><a href="qsqlrecord.html">QSqlRecord</a> * Q3SqlCursor::primeDelete ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This function primes the edit buffer's field values for delete and returns the edit buffer. The default implementation copies the field values from the current cursor record into the edit buffer (therefore, this function is equivalent to calling editBuffer( true)). The cursor retains ownership of the returned pointer, so it must not be deleted or modified.</p>
 <p>See also <a href="q3sqlcursor.html#editBuffer">editBuffer</a>() and <a href="q3sqlcursor.html#del">del</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/primeInsert" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/primeInsert"></a>
 <h3 class="fn"><a name="primeInsert"></a><a href="qsqlrecord.html">QSqlRecord</a> * Q3SqlCursor::primeInsert ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This function primes the edit buffer's field values for insert and returns the edit buffer. The default implementation clears all field values in the edit buffer. The cursor retains ownership of the returned pointer, so it must not be deleted or modified.</p>
 <p>See also <a href="q3sqlcursor.html#editBuffer">editBuffer</a>() and <a href="q3sqlcursor.html#insert">insert</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/primeUpdate" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/primeUpdate"></a>
 <h3 class="fn"><a name="primeUpdate"></a><a href="qsqlrecord.html">QSqlRecord</a> * Q3SqlCursor::primeUpdate ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This function primes the edit buffer's field values for update and returns the edit buffer. The default implementation copies the field values from the current cursor record into the edit buffer (therefore, this function is equivalent to calling editBuffer( true)). The cursor retains ownership of the returned pointer, so it must not be deleted or modified.</p>
 <p>See also <a href="q3sqlcursor.html#editBuffer">editBuffer</a>() and <a href="q3sqlcursor.html#update">update</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/remove" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/remove"></a>
 <h3 class="fn"><a name="remove"></a>void Q3SqlCursor::remove ( int <i>pos</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Removes the field at <i>pos</i>. If <i>pos</i> does not exist, nothing happens. Note that all references to the cursor edit buffer become invalidated.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/select" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/select"></a>
 <h3 class="fn"><a name="select"></a>bool Q3SqlCursor::select ( const <a href="qstring.html">QString</a> &amp; <i>filter</i>, const <a href="qsqlindex.html">QSqlIndex</a> &amp; <i>sort</i> = QSqlIndex() )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Selects all fields in the cursor from the database matching the filter criteria <i>filter</i>. The data is returned in the order specified by the index <i>sort</i>. Returns true if the data was successfully selected; otherwise returns false.</p>
 <p>The <i>filter</i> is a string containing a SQL <tt>WHERE</tt> clause but without the 'WHERE' keyword. The cursor is initially positioned at an invalid row after this function is called. To move to a valid row, use seek(), first(), last(), previous() or next().</p>
@@ -318,22 +318,22 @@
  cur.select(pk, pk); <span class="comment">// generates &quot;SELECT ... FROM Employee WHERE id=10 ORDER BY id&quot;</span>
  ...</pre>
 <p>In this example the <a href="qsqlindex.html">QSqlIndex</a>, pk, is used for two different purposes. When used as the filter (first) argument, the field names it contains are used to construct the WHERE clause, each set to the current cursor value, <tt>WHERE id=10</tt>, in this case. When used as the sort (second) argument the field names it contains are used for the ORDER BY clause, <tt>ORDER BY id</tt> in this example.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setCalculated" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setCalculated"></a>
 <h3 class="fn"><a name="setCalculated"></a>void Q3SqlCursor::setCalculated ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, bool <i>calculated</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets field <i>name</i> to <i>calculated</i>. If the field <i>name</i> does not exist, nothing happens. The value of a calculated field is set by the <a href="q3sqlcursor.html#calculateField">calculateField</a>() virtual function which you must reimplement (or the field value will be an invalid <a href="qvariant.html">QVariant</a>). Calculated fields do not appear in generated SQL statements sent to the database.</p>
 <p>See also <a href="q3sqlcursor.html#isCalculated">isCalculated</a>() and <a href="q3sqlcursor.html#calculateField">calculateField</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setFilter" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setFilter"></a>
 <h3 class="fn"><a name="setFilter"></a>void Q3SqlCursor::setFilter ( const <a href="qstring.html">QString</a> &amp; <i>filter</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the current filter to <i>filter</i>. Note that no new records are selected. To select new records, use <a href="q3sqlcursor.html#select">select</a>(). The <i>filter</i> will apply to any subsequent <a href="q3sqlcursor.html#select">select</a>() calls that do not explicitly specify a filter.</p>
 <p>The filter is a SQL <tt>WHERE</tt> clause without the keyword 'WHERE', e.g&#x2e; <tt>name='Dave'</tt> which will be processed by the DBMS.</p>
 <p>See also <a href="q3sqlcursor.html#filter">filter</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setGenerated" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setGenerated"></a>
 <h3 class="fn"><a name="setGenerated"></a>void Q3SqlCursor::setGenerated ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, bool <i>generated</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the generated flag for the field <i>name</i> to <i>generated</i>. If the field does not exist, nothing happens. Only fields that have <i>generated</i> set to true are included in the SQL that is generated by <a href="q3sqlcursor.html#insert">insert</a>(), <a href="q3sqlcursor.html#update">update</a>() or <a href="q3sqlcursor.html#del">del</a>().</p>
 <h3 class="fn"><a name="setGenerated-2"></a>void Q3SqlCursor::setGenerated ( int <i>i</i>, bool <i>generated</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>Sets the generated flag for the field <i>i</i> to <i>generated</i>.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setMode" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setMode"></a>
 <h3 class="fn"><a name="setMode"></a>void Q3SqlCursor::setMode ( int <i>mode</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the cursor mode to <i>mode</i>. This value can be an OR'ed combination of <a href="q3sqlcursor.html#Mode-enum">Q3SqlCursor::Mode</a> values. The default mode for a cursor is <a href="q3sqlcursor.html#Mode-enum">Q3SqlCursor::Writable</a>.</p>
 <pre> Q3SqlCursor cur(&quot;Employee&quot;);
@@ -343,33 +343,33 @@
  ...
  cur.setMode(Q3SqlCursor::ReadOnly); <span class="comment">// no inserts/updates/deletes allowed</span></pre>
 <p>See also <a href="q3sqlcursor.html#mode">mode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setName" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setName"></a>
 <h3 class="fn"><a name="setName"></a>void Q3SqlCursor::setName ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, bool <i>autopopulate</i> = true )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the name of the cursor to <i>name</i>. If <i>autopopulate</i> is true (the default), the <i>name</i> must correspond to a valid table or view name in the database. Also, note that all references to the cursor edit buffer become invalidated when fields are auto-populated. See the <a href="q3sqlcursor.html" class="compat">Q3SqlCursor</a> constructor documentation for more information.</p>
 <p>See also <a href="q3sqlcursor.html#name">name</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setPrimaryIndex" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setPrimaryIndex"></a>
 <h3 class="fn"><a name="setPrimaryIndex"></a>void Q3SqlCursor::setPrimaryIndex ( const <a href="qsqlindex.html">QSqlIndex</a> &amp; <i>idx</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the primary index associated with the cursor to the index <i>idx</i>. Note that this index must contain a field or set of fields which identify a unique record within the underlying database table or view so that <a href="q3sqlcursor.html#update">update</a>() and <a href="q3sqlcursor.html#del">del</a>() will execute as expected.</p>
 <p>See also <a href="q3sqlcursor.html#primaryIndex">primaryIndex</a>(), <a href="q3sqlcursor.html#update">update</a>(), and <a href="q3sqlcursor.html#del">del</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setSort" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setSort"></a>
 <h3 class="fn"><a name="setSort"></a>void Q3SqlCursor::setSort ( const <a href="qsqlindex.html">QSqlIndex</a> &amp; <i>sort</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the current sort to <i>sort</i>. Note that no new records are selected. To select new records, use <a href="q3sqlcursor.html#select">select</a>(). The <i>sort</i> will apply to any subsequent <a href="q3sqlcursor.html#select">select</a>() calls that do not explicitly specify a sort.</p>
 <p>See also <a href="q3sqlcursor.html#sort">sort</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setTrimmed" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setTrimmed"></a>
 <h3 class="fn"><a name="setTrimmed"></a>void Q3SqlCursor::setTrimmed ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, bool <i>trim</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets field <i>name</i>'s trimmed status to <i>trim</i>. If the field <i>name</i> does not exist, nothing happens.</p>
 <p>When a trimmed field of type string is read from the database any trailing (right-most) spaces are removed.</p>
 <p>See also <a href="q3sqlcursor.html#isTrimmed">isTrimmed</a>() and <a href="qvariant.html">QVariant</a>.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/setValue" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/setValue"></a>
 <h3 class="fn"><a name="setValue"></a>void Q3SqlCursor::setValue ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, const <a href="qvariant.html">QVariant</a> &amp; <i>val</i> )</h3>
 <p>This is an overloaded function.</p>
 <p>Sets the value for the field named <i>name</i> to <i>val</i>.</p>
 <p>See also <a href="q3sqlcursor.html#value">value</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/sort" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/sort"></a>
 <h3 class="fn"><a name="sort"></a><a href="qsqlindex.html">QSqlIndex</a> Q3SqlCursor::sort () const</h3>
 <p>Returns the current sort, or an empty index if there is no current sort.</p>
 <p>See also <a href="q3sqlcursor.html#setSort">setSort</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/toString" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/toString"></a>
 <h3 class="fn"><a name="toString"></a><a href="qstring.html">QString</a> Q3SqlCursor::toString ( <a href="qsqlrecord.html">QSqlRecord</a> * <i>rec</i>, const <a href="qstring.html">QString</a> &amp; <i>prefix</i>, const <a href="qstring.html">QString</a> &amp; <i>fieldSep</i>, const <a href="qstring.html">QString</a> &amp; <i>sep</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Returns a formatted string composed of all the fields in <i>rec</i>. Each field is composed of the <i>prefix</i> (e.g&#x2e; table or view name), &quot;.&quot;, the field name, the <i>fieldSep</i> and the field value. If the <i>prefix</i> is empty then each field will begin with the field name. The fields are then joined together separated by <i>sep</i>. Fields where <a href="qsqlrecord.html#isGenerated">isGenerated</a>() returns false are not included. This function is useful for generating SQL statements.</p>
 <h3 class="fn"><a name="toString-3"></a><a href="qstring.html">QString</a> Q3SqlCursor::toString ( const <a href="qstring.html">QString</a> &amp; <i>prefix</i>, <a href="qsqlfield.html">QSqlField</a> * <i>field</i>, const <a href="qstring.html">QString</a> &amp; <i>fieldSep</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
@@ -378,7 +378,7 @@
 <h3 class="fn"><a name="toString-4"></a><a href="qstring.html">QString</a> Q3SqlCursor::toString ( const <a href="qsqlindex.html">QSqlIndex</a> &amp; <i>i</i>, <a href="qsqlrecord.html">QSqlRecord</a> * <i>rec</i>, const <a href="qstring.html">QString</a> &amp; <i>prefix</i>, const <a href="qstring.html">QString</a> &amp; <i>fieldSep</i>, const <a href="qstring.html">QString</a> &amp; <i>sep</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>Returns a formatted string composed of all the fields in the index <i>i</i>. Each field is composed of the <i>prefix</i> (e.g&#x2e; table or view name), &quot;.&quot;, the field name, the <i>fieldSep</i> and the field value. If the <i>prefix</i> is empty then each field will begin with the field name. The field values are taken from <i>rec</i>. The fields are then joined together separated by <i>sep</i>. Fields where <a href="qsqlrecord.html#isGenerated">isGenerated</a>() returns false are ignored. This function is useful for generating SQL statements.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/update" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/update"></a>
 <h3 class="fn"><a name="update"></a>int Q3SqlCursor::update ( bool <i>invalidate</i> = true )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Updates the database with the current contents of the edit buffer. Returns the number of records which were updated. For error information, use <a href="qsqlquery.html#lastError">lastError</a>().</p>
 <p>Only records which meet the filter criteria specified by the cursor's primary index are updated. If the cursor does not contain a primary index, no update is performed and 0 is returned.</p>
@@ -401,20 +401,20 @@
 <p>Only records which meet the filter criteria are updated, otherwise all records in the table are updated.</p>
 <p>If <i>invalidate</i> is true (the default), the cursor can no longer be navigated. A new <a href="q3sqlcursor.html#select">select</a>() call must be made before you can move to a valid record.</p>
 <p>See also <a href="q3sqlcursor.html#primeUpdate">primeUpdate</a>(), <a href="q3sqlcursor.html#setMode">setMode</a>(), and <a href="qsqlquery.html#lastError">lastError</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/value" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/value"></a>
 <h3 class="fn"><a name="value"></a><a href="qvariant.html">QVariant</a> Q3SqlCursor::value ( int <i>i</i> ) const</h3>
 <p>Returns the value of field number <i>i</i>.</p>
 <p>See also <a href="q3sqlcursor.html#setValue">setValue</a>().</p>
 <h3 class="fn"><a name="value-2"></a><a href="qvariant.html">QVariant</a> Q3SqlCursor::value ( const <a href="qstring.html">QString</a> &amp; <i>name</i> ) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns the value of the field named <i>name</i>.</p>
-<a name="//apple_ref/cpp/instm/Q3SqlCursor/operator=" />
+<a name="//apple_ref/cpp/instm/Q3SqlCursor/operator="></a>
 <h3 class="fn"><a name="operator-eq"></a>Q3SqlCursor &amp; Q3SqlCursor::operator= ( const Q3SqlCursor &amp; <i>other</i> )</h3>
 <p>Sets the cursor equal to <i>other</i>.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

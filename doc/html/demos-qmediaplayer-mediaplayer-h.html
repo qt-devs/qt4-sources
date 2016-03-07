@@ -61,16 +61,18 @@
  #include &lt;QtCore/QTimerEvent&gt;
  #include &lt;QtGui/QShowEvent&gt;
  #include &lt;QtGui/QIcon&gt;
+ #include &lt;QtCore/QBasicTimer&gt;
+ #include &lt;QtGui/QAction&gt;
 
- #include &lt;Phonon/AudioOutput&gt;
- #include &lt;Phonon/BackendCapabilities&gt;
- #include &lt;Phonon/Effect&gt;
- #include &lt;Phonon/EffectParameter&gt;
- #include &lt;Phonon/EffectWidget&gt;
- #include &lt;Phonon/MediaObject&gt;
- #include &lt;Phonon/SeekSlider&gt;
- #include &lt;Phonon/VideoWidget&gt;
- #include &lt;Phonon/VolumeSlider&gt;
+ #include &lt;phonon/audiooutput.h&gt;
+ #include &lt;phonon/backendcapabilities.h&gt;
+ #include &lt;phonon/effect.h&gt;
+ #include &lt;phonon/effectparameter.h&gt;
+ #include &lt;phonon/effectwidget.h&gt;
+ #include &lt;phonon/mediaobject.h&gt;
+ #include &lt;phonon/seekslider.h&gt;
+ #include &lt;phonon/videowidget.h&gt;
+ #include &lt;phonon/volumeslider.h&gt;
 
  class QPushButton;
  class QLabel;
@@ -78,6 +80,36 @@
  class QTextEdit;
  class QMenu;
  class Ui_settings;
+
+ class MediaPlayer;
+
+ class MediaVideoWidget : public Phonon::VideoWidget
+ {
+     Q_OBJECT
+
+ public:
+     MediaVideoWidget(MediaPlayer *player, QWidget *parent = 0);
+
+ public slots:
+     <span class="comment">// Over-riding non-virtual Phonon::VideoWidget slot</span>
+     void setFullScreen(bool);
+
+ signals:
+     void fullScreenChanged(bool);
+
+ protected:
+     void mouseDoubleClickEvent(QMouseEvent *e);
+     void keyPressEvent(QKeyEvent *e);
+     bool event(QEvent *e);
+     void timerEvent(QTimerEvent *e);
+     void dropEvent(QDropEvent *e);
+     void dragEnterEvent(QDragEnterEvent *e);
+
+ private:
+     MediaPlayer *m_player;
+     QBasicTimer m_timer;
+     QAction m_action;
+ };
 
  class MediaPlayer :
              public QWidget
@@ -116,13 +148,16 @@
      void stateChanged(Phonon::State newstate, Phonon::State oldstate);
      void effectChanged();
      void showSettingsDialog();
-     void showContextMenu(const QPoint &amp;);
+     void showContextMenu(const QPoint&amp; point);
      void bufferStatus(int percent);
      void openUrl();
+     void openRamFile();
      void configureEffect();
      void hasVideoChanged(bool);
 
  private:
+     bool playPauseForDialog();
+
      QIcon playIcon;
      QIcon pauseIcon;
      QMenu *fileMenu;
@@ -140,11 +175,12 @@
      Phonon::Effect *nextEffect;
      QDialog *settingsDialog;
      Ui_settings *ui;
+     QAction *m_fullScreenAction;
 
      QWidget m_videoWindow;
      Phonon::MediaObject m_MediaObject;
      Phonon::AudioOutput m_AudioOutput;
-     Phonon::VideoWidget *m_videoWidget;
+     MediaVideoWidget *m_videoWidget;
      Phonon::Path m_audioOutputPath;
      const bool m_hasSmallScreen;
  };
@@ -154,6 +190,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

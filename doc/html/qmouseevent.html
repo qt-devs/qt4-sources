@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QMouseEvent" />
+<a name="//apple_ref/cpp/cl//QMouseEvent"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -62,7 +62,7 @@
 <p>See also <a href="qwidget.html#mouseTracking-prop">QWidget::setMouseTracking</a>() and <a href="qwidget.html#grabMouse">QWidget::grabMouse</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QMouseEvent/QMouseEvent" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/QMouseEvent"></a>
 <h3 class="fn"><a name="QMouseEvent"></a>QMouseEvent::QMouseEvent ( <a href="qevent.html#Type-enum">Type</a> <i>type</i>, const <a href="qpoint.html">QPoint</a> &amp; <i>position</i>, <a href="qt.html#MouseButton-enum">Qt::MouseButton</a> <i>button</i>, <a href="qt.html#MouseButton-enum">Qt::MouseButtons</a> <i>buttons</i>, <a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifiers</a> <i>modifiers</i> )</h3>
 <p>Constructs a mouse event object.</p>
 <p>The <i>type</i> parameter must be one of <a href="qevent.html#Type-enum">QEvent::MouseButtonPress</a>, <a href="qevent.html#Type-enum">QEvent::MouseButtonRelease</a>, <a href="qevent.html#Type-enum">QEvent::MouseButtonDblClick</a>, or <a href="qevent.html#Type-enum">QEvent::MouseMove</a>.</p>
@@ -72,43 +72,43 @@
 <p>Constructs a mouse event object.</p>
 <p>The <i>type</i> parameter must be <a href="qevent.html#Type-enum">QEvent::MouseButtonPress</a>, <a href="qevent.html#Type-enum">QEvent::MouseButtonRelease</a>, <a href="qevent.html#Type-enum">QEvent::MouseButtonDblClick</a>, or <a href="qevent.html#Type-enum">QEvent::MouseMove</a>.</p>
 <p>The <i>pos</i> is the mouse cursor's position relative to the receiving widget. The cursor's position in global coordinates is specified by <i>globalPos</i>. The <i>button</i> that caused the event is given as a value from the <a href="qt.html#MouseButton-enum">Qt::MouseButton</a> enum. If the event <i>type</i> is <a href="qevent.html#Type-enum">MouseMove</a>, the appropriate button for this event is <a href="qt.html#MouseButton-enum">Qt::NoButton</a>. <i>buttons</i> is the state of all buttons at the time of the event, <i>modifiers</i> the state of all keyboard modifiers.</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/button" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/button"></a>
 <h3 class="fn"><a name="button"></a><a href="qt.html#MouseButton-enum">Qt::MouseButton</a> QMouseEvent::button () const</h3>
 <p>Returns the button that caused the event.</p>
 <p>Note that the returned value is always <a href="qt.html#MouseButton-enum">Qt::NoButton</a> for mouse move events.</p>
 <p>See also <a href="qmouseevent.html#buttons">buttons</a>() and <a href="qt.html#MouseButton-enum">Qt::MouseButton</a>.</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/buttons" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/buttons"></a>
 <h3 class="fn"><a name="buttons"></a><a href="qt.html#MouseButton-enum">Qt::MouseButtons</a> QMouseEvent::buttons () const</h3>
 <p>Returns the button state when the event was generated. The button state is a combination of <a href="qt.html#MouseButton-enum">Qt::LeftButton</a>, <a href="qt.html#MouseButton-enum">Qt::RightButton</a>, <a href="qt.html#MouseButton-enum">Qt::MidButton</a> using the OR operator. For mouse move events, this is all buttons that are pressed down. For mouse press and double click events this includes the button that caused the event. For mouse release events this excludes the button that caused the event.</p>
 <p>See also <a href="qmouseevent.html#button">button</a>() and <a href="qt.html#MouseButton-enum">Qt::MouseButton</a>.</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/globalPos" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/globalPos"></a>
 <h3 class="fn"><a name="globalPos"></a>const <a href="qpoint.html">QPoint</a> &amp; QMouseEvent::globalPos () const</h3>
 <p>Returns the global position of the mouse cursor <i>at the time of the event</i>. This is important on asynchronous window systems like X11. Whenever you move your widgets around in response to mouse events, globalPos() may differ a lot from the current pointer position <a href="qcursor.html#pos">QCursor::pos</a>(), and from QWidget::mapToGlobal(<a href="qmouseevent.html#pos">pos</a>()).</p>
 <p>See also <a href="qmouseevent.html#globalX">globalX</a>() and <a href="qmouseevent.html#globalY">globalY</a>().</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/globalX" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/globalX"></a>
 <h3 class="fn"><a name="globalX"></a>int QMouseEvent::globalX () const</h3>
 <p>Returns the global x position of the mouse cursor at the time of the event.</p>
 <p>See also <a href="qmouseevent.html#globalY">globalY</a>() and <a href="qmouseevent.html#globalPos">globalPos</a>().</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/globalY" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/globalY"></a>
 <h3 class="fn"><a name="globalY"></a>int QMouseEvent::globalY () const</h3>
 <p>Returns the global y position of the mouse cursor at the time of the event.</p>
 <p>See also <a href="qmouseevent.html#globalX">globalX</a>() and <a href="qmouseevent.html#globalPos">globalPos</a>().</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/pos" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/pos"></a>
 <h3 class="fn"><a name="pos"></a>const <a href="qpoint.html">QPoint</a> &amp; QMouseEvent::pos () const</h3>
 <p>Returns the position of the mouse cursor, relative to the widget that received the event.</p>
 <p>If you move the widget as a result of the mouse event, use the global position returned by <a href="qmouseevent.html#globalPos">globalPos</a>() to avoid a shaking motion.</p>
 <p>See also <a href="qmouseevent.html#x">x</a>(), <a href="qmouseevent.html#y">y</a>(), and <a href="qmouseevent.html#globalPos">globalPos</a>().</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/posF" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/posF"></a>
 <h3 class="fn"><a name="posF"></a><a href="qpointf.html">QPointF</a> QMouseEvent::posF () const</h3>
 <p>Returns the position of the mouse cursor as a <a href="qpointf.html">QPointF</a>, relative to the widget that received the event.</p>
 <p>If you move the widget as a result of the mouse event, use the global position returned by <a href="qmouseevent.html#globalPos">globalPos</a>() to avoid a shaking motion.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p>See also <a href="qmouseevent.html#x">x</a>(), <a href="qmouseevent.html#y">y</a>(), <a href="qmouseevent.html#pos">pos</a>(), and <a href="qmouseevent.html#globalPos">globalPos</a>().</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/x" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/x"></a>
 <h3 class="fn"><a name="x"></a>int QMouseEvent::x () const</h3>
 <p>Returns the x position of the mouse cursor, relative to the widget that received the event.</p>
 <p>See also <a href="qmouseevent.html#y">y</a>() and <a href="qmouseevent.html#pos">pos</a>().</p>
-<a name="//apple_ref/cpp/instm/QMouseEvent/y" />
+<a name="//apple_ref/cpp/instm/QMouseEvent/y"></a>
 <h3 class="fn"><a name="y"></a>int QMouseEvent::y () const</h3>
 <p>Returns the y position of the mouse cursor, relative to the widget that received the event.</p>
 <p>See also <a href="qmouseevent.html#x">x</a>() and <a href="qmouseevent.html#pos">pos</a>().</p>
@@ -116,6 +116,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Qt 4.6: flickcharm.cpp Example File (demos/embedded/anomaly/src/flickcharm.cpp)</title>
+  <link href="classic.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
+<td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="index.html"><font color="#004faf">Home</font></a>&nbsp;&middot; <a href="classes.html"><font color="#004faf">All&nbsp;Classes</font></a>&nbsp;&middot; <a href="functions.html"><font color="#004faf">All&nbsp;Functions</font></a>&nbsp;&middot; <a href="overviews.html"><font color="#004faf">Overviews</font></a></td></tr></table><h1 class="title">flickcharm.cpp Example File<br /><span class="small-subtitle">demos/embedded/anomaly/src/flickcharm.cpp</span>
+</h1>
+<pre><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demos of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial Usage
+ ** Licensees holding valid Qt Commercial licenses may use this file in
+ ** accordance with the Qt Commercial License Agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Nokia.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights.  These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** If you have questions regarding the use of this file, please contact
+ ** Nokia at qt-info@nokia.com.
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &quot;flickcharm.h&quot;
+
+ #include &lt;QAbstractScrollArea&gt;
+ #include &lt;QApplication&gt;
+ #include &lt;QBasicTimer&gt;
+ #include &lt;QEvent&gt;
+ #include &lt;QHash&gt;
+ #include &lt;QList&gt;
+ #include &lt;QMouseEvent&gt;
+ #include &lt;QScrollBar&gt;
+ #include &lt;QWebFrame&gt;
+ #include &lt;QWebView&gt;
+
+ #include &lt;QDebug&gt;
+
+ struct FlickData {
+     typedef enum { Steady, Pressed, ManualScroll, AutoScroll, Stop } State;
+     State state;
+     QWidget *widget;
+     QPoint pressPos;
+     QPoint offset;
+     QPoint dragPos;
+     QPoint speed;
+     QList&lt;QEvent*&gt; ignored;
+ };
+
+ class FlickCharmPrivate
+ {
+ public:
+     QHash&lt;QWidget*, FlickData*&gt; flickData;
+     QBasicTimer ticker;
+ };
+
+ FlickCharm::FlickCharm(QObject *parent): QObject(parent)
+ {
+     d = new FlickCharmPrivate;
+ }
+
+ FlickCharm::~FlickCharm()
+ {
+     delete d;
+ }
+
+ void FlickCharm::activateOn(QWidget *widget)
+ {
+     QAbstractScrollArea *scrollArea = qobject_cast&lt;QAbstractScrollArea*&gt;(widget);
+     if (scrollArea) {
+         scrollArea-&gt;setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+         scrollArea-&gt;setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+         QWidget *viewport = scrollArea-&gt;viewport();
+
+         viewport-&gt;installEventFilter(this);
+         scrollArea-&gt;installEventFilter(this);
+
+         d-&gt;flickData.remove(viewport);
+         d-&gt;flickData[viewport] = new FlickData;
+         d-&gt;flickData[viewport]-&gt;widget = widget;
+         d-&gt;flickData[viewport]-&gt;state = FlickData::Steady;
+
+         return;
+     }
+
+     QWebView *webView = qobject_cast&lt;QWebView*&gt;(widget);
+     if (webView) {
+         QWebFrame *frame = webView-&gt;page()-&gt;mainFrame();
+         frame-&gt;setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
+         frame-&gt;setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
+
+         webView-&gt;installEventFilter(this);
+
+         d-&gt;flickData.remove(webView);
+         d-&gt;flickData[webView] = new FlickData;
+         d-&gt;flickData[webView]-&gt;widget = webView;
+         d-&gt;flickData[webView]-&gt;state = FlickData::Steady;
+
+         return;
+     }
+
+     qWarning() &lt;&lt; &quot;FlickCharm only works on QAbstractScrollArea (and derived classes)&quot;;
+     qWarning() &lt;&lt; &quot;or QWebView (and derived classes)&quot;;
+ }
+
+ void FlickCharm::deactivateFrom(QWidget *widget)
+ {
+     QAbstractScrollArea *scrollArea = qobject_cast&lt;QAbstractScrollArea*&gt;(widget);
+     if (scrollArea) {
+         QWidget *viewport = scrollArea-&gt;viewport();
+
+         viewport-&gt;removeEventFilter(this);
+         scrollArea-&gt;removeEventFilter(this);
+
+         delete d-&gt;flickData[viewport];
+         d-&gt;flickData.remove(viewport);
+
+         return;
+     }
+
+     QWebView *webView = qobject_cast&lt;QWebView*&gt;(widget);
+     if (webView) {
+         webView-&gt;removeEventFilter(this);
+
+         delete d-&gt;flickData[webView];
+         d-&gt;flickData.remove(webView);
+
+         return;
+     }
+ }
+
+ static QPoint scrollOffset(QWidget *widget)
+ {
+     int x = 0, y = 0;
+
+     QAbstractScrollArea *scrollArea = qobject_cast&lt;QAbstractScrollArea*&gt;(widget);
+     if (scrollArea) {
+         x = scrollArea-&gt;horizontalScrollBar()-&gt;value();
+         y = scrollArea-&gt;verticalScrollBar()-&gt;value();
+     }
+
+     QWebView *webView = qobject_cast&lt;QWebView*&gt;(widget);
+     if (webView) {
+         QWebFrame *frame = webView-&gt;page()-&gt;mainFrame();
+         x = frame-&gt;evaluateJavaScript(&quot;window.scrollX&quot;).toInt();
+         y = frame-&gt;evaluateJavaScript(&quot;window.scrollY&quot;).toInt();
+     }
+
+     return QPoint(x, y);
+ }
+
+ static void setScrollOffset(QWidget *widget, const QPoint &amp;p)
+ {
+     QAbstractScrollArea *scrollArea = qobject_cast&lt;QAbstractScrollArea*&gt;(widget);
+     if (scrollArea) {
+         scrollArea-&gt;horizontalScrollBar()-&gt;setValue(p.x());
+         scrollArea-&gt;verticalScrollBar()-&gt;setValue(p.y());
+     }
+
+     QWebView *webView = qobject_cast&lt;QWebView*&gt;(widget);
+     QWebFrame *frame = webView ? webView-&gt;page()-&gt;mainFrame() : 0;
+     if (frame)
+         frame-&gt;evaluateJavaScript(QString(&quot;window.scrollTo(%1,%2);&quot;).arg(p.x()).arg(p.y()));
+ }
+
+ static QPoint deaccelerate(const QPoint &amp;speed, int a = 1, int max = 64)
+ {
+     int x = qBound(-max, speed.x(), max);
+     int y = qBound(-max, speed.y(), max);
+     x = (x == 0) ? x : (x &gt; 0) ? qMax(0, x - a) : qMin(0, x + a);
+     y = (y == 0) ? y : (y &gt; 0) ? qMax(0, y - a) : qMin(0, y + a);
+     return QPoint(x, y);
+ }
+
+ bool FlickCharm::eventFilter(QObject *object, QEvent *event)
+ {
+     if (!object-&gt;isWidgetType())
+         return false;
+
+     QEvent::Type type = event-&gt;type();
+     if (type != QEvent::MouseButtonPress &amp;&amp;
+             type != QEvent::MouseButtonRelease &amp;&amp;
+             type != QEvent::MouseMove)
+         return false;
+
+     QMouseEvent *mouseEvent = 0;
+     switch (event-&gt;type()) {
+         case QEvent::MouseButtonPress:
+         case QEvent::MouseButtonRelease:
+         case QEvent::MouseMove:
+             mouseEvent = static_cast&lt;QMouseEvent*&gt;(event);
+             break;
+     }
+
+     if (!mouseEvent || mouseEvent-&gt;modifiers() != Qt::NoModifier)
+         return false;
+
+     QWidget *viewport = qobject_cast&lt;QWidget*&gt;(object);
+     FlickData *data = d-&gt;flickData.value(viewport);
+     if (!viewport || !data || data-&gt;ignored.removeAll(event))
+         return false;
+
+     bool consumed = false;
+     switch (data-&gt;state) {
+
+     case FlickData::Steady:
+         if (mouseEvent-&gt;type() == QEvent::MouseButtonPress)
+             if (mouseEvent-&gt;buttons() == Qt::LeftButton) {
+                 consumed = true;
+                 data-&gt;state = FlickData::Pressed;
+                 data-&gt;pressPos = mouseEvent-&gt;pos();
+                 data-&gt;offset = scrollOffset(data-&gt;widget);
+             }
+         break;
+
+     case FlickData::Pressed:
+         if (mouseEvent-&gt;type() == QEvent::MouseButtonRelease) {
+             consumed = true;
+             data-&gt;state = FlickData::Steady;
+
+             QMouseEvent *event1 = new QMouseEvent(QEvent::MouseButtonPress,
+                                                   data-&gt;pressPos, Qt::LeftButton,
+                                                   Qt::LeftButton, Qt::NoModifier);
+             QMouseEvent *event2 = new QMouseEvent(*mouseEvent);
+
+             data-&gt;ignored &lt;&lt; event1;
+             data-&gt;ignored &lt;&lt; event2;
+             QApplication::postEvent(object, event1);
+             QApplication::postEvent(object, event2);
+         }
+         if (mouseEvent-&gt;type() == QEvent::MouseMove) {
+             consumed = true;
+             data-&gt;state = FlickData::ManualScroll;
+             data-&gt;dragPos = QCursor::pos();
+             if (!d-&gt;ticker.isActive())
+                 d-&gt;ticker.start(20, this);
+         }
+         break;
+
+     case FlickData::ManualScroll:
+         if (mouseEvent-&gt;type() == QEvent::MouseMove) {
+             consumed = true;
+             QPoint delta = mouseEvent-&gt;pos() - data-&gt;pressPos;
+             setScrollOffset(data-&gt;widget, data-&gt;offset - delta);
+         }
+         if (mouseEvent-&gt;type() == QEvent::MouseButtonRelease) {
+             consumed = true;
+             data-&gt;state = FlickData::AutoScroll;
+         }
+         break;
+
+     case FlickData::AutoScroll:
+         if (mouseEvent-&gt;type() == QEvent::MouseButtonPress) {
+             consumed = true;
+             data-&gt;state = FlickData::Stop;
+             data-&gt;speed = QPoint(0, 0);
+             data-&gt;pressPos = mouseEvent-&gt;pos();
+             data-&gt;offset = scrollOffset(data-&gt;widget);
+         }
+         if (mouseEvent-&gt;type() == QEvent::MouseButtonRelease) {
+             consumed = true;
+             data-&gt;state = FlickData::Steady;
+             data-&gt;speed = QPoint(0, 0);
+         }
+         break;
+
+     case FlickData::Stop:
+         if (mouseEvent-&gt;type() == QEvent::MouseButtonRelease) {
+             consumed = true;
+             data-&gt;state = FlickData::Steady;
+         }
+         if (mouseEvent-&gt;type() == QEvent::MouseMove) {
+             consumed = true;
+             data-&gt;state = FlickData::ManualScroll;
+             data-&gt;dragPos = QCursor::pos();
+             if (!d-&gt;ticker.isActive())
+                 d-&gt;ticker.start(20, this);
+         }
+         break;
+
+     default:
+         break;
+     }
+
+     return consumed;
+ }
+
+ void FlickCharm::timerEvent(QTimerEvent *event)
+ {
+     int count = 0;
+     QHashIterator&lt;QWidget*, FlickData*&gt; item(d-&gt;flickData);
+     while (item.hasNext()) {
+         item.next();
+         FlickData *data = item.value();
+
+         if (data-&gt;state == FlickData::ManualScroll) {
+             count++;
+             data-&gt;speed = QCursor::pos() - data-&gt;dragPos;
+             data-&gt;dragPos = QCursor::pos();
+         }
+
+         if (data-&gt;state == FlickData::AutoScroll) {
+             count++;
+             data-&gt;speed = deaccelerate(data-&gt;speed);
+             QPoint p = scrollOffset(data-&gt;widget);
+             setScrollOffset(data-&gt;widget, p - data-&gt;speed);
+             if (data-&gt;speed == QPoint(0, 0))
+                 data-&gt;state = FlickData::Steady;
+         }
+     }
+
+     if (!count)
+         d-&gt;ticker.stop();
+
+     QObject::timerEvent(event);
+ }</pre>
+<p /><address><hr /><div align="center">
+<table width="100%" cellspacing="0" border="0"><tr class="address">
+<td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
+</tr></table></div></address></body>
+</html>

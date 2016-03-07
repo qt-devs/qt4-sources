@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3PtrStack" />
+<a name="//apple_ref/cpp/cl//Q3PtrStack"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -70,74 +70,74 @@
 <p>See also <a href="q3ptrlist.html">Q3PtrList</a> and <a href="q3ptrqueue.html">Q3PtrQueue</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/Q3PtrStack" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/Q3PtrStack"></a>
 <h3 class="fn"><a name="Q3PtrStack"></a>Q3PtrStack::Q3PtrStack ()</h3>
 <p>Creates an empty stack.</p>
 <h3 class="fn"><a name="Q3PtrStack-2"></a>Q3PtrStack::Q3PtrStack ( const Q3PtrStack&lt;type&gt; &amp; <i>s</i> )</h3>
 <p>Creates a stack by making a shallow copy of another stack <i>s</i>.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/~Q3PtrStack" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/~Q3PtrStack"></a>
 <h3 class="fn"><a name="dtor.Q3PtrStack"></a>Q3PtrStack::~Q3PtrStack ()</h3>
 <p>Destroys the stack. All items will be deleted if <a href="q3ptrstack.html#autoDelete">autoDelete</a>() is true.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/autoDelete" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/autoDelete"></a>
 <h3 class="fn"><a name="autoDelete"></a>bool Q3PtrStack::autoDelete () const</h3>
 <p>The same as <a href="q3ptrcollection.html#autoDelete">Q3PtrCollection::autoDelete</a>(). Returns true if the auto-delete option is set. If the option is set, the stack auto-deletes its contents.</p>
 <p>See also <a href="q3ptrstack.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/clear" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/clear"></a>
 <h3 class="fn"><a name="clear"></a>void Q3PtrStack::clear ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="q3ptrcollection.html#clear">Q3PtrCollection::clear</a>().</p>
 <p>Removes all items from the stack, deleting them if <a href="q3ptrstack.html#autoDelete">autoDelete</a>() is true.</p>
 <p>See also <a href="q3ptrstack.html#remove">remove</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/count" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/count"></a>
 <h3 class="fn"><a name="count"></a><a href="qtglobal.html#uint-typedef">uint</a> Q3PtrStack::count () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="q3ptrcollection.html#count">Q3PtrCollection::count</a>().</p>
 <p>Returns the number of items in the stack.</p>
 <p>See also <a href="q3ptrstack.html#isEmpty">isEmpty</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/current" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/current"></a>
 <h3 class="fn"><a name="current"></a>type * Q3PtrStack::current () const</h3>
 <p>Returns a pointer to the top item on the stack (most recently pushed). The stack is not changed. Returns 0 if the stack is empty.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/isEmpty" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/isEmpty"></a>
 <h3 class="fn"><a name="isEmpty"></a>bool Q3PtrStack::isEmpty () const</h3>
 <p>Returns true if the stack contains no elements; otherwise returns false.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/pop" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/pop"></a>
 <h3 class="fn"><a name="pop"></a>type * Q3PtrStack::pop ()</h3>
 <p>Removes the top item from the stack and returns it. The stack must not be empty.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/push" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/push"></a>
 <h3 class="fn"><a name="push"></a>void Q3PtrStack::push ( const type * <i>d</i> )</h3>
 <p>Adds an element <i>d</i> to the top of the stack. Last in, first out.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/read" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/read"></a>
 <h3 class="fn"><a name="read"></a><a href="qdatastream.html">QDataStream</a> &amp; Q3PtrStack::read ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, <a href="q3ptrcollection.html#Item-typedef">Q3PtrCollection::Item</a> &amp; <i>item</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reads a stack item, <i>item</i>, from the stream <i>s</i> and returns a reference to the stream.</p>
 <p>The default implementation sets <i>item</i> to 0.</p>
 <p>See also <a href="q3ptrstack.html#write">write</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/remove" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/remove"></a>
 <h3 class="fn"><a name="remove"></a>bool Q3PtrStack::remove ()</h3>
 <p>Removes the top item from the stack and deletes it if <a href="q3ptrstack.html#autoDelete">autoDelete</a>() is true. Returns true if there was an item to pop; otherwise returns false.</p>
 <p>See also <a href="q3ptrstack.html#clear">clear</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/setAutoDelete" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/setAutoDelete"></a>
 <h3 class="fn"><a name="setAutoDelete"></a>void Q3PtrStack::setAutoDelete ( bool <i>enable</i> )</h3>
 <p>Defines whether this stack auto-deletes its contents. The same as <a href="q3ptrcollection.html#setAutoDelete">Q3PtrCollection::setAutoDelete</a>(). If <i>enable</i> is true, auto-delete is turned on.</p>
 <p>If auto-deleting is turned on, all the items in the stack are deleted when the stack itself is deleted. This is convenient if the stack has the only pointers to the items.</p>
 <p>The default setting is false, for safety. If you turn it on, be careful about copying the stack, or you might find yourself with two stacks deleting the same items.</p>
 <p>Note that the auto-delete setting may also affect other functions in subclasses. For example, a subclass that has a <a href="q3ptrstack.html#remove">remove</a>() function will remove the item from its data structure, and if auto-delete is enabled, will also delete the item.</p>
 <p>See also <a href="q3ptrstack.html#autoDelete">autoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/top" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/top"></a>
 <h3 class="fn"><a name="top"></a>type * Q3PtrStack::top () const</h3>
 <p>Returns a pointer to the top item on the stack (most recently pushed). The stack is not changed. Returns 0 if the stack is empty.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/write" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/write"></a>
 <h3 class="fn"><a name="write"></a><a href="qdatastream.html">QDataStream</a> &amp; Q3PtrStack::write ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, <a href="q3ptrcollection.html#Item-typedef">Q3PtrCollection::Item</a> <i>item</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Writes a stack item, <i>item</i>, to the stream <i>s</i> and returns a reference to the stream.</p>
 <p>The default implementation does nothing.</p>
 <p>See also <a href="q3ptrstack.html#read">read</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/operator type *" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/operator type *"></a>
 <h3 class="fn"><a name="operator-type--2a"></a>Q3PtrStack::operator type * () const</h3>
 <p>Returns a pointer to the top item on the stack (most recently pushed). The stack is not changed. Returns 0 if the stack is empty.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrStack/operator=" />
+<a name="//apple_ref/cpp/instm/Q3PtrStack/operator="></a>
 <h3 class="fn"><a name="operator-eq"></a>Q3PtrStack&lt;type&gt; &amp; Q3PtrStack::operator= ( const Q3PtrStack&lt;type&gt; &amp; <i>s</i> )</h3>
 <p>Sets the contents of this stack by making a shallow copy of another stack <i>s</i>. Elements currently in this stack will be deleted if <a href="q3ptrstack.html#autoDelete">autoDelete</a>() is true.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

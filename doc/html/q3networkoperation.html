@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3NetworkOperation" />
+<a name="//apple_ref/cpp/cl//Q3NetworkOperation"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -59,62 +59,62 @@
 <p>See also <a href="q3networkprotocol.html">Q3NetworkProtocol</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/Q3NetworkOperation" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/Q3NetworkOperation"></a>
 <h3 class="fn"><a name="Q3NetworkOperation"></a>Q3NetworkOperation::Q3NetworkOperation ( <a href="q3networkprotocol.html#Operation-enum">Q3NetworkProtocol::Operation</a> <i>operation</i>, const <a href="qstring.html">QString</a> &amp; <i>arg0</i>, const <a href="qstring.html">QString</a> &amp; <i>arg1</i>, const <a href="qstring.html">QString</a> &amp; <i>arg2</i> )</h3>
 <p>Constructs a network operation object. <i>operation</i> is the type of the operation, and <i>arg0</i>, <i>arg1</i> and <i>arg2</i> are the first three arguments of the operation. The state is initialized to <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::StWaiting</a>.</p>
 <p>See also <a href="q3networkprotocol.html#Operation-enum">Q3NetworkProtocol::Operation</a> and <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::State</a>.</p>
 <h3 class="fn"><a name="Q3NetworkOperation-2"></a>Q3NetworkOperation::Q3NetworkOperation ( <a href="q3networkprotocol.html#Operation-enum">Q3NetworkProtocol::Operation</a> <i>operation</i>, const <a href="qbytearray.html">QByteArray</a> &amp; <i>arg0</i>, const <a href="qbytearray.html">QByteArray</a> &amp; <i>arg1</i>, const <a href="qbytearray.html">QByteArray</a> &amp; <i>arg2</i> )</h3>
 <p>Constructs a network operation object. <i>operation</i> is the type of the operation, and <i>arg0</i>, <i>arg1</i> and <i>arg2</i> are the first three raw data arguments of the operation. The state is initialized to <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::StWaiting</a>.</p>
 <p>See also <a href="q3networkprotocol.html#Operation-enum">Q3NetworkProtocol::Operation</a> and <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::State</a>.</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/~Q3NetworkOperation" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/~Q3NetworkOperation"></a>
 <h3 class="fn"><a name="dtor.Q3NetworkOperation"></a>Q3NetworkOperation::~Q3NetworkOperation ()</h3>
 <p>Destructor.</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/arg" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/arg"></a>
 <h3 class="fn"><a name="arg"></a><a href="qstring.html">QString</a> Q3NetworkOperation::arg ( int <i>num</i> ) const</h3>
 <p>Returns the operation's <i>num</i>-th argument. If this argument was not already set, an empty string is returned.</p>
 <p>See also <a href="q3networkoperation.html#setArg">setArg</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/errorCode" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/errorCode"></a>
 <h3 class="fn"><a name="errorCode"></a>int Q3NetworkOperation::errorCode () const</h3>
 <p>Returns the error code for the last error that occurred.</p>
 <p>See also <a href="q3networkoperation.html#setErrorCode">setErrorCode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/free" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/free"></a>
 <h3 class="fn"><a name="free"></a>void Q3NetworkOperation::free ()</h3>
 <p>Sets this object to delete itself when it hasn't been used for one second.</p>
 <p>Because <a href="q3networkoperation.html" class="compat">Q3NetworkOperation</a> pointers are passed around a lot the <a href="q3networkprotocol.html" class="compat">Q3NetworkProtocol</a> generally does not have enough knowledge to delete these at the correct time. If a <a href="q3networkprotocol.html" class="compat">Q3NetworkProtocol</a> doesn't need an operation any more it will call this function instead.</p>
 <p>Note: you should never need to call the method yourself.</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/operation" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/operation"></a>
 <h3 class="fn"><a name="operation"></a><a href="q3networkprotocol.html#Operation-enum">Q3NetworkProtocol::Operation</a> Q3NetworkOperation::operation () const</h3>
 <p>Returns the type of the operation.</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/protocolDetail" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/protocolDetail"></a>
 <h3 class="fn"><a name="protocolDetail"></a><a href="qstring.html">QString</a> Q3NetworkOperation::protocolDetail () const</h3>
 <p>Returns a detailed error message for the last error. This must have been set using <a href="q3networkoperation.html#setProtocolDetail">setProtocolDetail</a>().</p>
 <p>See also <a href="q3networkoperation.html#setProtocolDetail">setProtocolDetail</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/rawArg" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/rawArg"></a>
 <h3 class="fn"><a name="rawArg"></a><a href="qbytearray.html">QByteArray</a> Q3NetworkOperation::rawArg ( int <i>num</i> ) const</h3>
 <p>Returns the operation's <i>num</i>-th raw data argument. If this argument was not already set, an empty bytearray is returned.</p>
 <p>See also <a href="q3networkoperation.html#setRawArg">setRawArg</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setArg" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setArg"></a>
 <h3 class="fn"><a name="setArg"></a>void Q3NetworkOperation::setArg ( int <i>num</i>, const <a href="qstring.html">QString</a> &amp; <i>arg</i> )</h3>
 <p>Sets the network operation's <i>num</i>-th argument to <i>arg</i>.</p>
 <p>See also <a href="q3networkoperation.html#arg">arg</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setErrorCode" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setErrorCode"></a>
 <h3 class="fn"><a name="setErrorCode"></a>void Q3NetworkOperation::setErrorCode ( int <i>ec</i> )</h3>
 <p>Sets the error code to <i>ec</i>.</p>
 <p>If the operation failed, the protocol should set an error code to describe the error in more detail. If possible, one of the error codes defined in <a href="q3networkprotocol.html" class="compat">Q3NetworkProtocol</a> should be used.</p>
 <p>See also <a href="q3networkoperation.html#errorCode">errorCode</a>(), <a href="q3networkoperation.html#setProtocolDetail">setProtocolDetail</a>(), and <a href="q3networkprotocol.html#Error-enum">Q3NetworkProtocol::Error</a>.</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setProtocolDetail" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setProtocolDetail"></a>
 <h3 class="fn"><a name="setProtocolDetail"></a>void Q3NetworkOperation::setProtocolDetail ( const <a href="qstring.html">QString</a> &amp; <i>detail</i> )</h3>
 <p>If the operation failed, the error message can be specified as <i>detail</i>.</p>
 <p>See also <a href="q3networkoperation.html#protocolDetail">protocolDetail</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setRawArg" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setRawArg"></a>
 <h3 class="fn"><a name="setRawArg"></a>void Q3NetworkOperation::setRawArg ( int <i>num</i>, const <a href="qbytearray.html">QByteArray</a> &amp; <i>arg</i> )</h3>
 <p>Sets the network operation's <i>num</i>-th raw data argument to <i>arg</i>.</p>
 <p>See also <a href="q3networkoperation.html#rawArg">rawArg</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setState" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/setState"></a>
 <h3 class="fn"><a name="setState"></a>void Q3NetworkOperation::setState ( <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::State</a> <i>state</i> )</h3>
 <p>Sets the <i>state</i> of the operation object. This should be done by the network protocol during processing; at the end it should be set to <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::StDone</a> or <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::StFailed</a>, depending on success or failure.</p>
 <p>See also <a href="q3networkoperation.html#state">state</a>() and <a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::State</a>.</p>
-<a name="//apple_ref/cpp/instm/Q3NetworkOperation/state" />
+<a name="//apple_ref/cpp/instm/Q3NetworkOperation/state"></a>
 <h3 class="fn"><a name="state"></a><a href="q3networkprotocol.html#State-enum">Q3NetworkProtocol::State</a> Q3NetworkOperation::state () const</h3>
 <p>Returns the state of the operation. You can determine whether an operation is still waiting to be processed, is being processed, has been processed successfully, or failed.</p>
 <p>See also <a href="q3networkoperation.html#setState">setState</a>().</p>
@@ -122,6 +122,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

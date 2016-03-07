@@ -55,6 +55,7 @@
 #include <qstyle.h>
 #include <qtimer.h>
 #include "private/qtextdocumentlayout_p.h"
+#include "private/qabstracttextdocumentlayout_p.h"
 #include "private/qtextedit_p.h"
 #include "qtextdocument.h"
 #include "private/qtextdocument_p.h"
@@ -1848,8 +1849,8 @@ void QTextControlPrivate::inputMethodEvent(QInputMethodEvent *e)
             || e->preeditString() != cursor.block().layout()->preeditAreaText()
             || e->replacementLength() > 0;
 
+    cursor.beginEditBlock();
     if (isGettingInput) {
-        cursor.beginEditBlock();
         cursor.removeSelectedText();
     }
 
@@ -1875,7 +1876,8 @@ void QTextControlPrivate::inputMethodEvent(QInputMethodEvent *e)
 
     QTextBlock block = cursor.block();
     QTextLayout *layout = block.layout();
-    layout->setPreeditArea(cursor.position() - block.position(), e->preeditString());
+    if (isGettingInput)
+        layout->setPreeditArea(cursor.position() - block.position(), e->preeditString());
     QList<QTextLayout::FormatRange> overrides;
     preeditCursor = e->preeditString().length();
     hideCursor = false;
@@ -1896,9 +1898,7 @@ void QTextControlPrivate::inputMethodEvent(QInputMethodEvent *e)
         }
     }
     layout->setAdditionalFormats(overrides);
-
-    if (isGettingInput)
-        cursor.endEditBlock();
+    cursor.endEditBlock();
 }
 
 QVariant QTextControl::inputMethodQuery(Qt::InputMethodQuery property) const
@@ -1938,7 +1938,11 @@ void QTextControlPrivate::focusEvent(QFocusEvent *e)
     emit q->updateRequest(q->selectionRect());
     if (e->gotFocus()) {
 #ifdef QT_KEYPAD_NAVIGATION
-        if (!QApplication::keypadNavigationEnabled() || (hasEditFocus && e->reason() == Qt::PopupFocusReason)) {
+        if (!QApplication::keypadNavigationEnabled() || (hasEditFocus && (e->reason() == Qt::PopupFocusReason
+#ifdef Q_OS_SYMBIAN
+            || e->reason() == Qt::ActiveWindowFocusReason
+#endif
+            ))) {
 #endif
         cursorOn = (interactionFlags & Qt::TextSelectableByKeyboard);
         if (interactionFlags & Qt::TextEditable) {
@@ -2338,6 +2342,9 @@ void QTextControl::print(QPrinter *printer) const
         tempDoc->setUseDesignMetrics(doc->useDesignMetrics());
         QTextCursor(tempDoc).insertFragment(d->cursor.selection());
         doc = tempDoc;
+
+        // copy the custom object handlers
+        doc->documentLayout()->d_func()->handlers = d->doc->documentLayout()->d_func()->handlers;
     }
     doc->print(printer);
     delete tempDoc;

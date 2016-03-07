@@ -19,21 +19,21 @@
 <p>RCC accepts the following command line options:</p>
 <p><table class="generic" align="center" cellpadding="2" cellspacing="1" border="0">
 <thead><tr valign="top" class="qt-style"><th>Option</th><th>Argument</th><th>Description</th></tr></thead>
-<tr valign="top" class="odd"><td><tt>-o</tt></td><td></td><td>Writes output to file rather than stdout.</td></tr>
-<tr valign="top" class="even"><td><tt>-name</tt></td><td><tt>name</tt></td><td>Creates an external initialization function with name.</td></tr>
-<tr valign="top" class="odd"><td><tt>-threshold</tt></td><td><tt>level</tt></td><td>Specifies a threshold (in bytes) to use when compressing files. If the file is smaller than the threshold, it will not be compressed, independent of what the compression level is.</td></tr>
-<tr valign="top" class="even"><td><tt>-compress</tt></td><td><tt>level</tt></td><td>Compresses input files with the given level. Level is an integer from 1 to 9 - 1 being the fastest, producing the least compression; 9 being the slowest, producing the most compression.</td></tr>
-<tr valign="top" class="odd"><td><tt>-root</tt></td><td><tt>path</tt></td><td>Prefixes the resource access path with root path.</td></tr>
-<tr valign="top" class="even"><td><tt>-no-compress</tt></td><td></td><td>Disables all compression.</td></tr>
-<tr valign="top" class="odd"><td><tt>-binary</tt></td><td></td><td>Outputs a binary file for use as a dynamic resource.</td></tr>
-<tr valign="top" class="even"><td><tt>-version</tt></td><td></td><td>Displays version information.</td></tr>
-<tr valign="top" class="odd"><td><tt>-help</tt></td><td></td><td>Displays usage information.</td></tr>
+<tr valign="top" class="odd"><td><tt>-o</tt></td><td><tt>file</tt></td><td>Write output to <tt>file</tt> rather than to stdout.</td></tr>
+<tr valign="top" class="even"><td><tt>-name</tt></td><td><tt>name</tt></td><td>Create an external initialization function with <tt>name</tt>.</td></tr>
+<tr valign="top" class="odd"><td><tt>-threshold</tt></td><td><tt>level</tt></td><td>Specifies a threshold <tt>level</tt> (in bytes) to use when deciding whether to compress a file. If the file is smaller than the threshold <tt>level</tt>, it is not compressed. The default threshold level is 70 bytes.</td></tr>
+<tr valign="top" class="even"><td><tt>-compress</tt></td><td><tt>level</tt></td><td>Compress input files to the given compression <tt>level</tt>, which is an integer in the range 1 to 9. Level 1 does the least compression but is fastest. Level 9 does the most compression but is slowest. To turn off compression, use <tt>-no-compress</tt>. The default value for <tt>level</tt> is -1, which means use zlib's default compression level.</td></tr>
+<tr valign="top" class="odd"><td><tt>-root</tt></td><td><tt>path</tt></td><td>Prefix the resource access path with <tt>path</tt>. The default is no prefix.</td></tr>
+<tr valign="top" class="even"><td><tt>-no-compress</tt></td><td></td><td>Disable compression.</td></tr>
+<tr valign="top" class="odd"><td><tt>-binary</tt></td><td></td><td>Output a binary file for use as a dynamic resource.</td></tr>
+<tr valign="top" class="even"><td><tt>-version</tt></td><td></td><td>Display version information.</td></tr>
+<tr valign="top" class="odd"><td><tt>-help</tt></td><td></td><td>Display usage information.</td></tr>
 </table></p>
 <p>See also <a href="resources.html">The Qt Resource System</a> for more information about embedding resources in Qt applications.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

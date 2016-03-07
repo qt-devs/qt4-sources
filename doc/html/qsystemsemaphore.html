@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QSystemSemaphore" />
+<a name="//apple_ref/cpp/cl//QSystemSemaphore"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -71,9 +71,9 @@
 <p>See also <a href="qsharedmemory.html">QSharedMemory</a> and <a href="qsemaphore.html">QSemaphore</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QSystemSemaphore/AccessMode" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/Open" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/Create" />
+<a name="//apple_ref/cpp/tag/QSystemSemaphore/AccessMode"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/Open"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/Create"></a>
 <h3 class="fn"><a name="AccessMode-enum"></a>enum QSystemSemaphore::AccessMode</h3>
 <p>This enum is used by the constructor and <a href="qsystemsemaphore.html#setKey">setKey</a>(). Its purpose is to enable handling the problem in Unix implementations of semaphores that survive a crash. In Unix, when a semaphore survives a crash, we need a way to force it to reset its resource count, when the system reuses the semaphore. In Windows and in Symbian, where semaphores can't survive a crash, this enum has no effect.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -81,14 +81,14 @@
 <tr><td valign="top"><tt>QSystemSemaphore::Open</tt></td><td align="center" valign="top"><tt>0</tt></td><td valign="top">If the semaphore already exists, its initial resource count is not reset. If the semaphore does not already exist, it is created and its initial resource count set.</td></tr>
 <tr><td valign="top"><tt>QSystemSemaphore::Create</tt></td><td align="center" valign="top"><tt>1</tt></td><td valign="top"><a href="qsystemsemaphore.html">QSystemSemaphore</a> takes ownership of the semaphore and sets its resource count to the requested value, regardless of whether the semaphore already exists by having survived a crash. This value should be passed to the constructor, when the first semaphore for a particular key is constructed and you know that if the semaphore already exists it could only be because of a crash. In Windows and in Symbian, where a semaphore can't survive a crash, Create and Open have the same behavior.</td></tr>
 </table></p>
-<a name="//apple_ref/cpp/tag/QSystemSemaphore/SystemSemaphoreError" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/NoError" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/PermissionDenied" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/KeyError" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/AlreadyExists" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/NotFound" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/OutOfResources" />
-<a name="//apple_ref/cpp/econst/QSystemSemaphore/UnknownError" />
+<a name="//apple_ref/cpp/tag/QSystemSemaphore/SystemSemaphoreError"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/NoError"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/PermissionDenied"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/KeyError"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/AlreadyExists"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/NotFound"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/OutOfResources"></a>
+<a name="//apple_ref/cpp/econst/QSystemSemaphore/UnknownError"></a>
 <h3 class="fn"><a name="SystemSemaphoreError-enum"></a>enum QSystemSemaphore::SystemSemaphoreError</h3>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
 <tr><th width="25%">Constant</th><th width="15%">Value</th><th width="60%">Description</th></tr>
@@ -102,7 +102,7 @@
 </table></p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/QSystemSemaphore" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/QSystemSemaphore"></a>
 <h3 class="fn"><a name="QSystemSemaphore"></a>QSystemSemaphore::QSystemSemaphore ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, int <i>initialValue</i> = 0, <a href="qsystemsemaphore.html#AccessMode-enum">AccessMode</a> <i>mode</i> = Open )</h3>
 <p>Requests a system semaphore for the specified <i>key</i>. The parameters <i>initialValue</i> and <i>mode</i> are used according to the following rules, which are system dependent.</p>
 <p>In Unix, if the <i>mode</i> is <a href="qsystemsemaphore.html#AccessMode-enum">Open</a> and the system already has a semaphore identified by <i>key</i>, that semaphore is used, and the semaphore's resource count is not changed, i.e&#x2e;, <i>initialValue</i> is ignored. But if the system does not already have a semaphore identified by <i>key</i>, it creates a new semaphore for that key and sets its resource count to <i>initialValue</i>.</p>
@@ -110,28 +110,28 @@
 <p>In Windows and in Symbian, <i>mode</i> is ignored, and the system always tries to create a semaphore for the specified <i>key</i>. If the system does not already have a semaphore identified as <i>key</i>, it creates the semaphore and sets its resource count to <i>initialValue</i>. But if the system already has a semaphore identified as <i>key</i> it uses that semaphore and ignores <i>initialValue</i>.</p>
 <p>The <a href="qsystemsemaphore.html#AccessMode-enum">mode</a> parameter is only used in Unix systems to handle the case where a semaphore survives a process crash. In that case, the next process to allocate a semaphore with the same <i>key</i> will get the semaphore that survived the crash, and unless <i>mode</i> is <a href="qsystemsemaphore.html#AccessMode-enum">Create</a>, the resource count will not be reset to <i>initialValue</i> but will retain the initial value it had been given by the crashed process.</p>
 <p>See also <a href="qsystemsemaphore.html#acquire">acquire</a>() and <a href="qsystemsemaphore.html#key">key</a>().</p>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/~QSystemSemaphore" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/~QSystemSemaphore"></a>
 <h3 class="fn"><a name="dtor.QSystemSemaphore"></a>QSystemSemaphore::~QSystemSemaphore ()</h3>
 <p>The destructor destroys the <a href="qsystemsemaphore.html">QSystemSemaphore</a> object, but the underlying system semaphore is not removed from the system unless this instance of <a href="qsystemsemaphore.html">QSystemSemaphore</a> is the last one existing for that system semaphore.</p>
 <p>Two important side effects of the destructor depend on the system. In Windows, if <a href="qsystemsemaphore.html#acquire">acquire</a>() has been called for this semaphore but not <a href="qsystemsemaphore.html#release">release</a>(), <a href="qsystemsemaphore.html#release">release</a>() will not be called by the destructor, nor will the resource be released when the process exits normally. This would be a program bug which could be the cause of a deadlock in another process trying to acquire the same resource. In Unix, acquired resources that are not released before the destructor is called are automatically released when the process exits.</p>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/acquire" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/acquire"></a>
 <h3 class="fn"><a name="acquire"></a>bool QSystemSemaphore::acquire ()</h3>
 <p>Acquires one of the resources guarded by this semaphore, if there is one available, and returns true. If all the resources guarded by this semaphore have already been acquired, the call blocks until one of them is released by another process or thread having a semaphore with the same key.</p>
 <p>If false is returned, a system error has occurred. Call <a href="qsystemsemaphore.html#error">error</a>() to get a value of <a href="qsystemsemaphore.html#SystemSemaphoreError-enum">QSystemSemaphore::SystemSemaphoreError</a> that indicates which error occurred.</p>
 <p>See also <a href="qsystemsemaphore.html#release">release</a>().</p>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/error" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/error"></a>
 <h3 class="fn"><a name="error"></a><a href="qsystemsemaphore.html#SystemSemaphoreError-enum">SystemSemaphoreError</a> QSystemSemaphore::error () const</h3>
 <p>Returns a value indicating whether an error occurred, and, if so, which error it was.</p>
 <p>See also <a href="qsystemsemaphore.html#errorString">errorString</a>().</p>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/errorString" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/errorString"></a>
 <h3 class="fn"><a name="errorString"></a><a href="qstring.html">QString</a> QSystemSemaphore::errorString () const</h3>
 <p>Returns a text description of the last error that occurred. If <a href="qsystemsemaphore.html#error">error</a>() returns an <a href="qsystemsemaphore.html#SystemSemaphoreError-enum">error value</a>, call this function to get a text string that describes the error.</p>
 <p>See also <a href="qsystemsemaphore.html#error">error</a>().</p>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/key" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/key"></a>
 <h3 class="fn"><a name="key"></a><a href="qstring.html">QString</a> QSystemSemaphore::key () const</h3>
 <p>Returns the key assigned to this system semaphore. The key is the name by which the semaphore can be accessed from other processes.</p>
 <p>See also <a href="qsystemsemaphore.html#setKey">setKey</a>().</p>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/release" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/release"></a>
 <h3 class="fn"><a name="release"></a>bool QSystemSemaphore::release ( int <i>n</i> = 1 )</h3>
 <p>Releases <i>n</i> resources guarded by the semaphore. Returns true unless there is a system error.</p>
 <p>Example: Create a system semaphore having five resources; acquire them all and then release them all.</p>
@@ -142,7 +142,7 @@
 <pre> sem.release(10);          <span class="comment">// &quot;create&quot; 10 new resources</span></pre>
 <p>Ten new resources are now guarded by the semaphore, in addition to the five that already existed. You would not normally use this function to create more resources.</p>
 <p>See also <a href="qsystemsemaphore.html#acquire">acquire</a>().</p>
-<a name="//apple_ref/cpp/instm/QSystemSemaphore/setKey" />
+<a name="//apple_ref/cpp/instm/QSystemSemaphore/setKey"></a>
 <h3 class="fn"><a name="setKey"></a>void QSystemSemaphore::setKey ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, int <i>initialValue</i> = 0, <a href="qsystemsemaphore.html#AccessMode-enum">AccessMode</a> <i>mode</i> = Open )</h3>
 <p>This function works the same as the constructor. It reconstructs this <a href="qsystemsemaphore.html">QSystemSemaphore</a> object. If the new <i>key</i> is different from the old key, calling this function is like calling the destructor of the semaphore with the old key, then calling the constructor to create a new semaphore with the new <i>key</i>. The <i>initialValue</i> and <i>mode</i> parameters are as defined for the constructor.</p>
 <p>See also <a href="qsystemsemaphore.html#QSystemSemaphore">QSystemSemaphore</a>() and <a href="qsystemsemaphore.html#key">key</a>().</p>
@@ -150,6 +150,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

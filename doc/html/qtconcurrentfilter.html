@@ -144,15 +144,15 @@
  boost::bind(static_cast&lt;bool(QString::*)(const QRegExp&amp;)&gt;( &amp;QString::contains ), QRegExp(&quot;...&quot; ));</pre>
 <hr />
 <h2>Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QtConcurrent/filter" />
+<a name="//apple_ref/cpp/instm/QtConcurrent/filter"></a>
 <h3 class="fn"><a name="filter"></a><a href="qfuture.html">QFuture</a>&lt;void&gt; QtConcurrent::filter ( Sequence &amp; <i>sequence</i>, FilterFunction <i>filterFunction</i> )</h3>
 <p>Calls <i>filterFunction</i> once for each item in <i>sequence</i>. If <i>filterFunction</i> returns true, the item is kept in <i>sequence</i>; otherwise, the item is removed from <i>sequence</i>.</p>
-<a name="//apple_ref/cpp/instm/QtConcurrent/filtered" />
+<a name="//apple_ref/cpp/instm/QtConcurrent/filtered"></a>
 <h3 class="fn"><a name="filtered"></a><a href="qfuture.html">QFuture</a>&lt;T&gt; QtConcurrent::filtered ( const Sequence &amp; <i>sequence</i>, FilterFunction <i>filterFunction</i> )</h3>
 <p>Calls <i>filterFunction</i> once for each item in <i>sequence</i> and returns a new Sequence of kept items. If <i>filterFunction</i> returns true, a copy of the item is put in the new Sequence. Otherwise, the item will <i>not</i> appear in the new Sequence.</p>
 <h3 class="fn"><a name="filtered-2"></a><a href="qfuture.html">QFuture</a>&lt;T&gt; QtConcurrent::filtered ( ConstIterator <i>begin</i>, ConstIterator <i>end</i>, FilterFunction <i>filterFunction</i> )</h3>
 <p>Calls <i>filterFunction</i> once for each item from <i>begin</i> to <i>end</i> and returns a new Sequence of kept items. If <i>filterFunction</i> returns true, a copy of the item is put in the new Sequence. Otherwise, the item will <i>not</i> appear in the new Sequence.</p>
-<a name="//apple_ref/cpp/instm/QtConcurrent/filteredReduced" />
+<a name="//apple_ref/cpp/instm/QtConcurrent/filteredReduced"></a>
 <h3 class="fn"><a name="filteredReduced"></a><a href="qfuture.html">QFuture</a>&lt;T&gt; QtConcurrent::filteredReduced ( const Sequence &amp; <i>sequence</i>, FilterFunction <i>filterFunction</i>, ReduceFunction <i>reduceFunction</i>, <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a> <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</h3>
 <p>Calls <i>filterFunction</i> once for each item in <i>sequence</i>. If <i>filterFunction</i> returns true for an item, that item is then passed to <i>reduceFunction</i>. In other words, the return value is the result of <i>reduceFunction</i> for each item where <i>filterFunction</i> returns true.</p>
 <p>Note that while <i>filterFunction</i> is called concurrently, only one thread at a time will call <i>reduceFunction</i>. The order in which <i>reduceFunction</i> is called is undefined if <i>reduceOptions</i> is <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::UnorderedReduce</a>. If <i>reduceOptions</i> is <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::OrderedReduce</a>, <i>reduceFunction</i> is called in the order of the original sequence.</p>
@@ -163,6 +163,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

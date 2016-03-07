@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QTemporaryFile" />
+<a name="//apple_ref/cpp/cl//QTemporaryFile"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -95,7 +95,7 @@
 <p>See also <a href="qdir.html#tempPath">QDir::tempPath</a>() and <a href="qfile.html">QFile</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/QTemporaryFile" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/QTemporaryFile"></a>
 <h3 class="fn"><a name="QTemporaryFile"></a>QTemporaryFile::QTemporaryFile ()</h3>
 <p>Constructs a <a href="qtemporaryfile.html">QTemporaryFile</a> in <a href="qdir.html#tempPath">QDir::tempPath</a>(), using the file template &quot;qt_temp.XXXXXX&quot;. The file is stored in the system's temporary directory.</p>
 <p>See also <a href="qtemporaryfile.html#setFileTemplate">setFileTemplate</a>() and <a href="qdir.html#tempPath">QDir::tempPath</a>().</p>
@@ -112,42 +112,42 @@
 <p>If the <i>templateName</i> does not contain XXXXXX it will automatically be appended and used as the dynamic portion of the filename.</p>
 <p>If <i>templateName</i> is a relative path, the path will be relative to the current working directory. You can use <a href="qdir.html#tempPath">QDir::tempPath</a>() to construct <i>templateName</i> if you want use the system's temporary directory.</p>
 <p>See also <a href="qtemporaryfile.html#open">open</a>() and <a href="qtemporaryfile.html#fileTemplate">fileTemplate</a>().</p>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/~QTemporaryFile" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/~QTemporaryFile"></a>
 <h3 class="fn"><a name="dtor.QTemporaryFile"></a>QTemporaryFile::~QTemporaryFile ()</h3>
 <p>Destroys the temporary file object, the file is automatically closed if necessary and if in auto remove mode it will automatically delete the file.</p>
 <p>See also <a href="qtemporaryfile.html#autoRemove">autoRemove</a>().</p>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/autoRemove" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/autoRemove"></a>
 <h3 class="fn"><a name="autoRemove"></a>bool QTemporaryFile::autoRemove () const</h3>
 <p>Returns true if the <a href="qtemporaryfile.html">QTemporaryFile</a> is in auto remove mode. Auto-remove mode will automatically delete the filename from disk upon destruction. This makes it very easy to create your <a href="qtemporaryfile.html">QTemporaryFile</a> object on the stack, fill it with data, read from it, and finally on function return it will automatically clean up after itself.</p>
 <p>Auto-remove is on by default.</p>
 <p>See also <a href="qtemporaryfile.html#setAutoRemove">setAutoRemove</a>() and <a href="qfile.html#remove">remove</a>().</p>
-<a name="//apple_ref/cpp/clm/QTemporaryFile/createLocalFile" />
+<a name="//apple_ref/cpp/clm/QTemporaryFile/createLocalFile"></a>
 <h3 class="fn"><a name="createLocalFile"></a>QTemporaryFile * QTemporaryFile::createLocalFile ( <a href="qfile.html">QFile</a> &amp; <i>file</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>If <i>file</i> is not on a local disk, a temporary file is created on a local disk, <i>file</i> is copied into the temporary local file, and a pointer to the temporary local file is returned. If <i>file</i> is already on a local disk, a copy is not created and 0 is returned.</p>
 <h3 class="fn"><a name="createLocalFile-2"></a>QTemporaryFile * QTemporaryFile::createLocalFile ( const <a href="qstring.html">QString</a> &amp; <i>fileName</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>Works on the given <i>fileName</i> rather than an existing <a href="qfile.html">QFile</a> object.</p>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/fileName" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/fileName"></a>
 <h3 class="fn"><a name="fileName"></a><a href="qstring.html">QString</a> QTemporaryFile::fileName () const</h3>
 <p>Returns the complete unique filename backing the <a href="qtemporaryfile.html">QTemporaryFile</a> object. This string is null before the <a href="qtemporaryfile.html">QTemporaryFile</a> is opened, afterwards it will contain the <a href="qtemporaryfile.html#fileTemplate">fileTemplate</a>() plus additional characters to make it unique.</p>
 <p>See also <a href="qtemporaryfile.html#fileTemplate">fileTemplate</a>().</p>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/fileTemplate" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/fileTemplate"></a>
 <h3 class="fn"><a name="fileTemplate"></a><a href="qstring.html">QString</a> QTemporaryFile::fileTemplate () const</h3>
 <p>Returns the set file template. The default file template will be called qt_temp and be placed in <a href="qdir.html#tempPath">QDir::tempPath</a>().</p>
 <p>See also <a href="qtemporaryfile.html#setFileTemplate">setFileTemplate</a>().</p>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/open" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/open"></a>
 <h3 class="fn"><a name="open"></a>bool QTemporaryFile::open ()</h3>
 <p>A <a href="qtemporaryfile.html">QTemporaryFile</a> will always be opened in <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ReadWrite</a> mode, this allows easy access to the data in the file. This function will return true upon success and will set the <a href="qtemporaryfile.html#fileName">fileName</a>() to the unique filename used.</p>
 <p>See also <a href="qtemporaryfile.html#fileName">fileName</a>().</p>
 <h3 class="fn"><a name="open-2"></a>bool QTemporaryFile::open ( <a href="qiodevice.html#OpenModeFlag-enum">OpenMode</a> <i>flags</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qiodevice.html#open">QIODevice::open</a>().</p>
 <p>Creates a unique file name for the temporary file, and opens it. You can get the unique name later by calling <a href="qtemporaryfile.html#fileName">fileName</a>(). The file is guaranteed to have been created by this function (i.e&#x2e;, it has never existed before).</p>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/setAutoRemove" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/setAutoRemove"></a>
 <h3 class="fn"><a name="setAutoRemove"></a>void QTemporaryFile::setAutoRemove ( bool <i>b</i> )</h3>
 <p>Sets the <a href="qtemporaryfile.html">QTemporaryFile</a> into auto-remove mode if <i>b</i> is true.</p>
 <p>Auto-remove is on by default.</p>
 <p>See also <a href="qtemporaryfile.html#autoRemove">autoRemove</a>() and <a href="qfile.html#remove">remove</a>().</p>
-<a name="//apple_ref/cpp/instm/QTemporaryFile/setFileTemplate" />
+<a name="//apple_ref/cpp/instm/QTemporaryFile/setFileTemplate"></a>
 <h3 class="fn"><a name="setFileTemplate"></a>void QTemporaryFile::setFileTemplate ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )</h3>
 <p>Sets the static portion of the file name to <i>name</i>. If the file template ends in XXXXXX that will automatically be replaced with the unique part of the filename, otherwise a filename will be determined automatically based on the static portion specified.</p>
 <p>If <i>name</i> contains a relative file path, the path will be relative to the current working directory. You can use <a href="qdir.html#tempPath">QDir::tempPath</a>() to construct <i>name</i> if you want use the system's temporary directory.</p>
@@ -156,6 +156,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

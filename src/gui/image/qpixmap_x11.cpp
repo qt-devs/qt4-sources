@@ -416,6 +416,11 @@ void QX11PixmapData::fromImage(const QImage &img,
     d = img.depth();
     is_null = (w <= 0 || h <= 0);
 
+    if (is_null) {
+        w = h = 0;
+        return;
+    }
+
     if (defaultScreen >= 0 && defaultScreen != xinfo.screen()) {
         QX11InfoData* xd = xinfo.getX11Data(true);
         xd->screen = defaultScreen;
@@ -1927,6 +1932,8 @@ QPixmap QX11PixmapData::transformed(const QTransform &transform,
         x11Data->hd = (Qt::HANDLE)XCreatePixmap(X11->display,
                                                 RootWindow(X11->display, xinfo.screen()),
                                                 w, h, d);
+        x11Data->setSerialNumber(++qt_pixmap_serial);
+
 #ifndef QT_NO_XRENDER
         if (X11->use_xrender) {
             XRenderPictFormat *format = x11Data->d == 32

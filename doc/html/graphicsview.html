@@ -225,10 +225,9 @@
 <p>See also the <a href="graphicsview-dragdroprobot.html">Drag and Drop Robot</a> example for code that implements tooltips and cursor shape handling.</p>
 <a name="animation"></a>
 <h4>Animation</h4>
-<p>Graphics View supports animation at several levels. You can easily assemble animation paths by associating a <a href="qgraphicsitemanimation.html">QGraphicsItemAnimation</a> with your item. This allows timeline controlled animations that operate at a steady speed on all platforms (although the frame rate may vary depending on the platform's performance). <a href="qgraphicsitemanimation.html">QGraphicsItemAnimation</a> allows you to create a path for an item's position, rotation, scale, shear and translation. The animation can be controlled by a <a href="qslider.html">QSlider</a>, or more commonly by <a href="qtimeline.html">QTimeLine</a>.</p>
+<p>Graphics View supports animation at several levels. You can easily assemble animation by using the Animation Framework. For that you'll need your items to inherit from <a href="qgraphicsobject.html">QGraphicsObject</a> and associate <a href="qpropertyanimation.html">QPropertyAnimation</a> with them. <a href="qpropertyanimation.html">QPropertyAnimation</a> allows to animate any <a href="qobject.html">QObject</a> property.</p>
 <p>Another option is to create a custom item that inherits from <a href="qobject.html">QObject</a> and <a href="qgraphicsitem.html">QGraphicsItem</a>. The item can the set up its own timers, and control animations with incremental steps in <a href="qobject.html#timerEvent">QObject::timerEvent</a>().</p>
 <p>A third option, which is mostly available for compatibility with <a href="porting4.html#qcanvas">QCanvas</a> in Qt 3, is to <i>advance</i> the scene by calling <a href="qgraphicsscene.html#advance">QGraphicsScene::advance</a>(), which in turn calls <a href="qgraphicsitem.html#advance">QGraphicsItem::advance</a>().</p>
-<p>See also the <a href="graphicsview-dragdroprobot.html">Drag and Drop Robot</a> example for an illustration of timeline-based animation techniques.</p>
 <a name="opengl-rendering"></a>
 <h4>OpenGL Rendering</h4>
 <p>To enable OpenGL rendering, you simply set a new <a href="qglwidget.html">QGLWidget</a> as the viewport of <a href="qgraphicsview.html">QGraphicsView</a> by calling <a href="qabstractscrollarea.html#setViewport">QGraphicsView::setViewport</a>(). If you want OpenGL with antialiasing, you need OpenGL sample buffer support (see <a href="qglformat.html#sampleBuffers">QGLFormat::sampleBuffers</a>()).</p>
@@ -266,6 +265,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

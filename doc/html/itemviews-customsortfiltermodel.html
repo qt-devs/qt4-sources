@@ -198,15 +198,15 @@
      toLabel = new QLabel(tr(&quot;&amp;To:&quot;));
      toLabel-&gt;setBuddy(toDateEdit);
 
-     connect(filterPatternLineEdit, SIGNAL(textChanged(const QString &amp;)),
+     connect(filterPatternLineEdit, SIGNAL(textChanged(QString)),
              this, SLOT(textFilterChanged()));
      connect(filterSyntaxComboBox, SIGNAL(currentIndexChanged(int)),
              this, SLOT(textFilterChanged()));
      connect(filterCaseSensitivityCheckBox, SIGNAL(toggled(bool)),
              this, SLOT(textFilterChanged()));
-     connect(fromDateEdit, SIGNAL(dateChanged(const QDate &amp;)),
+     connect(fromDateEdit, SIGNAL(dateChanged(QDate)),
              this, SLOT(dateFilterChanged()));
-     connect(toDateEdit, SIGNAL(dateChanged(const QDate &amp;)),
+     connect(toDateEdit, SIGNAL(dateChanged(QDate)),
              this, SLOT(dateFilterChanged()));</pre>
 <p>Note that whenever the user changes one of the filtering options, we must explicitly reapply the filter. This is done by connecting the various editors to functions that update the proxy model.</p>
 <pre>     proxyView = new QTreeView;
@@ -282,6 +282,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

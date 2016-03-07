@@ -32,29 +32,29 @@
 </table>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/acceptsHoverEvents" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/acceptsHoverEvents"></a>
 <h3 class="fn"><a name="acceptsHoverEvents"></a>bool QGraphicsItem::acceptsHoverEvents () const</h3>
 <p>Call <a href="qgraphicsitem.html#acceptHoverEvents">acceptHoverEvents</a>() instead.</p>
 <p>See also <a href="qgraphicsitem-obsolete.html#setAcceptsHoverEvents">setAcceptsHoverEvents</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/children" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/children"></a>
 <h3 class="fn"><a name="children"></a><a href="qlist.html">QList</a>&lt;QGraphicsItem *&gt; QGraphicsItem::children () const</h3>
 <p>Use <a href="qgraphicsitem.html#childItems">childItems</a>() instead.</p>
 <p>See also <a href="qgraphicsitem.html#setParentItem">setParentItem</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/handlesChildEvents" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/handlesChildEvents"></a>
 <h3 class="fn"><a name="handlesChildEvents"></a>bool QGraphicsItem::handlesChildEvents () const</h3>
 <p>Returns true if this item handles child events (i.e&#x2e;, all events intended for any of its children are instead sent to this item); otherwise, false is returned.</p>
 <p>This property is useful for item groups; it allows one item to handle events on behalf of its children, as opposed to its children handling their events individually.</p>
 <p>The default is to return false; children handle their own events. The exception for this is if the item is a <a href="qgraphicsitemgroup.html">QGraphicsItemGroup</a>, then it defaults to return true.</p>
 <p>See also <a href="qgraphicsitem-obsolete.html#setHandlesChildEvents">setHandlesChildEvents</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/matrix" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/matrix"></a>
 <h3 class="fn"><a name="matrix"></a><a href="qmatrix.html">QMatrix</a> QGraphicsItem::matrix () const</h3>
 <p>Returns the item's affine transformation matrix. This is a subset or the item's full transformation matrix, and might not represent the item's full transformation.</p>
 <p>Use <a href="qgraphicsitem.html#transform">transform</a>() instead.</p>
 <p>See also <a href="qgraphicsitem-obsolete.html#setMatrix">setMatrix</a>(), <a href="qgraphicsitem.html#setTransform">setTransform</a>(), and <a href="qgraphicsitem.html#sceneTransform">sceneTransform</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/resetMatrix" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/resetMatrix"></a>
 <h3 class="fn"><a name="resetMatrix"></a>void QGraphicsItem::resetMatrix ()</h3>
 <p>Use <a href="qgraphicsitem.html#resetTransform">resetTransform</a>() instead.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/rotate" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/rotate"></a>
 <h3 class="fn"><a name="rotate"></a>void QGraphicsItem::rotate ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>angle</i> )</h3>
 <p>Use</p>
 <pre> setRotation(rotation() + angle);</pre>
@@ -79,33 +79,33 @@
 <span class="comment"> // Scale an item by 3x2 from (x, y)</span>
  item-&gt;setTransform(QTransform().translate(x, y).scale(3, 2).translate(-x, -y));</pre>
 <p>See also <a href="qgraphicsitem.html#setTransform">setTransform</a>() and <a href="qgraphicsitem.html#transform">transform</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/sceneMatrix" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/sceneMatrix"></a>
 <h3 class="fn"><a name="sceneMatrix"></a><a href="qmatrix.html">QMatrix</a> QGraphicsItem::sceneMatrix () const</h3>
 <p>Use <a href="qgraphicsitem.html#sceneTransform">sceneTransform</a>() instead.</p>
 <p>See also <a href="qgraphicsitem.html#transform">transform</a>(), <a href="qgraphicsitem.html#setTransform">setTransform</a>(), <a href="qgraphicsitem.html#scenePos">scenePos</a>(), and <a href="graphicsview.html#the-graphics-view-coordinate-system">The Graphics View Coordinate System</a>.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/setAcceptsHoverEvents" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/setAcceptsHoverEvents"></a>
 <h3 class="fn"><a name="setAcceptsHoverEvents"></a>void QGraphicsItem::setAcceptsHoverEvents ( bool <i>enabled</i> )</h3>
 <p>Use setAcceptHoverEvents(<i>enabled</i>) instead.</p>
 <p>See also <a href="qgraphicsitem-obsolete.html#acceptsHoverEvents">acceptsHoverEvents</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/setHandlesChildEvents" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/setHandlesChildEvents"></a>
 <h3 class="fn"><a name="setHandlesChildEvents"></a>void QGraphicsItem::setHandlesChildEvents ( bool <i>enabled</i> )</h3>
 <p>If <i>enabled</i> is true, this item is set to handle all events for all its children (i.e&#x2e;, all events intented for any of its children are instead sent to this item); otherwise, if <i>enabled</i> is false, this item will only handle its own events. The default value is false.</p>
 <p>This property is useful for item groups; it allows one item to handle events on behalf of its children, as opposed to its children handling their events individually.</p>
 <p>If a child item accepts hover events, its parent will receive hover move events as the cursor passes through the child, but it does not receive hover enter and hover leave events on behalf of its child.</p>
 <p>See also <a href="qgraphicsitem-obsolete.html#handlesChildEvents">handlesChildEvents</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/setMatrix" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/setMatrix"></a>
 <h3 class="fn"><a name="setMatrix"></a>void QGraphicsItem::setMatrix ( const <a href="qmatrix.html">QMatrix</a> &amp; <i>matrix</i>, bool <i>combine</i> = false )</h3>
 <p>Sets the item's affine transformation matrix. This is a subset or the item's full transformation matrix, and might not represent the item's full transformation.</p>
 <p>Use <a href="qgraphicsitem.html#setTransform">setTransform</a>() instead.</p>
 <p>See also <a href="qgraphicsitem-obsolete.html#matrix">matrix</a>(), <a href="qgraphicsitem.html#transform">transform</a>(), and <a href="graphicsview.html#the-graphics-view-coordinate-system">The Graphics View Coordinate System</a>.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/shear" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/shear"></a>
 <h3 class="fn"><a name="shear"></a>void QGraphicsItem::shear ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>sh</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>sv</i> )</h3>
 <p>Use</p>
 <pre> setTransform(QTransform().shear(sh, sv), true);</pre>
 <p>instead.</p>
 <p>Shears the current item transformation by (<i>sh</i>, <i>sv</i>).</p>
 <p>See also <a href="qgraphicsitem.html#setTransform">setTransform</a>() and <a href="qgraphicsitem.html#transform">transform</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsItem/translate" />
+<a name="//apple_ref/cpp/instm/QGraphicsItem/translate"></a>
 <h3 class="fn"><a name="translate"></a>void QGraphicsItem::translate ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>dx</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>dy</i> )</h3>
 <p>Use <a href="qgraphicsitem.html#setPos">setPos</a>() or <a href="qgraphicsitem.html#setTransformOriginPoint">setTransformOriginPoint</a>() instead. For identical behavior, use</p>
 <pre> setTransform(QTransform::fromTranslate(dx, dy), true);</pre>
@@ -116,6 +116,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

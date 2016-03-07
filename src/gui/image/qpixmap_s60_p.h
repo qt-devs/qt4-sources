@@ -87,6 +87,8 @@ public:
     QS60PixmapData(PixelType type);
     ~QS60PixmapData();
 
+    QPixmapData *createCompatiblePixmapData() const;
+
     void resize(int width, int height);
     void fromImage(const QImage &image, Qt::ImageConversionFlags flags);
     void copy(const QPixmapData *data, const QRect &rect);
@@ -107,14 +109,12 @@ public:
 
 private:
     void release();
-    void fromSymbianBitmap(CFbsBitmap* bitmap);
-    bool initSymbianBitmapContext();
+    void fromSymbianBitmap(CFbsBitmap* bitmap, bool lockFormat=false);
+    QImage toImage(const QRect &r) const;
 
     QSymbianBitmapDataAccess *symbianBitmapDataAccess;
 
     CFbsBitmap *cfbsBitmap;
-    CFbsBitmapDevice *bitmapDevice;
-    CFbsBitGc *bitmapGc;
     QPaintEngine *pengine;
     uchar* bytes;
 

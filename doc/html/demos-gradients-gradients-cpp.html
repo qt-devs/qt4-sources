@@ -92,7 +92,7 @@
 
      setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
-     connect(m_hoverPoints, SIGNAL(pointsChanged(const QPolygonF &amp;)), this, SIGNAL(colorsChanged()));
+     connect(m_hoverPoints, SIGNAL(pointsChanged(QPolygonF)), this, SIGNAL(colorsChanged()));
  }
 
  QPolygonF ShadeWidget::points() const
@@ -359,8 +359,8 @@
      defaultsGroupLayout-&gt;addWidget(default3Button);
      editorGroupLayout-&gt;addWidget(default4Button);
 
-     connect(m_editor, SIGNAL(gradientStopsChanged(const QGradientStops &amp;)),
-             m_renderer, SLOT(setGradientStops(const QGradientStops &amp;)));
+     connect(m_editor, SIGNAL(gradientStopsChanged(QGradientStops)),
+             m_renderer, SLOT(setGradientStops(QGradientStops)));
 
      connect(m_linearButton, SIGNAL(clicked()), m_renderer, SLOT(setLinearGradient()));
      connect(m_radialButton, SIGNAL(clicked()), m_renderer, SLOT(setRadialGradient()));
@@ -520,6 +520,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

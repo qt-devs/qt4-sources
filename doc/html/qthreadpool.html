@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QThreadPool" />
+<a name="//apple_ref/cpp/cl//QThreadPool"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -93,7 +93,7 @@
 <p>See also <a href="qrunnable.html">QRunnable</a>.</p>
 <hr />
 <h2>Property Documentation</h2>
-<a name="//apple_ref/cpp/instm/QThreadPool/activeThreadCount" />
+<a name="//apple_ref/cpp/instm/QThreadPool/activeThreadCount"></a>
 <h3 class="fn"><a name="activeThreadCount-prop"></a>activeThreadCount : const int</h3>
 <p>This property represents the number of active threads in the thread pool.</p>
 <p><b>Note:</b> It is possible for this function to return a value that is greater than <a href="qthreadpool.html#maxThreadCount-prop">maxThreadCount</a>(). See <a href="qthreadpool.html#reserveThread">reserveThread</a>() for more details.</p>
@@ -102,8 +102,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b>activeThreadCount</b> () const</td></tr>
 </table>
 <p>See also <a href="qthreadpool.html#reserveThread">reserveThread</a>() and <a href="qthreadpool.html#releaseThread">releaseThread</a>().</p>
-<a name="//apple_ref/cpp/instm/QThreadPool/expiryTimeout" />
-<a name="//apple_ref/cpp/instm/QThreadPool/setExpiryTimeout" />
+<a name="//apple_ref/cpp/instm/QThreadPool/expiryTimeout"></a>
+<a name="//apple_ref/cpp/instm/QThreadPool/setExpiryTimeout"></a>
 <h3 class="fn"><a name="expiryTimeout-prop"></a>expiryTimeout : int</h3>
 <p>Threads that are unused for <i>expiryTimeout</i> milliseconds are considered to have expired and will exit. Such threads will be restarted as needed. The default <i>expiryTimeout</i> is 30000 milliseconds (30 seconds). If <i>expiryTimeout</i> is negative, newly created threads will not expire, e.g&#x2e;, they will not exit until the thread pool is destroyed.</p>
 <p>Note that setting <i>expiryTimeout</i> has no effect on already running threads. Only newly created threads will use the new <i>expiryTimeout</i>. We recommend setting the <i>expiryTimeout</i> immediately after creating the thread pool, but before calling <a href="qthreadpool.html#start">start</a>().</p>
@@ -112,8 +112,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">int </td><td class="memItemRight" valign="bottom"><b>expiryTimeout</b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b>setExpiryTimeout</b> ( int <i>expiryTimeout</i> )</td></tr>
 </table>
-<a name="//apple_ref/cpp/instm/QThreadPool/maxThreadCount" />
-<a name="//apple_ref/cpp/instm/QThreadPool/setMaxThreadCount" />
+<a name="//apple_ref/cpp/instm/QThreadPool/maxThreadCount"></a>
+<a name="//apple_ref/cpp/instm/QThreadPool/setMaxThreadCount"></a>
 <h3 class="fn"><a name="maxThreadCount-prop"></a>maxThreadCount : int</h3>
 <p>This property represents the maximum number of threads used by the thread pool.</p>
 <p><b>Note:</b> The thread pool will always use at least 1 thread, even if <i>maxThreadCount</i> limit is zero or negative.</p>
@@ -125,42 +125,42 @@
 </table>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QThreadPool/QThreadPool" />
+<a name="//apple_ref/cpp/instm/QThreadPool/QThreadPool"></a>
 <h3 class="fn"><a name="QThreadPool"></a>QThreadPool::QThreadPool ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
 <p>Constructs a thread pool with the given <i>parent</i>.</p>
-<a name="//apple_ref/cpp/instm/QThreadPool/~QThreadPool" />
+<a name="//apple_ref/cpp/instm/QThreadPool/~QThreadPool"></a>
 <h3 class="fn"><a name="dtor.QThreadPool"></a>QThreadPool::~QThreadPool ()</h3>
 <p>Destroys the <a href="qthreadpool.html">QThreadPool</a>. This function will block until all runnables have been completed.</p>
-<a name="//apple_ref/cpp/clm/QThreadPool/globalInstance" />
+<a name="//apple_ref/cpp/clm/QThreadPool/globalInstance"></a>
 <h3 class="fn"><a name="globalInstance"></a>QThreadPool * QThreadPool::globalInstance ()&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns the global <a href="qthreadpool.html">QThreadPool</a> instance.</p>
-<a name="//apple_ref/cpp/instm/QThreadPool/releaseThread" />
+<a name="//apple_ref/cpp/instm/QThreadPool/releaseThread"></a>
 <h3 class="fn"><a name="releaseThread"></a>void QThreadPool::releaseThread ()</h3>
 <p>Releases a thread previously reserved by a call to <a href="qthreadpool.html#reserveThread">reserveThread</a>().</p>
 <p><b>Note:</b> Calling this function without previously reserving a thread temporarily increases <a href="qthreadpool.html#maxThreadCount-prop">maxThreadCount</a>(). This is useful when a thread goes to sleep waiting for more work, allowing other threads to continue. Be sure to call <a href="qthreadpool.html#reserveThread">reserveThread</a>() when done waiting, so that the thread pool can correctly maintain the <a href="qthreadpool.html#activeThreadCount-prop">activeThreadCount</a>().</p>
 <p>See also <a href="qthreadpool.html#reserveThread">reserveThread</a>().</p>
-<a name="//apple_ref/cpp/instm/QThreadPool/reserveThread" />
+<a name="//apple_ref/cpp/instm/QThreadPool/reserveThread"></a>
 <h3 class="fn"><a name="reserveThread"></a>void QThreadPool::reserveThread ()</h3>
 <p>Reserves one thread, disregarding <a href="qthreadpool.html#activeThreadCount-prop">activeThreadCount</a>() and <a href="qthreadpool.html#maxThreadCount-prop">maxThreadCount</a>().</p>
 <p>Once you are done with the thread, call <a href="qthreadpool.html#releaseThread">releaseThread</a>() to allow it to be reused.</p>
 <p><b>Note:</b> This function will always increase the number of active threads. This means that by using this function, it is possible for <a href="qthreadpool.html#activeThreadCount-prop">activeThreadCount</a>() to return a value greater than <a href="qthreadpool.html#maxThreadCount-prop">maxThreadCount</a>() .</p>
 <p>See also <a href="qthreadpool.html#releaseThread">releaseThread</a>().</p>
-<a name="//apple_ref/cpp/instm/QThreadPool/start" />
+<a name="//apple_ref/cpp/instm/QThreadPool/start"></a>
 <h3 class="fn"><a name="start"></a>void QThreadPool::start ( <a href="qrunnable.html">QRunnable</a> * <i>runnable</i>, int <i>priority</i> = 0 )</h3>
 <p>Reserves a thread and uses it to run <i>runnable</i>, unless this thread will make the current thread count exceed <a href="qthreadpool.html#maxThreadCount-prop">maxThreadCount</a>(). In that case, <i>runnable</i> is added to a run queue instead. The <i>priority</i> argument can be used to control the run queue's order of execution.</p>
 <p>Note that the thread pool takes ownership of the <i>runnable</i> if <a href="qrunnable.html#autoDelete">runnable-&gt;autoDelete()</a> returns true, and the <i>runnable</i> will be deleted automatically by the thread pool after the <a href="qrunnable.html#run">runnable-&gt;run()</a> returns. If <a href="qrunnable.html#autoDelete">runnable-&gt;autoDelete()</a> returns false, ownership of <i>runnable</i> remains with the caller. Note that changing the auto-deletion on <i>runnable</i> after calling this functions results in undefined behavior.</p>
-<a name="//apple_ref/cpp/instm/QThreadPool/tryStart" />
+<a name="//apple_ref/cpp/instm/QThreadPool/tryStart"></a>
 <h3 class="fn"><a name="tryStart"></a>bool QThreadPool::tryStart ( <a href="qrunnable.html">QRunnable</a> * <i>runnable</i> )</h3>
 <p>Attempts to reserve a thread to run <i>runnable</i>.</p>
 <p>If no threads are available at the time of calling, then this function does nothing and returns false. Otherwise, <i>runnable</i> is run immediately using one available thread and this function returns true.</p>
 <p>Note that the thread pool takes ownership of the <i>runnable</i> if <a href="qrunnable.html#autoDelete">runnable-&gt;autoDelete()</a> returns true, and the <i>runnable</i> will be deleted automatically by the thread pool after the <a href="qrunnable.html#run">runnable-&gt;run()</a> returns. If <a href="qrunnable.html#autoDelete">runnable-&gt;autoDelete()</a> returns false, ownership of <i>runnable</i> remains with the caller. Note that changing the auto-deletion on <i>runnable</i> after calling this function results in undefined behavior.</p>
-<a name="//apple_ref/cpp/instm/QThreadPool/waitForDone" />
+<a name="//apple_ref/cpp/instm/QThreadPool/waitForDone"></a>
 <h3 class="fn"><a name="waitForDone"></a>void QThreadPool::waitForDone ()</h3>
 <p>Waits for each thread to exit and removes all threads from the thread pool.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

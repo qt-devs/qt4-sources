@@ -67,10 +67,10 @@
      setupFontTree();
 
      connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
-     connect(fontTree, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)),
-             this, SLOT(showFont(QTreeWidgetItem *)));
-     connect(fontTree, SIGNAL(itemChanged(QTreeWidgetItem *, int)),
-             this, SLOT(updateStyles(QTreeWidgetItem *, int)));
+     connect(fontTree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),
+             this, SLOT(showFont(QTreeWidgetItem*)));
+     connect(fontTree, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
+             this, SLOT(updateStyles(QTreeWidgetItem*,int)));
 
      fontTree-&gt;setItemSelected(fontTree-&gt;topLevelItem(0), true);
      showFont(fontTree-&gt;topLevelItem(0));
@@ -293,8 +293,8 @@
 
      QPrinter printer(QPrinter::HighResolution);
      QPrintPreviewDialog preview(&amp;printer, this);
-     connect(&amp;preview, SIGNAL(paintRequested(QPrinter *)),
-             this, SLOT(printDocument(QPrinter *)));
+     connect(&amp;preview, SIGNAL(paintRequested(QPrinter*)),
+             this, SLOT(printDocument(QPrinter*)));
      preview.exec();
  }
 
@@ -389,6 +389,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -76,8 +76,8 @@
      curScale = DefaultScale;
 
      qRegisterMetaType&lt;QImage&gt;(&quot;QImage&quot;);
-     connect(&amp;thread, SIGNAL(renderedImage(const QImage &amp;, double)),
-             this, SLOT(updatePixmap(const QImage &amp;, double)));
+     connect(&amp;thread, SIGNAL(renderedImage(QImage,double)),
+             this, SLOT(updatePixmap(QImage,double)));
 
      setWindowTitle(tr(&quot;Mandelbrot&quot;));
  #ifndef QT_NO_CURSOR
@@ -224,6 +224,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

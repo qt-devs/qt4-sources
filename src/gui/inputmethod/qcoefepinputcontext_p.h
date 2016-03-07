@@ -84,7 +84,7 @@ public:
 
     bool filterEvent(const QEvent *event);
     void mouseHandler( int x, QMouseEvent *event);
-    bool isComposing() const { return m_isEditing; }
+    bool isComposing() const { return !m_preeditString.isEmpty(); }
 
     void setFocusWidget(QWidget * w);
     void widgetDestroyed(QWidget *w);
@@ -140,13 +140,14 @@ private:
     QString m_preeditString;
     Qt::InputMethodHints m_lastImHints;
     TUint m_textCapabilities;
-    bool m_isEditing;
     bool m_inDestruction;
     bool m_pendingInputCapabilitiesChanged;
     int m_cursorVisibility;
     int m_inlinePosition;
     MFepInlineTextFormatRetriever *m_formatRetriever;
     MFepPointerEventHandlerDuringInlineEdit *m_pointerHandler;
+    int m_longPress;
+    int m_cursorPos;
 };
 
 QT_END_NAMESPACE

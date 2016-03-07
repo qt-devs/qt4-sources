@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3WidgetStack" />
+<a name="//apple_ref/cpp/cl//Q3WidgetStack"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -43,9 +43,9 @@
 <ul>
 <li><div bar="2" class="fn"></div>4 public functions inherited from <a href="q3frame.html#public-functions">Q3Frame</a></li>
 <li><div bar="2" class="fn"></div>14 public functions inherited from <a href="qframe.html#public-functions">QFrame</a></li>
-<li><div bar="2" class="fn"></div>216 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li><div bar="2" class="fn"></div>217 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
 <li><div bar="2" class="fn"></div>29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
-<li><div bar="2" class="fn"></div>12 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+<li><div bar="2" class="fn"></div>13 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
 </ul>
 <hr />
 <a name="public-slots"></a>
@@ -113,14 +113,14 @@
 <p>See also <a href="q3tabdialog.html">Q3TabDialog</a>, <a href="qtabwidget.html">QTabWidget</a>, <a href="qtabbar.html">QTabBar</a>, and <a href="q3frame.html">Q3Frame</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/Q3WidgetStack" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/Q3WidgetStack"></a>
 <h3 class="fn"><a name="Q3WidgetStack"></a>Q3WidgetStack::Q3WidgetStack ( <a href="qwidget.html">QWidget</a> * <i>parent</i>, const char * <i>name</i> = 0, <a href="qt.html#WindowType-enum">Qt::WindowFlags</a> <i>f</i> = 0 )</h3>
 <p>Constructs an empty widget stack.</p>
 <p>The <i>parent</i>, <i>name</i> and <i>f</i> arguments are passed to the <a href="q3frame.html" class="compat">Q3Frame</a> constructor.</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/~Q3WidgetStack" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/~Q3WidgetStack"></a>
 <h3 class="fn"><a name="dtor.Q3WidgetStack"></a>Q3WidgetStack::~Q3WidgetStack ()</h3>
 <p>Destroys the object and frees any allocated resources.</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/aboutToShow" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/aboutToShow"></a>
 <h3 class="fn"><a name="aboutToShow"></a>void Q3WidgetStack::aboutToShow ( int <i>id</i> )&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted just before a managed widget is shown if that managed widget has an ID != -1. The <i>id</i> parameter is the numeric ID of the widget.</p>
 <p>If you call <a href="q3widgetstack.html#visibleWidget">visibleWidget</a>() in a slot connected to aboutToShow(), the widget it returns is the one that is currently visible, not the one that is about to be shown.</p>
@@ -128,57 +128,57 @@
 <p>This is an overloaded function.</p>
 <p>This signal is emitted just before a managed widget is shown. The argument is a pointer to the <i>widget</i>.</p>
 <p>If you call <a href="q3widgetstack.html#visibleWidget">visibleWidget</a>() in a slot connected to <a href="q3widgetstack.html#aboutToShow">aboutToShow</a>(), the widget returned is the one that is currently visible, not the one that is about to be shown.</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/addWidget" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/addWidget"></a>
 <h3 class="fn"><a name="addWidget"></a>int Q3WidgetStack::addWidget ( <a href="qwidget.html">QWidget</a> * <i>w</i>, int <i>id</i> = -1 )</h3>
 <p>Adds widget <i>w</i> to this stack of widgets, with ID <i>id</i>.</p>
 <p>If you pass an id &gt;= 0 this ID is used. If you pass an <i>id</i> of -1 (the default), the widgets will be numbered automatically. If you pass -2 a unique negative integer will be generated. No widget has an ID of -1. Returns the ID or -1 on failure (e.g&#x2e; <i>w</i> is 0).</p>
 <p>If you pass an id that is already used, then a unique negative integer will be generated to prevent two widgets having the same id.</p>
 <p>If <i>w</i> already exists in the stack the widget will be removed first.</p>
 <p>If <i>w</i> is not a child of this <a href="q3widgetstack.html" class="compat">Q3WidgetStack</a> moves it using <a href="qwidget-qt3.html#reparent" class="compat">reparent</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/childEvent" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/childEvent"></a>
 <h3 class="fn"><a name="childEvent"></a>void Q3WidgetStack::childEvent ( <a href="qchildevent.html">QChildEvent</a> * <i>e</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qobject.html#childEvent">QObject::childEvent</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/event" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/event"></a>
 <h3 class="fn"><a name="event"></a>bool Q3WidgetStack::event ( <a href="qevent.html">QEvent</a> * <i>e</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qobject.html#event">QObject::event</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/frameChanged" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/frameChanged"></a>
 <h3 class="fn"><a name="frameChanged"></a>void Q3WidgetStack::frameChanged ()&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="q3frame.html#frameChanged">Q3Frame::frameChanged</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/id" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/id"></a>
 <h3 class="fn"><a name="id"></a>int Q3WidgetStack::id ( <a href="qwidget.html">QWidget</a> * <i>widget</i> ) const</h3>
 <p>Returns the ID of the <i>widget</i>. Returns -1 if <i>widget</i> is 0 or is not being managed by this widget stack.</p>
 <p>See also <a href="q3widgetstack.html#widget">widget</a>() and <a href="q3widgetstack.html#addWidget">addWidget</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/minimumSizeHint" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/minimumSizeHint"></a>
 <h3 class="fn"><a name="minimumSizeHint"></a><a href="qsize.html">QSize</a> Q3WidgetStack::minimumSizeHint () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/raiseWidget" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/raiseWidget"></a>
 <h3 class="fn"><a name="raiseWidget"></a>void Q3WidgetStack::raiseWidget ( int <i>id</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Raises the widget with ID <i>id</i> to the top of the widget stack.</p>
 <p>See also <a href="q3widgetstack.html#visibleWidget">visibleWidget</a>().</p>
 <h3 class="fn"><a name="raiseWidget-2"></a>void Q3WidgetStack::raiseWidget ( <a href="qwidget.html">QWidget</a> * <i>w</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>This is an overloaded function.</p>
 <p>Raises widget <i>w</i> to the top of the widget stack.</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/removeWidget" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/removeWidget"></a>
 <h3 class="fn"><a name="removeWidget"></a>void Q3WidgetStack::removeWidget ( <a href="qwidget.html">QWidget</a> * <i>w</i> )</h3>
 <p>Removes widget <i>w</i> from this stack of widgets. Does not delete <i>w</i>. If <i>w</i> is the currently visible widget, no other widget is substituted.</p>
 <p>See also <a href="q3widgetstack.html#visibleWidget">visibleWidget</a>() and <a href="q3widgetstack.html#raiseWidget">raiseWidget</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/resizeEvent" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/resizeEvent"></a>
 <h3 class="fn"><a name="resizeEvent"></a>void Q3WidgetStack::resizeEvent ( <a href="qresizeevent.html">QResizeEvent</a> * <i>e</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#resizeEvent">QWidget::resizeEvent</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/setChildGeometries" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/setChildGeometries"></a>
 <h3 class="fn"><a name="setChildGeometries"></a>void Q3WidgetStack::setChildGeometries ()&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Fixes up the children's geometries.</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/setVisible" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/setVisible"></a>
 <h3 class="fn"><a name="setVisible"></a>void Q3WidgetStack::setVisible ( bool <i>visible</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#visible-prop">QWidget::setVisible</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/sizeHint" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/sizeHint"></a>
 <h3 class="fn"><a name="sizeHint"></a><a href="qsize.html">QSize</a> Q3WidgetStack::sizeHint () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/visibleWidget" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/visibleWidget"></a>
 <h3 class="fn"><a name="visibleWidget"></a><a href="qwidget.html">QWidget</a> * Q3WidgetStack::visibleWidget () const</h3>
 <p>Returns the currently visible widget (the one at the top of the stack), or 0 if nothing is currently being shown.</p>
 <p>See also <a href="q3widgetstack.html#aboutToShow">aboutToShow</a>(), <a href="q3widgetstack.html#id">id</a>(), and <a href="q3widgetstack.html#raiseWidget">raiseWidget</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3WidgetStack/widget" />
+<a name="//apple_ref/cpp/instm/Q3WidgetStack/widget"></a>
 <h3 class="fn"><a name="widget"></a><a href="qwidget.html">QWidget</a> * Q3WidgetStack::widget ( int <i>id</i> ) const</h3>
 <p>Returns the widget with ID <i>id</i>. Returns 0 if this widget stack does not manage a widget with ID <i>id</i>.</p>
 <p>See also <a href="q3widgetstack.html#id">id</a>() and <a href="q3widgetstack.html#addWidget">addWidget</a>().</p>
@@ -186,6 +186,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

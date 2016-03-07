@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QMutex" />
+<a name="//apple_ref/cpp/cl//QMutex"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -101,9 +101,9 @@
 <p>See also <a href="qmutexlocker.html">QMutexLocker</a>, <a href="qreadwritelock.html">QReadWriteLock</a>, <a href="qsemaphore.html">QSemaphore</a>, and <a href="qwaitcondition.html">QWaitCondition</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QMutex/RecursionMode" />
-<a name="//apple_ref/cpp/econst/QMutex/Recursive" />
-<a name="//apple_ref/cpp/econst/QMutex/NonRecursive" />
+<a name="//apple_ref/cpp/tag/QMutex/RecursionMode"></a>
+<a name="//apple_ref/cpp/econst/QMutex/Recursive"></a>
+<a name="//apple_ref/cpp/econst/QMutex/NonRecursive"></a>
 <h3 class="fn"><a name="RecursionMode-enum"></a>enum QMutex::RecursionMode</h3>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
 <tr><th width="25%">Constant</th><th width="15%">Value</th><th width="60%">Description</th></tr>
@@ -113,21 +113,21 @@
 <p>See also <a href="qmutex.html#QMutex">QMutex</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QMutex/QMutex" />
+<a name="//apple_ref/cpp/instm/QMutex/QMutex"></a>
 <h3 class="fn"><a name="QMutex"></a>QMutex::QMutex ( <a href="qmutex.html#RecursionMode-enum">RecursionMode</a> <i>mode</i> = NonRecursive )</h3>
 <p>Constructs a new mutex. The mutex is created in an unlocked state.</p>
 <p>If <i>mode</i> is <a href="qmutex.html#RecursionMode-enum">QMutex::Recursive</a>, a thread can lock the same mutex multiple times and the mutex won't be unlocked until a corresponding number of <a href="qmutex.html#unlock">unlock</a>() calls have been made. The default is <a href="qmutex.html#RecursionMode-enum">QMutex::NonRecursive</a>.</p>
 <p>See also <a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
-<a name="//apple_ref/cpp/instm/QMutex/~QMutex" />
+<a name="//apple_ref/cpp/instm/QMutex/~QMutex"></a>
 <h3 class="fn"><a name="dtor.QMutex"></a>QMutex::~QMutex ()</h3>
 <p>Destroys the mutex.</p>
 <p><b>Warning:</b> Destroying a locked mutex may result in undefined behavior.</p>
-<a name="//apple_ref/cpp/instm/QMutex/lock" />
+<a name="//apple_ref/cpp/instm/QMutex/lock"></a>
 <h3 class="fn"><a name="lock"></a>void QMutex::lock ()</h3>
 <p>Locks the mutex. If another thread has locked the mutex then this call will block until that thread has unlocked it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>dead-lock</i> when the mutex is locked recursively.</p>
 <p>See also <a href="qmutex.html#unlock">unlock</a>().</p>
-<a name="//apple_ref/cpp/instm/QMutex/tryLock" />
+<a name="//apple_ref/cpp/instm/QMutex/tryLock"></a>
 <h3 class="fn"><a name="tryLock"></a>bool QMutex::tryLock ()</h3>
 <p>Attempts to lock the mutex. If the lock was obtained, this function returns true. If another thread has locked the mutex, this function returns false immediately.</p>
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
@@ -140,7 +140,7 @@
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>always</i> return false when attempting to lock the mutex recursively.</p>
 <p>See also <a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
-<a name="//apple_ref/cpp/instm/QMutex/unlock" />
+<a name="//apple_ref/cpp/instm/QMutex/unlock"></a>
 <h3 class="fn"><a name="unlock"></a>void QMutex::unlock ()</h3>
 <p>Unlocks the mutex. Attempting to unlock a mutex in a different thread to the one that locked it results in an error. Unlocking a mutex that is not locked results in undefined behavior.</p>
 <p>See also <a href="qmutex.html#lock">lock</a>().</p>
@@ -148,6 +148,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

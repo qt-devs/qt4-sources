@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QDirIterator" />
+<a name="//apple_ref/cpp/cl//QDirIterator"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -64,11 +64,11 @@
 <p>See also <a href="qdir.html">QDir</a>, <a href="qdir.html#entryList">QDir::entryList</a>(), and <a href="qabstractfileengineiterator.html">QAbstractFileEngineIterator</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QDirIterator/IteratorFlag" />
-<a name="//apple_ref/cpp/econst/QDirIterator/NoIteratorFlags" />
-<a name="//apple_ref/cpp/econst/QDirIterator/Subdirectories" />
-<a name="//apple_ref/cpp/econst/QDirIterator/FollowSymlinks" />
-<a name="//apple_ref/cpp/tdef/QDirIterator/IteratorFlags" />
+<a name="//apple_ref/cpp/tag/QDirIterator/IteratorFlag"></a>
+<a name="//apple_ref/cpp/econst/QDirIterator/NoIteratorFlags"></a>
+<a name="//apple_ref/cpp/econst/QDirIterator/Subdirectories"></a>
+<a name="//apple_ref/cpp/econst/QDirIterator/FollowSymlinks"></a>
+<a name="//apple_ref/cpp/tdef/QDirIterator/IteratorFlags"></a>
 <h3 class="flags"><a name="IteratorFlag-enum"></a>enum QDirIterator::IteratorFlag<br />flags QDirIterator::IteratorFlags</h3>
 <p>This enum describes flags that you can combine to configure the behavior of <a href="qdiriterator.html">QDirIterator</a>.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -80,7 +80,7 @@
 <p>The IteratorFlags type is a typedef for <a href="qflags.html">QFlags</a>&lt;IteratorFlag&gt;. It stores an OR combination of IteratorFlag values.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QDirIterator/QDirIterator" />
+<a name="//apple_ref/cpp/instm/QDirIterator/QDirIterator"></a>
 <h3 class="fn"><a name="QDirIterator"></a>QDirIterator::QDirIterator ( const <a href="qdir.html">QDir</a> &amp; <i>dir</i>, <a href="qdiriterator.html#IteratorFlag-enum">IteratorFlags</a> <i>flags</i> = NoIteratorFlags )</h3>
 <p>Constructs a <a href="qdiriterator.html">QDirIterator</a> that can iterate over <i>dir</i>'s entrylist, using <i>dir</i>'s name filters and regular filters. You can pass options via <i>flags</i> to decide how the directory should be iterated.</p>
 <p>By default, <i>flags</i> is <a href="qdiriterator.html#IteratorFlag-enum">NoIteratorFlags</a>, which provides the same behavior as in <a href="qdir.html#entryList">QDir::entryList</a>().</p>
@@ -104,38 +104,38 @@
 <p><b>Note:</b> To list symlinks that point to non existing files, <a href="qdir.html#Filter-enum">QDir::System</a> must be passed to the flags.</p>
 <p><b>Warning:</b> This constructor expects <tt>flags</tt> to be left at its default value. Use the constructors that do not take the <i>filters</i> argument instead.</p>
 <p>See also <a href="qdiriterator.html#hasNext">hasNext</a>(), <a href="qdiriterator.html#next">next</a>(), and <a href="qdiriterator.html#IteratorFlag-enum">IteratorFlags</a>.</p>
-<a name="//apple_ref/cpp/instm/QDirIterator/~QDirIterator" />
+<a name="//apple_ref/cpp/instm/QDirIterator/~QDirIterator"></a>
 <h3 class="fn"><a name="dtor.QDirIterator"></a>QDirIterator::~QDirIterator ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destroys the <a href="qdiriterator.html">QDirIterator</a>.</p>
-<a name="//apple_ref/cpp/instm/QDirIterator/fileInfo" />
+<a name="//apple_ref/cpp/instm/QDirIterator/fileInfo"></a>
 <h3 class="fn"><a name="fileInfo"></a><a href="qfileinfo.html">QFileInfo</a> QDirIterator::fileInfo () const</h3>
 <p>Returns a <a href="qfileinfo.html">QFileInfo</a> for the current directory entry.</p>
 <p>See also <a href="qdiriterator.html#filePath">filePath</a>() and <a href="qdiriterator.html#fileName">fileName</a>().</p>
-<a name="//apple_ref/cpp/instm/QDirIterator/fileName" />
+<a name="//apple_ref/cpp/instm/QDirIterator/fileName"></a>
 <h3 class="fn"><a name="fileName"></a><a href="qstring.html">QString</a> QDirIterator::fileName () const</h3>
 <p>Returns the file name for the current directory entry, without the path prepended.</p>
 <p>This function is convenient when iterating a single directory. When using the <a href="qdiriterator.html#IteratorFlag-enum">QDirIterator::Subdirectories</a> flag, you can use <a href="qdiriterator.html#filePath">filePath</a>() to get the full path.</p>
 <p>See also <a href="qdiriterator.html#filePath">filePath</a>() and <a href="qdiriterator.html#fileInfo">fileInfo</a>().</p>
-<a name="//apple_ref/cpp/instm/QDirIterator/filePath" />
+<a name="//apple_ref/cpp/instm/QDirIterator/filePath"></a>
 <h3 class="fn"><a name="filePath"></a><a href="qstring.html">QString</a> QDirIterator::filePath () const</h3>
 <p>Returns the full file path for the current directory entry.</p>
 <p>See also <a href="qdiriterator.html#fileInfo">fileInfo</a>() and <a href="qdiriterator.html#fileName">fileName</a>().</p>
-<a name="//apple_ref/cpp/instm/QDirIterator/hasNext" />
+<a name="//apple_ref/cpp/instm/QDirIterator/hasNext"></a>
 <h3 class="fn"><a name="hasNext"></a>bool QDirIterator::hasNext () const</h3>
 <p>Returns true if there is at least one more entry in the directory; otherwise, false is returned.</p>
 <p>See also <a href="qdiriterator.html#next">next</a>(), <a href="qdiriterator.html#fileName">fileName</a>(), <a href="qdiriterator.html#filePath">filePath</a>(), and <a href="qdiriterator.html#fileInfo">fileInfo</a>().</p>
-<a name="//apple_ref/cpp/instm/QDirIterator/next" />
+<a name="//apple_ref/cpp/instm/QDirIterator/next"></a>
 <h3 class="fn"><a name="next"></a><a href="qstring.html">QString</a> QDirIterator::next ()</h3>
 <p>Advances the iterator to the next entry, and returns the file path of this new entry. If <a href="qdiriterator.html#hasNext">hasNext</a>() returns false, this function does nothing, and returns a null <a href="qstring.html">QString</a>.</p>
 <p>You can call <a href="qdiriterator.html#fileName">fileName</a>() or <a href="qdiriterator.html#filePath">filePath</a>() to get the current entry file name or path, or <a href="qdiriterator.html#fileInfo">fileInfo</a>() to get a <a href="qfileinfo.html">QFileInfo</a> for the current entry.</p>
 <p>See also <a href="qdiriterator.html#hasNext">hasNext</a>(), <a href="qdiriterator.html#fileName">fileName</a>(), <a href="qdiriterator.html#filePath">filePath</a>(), and <a href="qdiriterator.html#fileInfo">fileInfo</a>().</p>
-<a name="//apple_ref/cpp/instm/QDirIterator/path" />
+<a name="//apple_ref/cpp/instm/QDirIterator/path"></a>
 <h3 class="fn"><a name="pathx"></a><a href="qstring.html">QString</a> QDirIterator::path () const</h3>
 <p>Returns the base directory of the iterator.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

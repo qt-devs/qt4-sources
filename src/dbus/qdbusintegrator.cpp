@@ -390,7 +390,7 @@ static void qDBusNewConnection(DBusServer *server, DBusConnection *connection, v
 
 } // extern "C"
 
-static QByteArray buildMatchRule(const QString &service, const QString & /*owner*/,
+static QByteArray buildMatchRule(const QString &service,
                                  const QString &objectPath, const QString &interface,
                                  const QString &member, const QStringList &argMatch, const QString & /*signature*/)
 {
@@ -934,7 +934,8 @@ QDBusConnectionPrivate::QDBusConnectionPrivate(QObject *p)
       rootNode(QString(QLatin1Char('/')))
 {
     static const bool threads = q_dbus_threads_init_default();
-    static const int debugging = ::isDebugging = qgetenv("QDBUS_DEBUG").toInt();
+    static const int debugging = qgetenv("QDBUS_DEBUG").toInt();
+    ::isDebugging = debugging;
     Q_UNUSED(threads)
     Q_UNUSED(debugging)
 
@@ -946,10 +947,6 @@ QDBusConnectionPrivate::QDBusConnectionPrivate(QObject *p)
     QDBusMetaTypeId::init();
 
     rootNode.flags = 0;
-    watchedServiceNames[QLatin1String(DBUS_SERVICE_DBUS)] = 1;
-
-    connect(this, SIGNAL(serviceOwnerChanged(QString,QString,QString)),
-            this, SLOT(_q_serviceOwnerChanged(QString,QString,QString)));
 }
 
 QDBusConnectionPrivate::~QDBusConnectionPrivate()
@@ -1179,17 +1176,17 @@ void QDBusConnectionPrivate::relaySignal(QObject *obj, const QMetaObject *mo, in
 void QDBusConnectionPrivate::_q_serviceOwnerChanged(const QString &name,
                                                     const QString &oldOwner, const QString &newOwner)
 {
-    if (oldOwner == baseService)
-        unregisterService(name);
-    if (newOwner == baseService)
-        registerService(name);
-
+    Q_UNUSED(oldOwner);
     QDBusWriteLocker locker(UpdateSignalHookOwnerAction, this);
-    QMutableHashIterator<QString, SignalHook> it(signalHooks);
-    it.toFront();
-    while (it.hasNext())
-        if (it.next().value().service == name)
-            it.value().owner = newOwner;
+    WatchedServicesHash::Iterator it = watchedServices.find(name);
+    if (it == watchedServices.end())
+        return;
+    if (oldOwner != it->owner)
+        qWarning("QDBusConnection: name '%s' had owner '%s' but we thought it was '%s'",
+                 qPrintable(name), qPrintable(oldOwner), qPrintable(it->owner));
+
+    qDBusDebug() << this << "Updating name" << name << "from" << oldOwner << "to" << newOwner;
+    it->owner = newOwner;
 }
 
 int QDBusConnectionPrivate::findSlot(QObject* obj, const QByteArray &normalizedName,
@@ -1207,7 +1204,7 @@ int QDBusConnectionPrivate::findSlot(QObject* obj, const QByteArray &normalizedN
 }
 
 bool QDBusConnectionPrivate::prepareHook(QDBusConnectionPrivate::SignalHook &hook, QString &key,
-                                         const QString &service, const QString &owner,
+                                         const QString &service,
                                          const QString &path, const QString &interface, const QString &name,
                                          const QStringList &argMatch,
                                          QObject *receiver, const char *signal, int minMIdx,
@@ -1226,7 +1223,6 @@ bool QDBusConnectionPrivate::prepareHook(QDBusConnectionPrivate::SignalHook &hoo
     }
 
     hook.service = service;
-    hook.owner = owner; // we don't care if the service has an owner yet
     hook.path = path;
     hook.obj = receiver;
     hook.argumentMatch = argMatch;
@@ -1251,7 +1247,7 @@ bool QDBusConnectionPrivate::prepareHook(QDBusConnectionPrivate::SignalHook &hoo
                 hook.signature += QLatin1String( QDBusMetaType::typeToSignature( hook.params.at(i) ) );
     }
 
-    hook.matchRule = buildMatchRule(service, owner, path, interface, mname, argMatch, hook.signature);
+    hook.matchRule = buildMatchRule(service, path, interface, mname, argMatch, hook.signature);
     return true;                // connect to this signal
 }
 
@@ -1494,8 +1490,14 @@ void QDBusConnectionPrivate::handleSignal(const QString &key, const QDBusMessage
     //qDBusDebug() << signalHooks.keys();
     for ( ; it != end && it.key() == key; ++it) {
         const SignalHook &hook = it.value();
-        if (!hook.owner.isNull() && hook.owner != msg.service())
-            continue;
+        if (!hook.service.isEmpty()) {
+            const QString owner =
+                    shouldWatchService(hook.service) ?
+                    watchedServices.value(hook.service).owner :
+                    hook.service;
+            if (owner != msg.service())
+                continue;
+        }
         if (!hook.path.isEmpty() && hook.path != msg.path())
             continue;
         if (!hook.signature.isEmpty() && hook.signature != msg.signature())
@@ -1654,8 +1656,18 @@ void QDBusConnectionPrivate::setConnection(DBusConnection *dbc, const QDBusError
 
         baseService = QString::fromUtf8(service);
     } else {
-        qWarning("QDBusConnectionPrivate::SetConnection: Unable to get base service");
+        qWarning("QDBusConnectionPrivate::setConnection: Unable to get base service");
     }
+
+    QString busService = QLatin1String(DBUS_SERVICE_DBUS);
+    WatchedServicesHash::mapped_type &bus = watchedServices[busService];
+    bus.refcount = 1;
+    bus.owner = getNameOwnerNoCache(busService);
+    connectSignal(busService, QString(), QString(), QLatin1String("NameAcquired"), QStringList(), QString(),
+                  this, SLOT(registerService(QString)));
+    connectSignal(busService, QString(), QString(), QLatin1String("NameLost"), QStringList(), QString(),
+                  this, SLOT(unregisterService(QString)));
+
 
     q_dbus_connection_add_filter(connection, qDBusSignalFilter, this, 0);
 
@@ -1967,7 +1979,7 @@ int QDBusConnectionPrivate::sendWithReplyAsync(const QDBusMessage &message, QObj
     return 1;
 }
 
-bool QDBusConnectionPrivate::connectSignal(const QString &service, const QString &owner,
+bool QDBusConnectionPrivate::connectSignal(const QString &service,
                                            const QString &path, const QString &interface, const QString &name,
                                            const QStringList &argumentMatch, const QString &signature,
                                            QObject *receiver, const char *slot)
@@ -1980,7 +1992,7 @@ bool QDBusConnectionPrivate::connectSignal(const QString &service, const QString
         name2.detach();
 
     hook.signature = signature;
-    if (!prepareHook(hook, key, service, owner, path, interface, name, argumentMatch, receiver, slot, 0, false))
+    if (!prepareHook(hook, key, service, path, interface, name, argumentMatch, receiver, slot, 0, false))
         return false;           // don't connect
 
     // avoid duplicating:
@@ -1989,7 +2001,6 @@ bool QDBusConnectionPrivate::connectSignal(const QString &service, const QString
     for ( ; it != end && it.key() == key; ++it) {
         const QDBusConnectionPrivate::SignalHook &entry = it.value();
         if (entry.service == hook.service &&
-            entry.owner == hook.owner &&
             entry.path == hook.path &&
             entry.signature == hook.signature &&
             entry.obj == hook.obj &&
@@ -2034,16 +2045,19 @@ void QDBusConnectionPrivate::connectSignal(const QString &key, const SignalHook 
             // Successfully connected the signal
             // Do we need to watch for this name?
             if (shouldWatchService(hook.service)) {
-                WatchedServicesHash::Iterator it = watchedServiceNames.find(hook.service);
-                if (it != watchedServiceNames.end()) {
+                WatchedServicesHash::mapped_type &data = watchedServices[hook.service];
+                if (data.refcount) {
                     // already watching
-                    ++it.value();
+                    ++data.refcount;
                 } else {
                     // we need to watch for this service changing
                     QString dbusServerService = QLatin1String(DBUS_SERVICE_DBUS);
-                    connectSignal(dbusServerService, dbusServerService, QString(), QLatin1String(DBUS_INTERFACE_DBUS),
+                    connectSignal(dbusServerService, QString(), QLatin1String(DBUS_INTERFACE_DBUS),
                                   QLatin1String("NameOwnerChanged"), QStringList() << hook.service, QString(),
                                   this, SLOT(_q_serviceOwnerChanged(QString,QString,QString)));
+                    data.owner = getNameOwnerNoCache(hook.service);
+                    qDBusDebug() << this << "Watching service" << hook.service << "for owner changes (current owner:"
+                            << data.owner << ")";
                 }
             }
         }
@@ -2063,7 +2077,7 @@ bool QDBusConnectionPrivate::disconnectSignal(const QString &service,
         name2.detach();
 
     hook.signature = signature;
-    if (!prepareHook(hook, key, service, QString(), path, interface, name, argumentMatch, receiver, slot, 0, false))
+    if (!prepareHook(hook, key, service, path, interface, name, argumentMatch, receiver, slot, 0, false))
         return false;           // don't disconnect
 
     // avoid duplicating:
@@ -2072,7 +2086,6 @@ bool QDBusConnectionPrivate::disconnectSignal(const QString &service,
     for ( ; it != end && it.key() == key; ++it) {
         const QDBusConnectionPrivate::SignalHook &entry = it.value();
         if (entry.service == hook.service &&
-            //entry.owner == hook.owner &&
             entry.path == hook.path &&
             entry.signature == hook.signature &&
             entry.obj == hook.obj &&
@@ -2092,16 +2105,16 @@ QDBusConnectionPrivate::disconnectSignal(SignalHookHash::Iterator &it)
 {
     const SignalHook &hook = it.value();
 
-    WatchedServicesHash::Iterator sit = watchedServiceNames.find(hook.service);
-    if (sit != watchedServiceNames.end()) {
-        if (sit.value() == 1) {
-            watchedServiceNames.erase(sit);
+    WatchedServicesHash::Iterator sit = watchedServices.find(hook.service);
+    if (sit != watchedServices.end()) {
+        if (sit.value().refcount == 1) {
+            watchedServices.erase(sit);
             QString dbusServerService = QLatin1String(DBUS_SERVICE_DBUS);
             disconnectSignal(dbusServerService, QString(), QLatin1String(DBUS_INTERFACE_DBUS),
                           QLatin1String("NameOwnerChanged"), QStringList() << hook.service, QString(),
                           this, SLOT(_q_serviceOwnerChanged(QString,QString,QString)));
         } else {
-            --sit.value();
+            --sit.value().refcount;
         }
     }
 
@@ -2153,7 +2166,7 @@ void QDBusConnectionPrivate::registerObject(const ObjectTreeNode *node)
     }
 }
 
-void QDBusConnectionPrivate::connectRelay(const QString &service, const QString &owner,
+void QDBusConnectionPrivate::connectRelay(const QString &service,
                                           const QString &path, const QString &interface,
                                           QDBusAbstractInterface *receiver,
                                           const char *signal)
@@ -2163,7 +2176,7 @@ void QDBusConnectionPrivate::connectRelay(const QString &service, const QString 
     SignalHook hook;
     QString key;
 
-    if (!prepareHook(hook, key, service, owner, path, interface, QString(), QStringList(), receiver, signal,
+    if (!prepareHook(hook, key, service, path, interface, QString(), QStringList(), receiver, signal,
                      QDBusAbstractInterface::staticMetaObject.methodCount(), true))
         return;                 // don't connect
 
@@ -2174,7 +2187,6 @@ void QDBusConnectionPrivate::connectRelay(const QString &service, const QString 
     for ( ; it != end && it.key() == key; ++it) {
         const SignalHook &entry = it.value();
         if (entry.service == hook.service &&
-            entry.owner == hook.owner &&
             entry.path == hook.path &&
             entry.signature == hook.signature &&
             entry.obj == hook.obj &&
@@ -2185,7 +2197,7 @@ void QDBusConnectionPrivate::connectRelay(const QString &service, const QString 
     connectSignal(key, hook);
 }
 
-void QDBusConnectionPrivate::disconnectRelay(const QString &service, const QString &owner,
+void QDBusConnectionPrivate::disconnectRelay(const QString &service,
                                              const QString &path, const QString &interface,
                                              QDBusAbstractInterface *receiver,
                                              const char *signal)
@@ -2195,7 +2207,7 @@ void QDBusConnectionPrivate::disconnectRelay(const QString &service, const QStri
     SignalHook hook;
     QString key;
 
-    if (!prepareHook(hook, key, service, owner, path, interface, QString(), QStringList(), receiver, signal,
+    if (!prepareHook(hook, key, service, path, interface, QString(), QStringList(), receiver, signal,
                      QDBusAbstractInterface::staticMetaObject.methodCount(), true))
         return;                 // don't connect
 
@@ -2206,7 +2218,6 @@ void QDBusConnectionPrivate::disconnectRelay(const QString &service, const QStri
     for ( ; it != end && it.key() == key; ++it) {
         const SignalHook &entry = it.value();
         if (entry.service == hook.service &&
-            entry.owner == hook.owner &&
             entry.path == hook.path &&
             entry.signature == hook.signature &&
             entry.obj == hook.obj &&
@@ -2224,9 +2235,23 @@ QString QDBusConnectionPrivate::getNameOwner(const QString& serviceName)
 {
     if (QDBusUtil::isValidUniqueConnectionName(serviceName))
         return serviceName;
-    if (!connection || !QDBusUtil::isValidBusName(serviceName))
+    if (!connection)
         return QString();
 
+    {
+        // acquire a read lock for the cache
+        QReadLocker locker(&lock);
+        WatchedServicesHash::ConstIterator it = watchedServices.constFind(serviceName);
+        if (it != watchedServices.constEnd())
+            return it->owner;
+    }
+
+    // not cached
+    return getNameOwnerNoCache(serviceName);
+}
+
+QString QDBusConnectionPrivate::getNameOwnerNoCache(const QString &serviceName)
+{
     QDBusMessage msg = QDBusMessage::createMethodCall(QLatin1String(DBUS_SERVICE_DBUS),
             QLatin1String(DBUS_PATH_DBUS), QLatin1String(DBUS_INTERFACE_DBUS),
             QLatin1String("GetNameOwner"));

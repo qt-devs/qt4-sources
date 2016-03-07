@@ -115,7 +115,7 @@
      calendar-&gt;setMaximumDate(QDate(3000, 1, 1));
      calendar-&gt;setGridVisible(true);
 
-     connect(calendar, SIGNAL(currentPageChanged(int, int)),
+     connect(calendar, SIGNAL(currentPageChanged(int,int)),
              this, SLOT(reformatCalendarPage()));
 
      previewLayout = new QGridLayout;
@@ -221,14 +221,14 @@
      maximumDateLabel = new QLabel(tr(&quot;Ma&amp;ximum Date:&quot;));
      maximumDateLabel-&gt;setBuddy(maximumDateEdit);</pre>
 <p>In this function, we create the <b>Minimum Date</b>, <b>Maximum Date</b>, and <b>Current Date</b> editor widgets, which control the calendar's minimum, maximum, and selected dates. The calendar's minimum and maximum dates have already been set in <tt>createPrivewGroupBox()</tt>; we can then set the widgets default values to the calendars values.</p>
-<pre>     connect(currentDateEdit, SIGNAL(dateChanged(const QDate &amp;)),
-             calendar, SLOT(setSelectedDate(const QDate &amp;)));
+<pre>     connect(currentDateEdit, SIGNAL(dateChanged(QDate)),
+             calendar, SLOT(setSelectedDate(QDate)));
      connect(calendar, SIGNAL(selectionChanged()),
              this, SLOT(selectedDateChanged()));
-     connect(minimumDateEdit, SIGNAL(dateChanged(const QDate &amp;)),
-             this, SLOT(minimumDateChanged(const QDate &amp;)));
-     connect(maximumDateEdit, SIGNAL(dateChanged(const QDate &amp;)),
-             this, SLOT(maximumDateChanged(const QDate &amp;)));
+     connect(minimumDateEdit, SIGNAL(dateChanged(QDate)),
+             this, SLOT(minimumDateChanged(QDate)));
+     connect(maximumDateEdit, SIGNAL(dateChanged(QDate)),
+             this, SLOT(maximumDateChanged(QDate)));
 
      ...
  }</pre>
@@ -268,7 +268,7 @@
              this, SLOT(weekdayFormatChanged()));
      connect(weekendColorCombo, SIGNAL(currentIndexChanged(int)),
              this, SLOT(weekendFormatChanged()));
-     connect(headerTextFormatCombo, SIGNAL(currentIndexChanged(const QString &amp;)),
+     connect(headerTextFormatCombo, SIGNAL(currentIndexChanged(QString)),
              this, SLOT(reformatHeaders()));
      connect(firstFridayCheckBox, SIGNAL(toggled(bool)),
              this, SLOT(reformatCalendarPage()));
@@ -380,6 +380,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

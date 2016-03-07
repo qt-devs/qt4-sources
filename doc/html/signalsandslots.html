@@ -22,6 +22,7 @@
 <li><a href="#slots">Slots</a></li>
 <li><a href="#meta-object-information">Meta-Object Information</a></li>
 <li><a href="#a-real-example">A Real Example</a></li>
+<li><a href="#signals-and-slots-with-default-arguments">Signals And Slots With Default Arguments</a></li>
 <li><a href="#advanced-signals-and-slots-usage">Advanced Signals and Slots Usage</a></li>
 <ul><li><a href="#using-qt-with-3rd-party-signals-and-slots">Using Qt with 3rd Party Signals and Slots</a></li>
 </ul>
@@ -164,6 +165,20 @@
 <p>Several of the example programs connect the <a href="qabstractslider.html#valueChanged">valueChanged()</a> signal of a <a href="qscrollbar.html">QScrollBar</a> to the <tt>display()</tt> slot, so the LCD number continuously shows the value of the scroll bar.</p>
 <p>Note that <tt>display()</tt> is overloaded; Qt will select the appropriate version when you connect a signal to the slot. With callbacks, you'd have to find five different names and keep track of the types yourself.</p>
 <p>Some irrelevant member functions have been omitted from this example.</p>
+<a name="signals-and-slots-with-default-arguments"></a>
+<h3>Signals And Slots With Default Arguments</h3>
+<p>The signatures of signals and slots may contain arguments, and the arguments can have defualt values. Consider <a href="qobject.html#destroyed">QObject::destroyed</a>():</p>
+<pre> void destroyed(QObject* = 0);</pre>
+<p>When a <a href="qobject.html">QObject</a> is deleted, it emits this <a href="qobject.html#destroyed">QObject::destroyed</a>() signal. We want to catch this signal, wherever we might have a dangling reference to the deleted <a href="qobject.html">QObject</a>, so we can clean it up. A suitable slot signature might be:</p>
+<pre> void objectDestroyed(QObject* obj = 0);</pre>
+<p>To connect the signal to the slot, we use <a href="qobject.html#connect">QObject::connect</a>() and the <tt>SIGNAL()</tt> and <tt>SLOT()</tt> macros. The rule about whether to include arguments or not in the <tt>SIGNAL()</tt> and <tt>SLOT()</tt> macros, if the arguments have default values, is that the signature passed to the <tt>SIGNAL()</tt> macro must <i>not</i> have fewer arguments than the signature passed to the <tt>SLOT()</tt> macro.</p>
+<p>All of these would work:</p>
+<pre> connect(sender, SIGNAL(destroyed(QObject*)), this, SLOT(objectDestroyed(Qbject*)));
+ connect(sender, SIGNAL(destroyed(QObject*)), this, SLOT(objectDestroyed()));
+ connect(sender, SIGNAL(destroyed()), this, SLOT(objectDestroyed()));</pre>
+<p>But this one won't work:</p>
+<pre> connect(sender, SIGNAL(destroyed()), this, SLOT(objectDestroyed(QObject*)));</pre>
+<p>...because the slot will be expecting a <a href="qobject.html">QObject</a> that the signal will not send. This connection will report a runtime error.</p>
 <a name="advanced-signals-and-slots-usage"></a>
 <h3>Advanced Signals and Slots Usage</h3>
 <p>For cases where you may require information on the sender of the signal, Qt provides the <a href="qobject.html#sender">QObject::sender</a>() function, which returns a pointer to the object that sent the signal.</p>
@@ -194,6 +209,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -330,15 +330,15 @@
      addDockWidget(Qt::RightDockWidgetArea, dock);
      viewMenu-&gt;addAction(dock-&gt;toggleViewAction());
 
-     connect(customerList, SIGNAL(currentTextChanged(const QString &amp;)),
-             this, SLOT(insertCustomer(const QString &amp;)));
-     connect(paragraphsList, SIGNAL(currentTextChanged(const QString &amp;)),
-             this, SLOT(addParagraph(const QString &amp;)));
+     connect(customerList, SIGNAL(currentTextChanged(QString)),
+             this, SLOT(insertCustomer(QString)));
+     connect(paragraphsList, SIGNAL(currentTextChanged(QString)),
+             this, SLOT(addParagraph(QString)));
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

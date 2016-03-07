@@ -89,16 +89,15 @@
      connect(imageFileEditor, SIGNAL(currentIndexChanged(int)),
              this, SLOT(enableButtons()));
 
-     QGridLayout *layout = new QGridLayout;
-     layout-&gt;addWidget(locationLabel, 0, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(countryLabel, 1, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(imageFileLabel, 2, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(descriptionLabel, 3, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(locationText, 0, 1);
-     layout-&gt;addWidget(countryText, 1, 1);
-     layout-&gt;addWidget(imageFileEditor, 2, 1);
-     layout-&gt;addWidget(descriptionEditor, 3, 1);
-     layout-&gt;addWidget(buttonBox, 4, 0, 1, 2);
+     QFormLayout *formLayout = new QFormLayout;
+     formLayout-&gt;addRow(locationLabel, locationText);
+     formLayout-&gt;addRow(countryLabel, countryText);
+     formLayout-&gt;addRow(imageFileLabel, imageFileEditor);
+     formLayout-&gt;addRow(descriptionLabel, descriptionEditor);
+
+     QVBoxLayout *layout = new QVBoxLayout;
+     layout-&gt;addLayout(formLayout);
+     layout-&gt;addWidget(buttonBox);
      setLayout(layout);
 
      locationId = id;
@@ -107,9 +106,6 @@
      setWindowFlags(Qt::Window);
      enableButtons(false);
      setWindowTitle(tr(&quot;Office: %1&quot;).arg(locationText-&gt;text()));
- #ifndef Q_OS_SYMBIAN
-     resize(320, sizeHint().height());
- #endif
  }
 
  int InformationWindow::id()
@@ -150,8 +146,8 @@
      connect(revertButton, SIGNAL(clicked()), this, SLOT(revert()));
      connect(submitButton, SIGNAL(clicked()), this, SLOT(submit()));
 
-     buttonBox = new QDialogButtonBox;
-     buttonBox-&gt;addButton(submitButton, QDialogButtonBox::ResetRole);
+     buttonBox = new QDialogButtonBox(this);
+     buttonBox-&gt;addButton(submitButton, QDialogButtonBox::AcceptRole);
      buttonBox-&gt;addButton(revertButton, QDialogButtonBox::ResetRole);
      buttonBox-&gt;addButton(closeButton, QDialogButtonBox::RejectRole);
  }
@@ -165,6 +161,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

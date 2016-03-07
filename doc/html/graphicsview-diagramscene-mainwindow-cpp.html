@@ -71,12 +71,12 @@
 
      scene = new DiagramScene(itemMenu);
      scene-&gt;setSceneRect(QRectF(0, 0, 5000, 5000));
-     connect(scene, SIGNAL(itemInserted(DiagramItem *)),
-             this, SLOT(itemInserted(DiagramItem *)));
-     connect(scene, SIGNAL(textInserted(QGraphicsTextItem *)),
-         this, SLOT(textInserted(QGraphicsTextItem *)));
-     connect(scene, SIGNAL(itemSelected(QGraphicsItem *)),
-         this, SLOT(itemSelected(QGraphicsItem *)));
+     connect(scene, SIGNAL(itemInserted(DiagramItem*)),
+             this, SLOT(itemInserted(DiagramItem*)));
+     connect(scene, SIGNAL(textInserted(QGraphicsTextItem*)),
+         this, SLOT(textInserted(QGraphicsTextItem*)));
+     connect(scene, SIGNAL(itemSelected(QGraphicsItem*)),
+         this, SLOT(itemSelected(QGraphicsItem*)));
      createToolbars();
 
      QHBoxLayout *layout = new QHBoxLayout;
@@ -317,8 +317,8 @@
      itemWidget-&gt;setLayout(layout);
 
      backgroundButtonGroup = new QButtonGroup;
-     connect(backgroundButtonGroup, SIGNAL(buttonClicked(QAbstractButton *)),
-             this, SLOT(backgroundButtonGroupClicked(QAbstractButton *)));
+     connect(backgroundButtonGroup, SIGNAL(buttonClicked(QAbstractButton*)),
+             this, SLOT(backgroundButtonGroupClicked(QAbstractButton*)));
 
      QGridLayout *backgroundLayout = new QGridLayout;
      backgroundLayout-&gt;addWidget(createBackgroundCellWidget(tr(&quot;Blue Grid&quot;),
@@ -423,8 +423,8 @@
 
      fontCombo = new QFontComboBox();
      fontSizeCombo = new QComboBox();
-     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &amp;)),
-             this, SLOT(currentFontChanged(const QFont &amp;)));
+     connect(fontCombo, SIGNAL(currentFontChanged(QFont)),
+             this, SLOT(currentFontChanged(QFont)));
 
      fontSizeCombo = new QComboBox;
      fontSizeCombo-&gt;setEditable(true);
@@ -432,8 +432,8 @@
          fontSizeCombo-&gt;addItem(QString().setNum(i));
      QIntValidator *validator = new QIntValidator(2, 64, this);
      fontSizeCombo-&gt;setValidator(validator);
-     connect(fontSizeCombo, SIGNAL(currentIndexChanged(const QString &amp;)),
-             this, SLOT(fontSizeChanged(const QString &amp;)));
+     connect(fontSizeCombo, SIGNAL(currentIndexChanged(QString)),
+             this, SLOT(fontSizeChanged(QString)));
 
      fontColorToolButton = new QToolButton;
      fontColorToolButton-&gt;setPopupMode(QToolButton::MenuButtonPopup);
@@ -498,8 +498,8 @@
      scales &lt;&lt; tr(&quot;50%&quot;) &lt;&lt; tr(&quot;75%&quot;) &lt;&lt; tr(&quot;100%&quot;) &lt;&lt; tr(&quot;125%&quot;) &lt;&lt; tr(&quot;150%&quot;);
      sceneScaleCombo-&gt;addItems(scales);
      sceneScaleCombo-&gt;setCurrentIndex(2);
-     connect(sceneScaleCombo, SIGNAL(currentIndexChanged(const QString &amp;)),
-             this, SLOT(sceneScaleChanged(const QString &amp;)));
+     connect(sceneScaleCombo, SIGNAL(currentIndexChanged(QString)),
+             this, SLOT(sceneScaleChanged(QString)));
 
      pointerToolbar = addToolBar(tr(&quot;Pointer type&quot;));
      pointerToolbar-&gt;addWidget(pointerButton);
@@ -601,6 +601,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -34,13 +34,13 @@
 <p>See also <a href="qpainter.html">QPainter</a>.</p>
 <hr />
 <h2>Function Documentation</h2>
-<a name="//apple_ref/cpp/func//qDrawBorderPixmap" />
+<a name="//apple_ref/cpp/func//qDrawBorderPixmap"></a>
 <h3 class="fn"><a name="qDrawBorderPixmap"></a>void qDrawBorderPixmap ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, const <a href="qrect.html">QRect</a> &amp; <i>target</i>, const <a href="qmargins.html">QMargins</a> &amp; <i>margins</i>, const <a href="qpixmap.html">QPixmap</a> &amp; <i>pixmap</i> )</h3>
 <p>This is an overloaded function.</p>
 <p>The qDrawBorderPixmap function is for drawing a pixmap into the margins of a rectangle.</p>
 <p>Draws the given <i>pixmap</i> into the given <i>target</i> rectangle, using the given <i>painter</i>. The pixmap will be split into nine segments and drawn according to the <i>margins</i> structure.</p>
 <p>This function was introduced in Qt 4.6.</p>
-<a name="//apple_ref/cpp/func//qDrawPlainRect" />
+<a name="//apple_ref/cpp/func//qDrawPlainRect"></a>
 <h3 class="fn"><a name="qDrawPlainRect"></a>void qDrawPlainRect ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, const <a href="qcolor.html">QColor</a> &amp; <i>lineColor</i>, int <i>lineWidth</i> = 1, const <a href="qbrush.html">QBrush</a> * <i>fill</i> = 0 )</h3>
 <p>Draws the plain rectangle beginning at (<i>x</i>, <i>y</i>) with the given <i>width</i> and <i>height</i>, using the specified <i>painter</i>, <i>lineColor</i> and <i>lineWidth</i>. The rectangle's interior is filled with the <i>fill</i> brush unless <i>fill</i> is 0.</p>
 <p><b>Warning:</b> This function does not look at <a href="qwidget.html#style">QWidget::style</a>() or <a href="qapplication.html#style">QApplication::style</a>(). Use the drawing functions in <a href="qstyle.html">QStyle</a> to make widgets that follow the current GUI style.</p>
@@ -56,7 +56,7 @@
 <pre> QFrame frame:
  frame.setFrameStyle(QFrame::Box | QFrame::Plain);</pre>
 <p>See also <a href="qdrawutil-h.html#qDrawShadeRect">qDrawShadeRect</a>() and <a href="qstyle.html">QStyle</a>.</p>
-<a name="//apple_ref/cpp/func//qDrawShadeLine" />
+<a name="//apple_ref/cpp/func//qDrawShadeLine"></a>
 <h3 class="fn"><a name="qDrawShadeLine"></a>void qDrawShadeLine ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, int <i>x1</i>, int <i>y1</i>, int <i>x2</i>, int <i>y2</i>, const <a href="qpalette.html">QPalette</a> &amp; <i>palette</i>, bool <i>sunken</i> = true, int <i>lineWidth</i> = 1, int <i>midLineWidth</i> = 0 )</h3>
 <p>Draws a horizontal (<i>y1</i> == <i>y2</i>) or vertical (<i>x1</i> == <i>x2</i>) shaded line using the given <i>painter</i>. Note that nothing is drawn if <i>y1</i> != <i>y2</i> and <i>x1</i> != <i>x2</i> (i.e&#x2e; the line is neither horizontal nor vertical).</p>
 <p>The provided <i>palette</i> specifies the shading colors (<a href="qpalette.html#light">light</a>, <a href="qpalette.html#dark">dark</a> and <a href="qpalette.html#mid">middle</a> colors). The given <i>lineWidth</i> specifies the line width for each of the lines; it is not the total line width. The given <i>midLineWidth</i> specifies the width of a middle line drawn in the <a href="qpalette.html#mid">QPalette::mid</a>() color.</p>
@@ -76,7 +76,7 @@
 <pre> QFrame frame:
  frame.setFrameStyle(QFrame::HLine | QFrame::Sunken);</pre>
 <p>See also <a href="qdrawutil-h.html#qDrawShadeRect">qDrawShadeRect</a>(), <a href="qdrawutil-h.html#qDrawShadePanel">qDrawShadePanel</a>(), and <a href="qstyle.html">QStyle</a>.</p>
-<a name="//apple_ref/cpp/func//qDrawShadePanel" />
+<a name="//apple_ref/cpp/func//qDrawShadePanel"></a>
 <h3 class="fn"><a name="qDrawShadePanel"></a>void qDrawShadePanel ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, const <a href="qpalette.html">QPalette</a> &amp; <i>palette</i>, bool <i>sunken</i> = false, int <i>lineWidth</i> = 1, const <a href="qbrush.html">QBrush</a> * <i>fill</i> = 0 )</h3>
 <p>Draws the shaded panel beginning at (<i>x</i>, <i>y</i>) with the given <i>width</i> and <i>height</i> using the provided <i>painter</i> and the given <i>lineWidth</i>.</p>
 <p>The given <i>palette</i> specifies the shading colors (<a href="qpalette.html#light">light</a>, <a href="qpalette.html#dark">dark</a> and <a href="qpalette.html#mid">middle</a> colors). The panel's interior is filled with the <i>fill</i> brush unless <i>fill</i> is 0.</p>
@@ -96,7 +96,7 @@
 <pre> QFrame frame:
  frame.setFrameStyle( QFrame::Panel | QFrame::Sunken);</pre>
 <p>See also <a href="qdrawutil-h.html#qDrawWinPanel">qDrawWinPanel</a>(), <a href="qdrawutil-h.html#qDrawShadeLine">qDrawShadeLine</a>(), <a href="qdrawutil-h.html#qDrawShadeRect">qDrawShadeRect</a>(), and <a href="qstyle.html">QStyle</a>.</p>
-<a name="//apple_ref/cpp/func//qDrawShadeRect" />
+<a name="//apple_ref/cpp/func//qDrawShadeRect"></a>
 <h3 class="fn"><a name="qDrawShadeRect"></a>void qDrawShadeRect ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, const <a href="qpalette.html">QPalette</a> &amp; <i>palette</i>, bool <i>sunken</i> = false, int <i>lineWidth</i> = 1, int <i>midLineWidth</i> = 0, const <a href="qbrush.html">QBrush</a> * <i>fill</i> = 0 )</h3>
 <p>Draws the shaded rectangle beginning at (<i>x</i>, <i>y</i>) with the given <i>width</i> and <i>height</i> using the provided <i>painter</i>.</p>
 <p>The provide <i>palette</i> specifies the shading colors (<a href="qpalette.html#light">light</a>, <a href="qpalette.html#dark">dark</a> and <a href="qpalette.html#mid">middle</a> colors. The given <i>lineWidth</i> specifies the line width for each of the lines; it is not the total line width. The <i>midLineWidth</i> specifies the width of a middle line drawn in the <a href="qpalette.html#mid">QPalette::mid</a>() color. The rectangle's interior is filled with the <i>fill</i> brush unless <i>fill</i> is 0.</p>
@@ -116,7 +116,7 @@
 <pre> QFrame frame:
  frame.setFrameStyle(QFrame::Box | QFrame::Raised);</pre>
 <p>See also <a href="qdrawutil-h.html#qDrawShadeLine">qDrawShadeLine</a>(), <a href="qdrawutil-h.html#qDrawShadePanel">qDrawShadePanel</a>(), <a href="qdrawutil-h.html#qDrawPlainRect">qDrawPlainRect</a>(), and <a href="qstyle.html">QStyle</a>.</p>
-<a name="//apple_ref/cpp/func//qDrawWinButton" />
+<a name="//apple_ref/cpp/func//qDrawWinButton"></a>
 <h3 class="fn"><a name="qDrawWinButton"></a>void qDrawWinButton ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, const <a href="qpalette.html">QPalette</a> &amp; <i>palette</i>, bool <i>sunken</i> = false, const <a href="qbrush.html">QBrush</a> * <i>fill</i> = 0 )</h3>
 <p>Draws the Windows-style button specified by the given point (<i>x</i>, <i>y</i>}, <i>width</i> and <i>height</i> using the provided <i>painter</i> with a line width of 2 pixels. The button's interior is filled with the <i>fill</i> brush unless <i>fill</i> is 0.</p>
 <p>The given <i>palette</i> specifies the shading colors (<a href="qpalette.html#light">light</a>, <a href="qpalette.html#dark">dark</a> and <a href="qpalette.html#mid">middle</a> colors).</p>
@@ -130,7 +130,7 @@
 <p>The button appears sunken if <i>sunken</i> is true, otherwise raised.</p>
 <p><b>Warning:</b> This function does not look at <a href="qwidget.html#style">QWidget::style</a>() or <a href="qapplication.html#style">QApplication::style</a>()-&gt; Use the drawing functions in <a href="qstyle.html">QStyle</a> to make widgets that follow the current GUI style.</p>
 <p>See also <a href="qdrawutil-h.html#qDrawWinPanel">qDrawWinPanel</a>() and <a href="qstyle.html">QStyle</a>.</p>
-<a name="//apple_ref/cpp/func//qDrawWinPanel" />
+<a name="//apple_ref/cpp/func//qDrawWinPanel"></a>
 <h3 class="fn"><a name="qDrawWinPanel"></a>void qDrawWinPanel ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, int <i>x</i>, int <i>y</i>, int <i>width</i>, int <i>height</i>, const <a href="qpalette.html">QPalette</a> &amp; <i>palette</i>, bool <i>sunken</i> = false, const <a href="qbrush.html">QBrush</a> * <i>fill</i> = 0 )</h3>
 <p>Draws the Windows-style panel specified by the given point(<i>x</i>, <i>y</i>), <i>width</i> and <i>height</i> using the provided <i>painter</i> with a line width of 2 pixels. The button's interior is filled with the <i>fill</i> brush unless <i>fill</i> is 0.</p>
 <p>The given <i>palette</i> specifies the shading colors. The panel appears sunken if <i>sunken</i> is true, otherwise raised.</p>
@@ -143,6 +143,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

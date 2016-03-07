@@ -3864,14 +3864,18 @@ QByteArray QUrlPrivate::toEncoded(QUrl::FormattingOptions options) const
         url += "//";
 
         if ((options & QUrl::RemoveUserInfo) != QUrl::RemoveUserInfo) {
+            bool hasUserOrPass = false;
             if (!userName.isEmpty()) {
                 url += encodedUserName;
-                if (!(options & QUrl::RemovePassword) && !password.isEmpty()) {
-                    url += ':';
-                    url += encodedPassword;
-                }
-                url += '@';
+                hasUserOrPass = true;
             }
+            if (!(options & QUrl::RemovePassword) && !password.isEmpty()) {
+                url += ':';
+                url += encodedPassword;
+                hasUserOrPass = true;
+            }
+            if (hasUserOrPass)
+                url += '@';
         }
 
         if (host.startsWith(QLatin1Char('['))) {
@@ -4070,7 +4074,7 @@ QString QUrlPrivate::createErrorString()
 
     \sa setUrl(), setEncodedUrl(), fromEncoded(), TolerantMode
 */
-QUrl::QUrl(const QString &url) : d(new QUrlPrivate)
+QUrl::QUrl(const QString &url) : d(0)
 {
     if (!url.isEmpty())
         setUrl(url);
@@ -4083,18 +4087,20 @@ QUrl::QUrl(const QString &url) : d(new QUrlPrivate)
 
     \sa setUrl()
 */
-QUrl::QUrl(const QString &url, ParsingMode parsingMode) : d(new QUrlPrivate)
+QUrl::QUrl(const QString &url, ParsingMode parsingMode) : d(0)
 {
     if (!url.isEmpty())
         setUrl(url, parsingMode);
-    else
+    else {
+        d = new QUrlPrivate;
         d->parsingMode = parsingMode;
+    }
 }
 
 /*!
     Constructs an empty QUrl object.
 */
-QUrl::QUrl() : d(new QUrlPrivate)
+QUrl::QUrl() : d(0)
 {
 }
 
@@ -4103,7 +4109,8 @@ QUrl::QUrl() : d(new QUrlPrivate)
 */
 QUrl::QUrl(const QUrl &other) : d(other.d)
 {
-    d->ref.ref();
+    if (d)
+        d->ref.ref();
 }
 
 /*!
@@ -4111,7 +4118,7 @@ QUrl::QUrl(const QUrl &other) : d(other.d)
 */
 QUrl::~QUrl()
 {
-    if (!d->ref.deref())
+    if (d && !d->ref.deref())
         delete d;
 }
 
@@ -4126,6 +4133,8 @@ QUrl::~QUrl()
 */
 bool QUrl::isValid() const
 {
+    if (!d) return false;
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Validated)) d->validate();
 
@@ -4137,6 +4146,8 @@ bool QUrl::isValid() const
 */
 bool QUrl::isEmpty() const
 {
+    if (!d) return true;
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed))
         return d->encodedOriginal.isEmpty();
     else
@@ -4157,8 +4168,9 @@ bool QUrl::isEmpty() const
 */
 void QUrl::clear()
 {
-    detach();
-    d->clear();
+    if (d && !d->ref.deref())
+        delete d;
+    d = 0;
 }
 
 /*!
@@ -4257,8 +4269,9 @@ static inline char toHex(quint8 c)
 */
 void QUrl::setEncodedUrl(const QByteArray &encodedUrl, ParsingMode parsingMode)
 {
-    clear();
     QByteArray tmp = encodedUrl;
+    if (!d) d = new QUrlPrivate;
+    else d->clear();
     if ((d->parsingMode = parsingMode) == TolerantMode) {
         // Replace stray % with %25
         QByteArray copy = tmp;
@@ -4332,6 +4345,7 @@ void QUrl::setEncodedUrl(const QByteArray &encodedUrl, ParsingMode parsingMode)
 */
 void QUrl::setScheme(const QString &scheme)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4347,6 +4361,7 @@ void QUrl::setScheme(const QString &scheme)
 */
 QString QUrl::scheme() const
 {
+    if (!d) return QString();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     return d->scheme;
@@ -4370,6 +4385,8 @@ QString QUrl::scheme() const
 */
 void QUrl::setAuthority(const QString &authority)
 {
+    if (!d) d = new QUrlPrivate;
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4385,6 +4402,8 @@ void QUrl::setAuthority(const QString &authority)
 */
 QString QUrl::authority() const
 {
+    if (!d) return QString();
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     return d->authority();
@@ -4405,6 +4424,8 @@ QString QUrl::authority() const
 */
 void QUrl::setUserInfo(const QString &userInfo)
 {
+    if (!d) d = new QUrlPrivate;
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4418,6 +4439,8 @@ void QUrl::setUserInfo(const QString &userInfo)
 */
 QString QUrl::userInfo() const
 {
+    if (!d) return QString();
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     return d->userInfo();
@@ -4432,6 +4455,8 @@ QString QUrl::userInfo() const
 */
 void QUrl::setUserName(const QString &userName)
 {
+    if (!d) d = new QUrlPrivate;
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4448,6 +4473,8 @@ void QUrl::setUserName(const QString &userName)
 */
 QString QUrl::userName() const
 {
+    if (!d) return QString();
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     d->userInfo();              // causes the unencoded form to be set
@@ -4469,6 +4496,7 @@ QString QUrl::userName() const
 */
 void QUrl::setEncodedUserName(const QByteArray &userName)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4489,6 +4517,7 @@ void QUrl::setEncodedUserName(const QByteArray &userName)
 */
 QByteArray QUrl::encodedUserName() const
 {
+    if (!d) return QByteArray();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     d->ensureEncodedParts();
@@ -4504,6 +4533,7 @@ QByteArray QUrl::encodedUserName() const
 */
 void QUrl::setPassword(const QString &password)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4520,6 +4550,7 @@ void QUrl::setPassword(const QString &password)
 */
 QString QUrl::password() const
 {
+    if (!d) return QString();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     d->userInfo();              // causes the unencoded form to be set
@@ -4541,6 +4572,7 @@ QString QUrl::password() const
 */
 void QUrl::setEncodedPassword(const QByteArray &password)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4561,6 +4593,7 @@ void QUrl::setEncodedPassword(const QByteArray &password)
 */
 QByteArray QUrl::encodedPassword() const
 {
+    if (!d) return QByteArray();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     d->ensureEncodedParts();
@@ -4575,6 +4608,7 @@ QByteArray QUrl::encodedPassword() const
 */
 void QUrl::setHost(const QString &host)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized | QUrlPrivate::HostCanonicalized);
@@ -4588,6 +4622,7 @@ void QUrl::setHost(const QString &host)
 */
 QString QUrl::host() const
 {
+    if (!d) return QString();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     if (d->host.isEmpty() || d->host.at(0) != QLatin1Char('['))
@@ -4641,6 +4676,7 @@ QByteArray QUrl::encodedHost() const
 */
 void QUrl::setPort(int port)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4658,6 +4694,7 @@ void QUrl::setPort(int port)
 */
 int QUrl::port() const
 {
+    if (!d) return -1;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Validated)) d->validate();
     return d->port;
@@ -4676,6 +4713,7 @@ int QUrl::port() const
 */
 int QUrl::port(int defaultPort) const
 {
+    if (!d) return defaultPort;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     return d->port == -1 ? defaultPort : d->port;
 }
@@ -4695,6 +4733,7 @@ int QUrl::port(int defaultPort) const
 */
 void QUrl::setPath(const QString &path)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4710,6 +4749,7 @@ void QUrl::setPath(const QString &path)
 */
 QString QUrl::path() const
 {
+    if (!d) return QString();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     if (d->path.isNull()) {
@@ -4741,6 +4781,7 @@ QString QUrl::path() const
 */
 void QUrl::setEncodedPath(const QByteArray &path)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4761,6 +4802,7 @@ void QUrl::setEncodedPath(const QByteArray &path)
 */
 QByteArray QUrl::encodedPath() const
 {
+    if (!d) return QByteArray();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     d->ensureEncodedParts();
@@ -4776,6 +4818,7 @@ QByteArray QUrl::encodedPath() const
 */
 bool QUrl::hasQuery() const
 {
+    if (!d) return false;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     return d->hasQuery;
@@ -4805,6 +4848,7 @@ bool QUrl::hasQuery() const
 */
 void QUrl::setQueryDelimiters(char valueDelimiter, char pairDelimiter)
 {
+    if (!d) d = new QUrlPrivate;
     detach();
 
     d->valueDelimiter = valueDelimiter;
@@ -4817,6 +4861,7 @@ void QUrl::setQueryDelimiters(char valueDelimiter, char pairDelimiter)
 */
 char QUrl::queryPairDelimiter() const
 {
+    if (!d) return '&';
     return d->pairDelimiter;
 }
 
@@ -4826,6 +4871,7 @@ char QUrl::queryPairDelimiter() const
 */
 char QUrl::queryValueDelimiter() const
 {
+    if (!d) return '=';
     return d->valueDelimiter;
 }
 
@@ -4848,6 +4894,7 @@ char QUrl::queryValueDelimiter() const
 */
 void QUrl::setEncodedQuery(const QByteArray &query)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -4867,6 +4914,7 @@ void QUrl::setEncodedQuery(const QByteArray &query)
 */
 void QUrl::setQueryItems(const QList<QPair<QString, QString> > &query)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
 
@@ -4906,6 +4954,7 @@ void QUrl::setQueryItems(const QList<QPair<QString, QString> > &query)
 */
 void QUrl::setEncodedQueryItems(const QList<QPair<QByteArray, QByteArray> > &query)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
 
@@ -4935,6 +4984,7 @@ void QUrl::setEncodedQueryItems(const QList<QPair<QByteArray, QByteArray> > &que
 */
 void QUrl::addQueryItem(const QString &key, const QString &value)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
 
@@ -4969,6 +5019,7 @@ void QUrl::addQueryItem(const QString &key, const QString &value)
 */
 void QUrl::addEncodedQueryItem(const QByteArray &key, const QByteArray &value)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
 
@@ -4989,6 +5040,7 @@ void QUrl::addEncodedQueryItem(const QByteArray &key, const QByteArray &value)
 */
 QList<QPair<QString, QString> > QUrl::queryItems() const
 {
+    if (!d) return QList<QPair<QString, QString> >();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     QList<QPair<QString, QString> > itemMap;
@@ -5021,6 +5073,7 @@ QList<QPair<QString, QString> > QUrl::queryItems() const
 */
 QList<QPair<QByteArray, QByteArray> > QUrl::encodedQueryItems() const
 {
+    if (!d) return QList<QPair<QByteArray, QByteArray> >();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     QList<QPair<QByteArray, QByteArray> > itemMap;
@@ -5049,6 +5102,7 @@ QList<QPair<QByteArray, QByteArray> > QUrl::encodedQueryItems() const
 */
 bool QUrl::hasQueryItem(const QString &key) const
 {
+    if (!d) return false;
     return hasEncodedQueryItem(toPercentEncoding(key, queryExcludeChars));
 }
 
@@ -5067,6 +5121,7 @@ bool QUrl::hasQueryItem(const QString &key) const
 */
 bool QUrl::hasEncodedQueryItem(const QByteArray &key) const
 {
+    if (!d) return false;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     int pos = 0;
@@ -5089,6 +5144,7 @@ bool QUrl::hasEncodedQueryItem(const QByteArray &key) const
 */
 QString QUrl::queryItemValue(const QString &key) const
 {
+    if (!d) return QString();
     QByteArray tmp = encodedQueryItemValue(toPercentEncoding(key, queryExcludeChars));
     return fromPercentEncodingMutable(&tmp);
 }
@@ -5108,6 +5164,7 @@ QString QUrl::queryItemValue(const QString &key) const
 */
 QByteArray QUrl::encodedQueryItemValue(const QByteArray &key) const
 {
+    if (!d) return QByteArray();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     int pos = 0;
@@ -5131,6 +5188,7 @@ QByteArray QUrl::encodedQueryItemValue(const QByteArray &key) const
 */
 QStringList QUrl::allQueryItemValues(const QString &key) const
 {
+    if (!d) return QStringList();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     QByteArray encodedKey = toPercentEncoding(key, queryExcludeChars);
@@ -5168,6 +5226,7 @@ QStringList QUrl::allQueryItemValues(const QString &key) const
 */
 QList<QByteArray> QUrl::allEncodedQueryItemValues(const QByteArray &key) const
 {
+    if (!d) return QList<QByteArray>();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     QList<QByteArray> values;
@@ -5195,6 +5254,7 @@ QList<QByteArray> QUrl::allEncodedQueryItemValues(const QByteArray &key) const
 */
 void QUrl::removeQueryItem(const QString &key)
 {
+    if (!d) return;
     removeEncodedQueryItem(toPercentEncoding(key, queryExcludeChars));
 }
 
@@ -5213,6 +5273,7 @@ void QUrl::removeQueryItem(const QString &key)
 */
 void QUrl::removeEncodedQueryItem(const QByteArray &key)
 {
+    if (!d) return;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
 
@@ -5239,6 +5300,7 @@ void QUrl::removeEncodedQueryItem(const QByteArray &key)
 */
 void QUrl::removeAllQueryItems(const QString &key)
 {
+    if (!d) return;
     removeAllEncodedQueryItems(toPercentEncoding(key, queryExcludeChars));
 }
 
@@ -5257,6 +5319,7 @@ void QUrl::removeAllQueryItems(const QString &key)
 */
 void QUrl::removeAllEncodedQueryItems(const QByteArray &key)
 {
+    if (!d) return;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
 
@@ -5280,6 +5343,7 @@ void QUrl::removeAllEncodedQueryItems(const QByteArray &key)
 */
 QByteArray QUrl::encodedQuery() const
 {
+    if (!d) return QByteArray();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     return d->query;
@@ -5304,6 +5368,7 @@ QByteArray QUrl::encodedQuery() const
 */
 void QUrl::setFragment(const QString &fragment)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -5320,6 +5385,7 @@ void QUrl::setFragment(const QString &fragment)
 */
 QString QUrl::fragment() const
 {
+    if (!d) return QString();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     if (d->fragment.isNull() && !d->encodedFragment.isNull()) {
@@ -5350,6 +5416,7 @@ QString QUrl::fragment() const
 */
 void QUrl::setEncodedFragment(const QByteArray &fragment)
 {
+    if (!d) d = new QUrlPrivate;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     detach();
     QURL_UNSETFLAG(d->stateFlags, QUrlPrivate::Validated | QUrlPrivate::Normalized);
@@ -5371,6 +5438,7 @@ void QUrl::setEncodedFragment(const QByteArray &fragment)
 */
 QByteArray QUrl::encodedFragment() const
 {
+    if (!d) return QByteArray();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     d->ensureEncodedParts();
@@ -5386,6 +5454,7 @@ QByteArray QUrl::encodedFragment() const
 */
 bool QUrl::hasFragment() const
 {
+    if (!d) return false;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     return d->hasFragment;
@@ -5412,6 +5481,8 @@ bool QUrl::hasFragment() const
 */
 QUrl QUrl::resolved(const QUrl &relative) const
 {
+    if (!d) return relative;
+    if (!relative.d) return *this;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     if (!QURL_HASFLAG(relative.d->stateFlags, QUrlPrivate::Parsed))
@@ -5428,6 +5499,7 @@ QUrl QUrl::resolved(const QUrl &relative) const
         if (!relative.authority().isEmpty()) {
             t = relative;
         } else {
+            t.d = new QUrlPrivate;
             if (relative.d->encodedPath.isEmpty()) {
                 t.d->encodedPath = d->encodedPath;
                 t.setEncodedQuery(relative.d->hasQuery ? relative.d->query : d->query);
@@ -5458,6 +5530,7 @@ QUrl QUrl::resolved(const QUrl &relative) const
 */
 bool QUrl::isRelative() const
 {
+    if (!d) return true;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     return d->scheme.isEmpty();
@@ -5472,6 +5545,7 @@ bool QUrl::isRelative() const
 */
 QString QUrl::toString(FormattingOptions options) const
 {
+    if (!d) return QString();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     QString url;
@@ -5523,6 +5597,7 @@ QString QUrl::toString(FormattingOptions options) const
 */
 QByteArray QUrl::toEncoded(FormattingOptions options) const
 {
+    if (!d) return QByteArray();
     return d->toEncoded(options);
 }
 
@@ -5773,7 +5848,9 @@ void QUrl::setIdnWhitelist(const QStringList &list)
 */
 bool QUrl::operator <(const QUrl &url) const
 {
+    if (!d) return url.d ? QByteArray() < url.d->normalized() : false;
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
+    if (!url.d) return d->normalized() < QByteArray();
     if (!QURL_HASFLAG(url.d->stateFlags, QUrlPrivate::Parsed)) url.d->parse();
     return d->normalized() < url.d->normalized();
 }
@@ -5784,6 +5861,8 @@ bool QUrl::operator <(const QUrl &url) const
 */
 bool QUrl::operator ==(const QUrl &url) const
 {
+    if (!d) return url.isEmpty();
+    if (!url.d) return isEmpty();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
     if (!QURL_HASFLAG(url.d->stateFlags, QUrlPrivate::Parsed)) url.d->parse();
     return d->normalized() == url.d->normalized();
@@ -5803,7 +5882,17 @@ bool QUrl::operator !=(const QUrl &url) const
 */
 QUrl &QUrl::operator =(const QUrl &url)
 {
-    qAtomicAssign(d, url.d);
+    if (!d) {
+        if (url.d) {
+            url.d->ref.ref();
+            d = url.d;
+        }
+    } else {
+        if (url.d)
+            qAtomicAssign(d, url.d);
+        else
+            clear();
+    }
     return *this;
 }
 
@@ -5812,8 +5901,13 @@ QUrl &QUrl::operator =(const QUrl &url)
 */
 QUrl &QUrl::operator =(const QString &url)
 {
-    QUrl tmp(url);
-    qAtomicAssign(d, tmp.d);
+    if (url.isEmpty()) {
+        clear();
+    } else {
+        QUrl tmp(url);
+        if (!d) d = new QUrlPrivate;
+        qAtomicAssign(d, tmp.d);
+    }
     return *this;
 }
 
@@ -5822,14 +5916,19 @@ QUrl &QUrl::operator =(const QString &url)
     Forces a detach.
 */
 void QUrl::detach()
-{ qAtomicDetach(d); }
+{
+    if (!d)
+        d = new QUrlPrivate;
+    else
+        qAtomicDetach(d);
+}
 
 /*!
     \internal
 */
 bool QUrl::isDetached() const
 {
-    return d->ref == 1;
+    return !d || d->ref == 1;
 }
 
 
@@ -5871,6 +5970,7 @@ QUrl QUrl::fromLocalFile(const QString &localFile)
 */
 QString QUrl::toLocalFile() const
 {
+    if (!d) return QString();
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
     QString tmp;
@@ -5899,9 +5999,15 @@ QString QUrl::toLocalFile() const
 */
 bool QUrl::isParentOf(const QUrl &childUrl) const
 {
+    QString childPath = childUrl.path();
+
+    if (!d)
+        return ((childUrl.scheme().isEmpty())
+            && (childUrl.authority().isEmpty())
+            && childPath.length() > 0 && childPath.at(0) == QLatin1Char('/'));
+
     if (!QURL_HASFLAG(d->stateFlags, QUrlPrivate::Parsed)) d->parse();
 
-    QString childPath = childUrl.path();
     QString ourPath = path();
 
     return ((childUrl.scheme().isEmpty() || d->scheme == childUrl.scheme())
@@ -6141,6 +6247,8 @@ QDebug operator<<(QDebug d, const QUrl &url)
 */
 QString QUrl::errorString() const
 {
+    if (!d)
+        return QLatin1String(QT_TRANSLATE_NOOP(QUrl, "Invalid URL \"\": ")); // XXX not a good message, but the one an empty URL produces
     return d->createErrorString();
 }
 

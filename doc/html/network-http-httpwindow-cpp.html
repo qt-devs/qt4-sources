@@ -86,19 +86,19 @@
 
      http = new QHttp(this);
 
-     connect(urlLineEdit, SIGNAL(textChanged(const QString &amp;)),
+     connect(urlLineEdit, SIGNAL(textChanged(QString)),
              this, SLOT(enableDownloadButton()));
-     connect(http, SIGNAL(requestFinished(int, bool)),
-             this, SLOT(httpRequestFinished(int, bool)));
-     connect(http, SIGNAL(dataReadProgress(int, int)),
-             this, SLOT(updateDataReadProgress(int, int)));
-     connect(http, SIGNAL(responseHeaderReceived(const QHttpResponseHeader &amp;)),
-             this, SLOT(readResponseHeader(const QHttpResponseHeader &amp;)));
-     connect(http, SIGNAL(authenticationRequired(const QString &amp;, quint16, QAuthenticator *)),
-             this, SLOT(slotAuthenticationRequired(const QString &amp;, quint16, QAuthenticator *)));
+     connect(http, SIGNAL(requestFinished(int,bool)),
+             this, SLOT(httpRequestFinished(int,bool)));
+     connect(http, SIGNAL(dataReadProgress(int,int)),
+             this, SLOT(updateDataReadProgress(int,int)));
+     connect(http, SIGNAL(responseHeaderReceived(QHttpResponseHeader)),
+             this, SLOT(readResponseHeader(QHttpResponseHeader)));
+     connect(http, SIGNAL(authenticationRequired(QString,quint16,QAuthenticator*)),
+             this, SLOT(slotAuthenticationRequired(QString,quint16,QAuthenticator*)));
  #ifndef QT_NO_OPENSSL
-     connect(http, SIGNAL(sslErrors(const QList&lt;QSslError&gt; &amp;)),
-             this, SLOT(sslErrors(const QList&lt;QSslError&gt; &amp;)));
+     connect(http, SIGNAL(sslErrors(QList&lt;QSslError&gt;)),
+             this, SLOT(sslErrors(QList&lt;QSslError&gt;)));
  #endif
      connect(progressDialog, SIGNAL(canceled()), this, SLOT(cancelDownload()));
      connect(downloadButton, SIGNAL(clicked()), this, SLOT(downloadFile()));
@@ -278,6 +278,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

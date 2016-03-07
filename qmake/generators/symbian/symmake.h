@@ -96,7 +96,14 @@ protected:
     QString generateUID3();
 
     void initMmpVariables();
-    void checkOverridability(QStringList &overridableKeywords, QString &checkString);
+    void handleMmpRulesOverrides(QString &checkString,
+                                 bool &inResourceBlock,
+                                 QStringList &restrictedMmpKeywords,
+                                 const QStringList &restrictableMmpKeywords,
+                                 const QStringList &overridableMmpKeywords);
+    void appendKeywordIfMatchFound(QStringList &list,
+                                   const QStringList &keywordList,
+                                   QString &checkString);
 
     void writeHeader(QTextStream &t);
     void writeBldInfContent(QTextStream& t, bool addDeploymentExtension, const QString &iconFile);
@@ -141,6 +148,7 @@ protected:
 
     void writeSisTargets(QTextStream &t);
     void generateDistcleanTargets(QTextStream& t);
+    void generateExecutionTargets(QTextStream& t, const QStringList& platforms);
 
     // Subclass implements
     virtual void writeBldInfExtensionRulesPart(QTextStream& t, const QString &iconTargetFile) = 0;

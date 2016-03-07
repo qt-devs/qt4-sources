@@ -139,20 +139,20 @@
  #ifndef Q_OS_SYMBIAN
          window-&gt;show();
  #else
-         window-&gt;showFullScreen();
+         window-&gt;showMaximized();
  #endif
      } else {
          InformationWindow *window;
          window = new InformationWindow(id, officeTable, this);
 
-         connect(window, SIGNAL(imageChanged(int, QString)),
-                 this, SLOT(updateImage(int, QString)));
+         connect(window, SIGNAL(imageChanged(int,QString)),
+                 this, SLOT(updateImage(int,QString)));
 
  #ifndef Q_OS_SYMBIAN
          window-&gt;move(pos() + QPoint(20, 40));
          window-&gt;show();
  #else
-         window-&gt;showFullScreen();
+         window-&gt;showMaximized();
  #endif
          informationWindows.append(window);
      }
@@ -193,6 +193,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

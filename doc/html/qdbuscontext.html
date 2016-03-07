@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QDBusContext" />
+<a name="//apple_ref/cpp/cl//QDBusContext"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -74,27 +74,27 @@
 <p>Note: do not subclass QDBusContext and <a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a> at the same time. QDBusContext should appear in the real object, not the adaptor. If it's necessary from the adaptor code to determine the context, use a public inheritance and access the functions via <a href="qobject.html#parent">QObject::parent</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QDBusContext/QDBusContext" />
+<a name="//apple_ref/cpp/instm/QDBusContext/QDBusContext"></a>
 <h3 class="fn"><a name="QDBusContext"></a>QDBusContext::QDBusContext ()</h3>
 <p>Constructs an empty <a href="qdbuscontext.html">QDBusContext</a>.</p>
-<a name="//apple_ref/cpp/instm/QDBusContext/~QDBusContext" />
+<a name="//apple_ref/cpp/instm/QDBusContext/~QDBusContext"></a>
 <h3 class="fn"><a name="dtor.QDBusContext"></a>QDBusContext::~QDBusContext ()</h3>
 <p>An empty destructor.</p>
-<a name="//apple_ref/cpp/instm/QDBusContext/calledFromDBus" />
+<a name="//apple_ref/cpp/instm/QDBusContext/calledFromDBus"></a>
 <h3 class="fn"><a name="calledFromDBus"></a>bool QDBusContext::calledFromDBus () const</h3>
 <p>Returns true if we are processing a D-Bus call. If this function returns true, the rest of the functions in this class are available.</p>
 <p>Accessing those functions when this function returns false is undefined and may lead to crashes.</p>
-<a name="//apple_ref/cpp/instm/QDBusContext/connection" />
+<a name="//apple_ref/cpp/instm/QDBusContext/connection"></a>
 <h3 class="fn"><a name="connection"></a><a href="qdbusconnection.html">QDBusConnection</a> QDBusContext::connection () const</h3>
 <p>Returns the connection from which this call was received.</p>
-<a name="//apple_ref/cpp/instm/QDBusContext/isDelayedReply" />
+<a name="//apple_ref/cpp/instm/QDBusContext/isDelayedReply"></a>
 <h3 class="fn"><a name="isDelayedReply"></a>bool QDBusContext::isDelayedReply () const</h3>
 <p>Returns true if this call will have a delayed reply.</p>
 <p>See also <a href="qdbuscontext.html#setDelayedReply">setDelayedReply</a>().</p>
-<a name="//apple_ref/cpp/instm/QDBusContext/message" />
+<a name="//apple_ref/cpp/instm/QDBusContext/message"></a>
 <h3 class="fn"><a name="message"></a>const <a href="qdbusmessage.html">QDBusMessage</a> &amp; QDBusContext::message () const</h3>
 <p>Returns the message that generated this call.</p>
-<a name="//apple_ref/cpp/instm/QDBusContext/sendErrorReply" />
+<a name="//apple_ref/cpp/instm/QDBusContext/sendErrorReply"></a>
 <h3 class="fn"><a name="sendErrorReply"></a>void QDBusContext::sendErrorReply ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, const <a href="qstring.html">QString</a> &amp; <i>msg</i> = QString() ) const</h3>
 <p>Sends an error <i>name</i> as a reply to the caller. The optional <i>msg</i> parameter is a human-readable text explaining the failure.</p>
 <p>If an error is sent, the return value and any output parameters from the called slot will be ignored by <a href="qtdbus.html">QtDBus</a>.</p>
@@ -102,7 +102,7 @@
 <p>This is an overloaded function.</p>
 <p>Sends an error <i>type</i> as a reply to the caller. The optional <i>msg</i> parameter is a human-readable text explaining the failure.</p>
 <p>If an error is sent, the return value and any output parameters from the called slot will be ignored by <a href="qtdbus.html">QtDBus</a>.</p>
-<a name="//apple_ref/cpp/instm/QDBusContext/setDelayedReply" />
+<a name="//apple_ref/cpp/instm/QDBusContext/setDelayedReply"></a>
 <h3 class="fn"><a name="setDelayedReply"></a>void QDBusContext::setDelayedReply ( bool <i>enable</i> ) const</h3>
 <p>Sets whether this call will have a delayed reply or not.</p>
 <p>If <i>enable</i> is false, <a href="qtdbus.html">QtDBus</a> will automatically generate a reply back to the caller, if needed, as soon as the called slot returns.</p>
@@ -113,6 +113,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

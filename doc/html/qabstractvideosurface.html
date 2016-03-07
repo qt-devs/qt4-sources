@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QAbstractVideoSurface" />
+<a name="//apple_ref/cpp/cl//QAbstractVideoSurface"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -83,12 +83,12 @@
 <p>The <a href="qabstractvideosurface.html#start">start</a>() function takes a supported format and enables a video surface. Once started a surface will begin displaying the frames it receives in the <a href="qabstractvideosurface.html#present">present</a>() function. Surfaces may hold a reference to the buffer of a presented video frame until a new frame is presented or streaming is stopped. The <a href="qabstractvideosurface.html#stop">stop</a>() function will disable a surface and a release any video buffers it holds references to.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QAbstractVideoSurface/Error" />
-<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/NoError" />
-<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/UnsupportedFormatError" />
-<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/IncorrectFormatError" />
-<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/StoppedError" />
-<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/ResourceError" />
+<a name="//apple_ref/cpp/tag/QAbstractVideoSurface/Error"></a>
+<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/NoError"></a>
+<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/UnsupportedFormatError"></a>
+<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/IncorrectFormatError"></a>
+<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/StoppedError"></a>
+<a name="//apple_ref/cpp/econst/QAbstractVideoSurface/ResourceError"></a>
 <h3 class="fn"><a name="Error-enum"></a>enum QAbstractVideoSurface::Error</h3>
 <p>This enum describes the errors that may be returned by the <a href="qabstractvideosurface.html#error">error</a>() function.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -101,35 +101,35 @@
 </table></p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/QAbstractVideoSurface" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/QAbstractVideoSurface"></a>
 <h3 class="fn"><a name="QAbstractVideoSurface"></a>QAbstractVideoSurface::QAbstractVideoSurface ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
 <p>Constructs a video surface with the given <i>parent</i>.</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/~QAbstractVideoSurface" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/~QAbstractVideoSurface"></a>
 <h3 class="fn"><a name="dtor.QAbstractVideoSurface"></a>QAbstractVideoSurface::~QAbstractVideoSurface ()</h3>
 <p>Destroys a video surface.</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/activeChanged" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/activeChanged"></a>
 <h3 class="fn"><a name="activeChanged"></a>void QAbstractVideoSurface::activeChanged ( bool <i>active</i> )&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>Signals that the <i>active</i> state of a video surface has changed.</p>
 <p>See also <a href="qabstractvideosurface.html#isActive">isActive</a>(), <a href="qabstractvideosurface.html#start">start</a>(), and <a href="qabstractvideosurface.html#stop">stop</a>().</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/error" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/error"></a>
 <h3 class="fn"><a name="error"></a><a href="qabstractvideosurface.html#Error-enum">Error</a> QAbstractVideoSurface::error () const</h3>
 <p>Returns the last error that occurred.</p>
 <p>If a surface fails to <a href="qabstractvideosurface.html#start">start</a>(), or stops unexpectedly this function can be called to discover what error occurred.</p>
 <p>See also <a href="qabstractvideosurface.html#setError">setError</a>().</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/isActive" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/isActive"></a>
 <h3 class="fn"><a name="isActive"></a>bool QAbstractVideoSurface::isActive () const</h3>
 <p>Indicates whether a video surface has been started.</p>
 <p>Returns true if the surface has been started, and false otherwise.</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/isFormatSupported" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/isFormatSupported"></a>
 <h3 class="fn"><a name="isFormatSupported"></a>bool QAbstractVideoSurface::isFormatSupported ( const <a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a> &amp; <i>format</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Tests a video surface <i>format</i> to determine if a surface can accept it.</p>
 <p>Returns true if the format is supported by the surface, and false otherwise.</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/nearestFormat" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/nearestFormat"></a>
 <h3 class="fn"><a name="nearestFormat"></a><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a> QAbstractVideoSurface::nearestFormat ( const <a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a> &amp; <i>format</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Returns a supported video surface format that is similar to <i>format</i>.</p>
 <p>A similar surface format is one that has the same <a href="qvideosurfaceformat.html#pixelFormat">pixel format</a> and <a href="qvideosurfaceformat.html#handleType">handle type</a> but differs in some of the other properties. For example if there are restrictions on the <a href="qvideosurfaceformat.html#frameSize">frame sizes</a> a video surface can accept it may suggest a format with a larger frame size and a <a href="qvideosurfaceformat.html#viewport">viewport</a> the size of the original frame size.</p>
 <p>If the format is already supported it will be returned unchanged, or if there is no similar supported format an invalid format will be returned.</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/present" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/present"></a>
 <h3 class="fn"><a name="present"></a>bool QAbstractVideoSurface::present ( const <a href="qvideoframe.html">QVideoFrame</a> &amp; <i>frame</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>Presents a video <i>frame</i>.</p>
 <p>Returns true if the frame was presented, and false if an error occurred.</p>
@@ -137,32 +137,32 @@
 <p>If present() fails for any other reason the surface will immediately enter the stopped state and an <a href="qabstractvideosurface.html#error">error</a>() value will be set.</p>
 <p>A video surface must be in the started state for present() to succeed, and the format of the video frame must be compatible with the current video surface format.</p>
 <p>See also <a href="qabstractvideosurface.html#error">error</a>().</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/setError" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/setError"></a>
 <h3 class="fn"><a name="setError"></a>void QAbstractVideoSurface::setError ( <a href="qabstractvideosurface.html#Error-enum">Error</a> <i>error</i> )&nbsp;&nbsp;<tt> [protected]</tt></h3>
 <p>Sets the value of <a href="qabstractvideosurface.html#error">error</a>() to <i>error</i>.</p>
 <p>See also <a href="qabstractvideosurface.html#error">error</a>().</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/start" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/start"></a>
 <h3 class="fn"><a name="start"></a>bool QAbstractVideoSurface::start ( const <a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a> &amp; <i>format</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Starts a video surface presenting <i>format</i> frames.</p>
 <p>Returns true if the surface was started, and false if an error occurred.</p>
 <p>See also <a href="qabstractvideosurface.html#isActive">isActive</a>() and <a href="qabstractvideosurface.html#stop">stop</a>().</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/stop" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/stop"></a>
 <h3 class="fn"><a name="stop"></a>void QAbstractVideoSurface::stop ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Stops a video surface presenting frames and releases any resources acquired in <a href="qabstractvideosurface.html#start">start</a>().</p>
 <p>See also <a href="qabstractvideosurface.html#isActive">isActive</a>() and <a href="qabstractvideosurface.html#start">start</a>().</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/supportedFormatsChanged" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/supportedFormatsChanged"></a>
 <h3 class="fn"><a name="supportedFormatsChanged"></a>void QAbstractVideoSurface::supportedFormatsChanged ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>Signals that the set of formats supported by a video surface has changed.</p>
 <p>See also <a href="qabstractvideosurface.html#supportedPixelFormats">supportedPixelFormats</a>() and <a href="qabstractvideosurface.html#isFormatSupported">isFormatSupported</a>().</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/supportedPixelFormats" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/supportedPixelFormats"></a>
 <h3 class="fn"><a name="supportedPixelFormats"></a><a href="qlist.html">QList</a>&lt;<a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a>&gt; QAbstractVideoSurface::supportedPixelFormats ( <a href="qabstractvideobuffer.html#HandleType-enum">QAbstractVideoBuffer::HandleType</a> <i>type</i> = QAbstractVideoBuffer::NoHandle ) const&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>Returns a list of pixel formats a video surface can present for a given handle <i>type</i>.</p>
 <p>The pixel formats returned for the <a href="qabstractvideobuffer.html#HandleType-enum">QAbstractVideoBuffer::NoHandle</a> type are valid for any buffer that can be mapped in read-only mode.</p>
 <p>Types that are first in the list can be assumed to be faster to render.</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/surfaceFormat" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/surfaceFormat"></a>
 <h3 class="fn"><a name="surfaceFormat"></a><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a> QAbstractVideoSurface::surfaceFormat () const</h3>
 <p>Returns the format of a video surface.</p>
-<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/surfaceFormatChanged" />
+<a name="//apple_ref/cpp/instm/QAbstractVideoSurface/surfaceFormatChanged"></a>
 <h3 class="fn"><a name="surfaceFormatChanged"></a>void QAbstractVideoSurface::surfaceFormatChanged ( const <a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a> &amp; <i>format</i> )&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>Signals that the configured <i>format</i> of a video surface has changed.</p>
 <p>See also <a href="qabstractvideosurface.html#surfaceFormat">surfaceFormat</a>() and <a href="qabstractvideosurface.html#start">start</a>().</p>
@@ -170,6 +170,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QWaitCondition" />
+<a name="//apple_ref/cpp/cl//QWaitCondition"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -80,13 +80,13 @@
 <p>See also <a href="qmutex.html">QMutex</a>, <a href="qsemaphore.html">QSemaphore</a>, <a href="qthread.html">QThread</a>, and <a href="threads-waitconditions.html">Wait Conditions Example</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QWaitCondition/QWaitCondition" />
+<a name="//apple_ref/cpp/instm/QWaitCondition/QWaitCondition"></a>
 <h3 class="fn"><a name="QWaitCondition"></a>QWaitCondition::QWaitCondition ()</h3>
 <p>Constructs a new wait condition object.</p>
-<a name="//apple_ref/cpp/instm/QWaitCondition/~QWaitCondition" />
+<a name="//apple_ref/cpp/instm/QWaitCondition/~QWaitCondition"></a>
 <h3 class="fn"><a name="dtor.QWaitCondition"></a>QWaitCondition::~QWaitCondition ()</h3>
 <p>Destroys the wait condition object.</p>
-<a name="//apple_ref/cpp/instm/QWaitCondition/wait" />
+<a name="//apple_ref/cpp/instm/QWaitCondition/wait"></a>
 <h3 class="fn"><a name="wait"></a>bool QWaitCondition::wait ( <a href="qmutex.html">QMutex</a> * <i>mutex</i>, unsigned long <i>time</i> = ULONG_MAX )</h3>
 <p>Releases the locked <i>mutex</i> and waits on the wait condition. The <i>mutex</i> must be initially locked by the calling thread. If <i>mutex</i> is not in a locked state, this function returns immediately. If <i>mutex</i> is a recursive mutex, this function returns immediately. The <i>mutex</i> will be unlocked, and the calling thread will block until either of these conditions is met:</p>
 <ul>
@@ -104,11 +104,11 @@
 <p>The <i>readWriteLock</i> will be returned to the same locked state. This function is provided to allow the atomic transition from the locked state to the wait state.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p>See also <a href="qwaitcondition.html#wakeOne">wakeOne</a>() and <a href="qwaitcondition.html#wakeAll">wakeAll</a>().</p>
-<a name="//apple_ref/cpp/instm/QWaitCondition/wakeAll" />
+<a name="//apple_ref/cpp/instm/QWaitCondition/wakeAll"></a>
 <h3 class="fn"><a name="wakeAll"></a>void QWaitCondition::wakeAll ()</h3>
 <p>Wakes all threads waiting on the wait condition. The order in which the threads are woken up depends on the operating system's scheduling policies and cannot be controlled or predicted.</p>
 <p>See also <a href="qwaitcondition.html#wakeOne">wakeOne</a>().</p>
-<a name="//apple_ref/cpp/instm/QWaitCondition/wakeOne" />
+<a name="//apple_ref/cpp/instm/QWaitCondition/wakeOne"></a>
 <h3 class="fn"><a name="wakeOne"></a>void QWaitCondition::wakeOne ()</h3>
 <p>Wakes one thread waiting on the wait condition. The thread that is woken up depends on the operating system's scheduling policies, and cannot be controlled or predicted.</p>
 <p>If you want to wake up a specific thread, the solution is typically to use different wait conditions and have different threads wait on different conditions.</p>
@@ -117,6 +117,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

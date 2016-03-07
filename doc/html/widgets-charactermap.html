@@ -220,20 +220,20 @@
      QPushButton *clipboardButton = new QPushButton(tr(&quot;&amp;To clipboard&quot;));</pre>
 <p>We also obtain a clipboard object so that we can send text entered by the user to other applications.</p>
 <p>Most of the signals emitted in the example come from standard widgets. We connect these signals to slots in this class, and to the slots provided by other widgets.</p>
-<pre>     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &amp;)),
-             this, SLOT(findStyles(const QFont &amp;)));
-     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &amp;)),
-             this, SLOT(findSizes(const QFont &amp;)));
-     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &amp;)),
-             characterWidget, SLOT(updateFont(const QFont &amp;)));
-     connect(sizeCombo, SIGNAL(currentIndexChanged(const QString &amp;)),
-             characterWidget, SLOT(updateSize(const QString &amp;)));
-     connect(styleCombo, SIGNAL(currentIndexChanged(const QString &amp;)),
-             characterWidget, SLOT(updateStyle(const QString &amp;)));</pre>
+<pre>     connect(fontCombo, SIGNAL(currentFontChanged(QFont)),
+             this, SLOT(findStyles(QFont)));
+     connect(fontCombo, SIGNAL(currentFontChanged(QFont)),
+             this, SLOT(findSizes(QFont)));
+     connect(fontCombo, SIGNAL(currentFontChanged(QFont)),
+             characterWidget, SLOT(updateFont(QFont)));
+     connect(sizeCombo, SIGNAL(currentIndexChanged(QString)),
+             characterWidget, SLOT(updateSize(QString)));
+     connect(styleCombo, SIGNAL(currentIndexChanged(QString)),
+             characterWidget, SLOT(updateStyle(QString)));</pre>
 <p>The font combobox's <a href="qfontcombobox.html#currentFontChanged">currentFontChanged()</a> signal is connected to the findStyles() function so that the list of available styles can be shown for each font that is used. Since both the font and the style can be changed by the user, the font combobox's currentFontChanged() signal and the style combobox's <a href="qcombobox.html#currentIndexChanged">currentIndexChanged()</a> are connected directly to the character widget.</p>
 <p>The final two connections allow characters to be selected in the character widget, and text to be inserted into the clipboard:</p>
-<pre>     connect(characterWidget, SIGNAL(characterSelected(const QString &amp;)),
-             this, SLOT(insertCharacter(const QString &amp;)));
+<pre>     connect(characterWidget, SIGNAL(characterSelected(QString)),
+             this, SLOT(insertCharacter(QString)));
      connect(clipboardButton, SIGNAL(clicked()), this, SLOT(updateClipboard()));</pre>
 <p>The character widget emits the characterSelected() custom signal when the user clicks on a character, and this is handled by the insertCharacter() function in this class. The clipboard is changed when the push button emits the clicked() signal, and we handle this with the updateClipboard() function.</p>
 <p>The remaining code in the constructor sets up the layout of the central widget, and provides a window title:</p>
@@ -299,6 +299,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QGraphicsLayoutItem" />
+<a name="//apple_ref/cpp/cl//QGraphicsLayoutItem"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -90,18 +90,18 @@
 <p>See also <a href="qgraphicswidget.html">QGraphicsWidget</a>, <a href="qgraphicslayout.html">QGraphicsLayout</a>, <a href="qgraphicslinearlayout.html">QGraphicsLinearLayout</a>, and <a href="qgraphicsgridlayout.html">QGraphicsGridLayout</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/QGraphicsLayoutItem" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/QGraphicsLayoutItem"></a>
 <h3 class="fn"><a name="QGraphicsLayoutItem"></a>QGraphicsLayoutItem::QGraphicsLayoutItem ( QGraphicsLayoutItem * <i>parent</i> = 0, bool <i>isLayout</i> = false )</h3>
 <p>Constructs the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> object. <i>parent</i> becomes the object's parent. If <i>isLayout</i> is true the item is a layout, otherwise <i>isLayout</i> is false.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/~QGraphicsLayoutItem" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/~QGraphicsLayoutItem"></a>
 <h3 class="fn"><a name="dtor.QGraphicsLayoutItem"></a>QGraphicsLayoutItem::~QGraphicsLayoutItem ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destroys the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> object.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/contentsRect" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/contentsRect"></a>
 <h3 class="fn"><a name="contentsRect"></a><a href="qrectf.html">QRectF</a> QGraphicsLayoutItem::contentsRect () const</h3>
 <p>Returns the contents rect in local coordinates.</p>
 <p>The contents rect defines the subrectangle used by an associated layout when arranging subitems. This function is a convenience function that adjusts the item's <a href="qgraphicslayoutitem.html#geometry">geometry</a>() by its contents margins. Note that <a href="qgraphicslayoutitem.html#getContentsMargins">getContentsMargins</a>() is a virtual function that you can reimplement to return the item's contents margins.</p>
 <p>See also <a href="qgraphicslayoutitem.html#getContentsMargins">getContentsMargins</a>() and <a href="qgraphicslayoutitem.html#geometry">geometry</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/effectiveSizeHint" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/effectiveSizeHint"></a>
 <h3 class="fn"><a name="effectiveSizeHint"></a><a href="qsizef.html">QSizeF</a> QGraphicsLayoutItem::effectiveSizeHint ( <a href="qt.html#SizeHint-enum">Qt::SizeHint</a> <i>which</i>, const <a href="qsizef.html">QSizeF</a> &amp; <i>constraint</i> = QSizeF() ) const</h3>
 <p>Returns the effective size hint for this <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>.</p>
 <p><i>which</i> is the size hint in question. <i>constraint</i> is an optional argument that defines a special constrain when calculating the effective size hint. By default, <i>constraint</i> is <a href="qsizef.html">QSizeF</a>(-1, -1), which means there is no constraint to the size hint.</p>
@@ -110,134 +110,134 @@
 <p>You can adjust the effective size hint by reimplementing <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>() in a <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> subclass, or by calling one of the following functions: <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), setPreferredSize, or <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>() (or a combination of both).</p>
 <p>This function caches each of the size hints and guarantees that <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>() will be called only once for each value of <i>which</i> - unless <i>constraint</i> is not specified and <a href="qgraphicslayoutitem.html#updateGeometry">updateGeometry</a>() has been called.</p>
 <p>See also <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/geometry" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/geometry"></a>
 <h3 class="fn"><a name="geometry"></a><a href="qrectf.html">QRectF</a> QGraphicsLayoutItem::geometry () const</h3>
 <p>Returns the item's geometry (e.g&#x2e;, position and size) as a <a href="qrectf.html">QRectF</a>. This function is equivalent to <a href="qrectf.html">QRectF</a>(pos(), size()).</p>
 <p>See also <a href="qgraphicslayoutitem.html#setGeometry">setGeometry</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/getContentsMargins" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/getContentsMargins"></a>
 <h3 class="fn"><a name="getContentsMargins"></a>void QGraphicsLayoutItem::getContentsMargins ( <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>left</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>top</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>right</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>bottom</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This virtual function provides the <i>left</i>, <i>top</i>, <i>right</i> and <i>bottom</i> contents margins for this <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>. The default implementation assumes all contents margins are 0. The parameters point to values stored in qreals. If any of the pointers is 0, that value will not be updated.</p>
 <p>See also <a href="qgraphicswidget.html#setContentsMargins">QGraphicsWidget::setContentsMargins</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/graphicsItem" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/graphicsItem"></a>
 <h3 class="fn"><a name="graphicsItem"></a><a href="qgraphicsitem.html">QGraphicsItem</a> * QGraphicsLayoutItem::graphicsItem () const</h3>
 <p>Returns the <a href="qgraphicsitem.html">QGraphicsItem</a> that this layout item represents. For <a href="qgraphicswidget.html">QGraphicsWidget</a> it will return itself. For custom items it can return an aggregated value.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setGraphicsItem">setGraphicsItem</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/isLayout" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/isLayout"></a>
 <h3 class="fn"><a name="isLayout"></a>bool QGraphicsLayoutItem::isLayout () const</h3>
 <p>Returns true if this <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> is a layout (e.g&#x2e;, is inherited by an object that arranges other <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> objects); otherwise returns false.</p>
 <p>See also <a href="qgraphicslayout.html">QGraphicsLayout</a>.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/maximumHeight" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/maximumHeight"></a>
 <h3 class="fn"><a name="maximumHeight"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QGraphicsLayoutItem::maximumHeight () const</h3>
 <p>Returns the maximum height.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setMaximumHeight">setMaximumHeight</a>(), <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>(), and <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/maximumSize" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/maximumSize"></a>
 <h3 class="fn"><a name="maximumSize"></a><a href="qsizef.html">QSizeF</a> QGraphicsLayoutItem::maximumSize () const</h3>
 <p>Returns the maximum size.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>(), <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>(), <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>(), <a href="qt.html#SizeHint-enum">Qt::MaximumSize</a>, and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/maximumWidth" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/maximumWidth"></a>
 <h3 class="fn"><a name="maximumWidth"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QGraphicsLayoutItem::maximumWidth () const</h3>
 <p>Returns the maximum width.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setMaximumWidth">setMaximumWidth</a>(), <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>(), and <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/minimumHeight" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/minimumHeight"></a>
 <h3 class="fn"><a name="minimumHeight"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QGraphicsLayoutItem::minimumHeight () const</h3>
 <p>Returns the minimum height.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setMinimumHeight">setMinimumHeight</a>(), <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), and <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/minimumSize" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/minimumSize"></a>
 <h3 class="fn"><a name="minimumSize"></a><a href="qsizef.html">QSizeF</a> QGraphicsLayoutItem::minimumSize () const</h3>
 <p>Returns the minimum size.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>(), <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>(), <a href="qt.html#SizeHint-enum">Qt::MinimumSize</a>, and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/minimumWidth" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/minimumWidth"></a>
 <h3 class="fn"><a name="minimumWidth"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QGraphicsLayoutItem::minimumWidth () const</h3>
 <p>Returns the minimum width.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setMinimumWidth">setMinimumWidth</a>(), <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), and <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/ownedByLayout" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/ownedByLayout"></a>
 <h3 class="fn"><a name="ownedByLayout"></a>bool QGraphicsLayoutItem::ownedByLayout () const</h3>
 <p>Returns whether a layout should delete this item in its destructor. If its true, then the layout will delete it. If its false, then it is assumed that another object has the ownership of it, and the layout won't delete this item.</p>
 <p>If the item inherits both <a href="qgraphicsitem.html">QGraphicsItem</a> and <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> (such as <a href="qgraphicswidget.html">QGraphicsWidget</a> does) the item is really part of two ownership hierarchies. This property informs what the layout should do with its child items when it is destructed. In the case of <a href="qgraphicswidget.html">QGraphicsWidget</a>, it is preferred that when the layout is deleted it won't delete its children (since they are also part of the graphics item hierarchy).</p>
 <p>By default this value is initialized to false in <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>, but it is overridden by <a href="qgraphicslayout.html">QGraphicsLayout</a> to return true. This is because <a href="qgraphicslayout.html">QGraphicsLayout</a> is not normally part of the <a href="qgraphicsitem.html">QGraphicsItem</a> hierarchy, so the parent layout should delete it. Subclasses might override this default behaviour by calling setOwnedByLayout(true).</p>
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setOwnedByLayout">setOwnedByLayout</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/parentLayoutItem" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/parentLayoutItem"></a>
 <h3 class="fn"><a name="parentLayoutItem"></a>QGraphicsLayoutItem * QGraphicsLayoutItem::parentLayoutItem () const</h3>
 <p>Returns the parent of this <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>, or 0 if there is no parent, or if the parent does not inherit from <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> (<a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> is often used through multiple inheritance with <a href="qobject.html">QObject</a>-derived classes).</p>
 <p>See also <a href="qgraphicslayoutitem.html#setParentLayoutItem">setParentLayoutItem</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/preferredHeight" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/preferredHeight"></a>
 <h3 class="fn"><a name="preferredHeight"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QGraphicsLayoutItem::preferredHeight () const</h3>
 <p>Returns the preferred height.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setPreferredHeight">setPreferredHeight</a>(), <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), and <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/preferredSize" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/preferredSize"></a>
 <h3 class="fn"><a name="preferredSize"></a><a href="qsizef.html">QSizeF</a> QGraphicsLayoutItem::preferredSize () const</h3>
 <p>Returns the preferred size.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>(), <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>(), <a href="qt.html#SizeHint-enum">Qt::PreferredSize</a>, and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/preferredWidth" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/preferredWidth"></a>
 <h3 class="fn"><a name="preferredWidth"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QGraphicsLayoutItem::preferredWidth () const</h3>
 <p>Returns the preferred width.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setPreferredWidth">setPreferredWidth</a>(), <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), and <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setGeometry" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setGeometry"></a>
 <h3 class="fn"><a name="setGeometry"></a>void QGraphicsLayoutItem::setGeometry ( const <a href="qrectf.html">QRectF</a> &amp; <i>rect</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This virtual function sets the geometry of the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> to <i>rect</i>, which is in parent coordinates (e.g&#x2e;, the top-left corner of <i>rect</i> is equivalent to the item's position in parent coordinates).</p>
 <p>You must reimplement this function in a subclass of <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> to receive geometry updates. The layout will call this function when it does a rearrangement.</p>
 <p>If <i>rect</i> is outside of the bounds of minimumSize and maximumSize, it will be adjusted to its closest size so that it is within the legal bounds.</p>
 <p>See also <a href="qgraphicslayoutitem.html#geometry">geometry</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setGraphicsItem" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setGraphicsItem"></a>
 <h3 class="fn"><a name="setGraphicsItem"></a>void QGraphicsLayoutItem::setGraphicsItem ( <a href="qgraphicsitem.html">QGraphicsItem</a> * <i>item</i> )&nbsp;&nbsp;<tt> [protected]</tt></h3>
 <p>If the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> represents a <a href="qgraphicsitem.html">QGraphicsItem</a>, and it wants to take advantage of the automatic reparenting capabilities of <a href="qgraphicslayout.html">QGraphicsLayout</a> it should set this value. Note that if you delete <i>item</i> and not delete the layout item, you are responsible of calling setGraphicsItem(0) in order to avoid having a dangling pointer.</p>
 <p>See also <a href="qgraphicslayoutitem.html#graphicsItem">graphicsItem</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMaximumHeight" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMaximumHeight"></a>
 <h3 class="fn"><a name="setMaximumHeight"></a>void QGraphicsLayoutItem::setMaximumHeight ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>height</i> )</h3>
 <p>Sets the maximum height to <i>height</i>.</p>
 <p>See also <a href="qgraphicslayoutitem.html#maximumHeight">maximumHeight</a>(), <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>(), and <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMaximumSize" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMaximumSize"></a>
 <h3 class="fn"><a name="setMaximumSize"></a>void QGraphicsLayoutItem::setMaximumSize ( const <a href="qsizef.html">QSizeF</a> &amp; <i>size</i> )</h3>
 <p>Sets the maximum size to <i>size</i>. This property overrides <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>() for <a href="qt.html#SizeHint-enum">Qt::MaximumSize</a> and ensures that <a href="qgraphicslayoutitem.html#effectiveSizeHint">effectiveSizeHint</a>() will never return a size larger than <i>size</i>. In order to unset the maximum size, use an invalid size.</p>
 <p>See also <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>(), <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>(), <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>(), <a href="qt.html#SizeHint-enum">Qt::MaximumSize</a>, and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
 <h3 class="fn"><a name="setMaximumSize-2"></a>void QGraphicsLayoutItem::setMaximumSize ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>w</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>h</i> )</h3>
 <p>This convenience function is equivalent to calling setMaximumSize(<a href="qsizef.html">QSizeF</a>(<i>w</i>, <i>h</i>)).</p>
 <p>See also <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>(), <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMaximumWidth" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMaximumWidth"></a>
 <h3 class="fn"><a name="setMaximumWidth"></a>void QGraphicsLayoutItem::setMaximumWidth ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>width</i> )</h3>
 <p>Sets the maximum width to <i>width</i>.</p>
 <p>See also <a href="qgraphicslayoutitem.html#maximumWidth">maximumWidth</a>(), <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>(), and <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMinimumHeight" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMinimumHeight"></a>
 <h3 class="fn"><a name="setMinimumHeight"></a>void QGraphicsLayoutItem::setMinimumHeight ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>height</i> )</h3>
 <p>Sets the minimum height to <i>height</i>.</p>
 <p>See also <a href="qgraphicslayoutitem.html#minimumHeight">minimumHeight</a>(), <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), and <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMinimumSize" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMinimumSize"></a>
 <h3 class="fn"><a name="setMinimumSize"></a>void QGraphicsLayoutItem::setMinimumSize ( const <a href="qsizef.html">QSizeF</a> &amp; <i>size</i> )</h3>
 <p>Sets the minimum size to <i>size</i>. This property overrides <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>() for <a href="qt.html#SizeHint-enum">Qt::MinimumSize</a> and ensures that <a href="qgraphicslayoutitem.html#effectiveSizeHint">effectiveSizeHint</a>() will never return a size smaller than <i>size</i>. In order to unset the minimum size, use an invalid size.</p>
 <p>See also <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>(), <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>(), <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>(), <a href="qt.html#SizeHint-enum">Qt::MinimumSize</a>, <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>(), <a href="qgraphicslayoutitem.html#setMinimumWidth">setMinimumWidth</a>(), and <a href="qgraphicslayoutitem.html#setMinimumHeight">setMinimumHeight</a>().</p>
 <h3 class="fn"><a name="setMinimumSize-2"></a>void QGraphicsLayoutItem::setMinimumSize ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>w</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>h</i> )</h3>
 <p>This convenience function is equivalent to calling setMinimumSize(<a href="qsizef.html">QSizeF</a>(<i>w</i>, <i>h</i>)).</p>
 <p>See also <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>(), <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>(), <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMinimumWidth" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setMinimumWidth"></a>
 <h3 class="fn"><a name="setMinimumWidth"></a>void QGraphicsLayoutItem::setMinimumWidth ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>width</i> )</h3>
 <p>Sets the minimum width to <i>width</i>.</p>
 <p>See also <a href="qgraphicslayoutitem.html#minimumWidth">minimumWidth</a>(), <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), and <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setOwnedByLayout" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setOwnedByLayout"></a>
 <h3 class="fn"><a name="setOwnedByLayout"></a>void QGraphicsLayoutItem::setOwnedByLayout ( bool <i>ownership</i> )&nbsp;&nbsp;<tt> [protected]</tt></h3>
 <p>Sets whether a layout should delete this item in its destructor or not. <i>ownership</i> must be true to in order for the layout to delete it.</p>
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qgraphicslayoutitem.html#ownedByLayout">ownedByLayout</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setParentLayoutItem" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setParentLayoutItem"></a>
 <h3 class="fn"><a name="setParentLayoutItem"></a>void QGraphicsLayoutItem::setParentLayoutItem ( QGraphicsLayoutItem * <i>parent</i> )</h3>
 <p>Sets the parent of this <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> to <i>parent</i>.</p>
 <p>See also <a href="qgraphicslayoutitem.html#parentLayoutItem">parentLayoutItem</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setPreferredHeight" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setPreferredHeight"></a>
 <h3 class="fn"><a name="setPreferredHeight"></a>void QGraphicsLayoutItem::setPreferredHeight ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>height</i> )</h3>
 <p>Sets the preferred height to <i>height</i>.</p>
 <p>See also <a href="qgraphicslayoutitem.html#preferredHeight">preferredHeight</a>(), <a href="qgraphicslayoutitem.html#preferredWidth">preferredWidth</a>(), <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), and <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setPreferredSize" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setPreferredSize"></a>
 <h3 class="fn"><a name="setPreferredSize"></a>void QGraphicsLayoutItem::setPreferredSize ( const <a href="qsizef.html">QSizeF</a> &amp; <i>size</i> )</h3>
 <p>Sets the preferred size to <i>size</i>. This property overrides <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>() for <a href="qt.html#SizeHint-enum">Qt::PreferredSize</a> and provides the default value for <a href="qgraphicslayoutitem.html#effectiveSizeHint">effectiveSizeHint</a>(). In order to unset the preferred size, use an invalid size.</p>
 <p>See also <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>(), <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>(), <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>(), <a href="qt.html#SizeHint-enum">Qt::PreferredSize</a>, and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
 <h3 class="fn"><a name="setPreferredSize-2"></a>void QGraphicsLayoutItem::setPreferredSize ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>w</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>h</i> )</h3>
 <p>This convenience function is equivalent to calling setPreferredSize(<a href="qsizef.html">QSizeF</a>(<i>w</i>, <i>h</i>)).</p>
 <p>See also <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>(), <a href="qgraphicslayoutitem.html#setMaximumSize">setMaximumSize</a>(), <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), and <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setPreferredWidth" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setPreferredWidth"></a>
 <h3 class="fn"><a name="setPreferredWidth"></a>void QGraphicsLayoutItem::setPreferredWidth ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>width</i> )</h3>
 <p>Sets the preferred width to <i>width</i>.</p>
 <p>See also <a href="qgraphicslayoutitem.html#preferredWidth">preferredWidth</a>(), <a href="qgraphicslayoutitem.html#preferredHeight">preferredHeight</a>(), <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), and <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setSizePolicy" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/setSizePolicy"></a>
 <h3 class="fn"><a name="setSizePolicy"></a>void QGraphicsLayoutItem::setSizePolicy ( const <a href="qsizepolicy.html">QSizePolicy</a> &amp; <i>policy</i> )</h3>
 <p>Sets the size policy to <i>policy</i>. The size policy describes how the item should grow horizontally and vertically when arranged in a layout.</p>
 <p><a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>'s default size policy is (<a href="qsizepolicy.html#Policy-enum">QSizePolicy::Fixed</a>, <a href="qsizepolicy.html#Policy-enum">QSizePolicy::Fixed</a>, <a href="qsizepolicy.html#ControlType-enum">QSizePolicy::DefaultType</a>), but it is common for subclasses to change the default. For example, <a href="qgraphicswidget.html">QGraphicsWidget</a> defaults to (<a href="qsizepolicy.html#Policy-enum">QSizePolicy::Preferred</a>, <a href="qsizepolicy.html#Policy-enum">QSizePolicy::Preferred</a>, <a href="qsizepolicy.html#ControlType-enum">QSizePolicy::DefaultType</a>).</p>
@@ -246,16 +246,16 @@
 <p>This is an overloaded function.</p>
 <p>This function is equivalent to calling setSizePolicy(<a href="qsizepolicy.html">QSizePolicy</a>(<i>hPolicy</i>, <i>vPolicy</i>, <i>controlType</i>)).</p>
 <p>See also <a href="qgraphicslayoutitem.html#sizePolicy">sizePolicy</a>() and <a href="qwidget.html#sizePolicy-prop">QWidget::sizePolicy</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/sizeHint" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/sizeHint"></a>
 <h3 class="fn"><a name="sizeHint"></a><a href="qsizef.html">QSizeF</a> QGraphicsLayoutItem::sizeHint ( <a href="qt.html#SizeHint-enum">Qt::SizeHint</a> <i>which</i>, const <a href="qsizef.html">QSizeF</a> &amp; <i>constraint</i> = QSizeF() ) const&nbsp;&nbsp;<tt> [pure virtual protected]</tt></h3>
 <p>This pure virtual function returns the size hint for <i>which</i> of the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>, using the width or height of <i>constraint</i> to constrain the output.</p>
 <p>Reimplement this function in a subclass of <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> to provide the necessary size hints for your items.</p>
 <p>See also <a href="qgraphicslayoutitem.html#effectiveSizeHint">effectiveSizeHint</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/sizePolicy" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/sizePolicy"></a>
 <h3 class="fn"><a name="sizePolicy"></a><a href="qsizepolicy.html">QSizePolicy</a> QGraphicsLayoutItem::sizePolicy () const</h3>
 <p>Returns the current size policy.</p>
 <p>See also <a href="qgraphicslayoutitem.html#setSizePolicy">setSizePolicy</a>() and <a href="qwidget.html#sizePolicy-prop">QWidget::sizePolicy</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/updateGeometry" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayoutItem/updateGeometry"></a>
 <h3 class="fn"><a name="updateGeometry"></a>void QGraphicsLayoutItem::updateGeometry ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This virtual function discards any cached size hint information. You should always call this function if you change the return value of the <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>() function. Subclasses must always call the base implementation when reimplementing this function.</p>
 <p>See also <a href="qgraphicslayoutitem.html#effectiveSizeHint">effectiveSizeHint</a>().</p>
@@ -263,6 +263,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

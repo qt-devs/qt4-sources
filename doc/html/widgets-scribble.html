@@ -162,10 +162,11 @@
 <p>For mouse press and mouse release events, we use the <a href="qmouseevent.html#button">QMouseEvent::button</a>() function to find out which button caused the event. For mose move events, we use <a href="qmouseevent.html#buttons">QMouseEvent::buttons</a>() to find which buttons are currently held down (as an OR-combination).</p>
 <p>If the users press the left mouse button, we store the position of the mouse cursor in <tt>lastPoint</tt>. We also make a note that the user is currently scribbling. (The <tt>scribbling</tt> variable is necessary because we can't assume that a mouse move and mouse release event is always preceded by a mouse press event on the same widget.)</p>
 <p>If the user moves the mouse with the left button pressed down or releases the button, we call the private <tt>drawLineTo()</tt> function to draw.</p>
-<pre> void ScribbleArea::paintEvent(QPaintEvent * <span class="comment">/* event */</span>)
+<pre> void ScribbleArea::paintEvent(QPaintEvent *event)
  {
      QPainter painter(this);
-     painter.drawImage(QPoint(0, 0), image);
+     QRect dirtyRect = event-&gt;rect();
+     painter.drawImage(dirtyRect, image, dirtyRect);
  }</pre>
 <p>In the reimplementation of the <a href="qwidget.html#paintEvent">paintEvent()</a> function, we simply create a <a href="qpainter.html">QPainter</a> for the scribble area, and draw the image.</p>
 <p>At this point, you might wonder why we don't just draw directly onto the widget instead of drawing in a <a href="qimage.html">QImage</a> and copying the <a href="qimage.html">QImage</a> onto screen in <tt>paintEvent()</tt>. There are at least three good reasons for this:</p>
@@ -467,6 +468,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

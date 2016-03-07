@@ -22,7 +22,7 @@
 </table>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QPixmap/alphaChannel" />
+<a name="//apple_ref/cpp/instm/QPixmap/alphaChannel"></a>
 <h3 class="fn"><a name="alphaChannel"></a>QPixmap QPixmap::alphaChannel () const</h3>
 <p>Returns the alpha channel of the pixmap as a new grayscale <a href="qpixmap.html">QPixmap</a> in which each pixel's red, green, and blue values are given the alpha value of the original pixmap. The color depth of the returned pixmap is the system depth on X11 and 8-bit on Windows and Mac OS X.</p>
 <p>You can use this function while debugging to get a visible image of the alpha channel. If the pixmap doesn't have an alpha channel, i.e&#x2e;, the alpha channel's value for all pixels equals 0xff), a null pixmap is returned. You can check this with the <tt>isNull()</tt> function.</p>
@@ -40,12 +40,12 @@
          update();</pre>
 <p align="center"><img src="images/alphachannelimage.png" alt="The pixmap and channelImage QPixmaps" /></p><p><b>Warning:</b> This is an expensive operation. The alpha channel of the pixmap is extracted dynamically from the pixeldata. Most usecases of this function are covered by <a href="qpainter.html">QPainter</a> and compositionModes which will normally execute faster.</p>
 <p>See also <a href="qpixmap-obsolete.html#setAlphaChannel">setAlphaChannel</a>() and <a href="qpixmap.html#pixmap-information">Pixmap Information</a>.</p>
-<a name="//apple_ref/cpp/instm/QPixmap/serialNumber" />
+<a name="//apple_ref/cpp/instm/QPixmap/serialNumber"></a>
 <h3 class="fn"><a name="serialNumber"></a>int QPixmap::serialNumber () const</h3>
 <p>Returns a number that identifies the contents of this <a href="qpixmap.html">QPixmap</a> object. Distinct <a href="qpixmap.html">QPixmap</a> objects can only have the same serial number if they refer to the same contents (but they don't have to).</p>
 <p>Use <a href="qpixmap.html#cacheKey">cacheKey</a>() instead.</p>
 <p><b>Warning:</b> The serial number doesn't necessarily change when the pixmap is altered. This means that it may be dangerous to use it as a cache key. For caching pixmaps, we recommend using the <a href="qpixmapcache.html">QPixmapCache</a> class whenever possible.</p>
-<a name="//apple_ref/cpp/instm/QPixmap/setAlphaChannel" />
+<a name="//apple_ref/cpp/instm/QPixmap/setAlphaChannel"></a>
 <h3 class="fn"><a name="setAlphaChannel"></a>void QPixmap::setAlphaChannel ( const QPixmap &amp; <i>alphaChannel</i> )</h3>
 <p>Sets the alpha channel of this pixmap to the given <i>alphaChannel</i> by converting the <i>alphaChannel</i> into 32 bit and using the intensity of the RGB pixel values.</p>
 <p>The effect of this function is undefined when the pixmap is being painted on.</p>
@@ -55,6 +55,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

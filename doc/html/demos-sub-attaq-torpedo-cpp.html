@@ -78,7 +78,7 @@
      launchAnimation-&gt;setEndValue(QPointF(x(),qobject_cast&lt;GraphicsScene *&gt;(scene())-&gt;sealLevel() - 15));
      launchAnimation-&gt;setEasingCurve(QEasingCurve::InQuad);
      launchAnimation-&gt;setDuration(y()/currentSpeed*10);
-     connect(launchAnimation,SIGNAL(valueChanged(const QVariant &amp;)),this,SLOT(onAnimationLaunchValueChanged(const QVariant &amp;)));
+     connect(launchAnimation,SIGNAL(valueChanged(QVariant)),this,SLOT(onAnimationLaunchValueChanged(QVariant)));
      connect(this,SIGNAL(torpedoExploded()), launchAnimation, SLOT(stop()));
 
      <span class="comment">//We setup the state machine of the torpedo</span>
@@ -130,6 +130,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

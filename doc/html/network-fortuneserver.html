@@ -52,8 +52,10 @@
      <span class="comment">// use the first non-localhost IPv4 address</span>
      for (int i = 0; i &lt; ipAddressesList.size(); ++i) {
          if (ipAddressesList.at(i) != QHostAddress::LocalHost &amp;&amp;
-             ipAddressesList.at(i).toIPv4Address())
+             ipAddressesList.at(i).toIPv4Address()) {
              ipAddress = ipAddressesList.at(i).toString();
+             break;
+         }
      }
      <span class="comment">// if we did not find one, use IPv4 localhost</span>
      if (ipAddress.isEmpty())
@@ -96,6 +98,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

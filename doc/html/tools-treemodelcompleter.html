@@ -138,8 +138,8 @@
      completer = new TreeModelCompleter(this);
      completer-&gt;setModel(modelFromFile(&quot;:/resources/treemodel.txt&quot;));
      completer-&gt;setSeparator(QLatin1String(&quot;.&quot;));
-     QObject::connect(completer, SIGNAL(highlighted(const QModelIndex&amp;)),
-                      this, SLOT(highlight(const QModelIndex&amp;)));
+     QObject::connect(completer, SIGNAL(highlighted(QModelIndex)),
+                      this, SLOT(highlight(QModelIndex)));
 
      QWidget *centralWidget = new QWidget;
 
@@ -166,8 +166,8 @@
 
      QLineEdit *separatorLineEdit = new QLineEdit;
      separatorLineEdit-&gt;setText(completer-&gt;separator());
-     connect(separatorLineEdit, SIGNAL(textChanged(const QString&amp;)),
-             completer, SLOT(setSeparator(const QString&amp;)));
+     connect(separatorLineEdit, SIGNAL(textChanged(QString)),
+             completer, SLOT(setSeparator(QString)));
 
      QCheckBox *wrapCheckBox = new QCheckBox;
      wrapCheckBox-&gt;setText(tr(&quot;Wrap around completions&quot;));
@@ -176,8 +176,8 @@
 
      contentsLabel = new QLabel;
      contentsLabel-&gt;setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-     connect(separatorLineEdit, SIGNAL(textChanged(const QString&amp;)),
-             this, SLOT(updateContentsLabel(const QString&amp;)));
+     connect(separatorLineEdit, SIGNAL(textChanged(QString)),
+             this, SLOT(updateContentsLabel(QString)));
 
      treeView = new QTreeView;
      treeView-&gt;setModel(completer-&gt;model());
@@ -265,6 +265,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -25,6 +25,15 @@
 <li><a href="sql-drilldown-drilldown-pro.html">sql/drilldown/drilldown.pro</a></li>
 <li><a href="sql-drilldown-drilldown-qrc.html">sql/drilldown/drilldown.qrc</a></li>
 </ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/sql/drilldown/images/beijing.png">sql/drilldown/images/beijing.png</a></li>
+<li><a href="images/used-in-examples/sql/drilldown/images/berlin.png">sql/drilldown/images/berlin.png</a></li>
+<li><a href="images/used-in-examples/sql/drilldown/images/brisbane.png">sql/drilldown/images/brisbane.png</a></li>
+<li><a href="images/used-in-examples/sql/drilldown/images/munich.png">sql/drilldown/images/munich.png</a></li>
+<li><a href="images/used-in-examples/sql/drilldown/images/oslo.png">sql/drilldown/images/oslo.png</a></li>
+<li><a href="images/used-in-examples/sql/drilldown/images/redwood.png">sql/drilldown/images/redwood.png</a></li>
+</ul>
 <p>The Drill Down example shows how to read data from a database as well as submit changes, using the <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a> and <a href="qdatawidgetmapper.html">QDataWidgetMapper</a> classes.</p>
 <p align="center"><img src="images/drilldown-example.png" alt="Screenshot of the Drill Down Example" /></p><p>When running the example application, a user can retrieve information about each of Nokia's Qt offices by clicking the corresponding image. The application pops up an information window displaying the data, and allows the users to alter the location description as well as the image. The main view will be updated when the users submit their changes.</p>
 <p>The example consists of three classes:</p>
@@ -117,16 +126,15 @@
      connect(imageFileEditor, SIGNAL(currentIndexChanged(int)),
              this, SLOT(enableButtons()));
 
-     QGridLayout *layout = new QGridLayout;
-     layout-&gt;addWidget(locationLabel, 0, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(countryLabel, 1, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(imageFileLabel, 2, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(descriptionLabel, 3, 0, Qt::AlignLeft | Qt::AlignTop);
-     layout-&gt;addWidget(locationText, 0, 1);
-     layout-&gt;addWidget(countryText, 1, 1);
-     layout-&gt;addWidget(imageFileEditor, 2, 1);
-     layout-&gt;addWidget(descriptionEditor, 3, 1);
-     layout-&gt;addWidget(buttonBox, 4, 0, 1, 2);
+     QFormLayout *formLayout = new QFormLayout;
+     formLayout-&gt;addRow(locationLabel, locationText);
+     formLayout-&gt;addRow(countryLabel, countryText);
+     formLayout-&gt;addRow(imageFileLabel, imageFileEditor);
+     formLayout-&gt;addRow(descriptionLabel, descriptionEditor);
+
+     QVBoxLayout *layout = new QVBoxLayout;
+     layout-&gt;addLayout(formLayout);
+     layout-&gt;addWidget(buttonBox);
      setLayout(layout);
 
      locationId = id;
@@ -135,9 +143,6 @@
      setWindowFlags(Qt::Window);
      enableButtons(false);
      setWindowTitle(tr(&quot;Office: %1&quot;).arg(locationText-&gt;text()));
- #ifndef Q_OS_SYMBIAN
-     resize(320, sizeHint().height());
- #endif
  }</pre>
 <p>Finally, we connect the &quot;something's changed&quot; signals in the editors to our custom <tt>enableButtons()</tt> slot, enabling the users to either submit or revert their changes. We add all the widgets into a layout, store the location ID and the name of the displayed image file for future reference, and set the window title and initial size.</p>
 <p>Note that we also set the <a href="qt.html#WindowType-enum">Qt::Window</a> window flag to indicate that our widget is in fact a window, with a window system frame and a title bar.</p>
@@ -183,8 +188,8 @@
      connect(submitButton, SIGNAL(clicked()), this, SLOT(submit()));</pre>
 <p>The <tt>createButtons()</tt> function is provided for convenience, i.e&#x2e;, to simplify the constructor.</p>
 <p>We make the <b>Close</b> button the default button, i.e&#x2e;, the button that is pressed when the user presses <b>Enter</b>, and connect its <a href="qabstractbutton.html#clicked">clicked()</a> signal to the widget's <a href="qwidget.html#close">close()</a> slot. As mentioned above closing the window only hides the widget; it is not deleted. We also connect the <b>Submit</b> and <b>Revert</b> buttons to the corresponding <tt>submit()</tt> and <tt>revert()</tt> slots.</p>
-<pre>     buttonBox = new QDialogButtonBox;
-     buttonBox-&gt;addButton(submitButton, QDialogButtonBox::ResetRole);
+<pre>     buttonBox = new QDialogButtonBox(this);
+     buttonBox-&gt;addButton(submitButton, QDialogButtonBox::AcceptRole);
      buttonBox-&gt;addButton(revertButton, QDialogButtonBox::ResetRole);
      buttonBox-&gt;addButton(closeButton, QDialogButtonBox::RejectRole);
  }</pre>
@@ -315,20 +320,20 @@
  #ifndef Q_OS_SYMBIAN
          window-&gt;show();
  #else
-         window-&gt;showFullScreen();
+         window-&gt;showMaximized();
  #endif
      } else {
          InformationWindow *window;
          window = new InformationWindow(id, officeTable, this);
 
-         connect(window, SIGNAL(imageChanged(int, QString)),
-                 this, SLOT(updateImage(int, QString)));
+         connect(window, SIGNAL(imageChanged(int,QString)),
+                 this, SLOT(updateImage(int,QString)));
 
  #ifndef Q_OS_SYMBIAN
          window-&gt;move(pos() + QPoint(20, 40));
          window-&gt;show();
  #else
-         window-&gt;showFullScreen();
+         window-&gt;showMaximized();
  #endif
          informationWindows.append(window);
      }
@@ -476,6 +481,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QSound" />
+<a name="//apple_ref/cpp/cl//QSound"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -82,37 +82,37 @@
 <p>Note that QSound does not support <a href="resources.html">resources</a>. This might be fixed in a future Qt version.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QSound/QSound" />
+<a name="//apple_ref/cpp/instm/QSound/QSound"></a>
 <h3 class="fn"><a name="QSound"></a>QSound::QSound ( const <a href="qstring.html">QString</a> &amp; <i>filename</i>, <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
 <p>Constructs a <a href="qsound.html">QSound</a> object from the file specified by the given <i>filename</i> and with the given <i>parent</i>.</p>
 <p>This may use more memory than the static <a href="qsound.html#play">play</a>() function, but it may also play more immediately (depending on the underlying platform audio facilities).</p>
 <p>See also <a href="qsound.html#play">play</a>().</p>
-<a name="//apple_ref/cpp/instm/QSound/~QSound" />
+<a name="//apple_ref/cpp/instm/QSound/~QSound"></a>
 <h3 class="fn"><a name="dtor.QSound"></a>QSound::~QSound ()</h3>
 <p>Destroys this sound object. If the sound is not finished playing, the <a href="qsound.html#stop">stop</a>() function is called before the sound object is destructed.</p>
 <p>See also <a href="qsound.html#stop">stop</a>() and <a href="qsound.html#isFinished">isFinished</a>().</p>
-<a name="//apple_ref/cpp/instm/QSound/fileName" />
+<a name="//apple_ref/cpp/instm/QSound/fileName"></a>
 <h3 class="fn"><a name="fileName"></a><a href="qstring.html">QString</a> QSound::fileName () const</h3>
 <p>Returns the filename associated with this <a href="qsound.html">QSound</a> object.</p>
 <p>See also <a href="qsound.html#QSound">QSound</a>().</p>
-<a name="//apple_ref/cpp/clm/QSound/isAvailable" />
+<a name="//apple_ref/cpp/clm/QSound/isAvailable"></a>
 <h3 class="fn"><a name="isAvailable"></a>bool QSound::isAvailable ()&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns true if sound facilities exist on the platform; otherwise returns false.</p>
 <p>If no sound is available, all <a href="qsound.html">QSound</a> operations work silently and quickly. An application may choose either to notify the user if sound is crucial to the application or to operate silently without bothering the user.</p>
 <p>Note: On Windows this always returns true because some sound card drivers do not implement a way to find out whether it is available or not.</p>
-<a name="//apple_ref/cpp/instm/QSound/isFinished" />
+<a name="//apple_ref/cpp/instm/QSound/isFinished"></a>
 <h3 class="fn"><a name="isFinished"></a>bool QSound::isFinished () const</h3>
 <p>Returns true if the sound has finished playing; otherwise returns false.</p>
 <p><b>Warning:</b> On Windows this function always returns true for unlooped sounds.</p>
-<a name="//apple_ref/cpp/instm/QSound/loops" />
+<a name="//apple_ref/cpp/instm/QSound/loops"></a>
 <h3 class="fn"><a name="loops"></a>int QSound::loops () const</h3>
 <p>Returns the number of times the sound will play.</p>
 <p>See also <a href="qsound.html#loopsRemaining">loopsRemaining</a>() and <a href="qsound.html#setLoops">setLoops</a>().</p>
-<a name="//apple_ref/cpp/instm/QSound/loopsRemaining" />
+<a name="//apple_ref/cpp/instm/QSound/loopsRemaining"></a>
 <h3 class="fn"><a name="loopsRemaining"></a>int QSound::loopsRemaining () const</h3>
 <p>Returns the remaining number of times the sound will loop (this value decreases each time the sound is played).</p>
 <p>See also <a href="qsound.html#loops">loops</a>() and <a href="qsound.html#isFinished">isFinished</a>().</p>
-<a name="//apple_ref/cpp/clm/QSound/play" />
+<a name="//apple_ref/cpp/clm/QSound/play"></a>
 <h3 class="fn"><a name="play"></a>void QSound::play ( const <a href="qstring.html">QString</a> &amp; <i>filename</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Plays the sound stored in the file specified by the given <i>filename</i>.</p>
 <p>See also <a href="qsound.html#stop">stop</a>(), <a href="qsound.html#loopsRemaining">loopsRemaining</a>(), and <a href="qsound.html#isFinished">isFinished</a>().</p>
@@ -121,12 +121,12 @@
 <p>Starts playing the sound specified by this <a href="qsound.html">QSound</a> object.</p>
 <p>The function returns immediately. Depending on the platform audio facilities, other sounds may stop or be mixed with the new sound. The sound can be played again at any time, possibly mixing or replacing previous plays of the sound.</p>
 <p>See also <a href="qsound.html#fileName">fileName</a>().</p>
-<a name="//apple_ref/cpp/instm/QSound/setLoops" />
+<a name="//apple_ref/cpp/instm/QSound/setLoops"></a>
 <h3 class="fn"><a name="setLoops"></a>void QSound::setLoops ( int <i>number</i> )</h3>
 <p>Sets the sound to repeat the given <i>number</i> of times when it is played.</p>
 <p>Note that passing the value -1 will cause the sound to loop indefinitely.</p>
 <p>See also <a href="qsound.html#loops">loops</a>().</p>
-<a name="//apple_ref/cpp/instm/QSound/stop" />
+<a name="//apple_ref/cpp/instm/QSound/stop"></a>
 <h3 class="fn"><a name="stop"></a>void QSound::stop ()&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Stops the sound playing.</p>
 <p>Note that on Windows the current loop will finish if a sound is played in a loop.</p>
@@ -135,6 +135,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

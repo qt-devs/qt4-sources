@@ -102,8 +102,8 @@
      }
 
      textEdit = new QTextEdit(this);
-     connect(textEdit, SIGNAL(currentCharFormatChanged(const QTextCharFormat &amp;)),
-             this, SLOT(currentCharFormatChanged(const QTextCharFormat &amp;)));
+     connect(textEdit, SIGNAL(currentCharFormatChanged(QTextCharFormat)),
+             this, SLOT(currentCharFormatChanged(QTextCharFormat)));
      connect(textEdit, SIGNAL(cursorPositionChanged()),
              this, SLOT(cursorPositionChanged()));
 
@@ -328,7 +328,7 @@
      menu-&gt;addSeparator();
 
      QActionGroup *grp = new QActionGroup(this);
-     connect(grp, SIGNAL(triggered(QAction *)), this, SLOT(textAlign(QAction *)));
+     connect(grp, SIGNAL(triggered(QAction*)), this, SLOT(textAlign(QAction*)));
 
      <span class="comment">// Make sure the alignLeft  is always left of the alignRight</span>
      if (QApplication::isLeftToRight()) {
@@ -390,8 +390,8 @@
 
      comboFont = new QFontComboBox(tb);
      tb-&gt;addWidget(comboFont);
-     connect(comboFont, SIGNAL(activated(const QString &amp;)),
-             this, SLOT(textFamily(const QString &amp;)));
+     connect(comboFont, SIGNAL(activated(QString)),
+             this, SLOT(textFamily(QString)));
 
      comboSize = new QComboBox(tb);
      comboSize-&gt;setObjectName(&quot;comboSize&quot;);
@@ -402,8 +402,8 @@
      foreach(int size, db.standardSizes())
          comboSize-&gt;addItem(QString::number(size));
 
-     connect(comboSize, SIGNAL(activated(const QString &amp;)),
-             this, SLOT(textSize(const QString &amp;)));
+     connect(comboSize, SIGNAL(activated(QString)),
+             this, SLOT(textSize(QString)));
      comboSize-&gt;setCurrentIndex(comboSize-&gt;findText(QString::number(QApplication::font()
                                                                     .pointSize())));
  }
@@ -524,7 +524,7 @@
  #ifndef QT_NO_PRINTER
      QPrinter printer(QPrinter::HighResolution);
      QPrintPreviewDialog preview(&amp;printer, this);
-     connect(&amp;preview, SIGNAL(paintRequested(QPrinter *)), SLOT(printPreview(QPrinter *)));
+     connect(&amp;preview, SIGNAL(paintRequested(QPrinter*)), SLOT(printPreview(QPrinter*)));
      preview.exec();
  #endif
  }
@@ -743,6 +743,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

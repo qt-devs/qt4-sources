@@ -22,6 +22,12 @@
 <li><a href="network-qftp-ftp-qrc.html">network/qftp/ftp.qrc</a></li>
 <li><a href="network-qftp-qftp-pro.html">network/qftp/qftp.pro</a></li>
 </ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/network/qftp/images/cdtoparent.png">network/qftp/images/cdtoparent.png</a></li>
+<li><a href="images/used-in-examples/network/qftp/images/dir.png">network/qftp/images/dir.png</a></li>
+<li><a href="images/used-in-examples/network/qftp/images/file.png">network/qftp/images/file.png</a></li>
+</ul>
 <p>The FTP example demonstrates a simple FTP client that can be used to list the available files on an FTP server and download them.</p>
 <p align="center"><img src="images/ftp-example.png" /></p><p>The user of the example can enter the address or hostname of an FTP server in the <b>Ftp Server</b> line edit, and then push the <b>Connect</b> button to connect to it. A list of the server's top-level directory is then presented in the <b>File List</b> tree view. If the selected item in the view is a file, the user can download it by pushing the <b>Download</b> button. An item representing a directory can be double clicked with the mouse to show the contents of that directory in the view.</p>
 <p>The functionality required for the example is implemented in the <a href="qftp.html">QFtp</a> class, which provides an easy, high-level interface to the file transfer protocol. FTP operations are requested through <a href="qftp.html#Command-enum">QFtp::Command</a>s. The operations are asynchronous. <a href="qftp.html">QFtp</a> will notify us through signals when commands are started and finished.</p>
@@ -70,12 +76,12 @@
 <p>If <tt>ftp</tt> is already pointing to a <a href="qftp.html">QFtp</a> object, we <a href="qftp.html#Command-enum">QFtp::Close</a> its FTP connection and delete the object it points to. Note that we do not delete the object using standard C++ <tt>delete</tt> as we need it to finish its abort operation.</p>
 <pre>     ...
      ftp = new QFtp(this);
-     connect(ftp, SIGNAL(commandFinished(int, bool)),
-             this, SLOT(ftpCommandFinished(int, bool)));
-     connect(ftp, SIGNAL(listInfo(const QUrlInfo &amp;)),
-             this, SLOT(addToList(const QUrlInfo &amp;)));
-     connect(ftp, SIGNAL(dataTransferProgress(qint64, qint64)),
-             this, SLOT(updateDataTransferProgress(qint64, qint64)));
+     connect(ftp, SIGNAL(commandFinished(int,bool)),
+             this, SLOT(ftpCommandFinished(int,bool)));
+     connect(ftp, SIGNAL(listInfo(QUrlInfo)),
+             this, SLOT(addToList(QUrlInfo)));
+     connect(ftp, SIGNAL(dataTransferProgress(qint64,qint64)),
+             this, SLOT(updateDataTransferProgress(qint64,qint64)));
 
      fileList-&gt;clear();
      currentPath.clear();
@@ -249,6 +255,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

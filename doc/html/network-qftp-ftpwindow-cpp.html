@@ -99,9 +99,9 @@
 
      progressDialog = new QProgressDialog(this);
 
-     connect(fileList, SIGNAL(itemActivated(QTreeWidgetItem *, int)),
-             this, SLOT(processItem(QTreeWidgetItem *, int)));
-     connect(fileList, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)),
+     connect(fileList, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
+             this, SLOT(processItem(QTreeWidgetItem*,int)));
+     connect(fileList, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),
              this, SLOT(enableDownloadButton()));
      connect(progressDialog, SIGNAL(canceled()), this, SLOT(cancelDownload()));
      connect(connectButton, SIGNAL(clicked()), this, SLOT(connectOrDisconnect()));
@@ -174,12 +174,12 @@
  #endif
 
      ftp = new QFtp(this);
-     connect(ftp, SIGNAL(commandFinished(int, bool)),
-             this, SLOT(ftpCommandFinished(int, bool)));
-     connect(ftp, SIGNAL(listInfo(const QUrlInfo &amp;)),
-             this, SLOT(addToList(const QUrlInfo &amp;)));
-     connect(ftp, SIGNAL(dataTransferProgress(qint64, qint64)),
-             this, SLOT(updateDataTransferProgress(qint64, qint64)));
+     connect(ftp, SIGNAL(commandFinished(int,bool)),
+             this, SLOT(ftpCommandFinished(int,bool)));
+     connect(ftp, SIGNAL(listInfo(QUrlInfo)),
+             this, SLOT(addToList(QUrlInfo)));
+     connect(ftp, SIGNAL(dataTransferProgress(qint64,qint64)),
+             this, SLOT(updateDataTransferProgress(qint64,qint64)));
 
      fileList-&gt;clear();
      currentPath.clear();
@@ -364,6 +364,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

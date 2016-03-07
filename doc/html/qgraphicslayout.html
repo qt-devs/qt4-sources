@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QGraphicsLayout" />
+<a name="//apple_ref/cpp/cl//QGraphicsLayout"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -89,64 +89,65 @@
 <p>The margins of a QGraphicsLayout can be modified by reimplementing <a href="qgraphicslayout.html#setContentsMargins">setContentsMargins</a>() and <a href="qgraphicslayout.html#getContentsMargins">getContentsMargins</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/QGraphicsLayout" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/QGraphicsLayout"></a>
 <h3 class="fn"><a name="QGraphicsLayout"></a>QGraphicsLayout::QGraphicsLayout ( <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> * <i>parent</i> = 0 )</h3>
 <p>Contructs a <a href="qgraphicslayout.html">QGraphicsLayout</a> object.</p>
 <p><i>parent</i> is passed to <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>'s constructor and the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>'s isLayout argument is set to <i>true</i>.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/~QGraphicsLayout" />
+<p>If <i>parent</i> is a <a href="qgraphicswidget.html">QGraphicsWidget</a> the layout will be installed on that widget. (Note that installing a layout will delete the old one installed.)</p>
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/~QGraphicsLayout"></a>
 <h3 class="fn"><a name="dtor.QGraphicsLayout"></a>QGraphicsLayout::~QGraphicsLayout ()</h3>
 <p>Destroys the <a href="qgraphicslayout.html">QGraphicsLayout</a> object.</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/activate" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/activate"></a>
 <h3 class="fn"><a name="activate"></a>void QGraphicsLayout::activate ()</h3>
 <p>Activates the layout, causing all items in the layout to be immediately rearranged. This function is based on calling <a href="qgraphicslayout.html#count">count</a>() and <a href="qgraphicslayout.html#itemAt">itemAt</a>(), and then calling <a href="qgraphicslayoutitem.html#setGeometry">setGeometry</a>() on all items sequentially. When activated, the layout will adjust its geometry to its parent's <a href="qgraphicslayoutitem.html#contentsRect">contentsRect</a>(). The parent will then invalidate any layout of its own.</p>
 <p>If called in sequence or recursively, e.g&#x2e;, by one of the arranged items in response to being resized, this function will do nothing.</p>
 <p>Note that the layout is free to use geometry caching to optimize this process. To forcefully invalidate any such cache, you can call <a href="qgraphicslayout.html#invalidate">invalidate</a>() before calling activate().</p>
 <p>See also <a href="qgraphicslayout.html#invalidate">invalidate</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/addChildLayoutItem" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/addChildLayoutItem"></a>
 <h3 class="fn"><a name="addChildLayoutItem"></a>void QGraphicsLayout::addChildLayoutItem ( <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> * <i>layoutItem</i> )&nbsp;&nbsp;<tt> [protected]</tt></h3>
 <p>This function is a convenience function provided for custom layouts, and will go through all items in the layout and reparent their graphics items to the closest <a href="qgraphicswidget.html">QGraphicsWidget</a> ancestor of the layout.</p>
 <p>If <i>layoutItem</i> is already in a different layout, it will be removed from that layout.</p>
 <p>If custom layouts want special behaviour they can ignore to use this function, and implement their own behaviour.</p>
 <p>This function was introduced in Qt 4.6.</p>
 <p>See also <a href="qgraphicslayoutitem.html#graphicsItem">graphicsItem</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/count" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/count"></a>
 <h3 class="fn"><a name="count"></a>int QGraphicsLayout::count () const&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>This pure virtual function must be reimplemented in a subclass of <a href="qgraphicslayout.html">QGraphicsLayout</a> to return the number of items in the layout.</p>
 <p>The subclass is free to decide how to store the items.</p>
 <p>See also <a href="qgraphicslayout.html#itemAt">itemAt</a>() and <a href="qgraphicslayout.html#removeAt">removeAt</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/getContentsMargins" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/getContentsMargins"></a>
 <h3 class="fn"><a name="getContentsMargins"></a>void QGraphicsLayout::getContentsMargins ( <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>left</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>top</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>right</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> * <i>bottom</i> ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qgraphicslayoutitem.html#getContentsMargins">QGraphicsLayoutItem::getContentsMargins</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/invalidate" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/invalidate"></a>
 <h3 class="fn"><a name="invalidate"></a>void QGraphicsLayout::invalidate ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Clears any cached geometry and size hint information in the layout, and posts a <a href="qevent.html#Type-enum">LayoutRequest</a> event to the managed parent <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>.</p>
 <p>See also <a href="qgraphicslayout.html#activate">activate</a>() and <a href="qgraphicslayoutitem.html#setGeometry">setGeometry</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/isActivated" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/isActivated"></a>
 <h3 class="fn"><a name="isActivated"></a>bool QGraphicsLayout::isActivated () const</h3>
 <p>Returns true if the layout is currently being activated; otherwise, returns false. If the layout is being activated, this means that it is currently in the process of rearranging its items (i.e&#x2e;, the <a href="qgraphicslayout.html#activate">activate</a>() function has been called, and has not yet returned).</p>
 <p>See also <a href="qgraphicslayout.html#activate">activate</a>() and <a href="qgraphicslayout.html#invalidate">invalidate</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/itemAt" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/itemAt"></a>
 <h3 class="fn"><a name="itemAt"></a><a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> * QGraphicsLayout::itemAt ( int <i>i</i> ) const&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>This pure virtual function must be reimplemented in a subclass of <a href="qgraphicslayout.html">QGraphicsLayout</a> to return a pointer to the item at index <i>i</i>. The reimplementation can assume that <i>i</i> is valid (i.e&#x2e;, it respects the value of <a href="qgraphicslayout.html#count">count</a>()). Together with <a href="qgraphicslayout.html#count">count</a>(), it is provided as a means of iterating over all items in a layout.</p>
 <p>The subclass is free to decide how to store the items, and the visual arrangement does not have to be reflected through this function.</p>
 <p>See also <a href="qgraphicslayout.html#count">count</a>() and <a href="qgraphicslayout.html#removeAt">removeAt</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/removeAt" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/removeAt"></a>
 <h3 class="fn"><a name="removeAt"></a>void QGraphicsLayout::removeAt ( int <i>index</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>This pure virtual function must be reimplemented in a subclass of <a href="qgraphicslayout.html">QGraphicsLayout</a> to remove the item at <i>index</i>. The reimplementation can assume that <i>index</i> is valid (i.e&#x2e;, it respects the value of <a href="qgraphicslayout.html#count">count</a>()).</p>
 <p>The implementation must ensure that the <a href="qgraphicslayoutitem.html#parentLayoutItem">parentLayoutItem</a>() of the removed item does not point to this layout, since the item is considered to be removed from the layout hierarchy.</p>
 <p>If the layout is to be reused between applications, we recommend that the layout deletes the item, but the graphics view framework does not depend on this.</p>
 <p>The subclass is free to decide how to store the items.</p>
 <p>See also <a href="qgraphicslayout.html#itemAt">itemAt</a>() and <a href="qgraphicslayout.html#count">count</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/setContentsMargins" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/setContentsMargins"></a>
 <h3 class="fn"><a name="setContentsMargins"></a>void QGraphicsLayout::setContentsMargins ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>left</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>top</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>right</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>bottom</i> )</h3>
 <p>Sets the contents margins to <i>left</i>, <i>top</i>, <i>right</i> and <i>bottom</i>. The default contents margins for toplevel layouts are style dependent (by querying the pixelMetric for <a href="qstyle.html#PixelMetric-enum">QStyle::PM_LayoutLeftMargin</a>, <a href="qstyle.html#PixelMetric-enum">QStyle::PM_LayoutTopMargin</a>, <a href="qstyle.html#PixelMetric-enum">QStyle::PM_LayoutRightMargin</a> and <a href="qstyle.html#PixelMetric-enum">QStyle::PM_LayoutBottomMargin</a>).</p>
 <p>For sublayouts the default margins are 0.</p>
 <p>Changing the contents margins automatically invalidates the layout.</p>
 <p>See also <a href="qgraphicslayout.html#invalidate">invalidate</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/updateGeometry" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/updateGeometry"></a>
 <h3 class="fn"><a name="updateGeometry"></a>void QGraphicsLayout::updateGeometry ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qgraphicslayoutitem.html#updateGeometry">QGraphicsLayoutItem::updateGeometry</a>().</p>
-<a name="//apple_ref/cpp/instm/QGraphicsLayout/widgetEvent" />
+<a name="//apple_ref/cpp/instm/QGraphicsLayout/widgetEvent"></a>
 <h3 class="fn"><a name="widgetEvent"></a>void QGraphicsLayout::widgetEvent ( <a href="qevent.html">QEvent</a> * <i>e</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>This virtual event handler receives all events for the managed widget. <a href="qgraphicslayout.html">QGraphicsLayout</a> uses this event handler to listen for layout related events such as geometry changes, layout changes or layout direction changes.</p>
 <p><i>e</i> is a pointer to the event.</p>
@@ -156,6 +157,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

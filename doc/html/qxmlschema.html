@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QXmlSchema" />
+<a name="//apple_ref/cpp/cl//QXmlSchema"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -54,24 +54,27 @@
          qDebug() &lt;&lt; &quot;schema is valid&quot;;
      else
          qDebug() &lt;&lt; &quot;schema is invalid&quot;;</pre>
+<a name="xml-schema-version"></a>
+<h3>XML Schema Version</h3>
+<p>This class is used to represent schemas that conform to the <a href="http://www.w3.org/XML/Schema">XML Schema</a> 1.0 specification.</p>
 <p>See also <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a> and <a href="xmlpatterns-schema.html">XML Schema Validation Example</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QXmlSchema/QXmlSchema" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/QXmlSchema"></a>
 <h3 class="fn"><a name="QXmlSchema"></a>QXmlSchema::QXmlSchema ()</h3>
 <p>Constructs an invalid, empty schema that cannot be used until <a href="qxmlschema.html#load">load</a>() is called.</p>
 <h3 class="fn"><a name="QXmlSchema-2"></a>QXmlSchema::QXmlSchema ( const QXmlSchema &amp; <i>other</i> )</h3>
 <p>Constructs a <a href="qxmlschema.html">QXmlSchema</a> that is a copy of <i>other</i>. The new instance will share resources with the existing schema to the extent possible.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/~QXmlSchema" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/~QXmlSchema"></a>
 <h3 class="fn"><a name="dtor.QXmlSchema"></a>QXmlSchema::~QXmlSchema ()</h3>
 <p>Destroys this <a href="qxmlschema.html">QXmlSchema</a>.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/documentUri" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/documentUri"></a>
 <h3 class="fn"><a name="documentUri"></a><a href="qurl.html">QUrl</a> QXmlSchema::documentUri () const</h3>
 <p>Returns the document URI of the schema or an empty URI if no schema has been set.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/isValid" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/isValid"></a>
 <h3 class="fn"><a name="isValid"></a>bool QXmlSchema::isValid () const</h3>
 <p>Returns true if this schema is valid. Examples of invalid schemas are ones that contain syntax errors or that do not conform the W3C XML Schema specification.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/load" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/load"></a>
 <h3 class="fn"><a name="load"></a>bool QXmlSchema::load ( const <a href="qurl.html">QUrl</a> &amp; <i>source</i> )</h3>
 <p>Sets this <a href="qxmlschema.html">QXmlSchema</a> to a schema loaded from the <i>source</i> URI.</p>
 <p>If the schema <a href="qxmlschema.html#isValid">is invalid</a>, <tt>false</tt> is returned and the behavior is undefined.</p>
@@ -127,18 +130,18 @@
      else
          qDebug() &lt;&lt; &quot;schema is invalid&quot;;</pre>
 <p>See also <a href="qxmlschema.html#isValid">isValid</a>() and <a href="qxmlschema.html#isValid">isValid</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/messageHandler" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/messageHandler"></a>
 <h3 class="fn"><a name="messageHandler"></a><a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> * QXmlSchema::messageHandler () const</h3>
 <p>Returns the message handler that handles compile and validation messages for this <a href="qxmlschema.html">QXmlSchema</a>.</p>
 <p>See also <a href="qxmlschema.html#setMessageHandler">setMessageHandler</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/namePool" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/namePool"></a>
 <h3 class="fn"><a name="namePool"></a><a href="qxmlnamepool.html">QXmlNamePool</a> QXmlSchema::namePool () const</h3>
 <p>Returns the name pool used by this <a href="qxmlschema.html">QXmlSchema</a> for constructing <a href="qxmlname.html">names</a>. There is no setter for the name pool, because mixing name pools causes errors due to name confusion.</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/networkAccessManager" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/networkAccessManager"></a>
 <h3 class="fn"><a name="networkAccessManager"></a><a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> * QXmlSchema::networkAccessManager () const</h3>
 <p>Returns the network manager, or 0 if it has not been set.</p>
 <p>See also <a href="qxmlschema.html#setNetworkAccessManager">setNetworkAccessManager</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/setMessageHandler" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/setMessageHandler"></a>
 <h3 class="fn"><a name="setMessageHandler"></a>void QXmlSchema::setMessageHandler ( <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> * <i>handler</i> )</h3>
 <p>Changes the <a href="qabstractmessagehandler.html">message handler</a> for this <a href="qxmlschema.html">QXmlSchema</a> to <i>handler</i>. The schema sends all compile and validation messages to this message handler. <a href="qxmlschema.html">QXmlSchema</a> does not take ownership of <i>handler</i>.</p>
 <p>Normally, the default message handler is sufficient. It writes compile and validation messages to <i>stderr</i>. The default message handler includes color codes if <i>stderr</i> can render colors.</p>
@@ -151,15 +154,15 @@
 <tr valign="top" class="even"><td>const <a href="qsourcelocation.html">QSourceLocation</a> &amp; sourceLocation</td><td>Identifies where the error occurred.</td></tr>
 </table></p>
 <p>See also <a href="qxmlschema.html#messageHandler">messageHandler</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/setNetworkAccessManager" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/setNetworkAccessManager"></a>
 <h3 class="fn"><a name="setNetworkAccessManager"></a>void QXmlSchema::setNetworkAccessManager ( <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> * <i>manager</i> )</h3>
 <p>Sets the network manager to <i>manager</i>. <a href="qxmlschema.html">QXmlSchema</a> does not take ownership of <i>manager</i>.</p>
 <p>See also <a href="qxmlschema.html#networkAccessManager">networkAccessManager</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/setUriResolver" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/setUriResolver"></a>
 <h3 class="fn"><a name="setUriResolver"></a>void QXmlSchema::setUriResolver ( const <a href="qabstracturiresolver.html">QAbstractUriResolver</a> * <i>resolver</i> )</h3>
 <p>Sets the URI resolver to <i>resolver</i>. <a href="qxmlschema.html">QXmlSchema</a> does not take ownership of <i>resolver</i>.</p>
 <p>See also <a href="qxmlschema.html#uriResolver">uriResolver</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlSchema/uriResolver" />
+<a name="//apple_ref/cpp/instm/QXmlSchema/uriResolver"></a>
 <h3 class="fn"><a name="uriResolver"></a>const <a href="qabstracturiresolver.html">QAbstractUriResolver</a> * QXmlSchema::uriResolver () const</h3>
 <p>Returns the schema's URI resolver. If no URI resolver has been set, <a href="qtxmlpatterns.html">QtXmlPatterns</a> will use the URIs in schemas as they are.</p>
 <p>The URI resolver provides a level of abstraction, or <i>polymorphic URIs</i>. A resolver can rewrite <i>logical</i> URIs to physical ones, or it can translate obsolete or invalid URIs to valid ones.</p>
@@ -169,6 +172,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

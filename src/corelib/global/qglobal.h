@@ -44,19 +44,19 @@
 
 #include <stddef.h>
 
-#define QT_VERSION_STR "4.6.0"
+#define QT_VERSION_STR "4.6.1"
 /*
    QT_VERSION is (major << 16) + (minor << 8) + patch.
 */
-#define QT_VERSION 0x040600
+#define QT_VERSION 0x040601
 /*
    can be used like #if (QT_VERSION >= QT_VERSION_CHECK(4, 4, 0))
 */
 #define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))
 
-#define QT_PACKAGEDATE_STR "2009-11-27"
+#define QT_PACKAGEDATE_STR "2010-01-16"
 
-#define QT_PACKAGE_TAG "678bef66cb79ed29127f6753782923d7dec5ca98"
+#define QT_PACKAGE_TAG "9b05cc074bd5ee49de0f141dd5a389ec10e3c665"
 
 #if !defined(QT_BUILD_MOC)
 #include <QtCore/qconfig.h>
@@ -910,6 +910,8 @@ QT_END_INCLUDE_NAMESPACE
 /* Symbian OS defines TRUE = 1 and FALSE = 0,
 redefine to built-in booleans to make autotests work properly */
 #ifdef Q_OS_SYMBIAN
+    #include <e32def.h> /* Symbian OS defines */
+
     #undef TRUE
     #undef FALSE
 #endif

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QHashIterator" />
+<a name="//apple_ref/cpp/cl//QHashIterator"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -70,71 +70,71 @@
 <p>See also <a href="qmutablehashiterator.html">QMutableHashIterator</a> and <a href="qhash-const-iterator.html">QHash::const_iterator</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QHashIterator/QHashIterator" />
+<a name="//apple_ref/cpp/instm/QHashIterator/QHashIterator"></a>
 <h3 class="fn"><a name="QHashIterator"></a>QHashIterator::QHashIterator ( const <a href="qhash.html">QHash</a>&lt;Key, T&gt; &amp; <i>hash</i> )</h3>
 <p>Constructs an iterator for traversing <i>hash</i>. The iterator is set to be at the front of the hash (before the first item).</p>
 <p>See also <a href="qhashiterator.html#operator-eq">operator=</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/findNext" />
+<a name="//apple_ref/cpp/instm/QHashIterator/findNext"></a>
 <h3 class="fn"><a name="findNext"></a>bool QHashIterator::findNext ( const T &amp; <i>value</i> )</h3>
 <p>Searches for <i>value</i> starting from the current iterator position forward. Returns true if a (key, value) pair with value <i>value</i> is found; otherwise returns false.</p>
 <p>After the call, if <i>value</i> was found, the iterator is positioned just after the matching item; otherwise, the iterator is positioned at the back of the container.</p>
 <p>See also <a href="qhashiterator.html#findPrevious">findPrevious</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/findPrevious" />
+<a name="//apple_ref/cpp/instm/QHashIterator/findPrevious"></a>
 <h3 class="fn"><a name="findPrevious"></a>bool QHashIterator::findPrevious ( const T &amp; <i>value</i> )</h3>
 <p>Searches for <i>value</i> starting from the current iterator position backward. Returns true if a (key, value) pair with value <i>value</i> is found; otherwise returns false.</p>
 <p>After the call, if <i>value</i> was found, the iterator is positioned just before the matching item; otherwise, the iterator is positioned at the front of the container.</p>
 <p>See also <a href="qhashiterator.html#findNext">findNext</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/hasNext" />
+<a name="//apple_ref/cpp/instm/QHashIterator/hasNext"></a>
 <h3 class="fn"><a name="hasNext"></a>bool QHashIterator::hasNext () const</h3>
 <p>Returns true if there is at least one item ahead of the iterator, i.e&#x2e; the iterator is <i>not</i> at the back of the container; otherwise returns false.</p>
 <p>See also <a href="qhashiterator.html#hasPrevious">hasPrevious</a>() and <a href="qhashiterator.html#next">next</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/hasPrevious" />
+<a name="//apple_ref/cpp/instm/QHashIterator/hasPrevious"></a>
 <h3 class="fn"><a name="hasPrevious"></a>bool QHashIterator::hasPrevious () const</h3>
 <p>Returns true if there is at least one item behind the iterator, i.e&#x2e; the iterator is <i>not</i> at the front of the container; otherwise returns false.</p>
 <p>See also <a href="qhashiterator.html#hasNext">hasNext</a>() and <a href="qhashiterator.html#previous">previous</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/key" />
+<a name="//apple_ref/cpp/instm/QHashIterator/key"></a>
 <h3 class="fn"><a name="key"></a>const Key &amp; QHashIterator::key () const</h3>
 <p>Returns the key of the last item that was jumped over using one of the traversal functions (<a href="qhashiterator.html#next">next</a>(), <a href="qhashiterator.html#previous">previous</a>(), <a href="qhashiterator.html#findNext">findNext</a>(), <a href="qhashiterator.html#findPrevious">findPrevious</a>()).</p>
 <p>After a call to <a href="qhashiterator.html#next">next</a>() or <a href="qhashiterator.html#findNext">findNext</a>(), key() is equivalent to <a href="qhashiterator.html#peekPrevious">peekPrevious</a>().key(). After a call to <a href="qhashiterator.html#previous">previous</a>() or <a href="qhashiterator.html#findPrevious">findPrevious</a>(), key() is equivalent to <a href="qhashiterator.html#peekNext">peekNext</a>().key().</p>
 <p>See also <a href="qhashiterator.html#value">value</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/next" />
+<a name="//apple_ref/cpp/instm/QHashIterator/next"></a>
 <h3 class="fn"><a name="next"></a>Item QHashIterator::next ()</h3>
 <p>Returns the next item and advances the iterator by one position.</p>
 <p>Call <a href="qhashiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qhashiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the back of the container leads to undefined results.</p>
 <p>See also <a href="qhashiterator.html#hasNext">hasNext</a>(), <a href="qhashiterator.html#peekNext">peekNext</a>(), and <a href="qhashiterator.html#previous">previous</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/peekNext" />
+<a name="//apple_ref/cpp/instm/QHashIterator/peekNext"></a>
 <h3 class="fn"><a name="peekNext"></a>Item QHashIterator::peekNext () const</h3>
 <p>Returns the next item without moving the iterator.</p>
 <p>Call <a href="qhashiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qhashiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the back of the container leads to undefined results.</p>
 <p>See also <a href="qhashiterator.html#hasNext">hasNext</a>(), <a href="qhashiterator.html#next">next</a>(), and <a href="qhashiterator.html#peekPrevious">peekPrevious</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/peekPrevious" />
+<a name="//apple_ref/cpp/instm/QHashIterator/peekPrevious"></a>
 <h3 class="fn"><a name="peekPrevious"></a>Item QHashIterator::peekPrevious () const</h3>
 <p>Returns the previous item without moving the iterator.</p>
 <p>Call <a href="qhashiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qhashiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the front of the container leads to undefined results.</p>
 <p>See also <a href="qhashiterator.html#hasPrevious">hasPrevious</a>(), <a href="qhashiterator.html#previous">previous</a>(), and <a href="qhashiterator.html#peekNext">peekNext</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/previous" />
+<a name="//apple_ref/cpp/instm/QHashIterator/previous"></a>
 <h3 class="fn"><a name="previous"></a>Item QHashIterator::previous ()</h3>
 <p>Returns the previous item and moves the iterator back by one position.</p>
 <p>Call <a href="qhashiterator.html#key">key</a>() on the return value to obtain the item's key, and <a href="qhashiterator.html#value">value</a>() to obtain the value.</p>
 <p>Calling this function on an iterator located at the front of the container leads to undefined results.</p>
 <p>See also <a href="qhashiterator.html#hasPrevious">hasPrevious</a>(), <a href="qhashiterator.html#peekPrevious">peekPrevious</a>(), and <a href="qhashiterator.html#next">next</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/toBack" />
+<a name="//apple_ref/cpp/instm/QHashIterator/toBack"></a>
 <h3 class="fn"><a name="toBack"></a>void QHashIterator::toBack ()</h3>
 <p>Moves the iterator to the back of the container (after the last item).</p>
 <p>See also <a href="qhashiterator.html#toFront">toFront</a>() and <a href="qhashiterator.html#previous">previous</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/toFront" />
+<a name="//apple_ref/cpp/instm/QHashIterator/toFront"></a>
 <h3 class="fn"><a name="toFront"></a>void QHashIterator::toFront ()</h3>
 <p>Moves the iterator to the front of the container (before the first item).</p>
 <p>See also <a href="qhashiterator.html#toBack">toBack</a>() and <a href="qhashiterator.html#next">next</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/value" />
+<a name="//apple_ref/cpp/instm/QHashIterator/value"></a>
 <h3 class="fn"><a name="value"></a>const T &amp; QHashIterator::value () const</h3>
 <p>Returns the value of the last item that was jumped over using one of the traversal functions (<a href="qhashiterator.html#next">next</a>(), <a href="qhashiterator.html#previous">previous</a>(), <a href="qhashiterator.html#findNext">findNext</a>(), <a href="qhashiterator.html#findPrevious">findPrevious</a>()).</p>
 <p>After a call to <a href="qhashiterator.html#next">next</a>() or <a href="qhashiterator.html#findNext">findNext</a>(), value() is equivalent to <a href="qhashiterator.html#peekPrevious">peekPrevious</a>().value(). After a call to <a href="qhashiterator.html#previous">previous</a>() or <a href="qhashiterator.html#findPrevious">findPrevious</a>(), value() is equivalent to <a href="qhashiterator.html#peekNext">peekNext</a>().value().</p>
 <p>See also <a href="qhashiterator.html#key">key</a>().</p>
-<a name="//apple_ref/cpp/instm/QHashIterator/operator=" />
+<a name="//apple_ref/cpp/instm/QHashIterator/operator="></a>
 <h3 class="fn"><a name="operator-eq"></a>QHashIterator &amp; QHashIterator::operator= ( const <a href="qhash.html">QHash</a>&lt;Key, T&gt; &amp; <i>hash</i> )</h3>
 <p>Makes the iterator operate on <i>hash</i>. The iterator is set to be at the front of the hash (before the first item).</p>
 <p>See also <a href="qhashiterator.html#toFront">toFront</a>() and <a href="qhashiterator.html#toBack">toBack</a>().</p>
@@ -142,6 +142,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

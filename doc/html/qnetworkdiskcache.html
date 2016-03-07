@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QNetworkDiskCache" />
+<a name="//apple_ref/cpp/cl//QNetworkDiskCache"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -103,70 +103,70 @@
  }</pre>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/QNetworkDiskCache" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/QNetworkDiskCache"></a>
 <h3 class="fn"><a name="QNetworkDiskCache"></a>QNetworkDiskCache::QNetworkDiskCache ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
 <p>Creates a new disk cache. The <i>parent</i> argument is passed to <a href="qabstractnetworkcache.html">QAbstractNetworkCache</a>'s constructor.</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/~QNetworkDiskCache" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/~QNetworkDiskCache"></a>
 <h3 class="fn"><a name="dtor.QNetworkDiskCache"></a>QNetworkDiskCache::~QNetworkDiskCache ()</h3>
 <p>Destroys the cache object. This does not clear the disk cache.</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/cacheDirectory" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/cacheDirectory"></a>
 <h3 class="fn"><a name="cacheDirectory"></a><a href="qstring.html">QString</a> QNetworkDiskCache::cacheDirectory () const</h3>
 <p>Returns the location where cached files will be stored.</p>
 <p>See also <a href="qnetworkdiskcache.html#setCacheDirectory">setCacheDirectory</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/cacheSize" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/cacheSize"></a>
 <h3 class="fn"><a name="cacheSize"></a><a href="qtglobal.html#qint64-typedef">qint64</a> QNetworkDiskCache::cacheSize () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#cacheSize">QAbstractNetworkCache::cacheSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/clear" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/clear"></a>
 <h3 class="fn"><a name="clear"></a>void QNetworkDiskCache::clear ()&nbsp;&nbsp;<tt> [virtual slot]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#clear">QAbstractNetworkCache::clear</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/data" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/data"></a>
 <h3 class="fn"><a name="data"></a><a href="qiodevice.html">QIODevice</a> * QNetworkDiskCache::data ( const <a href="qurl.html">QUrl</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#data">QAbstractNetworkCache::data</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/expire" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/expire"></a>
 <h3 class="fn"><a name="expire"></a><a href="qtglobal.html#qint64-typedef">qint64</a> QNetworkDiskCache::expire ()&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Cleans the cache so that its size is under the maximum cache size. Returns the current size of the cache.</p>
 <p>When the current size of the cache is greater than the <a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>() older cache files are removed until the total size is less then 90% of <a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>() starting with the oldest ones first using the file creation date to determine how old a cache file is.</p>
 <p>Subclasses can reimplement this function to change the order that cache files are removed taking into account information in the application knows about that <a href="qnetworkdiskcache.html">QNetworkDiskCache</a> does not, for example the number of times a cache is accessed.</p>
 <p>Note: <a href="qnetworkdiskcache.html#cacheSize">cacheSize</a>() calls expire if the current cache size is unknown.</p>
 <p>See also <a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>() and <a href="qnetworkdiskcache.html#fileMetaData">fileMetaData</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/fileMetaData" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/fileMetaData"></a>
 <h3 class="fn"><a name="fileMetaData"></a><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a> QNetworkDiskCache::fileMetaData ( const <a href="qstring.html">QString</a> &amp; <i>fileName</i> ) const</h3>
 <p>Returns the <a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a> for the cache file <i>fileName</i>.</p>
 <p>If <i>fileName</i> is not a cache file <a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a> will be invalid.</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/insert" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/insert"></a>
 <h3 class="fn"><a name="insert"></a>void QNetworkDiskCache::insert ( <a href="qiodevice.html">QIODevice</a> * <i>device</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#insert">QAbstractNetworkCache::insert</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/maximumCacheSize" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/maximumCacheSize"></a>
 <h3 class="fn"><a name="maximumCacheSize"></a><a href="qtglobal.html#qint64-typedef">qint64</a> QNetworkDiskCache::maximumCacheSize () const</h3>
 <p>Returns the current maximum size for the disk cache.</p>
 <p>See also <a href="qnetworkdiskcache.html#setMaximumCacheSize">setMaximumCacheSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/metaData" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/metaData"></a>
 <h3 class="fn"><a name="metaData"></a><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a> QNetworkDiskCache::metaData ( const <a href="qurl.html">QUrl</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#metaData">QAbstractNetworkCache::metaData</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/prepare" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/prepare"></a>
 <h3 class="fn"><a name="prepare"></a><a href="qiodevice.html">QIODevice</a> * QNetworkDiskCache::prepare ( const <a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a> &amp; <i>metaData</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#prepare">QAbstractNetworkCache::prepare</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/remove" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/remove"></a>
 <h3 class="fn"><a name="remove"></a>bool QNetworkDiskCache::remove ( const <a href="qurl.html">QUrl</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#remove">QAbstractNetworkCache::remove</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/setCacheDirectory" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/setCacheDirectory"></a>
 <h3 class="fn"><a name="setCacheDirectory"></a>void QNetworkDiskCache::setCacheDirectory ( const <a href="qstring.html">QString</a> &amp; <i>cacheDir</i> )</h3>
 <p>Sets the directory where cached files will be stored to <i>cacheDir</i></p>
 <p><a href="qnetworkdiskcache.html">QNetworkDiskCache</a> will create this directory if it does not exists.</p>
 <p>Prepared cache items will be stored in the new cache directory when they are inserted.</p>
 <p>See also <a href="qnetworkdiskcache.html#cacheDirectory">cacheDirectory</a>() and <a href="qdesktopservices.html#StandardLocation-enum">QDesktopServices::CacheLocation</a>.</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/setMaximumCacheSize" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/setMaximumCacheSize"></a>
 <h3 class="fn"><a name="setMaximumCacheSize"></a>void QNetworkDiskCache::setMaximumCacheSize ( <a href="qtglobal.html#qint64-typedef">qint64</a> <i>size</i> )</h3>
 <p>Sets the maximum size of the disk cache to be <i>size</i>.</p>
 <p>If the new size is smaller then the current cache size then the cache will call <a href="qnetworkdiskcache.html#expire">expire</a>().</p>
 <p>See also <a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QNetworkDiskCache/updateMetaData" />
+<a name="//apple_ref/cpp/instm/QNetworkDiskCache/updateMetaData"></a>
 <h3 class="fn"><a name="updateMetaData"></a>void QNetworkDiskCache::updateMetaData ( const <a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a> &amp; <i>metaData</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qabstractnetworkcache.html#updateMetaData">QAbstractNetworkCache::updateMetaData</a>().</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

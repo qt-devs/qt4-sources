@@ -447,18 +447,19 @@ void QTextOdfWriter::writeBlockFormat(QXmlStreamWriter &writer, QTextBlockFormat
     writer.writeStartElement(styleNS, QString::fromLatin1("paragraph-properties"));
 
     if (format.hasProperty(QTextFormat::BlockAlignment)) {
+        const Qt::Alignment alignment = format.alignment() & Qt::AlignHorizontal_Mask;
         QString value;
-        if (format.alignment() == Qt::AlignLeading)
+        if (alignment == Qt::AlignLeading)
             value = QString::fromLatin1("start");
-        else if (format.alignment() == Qt::AlignTrailing)
+        else if (alignment == Qt::AlignTrailing)
             value = QString::fromLatin1("end");
-        else if (format.alignment() == (Qt::AlignLeft | Qt::AlignAbsolute))
+        else if (alignment == (Qt::AlignLeft | Qt::AlignAbsolute))
             value = QString::fromLatin1("left");
-        else if (format.alignment() == (Qt::AlignRight | Qt::AlignAbsolute))
+        else if (alignment == (Qt::AlignRight | Qt::AlignAbsolute))
             value = QString::fromLatin1("right");
-        else if (format.alignment() == Qt::AlignHCenter)
+        else if (alignment == Qt::AlignHCenter)
             value = QString::fromLatin1("center");
-        else if (format.alignment() == Qt::AlignJustify)
+        else if (alignment == Qt::AlignJustify)
             value = QString::fromLatin1("justify");
         else
             qWarning() << "QTextOdfWriter: unsupported paragraph alignment; " << format.alignment();
@@ -482,6 +483,10 @@ void QTextOdfWriter::writeBlockFormat(QXmlStreamWriter &writer, QTextBlockFormat
             writer.writeAttribute(foNS, QString::fromLatin1("break-before"), QString::fromLatin1("page"));
         if (format.pageBreakPolicy() & QTextFormat::PageBreak_AlwaysAfter)
             writer.writeAttribute(foNS, QString::fromLatin1("break-after"), QString::fromLatin1("page"));
+    }
+    if (format.hasProperty(QTextFormat::BackgroundBrush)) {
+        QBrush brush = format.background();
+        writer.writeAttribute(foNS, QString::fromLatin1("background-color"), brush.color().name());
     }
     if (format.hasProperty(QTextFormat::BlockNonBreakableLines))
         writer.writeAttribute(foNS, QString::fromLatin1("keep-together"),
@@ -609,8 +614,11 @@ void QTextOdfWriter::writeCharacterFormat(QXmlStreamWriter &writer, QTextCharFor
     }
     if (format.hasProperty(QTextFormat::ForegroundBrush)) {
         QBrush brush = format.foreground();
-        // TODO
         writer.writeAttribute(foNS, QString::fromLatin1("color"), brush.color().name());
+    }
+    if (format.hasProperty(QTextFormat::BackgroundBrush)) {
+        QBrush brush = format.background();
+        writer.writeAttribute(foNS, QString::fromLatin1("background-color"), brush.color().name());
     }
 
     writer.writeEndElement(); // style

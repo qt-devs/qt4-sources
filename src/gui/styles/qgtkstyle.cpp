@@ -127,11 +127,19 @@ static const int groupBoxBottomMargin    =  2;  // space below the groupbox
 static const int groupBoxTitleMargin     =  6;  // space between contents and title
 static const int groupBoxTopMargin       =  2;
 
+/*!
+  Returns the configuration string for \a value.
+  Returns \a fallback if \a value is not found.
+ */
 QString QGtkStyle::getGConfString(const QString &value, const QString &fallback)
 {
     return QGtkStylePrivate::getGConfString(value, fallback);
 }
 
+/*!
+  Returns the configuration boolean for \a key.
+  Returns \a fallback if \a key is not found.
+ */
 bool QGtkStyle::getGConfBool(const QString &key, bool fallback)
 {
     return QGtkStylePrivate::getGConfBool(key, fallback);
@@ -635,6 +643,15 @@ int QGtkStyle::styleHint(StyleHint hint, const QStyleOption *option, const QWidg
     case SH_DialogButtonBox_ButtonsHaveIcons: {
         static bool buttonsHaveIcons = d->getGConfBool(QLS("/desktop/gnome/interface/buttons_have_icons"));
         return buttonsHaveIcons;
+    }
+
+    case SH_UnderlineShortcut: {
+        gboolean underlineShortcut = true;
+        if (!d->gtk_check_version(2, 12, 0)) {
+            GtkSettings *settings = d->gtk_settings_get_default();
+            g_object_get(settings, "gtk-enable-mnemonics", &underlineShortcut, NULL);
+        }
+        return underlineShortcut;
     }
 
     default:
@@ -1360,7 +1377,7 @@ void QGtkStyle::drawComplexControl(ComplexControl control, const QStyleOptionCom
                     else {
                         gtkCachedPainter.paintFlatBox(gtkEntry, "entry_bg", contentRect,
                                                 option->state & State_Enabled ? GTK_STATE_NORMAL : GTK_STATE_INSENSITIVE,
-                                                GTK_SHADOW_NONE, style, entryPath + QString::number(focus));
+                                                GTK_SHADOW_NONE, gtkCombo->style, entryPath + QString::number(focus));
                     }
 
                     gtkCachedPainter.paintShadow(gtkEntry, comboBox->editable ? "entry" : "frame", frameRect, frameState,
@@ -3204,10 +3221,6 @@ QSize QGtkStyle::sizeFromContents(ContentsType type, const QStyleOption *option,
     }
     break;
 
-    case CT_MenuBarItem://cleanlooks adds 2 pixels
-        newSize = QWindowsStyle::sizeFromContents(type, option, size, widget) + QSize(0, 1);
-        break;
-
     case CT_LineEdit: {
         GtkWidget *gtkEntry = d->gtkWidget(QLS("GtkEntry"));
         newSize = size + QSize(2*gtkEntry->style->xthickness, 2 + 2*gtkEntry->style->ythickness);
@@ -3362,12 +3375,28 @@ QIcon QGtkStyle::standardIconImplementation(StandardPixmap standardIcon,
 /*! \reimp */
 QRect QGtkStyle::subElementRect(SubElement element, const QStyleOption *option, const QWidget *widget) const
 {
+    Q_D(const QGtkStyle);
+
     QRect r = QCleanlooksStyle::subElementRect(element, option, widget);
     switch (element) {
     case SE_ProgressBarLabel:
     case SE_ProgressBarContents:
     case SE_ProgressBarGroove:
         return option->rect;
+    case SE_PushButtonContents:
+        if (!d->gtk_check_version(2, 10, 0)) {
+            GtkWidget *gtkButton = d->gtkWidget(QLS("GtkButton"));
+            GtkBorder *border = 0;
+            d->gtk_widget_style_get(gtkButton, "inner-border", &border, NULL);
+            if (border) {
+                r = option->rect.adjusted(border->left, border->top, -border->right, -border->bottom);
+                d->gtk_border_free(border);
+            } else {
+                r = option->rect.adjusted(1, 1, -1, -1);
+            }
+            r = visualRect(option->direction, option->rect, r);
+        }
+        break;
     default:
         break;
     }

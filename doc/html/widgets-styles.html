@@ -23,6 +23,11 @@
 <li><a href="widgets-styles-styles-pro.html">widgets/styles/styles.pro</a></li>
 <li><a href="widgets-styles-styles-qrc.html">widgets/styles/styles.qrc</a></li>
 </ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/widgets/styles/images/woodbackground.png">widgets/styles/images/woodbackground.png</a></li>
+<li><a href="images/used-in-examples/widgets/styles/images/woodbutton.png">widgets/styles/images/woodbutton.png</a></li>
+</ul>
 <p>The Styles example illustrates how to create custom widget drawing styles using Qt, and demonstrates Qt's predefined styles.</p>
 <p align="center"><img src="images/styles-enabledwood.png" alt="Screenshot of the Styles example" /></p><p>A style in Qt is a subclass of <a href="qstyle.html">QStyle</a> or of one of its subclasses. Styles perform drawing on behalf of widgets. Qt provides a whole range of predefined styles, either built into the <a href="qtgui.html">QtGui</a> library or found in plugins. Custom styles are usually created by subclassing one of Qt's existing style and reimplementing a few virtual functions.</p>
 <p>In this example, the custom style is called <tt>NorwegianWoodStyle</tt> and derives from <a href="qmotifstyle.html">QMotifStyle</a>. Its main features are the wooden textures used for filling most of the widgets and its round buttons and comboboxes.</p>
@@ -385,8 +390,8 @@
      createBottomRightGroupBox();
      createProgressBar();</pre>
 <p>We start by creating child widgets. The <b>Style</b> combobox is initialized with all the styles known to <a href="qstylefactory.html">QStyleFactory</a>, in addition to <tt>NorwegianWood</tt>. The <tt>create...()</tt> functions are private functions that set up the various parts of the <tt>WidgetGallery</tt>.</p>
-<pre>     connect(styleComboBox, SIGNAL(activated(const QString &amp;)),
-             this, SLOT(changeStyle(const QString &amp;)));
+<pre>     connect(styleComboBox, SIGNAL(activated(QString)),
+             this, SLOT(changeStyle(QString)));
      connect(useStylePaletteCheckBox, SIGNAL(toggled(bool)),
              this, SLOT(changePalette()));
      connect(disableWidgetsCheckBox, SIGNAL(toggled(bool)),
@@ -486,6 +491,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

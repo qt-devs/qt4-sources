@@ -189,8 +189,8 @@
      <span class="comment">// Set up connections</span>
      connect(torrentView, SIGNAL(itemSelectionChanged()),
              this, SLOT(setActionsEnabled()));
-     connect(torrentView, SIGNAL(fileDropped(const QString &amp;)),
-             this, SLOT(acceptFileDrop(const QString &amp;)));
+     connect(torrentView, SIGNAL(fileDropped(QString)),
+             this, SLOT(acceptFileDrop(QString)));
      connect(uploadLimitSlider, SIGNAL(valueChanged(int)),
              this, SLOT(setUploadLimit(int)));
      connect(downloadLimitSlider, SIGNAL(valueChanged(int)),
@@ -729,6 +729,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

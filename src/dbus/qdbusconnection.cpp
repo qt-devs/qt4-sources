@@ -619,10 +619,8 @@ bool QDBusConnection::connect(const QString &service, const QString &path, const
     if (interface.isEmpty() && name.isEmpty())
         return false;
 
-    QString owner = d->getNameOwner(service); // we don't care if the owner is empty
-                                              // it might get started later
     QDBusWriteLocker locker(ConnectAction, d);
-    return d->connectSignal(service, owner, path, interface, name, argumentMatch, signature, receiver, slot);
+    return d->connectSignal(service, path, interface, name, argumentMatch, signature, receiver, slot);
 }
 
 /*!
@@ -1005,9 +1003,6 @@ void QDBusConnectionPrivate::setBusService(const QDBusConnection &connection)
     busService = new QDBusConnectionInterface(connection, this);
     ref.deref(); // busService has increased the refcounting to us
                  // avoid cyclic refcounting
-//    if (mode != PeerMode)
-    QObject::connect(busService, SIGNAL(serviceOwnerChanged(QString,QString,QString)),
-                     this, SIGNAL(serviceOwnerChanged(QString,QString,QString)));
 
     QObject::connect(this, SIGNAL(callWithCallbackFailed(QDBusError,QDBusMessage)),
                      busService, SIGNAL(callWithCallbackFailed(QDBusError,QDBusMessage)),

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QXmlContentHandler" />
+<a name="//apple_ref/cpp/cl//QXmlContentHandler"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -50,56 +50,56 @@
 <p>See also <a href="qxmldtdhandler.html">QXmlDTDHandler</a>, <a href="qxmldeclhandler.html">QXmlDeclHandler</a>, <a href="qxmlentityresolver.html">QXmlEntityResolver</a>, <a href="qxmlerrorhandler.html">QXmlErrorHandler</a>, <a href="qxmllexicalhandler.html">QXmlLexicalHandler</a>, and <a href="xml-sax.html#introduction-to-sax2">Introduction to SAX2</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/~QXmlContentHandler" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/~QXmlContentHandler"></a>
 <h3 class="fn"><a name="dtor.QXmlContentHandler"></a>QXmlContentHandler::~QXmlContentHandler ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destroys the content handler.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/characters" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/characters"></a>
 <h3 class="fn"><a name="characters"></a>bool QXmlContentHandler::characters ( const <a href="qstring.html">QString</a> &amp; <i>ch</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function when it has parsed a chunk of character data (either normal character data or character data inside a CDATA section; if you need to distinguish between those two types you must use <a href="qxmllexicalhandler.html#startCDATA">QXmlLexicalHandler::startCDATA</a>() and <a href="qxmllexicalhandler.html#endCDATA">QXmlLexicalHandler::endCDATA</a>()). The character data is reported in <i>ch</i>.</p>
 <p>Some readers report whitespace in element content using the <a href="qxmlcontenthandler.html#ignorableWhitespace">ignorableWhitespace</a>() function rather than using this one.</p>
 <p>A reader may report the character data of an element in more than one chunk; e.g&#x2e; a reader might want to report &quot;a&lt;b&quot; in three characters() events (&quot;a &quot;, &quot;&lt;&quot; and &quot; b&quot;).</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/endDocument" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/endDocument"></a>
 <h3 class="fn"><a name="endDocument"></a>bool QXmlContentHandler::endDocument ()&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function after it has finished parsing. It is called just once, and is the last handler function called. It is called after the reader has read all input or has abandoned parsing because of a fatal error.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
 <p>See also <a href="qxmlcontenthandler.html#startDocument">startDocument</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/endElement" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/endElement"></a>
 <h3 class="fn"><a name="endElement"></a>bool QXmlContentHandler::endElement ( const <a href="qstring.html">QString</a> &amp; <i>namespaceURI</i>, const <a href="qstring.html">QString</a> &amp; <i>localName</i>, const <a href="qstring.html">QString</a> &amp; <i>qName</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function when it has parsed an end element tag with the qualified name <i>qName</i>, the local name <i>localName</i> and the namespace URI <i>namespaceURI</i>.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
 <p>See also <a href="qxmlcontenthandler.html#startElement">startElement</a>() and <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/endPrefixMapping" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/endPrefixMapping"></a>
 <h3 class="fn"><a name="endPrefixMapping"></a>bool QXmlContentHandler::endPrefixMapping ( const <a href="qstring.html">QString</a> &amp; <i>prefix</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function to signal the end of a prefix mapping for the prefix <i>prefix</i>.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
 <p>See also <a href="qxmlcontenthandler.html#startPrefixMapping">startPrefixMapping</a>() and <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/errorString" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/errorString"></a>
 <h3 class="fn"><a name="errorString"></a><a href="qstring.html">QString</a> QXmlContentHandler::errorString () const&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function to get an error string, e.g&#x2e; if any of the handler functions returns false.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/ignorableWhitespace" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/ignorableWhitespace"></a>
 <h3 class="fn"><a name="ignorableWhitespace"></a>bool QXmlContentHandler::ignorableWhitespace ( const <a href="qstring.html">QString</a> &amp; <i>ch</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>Some readers may use this function to report each chunk of whitespace in element content. The whitespace is reported in <i>ch</i>.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/processingInstruction" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/processingInstruction"></a>
 <h3 class="fn"><a name="processingInstruction"></a>bool QXmlContentHandler::processingInstruction ( const <a href="qstring.html">QString</a> &amp; <i>target</i>, const <a href="qstring.html">QString</a> &amp; <i>data</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function when it has parsed a processing instruction.</p>
 <p><i>target</i> is the target name of the processing instruction and <i>data</i> is the data in the processing instruction.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/setDocumentLocator" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/setDocumentLocator"></a>
 <h3 class="fn"><a name="setDocumentLocator"></a>void QXmlContentHandler::setDocumentLocator ( <a href="qxmllocator.html">QXmlLocator</a> * <i>locator</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function before it starts parsing the document. The argument <i>locator</i> is a pointer to a <a href="qxmllocator.html">QXmlLocator</a> which allows the application to get the parsing position within the document.</p>
 <p>Do not destroy the <i>locator</i>; it is destroyed when the reader is destroyed. (Do not use the <i>locator</i> after the reader is destroyed).</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/skippedEntity" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/skippedEntity"></a>
 <h3 class="fn"><a name="skippedEntity"></a>bool QXmlContentHandler::skippedEntity ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>Some readers may skip entities if they have not seen the declarations (e.g&#x2e; because they are in an external DTD). If they do so they report that they skipped the entity called <i>name</i> by calling this function.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/startDocument" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/startDocument"></a>
 <h3 class="fn"><a name="startDocument"></a>bool QXmlContentHandler::startDocument ()&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function when it starts parsing the document. The reader calls this function just once, after the call to <a href="qxmlcontenthandler.html#setDocumentLocator">setDocumentLocator</a>(), and before any other functions in this class or in the <a href="qxmldtdhandler.html">QXmlDTDHandler</a> class are called.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
 <p>See also <a href="qxmlcontenthandler.html#endDocument">endDocument</a>().</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/startElement" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/startElement"></a>
 <h3 class="fn"><a name="startElement"></a>bool QXmlContentHandler::startElement ( const <a href="qstring.html">QString</a> &amp; <i>namespaceURI</i>, const <a href="qstring.html">QString</a> &amp; <i>localName</i>, const <a href="qstring.html">QString</a> &amp; <i>qName</i>, const <a href="qxmlattributes.html">QXmlAttributes</a> &amp; <i>atts</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function when it has parsed a start element tag.</p>
 <p>There is a corresponding <a href="qxmlcontenthandler.html#endElement">endElement</a>() call when the corresponding end element tag is read. The startElement() and <a href="qxmlcontenthandler.html#endElement">endElement</a>() calls are always nested correctly. Empty element tags (e.g&#x2e; <tt>&lt;x/&gt;</tt>) cause a startElement() call to be immediately followed by an <a href="qxmlcontenthandler.html#endElement">endElement</a>() call.</p>
@@ -107,7 +107,7 @@
 <p>The argument <i>namespaceURI</i> is the namespace URI, or an empty string if the element has no namespace URI or if no namespace processing is done. <i>localName</i> is the local name (without prefix), or an empty string if no namespace processing is done, <i>qName</i> is the qualified name (with prefix) and <i>atts</i> are the attributes attached to the element. If there are no attributes, <i>atts</i> is an empty attributes object.</p>
 <p>If this function returns false the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
 <p>See also <a href="qxmlcontenthandler.html#endElement">endElement</a>() and <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
-<a name="//apple_ref/cpp/instm/QXmlContentHandler/startPrefixMapping" />
+<a name="//apple_ref/cpp/instm/QXmlContentHandler/startPrefixMapping"></a>
 <h3 class="fn"><a name="startPrefixMapping"></a>bool QXmlContentHandler::startPrefixMapping ( const <a href="qstring.html">QString</a> &amp; <i>prefix</i>, const <a href="qstring.html">QString</a> &amp; <i>uri</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>The reader calls this function to signal the begin of a prefix-URI namespace mapping scope. This information is not necessary for normal namespace processing since the reader automatically replaces prefixes for element and attribute names.</p>
 <p>Note that startPrefixMapping() and <a href="qxmlcontenthandler.html#endPrefixMapping">endPrefixMapping</a>() calls are not guaranteed to be properly nested relative to each other: all startPrefixMapping() events occur before the corresponding <a href="qxmlcontenthandler.html#startElement">startElement</a>() event, and all <a href="qxmlcontenthandler.html#endPrefixMapping">endPrefixMapping</a>() events occur after the corresponding <a href="qxmlcontenthandler.html#endElement">endElement</a>() event, but their order is not otherwise guaranteed.</p>
@@ -118,6 +118,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

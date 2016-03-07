@@ -60,104 +60,109 @@
  #include &quot;mediaplayer.h&quot;
  #include &quot;ui_settings.h&quot;
 
- class MediaVideoWidget : public Phonon::VideoWidget
+ MediaVideoWidget::MediaVideoWidget(MediaPlayer *player, QWidget *parent) :
+     Phonon::VideoWidget(parent), m_player(player), m_action(this)
  {
- public:
-     MediaVideoWidget(MediaPlayer *player, QWidget *parent = 0) :
-         Phonon::VideoWidget(parent), m_player(player), m_action(this)
-     {
-         m_action.setCheckable(true);
-         m_action.setChecked(false);
-         m_action.setShortcut(QKeySequence( Qt::AltModifier + Qt::Key_Return));
-         m_action.setShortcutContext(Qt::WindowShortcut);
-         connect(&amp;m_action, SIGNAL(toggled(bool)), SLOT(setFullScreen(bool)));
-         addAction(&amp;m_action);
-         setAcceptDrops(true);
-     }
+     m_action.setCheckable(true);
+     m_action.setChecked(false);
+     m_action.setShortcut(QKeySequence( Qt::AltModifier + Qt::Key_Return));
+     m_action.setShortcutContext(Qt::WindowShortcut);
+     connect(&amp;m_action, SIGNAL(toggled(bool)), SLOT(setFullScreen(bool)));
+     addAction(&amp;m_action);
+     setAcceptDrops(true);
+ }
 
- protected:
-     void mouseDoubleClickEvent(QMouseEvent *e)
-     {
-         Phonon::VideoWidget::mouseDoubleClickEvent(e);
-         setFullScreen(!isFullScreen());
-     }
+ void MediaVideoWidget::setFullScreen(bool enabled)
+ {
+     Phonon::VideoWidget::setFullScreen(enabled);
+     emit fullScreenChanged(enabled);
+ }
 
-     void keyPressEvent(QKeyEvent *e)
-     {
-         if (e-&gt;key() == Qt::Key_Space &amp;&amp; !e-&gt;modifiers()) {
+ void MediaVideoWidget::mouseDoubleClickEvent(QMouseEvent *e)
+ {
+     Phonon::VideoWidget::mouseDoubleClickEvent(e);
+     setFullScreen(!isFullScreen());
+ }
+
+ void MediaVideoWidget::keyPressEvent(QKeyEvent *e)
+ {
+     if(!e-&gt;modifiers()) {
+         <span class="comment">// On non-QWERTY Symbian key-based devices, there is no space key.</span>
+         <span class="comment">// The zero key typically is marked with a space character.</span>
+         if (e-&gt;key() == Qt::Key_Space || e-&gt;key() == Qt::Key_0) {
              m_player-&gt;playPause();
              e-&gt;accept();
              return;
-         } else if (e-&gt;key() == Qt::Key_Escape &amp;&amp; !e-&gt;modifiers()) {
+         }
+
+         <span class="comment">// On Symbian devices, there is no key which maps to Qt::Key_Escape</span>
+         <span class="comment">// On devices which lack a backspace key (i.e. non-QWERTY devices),</span>
+         <span class="comment">// the 'C' key maps to Qt::Key_Backspace</span>
+         else if (e-&gt;key() == Qt::Key_Escape || e-&gt;key() == Qt::Key_Backspace) {
              setFullScreen(false);
              e-&gt;accept();
              return;
          }
-         Phonon::VideoWidget::keyPressEvent(e);
      }
+     Phonon::VideoWidget::keyPressEvent(e);
+ }
 
-     bool event(QEvent *e)
+ bool MediaVideoWidget::event(QEvent *e)
+ {
+     switch(e-&gt;type())
      {
-         switch(e-&gt;type())
+     case QEvent::Close:
+         <span class="comment">//we just ignore the cose events on the video widget</span>
+         <span class="comment">//this prevents ALT+F4 from having an effect in fullscreen mode</span>
+         e-&gt;ignore();
+         return true;
+     case QEvent::MouseMove:
+ #ifndef QT_NO_CURSOR
+         unsetCursor();
+ #endif
+         <span class="comment">//fall through</span>
+     case QEvent::WindowStateChange:
          {
-         case QEvent::Close:
-             <span class="comment">//we just ignore the cose events on the video widget</span>
-             <span class="comment">//this prevents ALT+F4 from having an effect in fullscreen mode</span>
-             e-&gt;ignore();
-             return true;
-         case QEvent::MouseMove:
+             <span class="comment">//we just update the state of the checkbox, in case it wasn't already</span>
+             m_action.setChecked(windowState() &amp; Qt::WindowFullScreen);
+             const Qt::WindowFlags flags = m_player-&gt;windowFlags();
+             if (windowState() &amp; Qt::WindowFullScreen) {
+                 m_timer.start(1000, this);
+             } else {
+                 m_timer.stop();
  #ifndef QT_NO_CURSOR
-             unsetCursor();
+                 unsetCursor();
  #endif
-             <span class="comment">//fall through</span>
-         case QEvent::WindowStateChange:
-             {
-                 <span class="comment">//we just update the state of the checkbox, in case it wasn't already</span>
-                 m_action.setChecked(windowState() &amp; Qt::WindowFullScreen);
-                 const Qt::WindowFlags flags = m_player-&gt;windowFlags();
-                 if (windowState() &amp; Qt::WindowFullScreen) {
-                     m_timer.start(1000, this);
-                 } else {
-                     m_timer.stop();
- #ifndef QT_NO_CURSOR
-                     unsetCursor();
- #endif
-                 }
              }
-             break;
-         default:
-             break;
          }
-
-         return Phonon::VideoWidget::event(e);
+         break;
+     default:
+         break;
      }
 
-     void timerEvent(QTimerEvent *e)
-     {
-         if (e-&gt;timerId() == m_timer.timerId()) {
-             <span class="comment">//let's store the cursor shape</span>
+     return Phonon::VideoWidget::event(e);
+ }
+
+ void MediaVideoWidget::timerEvent(QTimerEvent *e)
+ {
+     if (e-&gt;timerId() == m_timer.timerId()) {
+         <span class="comment">//let's store the cursor shape</span>
  #ifndef QT_NO_CURSOR
-             setCursor(Qt::BlankCursor);
+         setCursor(Qt::BlankCursor);
  #endif
-         }
-         Phonon::VideoWidget::timerEvent(e);
      }
+     Phonon::VideoWidget::timerEvent(e);
+ }
 
-     void dropEvent(QDropEvent *e)
-     {
-         m_player-&gt;handleDrop(e);
-     }
+ void MediaVideoWidget::dropEvent(QDropEvent *e)
+ {
+     m_player-&gt;handleDrop(e);
+ }
 
-     void dragEnterEvent(QDragEnterEvent *e) {
-         if (e-&gt;mimeData()-&gt;hasUrls())
-             e-&gt;acceptProposedAction();
-     }
-
- private:
-     MediaPlayer *m_player;
-     QBasicTimer m_timer;
-     QAction m_action;
- };
+ void MediaVideoWidget::dragEnterEvent(QDragEnterEvent *e) {
+     if (e-&gt;mimeData()-&gt;hasUrls())
+         e-&gt;acceptProposedAction();
+ }
 
  MediaPlayer::MediaPlayer(const QString &amp;filePath,
                           const bool hasSmallScreen) :
@@ -278,11 +283,14 @@
      fileMenu = new QMenu(this);
      QAction *openFileAction = fileMenu-&gt;addAction(tr(&quot;Open &amp;File...&quot;));
      QAction *openUrlAction = fileMenu-&gt;addAction(tr(&quot;Open &amp;Location...&quot;));
+     QAction *const openLinkAction = fileMenu-&gt;addAction(tr(&quot;Open &amp;RAM File...&quot;));
+
+     connect(openLinkAction, SIGNAL(triggered(bool)), this, SLOT(openRamFile()));
 
      fileMenu-&gt;addSeparator();
      QMenu *aspectMenu = fileMenu-&gt;addMenu(tr(&quot;&amp;Aspect ratio&quot;));
      QActionGroup *aspectGroup = new QActionGroup(aspectMenu);
-     connect(aspectGroup, SIGNAL(triggered(QAction *)), this, SLOT(aspectChanged(QAction *)));
+     connect(aspectGroup, SIGNAL(triggered(QAction*)), this, SLOT(aspectChanged(QAction*)));
      aspectGroup-&gt;setExclusive(true);
      QAction *aspectActionAuto = aspectMenu-&gt;addAction(tr(&quot;Auto&quot;));
      aspectActionAuto-&gt;setCheckable(true);
@@ -300,7 +308,7 @@
 
      QMenu *scaleMenu = fileMenu-&gt;addMenu(tr(&quot;&amp;Scale mode&quot;));
      QActionGroup *scaleGroup = new QActionGroup(scaleMenu);
-     connect(scaleGroup, SIGNAL(triggered(QAction *)), this, SLOT(scaleChanged(QAction *)));
+     connect(scaleGroup, SIGNAL(triggered(QAction*)), this, SLOT(scaleChanged(QAction*)));
      scaleGroup-&gt;setExclusive(true);
      QAction *scaleActionFit = scaleMenu-&gt;addAction(tr(&quot;Fit in view&quot;));
      scaleActionFit-&gt;setCheckable(true);
@@ -309,6 +317,14 @@
      QAction *scaleActionCrop = scaleMenu-&gt;addAction(tr(&quot;Scale and crop&quot;));
      scaleActionCrop-&gt;setCheckable(true);
      scaleGroup-&gt;addAction(scaleActionCrop);
+
+     m_fullScreenAction = fileMenu-&gt;addAction(tr(&quot;Full screen video&quot;));
+     m_fullScreenAction-&gt;setCheckable(true);
+     m_fullScreenAction-&gt;setEnabled(false); <span class="comment">// enabled by hasVideoChanged</span>
+     bool b = connect(m_fullScreenAction, SIGNAL(toggled(bool)), m_videoWidget, SLOT(setFullScreen(bool)));
+     Q_ASSERT(b);
+     b = connect(m_videoWidget, SIGNAL(fullScreenChanged(bool)), m_fullScreenAction, SLOT(setChecked(bool)));
+     Q_ASSERT(b);
 
      fileMenu-&gt;addSeparator();
      QAction *settingsAction = fileMenu-&gt;addAction(tr(&quot;&amp;Settings...&quot;));
@@ -331,7 +347,7 @@
      connect(&amp;m_MediaObject, SIGNAL(totalTimeChanged(qint64)), this, SLOT(updateTime()));
      connect(&amp;m_MediaObject, SIGNAL(tick(qint64)), this, SLOT(updateTime()));
      connect(&amp;m_MediaObject, SIGNAL(finished()), this, SLOT(finished()));
-     connect(&amp;m_MediaObject, SIGNAL(stateChanged(Phonon::State, Phonon::State)), this, SLOT(stateChanged(Phonon::State, Phonon::State)));
+     connect(&amp;m_MediaObject, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)));
      connect(&amp;m_MediaObject, SIGNAL(bufferStatus(int)), this, SLOT(bufferStatus(int)));
      connect(&amp;m_MediaObject, SIGNAL(hasVideoChanged(bool)), this, SLOT(hasVideoChanged(bool)));
 
@@ -367,20 +383,20 @@
 
      switch (newstate) {
          case Phonon::ErrorState:
-             QMessageBox::warning(this, &quot;Phonon Mediaplayer&quot;, m_MediaObject.errorString(), QMessageBox::Close);
              if (m_MediaObject.errorType() == Phonon::FatalError) {
                  playButton-&gt;setEnabled(false);
                  rewindButton-&gt;setEnabled(false);
              } else {
                  m_MediaObject.pause();
              }
+             QMessageBox::warning(this, &quot;Phonon Mediaplayer&quot;, m_MediaObject.errorString(), QMessageBox::Close);
              break;
-         case Phonon::PausedState:
+
          case Phonon::StoppedState:
-             playButton-&gt;setIcon(playIcon);
-
              m_videoWidget-&gt;setFullScreen(false);
-
+             <span class="comment">// Fall through</span>
+         case Phonon::PausedState:
+             playButton-&gt;setIcon(playIcon);
              if (m_MediaObject.currentSource().type() != Phonon::MediaSource::Invalid){
                  playButton-&gt;setEnabled(true);
                  rewindButton-&gt;setEnabled(true);
@@ -483,6 +499,8 @@
 
  void MediaPlayer::showSettingsDialog()
  {
+     const bool hasPausedForDialog = playPauseForDialog();
+
      if (!settingsDialog)
          initSettingsDialog();
 
@@ -528,6 +546,9 @@
          m_videoWidget-&gt;setScaleMode(oldScale);
          ui-&gt;audioEffectsCombo-&gt;setCurrentIndex(currentEffect);
      }
+
+     if (hasPausedForDialog)
+         m_MediaObject.play();
  }
 
  void MediaPlayer::initVideoWindow()
@@ -662,10 +683,30 @@
      m_MediaObject.play();
  }
 
+ bool MediaPlayer::playPauseForDialog()
+ {
+     <span class="comment">// If we're running on a small screen, we want to pause the video when</span>
+     <span class="comment">// popping up dialogs. We neither want to tamper with the state if the</span>
+     <span class="comment">// user has paused.</span>
+     if (m_hasSmallScreen &amp;&amp; m_MediaObject.hasVideo()) {
+         if (Phonon::PlayingState == m_MediaObject.state()) {
+             m_MediaObject.pause();
+             return true;
+         }
+     }
+     return false;
+ }
+
  void MediaPlayer::openFile()
  {
+     const bool hasPausedForDialog = playPauseForDialog();
+
      QStringList fileNames = QFileDialog::getOpenFileNames(this, QString(),
                                                            QDesktopServices::storageLocation(QDesktopServices::MusicLocation));
+
+     if (hasPausedForDialog)
+         m_MediaObject.play();
+
      m_MediaObject.clearQueue();
      if (fileNames.size() &gt; 0) {
          QString fileName = fileNames[0];
@@ -826,6 +867,51 @@
      }
  }
 
+<span class="comment"> /*!
+  \since 4.6
+  */</span>
+ void MediaPlayer::openRamFile()
+ {
+     QSettings settings;
+     settings.beginGroup(QLatin1String(&quot;BrowserMainWindow&quot;));
+
+     const QStringList fileNameList(QFileDialog::getOpenFileNames(this,
+                                                                   QString(),
+                                                                   settings.value(&quot;openRamFile&quot;).toString(),
+                                                                   QLatin1String(&quot;RAM files (*.ram)&quot;)));
+
+     if (fileNameList.isEmpty())
+         return;
+
+     QFile linkFile;
+     QList&lt;QUrl&gt; list;
+     QByteArray sourceURL;
+     for (int i = 0; i &lt; fileNameList.count(); i++ ) {
+         linkFile.setFileName(fileNameList[i]);
+         if (linkFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+             while (!linkFile.atEnd()) {
+                 sourceURL = linkFile.readLine().trimmed();
+                 if (!sourceURL.isEmpty()) {
+                     const QUrl url(QUrl::fromEncoded(sourceURL));
+                     if (url.isValid())
+                         list.append(url);
+                 }
+             }
+             linkFile.close();
+         }
+     }
+
+     if (!list.isEmpty()) {
+         m_MediaObject.setCurrentSource(Phonon::MediaSource(list[0]));
+         m_MediaObject.play();
+         for (int i = 1; i &lt; list.count(); i++)
+             m_MediaObject.enqueue(Phonon::MediaSource(list[i]));
+     }
+
+     forwardButton-&gt;setEnabled(!m_MediaObject.queue().isEmpty());
+     settings.setValue(&quot;openRamFile&quot;, fileNameList[0]);
+ }
+
  void MediaPlayer::finished()
  {
  }
@@ -859,11 +945,12 @@
  {
      info-&gt;setVisible(!bHasVideo);
      m_videoWindow.setVisible(bHasVideo);
+     m_fullScreenAction-&gt;setEnabled(bHasVideo);
  }</pre>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

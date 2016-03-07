@@ -29,6 +29,24 @@
 <li><a href="graphicsview-diagramscene-diagramscene-pro.html">graphicsview/diagramscene/diagramscene.pro</a></li>
 <li><a href="graphicsview-diagramscene-diagramscene-qrc.html">graphicsview/diagramscene/diagramscene.qrc</a></li>
 </ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/background1.png">graphicsview/diagramscene/images/background1.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/background2.png">graphicsview/diagramscene/images/background2.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/background3.png">graphicsview/diagramscene/images/background3.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/background4.png">graphicsview/diagramscene/images/background4.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/bold.png">graphicsview/diagramscene/images/bold.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/bringtofront.png">graphicsview/diagramscene/images/bringtofront.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/delete.png">graphicsview/diagramscene/images/delete.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/floodfill.png">graphicsview/diagramscene/images/floodfill.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/italic.png">graphicsview/diagramscene/images/italic.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/linecolor.png">graphicsview/diagramscene/images/linecolor.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/linepointer.png">graphicsview/diagramscene/images/linepointer.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/pointer.png">graphicsview/diagramscene/images/pointer.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/sendtoback.png">graphicsview/diagramscene/images/sendtoback.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/textpointer.png">graphicsview/diagramscene/images/textpointer.png</a></li>
+<li><a href="images/used-in-examples/graphicsview/diagramscene/images/underline.png">graphicsview/diagramscene/images/underline.png</a></li>
+</ul>
 <p>This example shows use of Qt's graphics framework.</p>
 <p align="center"><img src="images/diagramscene.png" /></p><p>The Diagram Scene example is an application in which you can create a flowchart diagram. It is possible to add flowchart shapes and text and connect the shapes by arrows as shown in the image above. The shapes, arrows, and text can be given different colors, and it is possible to change the font, style, and underline of the text.</p>
 <p>The Qt graphics view framework is designed to manage and display custom 2D graphics items. The main classes of the framework are <a href="qgraphicsitem.html">QGraphicsItem</a>, <a href="qgraphicsscene.html">QGraphicsScene</a> and <a href="qgraphicsview.html">QGraphicsView</a>. The graphics scene manages the items and provides a surface for them. <a href="qgraphicsview.html">QGraphicsView</a> is a widget that is used to render a scene on the screen. See the <a href="graphicsview.html">overview document</a> for a more detailed description of the framework.</p>
@@ -146,12 +164,12 @@
 
      scene = new DiagramScene(itemMenu);
      scene-&gt;setSceneRect(QRectF(0, 0, 5000, 5000));
-     connect(scene, SIGNAL(itemInserted(DiagramItem *)),
-             this, SLOT(itemInserted(DiagramItem *)));
-     connect(scene, SIGNAL(textInserted(QGraphicsTextItem *)),
-         this, SLOT(textInserted(QGraphicsTextItem *)));
-     connect(scene, SIGNAL(itemSelected(QGraphicsItem *)),
-         this, SLOT(itemSelected(QGraphicsItem *)));
+     connect(scene, SIGNAL(itemInserted(DiagramItem*)),
+             this, SLOT(itemInserted(DiagramItem*)));
+     connect(scene, SIGNAL(textInserted(QGraphicsTextItem*)),
+         this, SLOT(textInserted(QGraphicsTextItem*)));
+     connect(scene, SIGNAL(itemSelected(QGraphicsItem*)),
+         this, SLOT(itemSelected(QGraphicsItem*)));
      createToolbars();
 
      QHBoxLayout *layout = new QHBoxLayout;
@@ -705,10 +723,10 @@
              textItem-&gt;setFont(myFont);
              textItem-&gt;setTextInteractionFlags(Qt::TextEditorInteraction);
              textItem-&gt;setZValue(1000.0);
-             connect(textItem, SIGNAL(lostFocus(DiagramTextItem *)),
-                     this, SLOT(editorLostFocus(DiagramTextItem *)));
-             connect(textItem, SIGNAL(selectedChange(QGraphicsItem *)),
-                     this, SIGNAL(itemSelected(QGraphicsItem *)));
+             connect(textItem, SIGNAL(lostFocus(DiagramTextItem*)),
+                     this, SLOT(editorLostFocus(DiagramTextItem*)));
+             connect(textItem, SIGNAL(selectedChange(QGraphicsItem*)),
+                     this, SIGNAL(itemSelected(QGraphicsItem*)));
              addItem(textItem);
              textItem-&gt;setDefaultTextColor(myTextColor);
              textItem-&gt;setPos(mouseEvent-&gt;scenePos());
@@ -1115,6 +1133,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

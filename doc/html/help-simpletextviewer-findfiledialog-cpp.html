@@ -185,9 +185,9 @@
      directoryComboBox-&gt;setSizePolicy(QSizePolicy::Expanding,
                                       QSizePolicy::Preferred);
 
-     connect(fileNameComboBox, SIGNAL(editTextChanged(const QString &amp;)),
+     connect(fileNameComboBox, SIGNAL(editTextChanged(QString)),
              this, SLOT(update()));
-     connect(directoryComboBox, SIGNAL(currentIndexChanged(const QString &amp;)),
+     connect(directoryComboBox, SIGNAL(currentIndexChanged(QString)),
              this, SLOT(update()));
  }
 
@@ -199,8 +199,8 @@
      foundFilesTree-&gt;setRootIsDecorated(false);
      foundFilesTree-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
 
-     connect(foundFilesTree, SIGNAL(itemActivated(QTreeWidgetItem *, int)),
-             this, SLOT(openFile(QTreeWidgetItem *)));
+     connect(foundFilesTree, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
+             this, SLOT(openFile(QTreeWidgetItem*)));
  }
 
  void FindFileDialog::createLabels()
@@ -232,6 +232,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -15,6 +15,7 @@
 </h1>
 <p>Files:</p>
 <ul>
+<li><a href="script-helloscript-helloscript-js.html">script/helloscript/helloscript.js</a></li>
 <li><a href="script-helloscript-main-cpp.html">script/helloscript/main.cpp</a></li>
 <li><a href="script-helloscript-helloscript-pro.html">script/helloscript/helloscript.pro</a></li>
 <li><a href="script-helloscript-helloscript-qrc.html">script/helloscript/helloscript.qrc</a></li>
@@ -37,7 +38,7 @@
      QScriptValue scriptButton = engine.newQObject(&amp;button);
      engine.globalObject().setProperty(&quot;button&quot;, scriptButton);</pre>
 <p>A push button is created and exported to the script environment as a global variable, <tt>button</tt>. Scripts will be able to access properties, signals and slots of the button as properties of the <tt>button</tt> script object; the script object acts as a proxy to the C++ button object.</p>
-<pre>     QString fileName(&quot;:/helloscript.qs&quot;);
+<pre>     QString fileName(&quot;:/helloscript.js&quot;);
      QFile scriptFile(fileName);
      scriptFile.open(QIODevice::ReadOnly);
      QTextStream stream(&amp;scriptFile);
@@ -67,10 +68,10 @@
 <p>The Qt Script internalization support builds on what Qt already provides for C++; see the <a href="linguist-hellotr.html">Hello tr</a>() Example for an introduction.</p>
 <p>Since we haven't made the translation file <tt>helloscript_la.qm</tt>, the source text is shown when we run the application (&quot;Hello world!&quot;).</p>
 <p>To generate the translation file, run <tt>lupdate</tt> as follows:</p>
-<pre> lupdate helloscript.qs -ts helloscript_la.ts</pre>
+<pre> lupdate helloscript.js -ts helloscript_la.ts</pre>
 <p>You should now have a file <tt>helloscript_la.ts</tt> in the current directory. Run <tt>linguist</tt> to edit the translation:</p>
 <pre> linguist helloscript_la.ts</pre>
-<p>You should now see the text &quot;helloscript.qs&quot; in the top left pane. Double-click it, then click on &quot;Hello world!&quot; and enter &quot;Orbis, te saluto!&quot; in the <b>Translation</b> pane (the middle right of the window). Don't forget the exclamation mark!</p>
+<p>You should now see the text &quot;helloscript.js&quot; in the top left pane. Double-click it, then click on &quot;Hello world!&quot; and enter &quot;Orbis, te saluto!&quot; in the <b>Translation</b> pane (the middle right of the window). Don't forget the exclamation mark!</p>
 <p>Click the <b>Done</b> checkbox and choose <b>File|Save</b> from the menu bar. The TS file will no longer contain</p>
 <pre> &lt;translation type='unfinished'&gt;&lt;/translation&gt;</pre>
 <p>but instead will have</p>
@@ -80,6 +81,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

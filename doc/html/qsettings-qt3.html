@@ -46,10 +46,10 @@
 </ul>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QSettings/System" />
-<a name="//apple_ref/cpp/econst/QSettings/Unix" />
-<a name="//apple_ref/cpp/econst/QSettings/Windows" />
-<a name="//apple_ref/cpp/econst/QSettings/Mac" />
+<a name="//apple_ref/cpp/tag/QSettings/System"></a>
+<a name="//apple_ref/cpp/econst/QSettings/Unix"></a>
+<a name="//apple_ref/cpp/econst/QSettings/Windows"></a>
+<a name="//apple_ref/cpp/econst/QSettings/Mac"></a>
 <h3 class="fn"><a name="System-enum"></a>enum QSettings::System</h3>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
 <tr><th width="25%">Constant</th><th width="15%">Value</th><th width="60%">Description</th></tr>
@@ -60,7 +60,7 @@
 <p>See also <a href="qsettings-qt3.html#insertSearchPath">insertSearchPath</a>() and <a href="qsettings-qt3.html#removeSearchPath">removeSearchPath</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QSettings/entryList" />
+<a name="//apple_ref/cpp/instm/QSettings/entryList"></a>
 <h3 class="fn"><a name="entryList"></a><a href="qstringlist.html">QStringList</a> QSettings::entryList ( const <a href="qstring.html">QString</a> &amp; <i>key</i> ) const</h3>
 <p>Returns a list of all sub-keys of <i>key</i>.</p>
 <p>Use <a href="qsettings.html#childKeys">childKeys</a>() instead.</p>
@@ -74,10 +74,10 @@
  QStringList keys = settings.childKeys();
  ...
  settings.endGroup();</pre>
-<a name="//apple_ref/cpp/instm/QSettings/insertSearchPath" />
+<a name="//apple_ref/cpp/instm/QSettings/insertSearchPath"></a>
 <h3 class="fn"><a name="insertSearchPath"></a>void QSettings::insertSearchPath ( <a href="qsettings-qt3.html#System-enum">System</a> <i>system</i>, const <a href="qstring.html">QString</a> &amp; <i>path</i> )</h3>
 <p>This function is implemented as a no-op. It is provided for source compatibility with Qt 3. The new <a href="qsettings.html">QSettings</a> class has no concept of &quot;search path&quot;.</p>
-<a name="//apple_ref/cpp/instm/QSettings/readBoolEntry" />
+<a name="//apple_ref/cpp/instm/QSettings/readBoolEntry"></a>
 <h3 class="fn"><a name="readBoolEntry"></a>bool QSettings::readBoolEntry ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, bool <i>defaultValue</i> = false, bool * <i>ok</i> = 0 )</h3>
 <p>Returns the value for setting <i>key</i> converted to a <tt>bool</tt>. If the setting doesn't exist, returns <i>defaultValue</i>.</p>
 <p>If <i>ok</i> is not 0, *<i>ok</i> is set to true if the key exists, otherwise *<i>ok</i> is set to false.</p>
@@ -88,7 +88,7 @@
 <p>you can rewrite it as</p>
 <pre> bool ok = settings.contains(&quot;showGrid&quot;);
  bool grid = settings.value(&quot;showGrid&quot;, true).toBool();</pre>
-<a name="//apple_ref/cpp/instm/QSettings/readDoubleEntry" />
+<a name="//apple_ref/cpp/instm/QSettings/readDoubleEntry"></a>
 <h3 class="fn"><a name="readDoubleEntry"></a>double QSettings::readDoubleEntry ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, double <i>defaultValue</i> = 0, bool * <i>ok</i> = 0 )</h3>
 <p>Returns the value for setting <i>key</i> converted to a <tt>double</tt>. If the setting doesn't exist, returns <i>defaultValue</i>.</p>
 <p>If <i>ok</i> is not 0, *<i>ok</i> is set to true if the key exists, otherwise *<i>ok</i> is set to false.</p>
@@ -99,7 +99,7 @@
 <p>you can rewrite it as</p>
 <pre> bool ok = settings.contains(&quot;pi&quot;);
  double pi = settings.value(&quot;pi&quot;, 3.141592).toDouble();</pre>
-<a name="//apple_ref/cpp/instm/QSettings/readEntry" />
+<a name="//apple_ref/cpp/instm/QSettings/readEntry"></a>
 <h3 class="fn"><a name="readEntry"></a><a href="qstring.html">QString</a> QSettings::readEntry ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, const <a href="qstring.html">QString</a> &amp; <i>defaultValue</i> = QString(), bool * <i>ok</i> = 0 )</h3>
 <p>Returns the value for setting <i>key</i> converted to a <a href="qstring.html">QString</a>. If the setting doesn't exist, returns <i>defaultValue</i>.</p>
 <p>If <i>ok</i> is not 0, *<i>ok</i> is set to true if the key exists, otherwise *<i>ok</i> is set to false.</p>
@@ -110,7 +110,7 @@
 <p>you can rewrite it as</p>
 <pre> bool ok = settings.contains(&quot;userName&quot;);
  QString str = settings.value(&quot;userName&quot;, &quot;administrator&quot;).toString();</pre>
-<a name="//apple_ref/cpp/instm/QSettings/readListEntry" />
+<a name="//apple_ref/cpp/instm/QSettings/readListEntry"></a>
 <h3 class="fn"><a name="readListEntry"></a><a href="qstringlist.html">QStringList</a> QSettings::readListEntry ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, bool * <i>ok</i> = 0 )</h3>
 <p>Returns the value of setting <i>key</i> converted to a <a href="qstringlist.html">QStringList</a>.</p>
 <p>If <i>ok</i> is not 0, *<i>ok</i> is set to true if the key exists, otherwise *<i>ok</i> is set to false.</p>
@@ -131,7 +131,7 @@
 <p>you can rewrite it as</p>
 <pre> bool ok = settings.contains(&quot;recentFiles&quot;);
  QStringList list = settings.value(&quot;recentFiles&quot;).toStringList();</pre>
-<a name="//apple_ref/cpp/instm/QSettings/readNumEntry" />
+<a name="//apple_ref/cpp/instm/QSettings/readNumEntry"></a>
 <h3 class="fn"><a name="readNumEntry"></a>int QSettings::readNumEntry ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, int <i>defaultValue</i> = 0, bool * <i>ok</i> = 0 )</h3>
 <p>Returns the value for setting <i>key</i> converted to an <tt>int</tt>. If the setting doesn't exist, returns <i>defaultValue</i>.</p>
 <p>If <i>ok</i> is not 0, *<i>ok</i> is set to true if the key exists, otherwise *<i>ok</i> is set to false.</p>
@@ -142,13 +142,13 @@
 <p>you can rewrite it as</p>
 <pre> bool ok = settings.contains(&quot;maxConnections&quot;);
  int max = settings.value(&quot;maxConnections&quot;, 30).toInt();</pre>
-<a name="//apple_ref/cpp/instm/QSettings/removeEntry" />
+<a name="//apple_ref/cpp/instm/QSettings/removeEntry"></a>
 <h3 class="fn"><a name="removeEntry"></a>bool QSettings::removeEntry ( const <a href="qstring.html">QString</a> &amp; <i>key</i> )</h3>
 <p>Use <a href="qsettings.html#remove">remove</a>() instead.</p>
-<a name="//apple_ref/cpp/instm/QSettings/removeSearchPath" />
+<a name="//apple_ref/cpp/instm/QSettings/removeSearchPath"></a>
 <h3 class="fn"><a name="removeSearchPath"></a>void QSettings::removeSearchPath ( <a href="qsettings-qt3.html#System-enum">System</a> <i>system</i>, const <a href="qstring.html">QString</a> &amp; <i>path</i> )</h3>
 <p>This function is implemented as a no-op. It is provided for source compatibility with Qt 3. The new <a href="qsettings.html">QSettings</a> class has no concept of &quot;search path&quot;.</p>
-<a name="//apple_ref/cpp/instm/QSettings/resetGroup" />
+<a name="//apple_ref/cpp/instm/QSettings/resetGroup"></a>
 <h3 class="fn"><a name="resetGroup"></a>void QSettings::resetGroup ()</h3>
 <p>Sets the current group to be the empty string.</p>
 <p>Use <a href="qsettings.html#endGroup">endGroup</a>() instead (possibly multiple times).</p>
@@ -173,7 +173,7 @@
  settings.setPath(&quot;twikimaster.com&quot;, &quot;Kanooth&quot;, QSettings::Global);</font></pre>
 <p>you can rewrite it as</p>
 <pre> QSettings settings(QSettings::SystemScope, &quot;twikimaster.com&quot;, &quot;Kanooth&quot;);</pre>
-<a name="//apple_ref/cpp/instm/QSettings/subkeyList" />
+<a name="//apple_ref/cpp/instm/QSettings/subkeyList"></a>
 <h3 class="fn"><a name="subkeyList"></a><a href="qstringlist.html">QStringList</a> QSettings::subkeyList ( const <a href="qstring.html">QString</a> &amp; <i>key</i> ) const</h3>
 <p>Returns a list of all sub-keys of <i>key</i>.</p>
 <p>Use <a href="qsettings.html#childGroups">childGroups</a>() instead.</p>
@@ -187,7 +187,7 @@
  QStringList groups = settings.childKeys();
  ...
  settings.endGroup();</pre>
-<a name="//apple_ref/cpp/instm/QSettings/writeEntry" />
+<a name="//apple_ref/cpp/instm/QSettings/writeEntry"></a>
 <h3 class="fn"><a name="writeEntry"></a>bool QSettings::writeEntry ( const <a href="qstring.html">QString</a> &amp; <i>key</i>, bool <i>value</i> )</h3>
 <p>Sets the value of setting <i>key</i> to <i>value</i>.</p>
 <p>Use <a href="qsettings.html#setValue">setValue</a>() instead.</p>
@@ -208,6 +208,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

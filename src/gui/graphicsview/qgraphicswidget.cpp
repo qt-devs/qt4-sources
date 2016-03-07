@@ -385,8 +385,6 @@ void QGraphicsWidget::setGeometry(const QRectF &rect)
     QSizeF oldSize = size();
     QGraphicsLayoutItem::setGeometry(newGeom);
 
-    wd->invalidateCachedClipPathRecursively();
-
     // Send resize event
     bool resized = newGeom.size() != oldSize;
     if (resized) {
@@ -1056,7 +1054,7 @@ QVariant QGraphicsWidget::itemChange(GraphicsItemChange change, const QVariant &
         break;
     case ItemParentChange: {
         QGraphicsItem *parent = qVariantValue<QGraphicsItem *>(value);
-        d->fixFocusChainBeforeReparenting((parent && parent->isWidget()) ? static_cast<QGraphicsWidget *>(parent) : 0);
+        d->fixFocusChainBeforeReparenting((parent && parent->isWidget()) ? static_cast<QGraphicsWidget *>(parent) : 0, scene());
 
         // Deliver ParentAboutToChange.
         QEvent event(QEvent::ParentAboutToChange);
@@ -1303,7 +1301,8 @@ bool QGraphicsWidget::event(QEvent *event)
     case QEvent::Polish:
         polishEvent();
         d->polished = true;
-        d->updateFont(d->font);
+        if (!d->font.isCopyOf(QApplication::font()))
+            d->updateFont(d->font);
         break;
     case QEvent::WindowActivate:
     case QEvent::WindowDeactivate:

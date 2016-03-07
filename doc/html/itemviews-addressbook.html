@@ -228,8 +228,8 @@
  {
      table = new TableModel(this);
      newAddressTab = new NewAddressTab(this);
-     connect(newAddressTab, SIGNAL(sendDetails(QString, QString)),
-         this, SLOT(addEntry(QString, QString)));
+     connect(newAddressTab, SIGNAL(sendDetails(QString,QString)),
+         this, SLOT(addEntry(QString,QString)));
 
      addTab(newAddressTab, &quot;Address Book&quot;);
 
@@ -265,8 +265,8 @@
          proxyModel-&gt;sort(0, Qt::AscendingOrder);
 
          connect(tableView-&gt;selectionModel(),
-             SIGNAL(selectionChanged(const QItemSelection &amp;, const QItemSelection &amp;)),
-             this, SIGNAL(selectionChanged(const QItemSelection &amp;)));
+             SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+             this, SIGNAL(selectionChanged(QItemSelection)));
 
          addTab(tableView, str);
      }
@@ -586,8 +586,8 @@
      connect(removeAct, SIGNAL(triggered()),
          addressWidget, SLOT(removeEntry()));
 
-     connect(addressWidget, SIGNAL(selectionChanged(const QItemSelection &amp;)),
-         this, SLOT(updateActions(const QItemSelection &amp;)));
+     connect(addressWidget, SIGNAL(selectionChanged(QItemSelection)),
+         this, SLOT(updateActions(QItemSelection)));
  }</pre>
 <p>Apart from connecting all the actions' signals to their respective slots, we also connect <tt>AddressWidget</tt>'s <tt>selectionChanged()</tt> signal to its <tt>updateActions()</tt> slot.</p>
 <p>The <tt>openFile()</tt> function allows the user to choose a file with the <a href="qfiledialog.html#getOpenFileName">open file dialog</a>. The chosen file has to be a custom <tt>.dat</tt> file that contains address book contacts. This function is a slot connected to <tt>openAct</tt> in the <b>File</b> menu.</p>
@@ -633,6 +633,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

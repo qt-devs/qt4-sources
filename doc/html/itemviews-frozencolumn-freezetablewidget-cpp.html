@@ -65,10 +65,10 @@
        init();
 
        <span class="comment">//connect the headers and scrollbars of both tableviews together</span>
-       connect(horizontalHeader(),SIGNAL(sectionResized ( int ,int,int )), this,
-               SLOT(updateSectionWidth(int, int, int)));
-       connect(verticalHeader(),SIGNAL(sectionResized ( int ,int,int )), this,
-               SLOT(updateSectionHeight(int, int, int)));
+       connect(horizontalHeader(),SIGNAL(sectionResized(int,int,int)), this,
+               SLOT(updateSectionWidth(int,int,int)));
+       connect(verticalHeader(),SIGNAL(sectionResized(int,int,int)), this,
+               SLOT(updateSectionHeight(int,int,int)));
 
        connect(frozenTableView-&gt;verticalScrollBar(), SIGNAL(valueChanged(int)),
                verticalScrollBar(), SLOT(setValue(int)));
@@ -92,7 +92,8 @@
        viewport()-&gt;stackUnder(frozenTableView);
 
        frozenTableView-&gt;setStyleSheet(&quot;QTableView { border: none;&quot;
-                                      &quot;background-color: #8EDE21;}&quot;); <span class="comment">//for demo purposes</span>
+                                      &quot;background-color: #8EDE21;&quot;
+                                      &quot;selection-background-color: #999}&quot;); <span class="comment">//for demo purposes</span>
        frozenTableView-&gt;setSelectionModel(selectionModel());
        for(int col=1; col&lt;model()-&gt;columnCount(); col++)
              frozenTableView-&gt;setColumnHidden(col, true);
@@ -144,6 +145,11 @@
        return current;
  }
 
+ void FreezeTableWidget::scrollTo (const QModelIndex &amp; index, ScrollHint hint){
+     if(index.column()&gt;0)
+         QTableView::scrollTo(index, hint);
+ }
+
  void FreezeTableWidget::updateFrozenTableGeometry()
  {
        frozenTableView-&gt;setGeometry( verticalHeader()-&gt;width()+frameWidth(),
@@ -154,6 +160,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -171,8 +171,8 @@
      MultiPageWidget *widget = new MultiPageWidget(parent);
      connect(widget, SIGNAL(currentIndexChanged(int)),
              this, SLOT(currentIndexChanged(int)));
-     connect(widget, SIGNAL(pageTitleChanged(const QString &amp;)),
-             this, SLOT(pageTitleChanged(const QString &amp;)));
+     connect(widget, SIGNAL(pageTitleChanged(QString)),
+             this, SLOT(pageTitleChanged(QString)));
      return widget;
  }</pre>
 <p>In addition to create and return the widget, we connect our custom container widget's currentIndexChanged() signal to the plugin's currentIndexChanged() slot to ensure that <i>Qt Designer</i>'s property editor is updated whenever the user views another page. We also connect the widget's pageTitleChanged() signal to the plugin's pageTitleChanged() slot.</p>
@@ -399,6 +399,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

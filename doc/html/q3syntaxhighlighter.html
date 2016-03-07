@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3SyntaxHighlighter" />
+<a name="//apple_ref/cpp/cl//Q3SyntaxHighlighter"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -42,17 +42,17 @@
 <p>When you create an instance of your Q3SyntaxHighlighter subclass, pass it the <a href="q3textedit.html">Q3TextEdit</a> that you want the syntax highlighting to be applied to. After this your <a href="q3syntaxhighlighter.html#highlightParagraph">highlightParagraph</a>() function will be called automatically whenever necessary. Use your <a href="q3syntaxhighlighter.html#highlightParagraph">highlightParagraph</a>() function to apply formatting (e.g&#x2e; setting the font and color) to the text that is passed to it.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/Q3SyntaxHighlighter" />
+<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/Q3SyntaxHighlighter"></a>
 <h3 class="fn"><a name="Q3SyntaxHighlighter"></a>Q3SyntaxHighlighter::Q3SyntaxHighlighter ( <a href="q3textedit.html">Q3TextEdit</a> * <i>textEdit</i> )</h3>
 <p>Constructs the <a href="q3syntaxhighlighter.html" class="compat">Q3SyntaxHighlighter</a> and installs it on <i>textEdit</i>. Ownership of the <a href="q3syntaxhighlighter.html" class="compat">Q3SyntaxHighlighter</a> is transferred to the <i>textEdit</i></p>
-<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/~Q3SyntaxHighlighter" />
+<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/~Q3SyntaxHighlighter"></a>
 <h3 class="fn"><a name="dtor.Q3SyntaxHighlighter"></a>Q3SyntaxHighlighter::~Q3SyntaxHighlighter ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destructor. Uninstalls this syntax highlighter from the <a href="q3syntaxhighlighter.html#textEdit">textEdit</a>()</p>
-<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/currentParagraph" />
+<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/currentParagraph"></a>
 <h3 class="fn"><a name="currentParagraph"></a>int Q3SyntaxHighlighter::currentParagraph () const</h3>
 <p>Returns the id of the paragraph which is highlighted, or -1 of no paragraph is currently highlighted.</p>
 <p>Usually this function is called from within <a href="q3syntaxhighlighter.html#highlightParagraph">highlightParagraph</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/highlightParagraph" />
+<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/highlightParagraph"></a>
 <h3 class="fn"><a name="highlightParagraph"></a>int Q3SyntaxHighlighter::highlightParagraph ( const <a href="qstring.html">QString</a> &amp; <i>text</i>, int <i>endStateOfLastPara</i> )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>This function is called when necessary by the rich text engine, i.e&#x2e; on paragraphs which have changed.</p>
 <p>In your reimplementation you should parse the paragraph's <i>text</i> and call <a href="q3syntaxhighlighter.html#setFormat">setFormat</a>() as often as necessary to apply any font and color changes that you require. Your function must return a value which indicates the paragraph's end state: see below.</p>
@@ -62,10 +62,10 @@
 <p>The value you return is up to you. We recommend only returning 0 (to signify that this paragraph's syntax highlighting does not affect the following paragraph), or a positive integer (to signify that this paragraph has ended in the middle of a paragraph spanning construct).</p>
 <p>To find out which paragraph is highlighted, call <a href="q3syntaxhighlighter.html#currentParagraph">currentParagraph</a>().</p>
 <p>For example, if you're writing a simple C++ syntax highlighter, you might designate 1 to signify &quot;in comment&quot;. For a paragraph that ended in the middle of a comment you'd return 1, and for other paragraphs you'd return 0. In your parsing code if <i>endStateOfLastPara</i> was 1, you would highlight the text as a C++ comment until you reached the closing <tt>*</tt><tt>/</tt>.</p>
-<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/rehighlight" />
+<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/rehighlight"></a>
 <h3 class="fn"><a name="rehighlight"></a>void Q3SyntaxHighlighter::rehighlight ()</h3>
 <p>Redoes the highlighting of the whole document.</p>
-<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/setFormat" />
+<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/setFormat"></a>
 <h3 class="fn"><a name="setFormat"></a>void Q3SyntaxHighlighter::setFormat ( int <i>start</i>, int <i>count</i>, const <a href="qfont.html">QFont</a> &amp; <i>font</i>, const <a href="qcolor.html">QColor</a> &amp; <i>color</i> )</h3>
 <p>This function is applied to the syntax highlighter's current paragraph (the text of which is passed to the <a href="q3syntaxhighlighter.html#highlightParagraph">highlightParagraph</a>() function).</p>
 <p>The specified <i>font</i> and <i>color</i> are applied to the text from position <i>start</i> for <i>count</i> characters. (If <i>count</i> is 0, nothing is done.)</p>
@@ -73,13 +73,13 @@
 <p>This is an overloaded function.</p>
 <h3 class="fn"><a name="setFormat-3"></a>void Q3SyntaxHighlighter::setFormat ( int <i>start</i>, int <i>count</i>, const <a href="qfont.html">QFont</a> &amp; <i>font</i> )</h3>
 <p>This is an overloaded function.</p>
-<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/textEdit" />
+<a name="//apple_ref/cpp/instm/Q3SyntaxHighlighter/textEdit"></a>
 <h3 class="fn"><a name="textEdit"></a><a href="q3textedit.html">Q3TextEdit</a> * Q3SyntaxHighlighter::textEdit () const</h3>
 <p>Returns the <a href="q3textedit.html" class="compat">Q3TextEdit</a> on which this syntax highlighter is installed</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

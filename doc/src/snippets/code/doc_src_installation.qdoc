@@ -41,13 +41,13 @@
 
 //! [0]
 cd /tmp
-gunzip qt-x11-opensource-desktop-4.6.0.tar.gz        # uncompress the archive
-tar xvf qt-x11-opensource-desktop-4.6.0.tar          # unpack it
+gunzip qt-everywhere-opensource-src-4.6.1.tar.gz        # uncompress the archive
+tar xvf qt-everywhere-opensource-src-4.6.1.tar          # unpack it
 //! [0]
 
 
 //! [1]
-cd /tmp/qt-x11-opensource-desktop-4.6.0
+cd /tmp/qt-everywhere-opensource-src-4.6.1
 ./configure
 //! [1]
 
@@ -68,13 +68,13 @@ PATH               - to locate qmake, moc and other Qt tools
 
 
 //! [5]
-PATH=/usr/local/Trolltech/Qt-4.6.0/bin:$PATH
+PATH=/usr/local/Trolltech/Qt-4.6.1/bin:$PATH
 export PATH
 //! [5]
 
 
 //! [6]
-setenv PATH /usr/local/Trolltech/Qt-4.6.0/bin:$PATH
+setenv PATH /usr/local/Trolltech/Qt-4.6.1/bin:$PATH
 //! [6]
 
 
@@ -85,7 +85,7 @@ PATH               - to locate qmake, moc and other Qt tools
 
 //! [8]
 C:
-cd /D C:\Qt\4.6.0
+cd /D C:\Qt\4.6.1
 configure
 //! [8]
 
@@ -102,13 +102,13 @@ nmake
 
 //! [11]
 cd /tmp
-gunzip qt-mac-opensource-desktop-4.6.0.tar.gz        # uncompress the archive
-tar xvf qt-mac-opensource-desktop-4.6.0.tar          # unpack it
+gunzip qt-everywhere-opensource-src-4.6.1.tar.gz        # uncompress the archive
+tar xvf qt-everywhere-opensource-src-4.6.1.tar          # unpack it
 //! [11]
 
 
 //! [12]
-cd /tmp/qt-mac-opensource-desktop-4.6.0
+cd /tmp/qt-everywhere-opensource-src-4.6.1
 ./configure
 //! [12]
 
@@ -129,13 +129,13 @@ PATH               - to locate qmake, moc and other Qt tools
 
 
 //! [16]
-PATH=/usr/local/Trolltech/Qt-4.6.0/bin:$PATH
+PATH=/usr/local/Trolltech/Qt-4.6.1/bin:$PATH
 export PATH
 //! [16]
 
 
 //! [17]
-setenv PATH /usr/local/Trolltech/Qt-4.6.0/bin:$PATH
+setenv PATH /usr/local/Trolltech/Qt-4.6.1/bin:$PATH
 //! [17]
 
 
@@ -146,7 +146,7 @@ PATH               - to locate qmake, moc and other Qt tools
 
 //! [19]
 C:
-cd \Qt\4.6.0
+cd \Qt\4.6.1
 configure -platform win32-msvc2005 -xplatform wincewm50pocket-msvc2005
 //! [19]
 
@@ -169,7 +169,7 @@ nmake
 
 
 //! [23]
-cd \Qt\4.6.0
+cd \Qt\4.6.1
 configure -platform win32-g++ -xplatform symbian-abld
 //! [23]
 
@@ -198,15 +198,17 @@ make release-armv5
 //! [29]
 cd src\s60installs
 make sis QT_SIS_OPTIONS=-i QT_SIS_CERTIFICATE=<certificate file> QT_SIS_KEY=<certificate key file>
+cd ..\3rdparty\webkit\WebCore
+make sis QT_SIS_OPTIONS=-i QT_SIS_CERTIFICATE=<certificate file> QT_SIS_KEY=<certificate key file>
 //! [29]
 
 //! [30]
-cd embedded\fluidlauncher
+cd demos\embedded\fluidlauncher
 make sis QT_SIS_OPTIONS=-i
 //! [30]
 
 //! [31]
-cd \Qt\4.6.0
+cd \Qt\4.6.1
 configure -platform win32-g++ -xplatform symbian-sbsv2
 //! [31]
 

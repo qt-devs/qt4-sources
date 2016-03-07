@@ -87,8 +87,8 @@
      c-&gt;setWidget(this);
      c-&gt;setCompletionMode(QCompleter::PopupCompletion);
      c-&gt;setCaseSensitivity(Qt::CaseInsensitive);
-     QObject::connect(c, SIGNAL(activated(const QString&amp;)),
-                      this, SLOT(insertCompletion(const QString&amp;)));
+     QObject::connect(c, SIGNAL(activated(QString)),
+                      this, SLOT(insertCompletion(QString)));
  }</pre>
 <p>We then instantiate <tt>c</tt> with <i>completer</i> and set it as <tt>TextEdit</tt>'s widget. The completion mode and case sensitivity are also set and then we connect the <a href="qcompleter.html#activated">activated()</a> signal to the <tt>insertCompletion()</tt> slot.</p>
 <p>The <tt>completer()</tt> function is a getter function that returns <tt>c</tt>.</p>
@@ -278,6 +278,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -84,18 +84,18 @@
 
      clipboard = QApplication::clipboard();
 
-     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &amp;)),
-             this, SLOT(findStyles(const QFont &amp;)));
-     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &amp;)),
-             this, SLOT(findSizes(const QFont &amp;)));
-     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &amp;)),
-             characterWidget, SLOT(updateFont(const QFont &amp;)));
-     connect(sizeCombo, SIGNAL(currentIndexChanged(const QString &amp;)),
-             characterWidget, SLOT(updateSize(const QString &amp;)));
-     connect(styleCombo, SIGNAL(currentIndexChanged(const QString &amp;)),
-             characterWidget, SLOT(updateStyle(const QString &amp;)));
-     connect(characterWidget, SIGNAL(characterSelected(const QString &amp;)),
-             this, SLOT(insertCharacter(const QString &amp;)));
+     connect(fontCombo, SIGNAL(currentFontChanged(QFont)),
+             this, SLOT(findStyles(QFont)));
+     connect(fontCombo, SIGNAL(currentFontChanged(QFont)),
+             this, SLOT(findSizes(QFont)));
+     connect(fontCombo, SIGNAL(currentFontChanged(QFont)),
+             characterWidget, SLOT(updateFont(QFont)));
+     connect(sizeCombo, SIGNAL(currentIndexChanged(QString)),
+             characterWidget, SLOT(updateSize(QString)));
+     connect(styleCombo, SIGNAL(currentIndexChanged(QString)),
+             characterWidget, SLOT(updateStyle(QString)));
+     connect(characterWidget, SIGNAL(characterSelected(QString)),
+             this, SLOT(insertCharacter(QString)));
      connect(clipboardButton, SIGNAL(clicked()), this, SLOT(updateClipboard()));
      connect(fontMerging, SIGNAL(toggled(bool)), characterWidget, SLOT(updateFontMerging(bool)));
 
@@ -189,6 +189,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

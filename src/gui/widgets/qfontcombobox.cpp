@@ -269,9 +269,8 @@ void QFontComboBoxPrivate::_q_updateModel()
 void QFontComboBoxPrivate::_q_currentChanged(const QString &text)
 {
     Q_Q(QFontComboBox);
-    QFont newFont(text);
-    if (currentFont.family() != newFont.family()) {
-        currentFont = newFont;
+    if (currentFont.family() != text) {
+        currentFont.setFamily(text);
         emit q->currentFontChanged(currentFont);
     }
 }
@@ -427,8 +426,10 @@ void QFontComboBox::setCurrentFont(const QFont &font)
     Q_D(QFontComboBox);
     if (font != d->currentFont) {
         d->currentFont = font;
-        emit currentFontChanged(d->currentFont);
         d->_q_updateModel();
+        if (d->currentFont == font) { //else the signal has already be emitted by _q_updateModel
+            emit currentFontChanged(d->currentFont);
+        }
     }
 }
 

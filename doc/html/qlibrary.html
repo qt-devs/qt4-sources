@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QLibrary" />
+<a name="//apple_ref/cpp/cl//QLibrary"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -103,11 +103,11 @@
 <p>See also <a href="qpluginloader.html">QPluginLoader</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QLibrary/LoadHint" />
-<a name="//apple_ref/cpp/econst/QLibrary/ResolveAllSymbolsHint" />
-<a name="//apple_ref/cpp/econst/QLibrary/ExportExternalSymbolsHint" />
-<a name="//apple_ref/cpp/econst/QLibrary/LoadArchiveMemberHint" />
-<a name="//apple_ref/cpp/tdef/QLibrary/LoadHints" />
+<a name="//apple_ref/cpp/tag/QLibrary/LoadHint"></a>
+<a name="//apple_ref/cpp/econst/QLibrary/ResolveAllSymbolsHint"></a>
+<a name="//apple_ref/cpp/econst/QLibrary/ExportExternalSymbolsHint"></a>
+<a name="//apple_ref/cpp/econst/QLibrary/LoadArchiveMemberHint"></a>
+<a name="//apple_ref/cpp/tdef/QLibrary/LoadHints"></a>
 <h3 class="flags"><a name="LoadHint-enum"></a>enum QLibrary::LoadHint<br />flags QLibrary::LoadHints</h3>
 <p>This enum describes the possible hints that can be used to change the way libraries are handled when they are loaded. These values indicate how symbols are resolved when libraries are loaded, and are specified using the <a href="qlibrary.html#loadHints-prop">setLoadHints</a>() function.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -120,8 +120,8 @@
 <p>See also <a href="qlibrary.html#loadHints-prop">loadHints</a>.</p>
 <hr />
 <h2>Property Documentation</h2>
-<a name="//apple_ref/cpp/instm/QLibrary/fileName" />
-<a name="//apple_ref/cpp/instm/QLibrary/setFileName" />
+<a name="//apple_ref/cpp/instm/QLibrary/fileName"></a>
+<a name="//apple_ref/cpp/instm/QLibrary/setFileName"></a>
 <h3 class="fn"><a name="fileName-prop"></a>fileName : <a href="qstring.html">QString</a></h3>
 <p>This property holds the file name of the library.</p>
 <p>We recommend omitting the file's suffix in the file name, since <a href="qlibrary.html">QLibrary</a> will automatically look for the file with the appropriate suffix (see <a href="qlibrary.html#isLibrary">isLibrary</a>()).</p>
@@ -133,8 +133,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">QString </td><td class="memItemRight" valign="bottom"><b>fileName</b> () const</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b>setFileName</b> ( const QString &amp; <i>fileName</i> )</td></tr>
 </table>
-<a name="//apple_ref/cpp/instm/QLibrary/loadHints" />
-<a name="//apple_ref/cpp/instm/QLibrary/setLoadHints" />
+<a name="//apple_ref/cpp/instm/QLibrary/loadHints"></a>
+<a name="//apple_ref/cpp/instm/QLibrary/setLoadHints"></a>
 <h3 class="fn"><a name="loadHints-prop"></a>loadHints : <a href="qlibrary.html#LoadHint-enum">LoadHints</a></h3>
 <p>This property holds give the load() function some hints on how it should behave.</p>
 <p>You can give some hints on how the symbols are resolved. Usually, the symbols are not resolved at load time, but resolved lazily, (that is, when <a href="qlibrary.html#resolve">resolve</a>() is called). If you set the loadHint to <a href="qlibrary.html#LoadHint-enum">ResolveAllSymbolsHint</a>, then all symbols will be resolved at load time if the platform supports it.</p>
@@ -149,7 +149,7 @@
 </table>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QLibrary/QLibrary" />
+<a name="//apple_ref/cpp/instm/QLibrary/QLibrary"></a>
 <h3 class="fn"><a name="QLibrary"></a>QLibrary::QLibrary ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
 <p>Constructs a library with the given <i>parent</i>.</p>
 <h3 class="fn"><a name="QLibrary-2"></a>QLibrary::QLibrary ( const <a href="qstring.html">QString</a> &amp; <i>fileName</i>, <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
@@ -164,16 +164,16 @@
 <p>Constructs a library object with the given <i>parent</i> that will load the library specified by <i>fileName</i> and full version number <i>version</i>. Currently, the version number is ignored on Windows and Symbian.</p>
 <p>We recommend omitting the file's suffix in <i>fileName</i>, since <a href="qlibrary.html">QLibrary</a> will automatically look for the file with the appropriate suffix in accordance with the platform, e.g&#x2e; &quot;.so&quot; on Unix, &quot;.dylib&quot; on Mac OS X, and &quot;.dll&quot; on Windows. (See <a href="qlibrary.html#fileName-prop">fileName</a>.)</p>
 <p>Note: In Symbian the path portion of the <i>fileName</i> is ignored.</p>
-<a name="//apple_ref/cpp/instm/QLibrary/~QLibrary" />
+<a name="//apple_ref/cpp/instm/QLibrary/~QLibrary"></a>
 <h3 class="fn"><a name="dtor.QLibrary"></a>QLibrary::~QLibrary ()</h3>
 <p>Destroys the <a href="qlibrary.html">QLibrary</a> object.</p>
 <p>Unless <a href="qlibrary.html#unload">unload</a>() was called explicitly, the library stays in memory until the application terminates.</p>
 <p>See also <a href="qlibrary.html#isLoaded">isLoaded</a>() and <a href="qlibrary.html#unload">unload</a>().</p>
-<a name="//apple_ref/cpp/instm/QLibrary/errorString" />
+<a name="//apple_ref/cpp/instm/QLibrary/errorString"></a>
 <h3 class="fn"><a name="errorString"></a><a href="qstring.html">QString</a> QLibrary::errorString () const</h3>
 <p>Returns a text string with the description of the last error that occurred. Currently, errorString will only be set if <a href="qlibrary.html#load">load</a>(), <a href="qlibrary.html#unload">unload</a>() or <a href="qlibrary.html#resolve">resolve</a>() for some reason fails.</p>
 <p>This function was introduced in Qt 4.2.</p>
-<a name="//apple_ref/cpp/clm/QLibrary/isLibrary" />
+<a name="//apple_ref/cpp/clm/QLibrary/isLibrary"></a>
 <h3 class="fn"><a name="isLibrary"></a>bool QLibrary::isLibrary ( const <a href="qstring.html">QString</a> &amp; <i>fileName</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns true if <i>fileName</i> has a valid suffix for a loadable library; otherwise returns false.</p>
 <p><table class="generic" align="center" cellpadding="2" cellspacing="1" border="0">
@@ -185,15 +185,15 @@
 <tr valign="top" class="odd"><td>Mac OS X</td><td><tt>.dylib</tt>, <tt>.bundle</tt>, <tt>.so</tt></td></tr>
 </table></p>
 <p>Trailing versioning numbers on Unix are ignored.</p>
-<a name="//apple_ref/cpp/instm/QLibrary/isLoaded" />
+<a name="//apple_ref/cpp/instm/QLibrary/isLoaded"></a>
 <h3 class="fn"><a name="isLoaded"></a>bool QLibrary::isLoaded () const</h3>
 <p>Returns true if the library is loaded; otherwise returns false.</p>
 <p>See also <a href="qlibrary.html#load">load</a>().</p>
-<a name="//apple_ref/cpp/instm/QLibrary/load" />
+<a name="//apple_ref/cpp/instm/QLibrary/load"></a>
 <h3 class="fn"><a name="load"></a>bool QLibrary::load ()</h3>
 <p>Loads the library and returns true if the library was loaded successfully; otherwise returns false. Since <a href="qlibrary.html#resolve">resolve</a>() always calls this function before resolving any symbols it is not necessary to call it explicitly. In some situations you might want the library loaded in advance, in which case you would use this function.</p>
 <p>See also <a href="qlibrary.html#unload">unload</a>().</p>
-<a name="//apple_ref/cpp/instm/QLibrary/resolve" />
+<a name="//apple_ref/cpp/instm/QLibrary/resolve"></a>
 <h3 class="fn"><a name="resolve"></a>void * QLibrary::resolve ( const char * <i>symbol</i> )</h3>
 <p>Returns the address of the exported symbol <i>symbol</i>. The library is loaded if necessary. The function returns 0 if the symbol could not be resolved or if the library could not be loaded.</p>
 <p>Example:</p>
@@ -235,7 +235,7 @@
 <p>Note: In Symbian resolving with symbol names works only if the loaded library was built as STDDLL. Otherwise, the ordinals must be used.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p>See also <a href="qlibrary.html#resolve">resolve</a>().</p>
-<a name="//apple_ref/cpp/instm/QLibrary/setFileNameAndVersion" />
+<a name="//apple_ref/cpp/instm/QLibrary/setFileNameAndVersion"></a>
 <h3 class="fn"><a name="setFileNameAndVersion"></a>void QLibrary::setFileNameAndVersion ( const <a href="qstring.html">QString</a> &amp; <i>fileName</i>, int <i>versionNumber</i> )</h3>
 <p>Sets the <a href="qlibrary.html#fileName-prop">fileName</a> property and major version number to <i>fileName</i> and <i>versionNumber</i> respectively. The <i>versionNumber</i> is ignored on Windows and Symbian.</p>
 <p>Note: In Symbian the path portion of the <i>fileName</i> is ignored.</p>
@@ -245,7 +245,7 @@
 <p>Note: In Symbian the path portion of the <i>fileName</i> is ignored.</p>
 <p>This function was introduced in Qt 4.4.</p>
 <p>See also <a href="qlibrary.html#fileName-prop">setFileName</a>().</p>
-<a name="//apple_ref/cpp/instm/QLibrary/unload" />
+<a name="//apple_ref/cpp/instm/QLibrary/unload"></a>
 <h3 class="fn"><a name="unload"></a>bool QLibrary::unload ()</h3>
 <p>Unloads the library and returns true if the library could be unloaded; otherwise returns false.</p>
 <p>This happens automatically on application termination, so you shouldn't normally need to call this function.</p>
@@ -256,6 +256,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

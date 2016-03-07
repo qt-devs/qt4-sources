@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3IntDict" />
+<a name="//apple_ref/cpp/cl//Q3IntDict"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -90,59 +90,59 @@
 <p>See also <a href="q3intdictiterator.html">Q3IntDictIterator</a>, <a href="q3dict.html">Q3Dict</a>, <a href="q3asciidict.html">Q3AsciiDict</a>, and <a href="q3ptrdict.html">Q3PtrDict</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3IntDict/Q3IntDict" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/Q3IntDict"></a>
 <h3 class="fn"><a name="Q3IntDict"></a>Q3IntDict::Q3IntDict ( int <i>size</i> = 17 )</h3>
 <p>Constructs a dictionary using an internal hash array of size <i>size</i>.</p>
 <p>Setting <i>size</i> to a suitably large prime number (equal to or greater than the expected number of entries) makes the hash distribution better which leads to faster lookup.</p>
 <h3 class="fn"><a name="Q3IntDict-2"></a>Q3IntDict::Q3IntDict ( const Q3IntDict&lt;type&gt; &amp; <i>dict</i> )</h3>
 <p>Constructs a copy of <i>dict</i>.</p>
 <p>Each item in <i>dict</i> is inserted into this dictionary. Only the pointers are copied (shallow copy).</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/~Q3IntDict" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/~Q3IntDict"></a>
 <h3 class="fn"><a name="dtor.Q3IntDict"></a>Q3IntDict::~Q3IntDict ()</h3>
 <p>Removes all items from the dictionary and destroys it.</p>
 <p>All iterators that access this dictionary will be reset.</p>
 <p>See also <a href="q3ptrcollection.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/clear" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/clear"></a>
 <h3 class="fn"><a name="clear"></a>void Q3IntDict::clear ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="q3ptrcollection.html#clear">Q3PtrCollection::clear</a>().</p>
 <p>Removes all items from the dictionary.</p>
 <p>The removed items are deleted if <a href="q3ptrcollection.html#setAutoDelete">auto-deletion</a> is enabled.</p>
 <p>All dictionary iterators that access this dictionary will be reset.</p>
 <p>See also <a href="q3intdict.html#remove">remove</a>(), <a href="q3intdict.html#take">take</a>(), and <a href="q3ptrcollection.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/count" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/count"></a>
 <h3 class="fn"><a name="count"></a><a href="qtglobal.html#uint-typedef">uint</a> Q3IntDict::count () const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="q3ptrcollection.html#count">Q3PtrCollection::count</a>().</p>
 <p>Returns the number of items in the dictionary.</p>
 <p>See also <a href="q3intdict.html#isEmpty">isEmpty</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/find" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/find"></a>
 <h3 class="fn"><a name="find"></a>type * Q3IntDict::find ( long <i>key</i> ) const</h3>
 <p>Returns the item associated with <i>key</i>, or 0 if the key does not exist in the dictionary.</p>
 <p>If there are two or more items with equal keys, then the most recently inserted item will be found.</p>
 <p>Equivalent to operator[].</p>
 <p>See also <a href="q3intdict.html#operator-5b-5d">operator[]</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/insert" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/insert"></a>
 <h3 class="fn"><a name="insert"></a>void Q3IntDict::insert ( long <i>key</i>, const type * <i>item</i> )</h3>
 <p>Insert item <i>item</i> into the dictionary using key <i>key</i>.</p>
 <p>Multiple items can have the same key, in which case only the last item will be accessible using <a href="q3intdict.html#operator-5b-5d">operator[]</a>().</p>
 <p><i>item</i> may not be 0.</p>
 <p>See also <a href="q3intdict.html#replace">replace</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/isEmpty" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/isEmpty"></a>
 <h3 class="fn"><a name="isEmpty"></a>bool Q3IntDict::isEmpty () const</h3>
 <p>Returns TRUE if the dictionary is empty; otherwise returns FALSE.</p>
 <p>See also <a href="q3intdict.html#count">count</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/read" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/read"></a>
 <h3 class="fn"><a name="read"></a><a href="qdatastream.html">QDataStream</a> &amp; Q3IntDict::read ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, <a href="q3ptrcollection.html#Item-typedef">Q3PtrCollection::Item</a> &amp; <i>item</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reads a dictionary item from the stream <i>s</i> and returns a reference to the stream.</p>
 <p>The default implementation sets <i>item</i> to 0.</p>
 <p>See also <a href="q3intdict.html#write">write</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/remove" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/remove"></a>
 <h3 class="fn"><a name="remove"></a>bool Q3IntDict::remove ( long <i>key</i> )</h3>
 <p>Removes the item associated with <i>key</i> from the dictionary. Returns TRUE if successful, i.e&#x2e; if the <i>key</i> is in the dictionary; otherwise returns FALSE.</p>
 <p>If there are two or more items with equal keys, then the most recently inserted item will be removed.</p>
 <p>The removed item is deleted if <a href="q3ptrcollection.html#setAutoDelete">auto-deletion</a> is enabled.</p>
 <p>All dictionary iterators that refer to the removed item will be set to point to the next item in the dictionary's traversal order.</p>
 <p>See also <a href="q3intdict.html#take">take</a>(), <a href="q3intdict.html#clear">clear</a>(), and <a href="q3ptrcollection.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/replace" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/replace"></a>
 <h3 class="fn"><a name="replace"></a>void Q3IntDict::replace ( long <i>key</i>, const type * <i>item</i> )</h3>
 <p>If the dictionary has key <i>key</i>, this key's item is replaced with <i>item</i>. If the dictionary doesn't contain key <i>key</i>, <i>item</i> is inserted into the dictionary using key <i>key</i>.</p>
 <p><i>item</i> may not be 0.</p>
@@ -154,32 +154,32 @@
  dict.insert( key, item );</pre>
 <p>If there are two or more items with equal keys, then the most recently inserted item will be replaced.</p>
 <p>See also <a href="q3intdict.html#insert">insert</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/resize" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/resize"></a>
 <h3 class="fn"><a name="resize"></a>void Q3IntDict::resize ( <a href="qtglobal.html#uint-typedef">uint</a> <i>newsize</i> )</h3>
 <p>Changes the size of the hashtable to <i>newsize</i>. The contents of the dictionary are preserved, but all iterators on the dictionary become invalid.</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/size" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/size"></a>
 <h3 class="fn"><a name="size"></a><a href="qtglobal.html#uint-typedef">uint</a> Q3IntDict::size () const</h3>
 <p>Returns the size of the internal hash array (as specified in the constructor).</p>
 <p>See also <a href="q3intdict.html#count">count</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/statistics" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/statistics"></a>
 <h3 class="fn"><a name="statistics"></a>void Q3IntDict::statistics () const</h3>
 <p>Debugging-only function that prints out the dictionary distribution using <a href="qtglobal.html#qDebug">qDebug</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/take" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/take"></a>
 <h3 class="fn"><a name="take"></a>type * Q3IntDict::take ( long <i>key</i> )</h3>
 <p>Takes the item associated with <i>key</i> out of the dictionary without deleting it (even if <a href="q3ptrcollection.html#setAutoDelete">auto-deletion</a> is enabled).</p>
 <p>If there are two or more items with equal keys, then the most recently inserted item will be taken.</p>
 <p>Returns a pointer to the item taken out, or 0 if the key does not exist in the dictionary.</p>
 <p>All dictionary iterators that refer to the taken item will be set to point to the next item in the dictionary's traversing order.</p>
 <p>See also <a href="q3intdict.html#remove">remove</a>(), <a href="q3intdict.html#clear">clear</a>(), and <a href="q3ptrcollection.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/write" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/write"></a>
 <h3 class="fn"><a name="write"></a><a href="qdatastream.html">QDataStream</a> &amp; Q3IntDict::write ( <a href="qdatastream.html">QDataStream</a> &amp; <i>s</i>, <a href="q3ptrcollection.html#Item-typedef">Q3PtrCollection::Item</a> <i>item</i> ) const&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Writes a dictionary <i>item</i> to the stream <i>s</i> and returns a reference to the stream.</p>
 <p>See also <a href="q3intdict.html#read">read</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/operator=" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/operator="></a>
 <h3 class="fn"><a name="operator-eq"></a>Q3IntDict&lt;type&gt; &amp; Q3IntDict::operator= ( const Q3IntDict&lt;type&gt; &amp; <i>dict</i> )</h3>
 <p>Assigns <i>dict</i> to this dictionary and returns a reference to this dictionary.</p>
 <p>This dictionary is first cleared and then each item in <i>dict</i> is inserted into this dictionary. Only the pointers are copied (shallow copy), unless <a href="q3ptrcollection.html#newItem">newItem</a>() has been reimplemented.</p>
-<a name="//apple_ref/cpp/instm/Q3IntDict/operator[]" />
+<a name="//apple_ref/cpp/instm/Q3IntDict/operator[]"></a>
 <h3 class="fn"><a name="operator-5b-5d"></a>type * Q3IntDict::operator[] ( long <i>key</i> ) const</h3>
 <p>Returns the item associated with <i>key</i>, or 0 if the key does not exist in the dictionary.</p>
 <p>If there are two or more items with equal keys, then the most recently inserted item will be found.</p>
@@ -189,6 +189,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

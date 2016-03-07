@@ -21,6 +21,13 @@
 <li><a href="mainwindows-dockwidgets-dockwidgets-pro.html">mainwindows/dockwidgets/dockwidgets.pro</a></li>
 <li><a href="mainwindows-dockwidgets-dockwidgets-qrc.html">mainwindows/dockwidgets/dockwidgets.qrc</a></li>
 </ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/mainwindows/dockwidgets/images/new.png">mainwindows/dockwidgets/images/new.png</a></li>
+<li><a href="images/used-in-examples/mainwindows/dockwidgets/images/print.png">mainwindows/dockwidgets/images/print.png</a></li>
+<li><a href="images/used-in-examples/mainwindows/dockwidgets/images/save.png">mainwindows/dockwidgets/images/save.png</a></li>
+<li><a href="images/used-in-examples/mainwindows/dockwidgets/images/undo.png">mainwindows/dockwidgets/images/undo.png</a></li>
+</ul>
 <p>The Dock Widgets example shows how to add dock windows to an application. It also shows how to use Qt's rich text engine.</p>
 <p align="center"><img src="images/dockwidgets-example.png" alt="Screenshot of the Dock Widgets example" /></p><p>The application presents a simple business letter template, and has a list of customer names and addresses and a list of standard phrases in two dock windows. The user can click a customer to have their name and address inserted into the template, and click one or more of the standard phrases. Errors can be corrected by clicking the Undo button. Once the letter has been prepared it can be printed or saved as HTML.</p>
 <a name="mainwindow-class-definition"></a>
@@ -133,10 +140,10 @@
      addDockWidget(Qt::RightDockWidgetArea, dock);
      viewMenu-&gt;addAction(dock-&gt;toggleViewAction());
 
-     connect(customerList, SIGNAL(currentTextChanged(const QString &amp;)),
-             this, SLOT(insertCustomer(const QString &amp;)));
-     connect(paragraphsList, SIGNAL(currentTextChanged(const QString &amp;)),
-             this, SLOT(addParagraph(const QString &amp;)));
+     connect(customerList, SIGNAL(currentTextChanged(QString)),
+             this, SLOT(insertCustomer(QString)));
+     connect(paragraphsList, SIGNAL(currentTextChanged(QString)),
+             this, SLOT(addParagraph(QString)));
  }</pre>
 <p>We create the customers dock window first, and in addition to a window title, we also pass it a <tt>this</tt> pointer so that it becomes a child of <tt>MainWindow</tt>. Normally we don't have to pass a parent because widgets are parented automatically when they are laid out: but dock windows aren't laid out using layouts.</p>
 <p>We've chosen to restrict the customers dock window to the left and right dock areas. (So the user cannot drag the dock window to the top or bottom dock areas.) The user can drag the dock window out of the dock areas entirely so that it becomes a free floating window. We can change this (and whether the dock window is moveable or closable) using <a href="qdockwidget.html#features-prop">QDockWidget::setFeatures</a>().</p>
@@ -281,6 +288,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

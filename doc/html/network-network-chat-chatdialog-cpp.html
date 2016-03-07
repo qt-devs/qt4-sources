@@ -72,12 +72,12 @@
      connect(sendButton, SIGNAL(clicked()), this, SLOT(returnPressed()));
  #endif
      connect(lineEdit, SIGNAL(returnPressed()), this, SLOT(returnPressed()));
-     connect(&amp;client, SIGNAL(newMessage(const QString &amp;, const QString &amp;)),
-             this, SLOT(appendMessage(const QString &amp;, const QString &amp;)));
-     connect(&amp;client, SIGNAL(newParticipant(const QString &amp;)),
-             this, SLOT(newParticipant(const QString &amp;)));
-     connect(&amp;client, SIGNAL(participantLeft(const QString &amp;)),
-             this, SLOT(participantLeft(const QString &amp;)));
+     connect(&amp;client, SIGNAL(newMessage(QString,QString)),
+             this, SLOT(appendMessage(QString,QString)));
+     connect(&amp;client, SIGNAL(newParticipant(QString)),
+             this, SLOT(newParticipant(QString)));
+     connect(&amp;client, SIGNAL(participantLeft(QString)),
+             this, SLOT(participantLeft(QString)));
 
      myNickName = client.nickName();
      newParticipant(myNickName);
@@ -161,6 +161,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

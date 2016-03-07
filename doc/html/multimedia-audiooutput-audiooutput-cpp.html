@@ -184,6 +184,18 @@
      settings.setCodec(&quot;audio/pcm&quot;);
      settings.setByteOrder(QAudioFormat::LittleEndian);
      settings.setSampleType(QAudioFormat::SignedInt);
+
+     QAudioDeviceInfo info(QAudioDeviceInfo::defaultOutputDevice());
+     if (!info.isFormatSupported(settings)) {
+         qWarning()&lt;&lt;&quot;default format not supported try to use nearest&quot;;
+         settings = info.nearestFormat(settings);
+     }
+
+     if(settings.sampleSize() != 16) {
+         qWarning()&lt;&lt;&quot;audio device doesn't support 16 bit samples, example cannot run&quot;;
+         return;
+     }
+
      audioOutput = new QAudioOutput(settings,this);
      connect(audioOutput,SIGNAL(notify()),SLOT(status()));
      connect(audioOutput,SIGNAL(stateChanged(QAudio::State)),SLOT(state(QAudio::State)));
@@ -286,6 +298,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

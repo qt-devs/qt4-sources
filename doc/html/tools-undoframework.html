@@ -27,6 +27,10 @@
 <li><a href="tools-undoframework-undoframework-pro.html">tools/undoframework/undoframework.pro</a></li>
 <li><a href="tools-undoframework-undoframework-qrc.html">tools/undoframework/undoframework.qrc</a></li>
 </ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/tools/undoframework/images/cross.png">tools/undoframework/images/cross.png</a></li>
+</ul>
 <p>This example shows how to implement undo/redo functionality with the Qt undo framework.</p>
 <p align="center"><img src="images/undoframeworkexample.png" alt="The Undo Diagram Example" /></p><p>In the Qt undo framework, all actions that the user performs are implemented in classes that inherit <a href="qundocommand.html">QUndoCommand</a>. An undo command class knows how to both <a href="qundocommand.html#redo">redo()</a> - or just do the first time - and <a href="qundocommand.html#undo">undo()</a> an action. For each action the user performs, a command is placed on a <a href="qundostack.html">QUndoStack</a>. Since the stack contains all commands executed (stacked in chronological order) on the document, it can roll the state of the document backwards and forwards by undoing and redoing its commands. See the <a href="qundo.html">overview document</a> for a high-level introduction to the undo framework.</p>
 <p>The undo example implements a simple diagram application. It is possible to add and delete items, which are either box or rectangular shaped, and move the items by dragging them with the mouse. The undo stack is shown in a <a href="qundoview.html">QUndoView</a>, which is a list in which the commands are shown as list items. Undo and redo are available through the edit menu. The user can also select a command from the undo view.</p>
@@ -100,8 +104,8 @@
      diagramScene-&gt;setBackgroundBrush(pixmapBrush);
      diagramScene-&gt;setSceneRect(QRect(0, 0, 500, 500));
 
-     connect(diagramScene, SIGNAL(itemMoved(DiagramItem *, const QPointF &amp;)),
-             this, SLOT(itemMoved(DiagramItem *, const QPointF &amp;)));
+     connect(diagramScene, SIGNAL(itemMoved(DiagramItem*,QPointF)),
+             this, SLOT(itemMoved(DiagramItem*,QPointF)));
 
      setWindowTitle(&quot;Undo Framework&quot;);
      QGraphicsView *view = new QGraphicsView(diagramScene);
@@ -393,6 +397,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

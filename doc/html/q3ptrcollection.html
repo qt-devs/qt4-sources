@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3PtrCollection" />
+<a name="//apple_ref/cpp/cl//Q3PtrCollection"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -55,45 +55,45 @@
 <p>A collection is implemented using the <tt>Item</tt> (generic collection item) type, which is a <tt>void*</tt>. The template classes that create the real collections cast the <tt>Item</tt> to the required type.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tdef/Q3PtrCollection/Item" />
+<a name="//apple_ref/cpp/tdef/Q3PtrCollection/Item"></a>
 <h3 class="fn"><a name="Item-typedef"></a>typedef Q3PtrCollection::Item</h3>
 <p>This type is the generic &quot;item&quot; in a <a href="q3ptrcollection.html" class="compat">Q3PtrCollection</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/Q3PtrCollection" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/Q3PtrCollection"></a>
 <h3 class="fn"><a name="Q3PtrCollection"></a>Q3PtrCollection::Q3PtrCollection ()&nbsp;&nbsp;<tt> [protected]</tt></h3>
 <p>Constructs a collection. The constructor is protected because <a href="q3ptrcollection.html" class="compat">Q3PtrCollection</a> is an abstract class.</p>
 <h3 class="fn"><a name="Q3PtrCollection-2"></a>Q3PtrCollection::Q3PtrCollection ( const Q3PtrCollection &amp; <i>source</i> )&nbsp;&nbsp;<tt> [protected]</tt></h3>
 <p>Constructs a copy of <i>source</i> with <a href="q3ptrcollection.html#autoDelete">autoDelete</a>() set to false. The constructor is protected because <a href="q3ptrcollection.html" class="compat">Q3PtrCollection</a> is an abstract class.</p>
 <p>Note that if <i>source</i> has autoDelete turned on, copying it will risk memory leaks, reading freed memory, or both.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/~Q3PtrCollection" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/~Q3PtrCollection"></a>
 <h3 class="fn"><a name="dtor.Q3PtrCollection"></a>Q3PtrCollection::~Q3PtrCollection ()&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Destroys the collection. The destructor is protected because <a href="q3ptrcollection.html" class="compat">Q3PtrCollection</a> is an abstract class.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/autoDelete" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/autoDelete"></a>
 <h3 class="fn"><a name="autoDelete"></a>bool Q3PtrCollection::autoDelete () const</h3>
 <p>Returns the setting of the auto-delete option. The default is false.</p>
 <p>See also <a href="q3ptrcollection.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/clear" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/clear"></a>
 <h3 class="fn"><a name="clear"></a>void Q3PtrCollection::clear ()&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>Removes all objects from the collection. The objects will be deleted if auto-delete has been enabled.</p>
 <p>See also <a href="q3ptrcollection.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/count" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/count"></a>
 <h3 class="fn"><a name="count"></a><a href="qtglobal.html#uint-typedef">uint</a> Q3PtrCollection::count () const&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>Returns the number of objects in the collection.</p>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/deleteItem" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/deleteItem"></a>
 <h3 class="fn"><a name="deleteItem"></a>void Q3PtrCollection::deleteItem ( <a href="q3ptrcollection.html#Item-typedef">Item</a> <i>d</i> )&nbsp;&nbsp;<tt> [pure virtual protected]</tt></h3>
 <p>Reimplement this function if you want to be able to delete items.</p>
 <p>Deletes an item that is about to be removed from the collection.</p>
 <p>This function has to reimplemented in the collection template classes, and should <i>only</i> delete item <i>d</i> if auto-delete has been enabled.</p>
 <p><b>Warning:</b> If you reimplement this function you must also reimplement the destructor and call the virtual function <a href="q3ptrcollection.html#clear">clear</a>() from your destructor. This is due to the way virtual functions and destructors work in C++: Virtual functions in derived classes cannot be called from a destructor. If you do not do this, your deleteItem() function will not be called when the container is destroyed.</p>
 <p>See also <a href="q3ptrcollection.html#newItem">newItem</a>() and <a href="q3ptrcollection.html#setAutoDelete">setAutoDelete</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/newItem" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/newItem"></a>
 <h3 class="fn"><a name="newItem"></a><a href="q3ptrcollection.html#Item-typedef">Item</a> Q3PtrCollection::newItem ( <a href="q3ptrcollection.html#Item-typedef">Item</a> <i>d</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Virtual function that creates a copy of an object that is about to be inserted into the collection.</p>
 <p>The default implementation returns the <i>d</i> pointer, i.e&#x2e; no copy is made.</p>
 <p>This function is seldom reimplemented in the collection template classes. It is not common practice to make a copy of something that is being inserted.</p>
 <p>See also <a href="q3ptrcollection.html#deleteItem">deleteItem</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3PtrCollection/setAutoDelete" />
+<a name="//apple_ref/cpp/instm/Q3PtrCollection/setAutoDelete"></a>
 <h3 class="fn"><a name="setAutoDelete"></a>void Q3PtrCollection::setAutoDelete ( bool <i>enable</i> )</h3>
 <p>Sets the collection to auto-delete its contents if <i>enable</i> is true and to never delete them if <i>enable</i> is false.</p>
 <p>If auto-deleting is turned on, all the items in a collection are deleted when the collection itself is deleted. This is convenient if the collection has the only pointer to the items.</p>
@@ -104,6 +104,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

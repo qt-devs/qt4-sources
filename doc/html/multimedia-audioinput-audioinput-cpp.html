@@ -208,13 +208,23 @@
 
      pullMode = true;
 
-     <span class="comment">// AudioInfo class only supports mono S16LE samples</span>!
      format.setFrequency(8000);
      format.setChannels(1);
      format.setSampleSize(16);
      format.setSampleType(QAudioFormat::SignedInt);
      format.setByteOrder(QAudioFormat::LittleEndian);
      format.setCodec(&quot;audio/pcm&quot;);
+
+     QAudioDeviceInfo info(QAudioDeviceInfo::defaultInputDevice());
+     if (!info.isFormatSupported(format)) {
+         qWarning()&lt;&lt;&quot;default format not supported try to use nearest&quot;;
+         format = info.nearestFormat(format);
+     }
+
+     if(format.sampleSize() != 16) {
+         qWarning()&lt;&lt;&quot;audio device doesn't support 16 bit samples, example cannot run&quot;;
+         return;
+     }
 
      audioInput = new QAudioInput(format,this);
      connect(audioInput,SIGNAL(notify()),SLOT(status()));
@@ -311,6 +321,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

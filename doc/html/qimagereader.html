@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QImageReader" />
+<a name="//apple_ref/cpp/cl//QImageReader"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -92,12 +92,12 @@
 <p>See also <a href="qimagewriter.html">QImageWriter</a>, <a href="qimageiohandler.html">QImageIOHandler</a>, and <a href="qimageioplugin.html">QImageIOPlugin</a>.</p>
 <hr />
 <h2>Member Type Documentation</h2>
-<a name="//apple_ref/cpp/tag/QImageReader/ImageReaderError" />
-<a name="//apple_ref/cpp/econst/QImageReader/FileNotFoundError" />
-<a name="//apple_ref/cpp/econst/QImageReader/DeviceError" />
-<a name="//apple_ref/cpp/econst/QImageReader/UnsupportedFormatError" />
-<a name="//apple_ref/cpp/econst/QImageReader/InvalidDataError" />
-<a name="//apple_ref/cpp/econst/QImageReader/UnknownError" />
+<a name="//apple_ref/cpp/tag/QImageReader/ImageReaderError"></a>
+<a name="//apple_ref/cpp/econst/QImageReader/FileNotFoundError"></a>
+<a name="//apple_ref/cpp/econst/QImageReader/DeviceError"></a>
+<a name="//apple_ref/cpp/econst/QImageReader/UnsupportedFormatError"></a>
+<a name="//apple_ref/cpp/econst/QImageReader/InvalidDataError"></a>
+<a name="//apple_ref/cpp/econst/QImageReader/UnknownError"></a>
 <h3 class="fn"><a name="ImageReaderError-enum"></a>enum QImageReader::ImageReaderError</h3>
 <p>This enum describes the different types of errors that can occur when reading images with <a href="qimagereader.html">QImageReader</a>.</p>
 <p><table class="valuelist" border="1" cellpadding="2" cellspacing="1" width="100%">
@@ -110,7 +110,7 @@
 </table></p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QImageReader/QImageReader" />
+<a name="//apple_ref/cpp/instm/QImageReader/QImageReader"></a>
 <h3 class="fn"><a name="QImageReader"></a>QImageReader::QImageReader ()</h3>
 <p>Constructs an empty <a href="qimagereader.html">QImageReader</a> object. Before reading an image, call <a href="qimagereader.html#setDevice">setDevice</a>() or <a href="qimagereader.html#setFileName">setFileName</a>().</p>
 <h3 class="fn"><a name="QImageReader-2"></a>QImageReader::QImageReader ( <a href="qiodevice.html">QIODevice</a> * <i>device</i>, const <a href="qbytearray.html">QByteArray</a> &amp; <i>format</i> = QByteArray() )</h3>
@@ -118,57 +118,58 @@
 <h3 class="fn"><a name="QImageReader-3"></a>QImageReader::QImageReader ( const <a href="qstring.html">QString</a> &amp; <i>fileName</i>, const <a href="qbytearray.html">QByteArray</a> &amp; <i>format</i> = QByteArray() )</h3>
 <p>Constructs a <a href="qimagereader.html">QImageReader</a> object with the file name <i>fileName</i> and the image format <i>format</i>.</p>
 <p>See also <a href="qimagereader.html#setFileName">setFileName</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/~QImageReader" />
+<a name="//apple_ref/cpp/instm/QImageReader/~QImageReader"></a>
 <h3 class="fn"><a name="dtor.QImageReader"></a>QImageReader::~QImageReader ()</h3>
 <p>Destructs the <a href="qimagereader.html">QImageReader</a> object.</p>
-<a name="//apple_ref/cpp/instm/QImageReader/autoDetectImageFormat" />
+<a name="//apple_ref/cpp/instm/QImageReader/autoDetectImageFormat"></a>
 <h3 class="fn"><a name="autoDetectImageFormat"></a>bool QImageReader::autoDetectImageFormat () const</h3>
 <p>Returns true if image format autodetection is enabled on this image reader; otherwise returns false. By default, autodetection is enabled.</p>
 <p>See also <a href="qimagereader.html#setAutoDetectImageFormat">setAutoDetectImageFormat</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/backgroundColor" />
+<a name="//apple_ref/cpp/instm/QImageReader/backgroundColor"></a>
 <h3 class="fn"><a name="backgroundColor"></a><a href="qcolor.html">QColor</a> QImageReader::backgroundColor () const</h3>
 <p>Returns the background color that's used when reading an image. If the image format does not support setting the background color an invalid color is returned.</p>
 <p>This function was introduced in Qt 4.1.</p>
 <p>See also <a href="qimagereader.html#setBackgroundColor">setBackgroundColor</a>() and <a href="qimagereader.html#read">read</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/canRead" />
+<a name="//apple_ref/cpp/instm/QImageReader/canRead"></a>
 <h3 class="fn"><a name="canRead"></a>bool QImageReader::canRead () const</h3>
 <p>Returns true if an image can be read for the device (i.e&#x2e;, the image format is supported, and the device seems to contain valid data); otherwise returns false.</p>
 <p>canRead() is a lightweight function that only does a quick test to see if the image data is valid. <a href="qimagereader.html#read">read</a>() may still return false after canRead() returns true, if the image data is corrupt.</p>
 <p>For images that support animation, canRead() returns false when all frames have been read.</p>
 <p>See also <a href="qimagereader.html#read">read</a>() and <a href="qimagereader.html#supportedImageFormats">supportedImageFormats</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/clipRect" />
+<a name="//apple_ref/cpp/instm/QImageReader/clipRect"></a>
 <h3 class="fn"><a name="clipRect"></a><a href="qrect.html">QRect</a> QImageReader::clipRect () const</h3>
 <p>Returns the clip rect (also known as the ROI, or Region Of Interest) of the image. If no clip rect has been set, an invalid <a href="qrect.html">QRect</a> is returned.</p>
 <p>See also <a href="qimagereader.html#setClipRect">setClipRect</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/currentImageNumber" />
+<a name="//apple_ref/cpp/instm/QImageReader/currentImageNumber"></a>
 <h3 class="fn"><a name="currentImageNumber"></a>int QImageReader::currentImageNumber () const</h3>
-<p>For image formats that support animation, this function returns the sequence number of the current frame. Otherwise, -1 is returned.</p>
-<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>() and <a href="qimageiohandler.html#currentImageNumber">QImageIOHandler::currentImageNumber</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/currentImageRect" />
+<p>For image formats that support animation, this function returns the sequence number of the current frame. If the image format doesn't support animation, 0 is returned.</p>
+<p>This function returns -1 if an error occurred.</p>
+<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>(), <a href="qimageiohandler.html#currentImageNumber">QImageIOHandler::currentImageNumber</a>(), and <a href="qimagereader.html#canRead">canRead</a>().</p>
+<a name="//apple_ref/cpp/instm/QImageReader/currentImageRect"></a>
 <h3 class="fn"><a name="currentImageRect"></a><a href="qrect.html">QRect</a> QImageReader::currentImageRect () const</h3>
 <p>For image formats that support animation, this function returns the rect for the current frame. Otherwise, a null rect is returned.</p>
 <p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>() and <a href="qimageiohandler.html#currentImageRect">QImageIOHandler::currentImageRect</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/decideFormatFromContent" />
+<a name="//apple_ref/cpp/instm/QImageReader/decideFormatFromContent"></a>
 <h3 class="fn"><a name="decideFormatFromContent"></a>bool QImageReader::decideFormatFromContent () const</h3>
 <p>Returns whether the image reader should decide which plugin to use only based on the contents of the datastream rather than on the file extension.</p>
 <p>See also <a href="qimagereader.html#setDecideFormatFromContent">setDecideFormatFromContent</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/device" />
+<a name="//apple_ref/cpp/instm/QImageReader/device"></a>
 <h3 class="fn"><a name="device"></a><a href="qiodevice.html">QIODevice</a> * QImageReader::device () const</h3>
 <p>Returns the device currently assigned to <a href="qimagereader.html">QImageReader</a>, or 0 if no device has been assigned.</p>
 <p>See also <a href="qimagereader.html#setDevice">setDevice</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/error" />
+<a name="//apple_ref/cpp/instm/QImageReader/error"></a>
 <h3 class="fn"><a name="error"></a><a href="qimagereader.html#ImageReaderError-enum">ImageReaderError</a> QImageReader::error () const</h3>
 <p>Returns the type of error that occurred last.</p>
 <p>See also <a href="qimagereader.html#ImageReaderError-enum">ImageReaderError</a> and <a href="qimagereader.html#errorString">errorString</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/errorString" />
+<a name="//apple_ref/cpp/instm/QImageReader/errorString"></a>
 <h3 class="fn"><a name="errorString"></a><a href="qstring.html">QString</a> QImageReader::errorString () const</h3>
 <p>Returns a human readable description of the last error that occurred.</p>
 <p>See also <a href="qimagereader.html#error">error</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/fileName" />
+<a name="//apple_ref/cpp/instm/QImageReader/fileName"></a>
 <h3 class="fn"><a name="fileName"></a><a href="qstring.html">QString</a> QImageReader::fileName () const</h3>
 <p>If the currently assigned device is a <a href="qfile.html">QFile</a>, or if <a href="qimagereader.html#setFileName">setFileName</a>() has been called, this function returns the name of the file <a href="qimagereader.html">QImageReader</a> reads from. Otherwise (i.e&#x2e;, if no device has been assigned or the device is not a <a href="qfile.html">QFile</a>), an empty <a href="qstring.html">QString</a> is returned.</p>
 <p>See also <a href="qimagereader.html#setFileName">setFileName</a>() and <a href="qimagereader.html#setDevice">setDevice</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/format" />
+<a name="//apple_ref/cpp/instm/QImageReader/format"></a>
 <h3 class="fn"><a name="format"></a><a href="qbytearray.html">QByteArray</a> QImageReader::format () const</h3>
 <p>Returns the format <a href="qimagereader.html">QImageReader</a> uses for reading images.</p>
 <p>You can call this function after assigning a device to the reader to determine the format of the device. For example:</p>
@@ -176,12 +177,12 @@
 <span class="comment"> // reader.format() == &quot;png&quot;</span></pre>
 <p>If the reader cannot read any image from the device (e.g&#x2e;, there is no image there, or the image has already been read), or if the format is unsupported, this function returns an empty QByteArray().</p>
 <p>See also <a href="qimagereader.html#setFormat">setFormat</a>() and <a href="qimagereader.html#supportedImageFormats">supportedImageFormats</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/imageCount" />
+<a name="//apple_ref/cpp/instm/QImageReader/imageCount"></a>
 <h3 class="fn"><a name="imageCount"></a>int QImageReader::imageCount () const</h3>
-<p>For image formats that support animation, this function returns the total number of images in the animation.</p>
-<p>Certain animation formats do not support this feature, in which case 0 is returned.</p>
-<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>() and <a href="qimageiohandler.html#imageCount">QImageIOHandler::imageCount</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/imageFormat" />
+<p>For image formats that support animation, this function returns the total number of images in the animation. If the format does not support animation, 0 is returned.</p>
+<p>This function returns -1 if an error occurred.</p>
+<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>(), <a href="qimageiohandler.html#imageCount">QImageIOHandler::imageCount</a>(), and <a href="qimagereader.html#canRead">canRead</a>().</p>
+<a name="//apple_ref/cpp/instm/QImageReader/imageFormat"></a>
 <h3 class="fn"><a name="imageFormat"></a><a href="qimage.html#Format-enum">QImage::Format</a> QImageReader::imageFormat () const</h3>
 <p>Returns the format of the image, without actually reading the image contents. The format describes the image format <a href="qimagereader.html#read">QImageReader::read</a>() returns, not the format of the actual image.</p>
 <p>If the image format does not support this feature, this function returns an invalid format.</p>
@@ -192,30 +193,31 @@
 <h3 class="fn"><a name="imageFormat-3"></a><a href="qbytearray.html">QByteArray</a> QImageReader::imageFormat ( <a href="qiodevice.html">QIODevice</a> * <i>device</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>If supported, this function returns the image format of the device <i>device</i>. Otherwise, an empty string is returned.</p>
 <p>See also <a href="qimagereader.html#autoDetectImageFormat">QImageReader::autoDetectImageFormat</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/jumpToImage" />
+<a name="//apple_ref/cpp/instm/QImageReader/jumpToImage"></a>
 <h3 class="fn"><a name="jumpToImage"></a>bool QImageReader::jumpToImage ( int <i>imageNumber</i> )</h3>
 <p>For image formats that support animation, this function skips to the image whose sequence number is <i>imageNumber</i>, returning true if successful or false if the corresponding image cannot be found.</p>
 <p>The next call to <a href="qimagereader.html#read">read</a>() will attempt to read this image.</p>
 <p>See also <a href="qimagereader.html#jumpToNextImage">jumpToNextImage</a>() and <a href="qimageiohandler.html#jumpToImage">QImageIOHandler::jumpToImage</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/jumpToNextImage" />
+<a name="//apple_ref/cpp/instm/QImageReader/jumpToNextImage"></a>
 <h3 class="fn"><a name="jumpToNextImage"></a>bool QImageReader::jumpToNextImage ()</h3>
 <p>For image formats that support animation, this function steps over the current image, returning true if successful or false if there is no following image in the animation.</p>
 <p>The default implementation calls <a href="qimagereader.html#read">read</a>(), then discards the resulting image, but the image handler may have a more efficient way of implementing this operation.</p>
 <p>See also <a href="qimagereader.html#jumpToImage">jumpToImage</a>() and <a href="qimageiohandler.html#jumpToNextImage">QImageIOHandler::jumpToNextImage</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/loopCount" />
+<a name="//apple_ref/cpp/instm/QImageReader/loopCount"></a>
 <h3 class="fn"><a name="loopCount"></a>int QImageReader::loopCount () const</h3>
-<p>For image formats that support animation, this function returns the number of times the animation should loop. Otherwise, it returns -1.</p>
-<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>() and <a href="qimageiohandler.html#loopCount">QImageIOHandler::loopCount</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/nextImageDelay" />
+<p>For image formats that support animation, this function returns the number of times the animation should loop. If this function returns -1, it can either mean the animation should loop forever, or that an error occurred. If an error occurred, <a href="qimagereader.html#canRead">canRead</a>() will return false.</p>
+<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>(), <a href="qimageiohandler.html#loopCount">QImageIOHandler::loopCount</a>(), and <a href="qimagereader.html#canRead">canRead</a>().</p>
+<a name="//apple_ref/cpp/instm/QImageReader/nextImageDelay"></a>
 <h3 class="fn"><a name="nextImageDelay"></a>int QImageReader::nextImageDelay () const</h3>
-<p>For image formats that support animation, this function returns the number of milliseconds to wait until displaying the next frame in the animation. Otherwise, 0 is returned.</p>
-<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>() and <a href="qimageiohandler.html#nextImageDelay">QImageIOHandler::nextImageDelay</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/quality" />
+<p>For image formats that support animation, this function returns the number of milliseconds to wait until displaying the next frame in the animation. If the image format doesn't support animation, 0 is returned.</p>
+<p>This function returns -1 if an error occurred.</p>
+<p>See also <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>(), <a href="qimageiohandler.html#nextImageDelay">QImageIOHandler::nextImageDelay</a>(), and <a href="qimagereader.html#canRead">canRead</a>().</p>
+<a name="//apple_ref/cpp/instm/QImageReader/quality"></a>
 <h3 class="fn"><a name="quality"></a>int QImageReader::quality () const</h3>
 <p>Returns the quality level of the image.</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qimagereader.html#setQuality">setQuality</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/read" />
+<a name="//apple_ref/cpp/instm/QImageReader/read"></a>
 <h3 class="fn"><a name="read"></a><a href="qimage.html">QImage</a> QImageReader::read ()</h3>
 <p>Reads an image from the device. On success, the image that was read is returned; otherwise, a null <a href="qimage.html">QImage</a> is returned. You can then call <a href="qimagereader.html#error">error</a>() to find the type of error that occurred, or <a href="qimagereader.html#errorString">errorString</a>() to get a human readable description of the error.</p>
 <p>For image formats that support animation, calling read() repeatedly will return the next frame. When all frames have been read, a null image will be returned.</p>
@@ -231,15 +233,15 @@
  }</pre>
 <p>For image formats that support animation, calling <a href="qimagereader.html#read">read</a>() repeatedly will return the next frame. When all frames have been read, a null image will be returned.</p>
 <p>See also <a href="qimagereader.html#canRead">canRead</a>(), <a href="qimagereader.html#supportedImageFormats">supportedImageFormats</a>(), <a href="qimagereader.html#supportsAnimation">supportsAnimation</a>(), and <a href="qmovie.html">QMovie</a>.</p>
-<a name="//apple_ref/cpp/instm/QImageReader/scaledClipRect" />
+<a name="//apple_ref/cpp/instm/QImageReader/scaledClipRect"></a>
 <h3 class="fn"><a name="scaledClipRect"></a><a href="qrect.html">QRect</a> QImageReader::scaledClipRect () const</h3>
 <p>Returns the scaled clip rect of the image.</p>
 <p>See also <a href="qimagereader.html#setScaledClipRect">setScaledClipRect</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/scaledSize" />
+<a name="//apple_ref/cpp/instm/QImageReader/scaledSize"></a>
 <h3 class="fn"><a name="scaledSize"></a><a href="qsize.html">QSize</a> QImageReader::scaledSize () const</h3>
 <p>Returns the scaled size of the image.</p>
 <p>See also <a href="qimagereader.html#setScaledSize">setScaledSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setAutoDetectImageFormat" />
+<a name="//apple_ref/cpp/instm/QImageReader/setAutoDetectImageFormat"></a>
 <h3 class="fn"><a name="setAutoDetectImageFormat"></a>void QImageReader::setAutoDetectImageFormat ( bool <i>enabled</i> )</h3>
 <p>If <i>enabled</i> is true, image format autodetection is enabled; otherwise, it is disabled. By default, autodetection is enabled.</p>
 <p><a href="qimagereader.html">QImageReader</a> uses an extensive approach to detecting the image format; firstly, if you pass a file name to <a href="qimagereader.html">QImageReader</a>, it will attempt to detect the file extension if the given file name does not point to an existing file, by appending supported default extensions to the given file name, one at a time. It then uses the following approach to detect the image format:</p>
@@ -252,58 +254,58 @@
 </ul>
 <p>By disabling image format autodetection, <a href="qimagereader.html">QImageReader</a> will only query the plugins and built-in handlers based on the format string (i.e&#x2e;, no file name extensions are tested).</p>
 <p>See also <a href="qimagereader.html#autoDetectImageFormat">autoDetectImageFormat</a>(), <a href="qimageiohandler.html#canRead">QImageIOHandler::canRead</a>(), and <a href="qimageioplugin.html#capabilities">QImageIOPlugin::capabilities</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setBackgroundColor" />
+<a name="//apple_ref/cpp/instm/QImageReader/setBackgroundColor"></a>
 <h3 class="fn"><a name="setBackgroundColor"></a>void QImageReader::setBackgroundColor ( const <a href="qcolor.html">QColor</a> &amp; <i>color</i> )</h3>
 <p>Sets the background color to <i>color</i>. Image formats that support this operation are expected to initialize the background to <i>color</i> before reading an image.</p>
 <p>This function was introduced in Qt 4.1.</p>
 <p>See also <a href="qimagereader.html#backgroundColor">backgroundColor</a>() and <a href="qimagereader.html#read">read</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setClipRect" />
+<a name="//apple_ref/cpp/instm/QImageReader/setClipRect"></a>
 <h3 class="fn"><a name="setClipRect"></a>void QImageReader::setClipRect ( const <a href="qrect.html">QRect</a> &amp; <i>rect</i> )</h3>
 <p>Sets the image clip rect (also known as the ROI, or Region Of Interest) to <i>rect</i>. The coordinates of <i>rect</i> are relative to the untransformed image size, as returned by <a href="qimagereader.html#size">size</a>().</p>
 <p>See also <a href="qimagereader.html#clipRect">clipRect</a>(), <a href="qimagereader.html#setScaledSize">setScaledSize</a>(), and <a href="qimagereader.html#setScaledClipRect">setScaledClipRect</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setDecideFormatFromContent" />
+<a name="//apple_ref/cpp/instm/QImageReader/setDecideFormatFromContent"></a>
 <h3 class="fn"><a name="setDecideFormatFromContent"></a>void QImageReader::setDecideFormatFromContent ( bool <i>ignored</i> )</h3>
 <p>If <i>ignored</i> is set to true, then the image reader will ignore specified formats or file extensions and decide which plugin to use only based on the contents in the datastream.</p>
 <p>Setting this flag means that all image plugins gets loaded. Each plugin will read the first bytes in the image data and decide if the plugin is compatible or not.</p>
 <p>This also disables auto detecting the image format.</p>
 <p>See also <a href="qimagereader.html#decideFormatFromContent">decideFormatFromContent</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setDevice" />
+<a name="//apple_ref/cpp/instm/QImageReader/setDevice"></a>
 <h3 class="fn"><a name="setDevice"></a>void QImageReader::setDevice ( <a href="qiodevice.html">QIODevice</a> * <i>device</i> )</h3>
 <p>Sets <a href="qimagereader.html">QImageReader</a>'s device to <i>device</i>. If a device has already been set, the old device is removed from <a href="qimagereader.html">QImageReader</a> and is otherwise left unchanged.</p>
 <p>If the device is not already open, <a href="qimagereader.html">QImageReader</a> will attempt to open the device in <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ReadOnly</a> mode by calling open(). Note that this does not work for certain devices, such as <a href="qprocess.html">QProcess</a>, <a href="qtcpsocket.html">QTcpSocket</a> and <a href="qudpsocket.html">QUdpSocket</a>, where more logic is required to open the device.</p>
 <p>See also <a href="qimagereader.html#device">device</a>() and <a href="qimagereader.html#setFileName">setFileName</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setFileName" />
+<a name="//apple_ref/cpp/instm/QImageReader/setFileName"></a>
 <h3 class="fn"><a name="setFileName"></a>void QImageReader::setFileName ( const <a href="qstring.html">QString</a> &amp; <i>fileName</i> )</h3>
 <p>Sets the file name of <a href="qimagereader.html">QImageReader</a> to <i>fileName</i>. Internally, <a href="qimagereader.html">QImageReader</a> will create a <a href="qfile.html">QFile</a> object and open it in <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ReadOnly</a> mode, and use this when reading images.</p>
 <p>If <i>fileName</i> does not include a file extension (e.g&#x2e;, .png or .bmp), <a href="qimagereader.html">QImageReader</a> will cycle through all supported extensions until it finds a matching file.</p>
 <p>See also <a href="qimagereader.html#fileName">fileName</a>(), <a href="qimagereader.html#setDevice">setDevice</a>(), and <a href="qimagereader.html#supportedImageFormats">supportedImageFormats</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setFormat" />
+<a name="//apple_ref/cpp/instm/QImageReader/setFormat"></a>
 <h3 class="fn"><a name="setFormat"></a>void QImageReader::setFormat ( const <a href="qbytearray.html">QByteArray</a> &amp; <i>format</i> )</h3>
 <p>Sets the format <a href="qimagereader.html">QImageReader</a> will use when reading images, to <i>format</i>. <i>format</i> is a case insensitive text string. Example:</p>
 <pre> QImageReader reader;
  reader.setFormat(&quot;png&quot;); <span class="comment">// same as reader.setFormat(&quot;PNG&quot;);</span></pre>
 <p>You can call <a href="qimagereader.html#supportedImageFormats">supportedImageFormats</a>() for the full list of formats <a href="qimagereader.html">QImageReader</a> supports.</p>
 <p>See also <a href="qimagereader.html#format">format</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setQuality" />
+<a name="//apple_ref/cpp/instm/QImageReader/setQuality"></a>
 <h3 class="fn"><a name="setQuality"></a>void QImageReader::setQuality ( int <i>quality</i> )</h3>
 <p>This is an image format specific function that sets the quality level of the image to <i>quality</i>. For image formats that do not support setting the quality, this value is ignored.</p>
 <p>The value range of <i>quality</i> depends on the image format. For example, the &quot;jpeg&quot; format supports a quality range from 0 (low quality, high compression) to 100 (high quality, low compression).</p>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qimagereader.html#quality">quality</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setScaledClipRect" />
+<a name="//apple_ref/cpp/instm/QImageReader/setScaledClipRect"></a>
 <h3 class="fn"><a name="setScaledClipRect"></a>void QImageReader::setScaledClipRect ( const <a href="qrect.html">QRect</a> &amp; <i>rect</i> )</h3>
 <p>Sets the scaled clip rect to <i>rect</i>. The scaled clip rect is the clip rect (also known as ROI, or Region Of Interest) that is applied after the image has been scaled.</p>
 <p>See also <a href="qimagereader.html#scaledClipRect">scaledClipRect</a>() and <a href="qimagereader.html#setScaledSize">setScaledSize</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/setScaledSize" />
+<a name="//apple_ref/cpp/instm/QImageReader/setScaledSize"></a>
 <h3 class="fn"><a name="setScaledSize"></a>void QImageReader::setScaledSize ( const <a href="qsize.html">QSize</a> &amp; <i>size</i> )</h3>
 <p>Sets the scaled size of the image to <i>size</i>. The scaling is performed after the initial clip rect, but before the scaled clip rect is applied. The algorithm used for scaling depends on the image format. By default (i.e&#x2e;, if the image format does not support scaling), <a href="qimagereader.html">QImageReader</a> will use QImage::scale() with Qt::SmoothScaling.</p>
 <p>See also <a href="qimagereader.html#scaledSize">scaledSize</a>(), <a href="qimagereader.html#setClipRect">setClipRect</a>(), and <a href="qimagereader.html#setScaledClipRect">setScaledClipRect</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/size" />
+<a name="//apple_ref/cpp/instm/QImageReader/size"></a>
 <h3 class="fn"><a name="size"></a><a href="qsize.html">QSize</a> QImageReader::size () const</h3>
 <p>Returns the size of the image, without actually reading the image contents.</p>
 <p>If the image format does not support this feature, this function returns an invalid size. Qt's built-in image handlers all support this feature, but custom image format plugins are not required to do so.</p>
 <p>See also <a href="qimageiohandler.html#ImageOption-enum">QImageIOHandler::ImageOption</a>, <a href="qimageiohandler.html#option">QImageIOHandler::option</a>(), and <a href="qimageiohandler.html#supportsOption">QImageIOHandler::supportsOption</a>().</p>
-<a name="//apple_ref/cpp/clm/QImageReader/supportedImageFormats" />
+<a name="//apple_ref/cpp/clm/QImageReader/supportedImageFormats"></a>
 <h3 class="fn"><a name="supportedImageFormats"></a><a href="qlist.html">QList</a>&lt;<a href="qbytearray.html">QByteArray</a>&gt; QImageReader::supportedImageFormats ()&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns the list of image formats supported by <a href="qimagereader.html">QImageReader</a>.</p>
 <p>By default, Qt can read the following formats:</p>
@@ -326,12 +328,12 @@
 <p>Reading and writing SVG files is supported through Qt's <a href="qtsvg.html">SVG Module</a>.</p>
 <p>To configure Qt with GIF support, pass <tt>-qt-gif</tt> to the <tt>configure</tt> script or check the appropriate option in the graphical installer.</p>
 <p>See also <a href="qimagereader.html#setFormat">setFormat</a>(), <a href="qimagewriter.html#supportedImageFormats">QImageWriter::supportedImageFormats</a>(), and <a href="qimageioplugin.html">QImageIOPlugin</a>.</p>
-<a name="//apple_ref/cpp/instm/QImageReader/supportsAnimation" />
+<a name="//apple_ref/cpp/instm/QImageReader/supportsAnimation"></a>
 <h3 class="fn"><a name="supportsAnimation"></a>bool QImageReader::supportsAnimation () const</h3>
 <p>Returns true if the image format supports animation; otherwise, false is returned.</p>
 <p>This function was introduced in Qt 4.1.</p>
 <p>See also <a href="qmovie.html#supportedFormats">QMovie::supportedFormats</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/supportsOption" />
+<a name="//apple_ref/cpp/instm/QImageReader/supportsOption"></a>
 <h3 class="fn"><a name="supportsOption"></a>bool QImageReader::supportsOption ( <a href="qimageiohandler.html#ImageOption-enum">QImageIOHandler::ImageOption</a> <i>option</i> ) const</h3>
 <p>Returns true if the reader supports <i>option</i>; otherwise returns false.</p>
 <p>Different image formats support different options. Call this function to determine whether a certain option is supported by the current format. For example, the PNG format allows you to embed text into the image's metadata (see <a href="qimagereader.html#text">text</a>()), and the BMP format allows you to determine the image's size without loading the whole image into memory (see <a href="qimagereader.html#size">size</a>()).</p>
@@ -340,13 +342,13 @@
      qDebug() &lt;&lt; &quot;Size:&quot; &lt;&lt; reader.size();</pre>
 <p>This function was introduced in Qt 4.2.</p>
 <p>See also <a href="qimagewriter.html#supportsOption">QImageWriter::supportsOption</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/text" />
+<a name="//apple_ref/cpp/instm/QImageReader/text"></a>
 <h3 class="fn"><a name="text"></a><a href="qstring.html">QString</a> QImageReader::text ( const <a href="qstring.html">QString</a> &amp; <i>key</i> ) const</h3>
 <p>Returns the image text associated with <i>key</i>.</p>
 <p>Support for this option is implemented through <a href="qimageiohandler.html#ImageOption-enum">QImageIOHandler::Description</a>.</p>
 <p>This function was introduced in Qt 4.1.</p>
 <p>See also <a href="qimagereader.html#textKeys">textKeys</a>() and <a href="qimagewriter.html#setText">QImageWriter::setText</a>().</p>
-<a name="//apple_ref/cpp/instm/QImageReader/textKeys" />
+<a name="//apple_ref/cpp/instm/QImageReader/textKeys"></a>
 <h3 class="fn"><a name="textKeys"></a><a href="qstringlist.html">QStringList</a> QImageReader::textKeys () const</h3>
 <p>Returns the text keys for this image. You can use these keys with <a href="qimagereader.html#text">text</a>() to list the image text for a certain key.</p>
 <p>Support for this option is implemented through <a href="qimageiohandler.html#ImageOption-enum">QImageIOHandler::Description</a>.</p>
@@ -356,6 +358,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

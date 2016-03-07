@@ -2826,8 +2826,9 @@ QStyleOptionComplex::QStyleOptionComplex(int version, int type)
 
 /*!
     \variable QStyleOptionComplex::subControls
-    \brief a bitwise OR of the various sub-controls that need to be
-    drawn for the complex control
+
+    This variable holds a bitwise OR of the \l{QStyle::SubControl}
+    {sub-controls} to be drawn for the complex control.
 
     The default value is QStyle::SC_All.
 
@@ -2836,8 +2837,9 @@ QStyleOptionComplex::QStyleOptionComplex(int version, int type)
 
 /*!
     \variable QStyleOptionComplex::activeSubControls
-    \brief a bitwise OR of the various sub-controls that are active
-    (pressed) for the complex control
+
+    This variable holds a bitwise OR of the \l{QStyle::SubControl}
+    {sub-controls} that are active for the complex control.
 
     The default value is QStyle::SC_None.
 
@@ -4713,10 +4715,17 @@ QStyleOptionTabWidgetFrameV2::QStyleOptionTabWidgetFrameV2(int version)
 }
 
 
+/*! \fn QStyleOptionTabWidgetFrameV2::QStyleOptionTabWidgetFrameV2(const QStyleOptionTabWidgetFrameV2 &other)
+    Constructs a QStyleOptionTabWidgetFrameV2 copy of the \a other style option.
+
+    If the \a other style option's version is 1, the new style option's \l
+    selectedTabRect and tabBarRect will contain null rects
+
+    \sa version
+*/
+
 /*!
-    Constructs a QStyleOptionTabWidgetFrameV2 copy of the \a other style option
-    which can be either of the QStyleOptionTabWidgetFrameV2 or
-    QStyleOptionTabWidgetFrame types.
+    Constructs a QStyleOptionTabWidgetFrameV2 copy of the \a other style option.
 
     If the \a other style option's version is 1, the new style option's \l
     selectedTabRect and tabBarRect will contain null rects

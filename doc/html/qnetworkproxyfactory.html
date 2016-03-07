@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QNetworkProxyFactory" />
+<a name="//apple_ref/cpp/cl//QNetworkProxyFactory"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -46,34 +46,34 @@
 <p>A factory can also be set in certain frameworks that support multiple connections, such as <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>. When set on such object, the factory will be queried for sockets created by that framework only.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QNetworkProxyFactory/QNetworkProxyFactory" />
+<a name="//apple_ref/cpp/instm/QNetworkProxyFactory/QNetworkProxyFactory"></a>
 <h3 class="fn"><a name="QNetworkProxyFactory"></a>QNetworkProxyFactory::QNetworkProxyFactory ()</h3>
 <p>Creates a <a href="qnetworkproxyfactory.html">QNetworkProxyFactory</a> object.</p>
 <p>Since <a href="qnetworkproxyfactory.html">QNetworkProxyFactory</a> is an abstract class, you cannot create objects of type <a href="qnetworkproxyfactory.html">QNetworkProxyFactory</a> directly.</p>
-<a name="//apple_ref/cpp/instm/QNetworkProxyFactory/~QNetworkProxyFactory" />
+<a name="//apple_ref/cpp/instm/QNetworkProxyFactory/~QNetworkProxyFactory"></a>
 <h3 class="fn"><a name="dtor.QNetworkProxyFactory"></a>QNetworkProxyFactory::~QNetworkProxyFactory ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destroys the <a href="qnetworkproxyfactory.html">QNetworkProxyFactory</a> object.</p>
-<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/proxyForQuery" />
+<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/proxyForQuery"></a>
 <h3 class="fn"><a name="proxyForQuery"></a><a href="qlist.html">QList</a>&lt;<a href="qnetworkproxy.html">QNetworkProxy</a>&gt; QNetworkProxyFactory::proxyForQuery ( const <a href="qnetworkproxyquery.html">QNetworkProxyQuery</a> &amp; <i>query</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>This function examines takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
-<a name="//apple_ref/cpp/instm/QNetworkProxyFactory/queryProxy" />
+<a name="//apple_ref/cpp/instm/QNetworkProxyFactory/queryProxy"></a>
 <h3 class="fn"><a name="queryProxy"></a><a href="qlist.html">QList</a>&lt;<a href="qnetworkproxy.html">QNetworkProxy</a>&gt; QNetworkProxyFactory::queryProxy ( const <a href="qnetworkproxyquery.html">QNetworkProxyQuery</a> &amp; <i>query</i> = QNetworkProxyQuery() )&nbsp;&nbsp;<tt> [pure virtual]</tt></h3>
 <p>This function examines takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
 <p>When reimplementing this class, take care to return at least one element.</p>
 <p>If you cannot determine a better proxy alternative, use <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::DefaultProxy</a>, which tells the code querying for a proxy to use a higher alternative. For example, if this factory is set to a <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> object, DefaultProxy will tell it to query the application-level proxy settings.</p>
 <p>If this factory is set as the application proxy factory, DefaultProxy and NoProxy will have the same meaning.</p>
-<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/setApplicationProxyFactory" />
+<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/setApplicationProxyFactory"></a>
 <h3 class="fn"><a name="setApplicationProxyFactory"></a>void QNetworkProxyFactory::setApplicationProxyFactory ( QNetworkProxyFactory * <i>factory</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Sets the application-wide proxy factory to be <i>factory</i>. This function will take ownership of that object and will delete it when necessary.</p>
 <p>The application-wide proxy is used as a last-resort when all other proxy selection requests returned <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::DefaultProxy</a>. For example, <a href="qtcpsocket.html">QTcpSocket</a> objects can have a proxy set with QTcpSocket::setProxy, but if none is set, the proxy factory class set with this function will be queried.</p>
 <p>If you set a proxy factory with this function, any application level proxies set with QNetworkProxy::setApplicationProxy will be overridden.</p>
 <p>See also <a href="qnetworkproxy.html#setApplicationProxy">QNetworkProxy::setApplicationProxy</a>(), <a href="qabstractsocket.html#proxy">QAbstractSocket::proxy</a>(), and <a href="qabstractsocket.html#setProxy">QAbstractSocket::setProxy</a>().</p>
-<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/setUseSystemConfiguration" />
+<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/setUseSystemConfiguration"></a>
 <h3 class="fn"><a name="setUseSystemConfiguration"></a>void QNetworkProxyFactory::setUseSystemConfiguration ( bool <i>enable</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Enables the use of the platform-specific proxy settings, and only those. See <a href="qnetworkproxyfactory.html#systemProxyForQuery">systemProxyForQuery</a>() for more information.</p>
 <p>Internally, this method (when called with <i>enable</i> set to true) sets an application-wide proxy factory. For this reason, this method is mutually exclusive with setApplicationProxyFactory: calling setApplicationProxyFactory overrides the use of the system-wide proxy, and calling setUseSystemConfiguration overrides any application proxy or proxy factory that was previously set.</p>
 <p>This function was introduced in Qt 4.6.</p>
-<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/systemProxyForQuery" />
+<a name="//apple_ref/cpp/clm/QNetworkProxyFactory/systemProxyForQuery"></a>
 <h3 class="fn"><a name="systemProxyForQuery"></a><a href="qlist.html">QList</a>&lt;<a href="qnetworkproxy.html">QNetworkProxy</a>&gt; QNetworkProxyFactory::systemProxyForQuery ( const <a href="qnetworkproxyquery.html">QNetworkProxyQuery</a> &amp; <i>query</i> = QNetworkProxyQuery() )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>This function examines takes the query request, <i>query</i>, examines the details of the type of socket or request and returns a list of <a href="qnetworkproxy.html">QNetworkProxy</a> objects that indicate the proxy servers to be used, in order of preference.</p>
 <p>This function can be used to determine the platform-specific proxy settings. This function will use the libraries provided by the operating system to determine the proxy for a given connection, if such libraries exist. If they don't, this function will just return a <a href="qnetworkproxy.html">QNetworkProxy</a> of type <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::NoProxy</a>.</p>
@@ -88,6 +88,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3Canvas" />
+<a name="//apple_ref/cpp/cl//Q3Canvas"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -135,7 +135,7 @@
 <p>See also <a href="q3canvasview.html">Q3CanvasView</a>, <a href="q3canvasitem.html">Q3CanvasItem</a>, <a href="http://qt.nokia.com/doc/qtcanvas">QtCanvas</a>, and <a href="graphicsview-porting.html">Porting to Graphics View</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3Canvas/Q3Canvas" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/Q3Canvas"></a>
 <h3 class="fn"><a name="Q3Canvas"></a>Q3Canvas::Q3Canvas ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0, const char * <i>name</i> = 0 )</h3>
 <p>Create a <a href="q3canvas.html" class="compat">Q3Canvas</a> with no size. <i>parent</i> and <i>name</i> are passed to the <a href="qobject.html">QObject</a> superclass.</p>
 <p><b>Warning:</b> You <i>must</i> call <a href="q3canvas.html#resize">resize</a>() at some time after creation to be able to use the canvas.</p>
@@ -150,32 +150,32 @@
 </table></p>
 <p>The <a href="q3canvas.html" class="compat">Q3Canvas</a> is initially sized to show exactly the given number of tiles horizontally and vertically. If it is resized to be larger, the entire matrix of tiles will be repeated as often as necessary to cover the area. If it is smaller, tiles to the right and bottom will not be visible.</p>
 <p>See also <a href="q3canvas.html#setTiles">setTiles</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/~Q3Canvas" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/~Q3Canvas"></a>
 <h3 class="fn"><a name="dtor.Q3Canvas"></a>Q3Canvas::~Q3Canvas ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destroys the canvas and all the canvas's canvas items.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/advance" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/advance"></a>
 <h3 class="fn"><a name="advance"></a>void Q3Canvas::advance ()&nbsp;&nbsp;<tt> [virtual slot]</tt></h3>
 <p>Moves all <a href="q3canvasitem.html#animated">Q3CanvasItem::animated</a>() canvas items on the canvas and refreshes all changes to all views of the canvas. (An `animated' item is an item that is in motion; see setVelocity().)</p>
 <p>The advance takes place in two phases. In phase 0, the <a href="q3canvasitem.html#advance">Q3CanvasItem::advance</a>() function of each <a href="q3canvasitem.html#animated">Q3CanvasItem::animated</a>() canvas item is called with paramater 0. Then all these canvas items are called again, with parameter 1. In phase 0, the canvas items should not change position, merely examine other items on the canvas for which special processing is required, such as collisions between items. In phase 1, all canvas items should change positions, ignoring any other items on the canvas. This two-phase approach allows for considerations of &quot;fairness&quot;, although no <a href="q3canvasitem.html" class="compat">Q3CanvasItem</a> subclasses supplied with Qt do anything interesting in phase 0.</p>
 <p>The canvas can be configured to call this function periodically with <a href="q3canvas.html#setAdvancePeriod">setAdvancePeriod</a>().</p>
 <p>See also <a href="q3canvas.html#update">update</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/allItems" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/allItems"></a>
 <h3 class="fn"><a name="allItems"></a><a href="q3canvasitemlist.html">Q3CanvasItemList</a> Q3Canvas::allItems ()</h3>
 <p>Returns a list of all the items in the canvas.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/backgroundColor" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/backgroundColor"></a>
 <h3 class="fn"><a name="backgroundColor"></a><a href="qcolor.html">QColor</a> Q3Canvas::backgroundColor () const</h3>
 <p>Returns the color set by <a href="q3canvas.html#setBackgroundColor">setBackgroundColor</a>(). By default, this is white.</p>
 <p>This function is not a reimplementation of QWidget::backgroundColor() (<a href="q3canvas.html" class="compat">Q3Canvas</a> is not a subclass of <a href="qwidget.html">QWidget</a>), but all Q3CanvasViews that are viewing the canvas will set their backgrounds to this color.</p>
 <p>See also <a href="q3canvas.html#setBackgroundColor">setBackgroundColor</a>() and <a href="q3canvas.html#backgroundPixmap">backgroundPixmap</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/backgroundPixmap" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/backgroundPixmap"></a>
 <h3 class="fn"><a name="backgroundPixmap"></a><a href="qpixmap.html">QPixmap</a> Q3Canvas::backgroundPixmap () const</h3>
 <p>Returns the pixmap set by <a href="q3canvas.html#setBackgroundPixmap">setBackgroundPixmap</a>(). By default, this is a null pixmap.</p>
 <p>See also <a href="q3canvas.html#setBackgroundPixmap">setBackgroundPixmap</a>() and <a href="q3canvas.html#backgroundColor">backgroundColor</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/chunkSize" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/chunkSize"></a>
 <h3 class="fn"><a name="chunkSize"></a>int Q3Canvas::chunkSize () const</h3>
 <p>Returns the chunk size of the canvas.</p>
 <p>See also <a href="q3canvas.html#retune">retune</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/collisions" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/collisions"></a>
 <h3 class="fn"><a name="collisions"></a><a href="q3canvasitemlist.html">Q3CanvasItemList</a> Q3Canvas::collisions ( const <a href="qpoint.html">QPoint</a> &amp; <i>p</i> ) const</h3>
 <p>Returns a list of canvas items that collide with the point <i>p</i>. The list is ordered by z coordinates, from highest z coordinate (front-most item) to lowest z coordinate (rear-most item).</p>
 <h3 class="fn"><a name="collisions-2"></a><a href="q3canvasitemlist.html">Q3CanvasItemList</a> Q3Canvas::collisions ( const <a href="qrect.html">QRect</a> &amp; <i>r</i> ) const</h3>
@@ -185,7 +185,7 @@
 <p>This is an overloaded function.</p>
 <p>Returns a list of canvas items which intersect with the chunks listed in <i>chunklist</i>, excluding <i>item</i>. If <i>exact</i> is true, only those which actually <a href="q3canvasitem.html#collidesWith">collide with</a> <i>item</i> are returned; otherwise canvas items are included just for being in the chunks.</p>
 <p>This is a utility function mainly used to implement the simpler <a href="q3canvasitem.html#collisions">Q3CanvasItem::collisions</a>() function.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/drawArea" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/drawArea"></a>
 <h3 class="fn"><a name="drawArea"></a>void Q3Canvas::drawArea ( const <a href="qrect.html">QRect</a> &amp; <i>clip</i>, <a href="qpainter.html">QPainter</a> * <i>painter</i>, bool <i>dbuf</i> = false )</h3>
 <p>Paints all canvas items that are in the area <i>clip</i> to <i>painter</i>, using double-buffering if <i>dbuf</i> is true.</p>
 <p>e.g&#x2e; to print the canvas to a printer:</p>
@@ -194,20 +194,20 @@
      QPainter p(&amp;pr);
      canvas.drawArea(canvas.rect(), &amp;p);
  }</pre>
-<a name="//apple_ref/cpp/instm/Q3Canvas/drawBackground" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/drawBackground"></a>
 <h3 class="fn"><a name="drawBackground"></a>void Q3Canvas::drawBackground ( <a href="qpainter.html">QPainter</a> &amp; <i>painter</i>, const <a href="qrect.html">QRect</a> &amp; <i>clip</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>This virtual function is called for all updates of the canvas. It renders any background graphics using the painter <i>painter</i>, in the area <i>clip</i>. If the canvas has a background pixmap or a tiled background, that graphic is used, otherwise the canvas is cleared using the background color.</p>
 <p>If the graphics for an area change, you must explicitly call setChanged(const <a href="qrect.html">QRect</a>&amp;) for the result to be visible when <a href="q3canvas.html#update">update</a>() is next called.</p>
 <p>See also <a href="q3canvas.html#setBackgroundColor">setBackgroundColor</a>(), <a href="q3canvas.html#setBackgroundPixmap">setBackgroundPixmap</a>(), and <a href="q3canvas.html#setTiles">setTiles</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/drawForeground" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/drawForeground"></a>
 <h3 class="fn"><a name="drawForeground"></a>void Q3Canvas::drawForeground ( <a href="qpainter.html">QPainter</a> &amp; <i>painter</i>, const <a href="qrect.html">QRect</a> &amp; <i>clip</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>This virtual function is called for all updates of the canvas. It renders any foreground graphics using the painter <i>painter</i>, in the area <i>clip</i>.</p>
 <p>If the graphics for an area change, you must explicitly call setChanged(const <a href="qrect.html">QRect</a>&amp;) for the result to be visible when <a href="q3canvas.html#update">update</a>() is next called.</p>
 <p>The default is to draw nothing.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/height" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/height"></a>
 <h3 class="fn"><a name="height"></a>int Q3Canvas::height () const</h3>
 <p>Returns the height of the canvas, in pixels.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/onCanvas" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/onCanvas"></a>
 <h3 class="fn"><a name="onCanvas"></a>bool Q3Canvas::onCanvas ( int <i>x</i>, int <i>y</i> ) const</h3>
 <p>Returns true if the pixel position (<i>x</i>, <i>y</i>) is on the canvas; otherwise returns false.</p>
 <p>See also <a href="q3canvas.html#validChunk">validChunk</a>().</p>
@@ -215,44 +215,44 @@
 <p>This is an overloaded function.</p>
 <p>Returns true if the pixel position <i>p</i> is on the canvas; otherwise returns false.</p>
 <p>See also <a href="q3canvas.html#validChunk">validChunk</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/rect" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/rect"></a>
 <h3 class="fn"><a name="rect"></a><a href="qrect.html">QRect</a> Q3Canvas::rect () const</h3>
 <p>Returns a rectangle the size of the canvas.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/resize" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/resize"></a>
 <h3 class="fn"><a name="resize"></a>void Q3Canvas::resize ( int <i>w</i>, int <i>h</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Changes the size of the canvas to have a width of <i>w</i> and a height of <i>h</i>. This is a slow operation.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/resized" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/resized"></a>
 <h3 class="fn"><a name="resized"></a>void Q3Canvas::resized ()&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted whenever the canvas is resized. Each <a href="q3canvasview.html" class="compat">Q3CanvasView</a> connects to this signal to keep the scrollview's size correct.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/retune" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/retune"></a>
 <h3 class="fn"><a name="retune"></a>void Q3Canvas::retune ( int <i>chunksze</i>, int <i>mxclusters</i> = 100 )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Change the efficiency tuning parameters to <i>mxclusters</i> clusters, each of size <i>chunksze</i>. This is a slow operation if there are many objects on the canvas.</p>
 <p>The canvas is divided into chunks which are rectangular areas <i>chunksze</i> wide by <i>chunksze</i> high. Use a chunk size which is about the average size of the canvas items. If you choose a chunk size which is too small it will increase the amount of calculation required when drawing since each change will affect many chunks. If you choose a chunk size which is too large the amount of drawing required will increase because for each change, a lot of drawing will be required since there will be many (unchanged) canvas items which are in the same chunk as the changed canvas items.</p>
 <p>Internally, a canvas uses a low-resolution &quot;chunk matrix&quot; to keep track of all the items in the canvas. A 64x64 chunk matrix is the default for a 1024x1024 pixel canvas, where each chunk collects canvas items in a 16x16 pixel square. This default is also affected by <a href="q3canvas.html#setTiles">setTiles</a>(). You can tune this default using this function. For example if you have a very large canvas and want to trade off speed for memory then you might set the chunk size to 32 or 64.</p>
 <p>The <i>mxclusters</i> argument is the number of rectangular groups of chunks that will be separately drawn. If the canvas has a large number of small, dispersed items, this should be about that number. Our testing suggests that a large number of clusters is almost always best.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setAdvancePeriod" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setAdvancePeriod"></a>
 <h3 class="fn"><a name="setAdvancePeriod"></a>void Q3Canvas::setAdvancePeriod ( int <i>ms</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the canvas to call <a href="q3canvas.html#advance">advance</a>() every <i>ms</i> milliseconds. Any previous setting by setAdvancePeriod() or <a href="q3canvas.html#setUpdatePeriod">setUpdatePeriod</a>() is overridden.</p>
 <p>If <i>ms</i> is less than 0 advancing will be stopped.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setAllChanged" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setAllChanged"></a>
 <h3 class="fn"><a name="setAllChanged"></a>void Q3Canvas::setAllChanged ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Marks the whole canvas as changed. All views of the canvas will be entirely redrawn when <a href="q3canvas.html#update">update</a>() is called next.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setBackgroundColor" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setBackgroundColor"></a>
 <h3 class="fn"><a name="setBackgroundColor"></a>void Q3Canvas::setBackgroundColor ( const <a href="qcolor.html">QColor</a> &amp; <i>c</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the solid background to be the color <i>c</i>.</p>
 <p>See also <a href="q3canvas.html#backgroundColor">backgroundColor</a>(), <a href="q3canvas.html#setBackgroundPixmap">setBackgroundPixmap</a>(), and <a href="q3canvas.html#setTiles">setTiles</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setBackgroundPixmap" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setBackgroundPixmap"></a>
 <h3 class="fn"><a name="setBackgroundPixmap"></a>void Q3Canvas::setBackgroundPixmap ( const <a href="qpixmap.html">QPixmap</a> &amp; <i>p</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the solid background to be the pixmap <i>p</i> repeated as necessary to cover the entire canvas.</p>
 <p>See also <a href="q3canvas.html#backgroundPixmap">backgroundPixmap</a>(), <a href="q3canvas.html#setBackgroundColor">setBackgroundColor</a>(), and <a href="q3canvas.html#setTiles">setTiles</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setChanged" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setChanged"></a>
 <h3 class="fn"><a name="setChanged"></a>void Q3Canvas::setChanged ( const <a href="qrect.html">QRect</a> &amp; <i>area</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Marks <i>area</i> as changed. This <i>area</i> will be redrawn in all views that are showing it when <a href="q3canvas.html#update">update</a>() is called next.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setDoubleBuffering" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setDoubleBuffering"></a>
 <h3 class="fn"><a name="setDoubleBuffering"></a>void Q3Canvas::setDoubleBuffering ( bool <i>y</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>If <i>y</i> is true (the default) double-buffering is switched on; otherwise double-buffering is switched off.</p>
 <p>Turning off double-buffering causes the redrawn areas to flicker a little and also gives a (usually small) performance improvement.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setTile" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setTile"></a>
 <h3 class="fn"><a name="setTile"></a>void Q3Canvas::setTile ( int <i>x</i>, int <i>y</i>, int <i>tilenum</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the tile at (<i>x</i>, <i>y</i>) to use tile number <i>tilenum</i>, which is an index into the tile pixmaps. The canvas will update appropriately when <a href="q3canvas.html#update">update</a>() is next called.</p>
 <p>The images are taken from the pixmap set by <a href="q3canvas.html#setTiles">setTiles</a>() and are arranged left to right, (and in the case of pixmaps that have multiple rows of tiles, top to bottom), with tile 0 in the top-left corner, tile 1 next to the right, and so on, e.g&#x2e;</p>
@@ -261,7 +261,7 @@
 <tr valign="top" class="even"><td>4</td><td>5</td><td>6</td><td>7</td></tr>
 </table></p>
 <p>See also <a href="q3canvas.html#tile">tile</a>() and <a href="q3canvas.html#setTiles">setTiles</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setTiles" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setTiles"></a>
 <h3 class="fn"><a name="setTiles"></a>void Q3Canvas::setTiles ( <a href="qpixmap.html">QPixmap</a> <i>p</i>, int <i>h</i>, int <i>v</i>, int <i>tilewidth</i>, int <i>tileheight</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the <a href="q3canvas.html" class="compat">Q3Canvas</a> to be composed of <i>h</i> tiles horizontally and <i>v</i> tiles vertically. Each tile will be an image <i>tilewidth</i> by <i>tileheight</i> pixels from pixmap <i>p</i>.</p>
 <p>The pixmap <i>p</i> is a list of tiles, arranged left to right, (and in the case of pixmaps that have multiple rows of tiles, top to bottom), with tile 0 in the top-left corner, tile 1 next to the right, and so on, e.g&#x2e;</p>
@@ -272,38 +272,38 @@
 <p>If the canvas is larger than the matrix of tiles, the entire matrix is repeated as necessary to cover the whole canvas. If it is smaller, tiles to the right and bottom are not visible.</p>
 <p>The width and height of <i>p</i> must be a multiple of <i>tilewidth</i> and <i>tileheight</i>. If they are not the function will do nothing.</p>
 <p>If you want to unset any tiling set, then just pass in a null pixmap and 0 for <i>h</i>, <i>v</i>, <i>tilewidth</i>, and <i>tileheight</i>.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setUnchanged" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setUnchanged"></a>
 <h3 class="fn"><a name="setUnchanged"></a>void Q3Canvas::setUnchanged ( const <a href="qrect.html">QRect</a> &amp; <i>area</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Marks <i>area</i> as <i>unchanged</i>. The area will <i>not</i> be redrawn in the views for the next <a href="q3canvas.html#update">update</a>(), unless it is marked or changed again before the next call to <a href="q3canvas.html#update">update</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/setUpdatePeriod" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/setUpdatePeriod"></a>
 <h3 class="fn"><a name="setUpdatePeriod"></a>void Q3Canvas::setUpdatePeriod ( int <i>ms</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the canvas to call <a href="q3canvas.html#update">update</a>() every <i>ms</i> milliseconds. Any previous setting by <a href="q3canvas.html#setAdvancePeriod">setAdvancePeriod</a>() or setUpdatePeriod() is overridden.</p>
 <p>If <i>ms</i> is less than 0 automatic updating will be stopped.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/size" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/size"></a>
 <h3 class="fn"><a name="size"></a><a href="qsize.html">QSize</a> Q3Canvas::size () const</h3>
 <p>Returns the size of the canvas, in pixels.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/tile" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/tile"></a>
 <h3 class="fn"><a name="tile"></a>int Q3Canvas::tile ( int <i>x</i>, int <i>y</i> ) const</h3>
 <p>Returns the tile at position (<i>x</i>, <i>y</i>). Initially, all tiles are 0.</p>
 <p>The parameters must be within range, i.e&#x2e; 0 &lt; <i>x</i> &lt; <a href="q3canvas.html#tilesHorizontally">tilesHorizontally</a>() and 0 &lt; <i>y</i> &lt; <a href="q3canvas.html#tilesVertically">tilesVertically</a>().</p>
 <p>See also <a href="q3canvas.html#setTile">setTile</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/tileHeight" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/tileHeight"></a>
 <h3 class="fn"><a name="tileHeight"></a>int Q3Canvas::tileHeight () const</h3>
 <p>Returns the height of each tile.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/tileWidth" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/tileWidth"></a>
 <h3 class="fn"><a name="tileWidth"></a>int Q3Canvas::tileWidth () const</h3>
 <p>Returns the width of each tile.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/tilesHorizontally" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/tilesHorizontally"></a>
 <h3 class="fn"><a name="tilesHorizontally"></a>int Q3Canvas::tilesHorizontally () const</h3>
 <p>Returns the number of tiles horizontally.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/tilesVertically" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/tilesVertically"></a>
 <h3 class="fn"><a name="tilesVertically"></a>int Q3Canvas::tilesVertically () const</h3>
 <p>Returns the number of tiles vertically.</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/update" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/update"></a>
 <h3 class="fn"><a name="update"></a>void Q3Canvas::update ()&nbsp;&nbsp;<tt> [virtual slot]</tt></h3>
 <p>Repaints changed areas in all views of the canvas.</p>
 <p>See also <a href="q3canvas.html#advance">advance</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/validChunk" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/validChunk"></a>
 <h3 class="fn"><a name="validChunk"></a>bool Q3Canvas::validChunk ( int <i>x</i>, int <i>y</i> ) const</h3>
 <p>Returns true if the chunk position (<i>x</i>, <i>y</i>) is on the canvas; otherwise returns false.</p>
 <p>See also <a href="q3canvas.html#onCanvas">onCanvas</a>().</p>
@@ -311,13 +311,13 @@
 <p>This is an overloaded function.</p>
 <p>Returns true if the chunk position <i>p</i> is on the canvas; otherwise returns false.</p>
 <p>See also <a href="q3canvas.html#onCanvas">onCanvas</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Canvas/width" />
+<a name="//apple_ref/cpp/instm/Q3Canvas/width"></a>
 <h3 class="fn"><a name="width"></a>int Q3Canvas::width () const</h3>
 <p>Returns the width of the canvas, in pixels.</p>
 <p /><address><hr /><div align="center">
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

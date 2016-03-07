@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//Q3Url" />
+<a name="//apple_ref/cpp/cl//Q3Url"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -126,7 +126,7 @@
 <p>See also <a href="q3urloperator.html">Q3UrlOperator</a>.</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/Q3Url/Q3Url" />
+<a name="//apple_ref/cpp/instm/Q3Url/Q3Url"></a>
 <h3 class="fn"><a name="Q3Url"></a>Q3Url::Q3Url ()</h3>
 <p>Constructs an empty URL that is invalid.</p>
 <h3 class="fn"><a name="Q3Url-2"></a>Q3Url::Q3Url ( const <a href="qstring.html">QString</a> &amp; <i>url</i> )</h3>
@@ -146,174 +146,174 @@
 <pre> Q3Url url( &quot;ftp:<span class="comment">//ftp.qt.nokia.com/qt/source&quot;, &quot;file:///usr/local&quot; );</span></pre>
 <p>will result in a new URL, with &quot;/usr/local&quot; as the path and &quot;file&quot; as the protocol.</p>
 <p>Normally it is expected that the path of <i>url</i> points to a directory, even if the path has no slash at the end. But if you want the constructor to handle the last part of the path as a file name if there is no slash at the end, and to let it be replaced by the file name of <i>relUrl</i> (if it contains one), set <i>checkSlash</i> to true.</p>
-<a name="//apple_ref/cpp/instm/Q3Url/~Q3Url" />
+<a name="//apple_ref/cpp/instm/Q3Url/~Q3Url"></a>
 <h3 class="fn"><a name="dtor.Q3Url"></a>Q3Url::~Q3Url ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destructor.</p>
-<a name="//apple_ref/cpp/instm/Q3Url/addPath" />
+<a name="//apple_ref/cpp/instm/Q3Url/addPath"></a>
 <h3 class="fn"><a name="addPath"></a>void Q3Url::addPath ( const <a href="qstring.html">QString</a> &amp; <i>pa</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Adds the path <i>pa</i> to the path of the URL.</p>
 <p>See also <a href="q3url.html#setPath">setPath</a>() and <a href="q3url.html#hasPath">hasPath</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/cdUp" />
+<a name="//apple_ref/cpp/instm/Q3Url/cdUp"></a>
 <h3 class="fn"><a name="cdUp"></a>bool Q3Url::cdUp ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Changes the directory to one directory up. This function always returns true.</p>
 <p>See also <a href="q3url.html#setPath">setPath</a>().</p>
-<a name="//apple_ref/cpp/clm/Q3Url/decode" />
+<a name="//apple_ref/cpp/clm/Q3Url/decode"></a>
 <h3 class="fn"><a name="decode"></a>void Q3Url::decode ( <a href="qstring.html">QString</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Decodes the <i>url</i> in-place into UTF-8. For example</p>
 <pre> QString url = &quot;http%3A<span class="comment">//qt%20nokia%20com&quot;</span>
  Q3Url::decode( url );
 <span class="comment"> // url is now &quot;http://qt.nokia.com&quot;</span></pre>
 <p>See also <a href="q3url.html#encode">encode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/dirPath" />
+<a name="//apple_ref/cpp/instm/Q3Url/dirPath"></a>
 <h3 class="fn"><a name="dirPath"></a><a href="qstring.html">QString</a> Q3Url::dirPath () const</h3>
 <p>Returns the directory path of the URL. This is the part of the path of the URL without the <a href="q3url.html#fileName">fileName</a>(). See the documentation of <a href="q3url.html#fileName">fileName</a>() for a discussion of what is handled as file name and what is handled as directory path.</p>
 <p>See also <a href="q3url.html#setPath">setPath</a>() and <a href="q3url.html#hasPath">hasPath</a>().</p>
-<a name="//apple_ref/cpp/clm/Q3Url/encode" />
+<a name="//apple_ref/cpp/clm/Q3Url/encode"></a>
 <h3 class="fn"><a name="encode"></a>void Q3Url::encode ( <a href="qstring.html">QString</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Encodes the <i>url</i> in-place into UTF-8. For example</p>
 <pre> QString url = http:<span class="comment">//qt.nokia.com</span>
  Q3Url::encode( url );
 <span class="comment"> // url is now &quot;http%3A//qt%20nokia%20com&quot;</span></pre>
 <p>See also <a href="q3url.html#decode">decode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/encodedPathAndQuery" />
+<a name="//apple_ref/cpp/instm/Q3Url/encodedPathAndQuery"></a>
 <h3 class="fn"><a name="encodedPathAndQuery"></a><a href="qstring.html">QString</a> Q3Url::encodedPathAndQuery ()</h3>
 <p>Returns the encoded path and query.</p>
 <p>See also <a href="q3url.html#setEncodedPathAndQuery">setEncodedPathAndQuery</a>() and <a href="q3url.html#decode">decode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/fileName" />
+<a name="//apple_ref/cpp/instm/Q3Url/fileName"></a>
 <h3 class="fn"><a name="fileName"></a><a href="qstring.html">QString</a> Q3Url::fileName () const</h3>
 <p>Returns the file name of the URL. If the path of the URL doesn't have a slash at the end, the part between the last slash and the end of the path string is considered to be the file name. If the path has a slash at the end, an empty string is returned here.</p>
 <p>See also <a href="q3url.html#setFileName">setFileName</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/hasHost" />
+<a name="//apple_ref/cpp/instm/Q3Url/hasHost"></a>
 <h3 class="fn"><a name="hasHost"></a>bool Q3Url::hasHost () const</h3>
 <p>Returns true if the URL contains a hostname; otherwise returns false.</p>
 <p>See also <a href="q3url.html#setHost">setHost</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/hasPassword" />
+<a name="//apple_ref/cpp/instm/Q3Url/hasPassword"></a>
 <h3 class="fn"><a name="hasPassword"></a>bool Q3Url::hasPassword () const</h3>
 <p>Returns true if the URL contains a password; otherwise returns false.</p>
 <p><b>Warning:</b> Passwords passed in URLs are normally <i>insecure</i>; this is due to the mechanism, not because of Qt.</p>
 <p>See also <a href="q3url.html#setPassword">setPassword</a>() and <a href="q3url.html#setUser">setUser</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/hasPath" />
+<a name="//apple_ref/cpp/instm/Q3Url/hasPath"></a>
 <h3 class="fn"><a name="hasPath"></a>bool Q3Url::hasPath () const</h3>
 <p>Returns true if the URL contains a path; otherwise returns false.</p>
 <p>See also <a href="q3url.html#pathx">path</a>() and <a href="q3url.html#setPath">setPath</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/hasPort" />
+<a name="//apple_ref/cpp/instm/Q3Url/hasPort"></a>
 <h3 class="fn"><a name="hasPort"></a>bool Q3Url::hasPort () const</h3>
 <p>Returns true if the URL contains a port; otherwise returns false.</p>
 <p>See also <a href="q3url.html#setPort">setPort</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/hasRef" />
+<a name="//apple_ref/cpp/instm/Q3Url/hasRef"></a>
 <h3 class="fn"><a name="hasRef"></a>bool Q3Url::hasRef () const</h3>
 <p>Returns true if the URL has a reference; otherwise returns false.</p>
 <p>See also <a href="q3url.html#setRef">setRef</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/hasUser" />
+<a name="//apple_ref/cpp/instm/Q3Url/hasUser"></a>
 <h3 class="fn"><a name="hasUser"></a>bool Q3Url::hasUser () const</h3>
 <p>Returns true if the URL contains a username; otherwise returns false.</p>
 <p>See also <a href="q3url.html#setUser">setUser</a>() and <a href="q3url.html#setPassword">setPassword</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/host" />
+<a name="//apple_ref/cpp/instm/Q3Url/host"></a>
 <h3 class="fn"><a name="host"></a><a href="qstring.html">QString</a> Q3Url::host () const</h3>
 <p>Returns the hostname of the URL.</p>
 <p>See also <a href="q3url.html#setHost">setHost</a>() and <a href="q3url.html#hasHost">hasHost</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/isLocalFile" />
+<a name="//apple_ref/cpp/instm/Q3Url/isLocalFile"></a>
 <h3 class="fn"><a name="isLocalFile"></a>bool Q3Url::isLocalFile () const</h3>
 <p>Returns true if the URL is a local file; otherwise returns false.</p>
-<a name="//apple_ref/cpp/clm/Q3Url/isRelativeUrl" />
+<a name="//apple_ref/cpp/clm/Q3Url/isRelativeUrl"></a>
 <h3 class="fn"><a name="isRelativeUrl"></a>bool Q3Url::isRelativeUrl ( const <a href="qstring.html">QString</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [static]</tt></h3>
 <p>Returns true if <i>url</i> is relative; otherwise returns false.</p>
-<a name="//apple_ref/cpp/instm/Q3Url/isValid" />
+<a name="//apple_ref/cpp/instm/Q3Url/isValid"></a>
 <h3 class="fn"><a name="isValid"></a>bool Q3Url::isValid () const</h3>
 <p>Returns true if the URL is valid; otherwise returns false. A URL is invalid if it cannot be parsed, for example.</p>
-<a name="//apple_ref/cpp/instm/Q3Url/parse" />
+<a name="//apple_ref/cpp/instm/Q3Url/parse"></a>
 <h3 class="fn"><a name="parse"></a>bool Q3Url::parse ( const <a href="qstring.html">QString</a> &amp; <i>url</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Parses the <i>url</i>. Returns true on success; otherwise returns false.</p>
-<a name="//apple_ref/cpp/instm/Q3Url/password" />
+<a name="//apple_ref/cpp/instm/Q3Url/password"></a>
 <h3 class="fn"><a name="password"></a><a href="qstring.html">QString</a> Q3Url::password () const</h3>
 <p>Returns the password of the URL.</p>
 <p><b>Warning:</b> Passwords passed in URLs are normally <i>insecure</i>; this is due to the mechanism, not because of Qt.</p>
 <p>See also <a href="q3url.html#setPassword">setPassword</a>() and <a href="q3url.html#setUser">setUser</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/path" />
+<a name="//apple_ref/cpp/instm/Q3Url/path"></a>
 <h3 class="fn"><a name="pathx"></a><a href="qstring.html">QString</a> Q3Url::path ( bool <i>correct</i> = true ) const</h3>
 <p>Returns the path of the URL. If <i>correct</i> is true, the path is cleaned (deals with too many or too few slashes, cleans things like &quot;/../&#x2e;.&quot;, etc). Otherwise path() returns exactly the path that was parsed or set.</p>
 <p>See also <a href="q3url.html#setPath">setPath</a>() and <a href="q3url.html#hasPath">hasPath</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/port" />
+<a name="//apple_ref/cpp/instm/Q3Url/port"></a>
 <h3 class="fn"><a name="port"></a>int Q3Url::port () const</h3>
 <p>Returns the port of the URL or -1 if no port has been set.</p>
 <p>See also <a href="q3url.html#setPort">setPort</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/protocol" />
+<a name="//apple_ref/cpp/instm/Q3Url/protocol"></a>
 <h3 class="fn"><a name="protocol"></a><a href="qstring.html">QString</a> Q3Url::protocol () const</h3>
 <p>Returns the protocol of the URL. Typically, &quot;file&quot;, &quot;http&quot;, &quot;ftp&quot;, etc.</p>
 <p>See also <a href="q3url.html#setProtocol">setProtocol</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/query" />
+<a name="//apple_ref/cpp/instm/Q3Url/query"></a>
 <h3 class="fn"><a name="query"></a><a href="qstring.html">QString</a> Q3Url::query () const</h3>
 <p>Returns the (encoded) query of the URL.</p>
 <p>See also <a href="q3url.html#setQuery">setQuery</a>() and <a href="q3url.html#decode">decode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/ref" />
+<a name="//apple_ref/cpp/instm/Q3Url/ref"></a>
 <h3 class="fn"><a name="ref"></a><a href="qstring.html">QString</a> Q3Url::ref () const</h3>
 <p>Returns the (encoded) reference of the URL.</p>
 <p>See also <a href="q3url.html#setRef">setRef</a>(), <a href="q3url.html#hasRef">hasRef</a>(), and <a href="q3url.html#decode">decode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/reset" />
+<a name="//apple_ref/cpp/instm/Q3Url/reset"></a>
 <h3 class="fn"><a name="reset"></a>void Q3Url::reset ()&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Resets all parts of the URL to their default values and invalidates it.</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setEncodedPathAndQuery" />
+<a name="//apple_ref/cpp/instm/Q3Url/setEncodedPathAndQuery"></a>
 <h3 class="fn"><a name="setEncodedPathAndQuery"></a>void Q3Url::setEncodedPathAndQuery ( const <a href="qstring.html">QString</a> &amp; <i>pathAndQuery</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Parses <i>pathAndQuery</i> for a path and query and sets those values. The whole string must be encoded.</p>
 <p>See also <a href="q3url.html#encodedPathAndQuery">encodedPathAndQuery</a>() and <a href="q3url.html#encode">encode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setFileName" />
+<a name="//apple_ref/cpp/instm/Q3Url/setFileName"></a>
 <h3 class="fn"><a name="setFileName"></a>void Q3Url::setFileName ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the file name of the URL to <i>name</i>. If this URL contains a <a href="q3url.html#fileName">fileName</a>(), the original file name is replaced by <i>name</i>.</p>
 <p>See the documentation of <a href="q3url.html#fileName">fileName</a>() for a more detailed discussion of what is handled as file name and what is handled as a directory path.</p>
 <p>See also <a href="q3url.html#fileName">fileName</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setHost" />
+<a name="//apple_ref/cpp/instm/Q3Url/setHost"></a>
 <h3 class="fn"><a name="setHost"></a>void Q3Url::setHost ( const <a href="qstring.html">QString</a> &amp; <i>host</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the hostname of the URL to <i>host</i>.</p>
 <p>See also <a href="q3url.html#host">host</a>() and <a href="q3url.html#hasHost">hasHost</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setPassword" />
+<a name="//apple_ref/cpp/instm/Q3Url/setPassword"></a>
 <h3 class="fn"><a name="setPassword"></a>void Q3Url::setPassword ( const <a href="qstring.html">QString</a> &amp; <i>pass</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the password of the URL to <i>pass</i>.</p>
 <p><b>Warning:</b> Passwords passed in URLs are normally <i>insecure</i>; this is due to the mechanism, not because of Qt.</p>
 <p>See also <a href="q3url.html#password">password</a>() and <a href="q3url.html#setUser">setUser</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setPath" />
+<a name="//apple_ref/cpp/instm/Q3Url/setPath"></a>
 <h3 class="fn"><a name="setPath"></a>void Q3Url::setPath ( const <a href="qstring.html">QString</a> &amp; <i>path</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the path of the URL to <i>path</i>.</p>
 <p>See also <a href="q3url.html#pathx">path</a>() and <a href="q3url.html#hasPath">hasPath</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setPort" />
+<a name="//apple_ref/cpp/instm/Q3Url/setPort"></a>
 <h3 class="fn"><a name="setPort"></a>void Q3Url::setPort ( int <i>port</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the port of the URL to <i>port</i>.</p>
 <p>See also <a href="q3url.html#port">port</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setProtocol" />
+<a name="//apple_ref/cpp/instm/Q3Url/setProtocol"></a>
 <h3 class="fn"><a name="setProtocol"></a>void Q3Url::setProtocol ( const <a href="qstring.html">QString</a> &amp; <i>protocol</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the protocol of the URL to <i>protocol</i>. Typically, &quot;file&quot;, &quot;http&quot;, &quot;ftp&quot;, etc.</p>
 <p>See also <a href="q3url.html#protocol">protocol</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setQuery" />
+<a name="//apple_ref/cpp/instm/Q3Url/setQuery"></a>
 <h3 class="fn"><a name="setQuery"></a>void Q3Url::setQuery ( const <a href="qstring.html">QString</a> &amp; <i>txt</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the query of the URL to <i>txt</i>. <i>txt</i> must be encoded.</p>
 <p>See also <a href="q3url.html#query">query</a>() and <a href="q3url.html#encode">encode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setRef" />
+<a name="//apple_ref/cpp/instm/Q3Url/setRef"></a>
 <h3 class="fn"><a name="setRef"></a>void Q3Url::setRef ( const <a href="qstring.html">QString</a> &amp; <i>txt</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the reference of the URL to <i>txt</i>. <i>txt</i> must be encoded.</p>
 <p>See also <a href="q3url.html#ref">ref</a>(), <a href="q3url.html#hasRef">hasRef</a>(), and <a href="q3url.html#encode">encode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/setUser" />
+<a name="//apple_ref/cpp/instm/Q3Url/setUser"></a>
 <h3 class="fn"><a name="setUser"></a>void Q3Url::setUser ( const <a href="qstring.html">QString</a> &amp; <i>user</i> )&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Sets the username of the URL to <i>user</i>.</p>
 <p>See also <a href="q3url.html#user">user</a>() and <a href="q3url.html#setPassword">setPassword</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/toString" />
+<a name="//apple_ref/cpp/instm/Q3Url/toString"></a>
 <h3 class="fn"><a name="toString"></a><a href="qstring.html">QString</a> Q3Url::toString ( bool <i>encodedPath</i> = false, bool <i>forcePrependProtocol</i> = true ) const&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Composes a string version of the URL and returns it. If <i>encodedPath</i> is true the path in the returned string is encoded. If <i>forcePrependProtocol</i> is true and <i>encodedPath</i> looks like a local filename, the &quot;file:/&quot; protocol is also prepended.</p>
 <p>See also <a href="q3url.html#encode">encode</a>() and <a href="q3url.html#decode">decode</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/user" />
+<a name="//apple_ref/cpp/instm/Q3Url/user"></a>
 <h3 class="fn"><a name="user"></a><a href="qstring.html">QString</a> Q3Url::user () const</h3>
 <p>Returns the username of the URL.</p>
 <p>See also <a href="q3url.html#setUser">setUser</a>() and <a href="q3url.html#setPassword">setPassword</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/operator QString" />
+<a name="//apple_ref/cpp/instm/Q3Url/operator QString"></a>
 <h3 class="fn"><a name="operator-QString"></a>Q3Url::operator QString () const</h3>
 <p>Composes a string version of the URL and returns it.</p>
 <p>See also <a href="q3url.html#toString">Q3Url::toString</a>().</p>
-<a name="//apple_ref/cpp/instm/Q3Url/operator=" />
+<a name="//apple_ref/cpp/instm/Q3Url/operator="></a>
 <h3 class="fn"><a name="operator-eq"></a>Q3Url &amp; Q3Url::operator= ( const Q3Url &amp; <i>url</i> )</h3>
 <p>Assigns the data of <i>url</i> to this class.</p>
 <h3 class="fn"><a name="operator-eq-2"></a>Q3Url &amp; Q3Url::operator= ( const <a href="qstring.html">QString</a> &amp; <i>url</i> )</h3>
 <p>This is an overloaded function.</p>
 <p>Parses <i>url</i> and assigns the resulting data to this class.</p>
 <p>If you pass a string like &quot;/home/qt&quot; the &quot;file&quot; protocol will be assumed.</p>
-<a name="//apple_ref/cpp/instm/Q3Url/operator==" />
+<a name="//apple_ref/cpp/instm/Q3Url/operator=="></a>
 <h3 class="fn"><a name="operator-eq-eq"></a>bool Q3Url::operator== ( const Q3Url &amp; <i>url</i> ) const</h3>
 <p>Compares this URL with <i>url</i> and returns true if they are equal; otherwise returns false.</p>
 <h3 class="fn"><a name="operator-eq-eq-2"></a>bool Q3Url::operator== ( const <a href="qstring.html">QString</a> &amp; <i>url</i> ) const</h3>
@@ -323,6 +323,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>

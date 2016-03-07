@@ -8,7 +8,7 @@
   <link href="classic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<a name="//apple_ref/cpp/cl//QSplashScreen" />
+<a name="//apple_ref/cpp/cl//QSplashScreen"></a>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
 <td align="left" valign="top" width="32"><a href="http://qt.nokia.com/"><img src="images/qt-logo.png" align="left" border="0" /></a></td>
@@ -33,9 +33,9 @@
 <tr><td class="memItemLeft" align="right" valign="top">void </td><td class="memItemRight" valign="bottom"><b><a href="qsplashscreen.html#setPixmap">setPixmap</a></b> ( const QPixmap &amp; <i>pixmap</i> )</td></tr>
 </table>
 <ul>
-<li><div bar="2" class="fn"></div>216 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li><div bar="2" class="fn"></div>217 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
 <li><div bar="2" class="fn"></div>29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
-<li><div bar="2" class="fn"></div>12 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+<li><div bar="2" class="fn"></div>13 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
 </ul>
 <hr />
 <a name="public-slots"></a>
@@ -123,48 +123,48 @@
 <p>QSplashScreen supports this with the <a href="qsplashscreen.html#showMessage">showMessage</a>() function. If you wish to do your own drawing you can get a pointer to the pixmap used in the splash screen with <a href="qsplashscreen.html#pixmap">pixmap</a>(). Alternatively, you can subclass QSplashScreen and reimplement <a href="qsplashscreen.html#drawContents">drawContents</a>().</p>
 <hr />
 <h2>Member Function Documentation</h2>
-<a name="//apple_ref/cpp/instm/QSplashScreen/QSplashScreen" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/QSplashScreen"></a>
 <h3 class="fn"><a name="QSplashScreen"></a>QSplashScreen::QSplashScreen ( const <a href="qpixmap.html">QPixmap</a> &amp; <i>pixmap</i> = QPixmap(), <a href="qt.html#WindowType-enum">Qt::WindowFlags</a> <i>f</i> = 0 )</h3>
 <p>Construct a splash screen that will display the <i>pixmap</i>.</p>
 <p>There should be no need to set the widget flags, <i>f</i>, except perhaps <a href="qt.html#WindowType-enum">Qt::WindowStaysOnTopHint</a>.</p>
 <h3 class="fn"><a name="QSplashScreen-2"></a>QSplashScreen::QSplashScreen ( <a href="qwidget.html">QWidget</a> * <i>parent</i>, const <a href="qpixmap.html">QPixmap</a> &amp; <i>pixmap</i> = QPixmap(), <a href="qt.html#WindowType-enum">Qt::WindowFlags</a> <i>f</i> = 0 )</h3>
 <p>This is an overloaded function.</p>
 <p>This function allows you to specify a parent for your splashscreen. The typical use for this constructor is if you have a multiple screens and prefer to have the splash screen on a different screen than your primary one. In that case pass the proper desktop() as the <i>parent</i>.</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/~QSplashScreen" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/~QSplashScreen"></a>
 <h3 class="fn"><a name="dtor.QSplashScreen"></a>QSplashScreen::~QSplashScreen ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
 <p>Destructor.</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/clearMessage" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/clearMessage"></a>
 <h3 class="fn"><a name="clearMessage"></a>void QSplashScreen::clearMessage ()&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Removes the message being displayed on the splash screen</p>
 <p>See also <a href="qsplashscreen.html#showMessage">showMessage</a>().</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/drawContents" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/drawContents"></a>
 <h3 class="fn"><a name="drawContents"></a>void QSplashScreen::drawContents ( <a href="qpainter.html">QPainter</a> * <i>painter</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Draw the contents of the splash screen using painter <i>painter</i>. The default implementation draws the message passed by <a href="qsplashscreen.html#showMessage">showMessage</a>(). Reimplement this function if you want to do your own drawing on the splash screen.</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/event" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/event"></a>
 <h3 class="fn"><a name="event"></a>bool QSplashScreen::event ( <a href="qevent.html">QEvent</a> * <i>e</i> )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qobject.html#event">QObject::event</a>().</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/finish" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/finish"></a>
 <h3 class="fn"><a name="finish"></a>void QSplashScreen::finish ( <a href="qwidget.html">QWidget</a> * <i>mainWin</i> )</h3>
 <p>Makes the splash screen wait until the widget <i>mainWin</i> is displayed before calling <a href="qwidget.html#close">close</a>() on itself.</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/messageChanged" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/messageChanged"></a>
 <h3 class="fn"><a name="messageChanged"></a>void QSplashScreen::messageChanged ( const <a href="qstring.html">QString</a> &amp; <i>message</i> )&nbsp;&nbsp;<tt> [signal]</tt></h3>
 <p>This signal is emitted when the message on the splash screen changes. <i>message</i> is the new message and is a null-string when the message has been removed.</p>
 <p>See also <a href="qsplashscreen.html#showMessage">showMessage</a>() and <a href="qsplashscreen.html#clearMessage">clearMessage</a>().</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/mousePressEvent" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/mousePressEvent"></a>
 <h3 class="fn"><a name="mousePressEvent"></a>void QSplashScreen::mousePressEvent ( <a href="qmouseevent.html">QMouseEvent</a> * )&nbsp;&nbsp;<tt> [virtual protected]</tt></h3>
 <p>Reimplemented from <a href="qwidget.html#mousePressEvent">QWidget::mousePressEvent</a>().</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/pixmap" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/pixmap"></a>
 <h3 class="fn"><a name="pixmap"></a>const <a href="qpixmap.html">QPixmap</a> QSplashScreen::pixmap () const</h3>
 <p>Returns the pixmap that is used in the splash screen. The image does not have any of the text drawn by <a href="qsplashscreen.html#showMessage">showMessage</a>() calls.</p>
 <p>See also <a href="qsplashscreen.html#setPixmap">setPixmap</a>().</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/repaint" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/repaint"></a>
 <h3 class="fn"><a name="repaint"></a>void QSplashScreen::repaint ()</h3>
 <p>This overrides <a href="qwidget.html#repaint">QWidget::repaint</a>(). It differs from the standard repaint function in that it also calls <a href="qcoreapplication.html#flush">QApplication::flush</a>() to ensure the updates are displayed, even when there is no event loop present.</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/setPixmap" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/setPixmap"></a>
 <h3 class="fn"><a name="setPixmap"></a>void QSplashScreen::setPixmap ( const <a href="qpixmap.html">QPixmap</a> &amp; <i>pixmap</i> )</h3>
 <p>Sets the pixmap that will be used as the splash screen's image to <i>pixmap</i>.</p>
 <p>See also <a href="qsplashscreen.html#pixmap">pixmap</a>().</p>
-<a name="//apple_ref/cpp/instm/QSplashScreen/showMessage" />
+<a name="//apple_ref/cpp/instm/QSplashScreen/showMessage"></a>
 <h3 class="fn"><a name="showMessage"></a>void QSplashScreen::showMessage ( const <a href="qstring.html">QString</a> &amp; <i>message</i>, int <i>alignment</i> = Qt::AlignLeft, const <a href="qcolor.html">QColor</a> &amp; <i>color</i> = Qt::black )&nbsp;&nbsp;<tt> [slot]</tt></h3>
 <p>Draws the <i>message</i> text onto the splash screen with color <i>color</i> and aligns the text according to the flags in <i>alignment</i>.</p>
 <p>See also <a href="qt.html#AlignmentFlag-enum">Qt::Alignment</a> and <a href="qsplashscreen.html#clearMessage">clearMessage</a>().</p>
@@ -172,6 +172,6 @@
 <table width="100%" cellspacing="0" border="0"><tr class="address">
 <td width="40%" align="left">Copyright &copy; 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
 <td width="20%" align="center"><a href="trademarks.html">Trademarks</a></td>
-<td width="40%" align="right"><div align="right">Qt 4.6.0</div></td>
+<td width="40%" align="right"><div align="right">Qt 4.6.1</div></td>
 </tr></table></div></address></body>
 </html>
