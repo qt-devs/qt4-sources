@@ -274,24 +274,8 @@
  hello from worker thread  3076111216</pre>
 <a name="qobject-and-threads"></a>
 <h3>QObject and Threads</h3>
-<p>A <a href="qobject.html">QObject</a> is said to have a <i>thread affinity</i> or, in other words, that it lives in a certain thread. This means that, at creation time, <a href="qobject.html">QObject</a> saves a pointer to the current thread. This information becomes relevant when an event is posted with <a href="qcoreapplication.html#postEvent">postEvent()</a>. The event will be put in the corresponding thread's event loop. If the thread where the <a href="qobject.html">QObject</a> lives doesn't have an event loop, the event will never be delivered.</p>
-<p>To start an event loop, <a href="qthread.html#exec">exec()</a> must be called inside <a href="qthread.html#run">run()</a>. Thread affinity can be changed using <a href="qobject.html#moveToThread">moveToThread()</a>.</p>
-<p>As mentioned above, developers must always be careful when calling objects' methods from other threads. Thread affinity does not change this situation. Qt documentation marks several methods as thread-safe. <a href="qcoreapplication.html#postEvent">postEvent()</a> is a noteworthy example. A thread-safe method may be called from different threads simultaneously.</p>
+<p>As mentioned above, developers must always be careful when calling objects' methods from other threads. <a href="qobject.html#thread-affinity">Thread affinity</a> does not change this situation. Qt documentation marks several methods as thread-safe. <a href="qcoreapplication.html#postEvent">postEvent()</a> is a noteworthy example. A thread-safe method may be called from different threads simultaneously.</p>
 <p>In cases where there is usually no concurrent access to methods, calling non-thread-safe methods of objects in other threads may work thousands of times before a concurrent access occurs, causing unexpected behavior. Writing test code does not entirely ensure thread correctness, but it is still important. On Linux, Valgrind and Helgrind can help detect threading errors.</p>
-<p>The anatomy of <a href="qthread.html">QThread</a> is quite interesting:</p>
-<ul>
-<li><a href="qthread.html">QThread</a> does not live in the new thread where <a href="qthread.html#run">run()</a> is executed. It lives in the old thread.</li>
-<li>Most <a href="qthread.html">QThread</a> methods are the thread's control interface and are meant to be called from the old thread. Do not move this interface to the newly created thread using <a href="qobject.html#moveToThread">moveToThread()</a>; i.e&#x2e;, calling <a href="qobject.html#moveToThread">moveToThread(this)</a> is regarded as bad practice.</li>
-<li><a href="qthread.html#exec">exec()</a> and the static methods <a href="qthread.html#usleep">usleep()</a>, <a href="qthread.html#msleep">msleep()</a>, <a href="qthread.html#sleep">sleep()</a> are meant to be called from the newly created thread.</li>
-<li>Additional members defined in the <a href="qthread.html">QThread</a> subclass are accessible by both threads. The developer is responsible for coordinating access. A typical strategy is to set the members before <a href="qthread.html#start">start()</a> is called. Once the worker thread is running, the main thread should not touch the additional members anymore. After the worker has terminated, the main thread can access the additional members again. This is a convenient strategy for passing parameters to a thread before it is started as well as for collecting the result once it has terminated.</li>
-</ul>
-<p>A <a href="qobject.html">QObject</a>'s parent must always be in the same thread. This has a surprising consequence for objects generated within the <a href="qthread.html#run">run()</a> method:</p>
-<pre class="cpp"> <span class="type">void</span> HelloThread<span class="operator">::</span>run()
- {
-      <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qobject.html">QObject</a></span>(<span class="keyword">this</span>);  <span class="comment">//error, parent must be in the same thread</span>
-      <span class="type"><a href="qobject.html">QObject</a></span> object2;  <span class="comment">// OK</span>
-      <span class="type"><a href="qsharedpointer.html">QSharedPointer</a></span> <span class="operator">&lt;</span><span class="type"><a href="qobject.html">QObject</a></span><span class="operator">&gt;</span> object3(<span class="keyword">new</span> <span class="type"><a href="qobject.html">QObject</a></span>); <span class="comment">// OK</span>
- }</pre>
 <a name="using-a-mutex-to-protect-the-integrity-of-data"></a>
 <h3>Using a Mutex to Protect the Integrity of Data</h3>
 <p>A mutex is an object that has <a href="qmutex.html#lock">lock()</a> and <a href="qmutex.html#unlock">unlock()</a> methods and remembers if it is already locked. A mutex is designed to be called from multiple threads. <a href="qmutex.html#lock">lock()</a> returns immediately if the mutex is not locked. The next call from another thread will find the mutex in a locked state and then <a href="qmutex.html#lock">lock()</a> will block the thread until the other thread calls <a href="qmutex.html#unlock">unlock()</a>. This functionality can make sure that a code section will be executed by only one thread at a time.</p>
@@ -476,7 +460,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

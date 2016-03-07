@@ -305,6 +305,7 @@
 <h3 class="fn"><a name="done"></a><span class="type">void</span> QPrintDialog::<span class="name">done</span> ( <span class="type">int</span> <i>result</i> )<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="qdialog.html#done">QDialog::done</a>().</p>
 <p>Closes the dialog and sets its result code to <i>result</i>. If this dialog is shown with <a href="qprintdialog.html#exec">exec</a>(), done() causes the local event loop to finish, and <a href="qprintdialog.html#exec">exec</a>() to return <i>result</i>.</p>
+<p><b>Note:</b> This function does not apply to the Native Print Dialog on the Mac OS X and Windows platforms, because the dialog is required to be modal and only the user can close it.</p>
 <p><b>See also </b><a href="qdialog.html#done">QDialog::done</a>().</p>
 <!-- @@@done -->
 <!-- $$$exec[overload1]$$$exec -->
@@ -347,7 +348,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

@@ -169,7 +169,7 @@
 <div class="descr"> <a name="details"></a>
 <pre class="cpp"> <span class="comment">/****************************************************************************
  **
- ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies).
  ** Contact: http://www.qt-project.org/legal
  **
  ** This file is part of the examples of the Qt Toolkit.
@@ -366,7 +366,7 @@
 
  <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> FtpReply<span class="operator">::</span>bytesAvailable() <span class="keyword">const</span>
  {
-     <span class="keyword">return</span> content<span class="operator">.</span>size() <span class="operator">-</span> offset;
+     <span class="keyword">return</span> content<span class="operator">.</span>size() <span class="operator">-</span> offset <span class="operator">+</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>bytesAvailable();
  }
 
  <span class="type">bool</span> FtpReply<span class="operator">::</span>isSequential() <span class="keyword">const</span>
@@ -395,7 +395,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

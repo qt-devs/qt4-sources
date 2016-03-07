@@ -311,11 +311,29 @@
  };</pre>
 <p>The code inside the Worker's slot would then execute in a separate thread. However, you are free to connect the Worker's slots to any signal, from any object, in any thread. It is safe to connect signals and slots across different threads, thanks to a mechanism called <a href="qt.html#ConnectionType-enum">queued connections</a>.</p>
 <p>Another way to make code run in a separate thread, is to subclass QThread and reimplement <a href="qthread.html#run">run</a>(). For example:</p>
-<pre class="cpp"></pre>
+<pre class="cpp"> <span class="keyword">class</span> WorkerThread : <span class="keyword">public</span> <span class="type">QThread</span>
+ {
+     Q_OBJECT
+     <span class="type">void</span> run() {
+         <span class="type"><a href="qstring.html">QString</a></span> result;
+         <span class="comment">/* expensive or blocking operation  */</span>
+         <span class="keyword">emit</span> resultReady(result);
+     }
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> resultReady(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>s);
+ };
+
+ <span class="type">void</span> MyObject<span class="operator">::</span>startWorkInAThread()
+ {
+     WorkerThread <span class="operator">*</span>workerThread <span class="operator">=</span> <span class="keyword">new</span> WorkerThread(<span class="keyword">this</span>);
+     connect(workerThread<span class="operator">,</span> SIGNAL(resultReady(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(handleResults(<span class="type"><a href="qstring.html">QString</a></span>)));
+     connect(workerThread<span class="operator">,</span> SIGNAL(finished())<span class="operator">,</span> workerThread<span class="operator">,</span> SLOT(deleteLater()));
+     workerThread<span class="operator">-</span><span class="operator">&gt;</span>start();
+ }</pre>
 <p>In that example, the thread will exit after the run function has returned. There will not be any event loop running in the thread unless you call <a href="qthread.html#exec">exec</a>().</p>
-<p>It is important to remember that a QThread object usually lives in the thread where it was created, not in the thread that it manages. This oft-overlooked detail means that a QThread's slots will be executed in the context of its home thread, not in the context of the thread it is managing. For this reason, implementing new slots in a QThread subclass is error-prone and discouraged.</p>
-<p><b>Note:</b> If you interact with an object, using any technique other than queued signal/slot connections (e.g&#x2e; direct function calls), then the usual multithreading precautions need to be taken.</p>
-<p><b>Note:</b> It is not possible to change the thread affinity of GUI objects; they must remain in the main thread.</p>
+<p>It is important to remember that a QThread instance <a href="qobject.html#thread-affinity">lives in</a> the old thread that instantiated it, not in the new thread that calls <a href="qthread.html#run">run</a>(). This means that all of QThread's queued slots will execute in the old thread. Thus, a developer who wishes to invoke slots in the new thread must use the worker-object approach; new slots should not be implemented directly into a subclassed QThread.</p>
+<p>When subclassing QThread, keep in mind that the constructor executes in the old thread while <a href="qthread.html#run">run</a>() executes in the new thread. If a member variable is accessed from both functions, then the variable is accessed from two different threads. Check that it is safe to do so.</p>
+<p><b>Note:</b> Care must be taken when interacting with objects across different threads. See <a href="threads-synchronizing.html">Synchronizing Threads</a> for details.</p>
 <a name="managing-threads"></a>
 <h3>Managing threads</h3>
 <p>QThread will notifiy you via a signal when the thread is <a href="qthread.html#started">started</a>(), <a href="qthread.html#finished">finished</a>(), and <a href="qthread.html#terminated">terminated</a>(), or you can use <a href="qthread.html#isFinished">isFinished</a>() and <a href="qthread.html#isRunning">isRunning</a>() to query the state of the thread.</p>
@@ -326,8 +344,9 @@
 <p>To choose the name that your thread will be given (as identified by the command <tt>ps -L</tt> on Linux, for example), you can call <a href="qobject.html#objectName-prop">setObjectName()</a> before starting the thread. If you don't call <a href="qobject.html#objectName-prop">setObjectName()</a>, the name given to your thread will be the class name of the runtime type of your thread object (for example, <tt>&quot;RenderThread&quot;</tt> in the case of the <a href="threads-mandelbrot.html">Mandelbrot Example</a>, as that is the name of the QThread subclass). Note that this is currently not available with release builds on Windows.</p>
 <p>QThread also provides static, platform independent sleep functions: <a href="qthread.html#sleep">sleep</a>(), <a href="qthread.html#msleep">msleep</a>(), and <a href="qthread.html#usleep">usleep</a>() allow full second, millisecond, and microsecond resolution respectively.</p>
 <p><b>Note:</b> <a href="qthread.html#wait">wait</a>() and the <a href="qthread.html#sleep">sleep</a>() functions should be unnecessary in general, since Qt is an event-driven framework. Instead of <a href="qthread.html#wait">wait</a>(), consider listening for the <a href="qthread.html#finished">finished</a>() signal. Instead of the <a href="qthread.html#sleep">sleep</a>() functions, consider using <a href="qtimer.html">QTimer</a>.</p>
+<p>{Mandelbrot Example}, {Semaphores Example}, {Wait Conditions Example}</p>
 </div>
-<p><b>See also </b><a href="threads.html">Thread Support in Qt</a>, <a href="qthreadstorage.html">QThreadStorage</a>, <a href="qmutex.html">QMutex</a>, <a href="qsemaphore.html">QSemaphore</a>, <a href="qwaitcondition.html">QWaitCondition</a>, <a href="threads-mandelbrot.html">Mandelbrot Example</a>, <a href="threads-semaphores.html">Semaphores Example</a>, and <a href="threads-waitconditions.html">Wait Conditions Example</a>.</p>
+<p><b>See also </b><a href="threads.html">Thread Support in Qt</a>, <a href="qthreadstorage.html">QThreadStorage</a>, and <a href="threads-synchronizing.html">Synchronizing Threads</a>.</p>
 <!-- @@@QThread -->
 <div class="types">
 <h2>Member Type Documentation</h2>
@@ -371,7 +390,7 @@
 <!-- $$$exec[overload1]$$$exec -->
 <h3 class="fn"><a name="exec"></a><span class="type">int</span> QThread::<span class="name">exec</span> ()<tt> [protected]</tt></h3>
 <p>Enters the event loop and waits until <a href="qthread.html#exit">exit</a>() is called, returning the value that was passed to <a href="qthread.html#exit">exit</a>(). The value returned is 0 if <a href="qthread.html#exit">exit</a>() is called via <a href="qthread.html#quit">quit</a>().</p>
-<p>It is necessary to call this function to start event handling.</p>
+<p>This function is meant to be called from within <a href="qthread.html#run">run</a>(). It is necessary to call this function to start event handling.</p>
 <p><b>See also </b><a href="qthread.html#quit">quit</a>() and <a href="qthread.html#exit">exit</a>().</p>
 <!-- @@@exec -->
 <!-- $$$exit[overload1]$$$exitint -->
@@ -509,7 +528,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

@@ -196,6 +196,7 @@
 <a name="qt-platform-abstraction-lighthouse"></a>
 <h2>Qt Platform Abstraction -- <i>Lighthouse</i></h2>
 <p><i>QPA</i> allows porting Qt to different windowing systems and devices easier. It provides a clean abstraction layer for porting <a href="qtgui.html">QtGui</a> to new window systems.</p>
+<p><b>Note:</b> QPA is considered an experimental feature in Qt 4.8&#x2e; In Qt 5 it is a supported and complete feature.</p>
 <a name="qt-webkit-2-2"></a>
 <h2>Qt WebKit 2.2</h2>
 <p>The new Qt WebKit release introduces bug fixes, performance improvements, and greater compiler compatibility.</p>
@@ -285,21 +286,44 @@
 </div>
 <a name="new-member-functions"></a>
 <h3>    New Member Functions</h3>
-<p>Class <a href="qhelpsearchquerywidget.html">QHelpSearchQueryWidget</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquerywidget.html#collapseExtendedSearch">collapseExtendedSearch</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquerywidget.html#expandExtendedSearch">expandExtendedSearch</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquerywidget.html#setQuery">setQuery</a></b> ( const QList&lt;QHelpSearchQuery&gt; &amp; <i>queryList</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qundocommand.html">QUndoCommand</a>:</p>
+<p>Class <a href="qundocommand.html">QUndoCommand</a>:</p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qundocommand.html#actionText">actionText</a></b> () const</td></tr>
 </table>
-<br/><p>Class <a href="qgraphicswebview.html">QGraphicsWebView</a>:</p>
+<br/><p>Class <a href="qprocessenvironment.html">QProcessEnvironment</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QPainter::RenderHints </td><td class="memItemRight bottomAlign"><b><a href="qgraphicswebview.html#renderHints-prop">renderHints</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicswebview.html#setRenderHint">setRenderHint</a></b> ( QPainter::RenderHint <i>hint</i>, bool <i>enabled</i> = true )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicswebview.html#renderHints-prop">setRenderHints</a></b> ( QPainter::RenderHints <i>hints</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprocessenvironment.html#insert-2">insert</a></b> ( const QProcessEnvironment &amp; <i>e</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qprocessenvironment.html#keys">keys</a></b> () const</td></tr>
+</table>
+<br/><p>Class <a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkconfigurationmanager.html#configurationRemoved">configurationRemoved</a></b> ( const QNetworkConfiguration &amp; <i>config</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qdbusconnection.html">QDBusConnection</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QDBusConnection </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#connectToPeer">connectToPeer</a></b> ( const QString &amp; <i>address</i>, const QString &amp; <i>name</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> ConnectionCapabilities </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#connectionCapabilities">connectionCapabilities</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#disconnectFromPeer">disconnectFromPeer</a></b> ( const QString &amp; <i>name</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#localMachineId">localMachineId</a></b> ()</td></tr>
+</table>
+<br/><p>Class <a href="qthreadpool.html">QThreadPool</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qthreadpool.html#waitForDone-2">waitForDone</a></b> ( int <i>msecs</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qgraphicslayout.html">QGraphicsLayout</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qgraphicslayout.html#instantInvalidatePropagation">instantInvalidatePropagation</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicslayout.html#setInstantInvalidatePropagation">setInstantInvalidatePropagation</a></b> ( bool <i>enable</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qsharedmemory.html">QSharedMemory</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#nativeKey">nativeKey</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#setNativeKey">setNativeKey</a></b> ( const QString &amp; <i>key</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qsslsocket.html">QSslSocket</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsslsocket.html#peerVerifyName">peerVerifyName</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qsslsocket.html#setPeerVerifyName">setPeerVerifyName</a></b> ( const QString &amp; <i>hostName</i> )</td></tr>
 </table>
 <br/><p>Class <a href="qprinterinfo.html">QPrinterInfo</a>:</p>
 <table class="alignedsummary">
@@ -335,61 +359,35 @@
 <tr><td class="memItemLeft rightAlign topAlign"> QVector&lt;uint&gt; </td><td class="memItemRight bottomAlign"><b><a href="qstringref.html#toUcs4">toUcs4</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qstringref.html#toUtf8">toUtf8</a></b> () const</td></tr>
 </table>
-<br/><p>Class <a href="qprocessenvironment.html">QProcessEnvironment</a>:</p>
+<br/><p>Class <a href="qxmlstreamwriter.html">QXmlStreamWriter</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qprocessenvironment.html#insert-2">insert</a></b> ( const QProcessEnvironment &amp; <i>e</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qprocessenvironment.html#keys">keys</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qxmlstreamwriter.html#hasError">hasError</a></b> () const</td></tr>
 </table>
 <br/><p>Class <a href="qsslconfiguration.html">QSslConfiguration</a>:</p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qsslconfiguration.html#testSslOption">testSslOption</a></b> ( QSsl::SslOption <i>option</i> ) const</td></tr>
 </table>
-<br/><p>Class <a href="qdbusconnection.html">QDBusConnection</a>:</p>
+<br/><p>Class <a href="qgraphicsgridlayout.html">QGraphicsGridLayout</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDBusConnection </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#connectToPeer">connectToPeer</a></b> ( const QString &amp; <i>address</i>, const QString &amp; <i>name</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> ConnectionCapabilities </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#connectionCapabilities">connectionCapabilities</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#disconnectFromPeer">disconnectFromPeer</a></b> ( const QString &amp; <i>name</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qdbusconnection.html#localMachineId">localMachineId</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsgridlayout.html#removeItem">removeItem</a></b> ( QGraphicsLayoutItem * <i>item</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>:</p>
+<br/><p>Class <a href="qdbusabstractinterface.html">QDBusAbstractInterface</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#post-3">post</a></b> ( const QNetworkRequest &amp; <i>request</i>, QHttpMultiPart * <i>multiPart</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#put-2">put</a></b> ( const QNetworkRequest &amp; <i>request</i>, QHttpMultiPart * <i>multiPart</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusabstractinterface.html#setTimeout">setTimeout</a></b> ( int <i>timeout</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qdbusabstractinterface.html#timeout">timeout</a></b> () const</td></tr>
+</table>
+<br/><p>Class <a href="qnetworkproxyquery.html">QNetworkProxyQuery</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkproxyquery.html#setNetworkConfiguration">setNetworkConfiguration</a></b> ( const QNetworkConfiguration &amp; <i>networkConfiguration</i> )</td></tr>
 </table>
 <br/><p>Class <a href="qglframebufferobjectformat.html">QGLFramebufferObjectFormat</a>:</p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qglframebufferobjectformat.html#mipmap">mipmap</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qglframebufferobjectformat.html#setMipmap">setMipmap</a></b> ( bool <i>enabled</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qelapsedtimer.html">QElapsedTimer</a>:</p>
+<br/><p>Class <a href="qwebpage.html">QWebPage</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> qint64 </td><td class="memItemRight bottomAlign"><b><a href="qelapsedtimer.html#nsecsElapsed">nsecsElapsed</a></b> () const</td></tr>
-</table>
-<br/><p>Class <a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkconfigurationmanager.html#configurationRemoved">configurationRemoved</a></b> ( const QNetworkConfiguration &amp; <i>config</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qxmlstreamwriter.html">QXmlStreamWriter</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qxmlstreamwriter.html#hasError">hasError</a></b> () const</td></tr>
-</table>
-<br/><p>Class <a href="qnetworkreply.html">QNetworkReply</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#setFinished">setFinished</a></b> ( bool <i>finished</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qgraphicslayout.html">QGraphicsLayout</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qgraphicslayout.html#instantInvalidatePropagation">instantInvalidatePropagation</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicslayout.html#setInstantInvalidatePropagation">setInstantInvalidatePropagation</a></b> ( bool <i>enable</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qsslsocket.html">QSslSocket</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsslsocket.html#peerVerifyName">peerVerifyName</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qsslsocket.html#setPeerVerifyName">setPeerVerifyName</a></b> ( const QString &amp; <i>hostName</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qcontiguouscache.html">QContiguousCache</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qcontiguouscache.html#swap">swap</a></b> ( QContiguousCache&lt;T&gt; &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#viewportChangeRequested">viewportChangeRequested</a></b> ()</td></tr>
 </table>
 <br/><p>Class <a href="qabstractproxymodel.html">QAbstractProxyModel</a>:</p>
 <table class="alignedsummary">
@@ -403,45 +401,48 @@
 <tr><td class="memItemLeft rightAlign topAlign"> virtual QSize </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#span">span</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual Qt::DropActions </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#supportedDropActions">supportedDropActions</a></b> () const</td></tr>
 </table>
-<br/><p>Class <a href="qnetworkproxyquery.html">QNetworkProxyQuery</a>:</p>
+<br/><p>Class <a href="qgraphicswebview.html">QGraphicsWebView</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkproxyquery.html#setNetworkConfiguration">setNetworkConfiguration</a></b> ( const QNetworkConfiguration &amp; <i>networkConfiguration</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPainter::RenderHints </td><td class="memItemRight bottomAlign"><b><a href="qgraphicswebview.html#renderHints-prop">renderHints</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicswebview.html#setRenderHint">setRenderHint</a></b> ( QPainter::RenderHint <i>hint</i>, bool <i>enabled</i> = true )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicswebview.html#renderHints-prop">setRenderHints</a></b> ( QPainter::RenderHints <i>hints</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qdbusabstractinterface.html">QDBusAbstractInterface</a>:</p>
+<br/><p>Class <a href="qelapsedtimer.html">QElapsedTimer</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusabstractinterface.html#setTimeout">setTimeout</a></b> ( int <i>timeout</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qdbusabstractinterface.html#timeout">timeout</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qint64 </td><td class="memItemRight bottomAlign"><b><a href="qelapsedtimer.html#nsecsElapsed">nsecsElapsed</a></b> () const</td></tr>
 </table>
-<br/><p>Class <a href="qsharedmemory.html">QSharedMemory</a>:</p>
+<br/><p>Class <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#nativeKey">nativeKey</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qsharedmemory.html#setNativeKey">setNativeKey</a></b> ( const QString &amp; <i>key</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#post-3">post</a></b> ( const QNetworkRequest &amp; <i>request</i>, QHttpMultiPart * <i>multiPart</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#put-2">put</a></b> ( const QNetworkRequest &amp; <i>request</i>, QHttpMultiPart * <i>multiPart</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qthreadpool.html">QThreadPool</a>:</p>
+<br/><p>Class <a href="qhelpsearchquerywidget.html">QHelpSearchQueryWidget</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qthreadpool.html#waitForDone-2">waitForDone</a></b> ( int <i>msecs</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquerywidget.html#collapseExtendedSearch">collapseExtendedSearch</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquerywidget.html#expandExtendedSearch">expandExtendedSearch</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquerywidget.html#setQuery">setQuery</a></b> ( const QList&lt;QHelpSearchQuery&gt; &amp; <i>queryList</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qgraphicsgridlayout.html">QGraphicsGridLayout</a>:</p>
+<br/><p>Class <a href="qcontiguouscache.html">QContiguousCache</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsgridlayout.html#removeItem">removeItem</a></b> ( QGraphicsLayoutItem * <i>item</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qcontiguouscache.html#swap">swap</a></b> ( QContiguousCache&lt;T&gt; &amp; <i>other</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qwebpage.html">QWebPage</a>:</p>
+<br/><p>Class <a href="qnetworkreply.html">QNetworkReply</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#viewportChangeRequested">viewportChangeRequested</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkreply.html#setFinished">setFinished</a></b> ( bool <i>finished</i> )</td></tr>
 </table>
 <br/><a name="new-global-functions"></a>
 <h3>    New Global Functions</h3>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qplatformwindowformat.html#operator-not-eq-49">operator!=</a></b> ( const QPlatformWindowFormat &amp; <i>a</i>, const QPlatformWindowFormat &amp; <i>b</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvarlengtharray.html#operator-not-eq-38">operator!=</a></b> ( const QVarLengthArray&lt;T, Prealloc1&gt; &amp; <i>left</i>, const QVarLengthArray&lt;T, Prealloc2&gt; &amp; <i>right</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvarlengtharray.html#operator-not-eq-54">operator!=</a></b> ( const QVarLengthArray&lt;T, Prealloc1&gt; &amp; <i>left</i>, const QVarLengthArray&lt;T, Prealloc2&gt; &amp; <i>right</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qplatformwindowformat.html#operator-not-eq-12">operator!=</a></b> ( const QPlatformWindowFormat &amp; <i>a</i>, const QPlatformWindowFormat &amp; <i>b</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-56">operator*</a></b> ( int <i>factor</i>, const QPoint &amp; <i>point</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-55">operator*</a></b> ( double <i>factor</i>, const QPoint &amp; <i>point</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-54">operator*</a></b> ( float <i>factor</i>, const QPoint &amp; <i>point</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-48">operator*</a></b> ( const QPoint &amp; <i>point</i>, int <i>factor</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-47">operator*</a></b> ( const QPoint &amp; <i>point</i>, double <i>factor</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-46">operator*</a></b> ( const QPoint &amp; <i>point</i>, float <i>factor</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qplatformwindowformat.html#operator-eq-eq-68">operator==</a></b> ( const QPlatformWindowFormat &amp; <i>a</i>, const QPlatformWindowFormat &amp; <i>b</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvarlengtharray.html#operator-eq-eq-52">operator==</a></b> ( const QVarLengthArray&lt;T, Prealloc1&gt; &amp; <i>left</i>, const QVarLengthArray&lt;T, Prealloc2&gt; &amp; <i>right</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-42">operator*</a></b> ( const QPoint &amp; <i>point</i>, int <i>factor</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-41">operator*</a></b> ( const QPoint &amp; <i>point</i>, double <i>factor</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint </td><td class="memItemRight bottomAlign"><b><a href="qpoint.html#operator-2a-40">operator*</a></b> ( const QPoint &amp; <i>point</i>, float <i>factor</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvarlengtharray.html#operator-eq-eq-78">operator==</a></b> ( const QVarLengthArray&lt;T, Prealloc1&gt; &amp; <i>left</i>, const QVarLengthArray&lt;T, Prealloc2&gt; &amp; <i>right</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qplatformwindowformat.html#operator-eq-eq-18">operator==</a></b> ( const QPlatformWindowFormat &amp; <i>a</i>, const QPlatformWindowFormat &amp; <i>b</i> )</td></tr>
 </table>
 <a name="new-macros"></a>
 <h3>    New Macros</h3>
@@ -460,7 +461,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

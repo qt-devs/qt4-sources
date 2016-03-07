@@ -239,7 +239,8 @@
 <p>To make your project use PCH, you only need to define the <tt>PRECOMPILED_HEADER</tt> variable in your project file:</p>
 <pre class="cpp"> PRECOMPILED_HEADER = stable.h</pre>
 <p><a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will handle the rest, to ensure the creation and use of the precompiled header file. You do not need to include the precompiled header file in <tt>HEADERS</tt>, as <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will do this if the configuration supports PCH.</p>
-<p>All platforms that support precompiled headers have the configuration option <tt>precompile_header</tt> set. Using this option, you may trigger conditional blocks in your project file to add settings when using PCH. For example:</p>
+<p>The MSVC and g++ specs targeting Windows (and Windows CE) enable <tt>precompile_header</tt> by default.</p>
+<p>Using this option, you may trigger conditional blocks in your project file to add settings when using precompiled headers. For example:</p>
 <pre class="cpp"> precompile_header:!isEmpty(PRECOMPILED_HEADER) {
  DEFINES += USING_PCH
  }</pre>
@@ -395,7 +396,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

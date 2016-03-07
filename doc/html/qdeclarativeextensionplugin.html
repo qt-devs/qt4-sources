@@ -235,7 +235,7 @@
  <span class="keyword">public</span>:
      <span class="type">void</span> registerTypes(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>uri)
      {
-         Q_ASSERT(uri <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;com.nokia.TimeExample&quot;</span>));
+         Q_ASSERT(uri <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;org.qtproject.TimeExample&quot;</span>));
          qmlRegisterType<span class="operator">&lt;</span>TimeModel<span class="operator">&gt;</span>(uri<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="string">&quot;Time&quot;</span>);
      }
  };
@@ -251,12 +251,11 @@
  TARGET <span class="operator">=</span> qmlqtimeexampleplugin
  <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span></pre>
 <p>Finally, a <a href="qdeclarativemodules.html#writing-a-qmldir-file">qmldir file</a> is required in the <tt>com/nokia/TimeExample</tt> directory that describes the plugin. This directory includes a <tt>Clock.qml</tt> file that should be bundled with the plugin, so it needs to be specified in the <tt>qmldir</tt> file:</p>
-<pre class="cpp"> Clock <span class="number">1.0</span> Clock<span class="operator">.</span>qml
- plugin qmlqtimeexampleplugin</pre>
+<pre class="cpp"></pre>
 <p>Once the project is built and installed, the new <tt>Time</tt> element can be used by any QML component that imports the <tt>com.nokia.TimeExample</tt> module:</p>
-<pre class="qml"> import com.nokia.TimeExample 1.0 <span class="comment">// import types from the plugin</span>
+<pre class="qml"> import org.qtproject.TimeExample 1.0 <span class="comment">// import types from the plugin</span>
 
- <span class="type">Clock</span> { <span class="comment">// this class is defined in QML (com/nokia/TimeExample/Clock.qml)</span>
+ <span class="type">Clock</span> { <span class="comment">// this class is defined in QML (org/qtproject/TimeExample/Clock.qml)</span>
 
      <span class="type">Time</span> { <span class="comment">// this class is defined in C++ (plugin.cpp)</span>
          <span class="name">id</span>: <span class="name">time</span>
@@ -296,7 +295,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

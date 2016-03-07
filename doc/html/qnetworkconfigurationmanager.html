@@ -240,7 +240,7 @@
 <p>QNetworkConfigurationManager provides access to the network configurations known to the system and enables applications to detect the system capabilities (with regards to network sessions) at runtime.</p>
 <p>A <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> abstracts a set of configuration options describing how a network interface has to be configured to connect to a particular target network. QNetworkConfigurationManager maintains and updates the global list of QNetworkConfigurations. Applications can access and filter this list via <a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>(). If a new configuration is added or an existing one is removed or changed the <a href="qnetworkconfigurationmanager.html#configurationAdded">configurationAdded</a>(), <a href="qnetworkconfigurationmanager.html#configurationRemoved">configurationRemoved</a>() and <a href="qnetworkconfigurationmanager.html#configurationChanged">configurationChanged</a>() signals are emitted respectively.</p>
 <p>The <a href="qnetworkconfigurationmanager.html#defaultConfiguration">defaultConfiguration</a>() can be used when intending to immediately create a new network session without caring about the particular configuration. It returns a <a href="qnetworkconfiguration.html#StateFlag-enum">QNetworkConfiguration::Discovered</a> configuration. If there are not any discovered ones an invalid configuration is returned.</p>
-<p>Some configuration updates may require some time to perform updates. A WLAN scan is such an example. Unless the platform performs internal updates it may be required to manually trigger configuration updates via <a href="qnetworkconfigurationmanager.html#updateConfigurations">QNetworkConfigurationManager::updateConfigurations</a>(). The completion of the update process is indicted by emitting the <a href="qnetworkconfigurationmanager.html#updateCompleted">updateCompleted</a>() signal. The update process ensures that every existing <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> instance is updated. There is no need to ask for a renewed configuration list via <a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>().</p>
+<p>Some configuration updates may require some time to perform updates. A WLAN scan is such an example. Unless the platform performs internal updates it may be required to manually trigger configuration updates via <a href="qnetworkconfigurationmanager.html#updateConfigurations">QNetworkConfigurationManager::updateConfigurations</a>(). The completion of the update process is indicated by emitting the <a href="qnetworkconfigurationmanager.html#updateCompleted">updateCompleted</a>() signal. The update process ensures that every existing <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> instance is updated. There is no need to ask for a renewed configuration list via <a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>().</p>
 </div>
 <p><b>See also </b><a href="qnetworkconfiguration.html">QNetworkConfiguration</a>.</p>
 <!-- @@@QNetworkConfigurationManager -->
@@ -346,7 +346,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

@@ -443,6 +443,7 @@
 <li><tt>HKEY_LOCAL_MACHINE\Software\MySoft</tt></li>
 </ol>
 <p><b>Note:</b> On Windows, for 32-bit programs running in WOW64 mode, settings are stored in the following registry path: <tt>HKEY_LOCAL_MACHINE\Software\WOW6432node</tt>.</p>
+<p>On BlackBerry only a single file is used (see <a href="#platform-limitations">Platform Limitations</a>). If the file format is <a href="qsettings.html#Format-enum">NativeFormat</a>, this is &quot;Settings/MySoft/Star Runner.conf&quot; in the application's home directory.</p>
 <p>If the file format is <a href="qsettings.html#Format-enum">IniFormat</a>, the following files are used on Unix and Mac OS X:</p>
 <ol class="1">
 <li><tt>$HOME/.config/MySoft/Star Runner.ini</tt> (Qt for Embedded Linux: <tt>$HOME/Settings/MySoft/Star Runner.ini</tt>)</li>
@@ -458,6 +459,7 @@
 <li><tt>%COMMON_APPDATA%\MySoft.ini</tt></li>
 </ol>
 <p>The <tt>%APPDATA%</tt> path is usually <tt>C:\Documents and Settings\<i>User Name</i>\Application Data</tt>; the <tt>%COMMON_APPDATA%</tt> path is usually <tt>C:\Documents and Settings\All Users\Application Data</tt>.</p>
+<p>On BlackBerry only a single file is used (see <a href="#platform-limitations">Platform Limitations</a>). If the file format is <a href="qsettings.html#Format-enum">IniFormat</a>, this is &quot;Settings/MySoft/Star Runner.ini&quot; in the application's home directory.</p>
 <p>On Symbian, the following files are used for both <a href="qsettings.html#Format-enum">IniFormat</a> and <a href="qsettings.html#Format-enum">NativeFormat</a> (in this example, we assume that the application is installed on the <tt>e-drive</tt> and its Secure ID is <tt>0xECB00931</tt>):</p>
 <ol class="1">
 <li><tt>c:\data\.config\MySoft\Star Runner.conf</tt></li>
@@ -467,7 +469,7 @@
 </ol>
 <p>The <a href="qsettings.html#Scope-enum">SystemScope</a> settings location is determined from the installation drive and Secure ID (UID3) of the application. If the application is built-in on the ROM, the drive used for <a href="qsettings.html#Scope-enum">SystemScope</a> is <tt>c:</tt>.</p>
 <p><b>Note:</b> Symbian <a href="qsettings.html#Scope-enum">SystemScope</a> settings are by default private to the application and not shared between applications, unlike other environments.</p>
-<p>The paths for the <tt>.ini</tt> and <tt>.conf</tt> files can be changed using <a href="qsettings.html#setPath">setPath</a>(). On Unix and Mac OS X, the user can override them by by setting the <tt>XDG_CONFIG_HOME</tt> environment variable; see <a href="qsettings.html#setPath">setPath</a>() for details.</p>
+<p>The paths for the <tt>.ini</tt> and <tt>.conf</tt> files can be changed using <a href="qsettings.html#setPath">setPath</a>(). On Unix and Mac OS X, the user can override them by setting the <tt>XDG_CONFIG_HOME</tt> environment variable; see <a href="qsettings.html#setPath">setPath</a>() for details.</p>
 <a name="accessing-ini-and-plist-files-directly"></a>
 <h4>Accessing INI and .plist Files Directly</h4>
 <p>Sometimes you do want to access settings stored in a specific file or registry path. On all platforms, if you want to read an INI file directly, you can use the QSettings constructor that takes a file name as first argument and pass <a href="qsettings.html#Format-enum">QSettings::IniFormat</a> as second argument. For example:</p>
@@ -536,7 +538,7 @@
 </li>
 <li>On Unix and Mac OS X systems, the advisory file locking is disabled if NFS (or AutoFS or CacheFS) is detected to work around a bug in the NFS fcntl() implementation, which hangs forever if statd or lockd aren't running. Also, the locking isn't performed when accessing <tt>.plist</tt> files.</li>
 <li>On the BlackBerry platform, applications run in a sandbox. They are not allowed to read or write outside of this sandbox. This involves the following limitations:<ul>
-<li>As there is only a single scope the scope is simply ignored.</li>
+<li>As there is only a single scope the scope is simply ignored, i.e&#x2e; there is no difference between <a href="qsettings.html#Scope-enum">SystemScope</a> and <a href="qsettings.html#Scope-enum">UserScope</a>.</li>
 <li>The <a href="#fallback-mechanism">Fallback Mechanism</a> is not applied, i.e&#x2e; only a single location is considered.</li>
 <li>It is advised against setting and using custom file paths.</li>
 </ul>
@@ -1058,7 +1060,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

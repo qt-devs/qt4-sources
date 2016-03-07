@@ -449,7 +449,7 @@
 <p>The <tt>bytesAvailable()</tt> function returns the total number of bytes held by the reply minus the value of <tt>offset</tt>, which is the number of bytes we have already supplied to the reader.</p>
 <pre class="cpp"> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> FtpReply<span class="operator">::</span>bytesAvailable() <span class="keyword">const</span>
  {
-     <span class="keyword">return</span> content<span class="operator">.</span>size() <span class="operator">-</span> offset;
+     <span class="keyword">return</span> content<span class="operator">.</span>size() <span class="operator">-</span> offset <span class="operator">+</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>bytesAvailable();
  }
  <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> FtpReply<span class="operator">::</span>readData(<span class="type">char</span> <span class="operator">*</span>data<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> maxSize)
  {
@@ -512,7 +512,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

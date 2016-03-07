@@ -399,9 +399,9 @@
 <h3 class="fn"><a name="dynamicCall"></a><span class="type"><a href="qvariant.html">QVariant</a></span> QAxBase::<span class="name">dynamicCall</span> ( const <span class="type">char</span> * <i>function</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var1</i> = QVariant(), const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var2</i> = QVariant(), const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var3</i> = QVariant(), const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var4</i> = QVariant(), const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var5</i> = QVariant(), const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var6</i> = QVariant(), const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var7</i> = QVariant(), const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>var8</i> = QVariant() )</h3>
 <p>Calls the COM object's method <i>function</i>, passing the parameters <i>var1</i>, <i>var1</i>, <i>var2</i>, <i>var3</i>, <i>var4</i>, <i>var5</i>, <i>var6</i>, <i>var7</i> and <i>var8</i>, and returns the value returned by the method, or an invalid <a href="qvariant.html">QVariant</a> if the method does not return a value or when the function call failed.</p>
 <p>If <i>function</i> is a method of the object the string must be provided as the full prototype, for example as it would be written in a <a href="qobject.html#connect">QObject::connect</a>() call.</p>
-<pre class="cpp"> activeX<span class="operator">-</span><span class="operator">&gt;</span>dynamicCall(<span class="string">&quot;Navigate(const QString&amp;)&quot;</span><span class="operator">,</span> <span class="string">&quot;qt.nokia.com&quot;</span>);</pre>
+<pre class="cpp"> activeX<span class="operator">-</span><span class="operator">&gt;</span>dynamicCall(<span class="string">&quot;Navigate(const QString&amp;)&quot;</span><span class="operator">,</span> <span class="string">&quot;www.qt-project.org&quot;</span>);</pre>
 <p>Alternatively a function can be called passing the parameters embedded in the string, e.g&#x2e; above function can also be invoked using</p>
-<pre class="cpp"> activeX<span class="operator">-</span><span class="operator">&gt;</span>dynamicCall(<span class="string">&quot;Navigate(\&quot;qt.nokia.com\&quot;)&quot;</span>);</pre>
+<pre class="cpp"> activeX<span class="operator">-</span><span class="operator">&gt;</span>dynamicCall(<span class="string">&quot;Navigate(\&quot;www.qt-project.org\&quot;)&quot;</span>);</pre>
 <p>All parameters are passed as strings; it depends on the control whether they are interpreted correctly, and is slower than using the prototype with correctly typed parameters.</p>
 <p>If <i>function</i> is a property the string has to be the name of the property. The property setter is called when <i>var1</i> is a valid <a href="qvariant.html">QVariant</a>, otherwise the getter is called.</p>
 <pre class="cpp"> activeX<span class="operator">-</span><span class="operator">&gt;</span>dynamicCall(<span class="string">&quot;Value&quot;</span><span class="operator">,</span> <span class="number">5</span>);
@@ -557,7 +557,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

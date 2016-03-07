@@ -196,7 +196,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#DialogLabel-enum">DialogLabel</a></b> { LookIn, FileName, FileType, Accept, Reject }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#FileMode-enum">FileMode</a></b> { AnyFile, ExistingFile, Directory, ExistingFiles, DirectoryOnly }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#Mode-typedef">Mode</a></b></td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#Option-enum">Option</a></b> { ShowDirsOnly, DontResolveSymlinks, DontConfirmOverwrite, DontUseNativeDialog, ..., DontUseSheet }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#Option-enum">Option</a></b> { ShowDirsOnly, DontResolveSymlinks, DontConfirmOverwrite, DontUseNativeDialog, ..., DontUseCustomDirectoryIcons }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#Option-enum">Options</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qfiledialog.html#ViewMode-enum">ViewMode</a></b> { Detail, List }</td></tr>
 </table>
@@ -402,7 +402,7 @@
 <h3 class="fn"><a name="Mode-typedef"></a>typedef QFileDialog::<span class="name">Mode</span></h3>
 <p>Use <a href="qfiledialog.html#FileMode-enum">QFileDialog::FileMode</a> instead.</p>
 <!-- @@@Mode -->
-<!-- $$$Option$$$ShowDirsOnly$$$DontResolveSymlinks$$$DontConfirmOverwrite$$$DontUseSheet$$$DontUseNativeDialog$$$ReadOnly$$$HideNameFilterDetails -->
+<!-- $$$Option$$$ShowDirsOnly$$$DontResolveSymlinks$$$DontConfirmOverwrite$$$DontUseSheet$$$DontUseNativeDialog$$$ReadOnly$$$HideNameFilterDetails$$$DontUseCustomDirectoryIcons -->
 <h3 class="flags"><a name="Option-enum"></a>enum QFileDialog::<span class="name">Option</span><br/>flags QFileDialog::<span class="name">Options</span></h3>
 <table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
 <tr><td class="topAlign"><tt>QFileDialog::ShowDirsOnly</tt></td><td class="topAlign"><tt>0x00000001</tt></td><td class="topAlign">Only show directories in the file dialog. By default both files and directories are shown. (Valid only in the <a href="qfiledialog.html#FileMode-enum">Directory</a> file mode.)</td></tr>
@@ -412,6 +412,7 @@
 <tr><td class="topAlign"><tt>QFileDialog::ReadOnly</tt></td><td class="topAlign"><tt>0x00000020</tt></td><td class="topAlign">Indicates that the model is readonly.</td></tr>
 <tr><td class="topAlign"><tt>QFileDialog::HideNameFilterDetails</tt></td><td class="topAlign"><tt>0x00000040</tt></td><td class="topAlign">Indicates if the file name filter details are hidden or not.</td></tr>
 <tr><td class="topAlign"><tt>QFileDialog::DontUseSheet</tt></td><td class="topAlign"><tt>0x00000008</tt></td><td class="topAlign">In previous versions of Qt, the static functions would create a sheet by default if the static function was given a parent. This is no longer supported and does nothing in Qt 4.5, The static functions will always be an application modal dialog. If you want to use sheets, use <a href="qfiledialog.html#open">QFileDialog::open</a>() instead.</td></tr>
+<tr><td class="topAlign"><tt>QFileDialog::DontUseCustomDirectoryIcons</tt></td><td class="topAlign"><tt>0x00000080</tt></td><td class="topAlign">Always use the default directory icon. Some platforms allow the user to set a different icon. Custom icon lookup cause a big performance impact over network or removable drives. Setting this will affect the behavior of the icon provider. This enum value was added in Qt 4.8&#x2e;6&#x2e;</td></tr>
 </table>
 <p>The Options type is a typedef for <a href="qflags.html">QFlags</a>&lt;Option&gt;. It stores an OR combination of Option values.</p>
 <!-- @@@Option -->
@@ -819,7 +820,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

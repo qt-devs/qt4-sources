@@ -179,6 +179,7 @@
 <li class="level1"><a href="#related-non-members">Related Non-Members</a></li>
 <li class="level1"><a href="#macros">Macros</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#thread-affinity">Thread Affinity</a></li>
 <li class="level2"><a href="#no-copy-constructor-or-assignment-operator">No copy constructor or assignment operator</a></li>
 <li class="level2"><a href="#auto-connection">Auto-Connection</a></li>
 <li class="level2"><a href="#dynamic-properties">Dynamic Properties</a></li>
@@ -274,7 +275,7 @@
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#QObjectList-typedef">QObjectList</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QList&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#qFindChildren">qFindChildren</a></b> ( const QObject * <i>obj</i>, const QRegExp &amp; <i>regExp</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#qobject_cast">qobject_cast</a></b> ( QObject * <i>object</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qobject.html#qobject_cast">qobject_cast</a></b> ( QObject * <i>object</i> )</td></tr>
 </table>
 <a name="macros"></a>
 <h2>Macros</h2>
@@ -303,11 +304,18 @@
 <p>Every object has an <a href="qobject.html#objectName-prop">objectName</a>() and its class name can be found via the corresponding <a href="qobject.html#metaObject">metaObject</a>() (see <a href="qmetaobject.html#className">QMetaObject::className</a>()). You can determine whether the object's class inherits another class in the QObject inheritance hierarchy by using the <a href="qobject.html#inherits">inherits</a>() function.</p>
 <p>When an object is deleted, it emits a <a href="qobject.html#destroyed">destroyed</a>() signal. You can catch this signal to avoid dangling references to <a href="qtwebkit-bridge.html#qobjects">QObjects</a>.</p>
 <p><a href="qtwebkit-bridge.html#qobjects">QObjects</a> can receive events through <a href="qobject.html#event">event</a>() and filter the events of other objects. See <a href="qobject.html#installEventFilter">installEventFilter</a>() and <a href="qobject.html#eventFilter">eventFilter</a>() for details. A convenience handler, <a href="qobject.html#childEvent">childEvent</a>(), can be reimplemented to catch child events.</p>
-<p>Events are delivered in the thread in which the object was created; see <a href="threads.html">Thread Support in Qt</a> and <a href="qobject.html#thread">thread</a>() for details. Note that event processing is not done at all for <a href="qtwebkit-bridge.html#qobjects">QObjects</a> with no thread affinity (<a href="qobject.html#thread">thread</a>() returns zero). Use the <a href="qobject.html#moveToThread">moveToThread</a>() function to change the thread affinity for an object and its children (the object cannot be moved if it has a parent).</p>
 <p>Last but not least, QObject provides the basic timer support in Qt; see <a href="qtimer.html">QTimer</a> for high-level support for timers.</p>
 <p>Notice that the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro is mandatory for any object that implements signals, slots or properties. You also need to run the <a href="moc.html#moc">Meta Object Compiler</a> on the source file. We strongly recommend the use of this macro in all subclasses of QObject regardless of whether or not they actually use signals, slots and properties, since failure to do so may lead certain functions to exhibit strange behavior.</p>
 <p>All Qt widgets inherit QObject. The convenience function <a href="qobject.html#isWidgetType">isWidgetType</a>() returns whether an object is actually a widget. It is much faster than <a href="qobject.html#qobject_cast">qobject_cast</a>&lt;<a href="qwidget.html">QWidget</a> *&gt;(<i>obj</i>) or <i>obj</i>-&gt;<a href="qobject.html#inherits">inherits</a>(&quot;<a href="qwidget.html">QWidget</a>&quot;).</p>
 <p>Some QObject functions, e.g&#x2e; <a href="qobject.html#children">children</a>(), return a <a href="qobject.html#QObjectList-typedef">QObjectList</a>. <a href="qobject.html#QObjectList-typedef">QObjectList</a> is a typedef for <a href="qlist.html">QList</a>&lt;QObject *&gt;.</p>
+<a name="thread-affinity"></a>
+<h3>Thread Affinity</h3>
+<p>A QObject instance is said to have a <i>thread affinity</i>, or that it <i>lives</i> in a certain thread. When a QObject receives a <a href="qt.html#ConnectionType-enum">queued signal</a> or a <a href="eventsandfilters.html#sending-events">posted event</a>, the slot or event handler will run in the thread that the object lives in.</p>
+<p><b>Note:</b> If a QObject has no thread affinity (that is, if <a href="qobject.html#thread">thread</a>() returns zero), or if it lives in a thread that has no running event loop, then it cannot receive queued signals or posted events.</p>
+<p>By default, a QObject lives in the thread in which it is created. An object's thread affinity can be queried using <a href="qobject.html#thread">thread</a>() and changed using <a href="qobject.html#moveToThread">moveToThread</a>().</p>
+<p>All <a href="qtwebkit-bridge.html#qobjects">QObjects</a> must live in the same thread as their parent. Consequently:</p>
+<p><b class="redFont"><code>\li</code></b><a href="qobject.html#setParent">setParent</a>() will fail if the two <a href="qtwebkit-bridge.html#qobjects">QObjects</a> involved live in different threads. <b class="redFont"><code>\li</code></b> When a QObject is moved to another thread, all its children will be automatically moved too. <b class="redFont"><code>\li</code></b> <a href="qobject.html#moveToThread">moveToThread</a>() will fail if the QObject has a parent. <b class="redFont"><code>\li</code></b> If QObjects are created within <a href="qthread.html#run">QThread::run</a>(), they cannot become children of the <a href="qthread.html">QThread</a> object because the <a href="qthread.html">QThread</a> does not live in the thread that calls <a href="qthread.html#run">QThread::run</a>().</p>
+<p><b>Note:</b> A QObject's member variables <i>do not</i> automatically become its children. The parent-child relationship must be set by either passing a pointer to the child's <a href="qobject.html#QObject">constructor</a>, or by calling <a href="qobject.html#setParent">setParent</a>(). Without this step, the object's member variables will remain in the old thread when <a href="qobject.html#moveToThread">moveToThread</a>() is called.</p>
 <a name="no-copy-constructor"></a><a name="no-copy-constructor-or-assignment-operator"></a>
 <h3>No copy constructor or assignment operator</h3>
 <p>QObject has neither a copy constructor nor an assignment operator. This is by design. Actually, they are declared, but in a <tt>private</tt> section with the macro <a href="qobject.html#Q_DISABLE_COPY">Q_DISABLE_COPY</a>(). In fact, all Qt classes derived from QObject (direct or indirect) use this macro to declare their copy constructor and assignment operator to be private. The reasoning is found in the discussion on <a href="object.html#identity-vs-value">Identity vs Value</a> on the Qt <a href="object.html">Object Model</a> page.</p>
@@ -893,7 +901,7 @@
 <p><b>See also </b><a href="qobject.html#findChildren">QObject::findChildren</a>().</p>
 <!-- @@@qFindChildren -->
 <!-- $$$qobject_cast[overload1]$$$qobject_castQObject* -->
-<h3 class="fn"><a name="qobject_cast"></a><span class="type">T</span> <span class="name">qobject_cast</span> ( <span class="type">QObject</span> * <i>object</i> )</h3>
+<h3 class="fn"><a name="qobject_cast"></a><span class="type"><a href="qwidget.html">QWidget</a></span> * <span class="name">qobject_cast</span> ( <span class="type">QObject</span> * <i>object</i> )</h3>
 <p>Returns the given <i>object</i> cast to type T if the object is of type T (or of a subclass); otherwise returns 0. If <i>object</i> is 0 then it will also return 0.</p>
 <p>The class T must inherit (directly or indirectly) <a href="qobject.html">QObject</a> and be declared with the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro.</p>
 <p>A class is considered to inherit itself.</p>
@@ -1110,7 +1118,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />

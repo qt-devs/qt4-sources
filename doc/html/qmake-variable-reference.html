@@ -713,10 +713,10 @@
 <p>For example:</p>
 <pre class="cpp"> unix:LIBS += -L/usr/local/lib -lmath
  win32:LIBS += c:/mylibs/math.lib</pre>
+<p><b>Note:</b> On Windows, specifying libraries with the <tt>-l</tt> option will cause the library with the highest version number to be used. For example, <tt>math2.lib</tt> could potentially be used instead of <tt>math.lib</tt>. To avoid this ambiguity, we recommend that you explicitly specify the library to be used by including the <tt>.lib</tt> file name suffix, as in the example above.</p>
 <p>To specify a path containing spaces, quote the path using the technique mentioned in the <a href="qmake-project-files.html#whitespace">qmake Project Files</a> document.</p>
 <pre class="cpp"> win32:LIBS += &quot;C:/mylibs/extra libs/extra.lib&quot;
  unix:LIBS += &quot;-L/home/user/extra libs&quot; -lextra</pre>
-<p><b>Note:</b> On Windows, specifying libraries with the <tt>-l</tt> option, as in the above example, will cause the library with the highest version number to be used; for example, <tt>libmath2.lib</tt> could potentially be used instead of <tt>libmathlib</tt>. To avoid this ambiguity, we recommend that you explicitly specify the library to be used by including the <tt>.lib</tt> file name suffix.</p>
 <p><b>Note:</b> On the Symbian platform, the build system makes a distinction between shared and static libraries. In most cases, qmake will figure out which library you are refering to, but in some cases you may have to specify it explicitly to get the expected behavior. This typically happens if you are building a library and using it in the same project. To specify that the library is either shared or static, add a &quot;.dll&quot; or &quot;.lib&quot; suffix, respectively, to the library name.</p>
 <p>By default, the list of libraries stored in <tt>LIBS</tt> is reduced to a list of unique names before it is used. To change this behavior, add the <tt>no_lflags_merge</tt> option to the <tt>CONFIG</tt> variable:</p>
 <pre class="cpp"> CONFIG += no_lflags_merge</pre>
@@ -1352,11 +1352,13 @@
 <p>This variable is set by <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> if files can be found that contain the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro. <tt>SRCMOC</tt> contains the name of all the generated moc files. The value of this variable is typically handled by <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> or <a href="#qmakespec">qmake.conf</a> and rarely needs to be modified.</p>
 <a name="subdirs"></a><a name="subdirs"></a>
 <h2>SUBDIRS</h2>
-<p>This variable, when used with the <a href="#template"><tt>subdirs</tt> template</a> contains the names of all subdirectories or project files that contain parts of the project that need be built. Each subdirectory specified using this variable must contain its own project file.</p>
+<p>This variable, when used with the <tt>subdirs</tt> <a href="#template">template</a> specifies the names of all subdirectories or project files that contain parts of the project that need to be built. Each subdirectory specified using this variable must contain its own project file.</p>
+<p>It is recommended that the project file in each subdirectory has the same base name as the subdirectory itself, because that makes it possible to omit the file name. For example, if the subdirectory is called <tt>myapp</tt>, the project file in that directory should be called <tt>myapp.pro</tt>.</p>
+<p>Alternatively, you can specify a relative path to a .pro file in any directory. It is strongly recommended that you specify only paths in the current project's parent directory or its subdirectories.</p>
 <p>For example:</p>
 <pre class="cpp"> SUBDIRS = kernel \
-           tools</pre>
-<p>It is essential that the project file in each subdirectory has the same name as the subdirectory itself, so that <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> can find it. For example, if the subdirectory is called <tt>myapp</tt> then the project file in that directory should be called <tt>myapp.pro</tt>.</p>
+           tools \
+           myapp</pre>
 <p>If you need to ensure that the subdirectories are built in the order in which they are specified, update the <a href="#config">CONFIG</a> variable to include the <tt>ordered</tt> option:</p>
 <pre class="cpp"> CONFIG += ordered</pre>
 <p>It is possible to modify this default behavior of <tt>SUBDIRS</tt> by giving additional modifiers to <tt>SUBDIRS</tt> elements. Supported modifiers are:</p>
@@ -1552,7 +1554,7 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
       subsidiaries. Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
